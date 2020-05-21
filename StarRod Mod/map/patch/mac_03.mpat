@@ -1,0 +1,44 @@
+@ $Script_Main
+Set *StoryProgress *Chapter4Progress
+Set  *WorldMapLocation  .Location:ToadTown
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     SetCamLeadPlayer 	( .Default .False )
+Set  *AreaFlag[020]  00000000 
+Set  *AreaFlag[021]  00000000 
+Set  *AreaFlag[022]  00000000 
+Set  *AreaFlag[023]  00000000 
+Set  *AreaFlag[024]  00000000 
+Set  *AreaFlag[025]  00000000 
+Call     MakeNpcs    	( 00000000 $NpcGroupList_8024DCBC )
+Exec     $Script_MakeEntities 
+Exec     $Script_8024EBB0 
+Call     GetDemoState 	( *Var[0] )
+If  *Var[0]  ==  00000000 
+	Exec     $Script_80250918 
+EndIf
+ExecWait $Script_80246388 
+Thread
+	Set  *Var[F]  00000000 
+	Label    0000000A 
+	Add  *Var[F]  00000001 
+	Call     $Function_802402E0 ( )
+	Call     RotateModel 	( {Model:o148} *Var[0] 00000000 00000000 FFFFFFFF )
+	Call     RotateModel 	( {Model:o147} *Var[1] 00000000 00000000 FFFFFFFF )
+	Wait     0000000A 
+	Goto     0000000A 
+EndThread
+Call     GetDemoState 	( *Var[0] )
+If  *Var[0]  !=  00000000 
+	ExecWait $Script_8025136C 
+	Return
+EndIf
+Exec     $Script_802428F0 
+Exec     $Script_80243880 
+Exec     $Script_802437CC 
+Set  *Flag_Rowf_Badges_Chosen  00000000 
+Wait     00000001 
+Return
+End

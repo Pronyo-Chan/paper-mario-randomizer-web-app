@@ -1,0 +1,247 @@
+% Note: Not modifying Twink's scripts that modify StoryProgress because they will be skipped and should not ever happen
+@ $Script_Main
+Set *StoryProgress *Chapter4Progress
+Set  *WorldMapLocation  .Location:ToadTown
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     SetCamLeadPlayer 	( .Default .False )
+Call     GetEntryID  	( *Var[0] )
+If  *Var[0]  ==  00000004 
+	Call     MakeNpcs    	( 00000000 $NpcGroupList_8024E824 )
+Else
+	Switch  *StoryProgress 
+		Case  <  FFFFFFF3 
+			Call     MakeNpcs    	( 00000000 $NpcGroupList_8024DC88 )
+		Case  <  00000006 
+			Call     MakeNpcs    	( 00000000 $NpcGroupList_8024DCAC )
+		Case  ==  00000006 
+			Call     MakeNpcs    	( 00000000 $NpcGroupList_8024DCD0 )
+		Case  <  00000029 
+			Call     MakeNpcs    	( 00000000 $NpcGroupList_8024DC88 )
+		Case  <  00000058 
+			Call     MakeNpcs    	( 00000000 $NpcGroupList_8024DCF4 )
+		Default
+			Call     MakeNpcs    	( 00000000 $NpcGroupList_8024DC88 )
+	EndSwitch
+EndIf
+Set  *AreaFlag[031]  00000000 
+ExecWait $Script_MakeEntities 
+Exec     $Script_80242E88 
+Exec     $Script_80243B24 
+Exec     $Script_80243D9C 
+ExecWait $Script_80246C58 
+If  *StoryProgress  ==  00000006 
+	Call     SetMusicTrack 	( 00000000 .Song:StarSpiritTheme 00000001 00000008 )
+Else
+	Exec     $Script_802420C0 
+EndIf
+Exec     $Script_80242280 
+Call     GetEntryID  	( *Var[0] )
+If  *Var[0]  ==  00000005 
+	Wait     00000041 
+Else
+	Wait     00000001 
+EndIf
+Set  *Flag_Rowf_Badges_Chosen  00000000 
+Return
+End
+
+@ $Script_802483B8
+Wait     00000014 
+Call     SetNpcFlagBits ( 0000000E 00000100 .True )
+Call     SayMessage0 	( 0000000E 003B0311 003B0301 00000005 000600B3 ) %  
+Call     SetNpcAnimation 	( 0000000E 003B0302 )
+Wait     00000004 
+Call     SetNpcAnimation 	( 0000000E 003B0303 )
+Wait     00000004 
+Call     SetNpcAnimation 	( 0000000E 003B0304 )
+Wait     00000004 
+Call     MoveNpcTo   	( 0000000E FFFFFE48 00000003 00000032 )
+Call     SetNpcAnimation 	( 0000000E 003B0301 )
+Wait     00000008 
+Call     SetNpcAnimation 	( 0000000E 003B0300 )
+Call     InterpNpcYaw 	( 0000000E 000000B4 0000000A )
+Call     InterpNpcYaw 	( 0000000E 00000000 0000000A )
+Call     InterpNpcYaw 	( 0000000E 000000B4 0000000A )
+Call     InterpNpcYaw 	( 0000000E 00000000 0000000A )
+Call     SayMessage0 	( 0000000E 003B0311 003B0301 00000005 000600B4 ) %    
+Wait     0000000A 
+Call     SetNpcAnimation 	( 0000000E 003B0308 )
+Wait     00000004 
+Call     SetNpcAnimation 	( 0000000E 003B0309 )
+Wait     00000004 
+Call     SetNpcAnimation 	( 0000000E 003B030A )
+Exec     $Script_80248298 
+Call     SetNpcJumpscale 	( 0000000E *Fixed[0.5] )
+Call     NpcJump0    	( 0000000E FFFFFE48 00000014 FFFFFFB5 00000014 )
+Call     SetNpcAnimation 	( 0000000E 003B0300 )
+If  *StoryProgress  <  FFFFFFF6 
+	Set  *StoryProgress  FFFFFFF6 
+	ExecWait $Script_80242E08 
+EndIf
+Return
+End
+
+@ $Script_80248E2C
+Set  *Var[9]  00000000 
+If  *StoryProgress  >=  FFFFFFF3 
+	If  *StoryProgress  <  FFFFFFF9 
+		Set  *Var[9]  00000001 
+	EndIf
+EndIf
+If  *Var[9]  ==  00000001 
+	Call     SayMessage0 	( 00000000 00880004 00880001 00000000 00060001 ) % Oh, Mario. It's you. A Shy Guy stole my Storeroom  ...
+	Set  *Var[0]  $???_80248E24 
+	Set  *Var[1]  00000000 
+	ExecWait $Script_8024675C 
+	Switch  *Var[0] 
+		Case  ==  FFFFFFFF 
+			Call     SayMessage0 	( 00000000 00880004 00880001 00000000 00060002 ) % Why, Mario! Is... Isn't that... my Storeroom Key?
+		Case  ==  00000000 
+		Default
+			Call     SayMessage0 	( 00000000 00880004 00880001 00000000 00060003 ) % All right, Mario! You did it! You got back my Stor ...
+			Call     SetNpcFlagBits ( .Npc:Self 00000300 .True )
+			Call     SetNpcAnimation 	( 00000000 00880003 )
+			Call     MoveNpcTo   	( 00000000 00000127 FFFFFE34 00000000 )
+			Call     MoveNpcTo   	( 00000000 000000E6 FFFFFE20 00000000 )
+			Call     NpcJump0    	( 00000000 000000C6 0000001E FFFFFE20 00000000 )
+			Call     NpcJump0    	( 00000000 000000A2 00000028 FFFFFE20 00000000 )
+			Call     SetNpcAnimation 	( 00000000 00880001 )
+			Wait     00000014 
+			Exec     $Script_8024F24C 
+			Call     SetNpcAnimation 	( 00000000 00880003 )
+			Call     MoveNpcTo   	( 00000000 000000C8 FFFFFDF4 00000000 )
+			Call     SetNpcPos   	( 00000000 000000C8 0000001E FFFFFDF4 )
+			Call     SetNpcAnimation 	( 00000000 00880001 )
+			Call     InterpNpcYaw 	( 00000000 000000B4 00000000 )
+			Call     PlayerFaceNpc 	( 00000000 00000000 )
+			Call     SayMessage0 	( 00000000 00880004 00880001 00000000 00060005 ) % Tell you what. Take anything you like from the sto ...
+			Call     SetNpcFlagBits ( .Npc:Self 00000300 .False )
+            Set  *StoryProgress  FFFFFFF9
+            Set  *Chapter4Progress  FFFFFFF9 
+	EndSwitch
+Else
+	ExecWait 80284054 
+EndIf
+Return
+End
+
+@ $Script_8024F018
+Call     802D6420 ( )
+If  *Var[0]  ==  00000000 
+	Call     ShowMessage 	( 001D00D8 000000A0 00000028 ) % It's locked! You can't open it.
+	Call     802D6954 ( )
+	Return
+EndIf
+If  *Var[0]  ==  FFFFFFFF 
+	Call     802D6954 ( )
+	Return
+EndIf
+Call     PlaySoundAt 	( 00000269 00000000 0000009B 00000030 FFFFFE20 )
+Set  *Var[0]  *MapVar[0] 
+Call     $Function_80241EB0 ( )
+Wait     00000005 
+Call     RemoveKeyItemAt 	( *Var[1] )
+Call     802D6954 ( )
+Unbind
+Call     DisablePlayerInput 	( .True )
+Call     SayMessage0 	( 00000000 00880004 00880001 00000000 00060004 ) % Ahem... Uh, Mario? Please don't open the storeroom ...
+Call     SetNpcFlagBits ( 00000000 00000100 .True )
+Call     SetNpcAnimation 	( 00000000 00880003 )
+Call     MoveNpcTo   	( 00000000 00000127 FFFFFE34 00000000 )
+Call     MoveNpcTo   	( 00000000 000000E6 FFFFFE20 00000000 )
+Call     NpcJump0    	( 00000000 000000C8 0000001E FFFFFDF4 00000000 )
+Call     SetNpcPos   	( 00000000 000000C8 0000001E FFFFFDF4 )
+Call     SetNpcAnimation 	( 00000000 00880001 )
+Call     SetNpcFlagBits ( 00000000 00000100 .False )
+Call     SayMessage0 	( 00000000 00880004 00880001 00000000 00060005 ) % Tell you what. Take anything you like from the sto ...
+Set  *StoryProgress  FFFFFFF9
+Set  *Chapter4Progress  FFFFFFF9  
+Call     DisablePlayerInput 	( .False )
+Return
+End
+
+@ $Script_MakeEntities
+If  *StoryProgress  <  FFFFFFF9 
+	Call     MakeEntity  	( .Entity:Padlock {Vec4d:Entity8024F2D0} 80000000 )
+	Call     AssignScript 	( $Script_8024EFF4 )
+	Set  *MapVar[0]  *Var[0] 
+	Call     80111E9C ( 00000003 )
+	BindLock $Script_8024F018 .Trigger:WallPressA 00004000 $ItemList_8024F010 00000000 00000001 
+EndIf
+Call     MakeItemEntity ( 00020021 {Vec3d:Item8024F34C} 00000000 *Flag_MAC_9F )
+Thread
+	If  *StoryProgress  <  FFFFFFFA 
+		Loop     
+			If  *Flag_MAC_9F  !=  00000000 
+                Set  *StoryProgress  FFFFFFFA
+                Set  *Chapter4Progress  FFFFFFFA  
+				BreakLoop
+			EndIf
+			Wait     00000001 
+		EndLoop
+	EndIf
+EndThread
+Call     MakeItemEntity ( 00020081 {Vec3d:Item8024F3E8} 00000011 *Flag_MAC_AD )
+Call     MakeItemEntity ( 0002008B {Vec3d:Item8024F40C} 00000011 *Flag_MAC_AE )
+Call     MakeItemEntity ( 0002009A {Vec3d:Item8024F430} 00000011 *Flag_MAC_AF )
+Call     MakeEntity  	( .Entity:ScriptSpring {Vec4d:Entity8024F454} 80000000 )
+Call     AssignScript 	( $Script_8024EFAC )
+Call     80111E9C ( 00000002 )
+Bind     $Script_8024F278 .Trigger:WallPressA {Collider:sign} 00000001 00000000 
+Return
+End
+
+@ $Script_8024697C
+SetGroup 00000000 
+Call     802D5830 ( 00000001 )
+Call     802D6420 ( )
+Set  *Var[2]  *Var[0] 
+If  *Var[2]  <=  00000000 
+	If  *Var[2]  ==  00000000 
+		Call     ShowMessage 	( 001D0158 000000A0 00000028 ) % It's a Toy Box. It looks like something's inside!
+	EndIf
+	Call     802D6954 ( )
+	Call     802D5830 ( 00000000 )
+	Return
+EndIf
+Call     DisablePlayerInput 	( .True )
+Call     RemoveKeyItemAt 	( *Var[1] )
+Call     PlaySoundAtCollider 	( {Collider:omo_ent} 000001AA 00000000 )
+Call     MakeLerp    	( 00000000 FFFFFFA6 0000000A 00000000 )
+Loop     
+	Call     UpdateLerp  	( )
+	Set  *Var[2]  00000000 
+	Sub  *Var[2]  *Var[0] 
+	Div  *Var[2]  00000003 
+	Call     RotateGroup 	( {Model:box_top} *Var[0] 00000001 00000000 00000000 )
+	Wait     00000001 
+	If  *Var[1]  ==  00000000 
+		BreakLoop
+	EndIf
+EndLoop
+ExecWait $Script_802467AC 
+Call     MakeLerp    	( FFFFFFA6 00000000 0000000A 00000000 )
+Loop     
+	Call     UpdateLerp  	( )
+	Set  *Var[2]  00000000 
+	Sub  *Var[2]  *Var[0] 
+	Div  *Var[2]  00000003 
+	Call     RotateGroup 	( {Model:box_top} *Var[0] 00000001 00000000 00000000 )
+	Wait     00000001 
+	If  *Var[1]  ==  00000000 
+		BreakLoop
+	EndIf
+EndLoop
+Call     PlaySoundAtCollider 	( {Collider:omo_ent} 000001AA 00000000 )
+Call     802D6954 ( )
+Set  *StoryProgress  FFFFFFFB 
+Set  *Chapter4Progress  FFFFFFFB 
+Call     802D5830 ( 00000000 )
+Unbind
+Call     GotoMap     	( $ASCII_8024F568 00000006 )
+Wait     00000064 
+Return
+End

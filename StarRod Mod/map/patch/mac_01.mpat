@@ -1,0 +1,281 @@
+@ $Script_Main
+Set *StoryProgress *Chapter4Progress
+Set  *WorldMapLocation  .Location:ToadTown
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 0000005A 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     SetCamLeadPlayer 	( .Default .False )
+Set  *AreaFlag[00E]  00000000 
+Set  *AreaFlag[00F]  00000000 
+Set  *AreaFlag[010]  00000000 
+Set  *AreaFlag[011]  00000000 
+Set  *AreaFlag[012]  00000000 
+Set  *AreaFlag[013]  00000000 
+Set  *AreaFlag[014]  00000000 
+Set  *AreaFlag[015]  00000000 
+If  *StoryProgress  <  00000060 
+	Exec     $Script_80248070 
+Else
+	Call     EnableGroup 	( {Model:jutan1} .False )
+EndIf
+Switch  *StoryProgress 
+	Case  ==  FFFFFF80 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8025FA2C )
+	Case  >=  00000060 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_80261830 )
+	Case  <  FFFFFF9C 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8025EFF0 )
+	Case  <  FFFFFFB5 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8025F044 )
+	Case  ==  FFFFFFB6 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8025F080 )
+	Case  FFFFFFF3  to  00000005 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8025F0BC )
+	Case  ==  0000003C 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8025F0F8 )
+	Default
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8025EFA8 )
+EndSwitch
+If  *StoryProgress  >=  FFFFFF9C 
+	Call     ModifyColliderFlags 	( 00000000 {Collider:tt} 7FFFFE00 )
+EndIf
+Exec     $Script_8025A2F0 
+Exec     $Script_MakeEntities 
+Exec     $Script_80247D18 
+Exec     $Script_80248818 
+Exec     $Script_80248428 
+Exec     $Script_80246770 
+Call     UseDoorSounds 	( .DoorSounds:Large )
+Call     802D6340 ( 00000000 )
+Exec     $Script_80246C94 
+Wait     00000001 
+Call     EnableTexPanning 	( {Model:hikari} .True )
+Thread
+	SetGroup 00000000 
+	Set  *Var[0]  00000000 
+	Set  *Var[1]  00000000 
+	Label    00000000 
+	Add  *Var[0]  FFFFFF9C 
+	Add  *Var[1]  FFFFFF38 
+	If  *Var[0]  <  00000000 
+		Add  *Var[0]  00010000 
+	EndIf
+	If  *Var[1]  <  00000000 
+		Add  *Var[0]  00010000 
+	EndIf
+	Call     SetTexPanOffset 	( 00000003 00000000 *Var[0] 00000000 )
+	Call     SetTexPanOffset 	( 00000003 00000001 *Var[1] *Var[1] )
+	Wait     00000001 
+	Goto     00000000 
+EndThread
+Bind     $Script_8024F27C .Trigger:WallPressA {Collider:o335} 00000001 00000000 
+Exec     $Script_8025023C 
+Exec     $Script_80262604 
+Call     SetCamSpeed 	( .Default *Fixed[2.0] )
+Return
+End
+
+@ $Script_80258A68
+Call     SetNpcFlagBits ( .Npc:Self 00000100 .True )
+Call     SayMessage0 	( 00000012 00A80004 00A80001 00000000 *Var[4] ) % variable string ID
+Wait     0000000A 
+Call     UseSettingsFrom 	( .Default 0000010A 0000001B 00000175 )
+Call     SetPanTarget 	( .Default 0000010A 0000001B 00000175 )
+Call     SetCamSpeed 	( .Default 00000001 )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     InterpNpcYaw 	( .Npc:Self 0000005A 00000001 )
+Call     SetNpcAnimation 	( .Npc:Self 00A80003 )
+Call     MoveNpcTo   	( .Npc:Self 000000AF 000001BC 00000000 )
+Call     NpcJump0    	( .Npc:Self 000000C8 0000001B 000001B3 00000000 )
+Switch  *Var[5] 
+	Case  ==  00000000 
+		Call     MoveNpcTo   	( .Npc:Self 000000C8 00000197 00000000 )
+	Case  ==  00000001 
+		Call     MoveNpcTo   	( .Npc:Self 000000DC 000001A4 00000000 )
+		Call     MoveNpcTo   	( .Npc:Self 000000C8 0000010E 00000000 )
+	Case  ==  00000002 
+		Call     MoveNpcTo   	( .Npc:Self 00000136 000001A4 00000000 )
+		Call     MoveNpcTo   	( .Npc:Self 0000014A 0000010E 00000000 )
+	Case  ==  00000003 
+		Call     MoveNpcTo   	( .Npc:Self 00000136 000001A4 00000000 )
+		Call     MoveNpcTo   	( .Npc:Self 0000014A 00000197 00000000 )
+EndSwitch
+Call     SetNpcAnimation 	( .Npc:Self 00A80005 )
+Wait     00000014 
+Call     PlaySoundAtNpc ( .Npc:Self 000002A1 00000000 )
+Switch  *Var[5] 
+	Case  ==  00000000 
+		Call     EnableModel 	( {Model:o375} .True )
+		Call     EnableModel 	( {Model:o370} .True )
+	Case  ==  00000001 
+		Call     EnableModel 	( {Model:o377} .True )
+		Call     EnableModel 	( {Model:o372} .True )
+	Case  ==  00000002 
+		Call     EnableModel 	( {Model:o376} .True )
+		Call     EnableModel 	( {Model:o371} .True )
+	Case  ==  00000003 
+		Call     EnableModel 	( {Model:o378} .True )
+		Call     EnableModel 	( {Model:o373} .True )
+EndSwitch
+If  *Var[3]  !=  00000003 
+	Thread
+		Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+		Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+		Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     WaitForCam  	( .Default *Fixed[1.0] )
+		Call     PanToTarget 	( .Default 00000000 00000000 )
+	EndThread
+EndIf
+Call     InterpNpcYaw 	( .Npc:Self 0000010E 00000001 )
+Call     SetNpcAnimation 	( .Npc:Self 00A80003 )
+Switch  *Var[5] 
+	Case  ==  00000001 
+		Call     MoveNpcTo   	( .Npc:Self 000000DC 000001A4 00000000 )
+	CaseOR  ==  00000002 
+	CaseOR  ==  00000003 
+		Call     MoveNpcTo   	( .Npc:Self 00000136 000001A4 00000000 )
+	EndCaseGroup
+EndSwitch
+Call     MoveNpcTo   	( .Npc:Self 000000BA 000001A9 00000000 )
+Call     NpcJump0    	( .Npc:Self 000000AF 00000014 000001BC 00000000 )
+Call     MoveNpcTo   	( .Npc:Self 00000096 000001E0 00000000 )
+Call     SetNpcAnimation 	( .Npc:Self 00A80001 )
+Call     SetNpcFlagBits ( .Npc:Self 00000100 .False )
+If  *Var[3]  ==  00000003 
+	Call     InterpNpcYaw 	( 00000012 0000005A 00000000 )
+	ExecWait $Script_80258684 
+	Call     SayMessage0 	( 00000012 00A80004 00A80001 00000000 00030070 ) % Kyaaaaaaaah!! At first it just looked like the flo ...
+	Set  *Chapter6Progress  0000002A 
+EndIf
+Return
+End
+
+@ $Script_Init_8025833C
+Switch  *Chapter6Progress 
+	Case  00000027  to  0000002A 
+		Call     SetNpcPos   	( .Npc:Self 000000C8 00000014 000001F4 )
+		Call     SetNpcYaw   	( .Npc:Self 0000010E )
+		Call     BindNpcInteract 	( .Npc:Self $Script_802582CC )
+	Case  ==  00000060 
+		Call     SetNpcPos   	( .Npc:Self 000000E6 0000001E 00000190 )
+		Call     SetNpcYaw   	( .Npc:Self 0000010E )
+		Call     BindNpcInteract 	( .Npc:Self $Script_802582CC )
+EndSwitch
+Return
+End
+
+@ $Script_802591CC
+ExecWait $Script_8024E2C8 
+ExecWait $Script_8024E318 
+If  *Var[C]  !=  00000000 
+	Return
+EndIf
+Set  *Var[2]  00000000 
+Switch  *Chapter6Progress 
+	Case  <  FFFFFF96 
+		Set  *Var[0]  00030065 
+		Set  *Var[1]  00030065 
+	Case  <  FFFFFFF1 
+		Set  *Var[2]  00000001 
+	Case  <  00000007 
+		Set  *Var[0]  *Flag_MAC_8E 
+		Add  *Var[0]  *Flag_MAC_8F 
+		If  *Var[0]  ==  00000002 
+			Set  *Var[2]  00000001 
+		Else
+			Set  *Var[0]  0003006D 
+			Set  *Var[1]  0003006E 
+		EndIf
+	Case  <  0000002A 
+		Set  *Var[2]  00000001 
+	Case  <  00000035 
+		Set  *Var[0]  00030071 
+		Set  *Var[1]  00030071 
+	Case  <  00000059 
+		Set  *Var[0]  00030072 
+		Set  *Var[1]  00030072 
+	Case  <  00000060 
+		Set  *Var[0]  00030073 
+		Set  *Var[1]  00030073 
+	Case  >=  00000060 
+		Set  *Var[0]  00010042 
+		Set  *Var[1]  00010042 
+EndSwitch
+If  *Var[2]  ==  00000001 
+	Set  *Var[3]  *Flag_MAC_92 
+	Add  *Var[3]  *Flag_MAC_93 
+	Add  *Var[3]  *Flag_MAC_94 
+	Add  *Var[3]  *Flag_MAC_95 
+	Switch  *Chapter6Progress 
+		Case  00000027  to  00000029 
+			Set  *Var[4]  *Flag_MAC_99 
+			Add  *Var[4]  *Flag_IWA_1E 
+			Add  *Var[4]  *Flag_MIM_06 
+			Add  *Var[4]  *Flag_JAN_3C 
+			Set  *Var[5]  *Flag_MAC_91 
+			If  *Var[5]  ==  00000000 
+				Call     SayMessage0 	( 00000012 00A80004 00A80001 00000000 00030074 ) % Bub-ulbs come from a flower-filled land called Flo ...
+				Set  *Flag_MAC_91  00000001 
+			EndIf
+			If  *Var[4]  !=  00000000 
+				ExecWait $Script_80258FFC 
+				Return
+			EndIf
+			Call     SayMessage0 	( 00000012 00A80004 00A80001 00000000 00030075 ) % Please, Mario, we need seeds from the Bub-ulbs.
+			Return
+	EndSwitch
+	Switch  *Var[3] 
+		Case  ==  00000000 
+			Set  *Var[0]  00030066 
+			Set  *Var[1]  00030066 
+		Case  ==  00000001 
+			Set  *Var[0]  00030068 
+			Set  *Var[1]  00030068 
+		Case  ==  00000002 
+			Set  *Var[0]  0003006A 
+			Set  *Var[1]  0003006A 
+		Case  ==  00000003 
+			Set  *Var[0]  0003006C 
+			Set  *Var[1]  0003006C 
+	EndSwitch
+EndIf
+If  *AreaFlag[014]  ==  00000000 
+	Set  *AreaFlag[014]  00000001 
+Else
+	Set  *Var[0]  *Var[1] 
+	Set  *AreaFlag[014]  00000000 
+EndIf
+Call     SayMessage0 	( 00000012 00A80004 00A80001 00000000 *Var[0] ) % variable string ID
+If  *Var[2]  ==  00000001 
+	Set  *Var[0]  $???_80258A54 
+	Set  *Var[1]  00000012 
+	ExecWait $Script_8024DA90 
+	Switch  *Var[0] 
+		Case  ==  00000000 
+			Return
+		Case  ==  FFFFFFFF 
+			Return
+		Case  ==  0000002B 
+			Set  *Flag_MAC_92  00000001 
+			Set  *Var[4]  00030067 
+			Set  *Var[5]  00000000 
+			ExecWait $Script_80258A68 
+		Case  ==  0000002C 
+			Set  *Flag_MAC_93  00000001 
+			Set  *Var[4]  00030069 
+			Set  *Var[5]  00000001 
+			ExecWait $Script_80258A68 
+		Case  ==  0000002D 
+			Set  *Flag_MAC_94  00000001 
+			Set  *Var[4]  0003006B 
+			Set  *Var[5]  00000002 
+			ExecWait $Script_80258A68 
+		Case  ==  0000002E 
+			Set  *Var[5]  00000003 
+			ExecWait $Script_80258A68 
+	EndSwitch
+EndIf
+Return
+End

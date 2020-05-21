@@ -1,0 +1,120 @@
+@ $Script_Main
+Set  *StoryProgress  *Chapter4Progress
+Set  *WorldMapLocation  .Location:ToadTown
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     SetCamLeadPlayer 	( .Default .False )
+Set  *AreaFlag[016]  00000000 
+Set  *AreaFlag[017]  00000000 
+Set  *AreaFlag[018]  00000000 
+Set  *AreaFlag[019]  00000000 
+Set  *AreaFlag[01A]  00000000 
+Set  *AreaFlag[01B]  00000000 
+Set  *AreaFlag[01C]  00000000 
+Set  *AreaFlag[01D]  00000000 
+Set  *AreaFlag[01E]  00000000 
+Switch  *StoryProgress 
+	Case  <  FFFFFFCB 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8024E0B8 )
+	Case  <  FFFFFFCD 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8024E0D0 )
+	Case  <  FFFFFFF3 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8024E0B8 )
+	Case  <  FFFFFFFB 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8024E0F4 )
+	Default
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8024E0B8 )
+EndSwitch
+ExecWait $Script_MakeEntities 
+Switch  *StoryProgress 
+	Case  <  FFFFFF98 
+		Call     EnableGroup 	( {Model:st2} .False )
+		Call     EnableGroup 	( {Model:st3} .False )
+	Case  <  FFFFFFB4 
+		Call     EnableGroup 	( {Model:st1} .False )
+		Call     EnableGroup 	( {Model:st3} .False )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:st1} 7FFFFE00 )
+	Default
+		Call     EnableGroup 	( {Model:st1} .False )
+		Call     EnableGroup 	( {Model:st2} .False )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:g47} 7FFFFE00 )
+EndSwitch
+Call     EnableTexPanning 	( {Model:hori} .True )
+Thread
+	Set  *Var[0]  00000001 
+	Set  *Var[1]  00000064 
+	Set  *Var[2]  00000028 
+	Set  *Var[3]  000000C8 
+	Set  *Var[4]  FFFFFFD8 
+	Set  *Var[5]  00000001 
+	Set  *Var[6]  00000001 
+	Set  *Var[7]  00000001 
+	Set  *Var[8]  00000001 
+	Set  *Var[9]  00000000 
+	Set  *Var[A]  00000000 
+	Set  *Var[B]  00000000 
+	Set  *Var[C]  00000000 
+	Exec     $Script_80244360 
+EndThread
+Exec     $Script_80244EC8 
+Exec     $Script_80245B14 
+Exec     $Script_802435C0 
+Call     GetEntryID  	( *Var[0] )
+If  *Var[0]  <=  00000003 
+	Set  *Var[0]  $Script_80244624 
+	Exec     EnterWalk 
+Else
+	Set  *Var[A]  $Script_80244624 
+	Exec     $Script_80243630 
+EndIf
+Return
+End
+
+@ $Script_8024926C
+If  *Flag_MAC_97  ==  00000001 
+	Call     $Function_80243088 ( *Var[0] )
+	If  *Var[0]  !=  00000000 
+		Call     SayMessage0 	( 00000000 00AA0004 00AA0001 00000000 0004001A ) % Here's the Cake!
+		Set  *Var[0]  000000C1 
+		Set  *Var[1]  00000000 
+		ExecWait $Script_80246154 
+		Call     AddItem     	( .Item:Cake *Var[0] )
+		Call     SayMessage0 	( 00000000 00AA0004 00AA0001 00000000 0004001B ) % This is my most delicious Cake. One taste of it wo ...
+        Set  *StoryProgress  FFFFFFFD
+        Set  *Chapter4Progress  FFFFFFFD  
+	Else
+		Call     SayMessage0 	( 00000000 00AA0004 00AA0001 00000000 0004001C ) % Oh, my... You're carrying too much. You can't poss ...
+		Set  *Flag_MAC_97  00000001 
+	EndIf
+	Return
+EndIf
+Call     SayMessage0 	( 00000000 00AA0004 00AA0006 00000000 00040017 ) % Oh...hello there, hon. Thank you for coming to vis ...
+Set  *Var[0]  $???_80249264 
+Set  *Var[1]  00000000 
+ExecWait $Script_802488C4 
+Switch  *Var[0] 
+	Case  ==  00000000 
+	Case  ==  FFFFFFFF 
+		Call     SayMessage0 	( 00000000 00AA0004 00AA0006 00000000 00040018 ) % But...you aren't going to give me back my Frying P ...
+	Default
+		Call     SayMessage0 	( 00000000 00AA0005 00AA0001 00000000 00040019 ) % Oh, Mario! My dear, dear Frying Pan! You saved it  ...
+		ExecWait $Script_802490F8 
+		Call     $Function_80243088 ( *Var[0] )
+		If  *Var[0]  !=  00000000 
+			Call     SayMessage0 	( 00000000 00AA0004 00AA0001 00000000 0004001A ) % Here's the Cake!
+			Set  *Var[0]  000000C1 
+			Set  *Var[1]  00000000 
+			ExecWait $Script_80246154 
+			Call     AddItem     	( .Item:Cake *Var[0] )
+			Call     SayMessage0 	( 00000000 00AA0004 00AA0001 00000000 0004001B ) % This is my most delicious Cake. One taste of it wo ...
+            Set  *StoryProgress  FFFFFFFD
+            Set  *Chapter4Progress  FFFFFFFD 
+		Else
+			Call     SayMessage0 	( 00000000 00AA0004 00AA0001 00000000 0004001C ) % Oh, my... You're carrying too much. You can't poss ...
+			Set  *Flag_MAC_97  00000001 
+		EndIf
+EndSwitch
+Return
+End

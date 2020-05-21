@@ -1,0 +1,429 @@
+% This Toad Town area follows Chapter 5 prog to allow going to LavaLava early
+@ $Script_Main
+Set  *StoryProgress *Chapter5Progress
+Set  *WorldMapLocation  .Location:ToadTown
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     SetCamLeadPlayer 	( .Default .False )
+Switch  *StoryProgress 
+	Case  <  00000007 
+		Set  *Var[0]  $NpcGroupList_80250948 
+	Case  <  0000000B 
+		Set  *Var[0]  $NpcGroupList_8025099C 
+	Case  <  00000029 
+		Call     GetEntryID  	( *Var[1] )
+		If  *Var[1]  ==  00000001 
+			If  *Flag_JAN_03  ==  00000000 
+				Set  *Var[0]  $NpcGroupList_802509F0 
+			Else
+				Set  *Var[0]  $NpcGroupList_8025099C 
+			EndIf
+		Else
+			Set  *Var[0]  $NpcGroupList_80250948 
+		EndIf
+	Case  <  0000003A 
+		Set  *Var[0]  $NpcGroupList_80250948 
+	Default
+		Set  *Var[0]  $NpcGroupList_80250948 
+EndSwitch
+Call     MakeNpcs    	( 00000000 *Var[0] )
+ExecWait $Script_MakeEntities 
+Exec     $Script_8025194C 
+Call     GetEntryID  	( *Var[0] )
+Exec     $Script_802526E0 
+Exec     $Script_802441E0 
+Call     ModifyColliderFlags 	( 00000000 {Collider:deilitne} 7FFFFE00 )
+Exec     $Script_802448C4 
+Wait     00000001 
+Exec     $Script_8024457C 
+Call     SetTexPanner 	( {Model:kaimen} 00000001 )
+Thread
+	Set  *Var[0]  00000001 
+	Set  *Var[1]  00000064 
+	Set  *Var[2]  00000064 
+	Set  *Var[3]  FFFFFFBA 
+	Set  *Var[4]  FFFFFFCE 
+	Set  *Var[5]  00000001 
+	Set  *Var[6]  00000001 
+	Set  *Var[7]  00000001 
+	Set  *Var[8]  00000001 
+	Set  *Var[9]  00000000 
+	Set  *Var[A]  00000000 
+	Set  *Var[B]  00000000 
+	Set  *Var[C]  00000000 
+	Exec     $Script_802444E0 
+EndThread
+Exec     $Script_80244648 
+Exec     $Script_80252748 
+Return
+End
+
+@ $Script_8024A1F8
+ExecWait $Script_80249E84 
+Call     DisablePlayerInput 	( .True )
+Wait     0000000A 
+Call     PlaySoundAt 	( 00000041 00000000 00000000 00000000 000001E0 )
+Call     SetNpcAnimation 	( 00000000 00B60007 )
+Wait     0000000A 
+Call     DisablePlayerPhysics 	( .True )
+Exec     $Script_802486EC *Var[A] 
+If  *Flag[00]  ==  00000001 
+	Exec     $Script_80249C34 
+EndIf
+Wait     0000000A 
+Call     SetNpcAnimation 	( 00000000 00B60006 )
+Wait     00000014 
+Call     SayMessage0 	( 00000000 00B60006 00B60006 00000005 00070090 ) % Ouch! Yeeowch! What are you doing!
+If  *Flag[00]  ==  00000000 
+	Exec     $Script_80249D80 
+EndIf
+Call     ModifyColliderFlags 	( 00000001 {Collider:kujira} 7FFFFE00 )
+Call     SetNpcAnimation 	( 00000000 00B60005 )
+Call     MakeLerp    	( 000001E0 00000174 00000032 0000000A )
+Label    00000000 
+Call     UpdateLerp  	( )
+Call     SetNpcPos   	( 00000000 FFFFFFB7 FFFFFFCB *Var[0] )
+If  *Var[1]  ==  00000001 
+	Wait     00000001 
+	Goto     00000000 
+EndIf
+Call     MakeLerp    	( FFFFFFB7 FFFFFF24 00000032 0000000A )
+Label    00000001 
+Call     UpdateLerp  	( )
+Call     SetNpcPos   	( 00000000 *Var[0] FFFFFFCB 00000174 )
+If  *Var[1]  ==  00000001 
+	Wait     00000001 
+	Goto     00000001 
+EndIf
+Wait     00000014 
+Call     MakeLerp    	( FFFFFFCB 0000000A 00000032 0000000A )
+Label    00000002 
+Call     UpdateLerp  	( )
+Call     SetNpcPos   	( 00000000 FFFFFF24 *Var[0] 00000174 )
+If  *Var[1]  ==  00000001 
+	Wait     00000001 
+	Goto     00000002 
+EndIf
+Call     SetNpcAnimation 	( 00000000 00B6000C )
+Wait     00000032 
+Call     SetNpcAnimation 	( 00000000 00B60008 )
+Kill     *Var[A] 
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     GetNpcPos   	( 00000001 *Var[3] *Var[4] *Var[5] )
+Add  *Var[0]  *Var[3] 
+Add  *Var[1]  *Var[4] 
+Add  *Var[2]  *Var[5] 
+Div  *Var[0]  00000002 
+Div  *Var[1]  00000002 
+Div  *Var[2]  00000002 
+Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default 0000012C )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+Thread
+	Wait     00000005 
+	Call     NpcFaceNpc  	( 00000001 00000000 00000000 )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000001 00000000 )
+	Call     PlayerFaceNpc 	( 00000001 00000000 )
+EndThread
+Call     SayMessage0 	( 00000001 00B60008 00B60001 00000000 00070091 ) % Oh, good heavens! I was wondering what this was. I ...
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     GetNpcPos   	( 00000000 *Var[3] *Var[4] *Var[5] )
+Add  *Var[0]  *Var[3] 
+Add  *Var[1]  *Var[4] 
+Add  *Var[2]  *Var[5] 
+Div  *Var[0]  00000002 
+Div  *Var[1]  00000002 
+Div  *Var[2]  00000002 
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default 000001DB )
+Call     SetCamPosA  	( .Default *Fixed[-63.5] 00000000 )
+Call     SetCamAngles 	( .Default *Fixed[18.5] *Fixed[-5.0] )
+Thread
+	Wait     00000005 
+	Call     NpcFaceNpc  	( 00000001 00000000 00000000 )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000000 00000000 )
+	Call     PlayerFaceNpc 	( 00000000 00000000 )
+EndThread
+Exec     $Script_80244314 
+Call     SayMessage0 	( 00000000 00B60004 00B60008 00000005 00070092 ) % Ooooog... I'm not a tuna. I'm a whale. ...And I ha ...
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     GetNpcPos   	( 00000001 *Var[3] *Var[4] *Var[5] )
+Add  *Var[0]  *Var[3] 
+Add  *Var[1]  *Var[4] 
+Add  *Var[2]  *Var[5] 
+Div  *Var[0]  00000002 
+Div  *Var[1]  00000002 
+Div  *Var[2]  00000002 
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default 0000012C )
+Call     SetCamPosA  	( .Default 00000000 00000000 )
+Call     SetCamAngles 	( .Default *Fixed[18.0] *Fixed[-7.0] )
+Thread
+	Wait     00000005 
+	Call     NpcFaceNpc  	( 00000001 00000000 00000000 )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000001 00000000 )
+	Call     PlayerFaceNpc 	( 00000001 00000000 )
+EndThread
+Call     SayMessage0 	( 00000001 00B60008 00B60001 00000000 00070093 ) % Hmm... I say... Old boy, this great tuna seems to  ...
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     GetNpcPos   	( 00000000 *Var[3] *Var[4] *Var[5] )
+Add  *Var[0]  *Var[3] 
+Add  *Var[1]  *Var[4] 
+Add  *Var[2]  *Var[5] 
+Div  *Var[0]  00000002 
+Div  *Var[1]  00000002 
+Div  *Var[2]  00000002 
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default 000001DB )
+Call     SetCamPosA  	( .Default *Fixed[-63.5] 00000000 )
+Call     SetCamAngles 	( .Default *Fixed[18.5] *Fixed[-5.0] )
+Thread
+	Wait     00000005 
+	Call     NpcFaceNpc  	( 00000001 00000000 00000000 )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000000 00000000 )
+	Call     PlayerFaceNpc 	( 00000000 00000000 )
+EndThread
+Call     SayMessage0 	( 00000000 00B60004 00B60000 00000005 00070094 ) % Ugh... I told you I'm not a tuna... I'm not even a ...
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     GetNpcPos   	( 00000001 *Var[3] *Var[4] *Var[5] )
+Add  *Var[0]  *Var[3] 
+Add  *Var[1]  *Var[4] 
+Add  *Var[2]  *Var[5] 
+Div  *Var[0]  00000002 
+Div  *Var[1]  00000002 
+Div  *Var[2]  00000002 
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default 0000012C )
+Call     SetCamPosA  	( .Default 00000000 00000000 )
+Call     SetCamAngles 	( .Default *Fixed[18.0] *Fixed[-7.0] )
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default 000001C2 )
+Thread
+	Wait     00000005 
+	Call     NpcFaceNpc  	( 00000001 00000000 00000000 )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000000 00000000 )
+	Call     PlayerFaceNpc 	( 00000000 00000000 )
+EndThread
+Set  *StoryProgress  00000008 
+Set  *Chapter5Progress  00000008 
+Call     SetNpcAnimation 	( 00000000 00B60002 )
+Wait     00000032 
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamSpeed 	( .Default *Fixed[3.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     PanToTarget 	( .Default 00000000 00000000 )
+Call     DisablePlayerPhysics 	( .False )
+Call     DisablePlayerInput 	( .False )
+Return
+End
+
+@ $Script_80244810
+SetGroup 0000001B 
+Call     UseExitHeading ( 0000003C 00000003 )
+Exec     ExitWalk 
+Set  *StoryProgress  00000009
+Set  *Chapter5Progress  00000009  
+Call     GotoMap     	( $ASCII_802527A8 00000000 )
+Wait     00000064 
+Return
+End
+
+@ $Script_80248878
+Set  *StoryProgress  0000000A
+Set  *Chapter5Progress  0000000A  
+Call     DisablePlayerInput 	( .True )
+Call     DisablePlayerPhysics 	( .True )
+Call     802D10D8 ( 0000000A )
+Call     DisablePartnerAI 	( 00000000 )
+Call     SetNpcPos   	( .Npc:Partner FFFFFF88 00000018 00000177 )
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default 00000190 )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+Wait     00000014 
+Call     SayMessage0 	( 00000000 00B60004 00B60000 00000005 0007009F ) % Whooooosh! 
+Wait     00000014 
+Call     SetNpcAnimation 	( 00000000 00B60009 )
+Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+Add  *Var[0]  00000028 
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default 000001DB )
+Call     SetCamSpeed 	( .Default 00000003 )
+Wait     0000000A 
+Thread
+	Call     SetPlayerJumpscale 	( *Fixed[0.5] )
+	Call     SetPlayerAnimation 	( 0001002B )
+	Call     SetPlayerPos 	( FFFFFF88 00000018 00000177 )
+	Call     PlaySoundAtPlayer 	( 00000044 00000000 )
+	Call     PlayerJump1 	( FFFFFECA FFFFFFF6 00000174 00000050 )
+	Call     802D10D8 ( 0000000A )
+	Call     PlayerFaceNpc 	( 00000000 00000000 )
+EndThread
+Thread
+	Wait     00000005 
+	Call     SetNpcPos   	( .Npc:Partner FFFFFF88 00000018 00000177 )
+	Call     SetNpcJumpscale 	( .Npc:Partner *Fixed[0.5] )
+	Call     PlaySoundAtNpc ( .Npc:Partner 00000044 00000000 )
+	Call     NpcJump0    	( .Npc:Partner FFFFFEA7 00000000 00000174 00000050 )
+	Call     802CF370 ( FFFFFFFC )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000000 00000000 )
+	Call     SetNpcAnimation 	( .Npc:Partner 00000106 )
+EndThread
+Thread
+	Wait     0000000A 
+	Call     SetNpcPos   	( 00000003 FFFFFF88 00000018 00000177 )
+	Call     SetNpcJumpscale 	( 00000003 *Fixed[0.5] )
+	Call     PlaySoundAtNpc ( 00000003 00000044 00000000 )
+	Call     NpcJump0    	( 00000003 FFFFFEE8 FFFFFFF6 00000174 0000005A )
+	Call     NpcFaceNpc  	( 00000003 00000000 00000000 )
+EndThread
+Wait     00000032 
+Thread
+	Wait     0000000F 
+	Call     SetNpcJumpscale 	( 00000001 *Fixed[0.10058594] )
+	Call     NpcJump0    	( 00000001 FFFFFE84 FFFFFFF6 00000174 00000014 )
+	Call     NpcFaceNpc  	( 00000001 00000000 00000000 )
+EndThread
+Call     SetNpcAnimation 	( 00000000 00B60000 )
+Wait     0000003C 
+Call     NpcFacePlayer 	( 00000001 00000000 )
+Call     NpcFaceNpc  	( .Npc:Partner 00000003 00000000 )
+Call     NpcFaceNpc  	( 00000003 00000000 00000000 )
+Call     PlayerFaceNpc 	( 00000003 00000000 )
+Call     SetCamSpeed 	( .Default 00000003 )
+Call     GetNpcPos   	( 00000003 *Var[0] *Var[1] *Var[2] )
+Call     GetNpcPos   	( 00000000 *Var[3] *Var[4] *Var[5] )
+Add  *Var[0]  *Var[3] 
+Add  *Var[1]  *Var[4] 
+Add  *Var[2]  *Var[5] 
+Div  *Var[0]  00000002 
+Div  *Var[1]  00000002 
+Div  *Var[2]  00000002 
+Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default 00000190 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     SayMessage0 	( 00000003 00410024 00410004 00000005 000700A0 ) % Hey, it's you, boy! You're that dumb ol' fish that ...
+Call     SayMessage0 	( 00000000 00B60004 00B60000 00000005 000700A1 ) % I'm awfully sorry. I was just having a nap with my ...
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     GetNpcPos   	( 00000000 *Var[3] *Var[4] *Var[5] )
+Add  *Var[0]  *Var[3] 
+Add  *Var[1]  *Var[4] 
+Add  *Var[2]  *Var[5] 
+Div  *Var[0]  00000002 
+Div  *Var[1]  00000002 
+Div  *Var[2]  00000002 
+Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+Call     SetCamDistance ( .Default 000001DB )
+Call     SetCamPosA  	( .Default *Fixed[-63.5] 00000000 )
+Call     SetCamAngles 	( .Default *Fixed[18.5] *Fixed[-5.0] )
+Call     SayMessage3 	( 00000003 00410024 00410004 00000000 00000000 000700A2 ) % Well, I suppose I can see my way to forgivin' you  ...
+Call     NpcFacePlayer 	( 00000003 00000000 )
+Wait     0000000A 
+Call     SayMessage1 	( 00000003 00410024 00410004 00000000 )
+Wait     0000000A 
+Call     SetNpcJumpscale 	( 00000003 00000001 )
+Call     GetNpcPos   	( 00000003 *Var[0] *Var[1] *Var[2] )
+Call     FadeOutMusic 	( 00000000 00000BB8 )
+Loop     0000000A 
+	Add  *Var[2]  FFFFFFC4 
+	Call     PlaySoundAtNpc ( 00000003 000020D9 00000000 )
+	Call     NpcJump0    	( 00000003 *Var[0] *Var[1] *Var[2] 0000000A )
+	Call     NpcFaceNpc  	( 00000001 00000003 00000000 )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000003 00000000 )
+	Call     PlayerFaceNpc 	( 00000003 00000000 )
+EndLoop
+Call     SetNpcPos   	( 00000003 00000000 FFFFFC18 00000000 )
+Thread
+	Wait     00000005 
+	Call     NpcFaceNpc  	( 00000001 00000000 00000000 )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000000 00000000 )
+	Call     PlayerFaceNpc 	( 00000000 00000000 )
+EndThread
+Call     SayMessage0 	( 00000000 00B60004 00B60000 00000005 000700A3 ) % Whew! I feel so much better now! They should call  ...
+Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+Call     GetPlayerPos 	( *Var[3] *Var[4] *Var[5] )
+Add  *Var[0]  *Var[3] 
+Add  *Var[1]  *Var[4] 
+Add  *Var[2]  *Var[5] 
+Div  *Var[0]  00000002 
+Div  *Var[1]  00000002 
+Div  *Var[2]  00000002 
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default 0000012C )
+Call     SetCamPosA  	( .Default 00000000 00000000 )
+Call     SetCamAngles 	( .Default *Fixed[18.0] *Fixed[-7.0] )
+Wait     00000005 
+Thread
+	Wait     00000005 
+	Call     NpcFacePlayer 	( 00000001 00000000 )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000001 00000000 )
+	Call     PlayerFaceNpc 	( 00000001 00000000 )
+EndThread
+Call     SayMessage0 	( 00000001 00B60008 00B60001 00000000 000700A4 ) % Pardon the eavesdropping, but did you just say "an ...
+Call     SetCamSpeed 	( .Default 00000003 )
+Call     GetNpcPos   	( .Npc:Partner *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default 000000FA )
+Thread
+	Wait     00000005 
+	Call     NpcFaceNpc  	( 00000001 .Npc:Partner 00000000 )
+	Call     PlayerFaceNpc 	( .Npc:Partner 00000000 )
+EndThread
+Call     GetCurrentPartner 	( *Var[0] )
+Switch  *Var[0] 
+	Case  ==  00000001 
+		Call     SayMessage0 	( .Npc:Partner 00010008 00010001 00000000 000700A5 ) % Hey Mario, didn't Twink say one of the Star Spirit 
+	Case  ==  00000002 
+		Call     SayMessage0 	( .Npc:Partner 0002000D 00020003 00000000 000700A6 ) % Mario, I think Twink said one of the Star Spirits  
+	Case  ==  00000003 
+		Call     SayMessage0 	( .Npc:Partner 0003000E 00030003 00000000 000700A7 ) % Well now, Mario, wasn't Lavalava Island the place  
+	Case  ==  00000004 
+		Call     SayMessage0 	( .Npc:Partner 00040006 00040001 00000000 000700A8 ) % Mario! I just remembered what Twink said. He said  
+	Case  ==  00000009 
+		Call     SayMessage0 	( .Npc:Partner 00050004 00050001 00000000 000700A9 ) % Mario, I believe Twink said one of the Star Spirit 
+	Case  ==  00000006 
+		Call     SayMessage0 	( .Npc:Partner 00060004 00060001 00000000 000700AA ) % Mario, um... I think the Star Kid said a Star Spir 
+EndSwitch
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     GetNpcPos   	( 00000000 *Var[3] *Var[4] *Var[5] )
+Add  *Var[0]  *Var[3] 
+Add  *Var[1]  *Var[4] 
+Add  *Var[2]  *Var[5] 
+Div  *Var[0]  00000002 
+Div  *Var[1]  00000002 
+Div  *Var[2]  00000002 
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+Call     SetCamDistance ( .Default 000001DB )
+Call     SetCamPosA  	( .Default *Fixed[-63.5] 00000000 )
+Call     SetCamAngles 	( .Default *Fixed[18.5] *Fixed[-5.0] )
+Wait     00000005 
+Thread
+	Wait     00000005 
+	Call     NpcFaceNpc  	( 00000001 00000000 00000000 )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000000 00000000 )
+	Call     PlayerFaceNpc 	( 00000000 00000000 )
+EndThread
+Call     SayMessage0 	( 00000000 00B60004 00B60000 00000005 000700AB ) % Huh? Lavalava Island? Yes, of course I know where  ...
+Call     PanToTarget 	( .Default 00000000 00000000 )
+Call     SetCamSpeed 	( .Default *Fixed[1.5] )
+Thread
+	Wait     00000064 
+	Call     SetCamSpeed 	( .Default 00000001 )
+EndThread
+Call     DisablePlayerPhysics 	( .False )
+Call     DisablePlayerInput 	( .False )
+Call     EnablePartnerAI 	( )
+Return
+End

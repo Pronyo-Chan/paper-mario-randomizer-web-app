@@ -1,0 +1,65 @@
+@ $Script_Main
+Set *StoryProgress *Chapter4Progress
+Set  *WorldMapLocation  .Location:ToadTown
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     SetCamLeadPlayer 	( .Default .False )
+If  *StoryProgress  >=  FFFFFF94 
+	Set  *Flag_MAP_00  00000001 
+EndIf
+Call     SetRenderMode 	( {Model:minka1_yuka} 00000015 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:dummy} 7FFFFE00 )
+Switch  *StoryProgress 
+	Case  ==  FFFFFF80 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_802531FC )
+	Case  >=  00000060 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_80255334 )
+	Default
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8024E1A8 )
+EndSwitch
+ExecWait $Script_MakeEntities 
+Exec     $Script_80245BF8 
+Exec     $Script_8024E3A8 
+Call     ModifyColliderFlags 	( 00000003 {Collider:water} 00000001 )
+Exec     $Script_8024EAF0 
+Call     EnableTexPanning 	( {Model:water} .True )
+Thread
+	Set  *Var[0]  00000001 
+	Set  *Var[1]  00000000 
+	Set  *Var[2]  00000000 
+	Set  *Var[3]  00000000 
+	Set  *Var[4]  00000078 
+	Set  *Var[5]  00000000 
+	Set  *Var[6]  00000001 
+	Set  *Var[7]  00000000 
+	Set  *Var[8]  00000000 
+	Set  *Var[9]  00000000 
+	Set  *Var[A]  00000000 
+	Set  *Var[B]  00000000 
+	Set  *Var[C]  00000000 
+	Exec     $Script_80244A70 
+EndThread
+Call     ModifyColliderFlags 	( 00000003 {Collider:op_1} 00000004 )
+Call     ModifyColliderFlags 	( 00000003 {Collider:op2} 00000004 )
+Call     ModifyColliderFlags 	( 00000003 {Collider:op3} 00000004 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:op_1} 00080000 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:op2} 00080000 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:op3} 00080000 )
+Call     $Function_802405EC ( 00000061 )
+Call     $Function_802405EC ( 00000062 )
+Call     $Function_802405EC ( 00000063 )
+Call     GetDemoState 	( *Var[0] )
+If  *Var[0]  !=  00000000 
+	Set  *Var[A]  $Script_80244CD4 
+	Exec     $Script_80243D40 
+	ExecWait $Script_8024EAB4 
+	Return
+EndIf
+Exec     $Script_80243C20 
+Exec     $Script_80244D74 
+Wait     00000001 
+Call     $Function_80240624 ( )
+Return
+End
