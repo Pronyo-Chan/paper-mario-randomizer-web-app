@@ -1,0 +1,92 @@
+@ $Script_Main
+If *StoryProgress != *Chapter1Progress
+	Set *StoryProgress *Chapter1Progress
+EndIf
+Set  *WorldMapLocation  .Location:GoombaVillage
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     SetCamLeadPlayer 	( .Default .False )
+Set  *AreaFlag[008]  00000000 
+Call     MakeNpcs    	( 00000000 $NpcGroupList_80241450 )
+Call     80045640 ( )
+ExecWait $Script_MakeEntities 
+ExecWait $Script_802422B8 
+Exec     $Script_802406C0 
+Call     GetEntryID  	( *Var[0] )
+If  *Var[0]  !=  00000002 
+	Set  *Var[0]  $Script_802407A8 
+	Exec     EnterWalk 
+Else
+	Exec     $Script_802407A8 
+	Exec     $Script_80242340 
+EndIf
+Wait     00000001 
+Return
+End
+
+@ $Script_80240B50
+Label    00000001 
+Switch  *StoryProgress 
+	Case  ==  FFFFFF86 
+		Label    00000059 
+		Call     $Function_80240218 ( FFFFFF8A 00000056 FFFFFFBA FFFFFFF1 )
+		Wait     00000001 
+		If  *Var[0]  ==  00000000 
+			Goto     00000059 
+		EndIf
+		Call     DisablePlayerInput 	( .True )
+		Call     SetNpcAux   	( 00000000 00000000 )
+		Call     PlaySoundAtNpc ( 00000000 00000262 00000000 )
+		Call     ShowEmote   	( 00000000 .Emote:Exclamation 0000002D 0000000F 00000001 00000000 00000000 00000000 00000000 )
+		Wait     0000000F 
+		Call     NpcFacePlayer 	( .Npc:Self 00000005 )
+		Wait     0000000A 
+		Call     SayMessage0 	( 00000000 009D0008 009D0001 00000000 000B00A6 ) % Oh, my back... Hm? Who's that? That you, Mario? I  ...
+		Call     UseSettingsFrom 	( .Default FFFFFF24 00000014 FFFFFFB8 )
+		Call     SetPanTarget 	( .Default FFFFFFEC 00000000 00000044 )
+		Call     SetCamAngles 	( .Default *Fixed[15.0] *Fixed[-8.5] )
+		Call     SetCamDistance ( .Default 00000113 )
+		Call     SetCamSpeed 	( .Default *Fixed[1.5] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Thread
+			Wait     00000014 
+			Call     SetPlayerSpeed ( *Fixed[2.0] )
+			Call     MovePlayerTo 	( FFFFFFDA 00000044 00000000 )
+		EndThread
+		Call     GetNpcPos   	( 00000000 *Var[7] *Var[8] *Var[9] )
+		Call     SetNpcSpeed 	( 00000000 *Fixed[4.0] )
+		Call     SetNpcAnimation 	( 00000000 009D0003 )
+		Call     MoveNpcTo   	( 00000000 00000000 00000046 00000000 )
+		Call     SetNpcAnimation 	( 00000000 009D0001 )
+		Call     InterpNpcYaw 	( 00000000 00000114 00000014 )
+		Wait     0000001E 
+		Call     SayMessage0 	( 00000000 009D0008 009D0001 00000000 000B00A7 ) % This block... This block shouldn't be here. Well,  ...
+		Wait     00000005 
+		Call     SetPlayerAnimation 	( 00080007 )
+		Wait     0000001E 
+		Call     SayMessage0 	( 00000000 009D0008 009D0001 00000000 000B00A8 ) % ......Huh? A Hammer? Oh, of course! Um... Where di ...
+		Call     $Function_80240000 ( 00000000 00000005 )
+		Set  *StoryProgress  FFFFFF87
+		Set  *Chapter1Progress  FFFFFF87 
+		Call     UseSettingsFrom 	( .Default FFFFFF24 00000014 FFFFFFB8 )
+		Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+		Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+		Call     SetCamSpeed 	( .Default *Fixed[3.0] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     WaitForCam  	( .Default *Fixed[1.0] )
+		Call     PanToTarget 	( .Default 00000000 00000000 )
+		Call     EnablePartnerAI 	( )
+		Call     DisablePlayerInput 	( .False )
+		Wait     00000001 
+EndSwitch
+Return
+End
+
+@ $Script_80241470
+Call     ModifyColliderFlags 	( 00000000 {Collider:tt1} 7FFFFE00 )
+Set  *StoryProgress  FFFFFF8B 
+Set  *Chapter1Progress  FFFFFF8B 
+Return
+End

@@ -1,0 +1,89 @@
+#new:Function $AllPartners
+    PUSH t0, t1, t2
+    LIO t0, 8010F2AC %beginning of partners
+    LIO t1, 8010F2F4 %end of partners
+    ORI t2, r0, 0100
+    .loop
+    SH t2, 0000 (t0)
+    ADDIU t0, t0, 08
+    BEQ t0, t1, .end
+    NOP
+    BEQ r0, r0, .loop
+    NOP
+    .end
+    SAH r0, 8010F2CC %remove goompa
+    POP t0, t1, t2
+    JR ra
+    NOP
+    
+#new:Function $HaveGoombario
+    PUSH t0, t1, t2
+    LIO t0, 8010F2AC %beginning of partners
+    LIO t1, 8010F2B4 %just do one
+    ORI t2, r0, 0100
+    .loop
+    SH t2, 0000 (t0)
+    ADDIU t0, t0, 08
+    BEQ t0, t1, .end
+    NOP
+    BEQ r0, r0, .loop
+    NOP
+    .end
+    SAH r0, 8010F2CC %remove goompa
+    POP t0, t1, t2
+    JR ra
+    NOP
+    
+#new:Function $UltraHammerandBoots
+    PUSH t0
+    ORI t0, r0, 0202
+    SAH t0, 8010F290
+    POP t0
+    JR RA
+    NOP
+    
+#new:Function $HaveRegularHammer
+    PUSH t0
+    ORI t0, r0, 0000
+    SAH t0, 8010F290
+    POP t0
+    JR RA
+    NOP
+    
+#new:Function $GiveMaxStarPower
+    PUSH t0
+    ORI t0, r0, 0007
+    SAB t0, 8010F51E
+    SAB t0, 8010F520
+    POP t0
+    JR RA
+    NOP
+    
+#new:Function $GetActionCommands
+    0:  ADDIU     V0, R0, 1
+    4:  SAB       V0, 8010F29A
+    C:  JR        RA
+   10:  ADDIU     V0, R0, 2
+
+#new:Function $SetPartnerGoombario
+    PUSH ra, t0
+    LIA t0, 1
+    SAB t0, 8010F2A2
+    JPOP ra, t0
+    NOP
+
+@ $Script_8024FD70
+    Call $GetActionCommands()
+    Call $HaveRegularHammer()
+    Call $UltraHammerandBoots()
+    Set *Chapter1Progress FFFFFF80
+    Set *Chapter2Progress FFFFFFB8
+    Set *Chapter3Progress FFFFFFCF
+    Set *Chapter4Progress FFFFFFF3
+    Set *Chapter5Progress FFFFFF07
+    Set *Chapter6Progress FFFFFF28
+    Set *Chapter7Progress 0000003D
+    Set *Chapter8Progress 00000059
+    Call GotoMap ("kmr_00" 00000001)
+    Return
+    End

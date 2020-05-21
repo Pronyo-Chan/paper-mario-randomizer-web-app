@@ -1,0 +1,74 @@
+@ $Script_Main
+Set *StoryProgress *Chapter1Progress
+Set  *WorldMapLocation  .Location:GoombaRoad
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     MakeNpcs    	( 00000000 $NpcGroupList_80241DF8 )
+ExecWait $Script_MakeEntities 
+Exec     $Script_80240BB0 
+Call     ModifyColliderFlags 	( 00000000 {Collider:deilit1} 7FFFFE00 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:deilit2} 7FFFFE00 )
+Exec     $Script_80240CE0 
+Wait     00000001 
+Return
+End
+
+@ $Script_802414AC
+Thread
+	Wait     00000005 
+	Call     SetMusicTrack 	( 00000000 .Song:GoombaBrosRetreat 00000000 00000008 )
+EndThread
+Call     GetBattleOutcome 	( *Var[0] )
+Switch  *Var[0] 
+	Case  ==  .Outcome:PlayerWon % 0
+		Call     SetNpcAnimation 	( 00000000 00620003 )
+		Call     SetNpcAnimation 	( 00000001 00620103 )
+		Call     SayMessage0 	( 00000000 0062000B 00620003 00000000 000B00C2 ) % Geeaaaah!!! I... I'll let you go for now!
+		Wait     0000000A 
+		Call     DisablePlayerInput 	( .True )
+		Wait     0000000A 
+		Thread
+			Call     SetNpcJumpscale 	( 00000001 *Fixed[1.8007812] )
+			Call     SetNpcAnimation 	( 00000001 00620105 )
+			Call     PlaySoundAtNpc ( 00000001 0000010F 00000000 )
+			Call     NpcJump0    	( 00000001 00000133 00000019 00000031 00000014 )
+			Call     $Function_80240A6C ( )
+			Call     PlaySoundAtNpc ( 00000001 00002086 00000000 )
+			Call     NpcJump0    	( 00000001 00000191 00000050 00000019 0000001E )
+			Wait     00000005 
+			Call     SetNpcSpeed 	( 00000001 *Fixed[6.0] )
+			Set  *Var[0]  00000001 
+			Exec     $Script_80240F00 *Var[A] 
+			Call     MoveNpcTo   	( 00000001 00000268 FFFFFFD1 00000000 )
+			Kill     *Var[A] 
+			Call     SetNpcFlagBits ( 00000001 00000200 .False )
+			Call     SetNpcPos   	( 00000001 00000000 FFFFFC18 00000000 )
+			Wait     00000001 
+		EndThread
+		Wait     0000001E 
+		Call     SetNpcJumpscale 	( 00000000 *Fixed[1.8007812] )
+		Call     SetNpcAnimation 	( 00000000 00620005 )
+		Call     PlaySoundAtNpc ( 00000000 0000010F 00000000 )
+		Call     NpcJump0    	( 00000000 00000133 00000019 00000031 00000014 )
+		Call     $Function_80240A6C ( )
+		Call     PlaySoundAtNpc ( 00000000 00002086 00000000 )
+		Call     NpcJump0    	( 00000000 00000191 00000050 00000019 0000001E )
+		Wait     00000005 
+		Call     SetNpcSpeed 	( 00000000 *Fixed[6.0] )
+		Set  *Var[0]  00000000 
+		Exec     $Script_80240F00 *Var[A] 
+		Call     MoveNpcTo   	( 00000000 00000268 FFFFFFD1 00000000 )
+		Kill     *Var[A] 
+		Call     SetNpcFlagBits ( 00000000 00000200 .False )
+		Call     SetNpcPos   	( 00000000 00000000 FFFFFC18 00000000 )
+		Wait     00000001 
+		Exec     $Script_80240BB0 
+		Set  *MapVar[0]  00000001 
+        Set  *StoryProgress  FFFFFF8F 
+        Set  *Chapter1Progress  FFFFFF8F 
+		Call     DisablePlayerInput 	( .False )
+EndSwitch
+Return
+End
