@@ -1,5 +1,5 @@
 @ $Script_Main
-Set *StoryProgress *Chapter1Progress 
+Set *StoryProgress *Chapter0Progress 
 Set *WorldMapLocation .Location:GoombaVillage
 Call SetSpriteShading( FFFFFFFF )
 Call SetCamPerspective( .Default 00000003 00000019 00000010 00001000 )
@@ -294,7 +294,7 @@ Call     PlayerJump  	( *Var[0] *Var[1] *Var[2] 0000000A )
 Call     SetPlayerAnimation 	( 00010002 )
 Call     BindNpcInteract 	( 00000006 $Script_8024D3F0 )
 Set  *StoryProgress  FFFFFF82
-Set  *Chapter1Progress  FFFFFF82  
+Set  *Chapter0Progress  FFFFFF82  
 Wait     00000001 
 Call     DisablePlayerInput 	( .False )
 Return
@@ -528,7 +528,7 @@ Call     PlayerJump  	( *Var[0] *Var[1] *Var[2] 0000000A )
 Call     SetPlayerAnimation 	( 00010002 )
 Call     BindNpcInteract 	( 00000006 $Script_8024D3F0 )
 Set  *StoryProgress  FFFFFF82
-Set *Chapter1Progress FFFFFF82 
+Set *Chapter0Progress FFFFFF82 
 Wait     00000001 
 Call     DisablePlayerInput 	( .False )
 Return
@@ -549,7 +549,7 @@ Switch  *StoryProgress
 			Call     PanToTarget 	( .Default 00000000 00000001 )
 			Set  *Flag_KMR_0A  00000001 
       Set  *StoryProgress  FFFFFF84
-      Set *Chapter1Progress FFFFFF84  
+      Set *Chapter0Progress FFFFFF84  
 			Call     SetNpcPos   	( 00000001 000000D7 00000000 000000D7 )
 			Call     BindNpcAI   	( 00000001 $Script_80248A34 )
 			If  *Flag_KMR_02  ==  00000001 
@@ -858,7 +858,7 @@ Call     SetNpcFlagBits ( 00000000 00000008 .True )
 Call     SetNpcPos   	( 00000000 00000000 FFFFFC18 00000000 )
 Call     EnableNpcShadow 	( 00000000 .False )
 Set  *StoryProgress  FFFFFF85 
-Set  *Chapter1Progress  FFFFFF85 
+Set  *Chapter0Progress  FFFFFF85 
 Thread
 	Call     ResetCam    	( .Default *Fixed[3.0] )
 EndThread
@@ -936,7 +936,7 @@ Switch *Var[0]
 					Call SetPlayerAnimation 	( 00080017 )
 					Wait 0000001E 
 					Set  *StoryProgress FFFFFF86 
-          Set  *Chapter1Progress FFFFFF86
+          Set  *Chapter0Progress FFFFFF86
 				EndIf
 				Call SetPlayerAnimation 	( 00080018 )
 				Wait 00000005 
@@ -1337,7 +1337,7 @@ Call     SetNpcFlagBits ( 00000001 00000100 .False )
 Call     EnablePartnerAI 	( )
 Call     DisablePlayerInput 	( .False )
 Set  *StoryProgress  FFFFFF8D 
-Set  *Chapter1Progress  FFFFFF8D 
+Set  *Chapter0Progress  FFFFFF8D 
 Unbind
 Call     SetNpcFlagBits ( 00000004 00000004 .False )
 Return
@@ -1355,7 +1355,7 @@ If  *Var[0]  ==  00000000
 EndIf
 Call     ModifyColliderFlags 	( 00000000 {Collider:tt2} 7FFFFE00 )
 Set  *StoryProgress  FFFFFF8E 
-Set  *Chapter1Progress  FFFFFF8E 
+Set  *Chapter0Progress  FFFFFF8E 
 Call     DisablePlayerInput 	( .False )
 Return
 End

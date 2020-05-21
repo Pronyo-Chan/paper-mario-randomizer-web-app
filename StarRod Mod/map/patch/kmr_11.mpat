@@ -110,7 +110,7 @@ EndIf
 Call     PlaySoundAtCollider 	( {Collider:tt} .Sound:MetalDoorClose 00000000 )
 Call     ShakeCam    	( .Default 00000000 00000005 *Fixed[2.0] )
 Set  *StoryProgress  FFFFFF90
-Set  *Chapter1Progress  FFFFFF90 
+Set  *Chapter0Progress  FFFFFF90 
 Exec     $Script_802411C0 
 Call     UseSettings 	( .Default *Fixed[4.0] 00000000 *Fixed[250.0] *Fixed[15.0] *Fixed[-7.5] )
 Wait     0000000A 
@@ -145,7 +145,7 @@ Call     NpcJump0    	( 00000000 FFFFFE2B 00000000 0000005C 00000007 )
 Kill     *Var[B] 
 Call     SetNpcPos   	( 00000000 00000000 FFFFFC18 00000000 )
 Set  *StoryProgress  FFFFFF91
-Set  *Chapter1Progress  FFFFFF91  
+Set  *Chapter0Progress  FFFFFF91  
 Call     DisablePlayerInput 	( .False )
 Return
 End
@@ -176,7 +176,7 @@ Call     SetNpcPos   	( .Npc:Partner FFFFFDEA 00000000 0000007F )
 Call     InterpNpcYaw 	( .Npc:Partner 0000005A 00000000 )
 Call     SayMessage0 	( 00000002 00630001 00630001 00000000 000B00D8 ) % Uh...Mario! Good fight and all that! I must warn y ...
 Set  *StoryProgress  FFFFFF92
-Set  *Chapter1Progress  FFFFFF92  
+Set  *Chapter0Progress  FFFFFF92  
 Call     EnableModel 	( {Model:eye_mask} .True )
 Wait     00000001 
 Exec     $Script_802424E4 *Var[A] 
@@ -245,7 +245,7 @@ Call     SayMessage0 	( .Npc:Partner 00010008 00010001 00000000 000B00DA ) % Loo
 Call     EnablePartnerAI 	( )
 Call     ModifyColliderFlags 	( 00000000 {Collider:tt} 7FFFFE00 )
 Set  *StoryProgress  FFFFFF93 
-Set  *Chapter1Progress  FFFFFF93
+Set  *Chapter0Progress  FFFFFF93
 Call     DisablePlayerInput 	( .False )
 Call     EnablePartnerAI 	( )
 Unbind

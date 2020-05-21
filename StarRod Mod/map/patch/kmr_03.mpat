@@ -1,6 +1,6 @@
 @ $Script_Main
-If *StoryProgress != *Chapter1Progress
-	Set *StoryProgress *Chapter1Progress
+If *StoryProgress != *Chapter0Progress
+	Set *StoryProgress *Chapter0Progress
 EndIf
 Set  *WorldMapLocation  .Location:GoombaVillage
 Call     SetSpriteShading 	( FFFFFFFF )
@@ -69,7 +69,7 @@ Switch  *StoryProgress
 		Call     SayMessage0 	( 00000000 009D0008 009D0001 00000000 000B00A8 ) % ......Huh? A Hammer? Oh, of course! Um... Where di ...
 		Call     $Function_80240000 ( 00000000 00000005 )
 		Set  *StoryProgress  FFFFFF87
-		Set  *Chapter1Progress  FFFFFF87 
+		Set  *Chapter0Progress  FFFFFF87 
 		Call     UseSettingsFrom 	( .Default FFFFFF24 00000014 FFFFFFB8 )
 		Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
 		Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
@@ -87,6 +87,6 @@ End
 @ $Script_80241470
 Call     ModifyColliderFlags 	( 00000000 {Collider:tt1} 7FFFFE00 )
 Set  *StoryProgress  FFFFFF8B 
-Set  *Chapter1Progress  FFFFFF8B 
+Set  *Chapter0Progress  FFFFFF8B 
 Return
 End

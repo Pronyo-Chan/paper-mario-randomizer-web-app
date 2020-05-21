@@ -1,6 +1,6 @@
 @ $Script_Main
-If *StoryProgress != *Chapter1Progress
-	Set *StoryProgress *Chapter1Progress
+If *StoryProgress != *Chapter0Progress
+	Set *StoryProgress *Chapter0Progress
 EndIf
 Set  *WorldMapLocation  .Location:GoombaVillage
 Call     SetSpriteShading 	( FFFFFFFF )
@@ -45,7 +45,7 @@ Switch  *StoryProgress
   		Wait     0000000A 
   		Call     DisablePlayerInput 	( .False )
 		Set  *StoryProgress  FFFFFF88
-		Set *Chapter1Progress FFFFFF88
+		Set *Chapter0Progress FFFFFF88
   	Case  ==  FFFFFF89 
   		If  *AreaByte[0]  ==  00000000 
   			Label    0000000A 
@@ -141,7 +141,7 @@ Wait     0000000A
 Call     SayMessage0 	( .Npc:Partner 009D0008 009D0001 00000000 000B00AA ) % Oh!! There we go! That's it! That's the Hammer! I' ...
 Call     SetNpcAnimation 	( .Npc:Partner 009D0001 )
 Set  *StoryProgress  FFFFFF89 
-Set  *Chapter1Progress  FFFFFF89
+Set  *Chapter0Progress  FFFFFF89
 Call     802CF370 ( FFFFFFFC )
 Call     EnablePartnerAI 	( )
 Thread
@@ -182,7 +182,7 @@ Switch  *Var[0]
 		Exec     $Script_80240560 
 		Set  *AreaByte[0]  00000000 
 		Set  *StoryProgress  FFFFFF8A
-		Set  *Chapter1Progress  FFFFFF8A 
+		Set  *Chapter0Progress  FFFFFF8A 
 		Call     DisablePlayerInput 	( .False )
 EndSwitch
 Return

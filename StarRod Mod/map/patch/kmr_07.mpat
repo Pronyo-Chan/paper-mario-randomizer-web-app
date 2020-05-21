@@ -1,5 +1,5 @@
 @ $Script_Main
-Set *StoryProgress *Chapter1Progress
+Set *StoryProgress *Chapter0Progress
 Set  *WorldMapLocation  .Location:GoombaRoad
 Call     SetSpriteShading 	( FFFFFFFF )
 Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
@@ -67,7 +67,7 @@ Switch  *Var[0]
 		Exec     $Script_80240BB0 
 		Set  *MapVar[0]  00000001 
         Set  *StoryProgress  FFFFFF8F 
-        Set  *Chapter1Progress  FFFFFF8F 
+        Set  *Chapter0Progress  FFFFFF8F 
 		Call     DisablePlayerInput 	( .False )
 EndSwitch
 Return

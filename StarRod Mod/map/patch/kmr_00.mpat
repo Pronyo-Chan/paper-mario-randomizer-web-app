@@ -1,5 +1,5 @@
 @ $Script_Main
-Set *StoryProgress *Chapter1Progress
+Set *StoryProgress *Chapter0Progress
 Set  *WorldMapLocation  .Location:GoombaVillage
 Call     SetSpriteShading 	( FFFFFFFF )
 Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
@@ -428,7 +428,7 @@ Wait     0000000F
 Call     SayMessage0 	( 00000000 009E000B 009E0004 00000005 000B0008 ) % Dad!! Goom-pa!! Goom-ba-rio!!!
 Wait     0000001E 
 Set  *StoryProgress  FFFFFF81 
-Set  *Chapter1Progress  FFFFFF81 
+Set  *Chapter0Progress  FFFFFF81 
 Call     DisablePlayerPhysics 	( .False )
 Call     $Function_802405CC ( )
 Call     GotoMapSpecial ( $ASCII_802440D8 00000005 0000000A )
