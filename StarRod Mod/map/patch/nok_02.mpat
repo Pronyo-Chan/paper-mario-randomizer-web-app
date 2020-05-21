@@ -1,0 +1,208 @@
+@ $Script_Main
+Set *StoryProgress *Chapter1Progress
+Set  *WorldMapLocation  .Location:KoopaVillage
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     SetCamLeadPlayer 	( .Default .False )
+Call     GetEntryID  	( *Var[0] )
+If  *Var[0]  ==  00000003 
+	Call     MakeNpcs    	( 00000000 $NpcGroupList_80251B24 )
+	ExecWait $Script_MakeEntities 
+	Exec     $Script_802456E0 
+	Exec     $Script_802543B0 
+	Call     FadeInMusic 	( 00000000 .Song:KoopaVillage 00000000 00000BB8 00000000 0000007F )
+	Wait     00000001 
+	Return
+EndIf
+Set  *AreaFlag[00F]  00000000 
+Set  *AreaFlag[010]  00000000 
+Set  *AreaFlag[012]  00000000 
+Set  *Flag_NOK_1A  00000000 
+Set  *AreaFlag[013]  00000000 
+If  *StoryProgress  >=  FFFFFFA4 
+	Set  *Flag_NOK_04  00000001 
+	Set  *Flag_NOK_06  00000001 
+EndIf
+If  *StoryProgress  <  FFFFFFA4 
+	Call     MakeNpcs    	( 00000000 $NpcGroupList_80251AAC )
+Else
+	Call     MakeNpcs    	( 00000000 $NpcGroupList_80251AE8 )
+EndIf
+Call     80045640 ( )
+ExecWait $Script_MakeEntities 
+ExecWait $Script_8025422C 
+Exec     $Script_802456E0 
+Bind     $Script_80246E20 .Trigger:WallPressA {Collider:o236} 00000001 00000000 
+ExecWait $Script_80246B50 
+Call     GetDemoState 	( *Var[0] )
+If  *Var[0]  !=  00000000 
+	ExecWait $Script_802523B8 
+	Return
+EndIf
+Exec     $Script_80244630 
+Call     ModifyColliderFlags 	( 00000000 {Collider:deilitw} 7FFFFE00 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:deilitn} 7FFFFE00 )
+Exec     $Script_80245868 
+Wait     00000001 
+Return
+End
+
+@ $Script_8024A17C % Meet Kooper in Koopa Village
+If  *StoryProgress  <  FFFFFFA0 
+    Set  *StoryProgress  FFFFFFA0 
+    Set  *Chapter1Progress  FFFFFFA0 
+	Call     ShowMessage 	( 000C00B4 000000A0 00000028 ) % Who's there? I'm kind of busy right now!
+	Call     GetPlayerPos 	( *Var[A] *Var[B] *Var[C] )
+	Call     UseSettingsFrom 	( .Default *Var[A] *Var[B] *Var[C] )
+	Call     SetPanTarget 	( .Default 00000000 00000000 FFFFFF4C )
+	Call     SetCamDistance ( .Default 00000177 )
+	Call     SetCamAngles 	( .Default 00000011 *Fixed[-5.5] )
+	Call     SetCamSpeed 	( .Default 00000004 )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     802C9308 ( 00000056 00000001 )
+	Thread
+		Wait     0000000A 
+		Call     PlaySoundAt 	( 000001C1 00000000 00000000 00000000 FFFFFF4C )
+		Call     MakeLerp    	( 00000000 0000005A 0000000F 00000008 )
+		Label    0000000A 
+		Call     UpdateLerp  	( )
+		Call     RotateModel 	( {Model:o185} *Var[0] 00000000 00000001 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000001 
+			Goto     0000000A 
+		EndIf
+	EndThread
+	Thread
+		Call     MovePlayerTo 	( FFFFFFE7 FFFFFF7E 0000000A )
+		Call     PlayerFaceNpc 	( 0000000A 00000000 )
+	EndThread
+	Thread
+		Call     $Function_80242FE4 ( 00000001 )
+		Call     DisablePartnerAI 	( 00000000 )
+		Call     MoveNpcTo   	( .Npc:Partner FFFFFFC9 FFFFFF7E 0000000F )
+		Call     NpcFaceNpc  	( .Npc:Partner 0000000A 00000000 )
+		Call     EnablePartnerAI 	( )
+	EndThread
+	Call     SetNpcFlagBits ( 0000000A 00000100 .True )
+	Call     SetNpcPos   	( 0000000A 00000000 00000000 FFFFFF31 )
+	Call     SetNpcAnimation 	( 0000000A 00110003 )
+	Wait     00000023 
+	Call     SetNpcAnimation 	( 0000000A 00110007 )
+	Thread
+		Loop     0000001E 
+			Call     PlayerFaceNpc 	( 0000000A 00000000 )
+			Wait     00000001 
+		EndLoop
+	EndThread
+	Call     MoveNpcTo   	( 0000000A 00000000 FFFFFF6C 00000014 )
+	Thread
+		Call     MakeLerp    	( 0000005A 00000000 0000001E 0000000A )
+		Label    00000014 
+		Call     UpdateLerp  	( )
+		Call     RotateModel 	( {Model:o185} *Var[0] 00000000 00000001 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000001 
+			Goto     00000014 
+		EndIf
+		Call     PlaySoundAt 	( 000001C2 00000000 00000000 00000000 FFFFFF4C )
+		Call     802C9308 ( 00000056 00000000 )
+	EndThread
+	Call     MoveNpcTo   	( 0000000A 00000019 FFFFFF7E 0000000A )
+	Call     SetNpcAnimation 	( 0000000A 00110003 )
+	Call     NpcFacePlayer 	( 0000000A 00000000 )
+	Call     SetNpcFlagBits ( 0000000A 00000100 .False )
+	Wait     0000000A 
+	Call     SayMessage0 	( 0000000A 0011000D 00110003 00000000 000C00B5 ) % What!? Wait... Could it be...?! Aren't you Mario!? ...
+	Call     SetPlayerAnimation 	( .PlayerAnim:NodYes )
+	Wait     0000000F 
+	Call     SayMessage1 	( 0000000A 00110009 00110003 00000000 )
+	Call     SetNpcAnimation 	( 0000000A 0011000D )
+	Wait     0000001E 
+	Call     SetNpcAnimation 	( 0000000A 00110003 )
+	Call     SayMessage1 	( 0000000A 00110009 00110003 00000000 )
+	Call     UseSettings 	( .Default 00000006 0000001E *Fixed[225.0] *Fixed[17.0] *Fixed[-8.5] )
+	Wait     00000005 
+	Call     SayMessage0 	( 0000000A 00110009 00110003 00000000 000C00B6 ) % This wild Fuzzy took my shell, which, next to my l ...
+	Wait     0000000A 
+	Call     SetNpcAnimation 	( 0000000A 0011000F )
+	Wait     0000001E 
+	Call     SetNpcAnimation 	( 0000000A 00110003 )
+	Call     SayMessage1 	( 0000000A 00110009 00110003 00000000 )
+	Call     UseSettings 	( .Default 00000004 FFFFFFE2 *Fixed[225.0] *Fixed[17.0] *Fixed[-8.5] )
+	Wait     0000000A 
+	Thread
+		Wait     00000003 
+		Call     PlayerFaceNpc 	( .Npc:Partner 00000000 )
+	EndThread
+	Call     DisablePartnerAI 	( 00000000 )
+	Call     SayMessage0 	( .Npc:Partner 00010008 00010001 00000000 000C00B7 ) % Hey, Mario. It looks like he's in a bad way. We ou ...
+	Call     EnablePartnerAI 	( )
+	Call     UseSettings 	( .Default *Fixed[90.0] 00000000 *Fixed[375.0] *Fixed[17.0] *Fixed[-5.5] )
+	Wait     0000000A 
+	Call     PlayerFaceNpc 	( 0000000A 00000000 )
+	Wait     0000000A 
+	Call     SayMessage0 	( 0000000A 00110009 00110003 00000000 000C00B8 ) % The Fuzzy that took my shell is just inside my hou ...
+	Call     BindNpcInteract 	( 0000000A $Script_8024A17C )
+	Thread
+		Call     ResetCam    	( .Default 00000003 )
+	EndThread
+	Return
+EndIf
+If  *StoryProgress  <  FFFFFFA3 
+	Call     SayMessage0 	( 0000000A 00110009 00110003 00000000 000C00BA ) % I've got outside covered! Catch that Fuzzy!
+Else
+	Call     SayMessage0 	( 0000000A 00110009 00110003 00000000 000C00BB ) % You get him yet, Mario? No? You gotta, Mario! I re ...
+EndIf
+Return
+End
+
+@ $Script_8024A908 % Fuzzy runs away with kooper shell
+If  *StoryProgress  >=  FFFFFFA1 
+	Return
+EndIf
+If  *MapFlag[00]  ==  00000001 
+	Return
+EndIf
+Set  *MapFlag[00]  00000001 
+Call     DisablePlayerInput 	( .True )
+Call     SayMessage0 	( 0000000C 002B000C 002B0001 00000000 000C00B9 ) 
+Call     DisablePlayerInput 	( .False )
+Call     SetNpcAnimation 	( 0000000C 002B0002 )
+Call     GetNpcPos   	( 0000000C *Var[A] *Var[B] *Var[C] )
+Set  *Var[D]  *Var[A] 
+Add  *Var[D]  FFFFFFFB 
+Label    0000000A 
+Thread
+	Call     SetNpcJumpscale 	( 0000000B 00000002 )
+	Call     NpcJump0    	( 0000000B *Var[D] 00000000 *Var[C] 0000000C
+EndThread
+Wait     00000001 
+Call     SetNpcJumpscale 	( 0000000C 00000002 )
+Call     PlaySoundAtNpc ( 0000000C 00000331 00000000 )
+Call     NpcJump0    	( 0000000C *Var[A] 00000000 *Var[C] 0000000C )
+Call     IsPlayerWithin ( 00000000 FFFFFE70 00000082 *Var[0] )
+If  *Var[0]  ==  00000000 
+	Goto     0000000A 
+EndIf
+Set  *StoryProgress  FFFFFFA1 
+Set  *Chapter1Progress  FFFFFFA1 
+Set  *Var[B]  00000000 
+Set  *Var[C]  00000000 
+Set  *Var[D]  FFFFFDFE 
+Set  *Var[E]  0000000F 
+Thread
+	Call     SetNpcJumpscale 	( 0000000B 00000002 )
+	Call     NpcJump0    	( 0000000B *Var[B] *Var[C] *Var[D] *Var[E] )
+EndThread
+Wait     00000001 
+Call     SetNpcJumpscale 	( 0000000C 00000002 )
+Call     PlaySoundAtNpc ( 0000000C 00000331 00000000 )
+Call     NpcJump0    	( 0000000C *Var[B] *Var[C] *Var[D] *Var[E] )
+Call     SetNpcFlagBits ( 0000000C 00000200 .False )
+Call     SetNpcFlagBits ( 0000000B 00000200 .False )
+Call     SetNpcPos   	( 0000000C 00000000 FFFFFC18 00000000 )
+Call     SetNpcPos   	( 0000000B 00000000 FFFFFC18 00000000 )
+Return
+End

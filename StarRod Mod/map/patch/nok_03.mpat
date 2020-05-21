@@ -1,0 +1,32 @@
+@ $Script_802414D0 % See fuzzy running around behind kooper's house
+Thread
+	Label    00000000 
+	Call     GetNpcPos   	( 00000004 *Var[0] *Var[1] *Var[2] )
+	Add  *Var[2]  00000002 
+	Call     SetNpcPos   	( 00000005 *Var[0] *Var[1] *Var[2] )
+	Wait     00000001 
+	Goto     00000000 
+EndThread
+Label    00000001 
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     GetNpcPos   	( 00000004 *Var[3] *Var[4] *Var[5] )
+Set  *Var[6]  *Var[3] 
+Sub  *Var[6]  *Var[0] 
+If  *Var[6]  <  00000064 
+	Add  *Var[3]  00000064 
+	Call     PlaySoundAtNpc ( 00000004 B0000017 00000000 )
+	Call     NpcJump0    	( 00000004 *Var[3] *Var[4] *Var[5] 0000000A )
+	Set  *StoryProgress  FFFFFFA2
+	Set  *Chapter1Progress  FFFFFFA2 
+EndIf
+If  *Var[3]  >  000004B0 
+	Call     SetNpcPos   	( 00000004 00000000 FFFFFC18 00000000 )
+	Call     SetNpcPos   	( 00000005 00000000 FFFFFC18 00000000 )
+	Call     EnableNpcShadow 	( 00000004 .False )
+	Call     EnableNpcShadow 	( 00000005 .False )
+	Return
+EndIf
+Wait     00000001 
+Goto     00000001 
+Return
+End
