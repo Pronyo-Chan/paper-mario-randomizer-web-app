@@ -1,0 +1,82 @@
+@ $Script_80240950 % Ninjakoopas boss fight
+Switch  *StoryProgress 
+	Case  ==  FFFFFFB1 
+		Set  *StoryProgress  FFFFFFB2
+		Set  *Chapter1Progress  FFFFFFB2 
+		Call     GotoMap     	( $ASCII_80242ABC 00000002 )
+		Wait     00000064 
+		Return
+	Case  ==  FFFFFFB2 
+		Set  *Var[0]  00000001 
+		Call     GetEntryID  	( *Var[1] )
+		If  *Var[1]  ==  00000001 
+			Set  *Var[0]  00000000 
+		EndIf
+	Default
+		Return
+EndSwitch
+If  *Var[0]  ==  00000000 
+	Call     DisablePlayerInput 	( .True )
+	Call     UseSettingsFrom 	( .Default FFFFFF79 00000055 00000000 )
+	Call     SetCamSpeed 	( .Default *Fixed[0.60058594] )
+	Call     SetPanTarget 	( .Default FFFFFF79 0000001E 00000000 )
+	Call     GetCamDistance ( .Default *Var[1] )
+	Sub  *Var[1]  00000064 
+	Call     SetCamDistance ( .Default *Var[1] )
+	If  00002710  !=  00002710 
+		Call     GetCamAngles 	( .Default *Var[2] *Var[3] )
+		Call     SetCamAngles 	( .Default *Var[2] 00002710 )
+	EndIf
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     $Function_8024004C ( 00000000 000000B4 FFFFFF79 0000000A 00000000 FFFFFF79 00000055 00000000 0000001E 00000000 )
+	Thread
+		Call     $Function_802401AC ( )
+	EndThread
+	Thread
+		Wait     00000001 
+		Call     PlaySound   	( 80000067 )
+		Call     $Function_80240000 ( )
+		Call     StopSound   	( 80000067 )
+		Call     PlaySoundAt 	( 000000B2 00000000 FFFFFF79 00000055 00000000 )
+	EndThread
+	Thread
+		Wait     0000002D 
+		Call     SetPlayerAnimation 	( 0001002A )
+	EndThread
+	Thread
+		Wait     000000B4 
+		Wait     00000073 
+		Call     PlaySoundAt 	( 00000137 00000000 FFFFFF79 00000055 00000000 )
+	EndThread
+	Call     $Function_802405BC ( 00000001 )
+	Thread
+		Wait     00000050 
+		Call     SetPlayerAnimation 	( 00010002 )
+	EndThread
+	Add  *Var[1]  00000064 
+	Call     SetCamDistance ( .Default *Var[1] )
+	Call     SetPanTarget 	( .Default FFFFFF79 00000000 00000000 )
+	Call     $Function_802405BC ( 00000002 )
+	Call     GetPlayerPos 	( *Var[2] *Var[3] *Var[4] )
+	Call     UseSettingsFrom 	( .Default *Var[2] *Var[3] *Var[4] )
+	Call     SetCamSpeed 	( .Default *Fixed[1.0] )
+	Call     SetPanTarget 	( .Default *Var[2] *Var[3] *Var[4] )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     PanToTarget 	( .Default 00000000 00000000 )
+	Call     DisablePlayerInput 	( .False )
+Else
+	Call     $Function_802405FC ( 00000000 FFFFFF79 0000001E 00000000 00000000 )
+	Thread
+		Call     $Function_80240708 ( )
+	EndThread
+	Wait     00000001 
+EndIf
+Call     $Function_802405BC ( 00000003 )
+Call     PlaySoundAtPlayer 	( 00000138 00000000 )
+Call     DisablePlayerInput 	( .True )
+Set  *StoryProgress  FFFFFFB3
+Set  *Chapter1Progress  FFFFFFB3 
+Call GotoMap ("trd_00" 00000001) % Skip end of chapter and go directly to fortress exterior
+Wait     00000064 
+Return
+End

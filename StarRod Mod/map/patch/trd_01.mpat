@@ -1,0 +1,235 @@
+@ $Script_80241BE4 % Raise submerged staircase
+Call     DisablePlayerInput 	( .True )
+Set  *StoryProgress  FFFFFFB0
+Set  *Chapter1Progress  FFFFFFB0  
+SetGroup 00000000 
+Wait     00000001 
+Call     802D5830 ( 00000001 )
+Wait     00000014 
+Set  *Var[0]  00000000 
+Set  *Var[1]  000000DC 
+Set  *Var[2]  000000FF 
+Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamAngles 	( .Default 00000012 0000000C )
+Call     SetCamSpeed 	( .Default *Fixed[0.40039062] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Wait     0000000A 
+Call     ModifyColliderFlags 	( 00000000 {Collider:o162} 7FFFFE00 )
+Call     802C9308 ( 00000006 00000000 )
+Call     PlaySound   	( 80000006 )
+ChildThread
+	SetGroup 00000000 
+	Wait     00000004 
+	Call     EnableModel 	( {Model:sui1} .True )
+	Call     EnableModel 	( {Model:sui2} .True )
+	Call     EnableTexPanning 	( {Model:sui1} .True )
+	Call     EnableTexPanning 	( {Model:sui2} .True )
+	Call     EnableTexPanning 	( {Model:o145} .True )
+	Set  *Var[0]  00000000 
+	Set  *Var[1]  00000000 
+	Set  *Var[2]  00000000 
+	Set  *Var[3]  00000000 
+	Set  *Var[4]  00000000 
+	Set  *Var[5]  00000000 
+	Set  *Var[6]  00000000 
+	Set  *Var[7]  00000000 
+	Loop     
+		Call     SetTexPanOffset 	( 00000002 00000000 *Var[0] *Var[1] )
+		Call     SetTexPanOffset 	( 00000002 00000001 *Var[2] *Var[3] )
+		Call     SetTexPanOffset 	( 00000003 00000000 *Var[4] *Var[5] )
+		Call     SetTexPanOffset 	( 00000003 00000001 *Var[6] *Var[7] )
+		Call     SetTexPanOffset 	( 00000004 00000000 *Var[8] *Var[9] )
+		Call     SetTexPanOffset 	( 00000004 00000001 *Var[A] *Var[B] )
+		Add  *Var[0]  FFFFFDA8 
+		Add  *Var[1]  FFFFFDA8 
+		Add  *Var[2]  FFFFFED4 
+		Add  *Var[3]  FFFFFED4 
+		Add  *Var[4]  0000008C 
+		Add  *Var[5]  FFFFFDA8 
+		Add  *Var[6]  FFFFFFE2 
+		Add  *Var[7]  FFFFFDA8 
+		Add  *Var[8]  00000064 
+		Add  *Var[9]  FFFFFDA8 
+		Add  *Var[A]  FFFFFF9C 
+		Add  *Var[B]  FFFFFED4 
+		Wait     00000001 
+	EndLoop
+EndChildThread
+Thread
+	Call     PlaySound   	( 80000007 )
+	Call     ShakeCam    	( .Default 00000000 0000000A *Fixed[4.0] )
+	Call     ShakeCam    	( .Default 00000000 00000014 *Fixed[0.7001953] )
+	Call     ShakeCam    	( .Default 00000000 000000FA *Fixed[1.0] )
+	Call     ShakeCam    	( .Default 00000000 0000001E *Fixed[0.5] )
+	Call     ShakeCam    	( .Default 00000000 0000000A *Fixed[1.2001953] )
+	Call     StopSound   	( 80000007 )
+EndThread
+Thread
+	Wait     00000032 
+	Call     SetPanTarget 	( .Default *Var[0] 000001F4 *Var[2] )
+EndThread
+Thread
+	Call     GetNpcPos   	( 00000001 *Var[4] *Var[5] *Var[6] )
+	Call     SetNpcPos   	( 00000001 *Var[4] FFFFFFE5 *Var[6] )
+	Wait     00000064 
+	Call     MakeLerp    	( FFFFFFE5 0000012C 000000D2 00000004 )
+	Loop     000000D2 
+		Call     UpdateLerp  	( )
+		Call     SetNpcPos   	( 00000001 *Var[4] *Var[0] *Var[6] )
+		Wait     00000001 
+	EndLoop
+EndThread
+Thread
+	Wait     00000014 
+	Call     PlaySoundAtNpc ( 00000001 00000263 00000000 )
+	Call     ShowEmote   	( 00000001 .Emote:Question 00000000 00000014 00000001 00000000 00000000 00000000 0000000
+	Wait     00000078 
+	Call     SetNpcAnimation 	( 00000001 00290108 )
+	Wait     00000014 
+	Call     SetNpcAnimation 	( 00000001 00290117 )
+	Call     PlaySoundAtNpc ( 00000001 00000262 00000000 )
+	Call     ShowEmote   	( 00000001 .Emote:Exclamation 00000000 0000000F 00000001 00000000 00000000 00000000 0000
+	Loop     00000004 
+		Call     InterpNpcYaw 	( 00000001 0000010E 00000000 )
+		Wait     00000014 
+		Call     InterpNpcYaw 	( 00000001 0000005A 00000000 )
+		Wait     0000000F 
+	EndLoop
+EndThread
+Thread
+	Wait     000000D2 
+	Set  *MapFlag[0A]  00000001 
+EndThread
+Thread
+	Call     GetNpcPos   	( 00000002 *Var[4] *Var[5] *Var[6] )
+	Call     SetNpcPos   	( 00000002 *Var[4] FFFFFFE5 *Var[6] )
+	Wait     00000055 
+	Call     MakeLerp    	( FFFFFFE5 0000015E 000000D7 00000004 )
+	Loop     000000D7 
+		Call     UpdateLerp  	( )
+		Call     SetNpcPos   	( 00000002 *Var[4] *Var[0] *Var[6] )
+		Wait     00000001 
+	EndLoop
+EndThread
+Thread
+	Wait     00000019 
+	Call     ShowEmote   	( 00000002 .Emote:Question 00000000 00000014 00000001 00000000 00000000 00000000 0000000
+	Wait     00000078 
+	Call     SetNpcAnimation 	( 00000002 00290108 )
+	Wait     00000014 
+	Call     SetNpcAnimation 	( 00000002 00290117 )
+	Call     PlaySoundAtNpc ( 00000002 00000262 00000000 )
+	Call     ShowEmote   	( 00000002 .Emote:Exclamation 00000000 0000000F 00000001 00000000 00000000 00000000 0000
+	Loop     00000004 
+		Call     InterpNpcYaw 	( 00000002 0000010E 00000000 )
+		Wait     00000014 
+		Call     InterpNpcYaw 	( 00000002 0000005A 00000000 )
+		Wait     0000000F 
+	EndLoop
+EndThread
+Thread
+	Wait     000000B4 
+	Set  *MapFlag[0B]  00000001 
+EndThread
+Call     MakeLerp    	( FFFFFE3E 00000000 0000012C 0000000A )
+Label    00000000 
+Call     UpdateLerp  	( )
+Call     TranslateModel ( {Model:dan} 00000000 *Var[0] 00000000 )
+Call     TranslateModel ( {Model:k_soku} 00000000 *Var[0] 00000000 )
+Call     TranslateModel ( {Model:k_kusari} 00000000 *Var[0] 00000000 )
+Call     UpdateColliderTransform 	( {Collider:o158} )
+Set  *Var[2]  *Var[0] 
+Add  *Var[2]  00000190 
+If  *Var[2]  >=  FFFFFFEC 
+	If  *Flag[00]  ==  00000000 
+		Set  *Flag[00]  00000001 
+		Call     PlaySound   	( 00000023 )
+		Call     EnableModel 	( {Model:o145} .True )
+	EndIf
+EndIf
+Set  *Var[2]  *Var[0] 
+Add  *Var[2]  00000177 
+If  *Var[2]  >=  FFFFFFEC 
+	If  *Flag[01]  ==  00000000 
+		Set  *Flag[01]  00000001 
+		Call     PlaySound   	( 00000023 )
+		Call     TranslateModel ( {Model:o145} 00000032 00000000 00000000 )
+	EndIf
+EndIf
+Set  *Var[2]  *Var[0] 
+Add  *Var[2]  0000015E 
+If  *Var[2]  >=  FFFFFFEC 
+	If  *Flag[02]  ==  00000000 
+		Set  *Flag[02]  00000001 
+		Call     PlaySound   	( 00000023 )
+		Call     TranslateModel ( {Model:o145} 00000064 00000000 00000000 )
+	EndIf
+EndIf
+Set  *Var[2]  *Var[0] 
+Add  *Var[2]  00000145 
+If  *Var[2]  >=  FFFFFFEC 
+	If  *Flag[03]  ==  00000000 
+		Set  *Flag[03]  00000001 
+		Call     PlaySound   	( 00000023 )
+		Call     TranslateModel ( {Model:o145} 00000096 00000000 00000000 )
+	EndIf
+EndIf
+Set  *Var[2]  *Var[0] 
+Add  *Var[2]  0000012B 
+If  *Var[2]  >=  FFFFFFEC 
+	If  *Flag[04]  ==  00000000 
+		Set  *Flag[04]  00000001 
+		Call     PlaySound   	( 00000023 )
+		Call     TranslateModel ( {Model:o145} 000000C8 00000000 00000000 )
+	EndIf
+EndIf
+Set  *Var[2]  *Var[0] 
+Add  *Var[2]  00000111 
+If  *Var[2]  >=  FFFFFFEC 
+	If  *Flag[05]  ==  00000000 
+		Set  *Flag[05]  00000001 
+		Call     PlaySound   	( 00000023 )
+		Call     TranslateModel ( {Model:o145} 000000FA 00000000 00000000 )
+	EndIf
+EndIf
+Set  *Var[2]  *Var[0] 
+Add  *Var[2]  000000F5 
+If  *Var[2]  >=  FFFFFFEC 
+	If  *Flag[06]  ==  00000000 
+		Set  *Flag[06]  00000001 
+		Call     PlaySound   	( 00000023 )
+		Call     TranslateModel ( {Model:o145} 0000012C 00000000 00000000 )
+	EndIf
+EndIf
+Set  *Var[2]  *Var[0] 
+Add  *Var[2]  000000DC 
+If  *Var[2]  >=  FFFFFFEC 
+	If  *Flag[07]  ==  00000000 
+		Set  *Flag[07]  00000001 
+		Call     PlaySound   	( 00000023 )
+		Call     EnableModel 	( {Model:o145} .False )
+	EndIf
+EndIf
+Wait     00000001 
+If  *Var[1]  ==  00000001 
+	Goto     00000000 
+EndIf
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Wait     0000001E 
+Thread
+	Wait     0000001C 
+	Call     EnableModel 	( {Model:sui1} .False )
+	Call     EnableModel 	( {Model:sui2} .False )
+EndThread
+Call     UseSettingsFrom 	( .Default 00000000 000000DC 000000FF )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Wait     00000001 
+Call     ResetCam    	( .Default *Fixed[1.5] )
+Call     StopSound   	( 80000006 )
+Call     DisablePlayerInput 	( .False )
+Call     802D5830 ( 00000000 )
+Unbind
+Return
+End

@@ -1,0 +1,77 @@
+@ $Script_NpcAI_80240D74 % Koopa bros start firing canons
+Label    00000000 
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Wait     00000001 
+If  *Var[0]  <  FFFFFE8E 
+	Goto     00000000 
+EndIf
+Call     DisablePlayerInput 	( .True )
+Wait     00000014 
+Call     FadeOutMusic 	( 00000000 000007D0 )
+Call     UseSettingsFrom 	( .Default 00000514 00000000 00000000 )
+Call     SetPanTarget 	( .Default 000005D2 00000000 00000000 )
+Call     SetCamPosB  	( .Default 000005BA *Fixed[41.600586] )
+Call     SetCamSpeed 	( .Default *Fixed[1.5] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Wait     00000014 
+Call     SetCamPosB  	( .Default 000005BA *Fixed[41.600586] )
+Call     SetPanTarget 	( .Default 000005D2 0000003C 00000000 )
+Call     SetCamDistance ( .Default 0000012C )
+Call     SetCamAngles 	( .Default 00000019 FFFFFFF7 )
+Call     SetCamSpeed 	( .Default *Fixed[5.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Wait     00000014 
+Call     PlaySound   	( 000001C3 )
+Call     SetMusicTrack 	( 00000000 .Song:KoopaBrosTheme 00000000 00000008 )
+Call     MakeLerp    	( 00000000 0000006E 0000000A 0000000A )
+Label    00000002 
+Call     UpdateLerp  	( )
+Call     RotateModel 	( {Model:o60} *Var[0] 00000000 FFFFFFFF 00000000 )
+Call     RotateModel 	( {Model:o65} *Var[0] 00000000 00000001 00000000 )
+Wait     00000001 
+If  *Var[1]  ==  00000001 
+	Goto     00000002 
+EndIf
+Call     SetNpcVar   	( 00000047 00000000 00000001 )
+Call     SetNpcVar   	( 00000048 00000000 00000001 )
+Call     SetNpcVar   	( 00000049 00000000 00000001 )
+Wait     0000003C 
+Call     SetNpcAnimation 	( .Npc:Self 00660103 )
+Call     SetNpcSpeed 	( .Npc:Self *Fixed[3.0] )
+Call     SetNpcJumpscale 	( .Npc:Self *Fixed[0.80078125] )
+Call     MoveNpcTo   	( .Npc:Self 000005D2 00000000 00000000 )
+Wait     0000000A 
+Call     SayMessage0 	( .Npc:Self 0066011B 0066011B 00000000 000C00F2 ) % Well, well, well! Mario! I wouldn't have bet you'd ...
+Call     UseSettingsFrom 	( .Default 00000514 00000000 00000000 )
+Call     SetCamPosB  	( .Default 000005BA *Fixed[41.600586] )
+Call     SetPanTarget 	( .Default 000004E2 00000000 00000000 )
+Call     SetCamSpeed 	( .Default *Fixed[1.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     SetNpcAnimation 	( .Npc:Self 00660112 )
+Call     NpcJump0    	( .Npc:Self 000005A0 0000001E 00000000 00000014 )
+Call     NpcJump0    	( .Npc:Self 00000564 00000000 00000000 00000014 )
+Call     SetNpcAnimation 	( .Npc:Self 00660103 )
+Call     MoveNpcTo   	( .Npc:Self 00000550 00000000 00000000 )
+Wait     00000014 
+Call     SetNpcAnimation 	( .Npc:Self 00660104 )
+Call     SayMessage0 	( .Npc:Self 0066011B 0066011B 00000000 000C00F3 ) % Yeah, boys!! Open fire!
+Call     SetNpcVar   	( 00000047 00000000 00000002 )
+Call     SetNpcVar   	( 00000048 00000000 00000002 )
+Call     SetNpcVar   	( 00000049 00000000 00000002 )
+Call     SetOwnerVar 	( 00000000 00000001 )
+Call     SetMusicTrack 	( 00000000 .Song:BulletBillAssault 00000000 00000008 )
+Wait     0000003C 
+Call     UseSettingsFrom 	( .Default 00000514 00000000 00000000 )
+Call     PanToTarget 	( .Default 00000000 00000000 )
+Call     SetCamSpeed 	( .Default *Fixed[1.5] )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     SetCamSpeed 	( .Default *Fixed[1.0] )
+Set  *StoryProgress  FFFFFFB1
+Set  *Chapter1Progress  FFFFFFB1  
+Call     DisablePlayerInput 	( .False )
+Call     RotateModel 	( {Model:o60} 00000000 00000000 FFFFFFFF 00000000 )
+Call     RotateModel 	( {Model:o65} 00000000 00000000 00000001 00000000 )
+Call     RemoveNpc   	( .Npc:Self )
+Return
+End

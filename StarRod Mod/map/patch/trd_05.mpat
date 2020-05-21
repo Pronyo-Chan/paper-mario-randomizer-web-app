@@ -1,0 +1,281 @@
+@ $Script_80241ECC % Watch Yellow Koopa set the trap
+Exec     $Script_8024082C 
+Call     DisablePlayerInput 	( .True )
+Call     DisablePartnerAI 	( 00000000 )
+Call     SetPlayerPos 	( FFFFFEA2 00000000 00000000 )
+Call     SetNpcPos   	( .Npc:Partner FFFFFEA2 00000000 00000000 )
+Call     UseSettingsFrom 	( .Default FFFFFFBA 000000F0 FFFFFFF6 )
+Call     SetPanTarget 	( .Default FFFFFFBA 000000F0 FFFFFFF6 )
+Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     SetNpcAnimation 	( 00000000 00660204 )
+Thread
+	Loop     00000008 
+		Call     802CFD30 ( 00000000 00000007 00000000 00000000 00000000 00000000 )
+		Call     802CFD30 ( 00000001 00000007 000000FF 00000000 00000000 00000000 )
+		Wait     00000006 
+		Call     802CFD30 ( 00000000 00000007 000000FF 00000000 00000000 00000000 )
+		Call     802CFD30 ( 00000001 00000007 00000000 00000000 00000000 00000000 )
+		Wait     00000006 
+	EndLoop
+EndThread
+Thread
+	Loop     00000008 
+		Wait     00000005 
+		Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+		Add  *Var[1]  00000008 
+		Call     $Function_80240720 ( )
+		Wait     00000005 
+		Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+		Add  *Var[1]  00000008 
+		Call     $Function_80240720 ( )
+		Wait     00000001 
+	EndLoop
+EndThread
+Thread
+	Call     PlaySound   	( 00000029 )
+	Call     SetNpcAnimation 	( 00000001 0066021D )
+	Call     SetNpcPos   	( 00000001 FFFFFF9C 000000F0 0000001E )
+	Call     SetNpcYaw   	( 00000001 0000005A )
+	Wait     0000000F 
+	Call     PlaySound   	( 0000002A )
+	Call     SetNpcAnimation 	( 00000001 0066021D )
+	Call     SetNpcPos   	( 00000001 FFFFFFDD 000000F0 FFFFFFB5 )
+	Call     SetNpcYaw   	( 00000001 0000010E )
+	Wait     0000000F 
+	Call     PlaySound   	( 00000029 )
+	Call     SetNpcAnimation 	( 00000001 0066021D )
+	Call     SetNpcPos   	( 00000001 FFFFFFD8 000000F0 0000000A )
+	Call     SetNpcYaw   	( 00000001 0000010E )
+	Wait     0000000F 
+	Call     PlaySound   	( 0000002A )
+	Call     SetNpcAnimation 	( 00000001 0066021D )
+	Call     SetNpcPos   	( 00000001 FFFFFF92 000000F0 FFFFFFEC )
+	Call     SetNpcYaw   	( 00000001 0000005A )
+	Wait     0000000F 
+	Call     PlaySound   	( 00000029 )
+	Call     SetNpcAnimation 	( 00000001 0066021D )
+	Call     SetNpcPos   	( 00000001 FFFFFFA6 000000F0 0000001E )
+	Call     SetNpcYaw   	( 00000001 0000005A )
+	Wait     0000000F 
+	Call     PlaySound   	( 0000002A )
+	Call     SetNpcAnimation 	( 00000001 0066021D )
+	Call     SetNpcPos   	( 00000001 FFFFFFE2 000000F0 FFFFFFCE )
+	Call     SetNpcYaw   	( 00000001 0000010E )
+	Wait     0000000F 
+	Call     SetNpcPos   	( 00000001 00000000 FFFFFE0C 00000000 )
+EndThread
+Call     SetNpcPos   	( 00000000 FFFFFFD3 000000F0 FFFFFFE2 )
+Call     SetNpcYaw   	( 00000000 0000010E )
+Wait     00000001 
+Call     SetNpcJumpscale 	( 00000000 *Fixed[1.6005859] )
+Call     NpcJump0    	( 00000000 FFFFFFD3 000000F0 FFFFFFE2 00000006 )
+Call     NpcJump0    	( 00000000 FFFFFFD3 000000F0 FFFFFFE2 00000006 )
+Call     SetNpcPos   	( 00000000 FFFFFF88 000000F0 00000014 )
+Call     SetNpcYaw   	( 00000000 0000005A )
+Call     SetNpcAnimation 	( 00000000 0066021B )
+Wait     0000000F 
+Call     SetNpcAnimation 	( 00000000 00660204 )
+Call     SetNpcPos   	( 00000000 FFFFFF92 000000F0 FFFFFFBA )
+Call     SetNpcYaw   	( 00000000 0000005A )
+Wait     00000001 
+Call     SetNpcJumpscale 	( 00000000 *Fixed[1.6005859] )
+Call     NpcJump0    	( 00000000 FFFFFF92 000000F0 FFFFFFBA 00000006 )
+Call     NpcJump0    	( 00000000 FFFFFF92 000000F0 FFFFFFBA 00000006 )
+Call     SetNpcPos   	( 00000000 FFFFFFDD 000000F0 FFFFFFCD )
+Call     SetNpcYaw   	( 00000000 0000010E )
+Call     SetNpcAnimation 	( 00000000 0066021B )
+Wait     0000000E 
+Call     SetNpcAnimation 	( 00000000 00660204 )
+Call     SetNpcPos   	( 00000000 FFFFFFD3 000000F0 FFFFFFE7 )
+Call     SetNpcYaw   	( 00000000 0000010E )
+Wait     00000001 
+Call     SetNpcJumpscale 	( 00000000 *Fixed[1.6005859] )
+Call     NpcJump0    	( 00000000 FFFFFFD3 000000F0 FFFFFFE7 00000006 )
+Call     NpcJump0    	( 00000000 FFFFFFD3 000000F0 FFFFFFE7 00000006 )
+Wait     00000001 
+Call     SetNpcPos   	( 00000000 FFFFFF88 000000F0 00000014 )
+Call     SetNpcYaw   	( 00000000 0000005A )
+Call     SetNpcAnimation 	( 00000000 0066021B )
+Wait     00000014 
+Call     SetNpcPos   	( 00000000 FFFFFF88 000000F0 00000014 )
+Call     SetNpcYaw   	( 00000000 0000005A )
+Call     SetNpcAnimation 	( 00000000 0066021A )
+Wait     0000001A 
+Call     SetNpcAnimation 	( 00000000 00660204 )
+Wait     0000000A 
+Call     SetNpcAnimation 	( 00000000 00660202 )
+Call     SetNpcSpeed 	( 00000000 *Fixed[4.0] )
+Call     MoveNpcTo   	( 00000000 FFFFFFE7 FFFFFFF1 00000000 )
+Call     SetNpcAnimation 	( 00000000 00660204 )
+Wait     0000000A 
+Call     InterpNpcYaw 	( 00000000 0000010E 00000004 )
+Wait     0000000A 
+Call     SetNpcAnimation 	( 00000000 00660205 )
+Wait     00000019 
+Call     SetNpcAnimation 	( 00000000 00660204 )
+Wait     0000000A 
+Call     SetNpcAnimation 	( 00000000 00660202 )
+Call     SetNpcSpeed 	( 00000000 *Fixed[4.0] )
+Call     MoveNpcTo   	( 00000000 FFFFFF86 FFFFFFF1 00000000 )
+Call     SetNpcAnimation 	( 00000000 00660204 )
+Wait     00000003 
+Call     InterpNpcYaw 	( 00000000 0000005A 00000005 )
+Wait     0000000A 
+Call     SayMessage0 	( 00000000 00660214 00660204 00000005 000C00D5 ) % OK! This is perfect...I think.
+Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+Call     PlaySoundAtNpc ( 00000000 00000262 00000000 )
+Call     ShowEmote   	( 00000000 .Emote:Exclamation 00000000 00000019 00000002 *Var[0] *Var[1] *Var[2] 00000028 )
+Wait     00000019 
+Call     InterpNpcYaw 	( 00000000 0000010E 00000002 )
+Wait     00000007 
+Call     SetNpcAnimation 	( 00000000 00660205 )
+Wait     00000019 
+Call     SetNpcAnimation 	( 00000000 00660204 )
+Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+Call     SetNpcJumpscale 	( 00000000 *Fixed[3.0] )
+Call     NpcJump0    	( 00000000 *Var[0] *Var[1] *Var[2] 00000005 )
+Call     SayMessage0 	( 00000000 00660214 00660204 00000000 000C00D6 ) % Whoa! Looks like Mario's here!
+Call     PlaySound   	( 00000173 )
+Call     SetNpcAnimation 	( 00000000 00660203 )
+Call     SetNpcJumpscale 	( 00000000 *Fixed[0.80078125] )
+Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+Call     NpcJump0    	( 00000000 *Var[0] *Var[1] *Var[2] 00000008 )
+Wait     00000008 
+Call     PlaySound   	( 00000174 )
+Call     SetNpcSpeed 	( 00000000 *Fixed[8.0] )
+Call     MoveNpcTo   	( 00000000 FFFFFE70 FFFFFFF6 00000000 )
+Exec     $Script_80240874 
+Call     UseSettingsFrom 	( .Default FFFFFEF2 00000000 00000000 )
+Call     SetPanTarget 	( .Default FFFFFEF2 00000000 00000000 )
+Call     SetCamSpeed 	( .Default *Fixed[1.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     SetNpcPos   	( 00000000 00000000 FFFFFC18 00000000 )
+Call     PlaySound   	( 000001C3 )
+Call     MakeLerp    	( 00000000 00000050 0000000A 00000000 )
+Label    0000000A 
+Call     UpdateLerp  	( )
+Call     RotateModel 	( {Model:doa2} *Var[0] 00000000 FFFFFFFF 00000000 )
+Call     RotateModel 	( {Model:doa1} *Var[0] 00000000 00000001 00000000 )
+Wait     00000001 
+If  *Var[1]  ==  00000001 
+	Goto     0000000A 
+EndIf
+Call     DisablePlayerInput 	( .False )
+Call     EnablePartnerAI 	( )
+Call     SetPlayerPos 	( FFFFFECA 00000000 00000000 )
+ExecWait $Script_80240B88 
+Call     PanToTarget 	( .Default 00000000 00000000 )
+Set  *StoryProgress  FFFFFFAB 
+Set  *Chapter1Progress  FFFFFFAB 
+Return
+End
+
+@ $Script_80241810 % Fall for the trap
+Call     DisablePlayerInput 	( .True )
+Label    0000000A 
+Call     GetPlayerActionState 	( *Var[0] )
+Wait     00000001 
+If  *Var[0]  !=  00000000 
+	Goto     0000000A 
+EndIf
+Loop     
+	Call     802D2B0C ( *Var[0] )
+	If  *Var[0]  ==  00000000 
+		BreakLoop
+	EndIf
+	Wait     00000001 
+EndLoop
+Wait     0000000A 
+Call     DisablePlayerPhysics 	( .True )
+Call     DisablePartnerAI 	( 00000000 )
+Call     SetNpcFlagBits ( .Npc:Partner 00000200 .False )
+Thread
+	Call     SetNpcAnimation 	( .Npc:Partner 00000102 )
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Add  *Var[0]  FFFFFFF6 
+	Add  *Var[2]  FFFFFFFB 
+	Call     MoveNpcTo   	( .Npc:Partner *Var[0] *Var[2] 0000000A )
+	Call     SetNpcAnimation 	( .Npc:Partner 00000106 )
+EndThread
+Wait     0000000A 
+Call     EnableModel 	( {Model:o101} .False )
+Call     EnableModel 	( {Model:o95} .True )
+Call     EnableModel 	( {Model:o96} .True )
+Call     802C9308 ( 00000005 00000001 )
+Call     PlaySound   	( 00002091 )
+Call     MakeLerp    	( 00000000 0000005A 0000001E 00000007 )
+Label    00000000 
+Call     UpdateLerp  	( )
+Call     RotateModel 	( {Model:o95} *Var[0] 00000000 00000000 FFFFFFFF )
+Call     RotateModel 	( {Model:o96} *Var[0] 00000000 00000000 00000001 )
+Wait     00000001 
+If  *Var[1]  ==  00000001 
+	Goto     00000000 
+EndIf
+Call     SetPlayerAnimation 	( 00010002 )
+Call     InterpPlayerYaw 	( 0000010E 00000001 )
+Wait     0000000A 
+Call     InterpPlayerYaw 	( 0000005A 00000001 )
+Wait     0000000F 
+Call     InterpPlayerYaw 	( 0000010E 00000001 )
+Wait     00000003 
+Call     InterpPlayerYaw 	( 0000005A 00000001 )
+Wait     00000003 
+Call     InterpPlayerYaw 	( 0000010E 00000001 )
+Wait     00000003 
+Wait     0000000A 
+Call     SetPlayerAnimation 	( 00080017 )
+Wait     00000005 
+Call     SetNpcAnimation 	( .Npc:Partner 00000109 )
+Wait     0000000F 
+Call     GetPlayerPos 	( *Var[2] *Var[3] *Var[4] )
+Wait     00000005 
+Thread
+	Call     $Function_80240404 ( )
+	ExecWait $Script_80241180 
+EndThread
+Thread
+	Wait     0000000A 
+	ExecWait $Script_802414B4 
+EndThread
+Call     ModifyColliderFlags 	( 00000000 {Collider:o82} 7FFFFE00 )
+Call     UseSettingsFrom 	( .Default *Var[2] *Var[3] *Var[4] )
+Set  *Var[5]  *Var[3] 
+Sub  *Var[5]  000000C8 
+Call     SetPanTarget 	( .Default *Var[2] *Var[5] *Var[4] )
+Call     PanToTarget 	( .Default *Fixed[0.5] 00000001 )
+Call     SetCamSpeed 	( .Default *Fixed[1.0] )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+If  *StoryProgress  <  FFFFFFAC 
+	Wait     0000003C 
+	Call     PanToTarget 	( .Default 00000000 00000000 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     $Function_802404D0 ( )
+	Call     SetNpcPos   	( 00000000 FFFFFF06 000000F0 FFFFFFE7 )
+	Call     SetNpcAnimation 	( 00000000 00660202 )
+	Call     SetNpcSpeed 	( 00000000 *Fixed[3.0] )
+	Call     MoveNpcTo   	( 00000000 FFFFFF6A FFFFFFE7 00000000 )
+	Wait     00000005 
+	Call     SetNpcAnimation 	( 00000000 0066021A )
+	Wait     00000014 
+	Call     SetNpcAnimation 	( 00000000 00660204 )
+	Wait     00000005 
+	Call     SayMessage0 	( 00000000 00660214 00660204 00000005 000C00D7 ) % Bah ha ha ha ha! Loser! Serves you right! You fell ...
+	Thread
+		Wait     0000000A 
+		Call     SetNpcSpeed 	( 00000000 *Fixed[2.5] )
+		Call     SetNpcAnimation 	( 00000000 00660202 )
+		Call     MoveNpcTo   	( 00000000 FFFFFF38 FFFFFFE7 00000000 )
+	EndThread
+	Wait     00000014 
+	Set  *StoryProgress  FFFFFFAC
+	Set  *Chapter1Progress  FFFFFFAC  
+Else
+	Wait     00000014 
+EndIf
+Call     GotoMap     	( $ASCII_80243080 00000000 )
+Wait     00000064 
+Return
+End

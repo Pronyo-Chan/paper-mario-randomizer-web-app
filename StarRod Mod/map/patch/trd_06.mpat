@@ -1,0 +1,148 @@
+@ $Script_Main
+Set  *WorldMapLocation  .Location:KoopaBrosFortress
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     SetCamLeadPlayer 	( .Default .False )
+Switch  *StoryProgress 
+	Case  <  FFFFFFB2 
+		Call     EnableModel 	( {Model:o97} .False )
+		Call     EnableModel 	( {Model:o98} .False )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:o109} 7FFFFE00 )
+EndSwitch
+If  *StoryProgress  >=  FFFFFFAC % Set wall blown flag true if mario has fallen for trap. Avoid softlock if no bombette in rando 
+	Set  *Flag_TRD_15  00000001 
+EndIf
+Switch  *StoryProgress 
+	Case  <  FFFFFFB2 
+		Call     MakeNpcs    	( 00000001 $NpcGroupList_802447FC )
+		Call     802C9308 ( 00000040 00000000 )
+	Case  <  FFFFFFB6 
+		Call     MakeNpcs    	( 00000001 $NpcGroupList_80245158 )
+EndSwitch
+Wait     00000002 
+ExecWait $Script_MakeEntities 
+Bind     $Script_80240F1C .Trigger:WallPressA {Collider:ttw} 00000001 00000000 
+Call     GetEntryID  	( *Var[0] )
+If  *Var[0]  <=  00000001 
+	If  *Flag_TRD_15  ==  00000000 
+		Bind     $Script_802410FC .Trigger:PointBomb $TriggerCoord_802410EC 00000001 00000000 
+		Call     802C9308 ( 0000000F 00000000 )
+	Else
+		Call     802C9308 ( 00000012 00000000 )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:deilitse} 7FFFFE00 )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:ttse} 7FFFFE00 )
+	EndIf
+Else
+	Call     802C9308 ( 0000000F 00000000 )
+EndIf
+Exec     $Script_80240DA0 
+Exec     $Script_80241568 
+Exec     $Script_80240FC0 
+Wait     00000001 
+Call     EnableTexPanning 	( {Model:suimen} .True )
+Thread
+	Set  *Var[0]  00000001 
+	Set  *Var[1]  00000000 
+	Set  *Var[2]  0000005A 
+	Set  *Var[3]  FFFFFFC4 
+	Set  *Var[4]  FFFFFFBA 
+	Set  *Var[5]  00000001 
+	Set  *Var[6]  00000001 
+	Set  *Var[7]  00000001 
+	Set  *Var[8]  00000001 
+	Set  *Var[9]  00000000 
+	Set  *Var[A]  00000000 
+	Set  *Var[B]  00000000 
+	Set  *Var[C]  00000000 
+	Exec     $Script_80240E80 
+EndThread
+Return
+End
+
+@ $Script_802427F0 % Bombette joins the party
+Thread
+	Call     UseSettings 	( .Default *Fixed[5.0] 00000000 *Fixed[300.0] *Fixed[18.0] *Fixed[-7.0] )
+EndThread
+Call     GetAngleToPlayer 	( .Npc:Self *Var[0] )
+If  *Var[0]  <  000000B4 
+	Set  *Var[1]  0000001B 
+Else
+	Set  *Var[1]  FFFFFFE5 
+EndIf
+Call     GetNpcPos   	( .Npc:Self *Var[2] *Var[3] *Var[4] )
+Call     GetPlayerPos 	( *Var[A] *Var[B] *Var[C] )
+Sub  *Var[A]  *Var[2] 
+If  *Var[A]  <  00000000 
+	Mul  *Var[A]  FFFFFFFF 
+EndIf
+If  *Var[A]  <  00000014 
+	Add  *Var[2]  *Var[1] 
+	Call     SetPlayerSpeed ( *Fixed[3.0] )
+	Call     MovePlayerTo 	( *Var[2] *Var[4] 00000000 )
+	Call     PlayerFaceNpc 	( 00000001 00000003 )
+EndIf
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+If  *Flag_TRD_16  ==  00000000 
+	Set  *Flag_TRD_16  00000001 
+	Call     SayMessage0 	( .Npc:Self 0003000E 00030003 00000000 000C00DA ) % What's that...? Why am I locked up here? Because I ...
+	Wait     0000000A 
+	Call     SetPlayerAnimation 	( .PlayerAnim:NodYes )
+	Call     SayMessage1 	( .Npc:Self 0003000E 00030003 00000000 )
+	Call     SetPlayerAnimation 	( 00010002 )
+	Call     ShowChoice  	( 001E000D ) % Yes No 
+	If  *Var[0]  !=  00000000 
+		Call     SayMessage2 	( .Npc:Self 0003000E 00030003 00000000 000C00DB ) % Oh, you...won't... We're really hurting here, Mari ...
+	EndIf
+Else
+	Call     SayMessage0 	( .Npc:Self 0003000E 00030003 00000000 000C00DC ) % You changed your mind, Mario? 
+	Call     SetPlayerAnimation 	( 00010002 )
+	Call     ShowChoice  	( 001E000D ) % Yes No 
+	If  *Var[0]  !=  00000000 
+		Call     SayMessage2 	( .Npc:Self 0003000E 00030003 00000000 000C00DD ) % Oh...how depressing...
+	EndIf
+EndIf
+If  *Var[0]  ==  00000000 
+	Call     SetNpcFlagBits ( .Npc:Self 00000100 .True )
+	Call     SetNpcJumpscale 	( .Npc:Self *Fixed[0.80078125] )
+	Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+	Call     NpcJump0    	( .Npc:Self *Var[0] *Var[1] *Var[2] 0000000F )
+	Call     SetNpcFlagBits ( .Npc:Self 00000100 .False )
+	Call     SayMessage2 	( .Npc:Self 0003000E 00030003 00000000 000C00DE ) % Oh, how nice! We'll be good friends from now on, I ...
+	Call     $Function_80240AF0 ( 00000001 00000003 )
+	Set  *StoryProgress  FFFFFFAD
+	Set  *Chapter1Progress  FFFFFFAD 
+	Call     $Function_80240C80 ( )
+	Exec     $Script_80240E14 
+	Wait     0000000F 
+	Call     ShowMessage 	( 001D018B 000000A0 00000028 ) % Bombette joined your party!! Press  to make Bombet ...
+	Exec     $Script_80240E38 
+	Wait     0000000A 
+	Call     SayMessage0 	( .Npc:Partner 0003000E 00030003 00000000 000C00DF ) % Now. Let's think of a way to get out of here.
+	Wait     00000001 
+	Call     SetPlayerAnimation 	( .PlayerAnim:NodYes )
+	Wait     0000000F 
+	Call     SetPlayerAnimation 	( 00010002 )
+	Wait     00000019 
+	Call     PlaySoundAtNpc ( .Npc:Partner 00000262 00000000 )
+	Call     ShowEmote   	( .Npc:Partner .Emote:Exclamation FFFFFFD3 0000001E 00000001 00000000 00000000 00000000 00000000 )
+	Wait     00000028 
+	Call     SayMessage0 	( .Npc:Partner 0003000E 00030003 00000000 000C00E0 ) % Oh, gee, I almost forgot! I haven't even told you  ...
+	ExecWait $Script_80242678 
+EndIf
+Call     ResetCam    	( .Default *Fixed[5.0] )
+Return
+End
+
+@ $Script_802433AC % Defeat the jail guards
+Call     GetBattleOutcome 	( *Var[0] )
+Switch  *Var[0] 
+	Case  ==  .Outcome:PlayerWon % 0
+		Set  *StoryProgress  FFFFFFAE
+		Set  *Chapter1Progress  FFFFFFAE 
+		Call     DoNpcDefeat 	( )
+	Case  ==  .Outcome:PlayerLost % 1
+EndSwitch
+Return
+End

@@ -1,0 +1,124 @@
+@ $Script_80240D8C % Reach Koopa Fortress Exterior
+SetGroup 00000000 
+SuspendAll 00000001 
+Call     GetLoadType 	( *Var[1] )
+If  *Var[1]  ==  00000001 
+	Exec     EnterSavePoint 
+	Exec     $Script_80240A98 
+	Return
+EndIf
+Call     GetEntryID  	( *Var[0] )
+Switch  *Var[0] 
+	Case  ==  00000000 
+		If  *StoryProgress  <  FFFFFFA6 
+            Set  *StoryProgress  FFFFFFA6 
+            Set  *Chapter1Progress  FFFFFFA6 
+			ExecWait $Script_80240B34 
+			Exec     $Script_80240A98 
+		Else
+			Set  *Var[0]  $Script_80240A98 
+			Exec     EnterWalk 
+		EndIf
+	Case  ==  00000001 
+		Set  *Var[2]  00000043 
+		Set  *Var[3]  00000041 
+		ExecWait EnterDoubleDoor 
+		Exec     $Script_80240A98 
+	Case  ==  00000002 
+		Set  *Var[2]  00000047 
+		Set  *Var[3]  00000045 
+		ExecWait EnterDoubleDoor 
+		Exec     $Script_80240A98 
+	Case  ==  00000003 
+		Set  *Var[0]  $Script_80240A98 
+		Exec     EnterWalk 
+	Case  ==  00000004 
+		Set  *Var[0]  $Script_80240A98 
+		Exec     EnterWalk 
+	Case  ==  00000005 
+		Exec     $Script_80240A98 
+EndSwitch
+ResumeAll 00000001 
+Return
+End
+
+@ $Script_802416C0 % Spotted by Koopa Bros
+Call     SetNpcFlagBits ( .Npc:Self 00000002 .True )
+Call     AwaitPlayerApproach 	( FFFFFDBC 00000114 00000032 )
+Call     SetNpcFlagBits ( .Npc:Self 00000002 .False )
+Thread
+	Call     PlaySoundAtCollider 	( {Collider:tt2} .Sound:MetalDoorOpen 00000000 )
+	Call     MakeLerp    	( 00000000 00000064 0000000A 0000000A )
+	Label    00000000 
+	Call     UpdateLerp  	( )
+	Call     RotateModel 	( {Model:o62} *Var[0] 00000000 FFFFFFFF 00000000 )
+	Call     RotateModel 	( {Model:doa} *Var[0] 00000000 00000001 00000000 )
+	Wait     00000001 
+	If  *Var[1]  !=  00000000 
+		Goto     00000000 
+	EndIf
+EndThread
+Call     DisablePlayerInput 	( .True )
+Thread
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default 0000015E )
+	Call     SetPanTarget 	( .Default FFFFFDC6 00000000 000000AD )
+	Call     SetCamSpeed 	( .Default *Fixed[3.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+EndThread
+Call     SetNpcAnimation 	( .Npc:Self 00660003 )
+Call     SetNpcFlagBits ( .Npc:Self 00000040 .True )
+Call     SetNpcSpeed 	( .Npc:Self *Fixed[4.5] )
+Call     MoveNpcTo   	( .Npc:Self FFFFFDD4 000000B4 00000000 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     802CFD30 ( FFFFFFFF 00000005 00000004 00000002 00000001 00000000 )
+Call     SetNpcAnimation 	( .Npc:Self 0066001E )
+Wait     0000000C 
+Call     802CFD30 ( FFFFFFFF 00000000 00000000 00000000 00000000 00000000 )
+Call     SetNpcAnimation 	( .Npc:Self 00660004 )
+Wait     0000000A 
+Call     SayMessage0 	( .Npc:Self 00660014 00660004 00000000 000C00D2 ) % Whoa! Mario!! What the...! Oh, we're in a world of ...
+Call     SetNpcAnimation 	( .Npc:Self 00660002 )
+Call     InterpNpcYaw 	( .Npc:Self 0000002D 00000002 )
+Call     PlaySoundAtNpc ( .Npc:Self 00000173 00000000 )
+Call     SetNpcAnimation 	( .Npc:Self 00660003 )
+Call     SetNpcJumpscale 	( .Npc:Self *Fixed[0.80078125] )
+Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+Call     NpcJump0    	( .Npc:Self *Var[0] *Var[1] *Var[2] 00000008 )
+Wait     00000008 
+Wait     0000000C 
+Thread
+	Call     PlaySoundAtNpc ( .Npc:Self 00000174 00000000 )
+	Call     SetNpcSpeed 	( .Npc:Self *Fixed[8.0] )
+	Call     MoveNpcTo   	( .Npc:Self FFFFFE10 00000065 00000000 )
+EndThread
+Wait     0000000A 
+Thread
+	Wait     00000008 
+	Call     ShakeCam    	( .Default 00000000 00000005 *Fixed[1.0] )
+EndThread
+Call     MakeLerp    	( 00000064 00000000 0000000A 0000000A )
+Label    00000001 
+Call     UpdateLerp  	( )
+Call     RotateModel 	( {Model:o62} *Var[0] 00000000 FFFFFFFF 00000000 )
+Call     RotateModel 	( {Model:doa} *Var[0] 00000000 00000001 00000000 )
+Wait     00000001 
+If  *Var[1]  !=  00000000 
+	Goto     00000001 
+EndIf
+Call     PlaySoundAtCollider 	( {Collider:tt2} .Sound:MetalDoorClose 00000000 )
+Wait     0000000A 
+Call     PanToTarget 	( .Default 00000000 00000000 )
+Call     SetCamSpeed 	( .Default *Fixed[3.5] )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     DisablePlayerInput 	( .False )
+Set  *StoryProgress  FFFFFFA7 
+Set  *Chapter1Progress  FFFFFFA7
+Call     RemoveNpc   	( .Npc:Self )
+Return
+End
+
+@ $Script_80241DA4 % Skip the Star1 dialogue entirely
+  A7C:  Return
+  A84:  End

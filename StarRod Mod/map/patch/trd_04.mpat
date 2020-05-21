@@ -1,0 +1,130 @@
+@ $Script_80244120 % Lower staircase
+SetGroup 00000000 
+SuspendAll 00000001 
+Set  *StoryProgress  FFFFFFAA
+Set  *Chapter1Progress  FFFFFFAA 
+Call     DisablePlayerInput 	( .True )
+Wait     0000001E 
+Thread
+	Call     ShakeCam    	( .Default 00000000 0000000A *Fixed[0.7001953] )
+	Call     ShakeCam    	( .Default 00000000 00000140 *Fixed[1.0] )
+	Call     ShakeCam    	( .Default 00000000 0000000A *Fixed[0.7001953] )
+	Call     ShakeCam    	( .Default 00000000 0000000A *Fixed[0.40039062] )
+EndThread
+Wait     0000001E 
+Call     EnableModel 	( {Model:o6} .False )
+Call     EnableModel 	( {Model:o7} .False )
+Call     EnableModel 	( {Model:bero2} .False )
+Call     UseSettingsFrom 	( .Default FFFFFFCE 00000000 00000000 )
+Call     SetPanTarget 	( .Default FFFFFFCE 00000000 00000000 )
+Call     SetCamDistance ( .Default *Fixed[540.0] )
+Call     SetCamAngles 	( .Default 0000000F FFFFFFFA )
+Call     SetCamPosA  	( .Default FFFFFFE2 FFFFFFC4 )
+Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     SetPlayerPos 	( FFFFFF47 00000000 FFFFFFDC )
+Call     InterpPlayerYaw 	( 0000005A 00000000 )
+Call     SetNpcPos   	( .Npc:Partner FFFFFF5D 00000000 FFFFFFF4 )
+Call     InterpNpcYaw 	( .Npc:Partner 0000005A 00000000 )
+Call     PlaySound   	( 80000005 )
+Wait     00000014 
+Thread
+	Loop     00000005 
+		Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+		Add  *Var[1]  00000096 
+		Call     PlayEffect  	( {FX:Dust:LightRain} *Var[0] *Var[1] *Var[2] 00000028 00000000 0
+		Call     RandInt     	( 00000014 *Var[0] )
+		Add  *Var[0]  00000014 
+		Wait     *Var[0] 
+	EndLoop
+EndThread
+Thread
+	Loop     00000007 
+		Call     GetPlayerPos 	( *Var[1] *Var[2] *Var[3] )
+		Call     RandInt     	( 000000C8 *Var[4] )
+		Sub  *Var[4]  00000064 
+		Call     RandInt     	( 00000064 *Var[5] )
+		Sub  *Var[5]  00000064 
+		Add  *Var[1]  *Var[4] 
+		Add  *Var[2]  000000C8 
+		Add  *Var[3]  *Var[5] 
+		Call     PlayEffect  	( {FX:ShatteringStones} *Var[1] *Var[2] *Var[3] 00000000 00000000
+		Call     RandInt     	( 0000001E *Var[0] )
+		Add  *Var[0]  0000001E 
+		Wait     *Var[0] 
+	EndLoop
+EndThread
+Thread
+	Call     InterpPlayerYaw 	( 0000010E 00000000 )
+	Wait     0000000A 
+	Call     InterpPlayerYaw 	( 0000005A 00000000 )
+	Wait     0000000F 
+	Call     InterpPlayerYaw 	( 0000010E 00000000 )
+	Wait     0000000C 
+	Call     InterpPlayerYaw 	( 0000005A 00000000 )
+	Wait     00000012 
+	Call     InterpPlayerYaw 	( 0000010E 00000000 )
+	Wait     0000001D 
+	Call     InterpPlayerYaw 	( 0000005A 00000000 )
+EndThread
+Thread
+	Call     InterpNpcYaw 	( .Npc:Partner 0000010E 00000000 )
+	Wait     0000000D 
+	Call     InterpNpcYaw 	( .Npc:Partner 0000005A 00000000 )
+	Wait     0000000F 
+	Call     InterpNpcYaw 	( .Npc:Partner 0000010E 00000000 )
+	Wait     00000011 
+	Call     InterpNpcYaw 	( .Npc:Partner 0000005A 00000000 )
+	Wait     00000012 
+	Call     InterpNpcYaw 	( .Npc:Partner 0000010E 00000000 )
+	Wait     00000011 
+	Call     InterpNpcYaw 	( .Npc:Partner 0000005A 00000000 )
+EndThread
+Wait     00000014 
+Call     MakeLerp    	( 000000BB 00000000 0000012C 0000000A )
+Label    00000000 
+Call     UpdateLerp  	( )
+Call     TranslateModel ( {Model:k_sokumen} 00000000 *Var[0] 00000000 )
+Call     TranslateModel ( {Model:k_dan} 00000000 *Var[0] 00000000 )
+Call     TranslateModel ( {Model:k_kusari} 00000000 *Var[0] 00000000 )
+Wait     00000001 
+If  *Var[1]  ==  00000001 
+	Goto     00000000 
+EndIf
+Call     UpdateColliderTransform 	( {Collider:o86} )
+Call     UpdateColliderTransform 	( {Collider:o87} )
+Call     StopSound   	( 80000005 )
+Call     PlaySound   	( 00000028 )
+Wait     00000032 
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] 00000000 *Var[2] )
+Call     SetCamDistance ( .Default *Fixed[400.0] )
+Call     SetCamPosA  	( .Default FFFFFF57 00000082 )
+Call     SetCamAngles 	( .Default 00000012 FFFFFFFA )
+Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Wait     00000002 
+Call     PanToTarget 	( .Default 00000000 00000000 )
+Call     EnableModel 	( {Model:o6} .True )
+Call     EnableModel 	( {Model:o7} .True )
+Call     EnableModel 	( {Model:bero2} .True )
+Call     DisablePlayerInput 	( .False )
+ResumeAll 00000001 
+Unbind
+Return
+End
+
+@ $Script_802457D8 % Defeat basement koopa
+Call     GetBattleOutcome 	( *Var[0] )
+Switch  *Var[0] 
+	Case  ==  .Outcome:PlayerWon % 0
+		Set  *StoryProgress  FFFFFFA9 
+		Set  *Chapter1Progress  FFFFFFA9 
+		Thread
+			Call     DoNpcDefeat 	( )
+		EndThread
+		ExecWait $Script_80245198 
+EndSwitch
+Return
+End
