@@ -1,0 +1,19 @@
+
+*.z64
+
+// Ignore All mod files except map patches
+StarRod Mod/audio/
+StarRod Mod/battle/
+StarRod Mod/editor/
+StarRod Mod/globals/
+StarRod Mod/image/
+StarRod Mod/logs/
+StarRod Mod/map/*
+StarRod Mod/out/
+StarRod Mod/res/
+StarRod Mod/sprite/
+StarRod Mod/strings/
+StarRod 0.2/
+dump/
+
+!StarRod Mod/map/patch
