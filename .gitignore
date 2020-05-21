@@ -5,7 +5,7 @@
 StarRod Mod/audio/
 StarRod Mod/battle/
 StarRod Mod/editor/
-StarRod Mod/globals/
+StarRod Mod/globals/*
 StarRod Mod/image/
 StarRod Mod/logs/
 StarRod Mod/map/*
@@ -17,3 +17,4 @@ StarRod 0.2/
 dump/
 
 !StarRod Mod/map/patch
+!StarRod Mod/globals/GameBytes.txt
