@@ -56,5 +56,6 @@ Call     SayMessage1 	( 00000000 008F0007 008F0002 00000000 )
 ExecWait $Script_8024A814 
 Call     SayMessage3 	( 00000000 00900009 00900002 00000000 00000001 000C0001 ) % Oh, no! Stupid Fuzzy! Get back here with my shell!
 Set  *StoryProgress  FFFFFF9F 
+Set  *Chapter1Progress  FFFFFF9F 
 Return
 End

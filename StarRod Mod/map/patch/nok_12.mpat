@@ -117,6 +117,7 @@ Call     802D5830 ( 00000000 )
 Call     DisablePlayerPhysics 	( .False )
 Call     DisablePlayerInput 	( .False )
 Set  *StoryProgress  FFFFFF9E 
+Set  *Chapter1Progress  FFFFFF9E 
 Call     802C9308 ( 000000CE 00000000 )
 Unbind
 Return
