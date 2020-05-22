@@ -30,15 +30,15 @@ Wait     00000001
 Return
 End
 
-@ $Script_80243F6C
+@ $Script_80243F6C % Defeat Jr Troopa. Change Ch1 flag to be endgame so big koop is there
 Call     80045640 ( )
 Call     SetNpcAnimation 	( .Npc:Self 00210014 )
 Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
 Call     SetNpcPos   	( 00000006 *Var[0] *Var[1] *Var[2] )
 Call     SetNpcCollisionSize 	( .Npc:Self 00000018 00000020 )
 Call     SetNpcCollisionSize 	( 00000006 00000018 00000020 )
-Set  *StoryProgress  FFFFFFB6 
-Set  *Chapter1Progress  FFFFFFB6 
+Set  *StoryProgress  00000029 
+Set  *Chapter1Progress  00000029 
 Thread
 	Wait     00000004 
 	Exec     $Script_80241FB0 

@@ -135,7 +135,7 @@ Call     ResetCam    	( .Default *Fixed[5.0] )
 Return
 End
 
-@ $Script_802433AC % Defeat the jail guards
+@ $Script_802433AC % Defeat the jail guards TODO: Figure out why they never show up at all
 Call     GetBattleOutcome 	( *Var[0] )
 Switch  *Var[0] 
 	Case  ==  .Outcome:PlayerWon % 0

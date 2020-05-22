@@ -1,4 +1,4 @@
-@ $Script_Main
+@ $Script_Main %TODO: Disable the "Chapter 1" thing
 Set  *WorldMapLocation  .Location:GoombaRoad
 Call     SetSpriteShading 	( FFFFFFFF )
 Call     $Function_8024027C ( )
