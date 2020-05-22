@@ -1,4 +1,4 @@
-@ $Script_8024358C % Raise ruins from sand
+@ $Script_8024358C % Raise ruins from sand. TODO: Make the pulse stone flash in every desert area eventually if Player has it
 Call     DisablePulseStone 	( .True )
 Call     802D6420 ( )
 If  *Var[0]  <=  00000000 
@@ -71,5 +71,28 @@ Else
 	Call     GotoMap     	( $ASCII_802455F0 00000005 )
 EndIf
 Wait     00000064 
+Return
+End
+
+@ $Script_80243A00 % Pulse Stone handling logic. Enable being able to place it if player has it. Else, if Story is beyond ruins spawn ruins.
+Call     HasKeyItem  	( .Item:PulseStone *Var[0] )
+If  *Var[0]  !=  00000000 
+    Call     EnableGroup 	( {Model:day_version} .False )
+    Call     ModifyColliderFlags 	( 00000000 {Collider:ruin} 7FFFFE00 )
+    BindLock $Script_8024358C .Trigger:WallPressA {Collider:iwa} $ItemList_80241250 00000000 00000001
+Else
+    If  *StoryProgress  <   FFFFFFC2
+        Call     EnableGroup 	( {Model:day_version} .False )
+        Call     ModifyColliderFlags 	( 00000000 {Collider:ruin} 7FFFFE00 )
+        BindLock $Script_8024358C .Trigger:WallPressA {Collider:iwa} $ItemList_80241250 00000000 00000001
+    Else
+        Call     EnableModel 	( {Model:point_iwa} .False )
+        Call     ModifyColliderFlags 	( 00000000 {Collider:pikapika} 7FFFFE00 )
+    EndIf
+EndIf
+Call     EnableGroup 	( {Model:ruins} .False )
+Call     EnableGroup 	( {Model:step} .False )
+Call     EnableModel 	( {Model:upper_light} .False )
+Call     EnableModel 	( {Model:o225} .False )
 Return
 End
