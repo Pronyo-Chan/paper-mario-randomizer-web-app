@@ -1,0 +1,250 @@
+@ $Script_80246408 % First talk to Parakarry
+Label    00000000 
+Wait     00000001 
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+If  *Var[1]  <  000000D7 
+	Goto     00000000 
+EndIf
+If  *Var[0]  <  FFFFFDA8 
+	Goto     00000000 
+EndIf
+Call     DisablePlayerInput 	( .True )
+Call     ShowMessage 	( 000D000E 00000140 00000096 ) % Ah... No... Confound it! Where could it be...?
+Thread
+	Call     SetPlayerAnimation 	( 0001002A )
+	Call     PlaySoundAtPlayer 	( 00000263 00000000 )
+	Call     ShowEmote   	( 00000000 .Emote:Question 00000000 00000014 00000000 00000000 00000000 00000000 00000000 )
+EndThread
+Call     UseSettings 	( .Default *Fixed[3.0] 0000001E 0000012C *Fixed[15.0] *Fixed[-9.5] )
+Thread
+	Call     SetPlayerAnimation 	( 00080022 )
+	Wait     00000014 
+	Call     InterpPlayerYaw 	( 0000010E 00000000 )
+	Wait     00000037 
+	Call     InterpPlayerYaw 	( 0000005A 00000000 )
+EndThread
+Wait     00000014 
+Call     SetNpcPos   	( 00000004 FFFFFE70 000000D7 FFFFFE02 )
+Call     SetNpcFlagBits ( 00000004 00000040 .True )
+Thread
+	Call     SetNpcRotation ( 00000004 00000000 00000000 0000000F )
+	Call     InterpNpcYaw 	( 00000004 0000010E 00000000 )
+	Wait     00000014 
+	Call     SetNpcRotation ( 00000004 00000000 00000000 00000000 )
+	Call     InterpNpcYaw 	( 00000004 0000005A 00000000 )
+	Wait     00000005 
+	Call     SetNpcRotation ( 00000004 00000000 00000000 FFFFFFF1 )
+	Wait     0000001E 
+	Call     InterpNpcYaw 	( 00000004 0000010E 00000000 )
+	Call     SetNpcRotation ( 00000004 00000000 00000000 00000000 )
+EndThread
+Set  *MapVar[A]  FFFFFE02 
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Thread
+	Call     MakeLerp    	( FFFFFE02 *Var[2] 0000003C 00000000 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Set  *MapVar[A]  *Var[0] 
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+EndThread
+Add  *Var[0]  00000019 
+Call     MakeLerp    	( FFFFFE70 *Var[0] 00000037 00000000 )
+Loop     
+	Call     UpdateLerp  	( )
+	Call     SetNpcPos   	( 00000004 *Var[0] 000000DC *MapVar[A] )
+	Wait     00000001 
+	If  *Var[1]  ==  00000000 
+		BreakLoop
+	EndIf
+EndLoop
+Call     SetPlayerAnimation 	( .PlayerAnim:FallBack )
+Call     SetNpcAnimation 	( 00000004 00040004 )
+Thread
+	Call     ShakeCam    	( .Default 00000000 00000005 *Fixed[2.0] )
+EndThread
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     GetNpcPos   	( 00000004 *Var[3] *Var[4] *Var[5] )
+Add  *Var[0]  *Var[3] 
+Div  *Var[0]  00000002 
+Add  *Var[2]  *Var[5] 
+Div  *Var[2]  00000002 
+Call     PlaySoundAt 	( 000000E1 00000000 *Var[0] 000000E6 *Var[2] )
+Call     PlayEffect  	( {FX:Stars:Fan} *Var[0] 000000E6 *Var[2] 00000000 FFFFFFFF 00000000 00000002 00000000 00000000 00000000 00000000 00000000 )
+Set  *Var[A]  *Var[0] 
+Set  *Var[B]  000000E6 
+Set  *Var[C]  *Var[2] 
+Call     DisablePlayerPhysics 	( .True )
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+If  *Var[2]  >  FFFFFE84 
+	Set  *Var[2]  FFFFFE84 
+EndIf
+Thread
+	Call     SetNpcJumpscale 	( 00000004 *Fixed[1.0] )
+	Call     GetNpcPos   	( 00000004 *Var[0] *Var[1] *Var[3] )
+	Add  *Var[0]  0000001E 
+	Call     NpcJump1    	( 00000004 *Var[0] 000000D7 *Var[2] 0000000F )
+	Add  *Var[0]  0000000F 
+	Call     SetNpcAnimation 	( 00000004 00040005 )
+	Call     NpcJump1    	( 00000004 *Var[0] 000000D7 *Var[2] 00000008 )
+EndThread
+Call     SetPlayerJumpscale 	( *Fixed[1.0] )
+Sub  *Var[0]  0000001E 
+Call     PlayerJump1 	( *Var[0] *Var[1] *Var[2] 0000000F )
+Call     SetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     PlaySoundAt 	( 00000162 00000000 *Var[A] *Var[B] *Var[C] )
+Thread
+	Call     ShakeCam    	( .Default 00000000 00000005 *Fixed[1.0] )
+EndThread
+Sub  *Var[0]  0000000F 
+Call     SetPlayerFlagBits 	( 00200000 .True )
+Call     InterpPlayerYaw 	( 0000010E 00000000 )
+Wait     00000001 
+Call     SetPlayerAnimation 	( .PlayerAnim:DeadStill )
+Call     PlayerJump1 	( *Var[0] *Var[1] *Var[2] 00000008 )
+Call     SetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Thread
+	Call     ShakeCam    	( .Default 00000000 00000003 *Fixed[1.0] )
+EndThread
+Wait     00000014 
+Call     NpcFaceNpc  	( .Npc:Partner 00000004 00000000 )
+Call     SetPlayerAnimation 	( .PlayerAnim:GetUp )
+Wait     0000000A 
+Call     SetNpcAnimation 	( 00000004 00040001 )
+Call     GetNpcPos   	( 00000004 *Var[0] *Var[1] *Var[2] )
+Add  *Var[1]  00000014 
+Call     NpcJump1    	( 00000004 *Var[0] *Var[1] *Var[2] 00000008 )
+Call     SetPlayerFlagBits 	( 00200000 .False )
+Call     InterpPlayerYaw 	( 0000005A 00000000 )
+Call     SetPlayerAnimation 	( 00010002 )
+Wait     0000001E 
+Call     UseSettings 	( .Default *Fixed[3.0] 00000023 000000FF *Fixed[17.5] *Fixed[-11.5] )
+Call     SetNpcAnimation 	( 00000004 00040002 )
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Add  *Var[0]  0000003C 
+Call     SetNpcSpeed 	( 00000004 *Fixed[3.0] )
+Call     MoveNpcTo   	( 00000004 *Var[0] *Var[2] 00000000 )
+Wait     0000000A 
+Call     SetNpcAnimation 	( 00000004 00040001 )
+Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D000F ) % Oh! Sorry, folks! Very sorry! I was looking for so ...
+Wait     0000000A 
+Call     GetNpcPos   	( 00000004 *Var[0] *Var[1] *Var[2] )
+Call     NpcJump0    	( 00000004 *Var[0] *Var[1] *Var[2] 0000000A )
+Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D0010 ) % What now? Aren't you Mario? Why, you are! You're T ...
+Call     SetPlayerAnimation 	( 00080007 )
+Wait     00000014 
+Call     SetPlayerAnimation 	( 00010002 )
+Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D0011 ) % The name's Parakarry. I deliver letters. Um... I'm ...
+Set  *StoryProgress  FFFFFFB9 
+Set  *Chapter2Progress  FFFFFFB9 
+Call     ResetCam    	( .Default *Fixed[3.0] )
+Call     DisablePlayerPhysics 	( .False )
+Call     DisablePlayerInput 	( .False )
+Call     BindNpcAI   	( 00000004 $Script_802474F8 )
+Return
+End
+
+@ $Script_80246E90
+Set  *Flag[00]  00000000 
+If  *ReturnedLettersCount  ==  00000002 
+	Set  *Var[0]  00000000 
+	If  *Flag_IWA_13  ==  00000001 
+		Add  *Var[0]  00000001 
+	EndIf
+	If  *Flag_IWA_14  ==  00000001 
+		Add  *Var[0]  00000001 
+	EndIf
+	If  *Flag_IWA_15  ==  00000001 
+		Add  *Var[0]  00000001 
+	EndIf
+	If  *Var[0]  ==  00000003 
+		Call     GetPlayerPos 	( *Var[1] *Var[2] *Var[3] )
+		Call     GetNpcPos   	( 00000004 *Var[4] *Var[5] *Var[6] )
+		If  *Var[1]  <  *Var[4] 
+			Add  *Var[4]  FFFFFFE2 
+		Else
+			Add  *Var[4]  0000001E 
+		EndIf
+		Call     MovePlayerTo 	( *Var[4] *Var[6] 00000014 )
+		Call     PlayerFaceNpc 	( 00000004 00000000 )
+		Wait     0000000A 
+		Call     802CF56C ( 00000002 )
+		Call     UseSettings 	( .Default *Fixed[4.0] *Fixed[0.0] *Fixed[300.0] *Fixed[17.5] *Fixed[-10.0] )
+	EndIf
+EndIf
+Set  *Var[0]  $???_80246E80 
+Set  *Var[1]  00000004 
+ExecWait $Script_802463B8 
+Switch  *Var[0] 
+	Case  ==  00000000 
+		Switch  *ReturnedLettersCount 
+			Case  ==  00000000 
+				Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D0012 ) % If you find a letter lying around somewhere, could ...
+			Case  ==  00000001 
+				Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D0015 ) % I'm still looking for those two missing letters... ...
+			Case  ==  00000002 
+				Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D0017 ) % One more letter... Please, I really need it! I'll  ...
+			Case  ==  00000003 
+				Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D001C ) % Hello again! You changed your mind? Can I go with  ...
+				Call     ShowChoice  	( 001E000F ) % Take Don't take 
+				If  *Var[0]  !=  00000000 
+					Call     SayMessage2 	( 00000004 00040006 00040001 00000000 000D001B ) % Oh... I understand. I suppose I'm asking too much. ...
+					Call     ResetCam    	( .Default *Fixed[4.0] )
+					Return
+				EndIf
+				Set  *Flag[00]  00000001 
+		EndSwitch
+	Case  ==  FFFFFFFF 
+		Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D0013 ) % Uh...? That... looks like the letter I'm looking f ...
+	Default
+		Call     RemoveKeyItemAt 	( *Var[0] )
+		Add  *ReturnedLettersCount  00000001 
+		Switch  *ReturnedLettersCount 
+			Case  ==  00000001 
+				Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D0014 ) % Oh! That's the one! Aw, thanks for finding it! I'm ...
+			Case  ==  00000002 
+				Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D0016 ) % Oh! There we go! That's one of the ones I dropped  ...
+			Case  ==  00000003 
+				Call     SayMessage0 	( 00000004 00040007 00040001 00000000 000D0018 ) % The last letter! You found it! Now I've got all th ...
+				Call     SetPlayerAnimation 	( .PlayerAnim:Question )
+				Wait     0000001E 
+				Call     SetPlayerAnimation 	( 00010002 )
+				Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D0019 ) % Actually... To be honest... I haven't just lost le ...
+				Call     ShowChoice  	( 001E000F ) % Take Don't take 
+				If  *Var[0]  !=  00000000 
+					Call     SayMessage2 	( 00000004 00040006 00040001 00000000 000D001A ) % I see. May I ask why not? Please, Mario, I'm in a  ...
+					Call     ShowChoice  	( 001E000F ) % Take Don't take 
+					If  *Var[0]  !=  00000000 
+						Call     SayMessage2 	( 00000004 00040006 00040001 00000000 000D001B ) % Oh... I understand. I suppose I'm asking too much. ...
+						Call     ResetCam    	( .Default *Fixed[4.0] )
+						Return
+					EndIf
+				EndIf
+				Set  *Flag[00]  00000001 
+		EndSwitch
+EndSwitch
+If  *Flag[00]  ==  00000001 
+	Call     DisablePartnerAI 	( 00000000 )
+	Call     SayMessage2 	( 00000004 00040006 00040001 00000000 000D001D ) % Oh, praise the Stars! I wasn't looking forward to  ...
+	Call     $Function_80241030 ( 00000004 00000004 )
+	Set  *StoryProgress  FFFFFFBA
+	Set  *Chapter2Progress  FFFFFFBA  % TODO: Replace every check for this flag with a partner flag.
+	Call     $Function_80241510 ( )
+	Exec     $Script_8024187C 
+	Wait     0000000F 
+	Call     ShowMessage 	( 001D018C 000000A0 00000028 ) % Parakarry joined your party!! Press  to have him c ...
+	Exec     $Script_802418B0 
+	Wait     0000000A 
+	Call     SayMessage0 	( .Npc:Partner 00040006 00040001 00000000 000D001E ) % Now! Onward!  Oh, but hey... By the way, if you wa ...
+	Call     AddKeyItem  	( .Item:Letter01 )
+	Call     AddKeyItem  	( .Item:Letter25 )
+	Call     AddKeyItem  	( .Item:Letter10 )
+EndIf
+Call     ResetCam    	( .Default *Fixed[4.0] )
+Call     EnablePartnerAI 	( )
+Return
+Return
+End
