@@ -76,7 +76,7 @@ Call     PlaySoundAtPlayer 	( 00000138 00000000 )
 Call     DisablePlayerInput 	( .True )
 Set  *StoryProgress  FFFFFFB3
 Set  *Chapter1Progress  FFFFFFB3 
-Call GotoMap ("trd_00" 00000001) % Skip end of chapter and go directly to fortress exterior
+Call GotoMap ("trd_00" 00000005) % Skip end of chapter and go directly to fortress exterior
 Wait     00000064 
 Return
 End

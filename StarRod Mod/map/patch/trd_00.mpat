@@ -119,6 +119,191 @@ Call     RemoveNpc   	( .Npc:Self )
 Return
 End
 
-@ $Script_80241DA4 % Skip the Star1 dialogue entirely
-  A7C:  Return
-  A84:  End
+@ $Script_Init_80242830
+Call     GetEntryID  	( *Var[0] )
+If  *Var[0]  ==  00000005 
+	Call     GetLoadType 	( *Var[1] )
+	If  *Var[1]  ==  00000001 
+		Call     RemoveNpc   	( .Npc:Self )
+	Else
+		Call     BindNpcIdle 	( .Npc:Self $Script_80241C8C )
+		Call     BindNpcDefeat 	( .Npc:Self $Script_80241D80 )
+		Exec     $Script_80241DA4 
+	EndIf
+Else
+	Call     RemoveNpc   	( .Npc:Self )
+EndIf
+Return
+End
+
+@ $Script_80241DA4 % Skip the Star1 tutorial TODO: Figure out why star music isn't playing
+Call     DisablePartnerAI 	( 00000000 )
+Call     802CF56C ( 00000002 )
+Call     SetNpcPos   	( 00000001 FFFFFDC9 0000001A 000000EC )
+Call     PlayerFaceNpc 	( 00000001 00000000 )
+Call     NpcFaceNpc  	( .Npc:Partner 00000001 00000000 )
+Call     UseSettingsFrom 	( .Default FFFFFDF1 00000000 000000D8 )
+Call     SetPanTarget 	( .Default FFFFFDF1 00000000 000000D8 )
+Call     SetCamDistance ( .Default *Fixed[475.0] )
+Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Wait     00000001 
+Call     802D2508 ( )
+Call     DisablePlayerInput 	( .True )
+Wait     00000028 
+Call     SayMessage0 	( 00000001 00120002 00120001 00000200 000C010D ) % Mario, I believe you'll save us all... From the bo ...
+Call     SetCamDistance ( .Default *Fixed[300.0] )
+Call     SetCamAngles 	( .Default *Fixed[18.0] *Fixed[-9.0] )
+Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     MakeLerp    	( 00000000 00000168 0000000A 00000000 )
+Loop     
+	Call     UpdateLerp  	( )
+	Call     SetNpcRotation ( 00000001 00000000 *Var[0] 00000000 )
+	Wait     00000001 
+	If  *Var[1]  ==  00000000 
+		BreakLoop
+	EndIf
+EndLoop
+Call     EnableNpcAI 	( 00000001 .False )
+Call     SetNpcAnimation 	( 00000001 00120003 )
+Wait     00000014 
+Call     PlaySoundAtPlayer 	( 00000139 00000000 )
+Call     SetPlayerAnimation 	( .PlayerAnim:GotItem )
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Set  *Var[3]  *Var[1] 
+Add  *Var[0]  00000005 
+Add  *Var[1]  00000032 
+Add  *Var[2]  0000000A 
+Add  *Var[3]  0000001E 
+Loop     00000006 
+	Call     PlayEffect  	( 00000011 00000003 *Var[0] *Var[1] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+	Wait     00000006 
+	Call     PlayEffect  	( {FX:Sparkles:Random} *Var[0] *Var[3] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000
+	Wait     00000006 
+EndLoop
+Wait     00000014 
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Add  *Var[1]  00000014 
+Call     PlaySoundAtPlayer 	( 00000188 00000000 )
+Call     PlayEffect  	( {FX:EnergyWaveOut:Grey} *Var[0] *Var[1] *Var[2] 00000001 0000001E 00000000 00000000 00000000 00000000 00000000 0000000
+Wait     00000028 
+Call     SetPlayerAnimation 	( 00010002 )
+Call     SetNpcAnimation 	( 00000001 00120001 )
+Call     EnableNpcAI 	( 00000001 .True )
+Call     $Function_802405D0 ( )
+Call     ShowMessage 	( 001D0191 000000A0 00000028 ) % Mario can now use the Star Spirit's Power in battl ...
+Wait     0000000A 
+Call     FullyRestoreSP ( )
+Call     $Function_8024060C ( )
+Label    0000000A 
+Wait     0000001E 
+Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default *Fixed[250.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     SayMessage0 	( 00000001 00120002 00120001 00000200 000C0112 ) % Mario...listen carefully. You must save the other  ...
+Wait     0000000A 
+Call     SetPanTarget 	( .Default FFFFFDF1 00000000 000000D8 )
+Call     SetCamDistance ( .Default *Fixed[300.0] )
+Call     SetCamAngles 	( .Default *Fixed[18.0] *Fixed[-9.0] )
+Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Wait     0000000A 
+Call     SayMessage0 	( 00000001 00120002 00120001 00000200 000C0113 ) % I have to go back now... back to Star Haven. I mus ...
+Call     SetNpcFlagBits ( 00000001 00040000 .True )
+Thread
+	Loop     00000019 
+		Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+		Call     PlayEffect  	( 00000011 00000004 *Var[0] *Var[1] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 000
+		Wait     00000004 
+	EndLoop
+EndThread
+Thread
+	Set  *Var[2]  00000000 
+	Set  *Var[3]  00000708 
+	Call     MakeLerp    	( *Var[2] *Var[3] 00000064 00000002 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     SetNpcRotation ( 00000001 00000000 *Var[0] 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+EndThread
+Thread
+	Call     GetNpcPos   	( 00000001 *Var[2] *Var[3] *Var[4] )
+	Set  *Var[5]  *Var[3] 
+	Add  *Var[5]  000000B4 
+	Call     MakeLerp    	( *Var[3] *Var[5] 00000064 00000002 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     SetNpcPos   	( 00000001 *Var[2] *Var[0] *Var[4] )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+	Call     SetNpcPos   	( 00000001 00000000 FFFFFC18 00000000 )
+EndThread
+Thread
+	Wait     0000000F 
+	Call     PlaySoundAtNpc ( 00000001 00002045 00000000 )
+EndThread
+Wait     0000000A 
+Call     SetPlayerAnimation 	( 0001002A )
+Wait     0000005A 
+Call     ResetCam    	( .Default 00000003 )
+Wait     00000014 
+Call     SetPlayerAnimation 	( 00010002 )
+Set  *StoryProgress  FFFFFFB5
+Set  *Chapter1Progress  FFFFFFB5  
+Exec     $Script_802406D0 
+Call     EnablePartnerAI 	( )
+Call     DisablePlayerInput 	( .False )
+Return
+End
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
