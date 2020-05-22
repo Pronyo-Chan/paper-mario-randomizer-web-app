@@ -1,0 +1,75 @@
+@ $Script_8024358C % Raise ruins from sand
+Call     DisablePulseStone 	( .True )
+Call     802D6420 ( )
+If  *Var[0]  <=  00000000 
+	Call     802D6954 ( )
+	Call     DisablePulseStone 	( .False )
+	Return
+EndIf
+Call     DisablePlayerInput 	( .True )
+Call     802CF56C ( 00000001 )
+Call     RemoveKeyItemAt 	( *Var[1] )
+Call     802D6954 ( )
+Set  *StoryProgress  FFFFFFC2 
+Set  *Chapter2Progress  FFFFFFC2 
+Call     $Function_80240338 ( )
+Call     SetMusicTrack 	( 00000000 .Song:DryDryRuinsAppear 00000001 00000008 )
+Call     UseSettingsFrom 	( .Default 00000000 00000000 00000000 )
+Call     SetPanTarget 	( .Default 000000D2 00000000 00000089 )
+Call     SetCamPosA  	( .Default *Fixed[150.0] *Fixed[500.0] )
+Call     SetCamPosB  	( .Default *Fixed[-450.0] *Fixed[-500.0] )
+Call     SetCamAngles 	( .Default *Fixed[15.0] *Fixed[-7.0] )
+Call     SetCamDistance ( .Default *Fixed[500.0] )
+Call     SetCamSpeed 	( .Default *Fixed[0.20019531] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Wait     0000000A 
+Set  *Var[0]  000000B4 
+ExecWait $Script_802427F4 
+Thread
+	Call     ShakeCam    	( .Default 00000000 00000078 *Fixed[0.20019531] )
+	Call     ShakeCam    	( .Default 00000000 0000012C *Fixed[0.5] )
+	Call     ShakeCam    	( .Default 00000000 0000012C *Fixed[0.20019531] )
+EndThread
+Exec     $Script_80241258 
+Wait     0000001E 
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+If  *Var[0]  <  00000000 
+	Set  *Var[0]  FFFFFFB0 
+	Set  *Flag[00]  00000000 
+Else
+	Set  *Var[0]  00000050 
+	Set  *Flag[00]  00000001 
+EndIf
+Thread
+	Wait     0000000A 
+	Call     SetPlayerSpeed ( *Fixed[3.0] )
+	Call     MovePlayerTo 	( *Var[0] 00000050 00000000 )
+	Call     802D2884 ( 00000000 00000000 00000000 )
+EndThread
+Exec     $Script_80241430 
+Wait     0000001E 
+Call     CloneModel  	( {Model:o225} 00002710 )
+Exec     $Script_802414FC 
+Exec     $Script_80241678 
+Exec     $Script_80241790 
+Wait     00000064 
+Exec     $Script_80241B38 
+Wait     00000096 
+Exec     $Script_80241DE0 
+Exec     $Script_802431C0 
+Wait     00000064 
+Call     SetCamAngles 	( .Default *Fixed[8.0] *Fixed[-9.0] )
+Call     SetCamSpeed 	( .Default *Fixed[0.20019531] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Wait     00000050 
+Exec     $Script_802428A4 
+Wait     0000003C 
+Wait     00000032 
+If  *Flag[00]  ==  00000000 
+	Call     GotoMap     	( $ASCII_802455F0 00000004 )
+Else
+	Call     GotoMap     	( $ASCII_802455F0 00000005 )
+EndIf
+Wait     00000064 
+Return
+End
