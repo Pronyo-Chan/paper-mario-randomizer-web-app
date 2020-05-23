@@ -1,0 +1,14 @@
+@ $Script_Main % Place npcs like chapter is not over at all times
+Set  *WorldMapLocation  .Location:TubbasManor
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamLeadPlayer 	( .Default .False )
+Call     SetCamEnabled 	( .Default .True )
+Call     MakeNpcs    	( 00000001 $NpcGroupList_80241E5C )
+ExecWait $Script_MakeEntities 
+Bind     $Script_80241530 .Trigger:WallPressA {Collider:deilits} 00000001 00000000 
+Exec     $Script_80241490 
+Exec     $Script_802415E4 
+Return
+End

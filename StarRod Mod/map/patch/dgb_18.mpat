@@ -1,0 +1,41 @@
+@ $Script_Init_80242924 % Remove Tuba from his bedroom
+Call     RemoveNpc   	( .Npc:Self )
+Return
+End
+
+@ $Script_8024382C % Dont bind npc to chest, instead call regular got item script
+Set  *Flag_DGB_1F  00000001 
+Set  *Var[A]  .Item:MysticalKey 
+Set  *Var[B]  00000001 
+ExecWait $Script_8024374C 
+Return
+End
+
+@ $Script_802436E4
+SetGroup 00000000 
+Call     802D5830 ( 00000002 )
+Wait     00000028 
+Call     ShowGotItem 	( *Var[0] 00000000 00000000 )
+Call     802D5830 ( 00000000 )
+Return
+Return
+End
+
+@ $Script_8024374C
+Call     DisablePlayerInput 	( .True )
+Set  *Var[0]  *Var[A] 
+If  *Var[A]  !=  00000000 
+	ExecWait $Script_802436E4 
+EndIf
+Switch  *Var[B] 
+	Case  ==  00000000 
+		Call     AddItem     	( *Var[A] *Var[0] )
+	Case  ==  00000001 
+		Call     AddKeyItem  	( *Var[A] )
+	Case  ==  00000002 
+		Call     AddBadge    	( *Var[A] *Var[0] )
+EndSwitch
+Wait     0000000F 
+Call     DisablePlayerInput 	( .False )
+Return
+End

@@ -1,0 +1,4 @@
+@ $Script_Init_802408FC % Place boo npc like were early in chapter at all times
+Call     BindNpcInteract 	( .Npc:Self $Script_8024086C )
+Return
+End

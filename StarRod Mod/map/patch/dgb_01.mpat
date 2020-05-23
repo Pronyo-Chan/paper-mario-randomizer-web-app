@@ -1,0 +1,107 @@
+@ $Script_80243A3C % Dont set story progress during castle
+Call     UseDoorSounds 	( .DoorSounds:Creaky )
+Call     GetEntryID  	( *Var[0] )
+Switch  *Var[0] 
+	Case  ==  00000000 
+		If  *Flag_DGB_01  ==  00000000 
+			Set  *Flag_DGB_01  00000001 
+		EndIf
+		Set  *Var[2]  00000036 
+		Set  *Var[3]  00000039 
+		ExecWait EnterDoubleDoor 
+	Case  ==  00000001 
+		Set  *Var[2]  00000022 
+		Set  *Var[3]  00000024 
+		ExecWait EnterDoubleDoor 
+	Case  ==  00000002 
+		Set  *Var[2]  00000029 
+		Set  *Var[3]  00000027 
+		ExecWait EnterDoubleDoor 
+	Case  ==  00000003 
+		Set  *Var[2]  0000001D 
+		Set  *Var[3]  0000001F 
+		ExecWait EnterDoubleDoor 
+	Case  ==  00000004 
+		Set  *Var[2]  0000002E 
+		Set  *Var[3]  0000002C 
+		ExecWait EnterDoubleDoor 
+	Case  ==  00000005 
+		Set  *Var[2]  00000018 
+		Set  *Var[3]  0000001A 
+		ExecWait EnterDoubleDoor 
+	Case  ==  00000006 
+		Set  *Var[2]  00000033 
+		Set  *Var[3]  00000031 
+		ExecWait EnterDoubleDoor 
+EndSwitch
+Return
+End
+
+@ $Script_Main % Always draw npcs like you just entered manor
+Set  *WorldMapLocation  .Location:TubbasManor
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     SetCamLeadPlayer 	( .Default .False )
+Set  *Flag_MAP_10  00000001 
+ExecWait $Script_MakeEntities 
+Exec     $Script_802449C4 
+Exec     $Script_802434A0 
+Bind     $Script_80243550 .Trigger:WallPressA {Collider:deilitts} 00000001 00000000 
+Bind     $Script_80243604 .Trigger:WallPressA {Collider:deilittsw} 00000001 00000000 
+Bind     $Script_8024376C .Trigger:WallPressA {Collider:deilittw} 00000001 00000000 
+Bind     $Script_80243820 .Trigger:WallPressA {Collider:deilitte} 00000001 00000000 
+Bind     $Script_802438D4 .Trigger:WallPressA {Collider:deilittnw} 00000001 00000000 
+Bind     $Script_80243988 .Trigger:WallPressA {Collider:deilittne} 00000001 00000000 
+If  *Flag_DGB_00  ==  00000000 
+	BindLock $Script_80244AD0 .Trigger:WallPressA 00004000 $ItemList_80243C40 00000000 00000001 
+Else
+	Bind     $Script_802436B8 .Trigger:WallPressA {Collider:deilittse} 00000001 00000000 
+EndIf 
+Call     MakeNpcs    	( 00000001 $NpcGroupList_80246E50 )
+Exec     $Script_80243A3C 
+Return
+End
+
+@ $Script_802449C4 % Always setup castle like you just entered it
+Call     802C9308 ( 000000D2 00000000 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:after} 7FFFFE00 )
+Return
+End
+
+@ $Script_Init_80245814 % Always setup castle like you just entered it
+If  *Byte_DGB_00  !=  00000001 
+	Call     SetNpcPos   	( .Npc:Self 00000000 FFFFFC18 00000000 )
+	Call     SetNpcFlagBits ( .Npc:Self 00000004 .True )
+	Return
+EndIf
+Call     SetNpcPos   	( 00000004 00000089 000000F4 00000023 )
+Call     BindNpcDefeat 	( .Npc:Self $Script_802457D8 )
+Call     SetNpcScale 	( .Npc:Self *Fixed[1.25] *Fixed[1.25] *Fixed[1.25] )
+Thread
+	Loop     
+		Call     ShakeCam    	( .Default 00000000 00000005 *Fixed[2.0] )
+		Wait     00000005 
+		Call     ShakeCam    	( .Default 00000000 00000002 *Fixed[1.0] )
+		Wait     00000008 
+	EndLoop
+EndThread
+Return
+End
+
+@ $Script_Init_80245D80 % The next 4 scripts set npcs for escape sequence, so we delete all the code since we never escape
+Return
+End
+
+@ $Script_Init_80245E44
+Return
+End
+
+@ $Script_Init_80245F08
+Return
+End
+
+@ $Script_Init_80245FCC
+Return
+End

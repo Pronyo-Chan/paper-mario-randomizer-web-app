@@ -1,0 +1,3 @@
+@ $Script_Init_802427EC % Tubba drawing script. Always remove him in castle
+Call     RemoveNpc   	( .Npc:Self )
+End
