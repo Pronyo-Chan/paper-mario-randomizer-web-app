@@ -1,0 +1,33 @@
+@ $Script_Main
+Set  *StoryProgress  *Chapter2Progress
+Set  *WorldMapLocation  .Location:DryDryOutpost
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     SetCamLeadPlayer 	( .Default .False )
+Set  *Flag_MAP_0B  00000001 
+If  *StoryProgress  <  FFFFFFC0 
+	Set  *StoryProgress  FFFFFFC0 
+EndIf
+Switch  *StoryProgress 
+	Case  FFFFFFCB  to  00000006 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8024B47C )
+	Default
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_8024B464 )
+EndSwitch
+Call     802D3398 ( )
+ExecWait $Script_MakeEntities 
+Call     MakeShop    	( $ShopItemPositions_8024BA68 $ShopInventory_8024B4FC $ShopPriceList_8024B550 00000000 )
+Call     MakeShopOwner 	( $ShopOwnerNPC_8024BA80 )
+ExecWait $Script_8024C218 
+Exec     $Script_8024C2EC 
+Exec     $Script_80243BB0 
+Exec     $Script_80244C14 
+Wait     00000001 
+Exec     $Script_8024DD78 
+Return
+End
+
+% Dont handle chapter progress for flag set when you see Moustaga running,
+% since we're skipping that script should never be executed
