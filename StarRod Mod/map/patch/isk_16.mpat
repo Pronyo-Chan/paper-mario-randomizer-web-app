@@ -4,7 +4,7 @@ Switch  *StoryProgress
 	Case  ==  FFFFFFC7 
 		Set  *Var[0]  00000000 
         Set  *StoryProgress  FFFFFFC8 
-        Set  *Chapter3Progress  FFFFFFC8 
+        Set  *Chapter2Progress  FFFFFFC8 
 	Case  ==  FFFFFFC8 
 		Set  *Var[0]  00000001 
 	Default
