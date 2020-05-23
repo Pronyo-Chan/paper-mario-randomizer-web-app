@@ -136,7 +136,7 @@ EndIf
 Return
 End
 
-@ $Script_80241DA4 % Skip the Star1 tutorial TODO: Figure out why star music isn't playing
+@ $Script_80241DA4 % Skip the Star1 tutorial
 Call     DisablePartnerAI 	( 00000000 )
 Call     802CF56C ( 00000002 )
 Call     SetNpcPos   	( 00000001 FFFFFDC9 0000001A 000000EC )

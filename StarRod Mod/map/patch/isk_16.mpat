@@ -69,8 +69,8 @@ EndIf
 Call     $Function_802405BC ( 00000003 )
 Call     PlaySoundAtPlayer 	( 00000138 00000000 )
 Call     DisablePlayerInput 	( .True )
-Set  *StoryProgress  FFFFFFC9
-Set  *Chapter3Progress  FFFFFFC9  
+Set  *StoryProgress  FFFFFFCA
+Set  *Chapter2Progress  FFFFFFCA  
 Call GotoMap ("sbk_02" 00000005) % Skip end of chapter and go directly to ruins exterior
 Wait     00000064 
 Return
