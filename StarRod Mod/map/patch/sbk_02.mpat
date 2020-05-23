@@ -96,3 +96,144 @@ Call     EnableModel 	( {Model:upper_light} .False )
 Call     EnableModel 	( {Model:o225} .False )
 Return
 End
+
+@ $Script_80244330
+Call     DisablePartnerAI 	( 00000000 )
+Call     802CF56C ( 00000002 )
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Set  *Var[3]  *Var[0] 
+Add  *Var[3]  FFFFFFCE 
+Set  *Var[4]  *Var[1] 
+Add  *Var[4]  0000001A 
+Call     SetNpcPos   	( 00000001 *Var[3] *Var[4] *Var[2] )
+Call     PlayerFaceNpc 	( 00000001 00000000 )
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default 00000000 *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default 00000258 )
+Call     SetCamAngles 	( .Default *Fixed[18.0] *Fixed[-9.0] )
+Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Wait     00000001 
+Call     802D2508 ( )
+Call     DisablePlayerInput 	( .True )
+Call     SetCamDistance ( .Default *Fixed[300.0] )
+Call     SetCamSpeed 	( .Default *Fixed[1.5] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     SayMessage0 	( 00000001 00130002 00130001 00000200 000D00EB ) % Thank you, Mario. At last I can head home to Star  ...
+Call     SetCamDistance ( .Default *Fixed[300.0] )
+Call     SetCamAngles 	( .Default 00000012 FFFFFFF7 )
+Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     MakeLerp    	( 00000000 00000168 0000000A 00000000 )
+Loop     
+	Call     UpdateLerp  	( )
+	Call     SetNpcRotation ( 00000001 00000000 *Var[0] 00000000 )
+	Wait     00000001 
+	If  *Var[1]  ==  00000000 
+		BreakLoop
+	EndIf
+EndLoop
+Call     EnableNpcAI 	( 00000001 .False )
+Call     SetNpcAnimation 	( 00000001 00130003 )
+Wait     00000014 
+Call     SetPlayerAnimation 	( .PlayerAnim:GotItem )
+Call     PlaySoundAtPlayer 	( 00000139 00000000 )
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Set  *Var[3]  *Var[1] 
+Add  *Var[1]  00000032 
+Add  *Var[2]  0000000A 
+Add  *Var[3]  0000001E 
+Loop     00000005 
+	Call     PlayEffect  	( 00000011 00000003 *Var[0] *Var[1] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Wait     00000006 
+	Call     PlayEffect  	( {FX:Sparkles:Random} *Var[0] *Var[3] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Wait     00000006 
+EndLoop
+Wait     00000014 
+Call     PlaySoundAtPlayer 	( 00000188 00000000 )
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Add  *Var[1]  00000014 
+Call     PlayEffect  	( {FX:EnergyWaveOut:Grey} *Var[0] *Var[1] *Var[2] 00000001 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+Wait     0000001E 
+Call     SetPlayerAnimation 	( 00010002 )
+Call     SetNpcAnimation 	( 00000001 00130001 )
+Call     EnableNpcAI 	( 00000001 .True )
+Call     $Function_80240B5C ( )
+Call     ShowMessage 	( 001D0192 000000A0 00000028 ) % Mario's Star Energy goes up to 2! Mario can now us ...
+Wait     0000000A 
+Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default *Fixed[250.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Wait     0000000A 
+Call     SayMessage0 	( 00000001 00130002 00130001 00000200 000D00EC ) % Call on me when times are bad. Believe in this, Ma ...
+Wait     0000000A 
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Call     GetNpcPos   	( 00000001 *Var[3] *Var[4] *Var[5] )
+Add  *Var[0]  *Var[3] 
+Div  *Var[0]  00000002 
+Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Wait     0000000A 
+Call     SayMessage0 	( 00000001 00130002 00130001 00000200 000D00ED ) % For now, I'm going back to recover in Star Haven.  ...
+Call     SetNpcFlagBits ( 00000001 00040000 .True )
+Thread
+	Loop     00000019 
+		Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+		Call     PlayEffect  	( 00000011 00000004 *Var[0] *Var[1] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Wait     00000004 
+	EndLoop
+EndThread
+Thread
+	Set  *Var[2]  00000000 
+	Set  *Var[3]  00000708 
+	Call     MakeLerp    	( *Var[2] *Var[3] 00000064 00000002 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     SetNpcRotation ( 00000001 00000000 *Var[0] 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+EndThread
+Thread
+	Call     GetNpcPos   	( 00000001 *Var[2] *Var[3] *Var[4] )
+	Set  *Var[5]  *Var[3] 
+	Add  *Var[5]  000000B4 
+	Call     MakeLerp    	( *Var[3] *Var[5] 00000064 00000002 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     SetNpcPos   	( 00000001 *Var[2] *Var[0] *Var[4] )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+	Call     SetNpcPos   	( 00000001 00000000 FFFFFC18 00000000 )
+EndThread
+Thread
+	Wait     0000000F 
+	Call     PlaySoundAtNpc ( 00000001 00002045 00000000 )
+EndThread
+Wait     0000000A 
+Call     SetPlayerAnimation 	( 0001002A )
+Wait     0000005A 
+Call     PanToTarget 	( .Default 00000000 00000000 )
+Wait     00000014 
+Call     SetPlayerAnimation 	( 00010002 )
+Set  *StoryProgress  FFFFFF3C % Set progress to ch7 since desert is done
+Set  *Chapter2Progress  FFFFFF3C  
+Exec     $Script_80240CC0 
+Call     EnablePartnerAI 	( )
+Call     DisablePlayerInput 	( .False )
+Return
+End
+

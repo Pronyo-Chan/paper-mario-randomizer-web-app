@@ -46,11 +46,11 @@
 02D = Byte_MAC_12
 02E = Byte_MAC_13
 02F = ObtainedPulseStone
-030 = GameByte[030] 	% unused Byte_MAC_15
-031 = GameByte[031] 	% unused Byte_MAC_16
-032 = GameByte[032] 	% unused Byte_MAC_17
-033 = GameByte[033] 	% unused Byte_MAC_18
-034 = GameByte[034] 	% unused Byte_MAC_19
+030 = IsRoom1Drained
+031 = IsRoom2Drained
+032 = IsRoom3Drained
+033 = ObtainedSuperHammer
+034 = IsBossRoomOpen
 035 = GameByte[035] 	% unused Byte_MAC_1A
 036 = GameByte[036] 	% unused Byte_MAC_1B
 037 = GameByte[037] 	% unused Byte_MAC_1C

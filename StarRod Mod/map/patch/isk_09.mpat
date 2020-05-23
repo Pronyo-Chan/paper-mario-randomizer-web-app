@@ -1,0 +1,33 @@
+@ $Script_802408BC
+If  *Flag_ISK_1E  ==  00000000 
+	ExecWait $Script_8024083C 
+	Loop     
+		If  *Flag_ISK_1E  ==  00000001 
+			BreakLoop
+		EndIf
+		Wait     00000001 
+	EndLoop
+	Call     802CFCE8 ( *Var[0] )
+	If  *Var[0]  ==  00000000 
+		Thread
+			Call     DisablePartnerAI 	( 00000000 )
+			Call     NpcJumpX    	( .Npc:Partner FFFFFF22 FFFFFEA5 FFFFFDED 00000014 00000000 00000000 )
+			Call     InterpNpcYaw 	( .Npc:Partner 00000046 00000000 )
+			Loop     
+				If  *ObtainedSuperHammer  ==  00000001 
+					BreakLoop
+				EndIf
+				Wait     00000001 
+			EndLoop
+			Call     EnablePartnerAI 	( )
+		EndThread
+	EndIf
+	Wait     0000003C 
+	Exec     $Script_8024053C 
+	Call     ShowMessage 	( 001D017D 000000A0 00000028 ) % You got the Super Hammer! The attack power of  Mar ...
+	Call     $Function_802402BC ( )
+	Set  *ObtainedSuperHammer  00000001 
+EndIf
+ExecWait $Script_8024087C 
+Return
+End

@@ -1,0 +1,193 @@
+@ $Script_Main
+Set  *WorldMapLocation  .Location:DryDryRuins
+Call     SetSpriteShading 	( 00020009 )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     SetCamLeadPlayer 	( .Default .False )
+If  *IsRoom3Drained  <  00000001 
+	Call     802CA254 ( 00000026 00000000 )
+Else
+	Call     802CA254 ( 00000026 00000000 )
+	Call     802CA254 ( 00000024 00000000 )
+EndIf
+ExecWait $Script_MakeEntities 
+Exec     $Script_80241498 
+Exec     $Script_80241E74 
+Switch  *StoryProgress 
+	Case  <  FFFFFFC7 
+		Call     SetMusicTrack 	( 00000000 .Song:DryDryRuins 00000000 00000008 )
+	Case  <  FFFFFFC8 
+		Call     SetMusicTrack 	( 00000000 .Song:RuinsBasement 00000000 00000008 )
+	Case  >=  FFFFFFC8 
+		Call     SetMusicTrack 	( 00000000 .Song:DryDryRuins 00000000 00000008 )
+EndSwitch
+Set  *Var[0]  $Script_802401F0 
+Exec     EnterWalk 
+Return
+End
+
+@ $Script_80240670
+Call     SetTexPanner 	( {Model:o6000} 00000004 )
+Set  *Var[1]  00000000 
+Set  *Var[2]  00000000 
+Label    0000000A 
+Add  *Var[1]  FFFFFC18 
+Add  *Var[2]  000000C8 
+Call     SetTexPanOffset 	( 00000004 00000000 00000000 *Var[1] )
+Call     SetTexPanOffset 	( 00000004 00000001 *Var[2] 00000000 )
+Wait     00000001 
+If  *IsRoom3Drained  <  00000001 
+	Goto     0000000A 
+EndIf
+Call     EnableModel 	( {Model:o6000} .False )
+Return
+End
+
+@ $Script_80240938
+Call     SetTexPanner 	( {Model:o1706} 00000000 )
+Call     SetTexPanner 	( {Model:o1707} 00000000 )
+Call     SetTexPanner 	( {Model:o1708} 00000000 )
+Call     SetTexPanner 	( {Model:o1939} 00000000 )
+Set  *Var[2]  00000000 
+Call     MakeLerp    	( 00000000 000001F4 0000003C 00000001 )
+Label    0000000A 
+Call     UpdateLerp  	( )
+Add  *Var[2]  *Var[0] 
+Call     SetTexPanOffset 	( 00000000 00000000 00000000 *Var[2] )
+Wait     00000001 
+If  *Var[1]  ==  00000001 
+	Goto     0000000A 
+EndIf
+Label    00000014 
+Add  *Var[2]  000001F4 
+Call     SetTexPanOffset 	( 00000000 00000000 00000000 *Var[2] )
+Wait     00000001 
+If  *IsRoom3Drained  <  00000001 
+	Goto     00000014 
+EndIf
+Return
+End
+
+@ $Script_80240AA0
+Call     SetTexPanner 	( {Model:o1699} 00000001 )
+Call     SetTexPanner 	( {Model:o1698} 00000002 )
+Call     SetTexPanner 	( {Model:o1692} 00000003 )
+Call     SetTexPanner 	( {Model:o1693} 00000003 )
+Set  *Var[2]  00000000 
+Set  *Var[3]  00000000 
+Set  *Var[4]  00000000 
+Label    0000000A 
+Add  *Var[2]  00001800 
+Add  *Var[3]  FFFFFE0C 
+Add  *Var[4]  FFFFFF9C 
+Call     SetTexPanOffset 	( 00000001 00000000 00000000 *Var[2] )
+Call     SetTexPanOffset 	( 00000002 00000000 00000000 *Var[3] )
+Call     SetTexPanOffset 	( 00000003 00000000 00000000 *Var[4] )
+Wait     00000001 
+If  *IsRoom3Drained  <  00000001 
+	Goto     0000000A 
+EndIf
+Set  *Var[5]  00001800 
+Set  *Var[6]  FFFFFE0C 
+Set  *Var[7]  FFFFFF9C 
+Loop     0000000A 
+	Add  *Var[5]  FFFFFE00 
+	Add  *Var[6]  00000032 
+	Add  *Var[7]  0000000A 
+	Add  *Var[2]  *Var[5] 
+	Add  *Var[3]  *Var[6] 
+	Add  *Var[4]  *Var[7] 
+	Call     SetTexPanOffset 	( 00000001 00000000 00000000 *Var[2] )
+	Call     SetTexPanOffset 	( 00000002 00000000 00000000 *Var[3] )
+	Call     SetTexPanOffset 	( 00000003 00000000 00000000 *Var[4] )
+	Wait     00000001 
+EndLoop
+Return
+End
+
+@ $Script_80241168
+Wait     00000005 
+Call     EnableModel 	( {Model:o1692} .True )
+Call     EnableModel 	( {Model:o1693} .True )
+Call     EnableModel 	( {Model:o1696} .True )
+Call     EnableModel 	( {Model:o1697} .True )
+Call     EnableModel 	( {Model:o1698} .True )
+Call     EnableModel 	( {Model:o1699} .True )
+Exec     $Script_8024075C 
+Wait     0000001E 
+Exec     $Script_80240938 
+Exec     $Script_80240CF4 
+Exec     $Script_80240E64 
+Call     PlaySound   	( 00000053 )
+Wait     0000004B 
+Exec     $Script_8024082C 
+Wait     0000001E 
+Exec     $Script_80240AA0 
+Exec     $Script_8024100C 
+Call     PlaySound   	( 00000453 )
+Wait     00000078 
+Exec     $Script_802410D8 
+Wait     00000005 
+Exec     $Script_80240D84 
+Call     PlaySound   	( 00000453 )
+Wait     0000000A 
+Call     EnableModel 	( {Model:o1703} .False )
+Call     EnableModel 	( {Model:o1704} .False )
+Call     EnableModel 	( {Model:o1705} .False )
+Call     EnableModel 	( {Model:o1706} .False )
+Call     EnableModel 	( {Model:o1707} .False )
+Call     EnableModel 	( {Model:o1708} .False )
+Call     EnableModel 	( {Model:o1938} .False )
+Call     EnableModel 	( {Model:o1939} .False )
+Call     ModifyColliderFlags 	( 00000000 {Collider:o2040} 7FFFFE00 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:o2041} 7FFFFE00 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:o2042} 7FFFFE00 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:o2043} 7FFFFE00 )
+Call     ModifyColliderFlags 	( 00000001 {Collider:o2044} 7FFFFE00 )
+Call     ModifyColliderFlags 	( 00000001 {Collider:o2045} 7FFFFE00 )
+Set  *IsRoom3Drained  00000001 
+Call     802CA254 ( 00000024 00000000 )
+Call     802CA254 ( 00000026 00000001 )
+Wait     00000014 
+Exec     $Script_80240884 
+Wait     00000005 
+Call     EnableModel 	( {Model:o1698} .False )
+Call     DisablePlayerInput 	( .False )
+Unbind
+Return
+End
+
+@ $Script_80241498
+Set  *AreaFlag[003]  00000000 
+Call     802C971C ( 00000067 )
+If  *IsRoom3Drained  <  00000001 
+	Bind     $Script_80241168 .Trigger:AreaFlagSet *AreaFlag[003] 00000001 00000000 
+	Call     EnableModel 	( {Model:o1692} .False )
+	Call     EnableModel 	( {Model:o1693} .False )
+	Call     EnableModel 	( {Model:o1696} .False )
+	Call     EnableModel 	( {Model:o1697} .False )
+	Call     EnableModel 	( {Model:o1698} .False )
+	Call     EnableModel 	( {Model:o1699} .False )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:o2044} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:o2045} 7FFFFE00 )
+	Exec     $Script_80240670 
+Else
+	Call     EnableModel 	( {Model:o1703} .False )
+	Call     EnableModel 	( {Model:o1704} .False )
+	Call     EnableModel 	( {Model:o1705} .False )
+	Call     EnableModel 	( {Model:o1706} .False )
+	Call     EnableModel 	( {Model:o1707} .False )
+	Call     EnableModel 	( {Model:o1708} .False )
+	Call     EnableModel 	( {Model:o1938} .False )
+	Call     EnableModel 	( {Model:o1939} .False )
+	Call     EnableModel 	( {Model:o1698} .False )
+	Call     EnableModel 	( {Model:o1699} .False )
+	Call     EnableModel 	( {Model:o6000} .False )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:o2040} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:o2041} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:o2042} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:o2043} 7FFFFE00 )
+EndIf
+Return
+End
