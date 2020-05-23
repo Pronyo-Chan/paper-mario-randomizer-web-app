@@ -1,0 +1,86 @@
+@ $Script_80240A70 % Set Chapter progress when entering hidden cave
+Loop     
+	If  *StoryProgress  !=  FFFFFFEE 
+		BreakLoop
+	EndIf
+	Wait     00000001 
+EndLoop
+Call     $Function_8024008C ( )
+Call     DisablePlayerInput 	( .True )
+Call     DisablePlayerPhysics 	( .True )
+Call     $Function_80240000 ( )
+Set  *AreaFlag[001]  00000001 
+If  *StoryProgress  <  FFFFFFE9 
+    Set  *StoryProgress  FFFFFFE9 
+    Set  *Chapter3Progress  FFFFFFE9
+EndIf
+Call     GotoMap     	( $ASCII_802418A8 00000001 )
+Wait     00000064 
+Return
+End
+
+@ $Script_8024049C % Set chapter progress when heart leaves the windmill
+Call     GetLoadType 	( *Var[1] )
+If  *Var[1]  ==  00000001 
+	Exec     EnterSavePoint 
+	Exec     $Script_80240470 
+	Return
+EndIf
+Call     GetEntryID  	( *Var[0] )
+Switch  *Var[0] 
+	Case  ==  00000000 
+		Set  *Var[4]  00000001 
+		Set  *Var[2]  00000000 
+		Set  *Var[3]  FFFFFFFF 
+		ExecWait 80285E24 
+		Set  *AreaFlag[001]  00000000 
+		Exec     $Script_80240470 
+	Case  ==  00000001 
+		Call     DisablePlayerInput 	( .True )
+		Call     DisablePlayerPhysics 	( .True )
+		If  *StoryProgress  ==  FFFFFFEE 
+			Call     SetPlayerPos 	( 000003E8 000003E8 00000000 )
+			Call     SetNpcPos   	( .Npc:Partner 000003E8 000003E8 00000000 )
+			Call     RotateModel 	( {Model:doa} 00000050 00000000 FFFFFFFF 00000000 )
+			Call     RotateModel 	( {Model:o37} 00000050 00000000 FFFFFFFF 00000000 )
+			Call     SetNpcAnimation 	( 00000000 006C0006 )
+			Call     SetNpcJumpscale 	( 00000000 *Fixed[2.5] )
+			Call     PlaySoundAtNpc ( 00000000 000020C8 00000000 )
+			Call     NpcJump0    	( 00000000 FFFFFFCE 00000000 00000032 0000000A )
+			Call     SetNpcAnimation 	( 00000000 006C0007 )
+			Wait     00000001 
+			Call     SetNpcAnimation 	( 00000000 006C0006 )
+			Call     PlaySoundAtNpc ( 00000000 000020C8 00000000 )
+			Call     NpcJump0    	( 00000000 FFFFFF92 00000000 0000006E 0000000A )
+			Call     SetNpcAnimation 	( 00000000 006C0007 )
+			Wait     00000001 
+			Call     SetNpcAnimation 	( 00000000 006C0006 )
+			Call     PlaySoundAtNpc ( 00000000 000020C8 00000000 )
+			Call     NpcJump0    	( 00000000 FFFFFF4C 00000000 000000B4 0000000A )
+			Call     SetNpcAnimation 	( 00000000 006C0007 )
+			Wait     00000001 
+			Call     MakeLerp    	( 00000050 00000000 0000000A 00000000 )
+			Loop     
+				Call     UpdateLerp  	( )
+				Call     RotateModel 	( {Model:doa} *Var[0] 00000000 FFFFFFFF 00000000 )
+				Call     RotateModel 	( {Model:o37} *Var[0] 00000000 FFFFFFFF 00000000 )
+				Wait     00000001 
+				If  *Var[1]  ==  00000000 
+					BreakLoop
+				EndIf
+			EndLoop
+			Call     PlaySoundAtCollider 	( {Collider:tts} .Sound:BasicDoorClose 00000000 )
+			Wait     00000014 
+			Call     SetPlayerPos 	( 00000000 00000000 00000000 )
+			Call     SetNpcPos   	( .Npc:Partner 00000000 00000000 00000000 )
+            Set  *StoryProgress  FFFFFFEF 
+            Set  *Chapter3Progress  FFFFFFEF 
+		EndIf
+		Call     DisablePlayerPhysics 	( .False )
+		Call     SetPlayerJumpscale 	( *Fixed[2.0] )
+		Call     PlayerJump  	( FFFFFFF6 00000000 0000004B 00000012 )
+		Call     DisablePlayerInput 	( .False )
+		Exec     $Script_80240470 
+EndSwitch
+Return
+End
