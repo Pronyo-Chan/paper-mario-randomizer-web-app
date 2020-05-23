@@ -1,9 +1,9 @@
-@ $Script_80240990 % Cutscene script of meeting bow. Set Chapter3Progress 
+@ $Script_80240990 % Cutscene script of meeting bow. Set Chapter3Progress tp after Stanley the boo is eaten
 If  *StoryProgress  >=  FFFFFFDC 
 	Return
 EndIf
-Set  *StoryProgress  FFFFFFDC
-Set  *Chapter3Progress  FFFFFFDC 
+Set  *StoryProgress  FFFFFFDF
+Set  *Chapter3Progress  FFFFFFDF  
 Call     DisablePlayerInput 	( .True )
 Call     SetMusicTrack 	( 00000000 .Song:CheerfulBoosMansion 00000000 00000008 )
 Thread
