@@ -72,12 +72,36 @@
     JPOP ra, t0
     NOP
 
+#new:Function $StartWithMaxHP
+    PUSH t0
+    ORI t0, r0, 0032
+    SAB t0, 8010F292
+    SAB t0, 8010F293
+    SAB t0, 8010F294
+    POP t0
+    JR RA
+    NOP
+
+#new:Function $StartWithMaxFP
+    PUSH t0
+    ORI t0, r0, 0032
+    SAB t0, 8010F294
+    SAB t0, 8010F295
+    SAB t0, 8010F296
+    POP t0
+    JR RA
+    NOP
+
+
 @ $Script_8024FD70
     Call $GetActionCommands()
     Call $HaveRegularHammer()
     Call $UltraHammerandBoots()
     Call $AllPartners()
     Call $SetPartnerGoombario()
+    Call $StartWithMaxHP()
+    Call $StartWithMaxFP()
+    Call $GiveMaxStarPower()
     Set *Chapter0Progress FFFFFF80
     Set *Chapter1Progress FFFFFF9D
     Set *Chapter2Progress FFFFFFC0
