@@ -1,19 +1,3 @@
-@ $Script_Main % Set StoryProgress to Chapter3Progress. In case you're arriving by pipe
-Set  *StoryProgress  *Chapter3Progress
-Set  *WorldMapLocation  .Location:ForeverForest
-Call     SetSpriteShading 	( 0007000A )
-Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00000400 )
-Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
-Call     SetCamEnabled 	( .Default .True )
-Call     MakeNpcs    	( 00000001 $NpcGroupList_80240F0C )
-ExecWait $Script_MakeEntities 
-Exec     $Script_80240768 
-Exec     $Script_80241C94 
-Exec     $Script_80240910 
-Wait     00000001 
-Return
-End
-
 @ $Script_8024175C % Set Chapter3Progress when opening Gusty Gulch gate
 Call     DisablePlayerInput 	( .True )
 Wait     00000014 
