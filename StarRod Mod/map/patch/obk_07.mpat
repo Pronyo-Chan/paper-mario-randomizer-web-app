@@ -1,0 +1,94 @@
+@ $Script_802420FC % Set IsWeightChestOpen instead of story progress
+Set  *Var[A]  0000001C 
+Set  *Var[B]  00000001 
+Set  *IsWeightChestOpen  00000001 
+Set  *Flag_OBK_16  00000001 
+ExecWait $Script_8024201C 
+ExecWait $Script_8024493C 
+Return
+End
+
+@ $Script_Init_80242E08 % Check IsWeightChestOpen instead of story progress
+If  *IsWeightChestOpen  >=  00000001 
+	Set  *MapVar[2]  00000001 
+	Call     RemoveNpc   	( .Npc:Self )
+Else
+	ExecWait $Script_80244B60 
+EndIf
+Return
+End
+
+@ $Script_80243C3C % Phonograph script. use IsRecordPlacedInPhono and IsWeightChestOpen instead of story progress
+If  *MapVar[1]  ==  00000001 
+	If  *MapVar[2]  ==  00000000 
+		Return
+	EndIf
+EndIf
+Call     DisablePlayerInput 	( .True )
+If  *IsRecordPlacedInPhono  >=  00000001 
+	Goto     00000032 
+EndIf
+Call     802D6420 ( )
+If  *Var[0]  ==  00000000 
+	Call     ShowMessage 	( 001D015A 000000A0 00000028 ) % It's a phonograph. It would be nice if there were  ...
+	Goto     00000064 
+EndIf
+If  *Var[0]  ==  FFFFFFFF 
+	Goto     00000064 
+EndIf
+Call     $Function_80241130 ( )
+If  *Var[0]  ==  FFFFFFFF 
+	Goto     00000064 
+EndIf
+Set  *Byte_OBK_00  *Var[0] 
+Call     RemoveKeyItemAt 	( *Var[1] )
+Set  *IsRecordPlacedInPhono  00000001 
+Call     EnableModel 	( {Model:reco} .True )
+Call     SetPlayerAnimation 	( 00060007 )
+Wait     0000000F 
+Call     SetPlayerAnimation 	( 00010002 )
+Wait     0000000F 
+Call     802D6954 ( )
+Label    00000032 
+Set  *MapVar[3]  00000001 
+If  *IsWeightChestOpen  <  00000001 
+	Set  *MapVar[3]  00000000 
+	Thread
+		Call     ShowMessage 	( 001D0181 000000A0 00000028 ) % Tap  to play the record. You've gotta have rhythm! ...
+		Set  *MapVar[3]  00000001 
+	EndThread
+EndIf
+ExecWait $Script_8024374C 
+Return
+Label    00000064 
+Call     802D6954 ( )
+Call     DisablePlayerInput 	( .False )
+Return
+End
+
+@ $Script_80244840
+If  *IsRecordPlacedInPhono  <  00000001
+	If  *Flag_OBK_17  ==  00000001 
+		Call     SayMessage0 	( 00000002 00950004 00950001 00000000 000E0036 ) % I am so bored!! Boo-ored! I know the Lady Bow orde ...
+	Else
+		Call     SayMessage0 	( 00000002 00950004 00950001 00000000 000E0035 ) % I am so bored!! Boo-ored! I know the Lady Bow orde ...
+	EndIf
+Else 
+	If  *MapVar[1]  ==  00000001 
+		Call     SayMessage0 	( 00000002 00950004 00950001 00000000 000E0037 ) % Oh yeah, such rhythm! What a groove! Par-tay!
+	Else
+		Call     SayMessage0 	( 00000002 00950004 00950001 00000000 000E0038 ) % Oh Boo! Is that...the end? I was just starting to  ...
+	EndIf
+EndIf
+Return
+End
+
+@ $Script_80244BF4 % Check IsRecordPlacedInPhono instead of story progress
+Call     $Function_80240500 ( )
+Call     ParentColliderToModel 	( {Collider:t} {Model:rap} )
+If  *IsRecordPlacedInPhono  <  00000001 
+	Call     EnableModel 	( {Model:reco} .False )
+EndIf
+BindLock $Script_80243C3C .Trigger:WallPressA {Collider:o344} $ItemList_80243090 00000000 00000001 
+Return
+End

@@ -1,0 +1,17 @@
+@ $Script_MakeEntities %Dont set story progress when getting boo portrait
+If  *Flag_OBK_13  ==  00000000 
+	Call     MakeItemEntity ( .Item:BoosPortrait {Vec3d:Item80240450} 00000011 *Flag_OBK_13 )
+	Thread
+		Loop     
+			If  *Flag_OBK_13  !=  00000000 
+				BreakLoop
+			EndIf
+			Wait     00000001 
+		EndLoop
+	EndThread
+EndIf
+Call     MakeEntity  	( .Entity:WoodenCrate {Vec4d:Entity802404DC} FFFFFFFF 80000000 )
+Call     MakeEntity  	( .Entity:WoodenCrate {Vec4d:Entity80240504} .Item:StarPiece 80000000 )
+Call     AssignCrateFlag 	( *Flag_OBK_14 )
+Return
+End

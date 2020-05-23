@@ -1,0 +1,49 @@
+@ $Script_80241E90 % Use CreatedMansionShopStairs flag instead of story progress
+If  *CreatedMansionShopStairs  <  00000001 
+	Exec     $Script_80242320 
+	Set  *CreatedMansionShopStairs  00000001 
+EndIf
+Return
+End
+
+@ $Script_MakeEntities % Use CreatedMansionShopStairs flag instead of story progress
+ If  *CreatedMansionShopStairs  <  00000001 
+ 	Call     MakeEntity  	( .Entity:BlueSwitch {Vec4d:Entity80241EE4} 80000000 )
+ 	Call     AssignAreaFlag ( 00000005 )
+ 	Call     AssignScript 	( $Script_80241CD8 )
+ EndIf
+ Call     MakeEntity  	( .Entity:WoodenCrate {Vec4d:Entity80241F30} .Item:SuperShroom 80000000 )
+ Call     AssignCrateFlag 	( *Flag_OBK_09 )
+ Call     MakeEntity  	( .Entity:WoodenCrate {Vec4d:Entity80241F68} FFFFFFFF 80000000 )
+ Call     MakeEntity  	( .Entity:WoodenCrate {Vec4d:Entity80241F90} FFFFFFFF 80000000 )
+ Return
+ End
+
+@ $Script_80242C8C % Use CreatedMansionShopStairs flag instead of story progress
+If  *CreatedMansionShopStairs  <  00000001 
+	Call     EnableModel 	( {Model:k1} .False )
+	Call     EnableModel 	( {Model:k2} .False )
+	Call     EnableModel 	( {Model:k3} .False )
+	Call     EnableModel 	( {Model:k4} .False )
+	Call     EnableModel 	( {Model:k5} .False )
+	Call     EnableModel 	( {Model:k6} .False )
+	Call     EnableModel 	( {Model:k7} .False )
+	Call     EnableModel 	( {Model:k8} .False )
+	Call     EnableModel 	( {Model:kage} .False )
+	Call     EnableModel 	( {Model:kage_no} .True )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:k1} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:k2} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:k3} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:k4} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:k5} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:k6} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:k7} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:kaidan} 7FFFFE00 )
+Else
+	Call     EnableModel 	( {Model:yk1} .False )
+	Call     EnableModel 	( {Model:kage} .True )
+	Call     EnableModel 	( {Model:kage_no} .False )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:tt3} 7FFFFE00 )
+EndIf
+Return
+End
