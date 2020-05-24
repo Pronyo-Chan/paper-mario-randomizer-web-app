@@ -1,3 +1,21 @@
+@ $Function_80241E48 % Function for increasing star power
+ADDIU		SP, SP, FFE8
+SW			RA, 10 (SP)
+LABU		T0, 8010F51E % Read current star power level in T0
+ADDIU		T1, T0, 1 % Increment it by one
+JAL			800EA1D8
+ADD		A0, R0, T1 % Use T1 to set star level instead of hardcoded 2 value
+LIA			V0, 8010F290
+LBU			V1, 3 (V0)
+LBU			A0, 6 (V0)
+SB			V1, 2 (V0)
+JAL			800E9B6C
+SB			A0, 5 (V0)
+LW			RA, 10 (SP)
+ADDIU		V0, R0, 2
+JR			RA
+ADDIU		SP, SP, 18
+
 @ $Script_80242048 % Script played when rescuing star spirit
 Call     FadeOutMusic 	( 00000000 000003E8 )
 Set  *Var[0]  00000000 
