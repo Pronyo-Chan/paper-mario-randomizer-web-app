@@ -78,7 +78,8 @@ Call     SetNpcJumpscale 	( 0000000E *Fixed[0.5] )
 Call     NpcJump0    	( 0000000E FFFFFE48 00000014 FFFFFFB5 00000014 )
 Call     SetNpcAnimation 	( 0000000E 003B0300 )
 If  *StoryProgress  <  FFFFFFF6 
-	Set  *StoryProgress  FFFFFFF6 
+	Set  *StoryProgress  FFFFFFF6
+	Set  *Chapter4Progress  FFFFFFF6 
 	ExecWait $Script_80242E08 
 EndIf
 Return
