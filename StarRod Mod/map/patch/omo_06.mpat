@@ -1,0 +1,45 @@
+@ $Script_802412D8 % Set Chap4 progress when hitting pink switch
+Call     DisablePlayerInput 	( .True )
+Call     MakeLerp    	( 00000000 00000046 0000001E 0000000A )
+Label    00000000 
+Call     UpdateLerp  	( )
+Call     RotateModel 	( {Model:bou1} *Var[0] 00000000 00000000 00000001 )
+Call     UpdateColliderTransform 	( {Collider:bou1} )
+Wait     00000001 
+If  *Var[1]  ==  00000001 
+	Goto     00000000 
+EndIf
+Call     PlaySoundAt 	( 000001F1 00000000 FFFFFE75 00000000 FFFFFF47 )
+Call     ModifyColliderFlags 	( 00000001 {Collider:o930} 7FFFFE00 )
+Wait     00000014 
+Call     UseSettingsFrom 	( .Default 000000DF 0000000A FFFFFF5B )
+Call     SetPanTarget 	( .Default 000000DF 0000000A FFFFFF5B )
+Call     SetCamDistance ( .Default *Fixed[500.0] )
+Call     SetCamPosA  	( .Default *Fixed[-500.0] *Fixed[-200.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Wait     00000014 
+Call     PlaySoundAt 	( 000001F2 00000000 00000109 00000000 FFFFFF15 )
+Call     MakeLerp    	( 00000000 000000B4 0000001E 0000000A )
+Label    00000001 
+Call     UpdateLerp  	( )
+Call     RotateModel 	( {Model:o898} *Var[0] 00000001 00000000 00000000 )
+Call     RotateModel 	( {Model:o899} *Var[0] 00000001 00000000 00000000 )
+Call     RotateModel 	( {Model:o897} *Var[0] 00000001 00000000 00000000 )
+Wait     00000001 
+If  *Var[1]  ==  00000001 
+	Goto     00000001 
+EndIf
+Call     PlaySoundAt 	( 00000051 00000000 00000109 00000000 FFFFFF15 )
+Call     ShakeCam    	( .Default 00000000 0000000A *Fixed[1.0] )
+Call     GetModelCenter ( {Model:o897} )
+Call     PlayEffect  	( {FX:Steam:FloatingRings} *Var[0] *Var[1] *Var[2] 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+Wait     0000001E 
+Set  *StoryProgress  FFFFFFFF
+Set  *Chapter4Progress  FFFFFFFF 
+Call     ResetCam    	( .Default *Fixed[90.0] )
+Call     DisablePlayerInput 	( .False )
+Unbind
+Return
+End
+

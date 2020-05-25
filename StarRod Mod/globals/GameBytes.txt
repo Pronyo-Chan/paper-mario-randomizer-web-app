@@ -61,9 +61,9 @@
 03C = CreatedMansionShopStairs
 03D = PlacedBoosPortrait
 03E = GotSpookedByDoorBoo
-03F = GameByte[03F] 	% unused Byte_TIK_07
-040 = GameByte[040] 	% unused Byte_TIK_08
-041 = GameByte[041] 	% unused Byte_TIK_09
+03F = GaveStoreroomKey
+040 = GaveCakeToGourmet
+041 = IsLanternGhostDefeated
 042 = GameByte[042] 	% unused Byte_TIK_0A
 043 = Byte_KGR_00
 044 = GameByte[044] 	% unused Byte_KGR_01

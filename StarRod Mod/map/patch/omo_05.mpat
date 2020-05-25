@@ -1,0 +1,386 @@
+% This map is the gourmet guy map.
+% Use his specific flag instead of story progress
+% Remove condition for spawning cookbook
+@ $Script_Main
+Set  *WorldMapLocation  .Location:ShyGuysToybox
+Call     SetSpriteShading 	( FFFFFFFF )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Call     MakeNpcs    	( 00000001 $NpcGroupList_80245124 )
+ExecWait $Script_MakeEntities 
+ExecWait $Script_80242E68 
+Exec     $Script_80242480 
+Call     SetCamLeadPlayer 	( .Default .False )
+Call     802C9308 ( 00000088 00000000 )
+If  *GaveCakeToGourmet  >  00000000 
+	Call     RotateModel 	( {Model:o331} 00000069 00000000 00000001 00000000 )
+	Call     RotateModel 	( {Model:o332} 00000069 00000000 00000001 00000000 )
+	Call     RotateModel 	( {Model:o333} 00000069 00000000 00000001 00000000 )
+	Call     RotateModel 	( {Model:o328} 00000069 00000000 00000001 00000000 )
+	Call     RotateModel 	( {Model:o329} 00000069 00000000 00000001 00000000 )
+	Call     RotateModel 	( {Model:o330} 00000069 00000000 00000001 00000000 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:tt1} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:tt2} 7FFFFE00 )
+EndIf
+Set  *Var[0]  $Script_80242568 
+Exec     EnterWalk 
+Wait     00000001 
+Return
+End
+
+@ $Script_80243224
+Call     DisablePlayerInput 	( .True )
+Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+Call     UseSettingsFrom 	( .Default *Var[0] 00000000 *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] 00000000 *Var[2] )
+Call     SetCamDistance ( .Default 0000015E )
+Call     SetCamAngles 	( .Default *Fixed[17.5] *Fixed[-10.0] )
+Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     $Function_802423C8 ( )
+Call     NpcFacePlayer 	( .Npc:Self 00000001 )
+Call     SetNpcAnimation 	( .Npc:Self 00C10001 )
+If  *Flag_OMO_01  ==  00000000 
+	Call     SayMessage0 	( .Npc:Self 00C10004 00C10001 00000000 000F0040 ) % Everybody calls me Gourmet Guy. I don't know why.  ...
+	Set  *Flag_OMO_01  00000001 
+Else
+	Call     SayMessage0 	( .Npc:Self 00C10004 00C10001 00000000 000F0041 ) % I'm too hungry to move. I'm famished! I must eat!  ...
+EndIf
+Set  *Var[0]  $End[170] 
+Set  *Var[1]  FFFFFFFF 
+ExecWait $Script_802431D4 
+If  *Var[0]  <=  00000000 
+	Call     SetNpcAnimation 	( .Npc:Self 00C1000D )
+	Call     ResetCam    	( .Default *Fixed[8.0] )
+	Call     DisablePlayerInput 	( .False )
+	Return
+EndIf
+Set  *Var[8]  *Var[0] 
+Call     $Function_802422A0 ( *Var[0] )
+Call     MakeItemEntity ( *Var[8] {Vec3d:Item8024343C} 00000001 00000000 )
+Set  *Var[7]  *Var[0] 
+Call     802D7194 ( *Var[7] 00000040 00000001 )
+Call     SetNpcAnimation 	( .Npc:Self 00C10005 )
+Loop     00000006 
+	Wait     0000000A 
+	Call     PlaySoundAtNpc ( .Npc:Self 00002095 00000000 )
+EndLoop
+If  *Var[9]  !=  00000002 
+	Call     ResetCam    	( .Default *Fixed[10.0] )
+	Wait     0000000A 
+	Call     PlaySoundAtNpc ( .Npc:Self 00002096 00000000 )
+	Call     SetNpcAnimation 	( .Npc:Self 00C10006 )
+	Call     802D7194 ( *Var[7] 00000040 00000000 )
+	Call     GetAngleToPlayer 	( .Npc:Self *Var[0] )
+	If  *Var[0]  <  000000B4 
+		Call     MakeLerp    	( 00000000 00000064 00000007 00000000 )
+		Loop     
+			Call     UpdateLerp  	( )
+			SetF  *Var[2]  *Fixed[-1.0] 
+			SetF  *Var[3]  *Fixed[-0.34960938] 
+			SetF  *Var[4]  *Fixed[0.0] 
+			MulF  *Var[2]  *Var[0] 
+			MulF  *Var[3]  *Var[0] 
+			MulF  *Var[4]  *Var[0] 
+			AddF  *Var[2]  *Fixed[-270.0] 
+			AddF  *Var[3]  *Fixed[35.0] 
+			AddF  *Var[4]  *Fixed[110.0] 
+			Call     SetItemPos  	( *Var[7] *Var[2] *Var[3] *Var[4] )
+			Wait     00000001 
+			If  *Var[1]  ==  00000000 
+				BreakLoop
+			EndIf
+		EndLoop
+		Call     MakeLerp    	( 00000000 00000064 00000007 00000000 )
+		Loop     
+			Call     UpdateLerp  	( )
+			SetF  *Var[2]  *Fixed[-1.0] 
+			SetF  *Var[3]  *Fixed[0.35058594] 
+			SetF  *Var[4]  *Fixed[0.0] 
+			MulF  *Var[2]  *Var[0] 
+			MulF  *Var[3]  *Var[0] 
+			MulF  *Var[4]  *Var[0] 
+			AddF  *Var[2]  *Fixed[-355.0] 
+			AddF  *Var[3]  *Fixed[0.0] 
+			AddF  *Var[4]  *Fixed[110.0] 
+			Call     SetItemPos  	( *Var[7] *Var[2] *Var[3] *Var[4] )
+			Wait     00000001 
+			If  *Var[1]  ==  00000000 
+				BreakLoop
+			EndIf
+		EndLoop
+	Else
+		Call     MakeLerp    	( 00000000 00000064 00000007 00000000 )
+		Loop     
+			Call     UpdateLerp  	( )
+			SetF  *Var[2]  *Fixed[1.0] 
+			SetF  *Var[3]  *Fixed[-0.34960938] 
+			SetF  *Var[4]  *Fixed[0.0] 
+			MulF  *Var[2]  *Var[0] 
+			MulF  *Var[3]  *Var[0] 
+			MulF  *Var[4]  *Var[0] 
+			AddF  *Var[2]  *Fixed[-240.0] 
+			AddF  *Var[3]  *Fixed[35.0] 
+			AddF  *Var[4]  *Fixed[110.0] 
+			Call     SetItemPos  	( *Var[7] *Var[2] *Var[3] *Var[4] )
+			Wait     00000001 
+			If  *Var[1]  ==  00000000 
+				BreakLoop
+			EndIf
+		EndLoop
+		Call     MakeLerp    	( 00000000 00000064 00000007 00000000 )
+		Loop     
+			Call     UpdateLerp  	( )
+			SetF  *Var[2]  *Fixed[1.0] 
+			SetF  *Var[3]  *Fixed[0.35058594] 
+			SetF  *Var[4]  *Fixed[0.0] 
+			MulF  *Var[2]  *Var[0] 
+			MulF  *Var[3]  *Var[0] 
+			MulF  *Var[4]  *Var[0] 
+			AddF  *Var[2]  *Fixed[-155.0] 
+			AddF  *Var[3]  *Fixed[0.0] 
+			AddF  *Var[4]  *Fixed[110.0] 
+			Call     SetItemPos  	( *Var[7] *Var[2] *Var[3] *Var[4] )
+			Wait     00000001 
+			If  *Var[1]  ==  00000000 
+				BreakLoop
+			EndIf
+		EndLoop
+	EndIf
+EndIf
+Call     RemoveItemEntity 	( *Var[7] )
+Call     SetNpcAnimation 	( .Npc:Self 00C10001 )
+Switch  *Var[9] 
+	Case  ==  00000000 
+		Call     SayMessage0 	( .Npc:Self 00C10004 00C10001 00000000 000F0042 ) % Bleagh!!! Hack! Thppth! That was disgusting! That  ...
+		Call     SetNpcAnimation 	( .Npc:Self 00C1000D )
+	Case  ==  00000001 
+		Call     SayMessage0 	( .Npc:Self 00C10004 00C10001 00000000 000F0043 ) % Aw, ickthpth!!! Bleah! That's the worst tasting fo ...
+		Call     SetNpcAnimation 	( .Npc:Self 00C1000D )
+	Case  ==  00000002 
+		Thread
+			Call     ShowMessage 	( 000F0044 000000A0 00000028 ) % Oh... Ohhh, mmmm... Ohhhhhhh!!!!! Deeeliciouuuuuuu ...
+		EndThread
+		Call     DisablePartnerAI 	( 00000000 )
+		Call     SetNpcAnimation 	( .Npc:Self 00C10007 )
+		Thread
+			Call     SetNpcFlagBits ( 00000002 00000002 .False )
+			Call     GetNpcPos   	( 00000002 *Var[0] *Var[1] *Var[2] )
+			Call     SetNpcJumpscale 	( 00000002 *Fixed[0.05078125] )
+			Call     NpcJump0    	( 00000002 *Var[0] 00000002 *Var[2] 00000008 )
+			Call     802CDE68 ( 00000002 0000000F )
+			Set  *Var[3]  00000000 
+			Loop     00000005 
+				Add  *Var[3]  00000032 
+				Call     SetNpcRotation ( 00000002 00000000 00000000 *Var[3] )
+				Wait     00000001 
+			EndLoop
+			Add  *Var[2]  00000014 
+			Call     SetNpcJumpscale 	( 00000002 *Fixed[0.20019531] )
+			Call     NpcJump0    	( 00000002 *Var[0] FFFFFFF6 *Var[2] 00000008 )
+			Wait     0000000A 
+			Call     RemoveNpc   	( 00000002 )
+		EndThread
+		Thread
+			Call     SetNpcFlagBits ( 00000001 00000002 .False )
+			Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+			Call     SetNpcJumpscale 	( 00000001 *Fixed[0.05078125] )
+			Call     NpcJump0    	( 00000001 *Var[0] 00000002 *Var[2] 00000008 )
+			Call     802CDE68 ( 00000001 0000000F )
+			Set  *Var[3]  00000000 
+			Loop     00000005 
+				Sub  *Var[3]  00000032 
+				Call     SetNpcRotation ( 00000001 00000000 00000000 *Var[3] )
+				Wait     00000001 
+			EndLoop
+			Add  *Var[2]  00000014 
+			Call     SetNpcJumpscale 	( 00000001 *Fixed[0.20019531] )
+			Call     NpcJump0    	( 00000001 *Var[0] FFFFFFF6 *Var[2] 00000008 )
+			Wait     0000000A 
+			Call     RemoveNpc   	( 00000001 )
+		EndThread
+		Call     UseSettingsFrom 	( .Default FFFFFF06 00000019 FFFFFF9C )
+		Call     SetPanTarget 	( .Default FFFFFF06 00000019 FFFFFF9C )
+		Call     SetCamDistance ( .Default *Fixed[420.0] )
+		Call     SetCamAngles 	( .Default *Fixed[12.0] *Fixed[-1.5] )
+		Call     SetCamSpeed 	( .Default *Fixed[25.0] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     WaitForCam  	( .Default *Fixed[1.0] )
+		Call     PlaySoundAtNpc ( .Npc:Self 00000381 00000000 )
+		Wait     00000021 
+		Call     SetCamDistance ( .Default *Fixed[320.0] )
+		Call     SetCamAngles 	( .Default *Fixed[13.0] *Fixed[-0.7998047] )
+		Call     SetCamSpeed 	( .Default *Fixed[25.0] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     WaitForCam  	( .Default *Fixed[1.0] )
+		Call     PlaySoundAtNpc ( .Npc:Self 00000382 00000000 )
+		Wait     00000021 
+		Call     SetCamDistance ( .Default *Fixed[250.0] )
+		Call     SetCamAngles 	( .Default *Fixed[14.0] *Fixed[0.0] )
+		Call     SetCamSpeed 	( .Default *Fixed[25.0] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     WaitForCam  	( .Default *Fixed[1.0] )
+		Call     PlaySoundAtNpc ( .Npc:Self 00000383 00000000 )
+		Wait     00000012 
+		Call     SetMusicTrack 	( 00000000 .Song:GourmetGuyFreakout 00000000 00000008 )
+		Wait     0000001E 
+		Call     802D7CF8 ( 00000000 00000000 00000000 00000140 000000F0 00000080 0000000A )
+		Loop     00000007 
+			Call     SetCamDistance ( .Default *Fixed[320.0] )
+			Call     SetCamAngles 	( .Default *Fixed[14.0] *Fixed[0.0] )
+			Call     SetCamSpeed 	( .Default *Fixed[15.0] )
+			Call     PanToTarget 	( .Default 00000000 00000001 )
+			Call     WaitForCam  	( .Default *Fixed[1.0] )
+			Call     SetCamDistance ( .Default *Fixed[250.0] )
+			Call     SetCamAngles 	( .Default *Fixed[14.0] *Fixed[0.0] )
+			Call     SetCamSpeed 	( .Default *Fixed[15.0] )
+			Call     PanToTarget 	( .Default 00000000 00000001 )
+			Call     WaitForCam  	( .Default *Fixed[1.0] )
+		EndLoop
+		Call     RotateModel 	( {Model:o331} 00000069 00000000 00000001 00000000 )
+		Call     RotateModel 	( {Model:o332} 00000069 00000000 00000001 00000000 )
+		Call     RotateModel 	( {Model:o333} 00000069 00000000 00000001 00000000 )
+		Call     RotateModel 	( {Model:o328} 00000069 00000000 00000001 00000000 )
+		Call     RotateModel 	( {Model:o329} 00000069 00000000 00000001 00000000 )
+		Call     RotateModel 	( {Model:o330} 00000069 00000000 00000001 00000000 )
+		Wait     00000005 
+		Call     $Function_80242328 ( )
+		Call     $Function_80242328 ( )
+		Call     $Function_80242328 ( )
+		Call     802D7CF8 ( 00000000 00000000 00000000 00000140 000000F0 00000000 0000000A )
+		Call     UseSettingsFrom 	( .Default FFFFFF06 00000000 00000064 )
+		Call     SetPanTarget 	( .Default FFFFFF06 00000000 00000064 )
+		Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     SetOwnerVar 	( 00000000 00000001 )
+		Thread
+			Label    00000013 
+			Call     PlayerFaceNpc 	( .Npc:Self 00000000 )
+			Call     GetOwnerVar 	( 00000000 *Var[0] )
+			If  *Var[0]  !=  00000000 
+				Wait     00000001 
+				Goto     00000013 
+			EndIf
+		EndThread
+		Call     PlaySoundAtNpc ( .Npc:Self 00000384 00000000 )
+		Call     SetNpcAnimation 	( .Npc:Self 00C10003 )
+		Call     SetNpcFlagBits ( .Npc:Self 00000100 .True )
+		Call     SetNpcSpeed 	( .Npc:Self *Fixed[20.0] )
+		Call     MoveNpcTo   	( .Npc:Self 00000000 0000006E 00000000 )
+		Wait     00000014 
+		Call     PlaySoundAtNpc ( .Npc:Self 00000384 00000000 )
+		Call     SetNpcFlagBits ( .Npc:Self 00000080 .True )
+		Call     SetNpcPos   	( .Npc:Self 00000000 00000091 0000006E )
+		Call     MoveNpcTo   	( .Npc:Self FFFFFE0C 0000006E 00000000 )
+		Call     SetNpcFlagBits ( .Npc:Self 00000080 .False )
+		Wait     00000014 
+		Call     PlaySoundAtNpc ( .Npc:Self 00000384 00000000 )
+		Call     SetNpcRotation ( .Npc:Self 00000000 00000000 FFFFFFD3 )
+		Call     InterpNpcYaw 	( .Npc:Self 0000005A 00000000 )
+		Call     MakeLerp    	( 00000000 00000064 0000001E 00000000 )
+		Label    0000000A 
+		Call     UpdateLerp  	( )
+		SetF  *Var[2]  *Fixed[3.9501953] 
+		SetF  *Var[3]  *Fixed[-1.8994141] 
+		SetF  *Var[4]  *Fixed[0.0] 
+		MulF  *Var[2]  *Var[0] 
+		MulF  *Var[3]  *Var[0] 
+		MulF  *Var[4]  *Var[0] 
+		AddF  *Var[2]  *Fixed[-445.0] 
+		AddF  *Var[3]  *Fixed[130.0] 
+		AddF  *Var[4]  *Fixed[230.0] 
+		Call     SetNpcPos   	( .Npc:Self *Var[2] *Var[3] *Var[4] )
+		Wait     00000001 
+		If  *Var[1]  ==  00000001 
+			Goto     0000000A 
+		EndIf
+		Wait     00000014 
+		Call     PlaySoundAtNpc ( .Npc:Self 00000384 00000000 )
+		Call     SetNpcRotation ( .Npc:Self 00000000 00000000 00000000 )
+		Call     SetNpcPos   	( .Npc:Self FFFFFE0C 00000000 0000006E )
+		Call     MoveNpcTo   	( .Npc:Self FFFFFF06 0000006E 00000000 )
+		Wait     00000014 
+		Call     SetNpcAnimation 	( .Npc:Self 00C10008 )
+		Thread
+			Wait     0000000F 
+			Call     SetCamAngles 	( .Default *Fixed[-2.5] *Fixed[-24.0] )
+			Call     SetCamSpeed 	( .Default *Fixed[1.5] )
+			Call     PanToTarget 	( .Default 00000000 00000001 )
+		EndThread
+		Thread
+			Wait     0000000F 
+			Call     PlaySoundAtNpc ( .Npc:Self 00000385 00000000 )
+			Call     SetNpcAnimation 	( .Npc:Self 00C1000B )
+			Call     SetNpcJumpscale 	( .Npc:Self *Fixed[0.001953125] )
+			Call     NpcJump0    	( .Npc:Self FFFFFF06 000001F4 0000006E 00000028 )
+			Call     SetOwnerVar 	( 00000000 00000002 )
+		EndThread
+		Call     ShowMessage 	( 000F0045 000000A0 00000028 ) % Yuuuuummmm!!!!!!!! 
+		Label    0000000C 
+		Call     GetOwnerVar 	( 00000000 *Var[0] )
+		If  *Var[0]  !=  00000002 
+			Wait     00000001 
+			Goto     0000000C 
+		EndIf
+		Call     SetOwnerVar 	( 00000000 00000000 )
+		Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+		Call     MakeItemEntity ( .Item:Cookbook *Var[0] 00000190 *Var[2] 0000000D *Flag_OMO_08 )
+		Wait     0000001E 
+		Call     EnablePartnerAI 	( )
+		Wait     00000014 
+		Call     SetPlayerAnimation 	( .PlayerAnim:Thinking )
+		Wait     00000001 
+		Call     ResetCam    	( .Default *Fixed[90.0] )
+		Wait     0000003C 
+		Call     SetPlayerAnimation 	( 00010002 )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:tt1} 7FFFFE00 )
+        Call     ModifyColliderFlags 	( 00000000 {Collider:tt2} 7FFFFE00 )
+        Set  *GaveCakeToGourmet  00000001
+        If  *StoryProgress  < FFFFFFFE
+            Set  *StoryProgress  FFFFFFFE 
+            Set  *Chapter4Progress  FFFFFFFE
+        EndIf
+EndSwitch
+Exec     $Script_80242480 
+Call     DisablePlayerInput 	( .False )
+If  *StoryProgress  ==  FFFFFFFE 
+	Call     RemoveNpc   	( .Npc:Self )
+EndIf
+Return
+End
+
+@ $Script_Init_8024484C
+If  *GaveCakeToGourmet  >  00000000 
+	Call     RemoveNpc   	( 00000002 )
+	Call     RemoveNpc   	( 00000001 )
+	Call     RemoveNpc   	( .Npc:Self )
+Else
+	Call     SetNpcAnimation 	( .Npc:Self 00C1000D )
+	Call     SetNpcAnimation 	( 00000002 00C1000A )
+	Call     SetNpcFlagBits ( 00000002 00000002 .True )
+	Call     SetNpcPos   	( 00000002 FFFFFEE3 00000032 0000005A )
+	Call     SetNpcAnimation 	( 00000001 00C10009 )
+	Call     SetNpcFlagBits ( 00000001 00000002 .True )
+	Call     SetNpcPos   	( 00000001 FFFFFF2E 00000032 0000005A )
+	Call     BindNpcInteract 	( .Npc:Self $Script_80243224 )
+EndIf
+Return
+End
+
+@ $Script_MakeEntities
+Call     MakeEntity  	( .Entity:YellowBlock {Vec4d:Entity80245150} .Item:Coin 80000000 )
+Call     AssignBlockFlag 	( *Flag_OMO_24 )
+Call     MakeEntity  	( .Entity:YellowBlock {Vec4d:Entity80245188} .Item:Coin 80000000 )
+Call     AssignBlockFlag 	( *Flag_OMO_25 )
+If  *Flag_OMO_08  ==  00000000 
+	Call     MakeItemEntity ( .Item:Cookbook {Vec3d:Item802451E0} 00000000 *Flag_OMO_08 )
+EndIf
+Call     MakeEntity  	( .Entity:HiddenYellowBlock {Vec4d:Entity80245214} .Item:DizzyDial 80000000 )
+Call     AssignBlockFlag 	( *Flag_OMO_26 )
+Call     MakeEntity  	( .Entity:HiddenYellowBlock {Vec4d:Entity8024524C} .Item:SuperSoda 80000000 )
+Call     AssignBlockFlag 	( *Flag_OMO_27 )
+Return
+End
+

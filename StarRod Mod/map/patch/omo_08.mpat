@@ -1,0 +1,200 @@
+@ $Script_8024205C % Set chapter progress when solving color puzzle
+Call     DisablePlayerInput 	( .True )
+Loop     00000004 
+	Exec     $Script_802411B0 
+	Wait     00000003 
+	Exec     $Script_80241210 
+	Wait     00000003 
+	Exec     $Script_80241270 
+	Wait     00000003 
+	Exec     $Script_802412D0 
+	Wait     00000003 
+	Call     PlaySoundAtCollider 	( {Collider:o907} 000001A6 00000000 )
+	Exec     $Script_80241330 
+	Wait     00000003 
+	Call     PlaySoundAtCollider 	( {Collider:o911} 000001A5 00000000 )
+	Exec     $Script_80241390 
+	Wait     00000003 
+	Call     PlaySoundAtCollider 	( {Collider:o915} 000001A7 00000000 )
+	Exec     $Script_802413F0 
+	Wait     00000003 
+	Call     PlaySoundAtCollider 	( {Collider:o918} 000001A8 00000000 )
+	Exec     $Script_80241450 
+	Wait     00000003 
+EndLoop
+Call     UseSettingsFrom 	( .Default 000000A0 0000000A FFFFFF38 )
+Call     SetPanTarget 	( .Default 000000A0 0000000A FFFFFF38 )
+Call     SetCamDistance ( .Default 000002BC )
+Call     SetCamAngles 	( .Default 00000028 *Fixed[-4.5] )
+Call     SetCamSpeed 	( .Default *Fixed[2.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Wait     0000001E 
+Thread
+	Call     MakeLerp    	( 00000000 0000005A 00000028 00000002 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     RotateGroup 	( {Model:t1} *Var[0] 00000001 00000000 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+	Call     GetModelCenter ( {Model:o875} )
+	Call     PlaySoundAt 	( 000001F3 00000000 *Var[0] *Var[1] *Var[2] )
+	Call     PlayEffect  	( {FX:Steam:LargeOutward} *Var[0] *Var[1] *Var[2] 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Call     ShakeCam    	( .Default 00000000 00000003 *Fixed[0.80078125] )
+EndThread
+Wait     0000000A 
+Thread
+	Call     MakeLerp    	( 00000000 0000005A 00000028 00000002 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     RotateGroup 	( {Model:t2} *Var[0] 00000001 00000000 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+	Call     GetModelCenter ( {Model:o877} )
+	Call     PlaySoundAt 	( 000001F3 00000000 *Var[0] *Var[1] *Var[2] )
+	Call     PlayEffect  	( {FX:Steam:LargeOutward} *Var[0] *Var[1] *Var[2] 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Call     ShakeCam    	( .Default 00000000 00000003 *Fixed[0.80078125] )
+EndThread
+Wait     0000000A 
+Thread
+	Call     MakeLerp    	( 00000000 0000005A 00000028 00000002 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     RotateGroup 	( {Model:t3} *Var[0] 00000001 00000000 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+	Call     GetModelCenter ( {Model:o879} )
+	Call     PlaySoundAt 	( 000001F3 00000000 *Var[0] *Var[1] *Var[2] )
+	Call     PlayEffect  	( {FX:Steam:LargeOutward} *Var[0] *Var[1] *Var[2] 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Call     ShakeCam    	( .Default 00000000 00000003 *Fixed[0.80078125] )
+EndThread
+Wait     0000000A 
+Thread
+	Call     MakeLerp    	( 00000000 0000005A 00000028 00000002 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     RotateGroup 	( {Model:t4} *Var[0] 00000001 00000000 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+	Call     GetModelCenter ( {Model:o881} )
+	Call     PlaySoundAt 	( 000001F3 00000000 *Var[0] *Var[1] *Var[2] )
+	Call     PlayEffect  	( {FX:Steam:LargeOutward} *Var[0] *Var[1] *Var[2] 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Call     ShakeCam    	( .Default 00000000 00000003 *Fixed[0.80078125] )
+EndThread
+Wait     00000064 
+Call     UseSettingsFrom 	( .Default 00000064 00000000 00000172 )
+Call     SetPanTarget 	( .Default 00000064 00000000 00000172 )
+Call     SetCamDistance ( .Default FFFFFE3E )
+Call     SetCamAngles 	( .Default 00000010 *Fixed[-6.0] )
+Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Wait     0000000A 
+Thread
+	Call     GetModelCenter ( {Model:b1_1} )
+	Call     802C9308 ( 0000005F 00000000 )
+	Call     PlaySoundAtCollider 	( {Collider:o907} 00002098 00000000 )
+	Loop     00000004 
+		Set  *Var[3]  00000014 
+		Call     RandInt     	( 00000028 *Var[6] )
+		Sub  *Var[3]  *Var[6] 
+		Add  *Var[3]  *Var[0] 
+		Set  *Var[4]  00000014 
+		Call     RandInt     	( 00000028 *Var[7] )
+		Sub  *Var[4]  *Var[7] 
+		Add  *Var[4]  *Var[1] 
+		Set  *Var[5]  00000014 
+		Call     RandInt     	( 00000028 *Var[8] )
+		Sub  *Var[5]  *Var[8] 
+		Add  *Var[5]  *Var[2] 
+		Call     PlayEffect  	( {FX:Explosion1} *Var[3] *Var[4] *Var[5] 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Wait     00000002 
+	EndLoop
+EndThread
+Wait     0000001E 
+Thread
+	Call     GetModelCenter ( {Model:b2_1} )
+	Call     802C9308 ( 00000066 00000000 )
+	Call     PlaySoundAtCollider 	( {Collider:o911} 00002098 00000000 )
+	Loop     00000004 
+		Set  *Var[3]  00000014 
+		Call     RandInt     	( 00000028 *Var[6] )
+		Sub  *Var[3]  *Var[6] 
+		Add  *Var[3]  *Var[0] 
+		Set  *Var[4]  00000014 
+		Call     RandInt     	( 00000028 *Var[7] )
+		Sub  *Var[4]  *Var[7] 
+		Add  *Var[4]  *Var[1] 
+		Set  *Var[5]  00000014 
+		Call     RandInt     	( 00000028 *Var[8] )
+		Sub  *Var[5]  *Var[8] 
+		Add  *Var[5]  *Var[2] 
+		Call     PlayEffect  	( {FX:Explosion1} *Var[3] *Var[4] *Var[5] 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Wait     00000002 
+	EndLoop
+EndThread
+Wait     0000001E 
+Thread
+	Call     GetModelCenter ( {Model:b3_1} )
+	Call     802C9308 ( 0000006D 00000000 )
+	Call     PlaySoundAtCollider 	( {Collider:o915} 00002098 00000000 )
+	Loop     00000004 
+		Set  *Var[3]  00000014 
+		Call     RandInt     	( 00000028 *Var[6] )
+		Sub  *Var[3]  *Var[6] 
+		Add  *Var[3]  *Var[0] 
+		Set  *Var[4]  00000014 
+		Call     RandInt     	( 00000028 *Var[7] )
+		Sub  *Var[4]  *Var[7] 
+		Add  *Var[4]  *Var[1] 
+		Set  *Var[5]  00000014 
+		Call     RandInt     	( 00000028 *Var[8] )
+		Sub  *Var[5]  *Var[8] 
+		Add  *Var[5]  *Var[2] 
+		Call     PlayEffect  	( {FX:Explosion1} *Var[3] *Var[4] *Var[5] 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Wait     00000002 
+	EndLoop
+EndThread
+Wait     0000001E 
+Thread
+	Call     GetModelCenter ( {Model:b4_1} )
+	Call     802C9308 ( 00000074 00000000 )
+	Call     PlaySoundAtCollider 	( {Collider:o918} 00002098 00000000 )
+	Loop     00000004 
+		Set  *Var[3]  00000014 
+		Call     RandInt     	( 00000028 *Var[6] )
+		Sub  *Var[3]  *Var[6] 
+		Add  *Var[3]  *Var[0] 
+		Set  *Var[4]  00000014 
+		Call     RandInt     	( 00000028 *Var[7] )
+		Sub  *Var[4]  *Var[7] 
+		Add  *Var[4]  *Var[1] 
+		Set  *Var[5]  00000014 
+		Call     RandInt     	( 00000028 *Var[8] )
+		Sub  *Var[5]  *Var[8] 
+		Add  *Var[5]  *Var[2] 
+		Call     PlayEffect  	( {FX:Explosion1} *Var[3] *Var[4] *Var[5] 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Wait     00000002 
+	EndLoop
+EndThread
+Call     ModifyColliderFlags 	( 00000000 {Collider:o907} 7FFFFE00 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:o911} 7FFFFE00 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:o915} 7FFFFE00 )
+Call     ModifyColliderFlags 	( 00000000 {Collider:o918} 7FFFFE00 )
+Wait     00000014 
+Call     ResetCam    	( .Default 00000002 )
+Set  *StoryProgress  00000000
+Set  *Chapter4Progress  00000000  
+Call     DisablePlayerInput 	( .False )
+Return
+End
