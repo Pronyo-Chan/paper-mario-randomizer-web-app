@@ -1,3 +1,21 @@
+@ $Function_80241944  % Increase star power by 1 instead of setting it to hard coded 4
+ADDIU		SP, SP, FFE8
+SW			RA, 10 (SP)
+LABU		T0, 8010F51E
+ADDIU		T1, T0, 1
+JAL			800EA1D8
+ADD			A0, R0, T1
+LIA			V0, 8010F290
+LBU			V1, 3 (V0)
+LBU			A0, 6 (V0)
+SB			V1, 2 (V0)
+JAL			800E9B6C
+SB			A0, 5 (V0)
+LW			RA, 10 (SP)
+ADDIU		V0, R0, 2
+JR			RA
+ADDIU		SP, SP, 18
+
 % Note: Not modifying Twink's scripts that modify StoryProgress because they will be skipped and should not ever happen
 @ $Script_Main
 Set *StoryProgress *Chapter4Progress
@@ -246,3 +264,177 @@ Call     GotoMap     	( $ASCII_8024F568 00000006 )
 Wait     00000064 
 Return
 End
+
+@ $Script_80246D94
+Call     DisablePartnerAI 	( 00000000 )
+Call     802CF56C ( 00000002 )
+Call     SetNpcPos   	( 00000011 FFFFFDF8 00000028 0000010E )
+Call     PlayerFaceNpc 	( 00000011 00000000 )
+Call     NpcFaceNpc  	( .Npc:Partner 00000011 00000000 )
+Call     UseSettingsFrom 	( .Default FFFFFE5C 00000014 000000EB )
+Call     SetPanTarget 	( .Default FFFFFE2A 00000014 000000FA )
+Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     802D2508 ( )
+Call     DisablePlayerInput 	( .True )
+Wait     00000028 
+Call     SayMessage0 	( 00000011 00150002 00150001 00000200 000600C5 ) % Phew! Ahhh, fresh air! After being cooped up in th ...
+Call     GetNpcPos   	( 00000011 *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default FFFFFED4 )
+Call     SetCamAngles 	( .Default *Fixed[17.5] FFFFFFF7 )
+Call     SetCamSpeed 	( .Default 00000003 )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Wait     0000000A 
+Call     SayMessage0 	( 00000011 00150002 00150001 00000200 000600C6 ) % My name is Muskular. Mario, I must thank you for s ...
+Call     SetPanTarget 	( .Default FFFFFE2A 00000014 000000FA )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     MakeLerp    	( 00000000 00000168 0000000A 00000000 )
+Loop     
+	Call     UpdateLerp  	( )
+	Call     SetNpcRotation ( 00000011 00000000 *Var[0] 00000000 )
+	Wait     00000001 
+	If  *Var[1]  ==  00000000 
+		BreakLoop
+	EndIf
+EndLoop
+Call     EnableNpcAI 	( 00000011 .False )
+Call     SetNpcAnimation 	( 00000011 00150003 )
+Wait     00000014 
+Call     SetPlayerAnimation 	( .PlayerAnim:GotItem )
+Call     PlaySoundAtPlayer 	( 00000139 00000000 )
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Set  *Var[3]  *Var[1] 
+Add  *Var[0]  0000000A 
+Add  *Var[1]  00000032 
+Add  *Var[2]  0000000A 
+Add  *Var[3]  0000001E 
+Loop     00000005 
+	Call     PlayEffect  	( 00000011 00000003 *Var[0] *Var[1] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+	Wait     00000006 
+	Call     PlayEffect  	( {FX:Sparkles:Random} *Var[0] *Var[3] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000
+	Wait     00000006 
+EndLoop
+Wait     00000014 
+Call     PlaySoundAtPlayer 	( 00000188 00000000 )
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+Add  *Var[1]  00000014 
+Call     PlayEffect  	( {FX:EnergyWaveOut:Grey} *Var[0] *Var[1] *Var[2] 00000001 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 000000
+Wait     0000001E 
+Call     SetPlayerAnimation 	( 00010002 )
+Call     SetNpcAnimation 	( 00000011 00150001 )
+Call     EnableNpcAI 	( 00000011 .True )
+Call     $Function_80241944 ( )
+Call     ShowMessage 	( 001D0194 000000A0 00000028 ) % Mario's Star Energy goes up to 4! Mario can now us ...
+Wait     0000000A 
+Call     SayMessage0 	( 00000011 00150002 00150001 00000200 000600C7 ) % Call on me whenever you find yourself in trouble.  ...
+Call     ShowMessage 	( 000600C8 000000A0 00000028 ) % Mario!
+Call     SetPanTarget 	( .Default FFFFFE2A 00000014 000000FA )
+Call     SetCamDistance ( .Default FFFFFE0C )
+Call     SetCamAngles 	( .Default *Fixed[17.5] FFFFFFF7 )
+Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+Wait     00000001 
+Call     SetNpcPos   	( 00000010 FFFFFDA8 000000C8 0000015E )
+Call     NpcJumpX    	( 00000010 FFFFFE4B 0000003C 0000010E 00000000 FFFFFFF6 00000000 )
+Call     SetPlayerAnimation 	( 0001002A )
+Call     SayMessage0 	( 00000010 00200009 00200001 00000000 000600C9 ) % Mario! Mario! I have news... News from the castle. ...
+Call     InterpNpcYaw 	( 00000010 0000010E 00000000 )
+Wait     00000014 
+Call     NpcJump1    	( 00000010 FFFFFE34 0000002D 000000DC 0000000A )
+Call     SayMessage3 	( 00000010 00200009 00200001 00000200 00000011 000600CA ) % Gasp! Honorable Star Spirit!
+Call     SetCamDistance ( .Default FFFFFED4 )
+Call     SetPlayerAnimation 	( 00010002 )
+Wait     00000001 
+Call     SayMessage3 	( 00000011 00150002 00150001 00000200 00000010 000600CB ) % Hi! Hmmmmmmmmmm... I believe you are... Twink, no? ...
+Call     SayMessage3 	( 00000010 00200009 00200001 00000000 00000011 000600CC ) % What!? You remember my name?!
+Call     SayMessage3 	( 00000011 00150002 00150001 00000200 00000010 000600CD ) % Ha ha ha! Why, of course! We're like family!
+Call     SayMessage3 	( 00000010 00200009 00200001 00000000 00000011 000600CE ) % I... I... I'm so touched!!
+Call     GetNpcPos   	( 00000011 *Var[0] *Var[1] *Var[2] )
+Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+Call     SetCamDistance ( .Default FFFFFED4 )
+Call     SetCamAngles 	( .Default *Fixed[17.5] FFFFFFF7 )
+Call     SetCamSpeed 	( .Default *Fixed[1.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Wait     0000000A 
+Call     SayMessage3 	( 00000011 00150002 00150001 00000200 00000010 000600CF ) % Ho ho ho! Don't make such a fuss, lad. I'm sure yo ...
+Call     SetPanTarget 	( .Default FFFFFE3E 00000014 000000FA )
+Call     SetCamDistance ( .Default FFFFFE70 )
+Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     SetNpcFlagBits ( 00000011 00040000 .True )
+Thread
+	Loop     00000019 
+		Call     GetNpcPos   	( 00000011 *Var[0] *Var[1] *Var[2] )
+		Call     PlayEffect  	( 00000011 00000004 *Var[0] *Var[1] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000 0000
+		Wait     00000004 
+	EndLoop
+EndThread
+Thread
+	Set  *Var[2]  00000000 
+	Set  *Var[3]  00000708 
+	Call     MakeLerp    	( *Var[2] *Var[3] 00000064 00000002 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     SetNpcRotation ( 00000011 00000000 *Var[0] 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+EndThread
+Thread
+	Call     GetNpcPos   	( 00000011 *Var[2] *Var[3] *Var[4] )
+	Set  *Var[5]  *Var[3] 
+	Add  *Var[5]  000000B4 
+	Call     MakeLerp    	( *Var[3] *Var[5] 00000064 00000002 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     SetNpcPos   	( 00000011 *Var[2] *Var[0] *Var[4] )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+	Call     SetNpcPos   	( 00000011 00000000 FFFFFC18 00000000 )
+EndThread
+Thread
+	Wait     0000000F 
+	Call     PlaySoundAtNpc ( 00000011 00002045 00000000 )
+EndThread
+Wait     0000000A 
+Call     SetPlayerAnimation 	( 0001002A )
+Wait     00000073 
+Call     SetPlayerAnimation 	( 00010002 )
+Call     SetMusicTrack 	( 00000000 .Song:TwinkTheme 00000000 00000008 )
+Call     SetPanTarget 	( .Default FFFFFE3E 00000014 000000FA )
+Call     SetCamDistance ( .Default FFFFFEA2 )
+Call     SetCamSpeed 	( .Default *Fixed[3.0] )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     SetNpcSpeed 	( 00000010 00000004 )
+Call     NpcJumpX    	( 00000010 FFFFFE20 00000028 0000010E 00000000 0000000A 00000000 )
+Call     SayMessage0 	( 00000010 00200009 00200001 00000000 000600D0 ) % Wow! I talked with Muskular, the honorable Star Sp ...
+Call     InterpNpcYaw 	( 00000010 0000010E 00000000 )
+Wait     0000001E 
+Call     NpcFacePlayer 	( 00000010 00000000 )
+Wait     0000000A 
+Call     SayMessage0 	( 00000010 00200009 00200001 00000000 000600D1 ) % Oops, I'm sorry! I have some important news from t ...
+Call     SetPlayerAnimation 	( .PlayerAnim:Question )
+Wait     00000014 
+Call     SetPlayerAnimation 	( 00010002 )
+Call     SayMessage0 	( 00000010 00200009 00200001 00000000 000600D2 ) % According to the information  Princess Peach and I ...
+Call     SetPlayerAnimation 	( .PlayerAnim:NodYes )
+Wait     0000001E 
+Call     SayMessage0 	( 00000010 00200009 00200001 00000000 000600D3 ) % I'm going back to rejoin Princess Peach now. Mario ...
+Call     PanToTarget 	( .Default 00000000 00000000 )
+Call     NpcJumpX    	( 00000010 FFFFFDA8 000000C8 0000015E 00000000 FFFFFFF6 00000000 )
+Call     SetNpcPos   	( 00000010 00000000 FFFFFC18 00000000 )
+Set  *StoryProgress  0000003D % Set Progress to ch7 
+Set  *Chapter4Progress  0000003D  
+Exec     $Script_802420C0 
+Call     EnablePartnerAI 	( )
+Call     DisablePlayerInput 	( .False )
+Return
+End
+

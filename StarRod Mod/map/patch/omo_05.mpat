@@ -1,6 +1,6 @@
 % This map is the gourmet guy map.
 % Use his specific flag instead of story progress
-% Remove condition for spawning cookbook
+% Change condition for spawning cookbook
 @ $Script_Main
 Set  *WorldMapLocation  .Location:ShyGuysToybox
 Call     SetSpriteShading 	( FFFFFFFF )
@@ -374,8 +374,10 @@ Call     MakeEntity  	( .Entity:YellowBlock {Vec4d:Entity80245150} .Item:Coin 80
 Call     AssignBlockFlag 	( *Flag_OMO_24 )
 Call     MakeEntity  	( .Entity:YellowBlock {Vec4d:Entity80245188} .Item:Coin 80000000 )
 Call     AssignBlockFlag 	( *Flag_OMO_25 )
-If  *Flag_OMO_08  ==  00000000 
-	Call     MakeItemEntity ( .Item:Cookbook {Vec3d:Item802451E0} 00000000 *Flag_OMO_08 )
+If  *Flag_OMO_08  ==  00000000
+    If  *GaveCakeToGourmet  >  00000001 
+        Call     MakeItemEntity ( .Item:Cookbook {Vec3d:Item802451E0} 00000000 *Flag_OMO_08 )
+    EndIf
 EndIf
 Call     MakeEntity  	( .Entity:HiddenYellowBlock {Vec4d:Entity80245214} .Item:DizzyDial 80000000 )
 Call     AssignBlockFlag 	( *Flag_OMO_26 )

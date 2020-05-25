@@ -1,0 +1,138 @@
+@ $Script_80240974 % Set chapter 4 progress when opening general chamber
+SetF  *Var[A]  *Fixed[3.5] 
+Set  *AreaFlag[011]  00000000 
+Call     SetNpcSpeed 	( .Npc:Self *Var[A] )
+Label    00000000 
+Call     GetOwnerVar 	( 00000000 *Var[0] )
+Switch  *Var[0] 
+	Case  ==  00000000 
+		Call     GetPlayerPos 	( *Var[2] *Var[3] *Var[4] )
+		If  *Var[2]  >  FFFFFF2E 
+			Call     $Function_80240564 ( )
+			Set  *MapVar[A]  *Var[9] 
+			Switch  *Var[9] 
+				Case  ==  FFFFFFFF 
+					Call     SetNpcSpeed 	( .Npc:Self *Var[A] )
+					Call     $Function_80240160 ( )
+					If  *Var[E]  >  0000001E 
+						Call     SetNpcJumpscale 	( .Npc:Self *Fixed[1.0] )
+						Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+						If  *Var[1]  ==  00000000 
+							Call     PlaySound   	( 000003ED )
+							Call     NpcJump0    	( .Npc:Self *Var[0] *Var[1] *Var[2] 0000000A )
+							Thread
+								Call     ShakeCam    	( .Default 00000001 00000004 *Fixed[1.0] )
+							EndThread
+							Wait     00000003 
+							Call     SetPlayerAnimation 	( .PlayerAnim:RunPanic )
+							Call     SetPlayerJumpscale 	( *Fixed[1.0] )
+							Call     PlaySound   	( 000003EE )
+							Call     PlayerJump1 	( *Var[0] *Var[1] *Var[2] 0000000F )
+							Call     SetPlayerAnimation 	( 00010002 )
+						Else
+							Call     GetNpcPos   	( .Npc:Self *Var[3] *Var[4] *Var[5] )
+							Call     NpcJump0    	( .Npc:Self *Var[3] *Var[4] *Var[5] 0000000A )
+						EndIf
+						Set  *Var[E]  00000000 
+					EndIf
+				Case  ==  00000006 
+					UseIntBuffer $IntTable_8024091C 
+					Get2Int  *Var[3] *Var[4] 
+					Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+					If  *Var[0]  <  000000B4 
+						Call     GetOwnerVar 	( 00000001 *Var[9] )
+						If  *Var[9]  !=  00000006 
+							Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+							Call     SetNpcJumpscale 	( .Npc:Self *Fixed[1.0] )
+							Call     NpcJump0    	( .Npc:Self *Var[0] 00000000 *Var[2] 0000000F )
+						EndIf
+						If  *AreaFlag[011]  ==  00000000 
+							Set  *AreaFlag[011]  00000001 
+						EndIf
+						UseIntBuffer $IntTable_8024091C 
+						Get2Int  *Var[1] *Var[2] 
+						Call     SetNpcSpeed 	( .Npc:Self *Fixed[4.0] )
+						Call     $Function_802403FC ( *Var[3] *Var[4] )
+					Else
+						Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+						If  *Var[0]  <  00000096 
+							Call     SetNpcJumpscale 	( .Npc:Self *Fixed[1.0] )
+							Call     NpcJump0    	( .Npc:Self *Var[3] 00000000 *Var[4] 0000000F )
+							Wait     0000001E 
+						Else
+							Call     DisablePlayerInput 	( .True )
+							Call     SetNpcJumpscale 	( .Npc:Self *Fixed[1.0] )
+							Call     NpcJump0    	( .Npc:Self *Var[3] 00000000 *Var[4] 0000000F )
+							Wait     0000001E 
+							Call     DisablePlayerInput 	( .False )
+						EndIf
+						Call     SetOwnerVar 	( 00000000 00000001 )
+					EndIf
+				Case  ==  00000009 
+					Call     GetPlayerPos 	( *Var[2] *Var[3] *Var[4] )
+					If  *Var[2]  <  0000001E 
+						Call     $Function_802403FC ( 000000C8 00000000 )
+					Else
+						Call     $Function_802403FC ( FFFFFF6A 00000000 )
+					EndIf
+			EndSwitch
+			Set  *Var[9]  *MapVar[A] 
+			Call     SetOwnerVar 	( 00000001 *Var[9] )
+		Else
+			Call     $Function_802403FC ( 000000C8 00000000 )
+		EndIf
+	Case  ==  00000001 
+		Call     GetPlayerPos 	( *Var[2] *Var[3] *Var[4] )
+		If  *Var[2]  <  00000096 
+			Call     $Function_80240564 ( )
+			If  *Var[9]  !=  00000006 
+				Call     SetOwnerVar 	( 00000000 00000000 )
+			EndIf
+		Else
+			Call     DisablePlayerInput 	( .True )
+			Call     SayMessage0 	( .Npc:Self FFFFFFFF FFFFFFFF 00000005 000F005D ) % Run! Run for it!! 
+			Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+			Call     SetNpcJumpscale 	( .Npc:Self *Fixed[1.0] )
+			Call     NpcJump0    	( .Npc:Self *Var[0] 00000000 *Var[2] 0000000F )
+			Call     SetNpcSpeed 	( .Npc:Self *Fixed[4.0] )
+			Call     MoveNpcTo   	( .Npc:Self 000000E6 00000000 00000000 )
+			Call     SetNpcSpeed 	( .Npc:Self *Var[A] )
+			Set  *Var[0]  00000001 
+			Loop     0000000A 
+				Call     SetNpcVar   	( *Var[0] 00000000 00000002 )
+				Add  *Var[0]  00000001 
+			EndLoop
+			Wait     0000002D 
+			Call     StopSound   	( 8000004C )
+			Call     SayMessage0 	( .Npc:Self FFFFFFFF FFFFFFFF 00000005 000F005E ) % Waaah! Help me!! 
+			Thread
+				Call     ShakeCam    	( .Default 00000000 0000000A *Fixed[1.0] )
+			EndThread
+			Call     PlaySoundAtCollider 	( {Collider:tt1} 000001E4 00000000 )
+			Call     PlayEffect  	( 00000042 00000000 00000025 00000025 00000001 0000000A 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+			Call     EnableModel 	( {Model:o821} .True )
+			Loop     0000000A 
+				Call     EnableModel 	( {Model:o823} .True )
+				Call     EnableModel 	( {Model:o828} .True )
+				Wait     00000001 
+				Call     EnableModel 	( {Model:o823} .False )
+				Call     EnableModel 	( {Model:o828} .False )
+				Wait     00000001 
+			EndLoop
+			Call     ModifyColliderFlags 	( 00000000 {Collider:tt1} 7FFFFE00 )
+			Wait     00000028 
+			Call     InterpNpcYaw 	( .Npc:Self 0000010E 00000000 )
+			Wait     00000014 
+			Call     SetNpcSpeed 	( .Npc:Self *Fixed[4.0] )
+			Call     MoveNpcTo   	( .Npc:Self 0000012C 00000000 00000000 )
+            Set  *StoryProgress  00000003
+            Set  *Chapter4Progress  00000003  
+			Wait     0000001E 
+			Call     DisablePlayerInput 	( .False )
+			Call     RemoveNpc   	( .Npc:Self )
+		EndIf
+EndSwitch
+Wait     00000001 
+Goto     00000000 
+Return
+End
