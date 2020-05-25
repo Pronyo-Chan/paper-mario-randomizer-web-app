@@ -64,7 +64,7 @@
 03F = GaveStoreroomKey
 040 = GaveCakeToGourmet
 041 = IsLanternGhostDefeated
-042 = GameByte[042] 	% unused Byte_TIK_0A
+042 = IsFryingPanReturned
 043 = Byte_KGR_00
 044 = GameByte[044] 	% unused Byte_KGR_01
 045 = GameByte[045] 	% unused Byte_KGR_02

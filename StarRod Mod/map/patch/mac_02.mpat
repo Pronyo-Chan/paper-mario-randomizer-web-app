@@ -82,8 +82,7 @@ If  *Flag_MAC_97  ==  00000001
 		ExecWait $Script_80246154 
 		Call     AddItem     	( .Item:Cake *Var[0] )
 		Call     SayMessage0 	( 00000000 00AA0004 00AA0001 00000000 0004001B ) % This is my most delicious Cake. One taste of it wo ...
-        Set  *StoryProgress  FFFFFFFD
-        Set  *Chapter4Progress  FFFFFFFD  
+		Set  *IsFryingPanReturned  00000001
 	Else
 		Call     SayMessage0 	( 00000000 00AA0004 00AA0001 00000000 0004001C ) % Oh, my... You're carrying too much. You can't poss ...
 		Set  *Flag_MAC_97  00000001 
@@ -108,13 +107,41 @@ Switch  *Var[0]
 			Set  *Var[1]  00000000 
 			ExecWait $Script_80246154 
 			Call     AddItem     	( .Item:Cake *Var[0] )
+			Set  *IsFryingPanReturned  00000001
 			Call     SayMessage0 	( 00000000 00AA0004 00AA0001 00000000 0004001B ) % This is my most delicious Cake. One taste of it wo ...
-            Set  *StoryProgress  FFFFFFFD
-            Set  *Chapter4Progress  FFFFFFFD 
 		Else
 			Call     SayMessage0 	( 00000000 00AA0004 00AA0001 00000000 0004001C ) % Oh, my... You're carrying too much. You can't poss ...
 			Set  *Flag_MAC_97  00000001 
 		EndIf
 EndSwitch
+Return
+End
+
+@ $Script_8024A034
+If  *IsFryingPanReturned  <  00000001 
+	ExecWait $Script_8024926C 
+	Return
+EndIf
+Call     FindKeyItem 	( .Item:Cookbook *Var[0] )
+If  *Var[0]  ==  FFFFFFFF 
+	ExecWait $Script_80249684 
+Else
+	ExecWait $Script_80249550 
+EndIf
+Return
+End
+
+@ $Script_Init_8024A0D4
+Call     BindNpcInteract 	( .Npc:Self $Script_8024A034 )
+Call     InterpNpcYaw 	( .Npc:Self 0000002D 00000000 )
+Call     SetNpcPos   	( .Npc:Self FFFFFF14 00000014 FFFFFEC2 )
+Call     SetNpcAnimation 	( .Npc:Self 00AA0001 )
+If  *IsFryingPanReturned  <  00000001 
+	If  *Flag_MAC_97  !=  00000001 
+		Call     SetNpcAnimation 	( .Npc:Self 00AA0006 )
+		Return
+	EndIf
+EndIf
+Set  *AreaFlag[001]  00000000 
 Return
 End
