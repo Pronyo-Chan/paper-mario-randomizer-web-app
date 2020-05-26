@@ -1,0 +1,198 @@
+@ $Script_80240838
+If  *RafaelProgress  !=  00000003 
+	Call     PlayEffect  	( 00000055 00000005 FFFFFECA 0000000A 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Call     PlayEffect  	( 00000055 00000005 FFFFFF2E 0000000A 000000F0 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Call     PlayEffect  	( 00000055 00000005 0000014A 0000000A 00000104 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+EndIf
+Call     PlayEffect  	( 00000055 00000005 FFFFFED4 0000000A 0000010E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+Call     PlayEffect  	( 00000055 00000005 FFFFFFB0 0000000A 00000186 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+Call     PlayEffect  	( 00000055 00000005 000001AE 0000000A 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+Return
+End
+
+@ $Script_802412D4
+Call     DisablePlayerInput 	( .True )
+If  *RafaelProgress  <  00000002 
+	Call     EnableGroup 	( {Model:g38} .False )
+	Call     EnableGroup 	( {Model:g54} .False )
+	Call     PanToTarget 	( .Default 00000000 00000000 )
+	Call     SetCamType  	( .Default 00000001 00000000 )
+	Call     UseSettingsFrom 	( .Default FFFFFEF3 0000005E FFFFFFF8 )
+	Call     SetPanTarget 	( .Default FFFFFEF3 0000005E FFFFFFF8 )
+	Call     SetCamDistance ( .Default 000003E8 )
+	Call     SetCamAngles 	( .Default 00000014 00000000 )
+	Call     SetCamPosA  	( .Default FFFFFE66 FFFFFFAB )
+	Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Wait     0000000A 
+	Call     SetCamDistance ( .Default 00000190 )
+	Call     SetCamAngles 	( .Default FFFFFFF3 00000001 )
+	Call     SetCamSpeed 	( .Default *Fixed[0.4501953] )
+	Call     SetCamPosA  	( .Default FFFFFF31 FFFFFFAB )
+	Call     PanToTarget 	( .Default *Fixed[0.80078125] 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Wait     0000001E 
+	Call     ResetCam    	( .Default *Fixed[90.0] )
+	Set  *RafaelProgress  00000002
+EndIf
+Call     EnableGroup 	( {Model:g38} .True )
+Call     EnableGroup 	( {Model:g54} .True )
+Call     EnableGroup 	( {Model:g39} .False )
+Call     EnableGroup 	( {Model:g56} .False )
+Call     DisablePlayerInput 	( .False )
+Return
+End
+
+@ $Script_Init_80241570
+Switch  *RafaelProgress 
+	Case  <  00000003 
+		Goto     00000014 
+	Case  00000003  to  00000004 
+		Call     BindNpcInteract 	( .Npc:Self $Script_80241540 )
+		Call     GetOwnerNpcID 	( *Var[0] )
+		If  *Var[0]  ==  00000001 
+			Call     SetNpcPos   	( 00000001 FFFFFE3E 00000000 0000001A )
+			Call     SetNpcPos   	( 00000002 FFFFFE52 00000000 00000004 )
+			Call     SetNpcPos   	( 00000003 FFFFFE66 00000000 FFFFFFEE )
+			Call     SetNpcPos   	( 00000004 FFFFFE7A 00000000 FFFFFFD8 )
+			Call     SetNpcPos   	( 00000005 FFFFFE65 0000005D FFFFFFF0 )
+		EndIf
+	Case  >  00000004 
+		Label    00000014 
+		Call     ModifyColliderFlags 	( 00000000 {Collider:o113} 7FFFFE00 )
+		Call     RemoveNpc   	( .Npc:Self )
+EndSwitch
+Return
+End
+
+@ $Script_802416C4
+Call     DisablePlayerInput 	( .True )
+Call     ModifyColliderFlags 	( 00000000 {Collider:o130} 7FFFFE00 )
+Call     SetNpcFlagBits ( .Npc:Self 00000140 .True )
+Call     SetNpcAnimation 	( .Npc:Self 00C40002 )
+Call     NpcFacePlayer 	( .Npc:Self 00000004 )
+Wait     00000005 
+Call     PlayerFaceNpc 	( .Npc:Self 00000000 )
+Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+Call     802CC3EC ( 00000000 *Fixed[4.5] *Var[0] *Var[1] *Var[2] 000001C2 *Fixed[20.0] *Fixed[-9.5] )
+Call     InterpNpcYaw 	( .Npc:Self 0000005A 00000000 )
+Wait     0000000A 
+Call     InterpPlayerYaw 	( 0000005A 00000000 )
+Wait     00000014 
+Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+Thread
+	Call     SetNpcAnimation 	( .Npc:Self 00C4000C )
+	Wait     00000008 
+	Call     SetNpcAnimation 	( .Npc:Self 00C4000D )
+	Wait     0000000F 
+	Call     SetNpcAnimation 	( .Npc:Self 00C40008 )
+	Wait     0000000A 
+	Call     SayMessage0 	( .Npc:Self 00C40008 00C40008 00000005 001000E1 ) % Heave-HOOOOOOO!! 
+	Call     SetNpcAnimation 	( .Npc:Self 00C40003 )
+	Wait     0000000A 
+	Call     SetNpcAnimation 	( .Npc:Self 00C40002 )
+EndThread
+Call     SetNpcJumpscale 	( .Npc:Self 00000002 )
+Call     NpcJump1    	( .Npc:Self *Var[0] *Var[1] *Var[2] 0000001E )
+Call     PlaySoundAtNpc ( .Npc:Self 0000018A 00000000 )
+Thread
+	Call     ShakeCam    	( .Default 00000000 00000032 *Fixed[1.0] )
+	Call     SetPlayerAnimation 	( 00010002 )
+EndThread
+Call     SetPlayerAnimation 	( 0001002B )
+Thread
+	Wait     00000014 
+	Loop     0000000A 
+		Call     PlayEffect  	( {FX:Steam:SmallOutward} 00000073 00000000 00000163 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Call     PlayEffect  	( {FX:Steam:SmallOutward} 000000CD 00000000 000001DB 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Wait     00000002 
+		Call     PlayEffect  	( {FX:Steam:SmallOutward} 000000BE 00000000 000001BD 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Wait     00000002 
+		Call     PlayEffect  	( {FX:Steam:SmallOutward} 0000008C 00000000 0000017C 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Call     PlayEffect  	( {FX:Steam:SmallOutward} 000000AA 00000000 00000190 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Wait     00000002 
+	EndLoop
+EndThread
+Loop     0000000F 
+	Call     ScaleGroup  	( {Model:g40} 00000001 *Fixed[1.0507812] 00000001 )
+	Wait     00000002 
+	Call     ScaleGroup  	( {Model:g40} 00000001 *Fixed[0.9501953] 00000001 )
+	Wait     00000002 
+EndLoop
+Thread
+	Wait     0000000F 
+	Call     MakeLerp    	( 00000000 00000064 00000064 00000001 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     TranslateGroup ( {Model:g40} 00000000 *Var[0] 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+EndThread
+Thread
+	Set  *Var[0]  00000001 
+	Loop     00000006 
+		Switch  *Var[0] 
+			Case  00000001  to  00000004 
+				Call     PlaySoundAtCollider 	( {Collider:o97} 0000018C 00000000 )
+			Case  ==  00000005 
+				Call     PlaySoundAtCollider 	( {Collider:o97} 0000018D 00000000 )
+			Case  ==  00000006 
+				Call     PlaySoundAtCollider 	( {Collider:o97} 0000018E 00000000 )
+		EndSwitch
+		Add  *Var[0]  00000001 
+		Wait     00000014 
+	EndLoop
+EndThread
+SetF  *Var[2]  *Fixed[1.0] 
+SetF  *Var[3]  *Fixed[0.25] 
+Loop     00000005 
+	Loop     0000000A 
+		AddF  *Var[2]  *Var[3] 
+		Call     ScaleGroup  	( {Model:g40} 00000001 *Var[2] 00000001 )
+		Wait     00000001 
+	EndLoop
+	Call     PlayEffect  	( {FX:Steam:SmallOutward} 0000007B 00000000 00000160 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Call     PlayEffect  	( {FX:Steam:SmallOutward} 000000C1 00000000 000001C2 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Loop     0000000A 
+		SubF  *Var[2]  *Var[3] 
+		Call     ScaleGroup  	( {Model:g40} 00000001 *Var[2] 00000001 )
+		Wait     00000001 
+	EndLoop
+	Call     PlayEffect  	( {FX:Steam:SmallOutward} 00000073 00000000 00000163 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Call     PlayEffect  	( {FX:Steam:SmallOutward} 000000CD 00000000 000001DB 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	SubF  *Var[3]  *Fixed[0.05078125] 
+EndLoop
+Call     ModifyColliderFlags 	( 00000000 {Collider:o97} 7FFFFE00 )
+Wait     0000000A 
+Call     SayMessage0 	( .Npc:Self 00C40009 00C40002 00000000 001000E2 ) % Come on, then.
+Call     SetNpcAnimation 	( .Npc:Self 00C40004 )
+Call     SetNpcSpeed 	( 00000000 *Fixed[4.0] )
+Call     MoveNpcTo   	( .Npc:Self 00000154 0000010E 00000000 )
+Call     SetNpcFlagBits ( .Npc:Self 00000200 .False )
+Call     SetNpcPos   	( .Npc:Self 00000000 FFFFFC18 00000000 )
+Call     ResetCam    	( .Default 00000005 )
+Set  *RafaelProgress  00000004 
+Call     DisablePlayerInput 	( .False )
+Return
+End
+
+@ $Script_Init_80241FBC
+If  *RafaelProgress  ==  00000003 
+	Call     SetNpcFlagBits ( .Npc:Self 00000100 .False )
+	Call     SetNpcPos   	( .Npc:Self 00000055 00000000 0000019A )
+	Call     BindNpcInteract 	( .Npc:Self $Script_802416C4 )
+	Return
+Else
+	Call     ModifyColliderFlags 	( 00000000 {Collider:o130} 7FFFFE00 )
+	If  *RafaelProgress  >=  00000004 
+		Call     ModifyColliderFlags 	( 00000000 {Collider:o97} 7FFFFE00 )
+		Call     TranslateGroup ( {Model:g40} 00000000 00000064 00000000 )
+	EndIf
+EndIf
+Call     RemoveNpc   	( .Npc:Self )
+Return
+End

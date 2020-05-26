@@ -1,0 +1,127 @@
+@ $Script_8024178C % Check village panic flag for yoshi and fight spawn
+If  *Flag_JAN_39  ==  00000000 
+	Call     DisablePlayerInput 	( .True )
+	Call     ShowMessage 	( 001000B4 00000140 0000003C ) % Yeeeeeeeek! Somebody, help me!!
+	Call     PlaySoundAtPlayer 	( 00000262 00000000 )
+	Call     ShowEmote   	( 00000000 .Emote:Exclamation 00000000 0000001E 00000000 00000000 00000000 00000000 00000000 )
+	Call     PlaySoundAtNpc ( .Npc:Partner 00000262 00000000 )
+	Call     ShowEmote   	( .Npc:Partner .Emote:Exclamation 00000000 0000001E 00000001 00000000 00000000 00000000 00000000 )
+	Wait     0000001E 
+	Call     UseSettingsFrom 	( .Default FFFFFF49 00000032 FFFFFFF5 )
+	Call     SetPanTarget 	( .Default 00000032 00000000 00000000 )
+	Call     SetCamDistance ( .Default 000001F4 )
+	Call     SetCamAngles 	( .Default 00000010 *Fixed[-6.0] )
+	Call     SetCamSpeed 	( .Default 00000003 )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     SayMessage0 	( .Npc:Self 00970306 00970306 00000005 001000B5 ) % I'm so scared... I wanna go home!
+	Wait     0000000A 
+	Exec     $Script_80241714 
+	Call     ResetCam    	( .Default *Fixed[90.0] )
+	Set  *Flag_JAN_39  00000001 
+	Call     DisablePlayerInput 	( .False )
+EndIf
+Label    00000000 
+Call     GetOwnerVar 	( 00000000 *Var[0] )
+If  *Var[0]  !=  00000001 
+	Wait     00000001 
+	Goto     00000000 
+EndIf
+Call     DisablePlayerInput 	( .True )
+Call     UseSettingsFrom 	( .Default FFFFFFEC 00000000 00000014 )
+Call     SetPanTarget 	( .Default FFFFFFEC 00000000 00000014 )
+Call     SetCamDistance ( .Default *Fixed[300.0] )
+Call     SetCamSpeed 	( .Default *Fixed[2.5] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Thread
+	Call     DisablePartnerAI 	( 00000000 )
+	Call     SetNpcFlagBits ( .Npc:Partner 00008140 .True )
+	Call     SetNpcAnimation 	( .Npc:Partner 00000102 )
+	Call     MoveNpcTo   	( .Npc:Partner FFFFFFC9 00000005 0000001E )
+	Call     SetNpcAnimation 	( .Npc:Partner 00000106 )
+	Call     NpcFaceNpc  	( .Npc:Partner .Npc:Self 00000000 )
+	Call     SetNpcFlagBits ( .Npc:Partner 00008140 .False )
+	Call     EnablePartnerAI 	( )
+EndThread
+Call     MovePlayerTo 	( FFFFFFEC 0000000A 00000019 )
+Wait     0000000F 
+Set  *AreaFlag[002]  00000001 
+Thread
+	Call     PlaySoundAtNpc ( .Npc:Self 00000262 00000000 )
+	Call     ShowEmote   	( .Npc:Self .Emote:Exclamation 00000000 0000001E 00000001 00000000 00000000 00000000 00000000 )
+EndThread
+Wait     0000001E 
+Call     SetNpcAnimation 	( .Npc:Self 0097030A )
+Wait     0000000A 
+Call     InterpNpcYaw 	( .Npc:Self 0000010E 00000000 )
+Wait     0000001E 
+Call     InterpNpcYaw 	( .Npc:Self 0000005A 00000000 )
+Wait     0000000F 
+Call     InterpNpcYaw 	( .Npc:Self 0000010E 00000000 )
+Wait     0000000A 
+Call     GetCurrentPartner 	( *Var[0] )
+If  *Var[0]  ==  00000007 
+	Call     SayMessage0 	( .Npc:Self 0097030B 0097030A 00000000 001000B6 ) % Whuh-waaa! Are they all gone? I'm sorry for disobe ...
+Else
+	Call     SayMessage0 	( .Npc:Self 0097030B 0097030A 00000000 001000B7 ) % Whuh-waaa! Are they all gone? I thought those thin ...
+EndIf
+Call     SayMessage1 	( .Npc:Self 00970304 00970301 00000000 )
+Thread
+	Call     SetNpcFlagBits ( .Npc:Self 00000100 .True )
+	Call     SetNpcAnimation 	( .Npc:Self 00970303 )
+	Call     SetNpcSpeed 	( .Npc:Self *Fixed[5.0] )
+	Call     MoveNpcTo   	( .Npc:Self FFFFFF6A 0000000F 00000000 )
+	Call     SetNpcPos   	( .Npc:Self 00000000 FFFFFC18 00000000 )
+EndThread
+Set  *Flag_JAN_10  00000001 
+Set  *Var[0]  00000000 
+Add  *Var[0]  *Flag_JAN_0F 
+Add  *Var[0]  *Flag_JAN_10 
+Add  *Var[0]  *Flag_JAN_11 
+Add  *Var[0]  *Flag_JAN_12 
+Add  *Var[0]  *Flag_JAN_13 
+If  *Var[0]  ==  00000005 
+	Call     SetMusicTrack 	( 00000000 .Song:YoshiKidsFound 00000000 00000008 )
+	Set  *SavedAllYoshi  00000001
+    Set  *IsYoshiVillageInPanic 00000000 
+	Call     SetPlayerAnimation 	( .PlayerAnim:ThumbsUp )
+	Wait     00000078 
+	Exec     $Script_80241270 
+	Call     SetPlayerAnimation 	( 00010002 )
+Else
+	Thread
+		Wait     0000000C 
+		Call     InterpPlayerYaw 	( 0000010E 00000000 )
+		Call     InterpNpcYaw 	( .Npc:Partner 0000010E 00000000 )
+	EndThread
+	Wait     0000001E 
+EndIf
+Call     ResetCam    	( .Default *Fixed[4.5] )
+Call     DisablePlayerInput 	( .False )
+Call     RemoveNpc   	( .Npc:Self )
+Return
+End
+
+@ $Script_Init_80241EC8
+If  *IsYoshiVillageInPanic  >=  00000001 
+	If  *Flag_JAN_10  ==  00000000 
+		Call     SetNpcAnimation 	( .Npc:Self 00970306 )
+		Call     BindNpcIdle 	( .Npc:Self $Script_8024178C )
+		Return
+	EndIf
+EndIf
+Call     RemoveNpc   	( .Npc:Self )
+Return
+End
+
+@ $Script_Init_80242730
+If  *IsYoshiVillageInPanic  >=  00000001 
+	If  *Flag_JAN_10  ==  00000000 
+		Call     BindNpcIdle 	( .Npc:Self $Script_80241F48 )
+		Call     BindNpcDefeat 	( .Npc:Self $Script_8024263C )
+		Return
+	EndIf
+EndIf
+Call     80044478 ( FFFFFFFF )
+Return
+End

@@ -1,0 +1,108 @@
+@ $Script_802458C8 % Set SavedAllYoshi flag if this is the last one you find
+Call     GetEntryID  	( *Var[0] )
+If  *Var[0]  ==  00000003 
+	Call     DisablePlayerInput 	( .True )
+	Call     ShowMessage 	( 001000B8 000000A0 00000028 ) % Zzzzzzz............
+	Call     DisablePlayerInput 	( .False )
+EndIf
+Bind     $Script_80245670 .Trigger:WallHammer {Collider:o87} 00000001 00000000 
+Exec     $Script_8024556C *Var[9] 
+Loop     
+	Wait     00000001 
+	Call     GetOwnerVar 	( 00000000 *Var[0] )
+	If  *Var[0]  ==  0000000A 
+		BreakLoop
+	EndIf
+EndLoop
+Kill     *Var[9] 
+Call     DisablePlayerInput 	( .True )
+Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+If  *Var[0]  <  FFFFFEF2 
+	Set  *Var[0]  FFFFFEBC 
+	Set  *Var[1]  FFFFFE9D 
+	Set  *Var[2]  0000001B 
+Else
+	Set  *Var[0]  FFFFFF28 
+	Set  *Var[1]  FFFFFF47 
+	Set  *Var[2]  FFFFFFE5 
+EndIf
+Thread
+	Call     SetNpcFlagBits ( .Npc:Self 00000100 .True )
+	Call     SetNpcAnimation 	( .Npc:Self 00970202 )
+	Call     MoveNpcTo   	( .Npc:Self FFFFFEF2 FFFFFF08 0000001E )
+	Call     NpcFacePlayer 	( .Npc:Self 00000000 )
+EndThread
+Thread
+	Call     DisablePartnerAI 	( 00000000 )
+	Call     SetNpcFlagBits ( .Npc:Partner 00008140 .True )
+	Call     MoveNpcTo   	( .Npc:Partner *Var[1] FFFFFF06 0000001E )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000003 00000000 )
+	Call     SetNpcFlagBits ( .Npc:Partner 00008140 .False )
+	Call     EnablePartnerAI 	( )
+EndThread
+Thread
+	Call     MovePlayerTo 	( *Var[0] FFFFFF08 0000001E )
+	Call     PlayerFaceNpc 	( .Npc:Self 00000000 )
+EndThread
+Add  *Var[0]  *Var[2] 
+Call     UseSettingsFrom 	( .Default *Var[0] 00000000 FFFFFF08 )
+Call     SetPanTarget 	( .Default *Var[0] 00000000 FFFFFF08 )
+Call     SetCamDistance ( .Default *Fixed[350.0] )
+Call     SetCamAngles 	( .Default *Fixed[17.0] *Fixed[-7.0] )
+Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Wait     0000000F 
+Call     GetCurrentPartner 	( *Var[0] )
+If  *Var[0]  ==  00000007 
+	Call     SayMessage0 	( .Npc:Self 0097020B 0097020A 00000000 001000B9 ) % Ugh... Morning. Hey, it's Mario. What's the matter ...
+Else
+	Call     SayMessage0 	( .Npc:Self 0097020B 0097020A 00000000 001000BA ) % Ugh... Morning. Hey, it's Mario. What's the  matte ...
+EndIf
+Call     SayMessage1 	( .Npc:Self 00970204 00970201 00000000 )
+Thread
+	Call     SetNpcAnimation 	( .Npc:Self 00970203 )
+	Call     SetNpcSpeed 	( .Npc:Self *Fixed[5.0] )
+	Call     MoveNpcTo   	( .Npc:Self FFFFFEC5 FFFFFF79 00000000 )
+	Call     SetNpcJumpscale 	( .Npc:Self *Fixed[0.5] )
+	Call     NpcJump0    	( .Npc:Self FFFFFEBB 00000000 000000D7 00000019 )
+	Call     SetNpcPos   	( .Npc:Self 00000000 FFFFFC18 00000000 )
+EndThread
+Set  *Flag_JAN_0F  00000001 
+Set  *Var[0]  00000000 
+Add  *Var[0]  *Flag_JAN_0F 
+Add  *Var[0]  *Flag_JAN_10 
+Add  *Var[0]  *Flag_JAN_11 
+Add  *Var[0]  *Flag_JAN_12 
+Add  *Var[0]  *Flag_JAN_13 
+If  *Var[0]  ==  00000005 
+	Call     SetMusicTrack 	( 00000000 .Song:YoshiKidsFound 00000000 00000008 )
+    Set  *SavedAllYoshi  00000001
+    Set  *IsYoshiVillageInPanic 00000000
+	Call     SetPlayerAnimation 	( .PlayerAnim:ThumbsUp )
+	Wait     00000078 
+	Exec     $Script_80242750 
+	Call     SetPlayerAnimation 	( 00010002 )
+Else
+	Wait     0000001E 
+EndIf
+Call     ResetCam    	( .Default *Fixed[4.0] )
+Call     DisablePlayerInput 	( .False )
+Call     RemoveNpc   	( .Npc:Self )
+Return
+End
+
+@ $Script_Init_80245EC8 % Use IsYoshiVillageInPanic flag instead of checking story progress for spawning yoshi
+If  *IsYoshiVillageInPanic  >=  00000001 
+	If  *Flag_JAN_0F  ==  00000000 
+		Call     SetNpcPos   	( .Npc:Self FFFFFECC 0000006E FFFFFED4 )
+		Call     EnableNpcShadow 	( .Npc:Self .False )
+		Call     SetNpcAnimation 	( .Npc:Self 00970207 )
+		Call     BindNpcIdle 	( .Npc:Self $Script_802458C8 )
+		Exec     $Script_802457F8 
+		Return
+	EndIf
+EndIf
+Call     RemoveNpc   	( .Npc:Self )
+Return
+End

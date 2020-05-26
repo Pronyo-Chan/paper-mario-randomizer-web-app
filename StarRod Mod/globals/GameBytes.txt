@@ -22,7 +22,7 @@
 015 = ObtainedParakerry
 016 = ObtainedBow
 017 = ObtainedWatt
-018 = ObtainedSushi
+018 = ObtainedSushie
 019 = ObtainedLakilester
 01A = GameByte[01A] 	% unused Byte_KMR_0E
 01B = MerlonSpinJumpCount
@@ -66,11 +66,11 @@
 041 = IsLanternGhostDefeated
 042 = IsFryingPanReturned
 043 = Byte_KGR_00
-044 = GameByte[044] 	% unused Byte_KGR_01
-045 = GameByte[045] 	% unused Byte_KGR_02
-046 = GameByte[046] 	% unused Byte_KGR_03
-047 = GameByte[047] 	% unused Byte_KGR_04
-048 = GameByte[048] 	% unused Byte_KGR_05
+044 = SavedAllYoshi
+045 = IsYoshiVillageInPanic
+046 = ObtainedJadeRaven
+047 = IsJadeRavenInserted
+048 = RafaelProgress    % 0=Initial, 1= FoughtPiranha, 2=ReachedTreeBase, 3=RafaelJumpedDown, 4= RafaelMovedRoot, 5=RafaelWaitsAtVolcano, 6=RafaelInVillage
 049 = GameByte[049] 	% unused Byte_KGR_06
 04A = GameByte[04A] 	% unused Byte_KGR_07
 04B = GameByte[04B] 	% unused Byte_KGR_08
