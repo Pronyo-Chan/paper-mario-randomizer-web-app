@@ -88,3 +88,17 @@ Else
 EndIf
 Return
 End
+
+@ $Script_8024134C % If the map is loaded in end of chapter cutscene, go to jan_22 instead of peach cutscene
+Call     FadeOutMusic 	( 00000000 000005DC )
+Set  *StoryProgress  00000026
+Set  *Chapter5Progress  00000026 
+Call     GotoMap ( "jan_22" 00000003 )
+Wait     00000064 
+SetGroup 0000001B 
+Call     UseExitHeading ( 0000003C 00000000 )
+Exec     ExitWalk
+Call     GotoMap     	( $ASCII_802462B8 00000002 ) % this makes no sens to me but I left the code as is.
+Wait     00000064 
+Return
+End

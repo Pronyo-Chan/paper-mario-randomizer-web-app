@@ -1,0 +1,108 @@
+@ $Script_802453D8
+Call     DisablePlayerInput 	( .True )
+Loop     
+	Wait     00000001 
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	If  *Var[0]  >  FFFFFCC7 
+		BreakLoop
+	EndIf
+EndLoop
+Wait     0000001E 
+Call     UseSettings 	( .Default *Fixed[5.0] 00000064 0000015E *Fixed[15.0] *Fixed[-7.0] )
+Call     InterpNpcYaw 	( .Npc:Self 0000010E 00000000 )
+Wait     0000000A 
+Call     SayMessage0 	( .Npc:Self 00B60008 00B60001 00000000 001000EE ) % Hmm... I sense danger here... All adventures are d ...
+Call     InterpNpcYaw 	( .Npc:Self 0000005A 00000000 )
+Call     SetNpcAnimation 	( .Npc:Self 00B60004 )
+Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+Loop     0000001E 
+	Call     SetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+	Wait     00000001 
+	Sub  *Var[0]  00000001 
+EndLoop
+Call     SetNpcSpeed 	( .Npc:Self *Fixed[3.0] )
+Call     MoveNpcTo   	( .Npc:Self FFFFFD1C 00000000 00000000 )
+Call     SetPanTarget 	( .Default FFFFFD76 00000014 00000000 )
+Call     SetCamSpeed 	( .Default *Fixed[1.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     SetNpcAnimation 	( .Npc:Self 00B6000E )
+Call     SetNpcJumpscale 	( .Npc:Self *Fixed[1.0] )
+Call     PlaySoundAtNpc ( .Npc:Self 0000032C 00000000 )
+Call     NpcJump0    	( .Npc:Self FFFFFD71 00000014 00000000 00000014 )
+Call     SetNpcAnimation 	( .Npc:Self 00B60002 )
+Call     NpcJump0    	( .Npc:Self FFFFFD7B 00000014 00000000 00000005 )
+Call     NpcJump0    	( .Npc:Self FFFFFD85 00000014 00000000 00000005 )
+Call     SetNpcAnimation 	( .Npc:Self 00B60001 )
+Wait     0000000F 
+Call     InterpNpcYaw 	( .Npc:Self 0000010E 00000001 )
+Wait     00000005 
+Call     InterpNpcYaw 	( .Npc:Self 0000005A 00000001 )
+Wait     0000000A 
+Exec     $Script_80243270 
+Set  *Var[0]  00000002 
+Loop     00000003 
+	Call     SetNpcAnimation 	( .Npc:Self 00B60007 )
+	Call     802D7E08 ( 00000000 00000001 0000002D 00000001 00000000 00000000 00000000 00000000 00000014 )
+	Call     InterpNpcYaw 	( .Npc:Self 0000010E 00000001 )
+	Call     MoveNpcTo   	( .Npc:Self FFFFFD71 00000000 *Var[0] )
+	Call     802D7E08 ( 00000000 00000001 FFFFFFD3 00000001 00000000 00000000 00000000 00000000 00000014 )
+	Call     InterpNpcYaw 	( .Npc:Self 0000005A 00000001 )
+	Call     MoveNpcTo   	( .Npc:Self FFFFFD85 00000000 *Var[0] )
+	Mul  *Var[0]  00000002 
+EndLoop
+Call     802D7E08 ( 00000000 00000000 0000002D 00000001 00000000 00000000 00000000 00000000 00000014 )
+Call     InterpNpcYaw 	( .Npc:Self 0000010E 00000002 )
+Call     802D7E08 ( 00000000 00000000 FFFFFFD3 00000001 00000000 00000000 00000000 00000000 00000014 )
+Call     InterpNpcYaw 	( .Npc:Self 0000005A 00000002 )
+Call     SetNpcAnimation 	( .Npc:Self 00B6000D )
+Call     802D7E08 ( 00000000 00000000 FFFFFFD3 00000001 00000000 00000000 00000000 00000000 00000014 )
+Call     SetOwnerVar 	( 00000000 00000001 )
+Thread
+	Label    0000000F 
+	Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+	Call     PlayEffect  	( {FX:SmokeBurst:Black} *Var[0] *Var[1] *Var[2] 00000001 0000000A 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Call     GetOwnerVar 	( 00000000 *Var[3] )
+	If  *Var[3]  ==  00000001 
+		Wait     00000001 
+		Goto     0000000F 
+	EndIf
+EndThread
+Call     PlaySoundAtNpc ( .Npc:Self 000000E8 00000000 )
+Call     NpcJump0    	( .Npc:Self FFFFFD44 00000096 00000000 00000023 )
+Thread
+	Call     ResetCam    	( .Default *Fixed[5.0] )
+EndThread
+Call     SetNpcAnimation 	( .Npc:Self 00B60001 )
+Call     NpcJump0    	( .Npc:Self FFFFFCF9 00000014 FFFFFFD8 00000028 )
+Call     SetOwnerVar 	( 00000000 00000000 )
+Call     SetNpcAnimation 	( .Npc:Self 00B6000B )
+Call     InterpNpcYaw 	( .Npc:Self 0000010E 00000002 )
+Call     SetNpcFlagBits ( .Npc:Self 00000200 .False )
+Call     PlaySoundAtNpc ( .Npc:Self 0000032C 00000000 )
+Call     NpcJump0    	( .Npc:Self FFFFFD08 00000032 FFFFFFD8 0000000A )
+Call     SetNpcAnimation 	( .Npc:Self 00B60007 )
+Wait     00000004 
+Call     SetNpcFlagBits ( .Npc:Self 00000200 .True )
+Wait     00000008 
+Call     SetNpcAnimation 	( .Npc:Self 00B6000B )
+Call     InterpNpcYaw 	( .Npc:Self 0000005A 00000002 )
+Call     SetNpcFlagBits ( .Npc:Self 00000200 .False )
+Call     PlaySoundAtNpc ( .Npc:Self 0000032C 00000000 )
+Call     NpcJump0    	( .Npc:Self FFFFFD08 00000028 FFFFFFD8 0000000A )
+Call     SetNpcAnimation 	( .Npc:Self 00B60007 )
+Wait     00000004 
+Call     SetNpcFlagBits ( .Npc:Self 00000200 .True )
+Wait     00000008 
+Call     SetNpcAnimation 	( .Npc:Self 00B6000B )
+Call     SetNpcFlagBits ( .Npc:Self 00000200 .False )
+Wait     00000005 
+Call     SetNpcAnimation 	( .Npc:Self 00B60001 )
+Call     InterpNpcYaw 	( .Npc:Self 0000005A 00000004 )
+Call     SayMessage0 	( .Npc:Self 00B60008 00B60001 00000005 001000EF ) % Yaaaah!!!  What's wrong with this rock? It sank ri ...
+Wait     00000005 
+Call     InterpNpcYaw 	( .Npc:Self 0000010E 00000004 )
+Set  *StoryProgress  0000001A 
+Set  *Chapter5Progress  0000001A 
+Call     DisablePlayerInput 	( .False )
+Return
+End

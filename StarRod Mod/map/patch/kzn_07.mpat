@@ -1,0 +1,15 @@
+@ $Script_802429A0
+If  *Flag_KZN_07  ==  00000000 
+	Label    0000000A 
+	If  *Flag_KZN_07  ==  00000000 
+		Wait     00000001 
+		Goto     0000000A 
+	EndIf
+	Wait     0000003C 
+	Exec     $Script_8024239C 
+	Call     ShowMessage 	( 001D0186 000000A0 00000028 ) % You got the Ultra Hammer! The attack power of Mari ...
+	Call     $Function_802407F4 ( )
+	Set  *ObtainedUltraHammer  00000001 
+EndIf
+Return
+End

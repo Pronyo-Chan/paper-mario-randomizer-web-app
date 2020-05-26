@@ -1,4 +1,8 @@
 @ $Script_Main % Set story progress in case you arrive from sewers
+If  *Chapter5Progress  <  0000000E
+	Set  *Chapter5Progress  0000000E
+	Set  *IsYoshiVillageInPanic  00000001
+EndIf
 Set  *StoryProgress  *Chapter5Progress
 Set  *WorldMapLocation  .Location:YoshisVillage
 Call     SetSpriteShading 	( FFFFFFFF )

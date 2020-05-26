@@ -71,8 +71,8 @@
 046 = ObtainedJadeRaven
 047 = IsJadeRavenInserted
 048 = RafaelProgress    % 0=Initial, 1= FoughtPiranha, 2=ReachedTreeBase, 3=RafaelJumpedDown, 4= RafaelMovedRoot, 5=RafaelWaitsAtVolcano, 6=RafaelInVillage
-049 = GameByte[049] 	% unused Byte_KGR_06
-04A = GameByte[04A] 	% unused Byte_KGR_07
+049 = BlockedLavaStream
+04A = ObtainedUltraHammer
 04B = GameByte[04B] 	% unused Byte_KGR_08
 04C = GameByte[04C] 	% unused Byte_KGR_09
 04D = Byte_KKJ_00

@@ -1,0 +1,78 @@
+@ $Script_80240E44
+If  *StoryProgress  <  00000021 
+	Label    00000000 
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	If  *Var[0]  <  FFFFFF83 
+		Wait     00000001 
+		Goto     00000000 
+	EndIf
+    Set  *StoryProgress  00000021 
+    Set  *Chapter5Progress  00000021 
+	Call     SetNpcPos   	( .Npc:Self FFFFFEE8 000000FA FFFFFE98 )
+	Call     SetNpcAnimation 	( .Npc:Self 00B60007 )
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	If  *Var[2]  <  FFFFFEAC 
+		Set  *Var[2]  FFFFFEC0 
+	Else
+		Set  *Var[2]  FFFFFE98 
+	EndIf
+	Call     SetNpcSpeed 	( .Npc:Self *Fixed[10.0] )
+	Call     MoveNpcTo   	( .Npc:Self 000000B9 *Var[2] 00000000 )
+	Call     NpcFacePlayer 	( .Npc:Self 00000004 )
+	Call     SetNpcAnimation 	( .Npc:Self 00B60001 )
+Else
+	Call     SetNpcPos   	( .Npc:Self 000000B9 000000FA FFFFFEAC )
+	Call     SetNpcYaw   	( .Npc:Self 0000010E )
+EndIf
+Loop     
+	Wait     00000001 
+	Call     $Function_80240388 ( *Var[0] )
+	If  *Var[0]  ==  00000020 
+		BreakLoop
+	EndIf
+	If  *Var[0]  ==  0000002A 
+		BreakLoop
+	EndIf
+EndLoop
+Call     DisablePlayerInput 	( .True )
+Call     GetPlayerPos 	( *Var[3] *Var[4] *Var[5] )
+Call     UseSettingsFrom 	( .Default *Var[3] *Var[4] *Var[5] )
+Call     SetPanTarget 	( .Default *Var[3] *Var[4] *Var[5] )
+Call     SetCamDistance ( .Default *Fixed[400.0] )
+Call     SetCamAngles 	( .Default *Fixed[15.0] *Fixed[-7.0] )
+Call     SetCamSpeed 	( .Default *Fixed[3.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     WaitForCam  	( .Default *Fixed[1.0] )
+Call     SayMessage0 	( .Npc:Self 00B60009 00B60002 00000000 001000FD ) % Close! So very close!! My treasure-hunting senses  ...
+Wait     0000000F 
+Set  *MapVar[A]  00000000 
+Thread
+	Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+	Call     SetNpcJumpscale 	( .Npc:Self *Fixed[2.0] )
+	Call     PlaySoundAtNpc ( .Npc:Self 0000032C 00000000 )
+	Call     NpcJump0    	( .Npc:Self *Var[0] *Var[1] *Var[2] 0000000A )
+	Call     SetNpcYaw   	( .Npc:Self 0000005A )
+	Set  *MapVar[A]  00000001 
+EndThread
+Call     SayMessage2 	( .Npc:Self 00B60008 00B60001 00000000 001000FE ) % It's over here!!
+Loop     
+	Wait     00000001 
+	If  *MapVar[A]  ==  00000001 
+		BreakLoop
+	EndIf
+EndLoop
+Call     UseSettingsFrom 	( .Default *Var[3] *Var[4] *Var[5] )
+Call     SetPanTarget 	( .Default 000001A4 000000FA FFFFFEA2 )
+Call     SetCamSpeed 	( .Default *Fixed[1.0] )
+Call     PanToTarget 	( .Default 00000000 00000001 )
+Call     SetNpcAnimation 	( .Npc:Self 00B60006 )
+Call     SetNpcSpeed 	( .Npc:Self *Fixed[5.0] )
+Call     MoveNpcTo   	( .Npc:Self 00000212 FFFFFE98 00000000 )
+Call     SetNpcPos   	( .Npc:Self 00000000 FFFFFC18 00000000 )
+Wait     0000000F 
+Call     ResetCam    	( .Default *Fixed[3.0] )
+Set  *StoryProgress  00000022 
+Set  *Chapter5Progress  00000022 
+Call     DisablePlayerInput 	( .False )
+Return
+End

@@ -844,7 +844,7 @@ End
 
 @ $Script_Init_80246694
 Switch  *RafaelProgress
-	Case  00000016  to  00000017 
+	Case  00000004  to  00000005 
 		Call     BindNpcIdle 	( .Npc:Self $Script_80245B14 )
 		Call     SetNpcPos   	( .Npc:Self 00000000 FFFFFC18 00000000 )
 	Default
@@ -950,6 +950,8 @@ Call     MoveNpcTo   	( 0000000A FFFFFF6A FFFFFFF6 00000000 )
 Call     MoveNpcTo   	( 0000000A 0000004D FFFFFFF6 00000000 )
 Call     SetNpcAnimation 	( 0000000A 00980001 )
 Set  *RafaelProgress  00000005 
+Set  *StoryProgress  00000017 
+Set  *Chapter5Progress  00000017
 Call     DisablePlayerInput 	( .False )
 Return
 End
