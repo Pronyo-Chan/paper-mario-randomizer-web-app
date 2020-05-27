@@ -85,9 +85,9 @@
 #new:Function $StartWithMaxFP
     PUSH t0
     ORI t0, r0, 0032
-    SAB t0, 8010F294
     SAB t0, 8010F295
     SAB t0, 8010F296
+    SAB t0, 8010F297
     POP t0
     JR RA
     NOP
