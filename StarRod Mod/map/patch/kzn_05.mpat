@@ -1,0 +1,16 @@
+@$Script_Main
+Set  *StoryProgress  *Chapter5Progress
+Set  *WorldMapLocation  .Location:MtLavalava
+Call     SetSpriteShading 	( 000A0004 )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamEnabled 	( .Default .True )
+Set  *Var[0]  $Script_802406FC 
+Exec     EnterWalk 
+Wait     00000001 
+Call     SetMusicTrack 	( 00000000 .Song:MtLavalava 00000000 00000008 )
+Call     PlayAmbientSounds 	( .AmbientSounds:UnderSea1 )
+Set  *Var[0]  00000016 
+Exec     $Script_8024040C 
+Return
+End

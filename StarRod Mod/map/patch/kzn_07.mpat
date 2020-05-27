@@ -1,3 +1,32 @@
+@ $Script_Main
+Set  *StoryProgress  *Chapter5Progress
+Set  *WorldMapLocation  .Location:MtLavalava
+Call     SetSpriteShading 	( 000A0006 )
+Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+Call     SetCamLeadPlayer 	( .Default .False )
+Call     SetCamEnabled 	( .Default .True )
+Call     MakeNpcs    	( 00000001 $NpcGroupList_80243054 )
+ExecWait $Script_MakeEntities 
+Exec     $Script_80242360 
+Call     ModifyColliderFlags 	( 00000003 {Collider:doro} 00000003 )
+Thread
+	Call     ResetFromLava 	( $LavaResetList_80242778 )
+EndThread
+Exec     $Script_8024250C 
+Set  *Var[0]  $Script_802424E0 
+Exec     EnterWalk 
+Wait     00000001 
+Thread
+	SetGroup 00000000 
+	Call     $Function_80240000 ( 00000000 00000000 )
+EndThread
+Thread
+	Call     $Function_80240348 ( $???_80242480 )
+EndThread
+Return
+End
+
 @ $Script_802429A0
 If  *Flag_KZN_07  ==  00000000 
 	Label    0000000A 

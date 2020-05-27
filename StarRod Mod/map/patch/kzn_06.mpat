@@ -1,4 +1,7 @@
 @ $Script_Main % use BlockedLavaStream flag instead of story progress
+If  *BlockedLavaStream  <  00000001
+	Set  *StoryProgress  0000001A % Workaround for push block scripts that are broken if you edit them
+EndIf
 Set  *WorldMapLocation  .Location:MtLavalava
 Call     SetSpriteShading 	( 000A0005 )
 Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
@@ -22,28 +25,6 @@ Thread
 EndThread
 Exec     $Script_80240CF4 
 Exec     $Script_80241880 
-Return
-End
-
-@ $Script_MakeEntities
-Call     MakeEntity  	( .Entity:HiddenYellowBlock {Vec4d:Entity802411B0} .Item:LifeShroom 80000000 )
-Call     AssignBlockFlag 	( *Flag_KZN_04 )
-If  *Flag_KZN_05  ==  00000000 
-	Call     MakeEntity  	( .Entity:Hammer3BlockThick {Vec4d:Entity802411F8} 80000000 )
-	Call     AssignScript 	( $Script_80241190 )
-EndIf
-If  *BlockedLavaStream  <  00000001 
-	Call     CreatePushBlockGrid 	( 00000000 {PushGrid:Grid_80241244} 00000000 )
-	Call     BindPushBlockFallEffect 	( 00000000 $Function_80240310 )
-	Call     SetPushBlock 	( 00000000 00000004 00000000 00000001 )
-	Call     SetPushBlock 	( 00000000 00000006 00000000 00000001 )
-	Call     SetPushBlock 	( 00000000 00000008 00000000 00000001 )
-Else
-	Call     CreatePushBlockGrid 	( 00000000 {PushGrid:Grid_802412DC} 00000000 )
-	Call     SetPushBlock 	( 00000000 00000009 00000000 00000001 )
-	Call     SetPushBlock 	( 00000000 0000000A 00000000 00000001 )
-	Call     SetPushBlock 	( 00000000 0000000B 00000000 00000001 )
-EndIf
 Return
 End
 
