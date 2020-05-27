@@ -274,8 +274,8 @@ Switch  *StoryProgress
 					Call     MoveNpcTo   	( .Npc:Self FFFFFE2F FFFFFF47 00000000 )
 					Call     MoveNpcTo   	( .Npc:Self FFFFFDE4 FFFFFFBA 00000000 )
 					Call     SetNpcPos   	( .Npc:Self 00000000 FFFFFC18 00000000 )
-                    Set  *StoryProgress  0000003D
-                    Set  *Chapter5Progress  0000003D  % Set Progress to ch7 since we're done
+                    Set  *StoryProgress  00000028
+                    Set  *Chapter5Progress  00000028 
 			EndSwitch
 			Call     ResetCam    	( .Default *Fixed[5.0] )
 		EndIf

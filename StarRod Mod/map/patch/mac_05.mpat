@@ -427,3 +427,49 @@ Call     DisablePlayerInput 	( .False )
 Call     EnablePartnerAI 	( )
 Return
 End
+
+@$Script_8024B764 % Set flag for jr koopa fight
+	Call     DisablePlayerInput 	( .True )
+	Loop     
+		Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+		If  *Var[1]  ==  FFFFFFF6 
+			BreakLoop
+		EndIf
+		Wait     00000001 
+	EndLoop
+	Call     SetNpcFlagBits ( .Npc:Self 00000100 .True )
+	Call     SetNpcAnimation 	( .Npc:Self 00B60004 )
+	Call     SetNpcSpeed 	( .Npc:Self *Fixed[1.5] )
+	Call     MoveNpcTo   	( .Npc:Self FFFFFEB1 00000190 0000000A )
+	Call     SetNpcAnimation 	( .Npc:Self 00B60001 )
+	Call     NpcFacePlayer 	( .Npc:Self 00000000 )
+	Loop     
+		Call     GetOwnerVar 	( 00000000 *Var[0] )
+		If  *Var[0]  ==  00000001 
+			BreakLoop
+		EndIf
+		Wait     00000001 
+	EndLoop
+	Wait     0000000A 
+	Call     SayMessage0 	( .Npc:Self 00B60008 00B60001 00000000 000700B3 ) % Thank heavens we've arrived! Now, tuna-ferrying is ...
+	Thread
+		Wait     0000000F 
+		Call     MovePlayerTo 	( FFFFFEAC 0000017C 00000014 )
+		Call     InterpPlayerYaw 	( 0000002D 00000000 )
+	EndThread
+	Call     SetNpcAnimation 	( .Npc:Self 00B60006 )
+	Call     SetNpcSpeed 	( .Npc:Self *Fixed[8.0] )
+	Call     MoveNpcTo   	( .Npc:Self FFFFFEE8 00000118 00000000 )
+	Call     MoveNpcTo   	( .Npc:Self FFFFFEAC 00000046 00000000 )
+	Call     MoveNpcTo   	( .Npc:Self FFFFFEFC FFFFFF74 00000000 )
+	Call     SetNpcSpeed 	( .Npc:Self *Fixed[7.0] )
+	Call     MoveNpcTo   	( .Npc:Self 00000096 FFFFFF74 00000000 )
+	Call     SetNpcPos   	( .Npc:Self 00000000 FFFFFC18 00000000 )
+	Set  *StoryProgress  0000003D %goto ch7 since were done in ch5
+	Set  *Chapter5Progress  0000003D 
+	If  *Flag_JAN_03  ==  00000000 
+		Call     SetNpcVar   	( 00000004 00000000 00000001 )
+	EndIf
+	Call     DisablePlayerInput 	( .False )
+	Return
+	End
