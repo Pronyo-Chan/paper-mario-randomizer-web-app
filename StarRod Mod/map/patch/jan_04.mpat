@@ -47,8 +47,6 @@ Call     ShowMessage 	( 001D018F 000000A0 00000028 ) % Sushie joined your party!
 Exec     $Script_80241268 
 Wait     0000000A 
 Call     ResetCam    	( .Default *Fixed[5.0] )
-Set  *StoryProgress  0000000F
-Set  *Chapter5Progress  0000000F
 Set  *ObtainedSushie  00000001  
 Call     EnablePartnerAI 	( )
 Call     DisablePlayerInput 	( .False )
