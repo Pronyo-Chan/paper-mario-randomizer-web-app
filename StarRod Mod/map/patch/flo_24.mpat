@@ -1,0 +1,171 @@
+@ $Script_80240600
+	If  *StoryProgress  <  00000035 
+		Call     SetMusicTrack 	( 00000000 .Song:FlowerFieldsCloudy 00000000 00000008 )
+	Else
+		Call     SetMusicTrack 	( 00000000 .Song:FlowerFieldsSunny 00000000 00000008 )
+	EndIf
+	If  *IsWaterStoneInserted  >=  00000001 
+		Call     PlaySound   	( 80000022 )
+	EndIf
+	Return
+    End
+    
+@ $Script_8024183C % Set IsWaterStoneInserted instead of story progress
+	Call     DisablePlayerInput 	( .True )
+	Call     TranslateGroup ( {Model:g73} 00000000 0000002D 00000000 )
+	Call     UseSettingsFrom 	( .Default 000000AA 00000000 000000A0 )
+	Call     SetPanTarget 	( .Default 000000AA FFFFFFA6 000000A0 )
+	Call     SetCamDistance ( .Default 00000320 )
+	Call     SetCamAngles 	( .Default *Fixed[18.5] *Fixed[-7.5] )
+	Call     SetCamPosA  	( .Default *Fixed[-300.0] *Fixed[200.0] )
+	Call     SetCamPosB  	( .Default *Fixed[300.0] *Fixed[-150.0] )
+	Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     PlaySound   	( 80000050 )
+	Thread
+		Call     MakeLerp    	( 00000050 0000005A 0000000A 00000000 )
+		Label    00000000 
+		Call     UpdateLerp  	( )
+		Call     RotateModel 	( {Model:o219} *Var[0] 00000001 00000000 00000000 )
+		Call     RotateModel 	( {Model:o220} *Var[0] 00000001 00000000 00000000 )
+		If  *Var[1]  ==  00000001 
+			Wait     00000001 
+			Goto     00000000 
+		EndIf
+		Thread
+			Call     MakeLerp    	( 0000002D 00000064 00000096 00000000 )
+			Loop     
+				Call     UpdateLerp  	( )
+				Call     TranslateGroup ( {Model:g73} 00000000 *Var[0] 00000000 )
+				Wait     00000001 
+				If  *Var[1]  ==  00000000 
+					BreakLoop
+				EndIf
+			EndLoop
+			Wait     0000001E 
+			Set  *IsWaterStoneInserted  00000001 
+			Call     GotoMap     	( $ASCII_80242280 00000002 )
+            Wait     00000064
+        EndThread
+    EndThread 
+	Return
+    End
+            
+@$Script_80241ABC
+	If  *IsWaterStoneInserted  <  00000001 
+		Call     EnableGroup 	( {Model:water1} .False )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:g58} 7FFFFE00 )
+	Else
+		Call     EnableGroup 	( {Model:g60} .False )
+	EndIf
+	Call     GetEntryID  	( *Var[0] )
+	If  *Var[0]  !=  00000002 
+		Call     EnableGroup 	( {Model:g67} .False )
+	EndIf
+	Call     EnableTexPanning 	( {Model:o165} .True )
+	Call     EnableTexPanning 	( {Model:o215} .True )
+	Call     EnableTexPanning 	( {Model:o166} .True )
+	Call     EnableTexPanning 	( {Model:o216} .True )
+	Call     EnableTexPanning 	( {Model:o189} .True )
+	Call     EnableTexPanning 	( {Model:o192} .True )
+	Call     EnableTexPanning 	( {Model:o219} .True )
+	Call     EnableTexPanning 	( {Model:o220} .True )
+	Call     EnableTexPanning 	( {Model:o218} .True )
+	Thread
+		Set  *Var[0]  00000001 
+		Set  *Var[1]  0000008C 
+		Set  *Var[2]  FFFFFFB0 
+		Set  *Var[3]  FFFFFFBA 
+		Set  *Var[4]  00000064 
+		Set  *Var[5]  00000001 
+		Set  *Var[6]  00000001 
+		Set  *Var[7]  00000001 
+		Set  *Var[8]  00000001 
+		Set  *Var[9]  00000000 
+		Set  *Var[A]  00000000 
+		Set  *Var[B]  00000000 
+		Set  *Var[C]  00000000 
+		Exec     $Script_802417A0 
+	EndThread
+	Thread
+		Set  *Var[0]  00000002 
+		Set  *Var[1]  FFFFFFBA 
+		Set  *Var[2]  00000064 
+		Set  *Var[3]  00000064 
+		Set  *Var[4]  FFFFFFD8 
+		Set  *Var[5]  00000001 
+		Set  *Var[6]  00000001 
+		Set  *Var[7]  00000001 
+		Set  *Var[8]  00000001 
+		Set  *Var[9]  00000000 
+		Set  *Var[A]  00000000 
+		Set  *Var[B]  00000000 
+		Set  *Var[C]  00000000 
+		Exec     $Script_802417A0 
+	EndThread
+	Thread
+		Set  *Var[0]  00000003 
+		Set  *Var[1]  00000000 
+		Set  *Var[2]  FFFFFCE0 
+		Set  *Var[3]  00000000 
+		Set  *Var[4]  00000000 
+		Set  *Var[5]  00000000 
+		Set  *Var[6]  00000001 
+		Set  *Var[7]  00000000 
+		Set  *Var[8]  00000000 
+		Set  *Var[9]  00000000 
+		Set  *Var[A]  00000000 
+		Set  *Var[B]  00000000 
+		Set  *Var[C]  00000000 
+		Exec     $Script_802417A0 
+	EndThread
+	Thread
+		Set  *Var[0]  00000004 
+		Set  *Var[1]  00000000 
+		Set  *Var[2]  FFFFFCE0 
+		Set  *Var[3]  FFFFFF38 
+		Set  *Var[4]  00000064 
+		Set  *Var[5]  00000000 
+		Set  *Var[6]  00000001 
+		Set  *Var[7]  00000001 
+		Set  *Var[8]  00000001 
+		Set  *Var[9]  00000000 
+		Set  *Var[A]  00000000 
+		Set  *Var[B]  00000000 
+		Set  *Var[C]  00000000 
+		Exec     $Script_802417A0 
+	EndThread
+	Thread
+		Set  *Var[0]  00000005 
+		Set  *Var[1]  00000000 
+		Set  *Var[2]  FFFFF63C 
+		Set  *Var[3]  00000000 
+		Set  *Var[4]  00000000 
+		Set  *Var[5]  00000000 
+		Set  *Var[6]  00000001 
+		Set  *Var[7]  00000000 
+		Set  *Var[8]  00000000 
+		Set  *Var[9]  00000000 
+		Set  *Var[A]  00000000 
+		Set  *Var[B]  00000000 
+		Set  *Var[C]  00000000 
+		Exec     $Script_802417A0 
+	EndThread
+	Thread
+		Set  *Var[0]  00000006 
+		Set  *Var[1]  00000000 
+		Set  *Var[2]  FFFFF63C 
+		Set  *Var[3]  FFFFFF38 
+		Set  *Var[4]  00000064 
+		Set  *Var[5]  00000001 
+		Set  *Var[6]  00000001 
+		Set  *Var[7]  00000001 
+		Set  *Var[8]  00000001 
+		Set  *Var[9]  00000000 
+		Set  *Var[A]  00000000 
+		Set  *Var[B]  00000000 
+		Set  *Var[C]  00000000 
+		Exec     $Script_802417A0 
+	EndThread
+	Return
+	End

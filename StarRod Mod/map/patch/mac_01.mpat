@@ -209,11 +209,14 @@ If  *Var[2]  ==  00000001
 	Add  *Var[3]  *Flag_MAC_94 
 	Add  *Var[3]  *Flag_MAC_95 
 	Switch  *Chapter6Progress 
-		Case  00000027  to  00000029 
-			Set  *Var[4]  *Flag_MAC_99 
-			Add  *Var[4]  *Flag_IWA_1E 
-			Add  *Var[4]  *Flag_MIM_06 
-			Add  *Var[4]  *Flag_JAN_3C 
+		Case  00000027  to  00000029
+			Call     HasKeyItem  	( .Item:MagicalSeed1 *Var[4] ) % Check key items instead of relying on bulb flags
+			Call     HasKeyItem  	( .Item:MagicalSeed2 *Var[A] ) 
+			Call     HasKeyItem  	( .Item:MagicalSeed3 *Var[B] ) 
+			Call     HasKeyItem  	( .Item:MagicalSeed4 *Var[C] )  
+			Add  *Var[4]  *Var[A] 
+			Add  *Var[4]  *Var[B] 
+			Add  *Var[4]  *Var[C] 
 			Set  *Var[5]  *Flag_MAC_91 
 			If  *Var[5]  ==  00000000 
 				Call     SayMessage0 	( 00000012 00A80004 00A80001 00000000 00030074 ) % Bub-ulbs come from a flower-filled land called Flo ...

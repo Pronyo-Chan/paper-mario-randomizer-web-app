@@ -1,0 +1,213 @@
+@ $Script_80241630
+	If  *IsWaterStoneInserted  >=  00000001 
+		Call     MakeItemEntity ( .Item:WaterStone {Vec3d:Item80241640} 00000001 00000000 )
+	EndIf
+	Return
+	End
+
+ @$Script_80242AE8
+	If  *IsWaterStoneInserted  <  00000001 
+		Call     EnableGroup 	( {Model:water} .False )
+		Call     EnableGroup 	( {Model:g12} .False )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:water} 7FFFFE00 )
+	Else
+		Call     EnableGroup 	( {Model:g2} .False )
+		Call     EnableGroup 	( {Model:g12} .False )
+		Call     EnableGroup 	( {Model:g31} .False )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:o1} 7FFFFE00 )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:o83} 7FFFFE00 )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:o86} 7FFFFE00 )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:o87} 7FFFFE00 )
+	EndIf
+	Call     EnableTexPanning 	( {Model:o25} .True )
+	Call     EnableTexPanning 	( {Model:o40} .True )
+	Call     EnableTexPanning 	( {Model:o78} .True )
+	Call     EnableTexPanning 	( {Model:o77} .True )
+	Call     EnableTexPanning 	( {Model:o118} .True )
+	Call     EnableTexPanning 	( {Model:o119} .True )
+	Thread
+		Set  *Var[0]  00000001 
+		Set  *Var[1]  00000000 
+		Set  *Var[2]  FFFFF830 
+		Set  *Var[3]  00000000 
+		Set  *Var[4]  00000000 
+		Set  *Var[5]  00000000 
+		Set  *Var[6]  00000001 
+		Set  *Var[7]  00000000 
+		Set  *Var[8]  00000000 
+		Set  *Var[9]  00000000 
+		Set  *Var[A]  00000000 
+		Set  *Var[B]  00000000 
+		Set  *Var[C]  00000000 
+		Exec     $Script_80241D14 
+	EndThread
+	Thread
+		Set  *Var[0]  00000003 
+		Set  *Var[1]  FFFFFF9C 
+		Set  *Var[2]  00000050 
+		Set  *Var[3]  00000000 
+		Set  *Var[4]  00000000 
+		Set  *Var[5]  00000001 
+		Set  *Var[6]  00000001 
+		Set  *Var[7]  00000000 
+		Set  *Var[8]  00000000 
+		Set  *Var[9]  00000000 
+		Set  *Var[A]  00000000 
+		Set  *Var[B]  00000000 
+		Set  *Var[C]  00000000 
+		Exec     $Script_80241D14 
+	EndThread
+	Thread
+		Set  *Var[0]  00000005 
+		Set  *Var[1]  FFFFFC18 
+		Set  *Var[2]  000007D0 
+		Set  *Var[3]  00000000 
+		Set  *Var[4]  00000000 
+		Set  *Var[5]  00000001 
+		Set  *Var[6]  00000001 
+		Set  *Var[7]  00000000 
+		Set  *Var[8]  00000000 
+		Set  *Var[9]  00000000 
+		Set  *Var[A]  00000000 
+		Set  *Var[B]  00000000 
+		Set  *Var[C]  00000000 
+		Exec     $Script_80241D14 
+	EndThread
+	Thread
+		Set  *Var[0]  00000006 
+		Set  *Var[1]  00000000 
+		Set  *Var[2]  FFFFF830 
+		Set  *Var[3]  00000000 
+		Set  *Var[4]  00000000 
+		Set  *Var[5]  00000000 
+		Set  *Var[6]  00000001 
+		Set  *Var[7]  00000000 
+		Set  *Var[8]  00000000 
+		Set  *Var[9]  00000000 
+		Set  *Var[A]  00000000 
+		Set  *Var[B]  00000000 
+		Set  *Var[C]  00000000 
+		Exec     $Script_80241D14 
+	EndThread
+	Thread
+		Set  *Var[0]  00000008 
+		Set  *Var[1]  00000000 
+		Set  *Var[2]  FFFFFA24 
+		Set  *Var[3]  00000000 
+		Set  *Var[4]  00000000 
+		Set  *Var[5]  00000000 
+		Set  *Var[6]  00000001 
+		Set  *Var[7]  00000000 
+		Set  *Var[8]  00000000 
+		Set  *Var[9]  00000000 
+		Set  *Var[A]  00000000 
+		Set  *Var[B]  00000000 
+		Set  *Var[C]  00000000 
+		Exec     $Script_80241D14 
+	EndThread
+	Thread
+		Set  *Var[0]  00000009 
+		Set  *Var[1]  00000000 
+		Set  *Var[2]  FFFFFC18 
+		Set  *Var[3]  00000000 
+		Set  *Var[4]  00000000 
+		Set  *Var[5]  00000000 
+		Set  *Var[6]  00000001 
+		Set  *Var[7]  00000000 
+		Set  *Var[8]  00000000 
+		Set  *Var[9]  00000000 
+		Set  *Var[A]  00000000 
+		Set  *Var[B]  00000000 
+		Set  *Var[C]  00000000 
+		Exec     $Script_80241D14 
+	EndThread
+	If  *IsWaterStoneInserted  >=  00000001 
+		Exec     $Script_80241F20 
+	EndIf
+	Return
+    End
+    
+@ $Script_802437C8
+    ExecWait $Script_802415C4
+    If  *IsWaterStoneInserted  <  00000001
+        Call     HasKeyItem  	( .Item:WaterStone *Var[B] ) 
+		If  *Var[B]  <  00000001 % Water stone not inserted and player does not have it 
+			If  *Flag_FLO_0D  ==  00000000 
+				Exec     $Script_80243628 
+				Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+				Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+				Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+				Call     SetCamDistance ( .Default 00000145 )
+				Call     SetCamAngles 	( .Default *Fixed[23.0] *Fixed[-9.0] )
+				Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+				Call     PanToTarget 	( .Default 00000000 00000001 )
+				Call     WaitForCam  	( .Default *Fixed[1.0] )
+				Wait     0000000A 
+				Call     SayMessage0 	( .Npc:Self 00C90004 00C90008 00000005 00110079 ) % Gaaah!! Oh, how horrible! The spring went dry! Wha ...
+				Call     NpcFacePlayer 	( .Npc:Self 00000001 )
+				Call     SetNpcAnimation 	( .Npc:Self 00C90001 )
+				Call     PlaySoundAtNpc ( .Npc:Self 00000262 00000000 )
+				Call     ShowEmote   	( .Npc:Self .Emote:Exclamation 00000000 0000000F 00000001 00000000 00000000 00000000 00000000 )
+				Wait     0000000F 
+				Call     SayMessage0 	( .Npc:Self 00C90001 00C90001 00000000 0011007A ) % ............................................... Oh ...
+				Call     SayMessage1 	( .Npc:Self 00C90005 00C90001 00000000 )
+				Call     GetPlayerTargetYaw 	( *Var[0] )
+				Call     InterpNpcYaw 	( .Npc:Self *Var[0] 00000001 )
+				Wait     00000014 
+				Call     SayMessage0 	( .Npc:Self 00C90002 00C90001 00000005 0011007B ) % A prince... Well, he actually looks more like a pl ...
+				Call     NpcFacePlayer 	( .Npc:Self 00000001 )
+				Wait     00000014 
+				Call     SayMessage0 	( .Npc:Self 00C90002 00C90001 00000000 0011007C ) % Hello, my name is Lily. I'm a beautiful, fragile f ...
+				Call     ShowChoice  	( 001E0011 ) % Yes No 
+				Wait     0000000A 
+				Switch  *Var[0] 
+					Case  ==  00000000 
+						Call     SayMessage2 	( .Npc:Self 00C90003 00C90007 00000000 0011007D ) % Oh, you're a dream come true! Thank you so much! T ...
+					Case  ==  00000001 
+						Call     SayMessage2 	( .Npc:Self 00C90004 00C90008 00000000 0011007E ) % Oh, how awful... You weren't my prince... Well...I ...
+				EndSwitch
+				Wait     0000000A 
+				Set  *Flag_FLO_0D  00000001 
+				Call     SetNpcFlagBits2 	( .Npc:Self 00400000 00000000 )
+			Else
+				Call     SayMessage0 	( .Npc:Self 00C90004 00C90008 00000005 0011007F ) % Oh... I feel terrible. My condition will only get  ...
+			EndIf
+		Else % Player has water stone, not inserted 
+			Call     SayMessage0 	( .Npc:Self 00C90002 00C90001 00000000 00110080 ) % Oh, it's the Water Stone!  Quickly! Put it in that ...
+            Set  *Flag_FLO_0E  00000001
+        EndIf
+    Else % Water stone is inserted..
+        Switch  *StoryProgress 
+		    Case  <  00000035 % ..and sun isnt back
+		    	Call     SayMessage0 	( .Npc:Self 00C90004 00C90008 00000000 00110085 ) % The water in the spring is back to normal. Aaaaah! ...
+		    	Call     SayMessage1 	( .Npc:Self 00C90002 00C90001 00000000 )
+		    	Call     SayMessage1 	( .Npc:Self 00C90004 00C90008 00000000 )
+		    Case  <  0000003C % .. and sun is back
+		    	Call     SayMessage0 	( .Npc:Self 00C90003 00C90007 00000000 00110086 ) % The sun is shining. And I am floating. Oh..., I'm. ...
+		    Default % .. and player is next chapter
+		    	Call     SayMessage0 	( .Npc:Self 00C90002 00C90001 00000000 00110087 ) % Some sort of pink gem seems to be floating on the  ...
+        EndSwitch
+    EndIf
+	Call     ResetCam    	( .Default *Fixed[4.0] )
+	ExecWait $Script_802415E8 
+	Return
+	End
+
+@ $Script_Init_80243D78
+    Call     BindNpcInteract 	( .Npc:Self $Script_802437C8 )
+    Call     HasKeyItem  	( .Item:WaterStone *Var[B] ) 
+	If  *IsWaterStoneInserted  <  00000001 
+		If  *Var[B]  <  00000001 
+			If  *Flag_FLO_0D  ==  00000000 
+				Call     SetNpcAnimation 	( .Npc:Self 00C90008 )
+				Call     InterpNpcYaw 	( .Npc:Self 0000005A 00000001 )
+				Call     SetNpcFlagBits2 	( .Npc:Self 00400000 00000001 )
+			EndIf
+		Else
+			Call     InterpNpcYaw 	( .Npc:Self 0000010E 00000001 )
+        EndIf
+    Else
+		Call     SetNpcPos   	( .Npc:Self FFFFFFBD FFFFFFEC FFFFFF97 )
+	EndIf
+	Return
+	End

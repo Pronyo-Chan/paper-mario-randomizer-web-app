@@ -1,0 +1,79 @@
+@ $Script_80240E3C
+	Switch  *StoryProgress 
+		Case  ==  00000037 
+			Set  *Var[0]  00000000 
+			If  *MapVar[A]  ==  00000000 
+				Return
+			EndIf
+            Set  *StoryProgress  00000038
+            Set  *Chapter6Progress  00000038 % Set chapter progress when beating boss
+		Case  ==  00000038 
+			Set  *Var[0]  00000001 
+		Default
+			Return
+	EndSwitch
+	If  *Var[0]  ==  00000000 
+		Call     DisablePlayerInput 	( .True )
+		Call     UseSettingsFrom 	( .Default 0000028A 000000CD 00000000 )
+		Call     SetCamSpeed 	( .Default *Fixed[0.60058594] )
+		Call     SetPanTarget 	( .Default 0000028A 00000096 00000000 )
+		Call     GetCamDistance ( .Default *Var[1] )
+		Sub  *Var[1]  00000064 
+		Call     SetCamDistance ( .Default *Var[1] )
+		If  *Fixed[-5.5]  !=  00002710 
+			Call     GetCamAngles 	( .Default *Var[2] *Var[3] )
+			Call     SetCamAngles 	( .Default *Var[2] *Fixed[-5.5] )
+		EndIf
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     $Function_8024004C ( 00000005 000000B4 0000028A 000000AA 00000000 0000028A 000000CD 00000000 00000096 00000078 )
+		Thread
+			Call     $Function_802401AC ( )
+		EndThread
+		Thread
+			Wait     00000001 
+			Call     PlaySound   	( 80000067 )
+			Call     $Function_80240000 ( )
+			Call     StopSound   	( 80000067 )
+			Call     PlaySoundAt 	( 000000B2 00000000 0000028A 000000CD 00000000 )
+		EndThread
+		Thread
+			Wait     0000002D 
+			Call     SetPlayerAnimation 	( 0001002A )
+		EndThread
+		Thread
+			Wait     000000B4 
+			Wait     00000073 
+			Call     PlaySoundAt 	( 00000137 00000000 0000028A 000000CD 00000000 )
+		EndThread
+		Call     $Function_802405BC ( 00000001 )
+		Thread
+			Wait     00000050 
+			Call     SetPlayerAnimation 	( 00010002 )
+		EndThread
+		Add  *Var[1]  00000064 
+		Call     SetCamDistance ( .Default *Var[1] )
+		Call     SetPanTarget 	( .Default 0000028A 00000078 00000000 )
+		Call     $Function_802405BC ( 00000002 )
+		Call     GetPlayerPos 	( *Var[2] *Var[3] *Var[4] )
+		Call     UseSettingsFrom 	( .Default *Var[2] *Var[3] *Var[4] )
+		Call     SetCamSpeed 	( .Default *Fixed[1.0] )
+		Call     SetPanTarget 	( .Default *Var[2] *Var[3] *Var[4] )
+		Call     WaitForCam  	( .Default *Fixed[1.0] )
+		Call     PanToTarget 	( .Default 00000000 00000000 )
+		Call     DisablePlayerInput 	( .False )
+	Else
+		Call     $Function_802405FC ( 00000005 0000028A 00000096 00000000 00000078 )
+		Thread
+			Call     $Function_80240708 ( )
+		EndThread
+		Wait     00000001 
+	EndIf
+	Call     $Function_802405BC ( 00000003 )
+	Call     PlaySoundAtPlayer 	( 00000138 00000000 )
+	Call     DisablePlayerInput 	( .True )
+    Set  *StoryProgress  0000003A % Set progress to after peach
+    Set  *Chapter6Progress  0000003A 
+	Call     GotoMap ("flo_00" 0000000A) % Goto flower entrance with the right id to trigger star cutscene
+	Wait     00000064 
+	Return
+	End

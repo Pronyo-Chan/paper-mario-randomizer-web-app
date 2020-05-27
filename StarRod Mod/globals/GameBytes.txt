@@ -73,15 +73,15 @@
 048 = RafaelProgress    % 0=Initial, 1= FoughtPiranha, 2=ReachedTreeBase, 3=RafaelJumpedDown, 4= RafaelMovedRoot, 5=RafaelWaitsAtVolcano, 6=RafaelInVillage
 049 = BlockedLavaStream
 04A = ObtainedUltraHammer
-04B = GameByte[04B] 	% unused Byte_KGR_08
-04C = GameByte[04C] 	% unused Byte_KGR_09
+04B = IsWaterStoneInserted
+04C = ObtainedMagicalBean
 04D = Byte_KKJ_00
 04E = LastPartner 		% Byte_KKJ_01 -- peach missions need to remember Mario's last partner
 04F = Byte_KKJ_02
 050 = Byte_KKJ_03
-051 = GameByte[051] 	% unused Byte_KKJ_04
-052 = GameByte[052] 	% unused Byte_KKJ_05
-053 = GameByte[053] 	% unused Byte_KKJ_06
+051 = ObtainedFertileSoil
+052 = ObtainedCrystalBerry
+053 = ObtainedWaterStone
 054 = GameByte[054] 	% unused Byte_KKJ_07
 055 = GameByte[055] 	% unused Byte_KKJ_08
 056 = GameByte[056] 	% unused Byte_KKJ_09

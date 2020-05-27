@@ -1,0 +1,213 @@
+@ $Script_Main
+    If  *ObtainedLakilester  <  00000001 %Set story back if you dont have lakilester. Makes logic easier to handle
+        Set  *StoryProgress  00000031
+    EndIf
+	Set  *WorldMapLocation  .Location:FlowerFields
+	Call     SetSpriteShading 	( FFFFFFFF )
+	Call     SetCamLeadPlayer 	( .Default .False )
+	Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+	Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+	Call     SetCamEnabled 	( .Default .True )
+	Call     MakeNpcs    	( 00000000 $NpcGroupList_80247984 )
+	ExecWait $Script_MakeEntities 
+	Call     ModifyColliderFlags 	( 00000003 {Collider:o48} 00000006 )
+	Set  *Var[0]  00000112 
+	Set  *Var[1]  FFFFFF77 
+	Set  *Var[2]  00000247 
+	Set  *Var[3]  FFFFFFC0 
+	Set  *Var[4]  00000000 
+	Exec     $Script_80243A40 
+	Set  *Var[0]  000001B1 
+	Set  *Var[1]  0000006C 
+	Set  *Var[2]  00000244 
+	Set  *Var[3]  000000A9 
+	Set  *Var[4]  00000000 
+	Exec     $Script_80243A40 
+	Set  *Var[0]  FFFFFE34 
+	Set  *Var[1]  0000005A 
+	Set  *Var[2]  FFFFFF83 
+	Set  *Var[3]  00000082 
+	Set  *Var[4]  00000000 
+	Exec     $Script_80243A40 
+	Set  *Var[0]  FFFFFE5C 
+	Set  *Var[1]  FFFFFF7E 
+	Set  *Var[2]  FFFFFEFC 
+	Set  *Var[3]  FFFFFFA6 
+	Set  *Var[4]  00000000 
+	Exec     $Script_80243A40 
+	Set  *Var[0]  FFFFFF24 
+	Set  *Var[1]  FFFFFF77 
+	Set  *Var[2]  00000000 
+	Set  *Var[3]  FFFFFFCE 
+	Set  *Var[4]  000000A0 
+	Exec     $Script_80243A40 
+	Call     ModifyColliderFlags 	( 00000000 {Collider:deilitw} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:deilite} 7FFFFE00 )
+	Set  *Var[0]  $Script_80243DA4 
+	Exec     EnterWalk 
+	ExecWait $Script_802438B0 
+	If  *StoryProgress  >=  00000035 
+		Call     $Function_80240000 ( )
+	EndIf
+	Return
+	End
+
+@ $Script_80245444 % Set ObtainedLakilester when he joins
+	Call     DisablePlayerInput 	( .True )
+	Wait     0000001E 
+	Call     SayMessage0 	( 00000000 0008000A 00080004 00000000 001100A2 ) % Uuurgh!! Man, you're tough as nails! I give up, ma ...
+	Call     SetNpcPos   	( 00000001 FFFFFEDE 00000078 0000002D )
+	Thread
+		Wait     0000000A 
+		Call     SetNpcAnimation 	( .Npc:Self 00080001 )
+		Call     SetPlayerAnimation 	( 0001002A )
+		Wait     00000014 
+		Call     InterpPlayerYaw 	( 0000010E 00000001 )
+	EndThread
+	Call     SayMessage0 	( 00000001 00CC0004 00CC0001 00000005 001100A3 ) % Wait!!!!!
+	Call     SetNpcAnimation 	( 00000001 00CC0007 )
+	Call     UseSettingsFrom 	( .Default 00000000 00000000 00000000 )
+	Call     SetPanTarget 	( .Default 00000000 00000000 00000000 )
+	Call     SetCamDistance ( .Default 000001F4 )
+	Call     SetCamAngles 	( .Default *Fixed[5.5] *Fixed[-6.0] )
+	Call     SetCamPosA  	( .Default 00000000 00000000 )
+	Call     SetCamPosB  	( .Default 00000082 FFFFFF38 )
+	Call     SetCamPosC  	( .Default 00000000 00000000 )
+	Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Wait     00000001 
+	Thread
+		Call     SetCamDistance ( .Default 00000190 )
+		Call     SetCamPosB  	( .Default 00000082 0000003C )
+		Call     SetCamSpeed 	( .Default *Fixed[1.0] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     WaitForCam  	( .Default *Fixed[1.0] )
+	EndThread
+	Thread
+		Call     $Function_802433C0 ( 00000050 )
+	EndThread
+	Exec     $Script_80244560 *Var[9] 
+	Call     LoadPath    	( 00000050 $VectorList_802443E4 00000005 00000000 )
+	Label    00000000 
+	Call     GetNextPathPos ( )
+	Call     SetNpcPos   	( 00000001 *Var[1] *Var[2] *Var[3] )
+	Wait     00000001 
+	If  *Var[0]  ==  00000001 
+		Goto     00000000 
+	EndIf
+	Kill     *Var[9] 
+	Call     SetNpcAnimation 	( 00000001 00CC0009 )
+	Call     SetPlayerAnimation 	( .PlayerAnim:StandStill )
+	Wait     00000014 
+	Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+	Add  *Var[0]  00000014 
+	Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default 000000FA )
+	Call     SetCamAngles 	( .Default *Fixed[5.5] *Fixed[-7.5] )
+	Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     SayMessage0 	( 00000000 00080009 00080001 00000000 001100A4 ) % Aw no, Lakilulu!!
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Add  *Var[0]  00000028 
+	Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default 0000012C )
+	Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     SayMessage0 	( 00000001 00CC0008 00CC0008 00000000 001100A5 ) % No! Please! Please have mercy on my poor, sweet La ...
+	Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+	Add  *Var[0]  00000014 
+	Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default 000000FA )
+	Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     SayMessage0 	( 00000000 0008000B 00080003 00000000 001100A6 ) % Aw, don't call me Lakilester! It's Spike, remember ...
+	Call     SetNpcAnimation 	( 00000000 00080001 )
+	Call     SayMessage1 	( 00000000 00080009 00080001 00000000 )
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Add  *Var[0]  00000028 
+	Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default 0000015E )
+	Call     SetCamSpeed 	( .Default *Fixed[10.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Label    0000000A 
+	Call     SayMessage0 	( 00000001 00CC000A 00CC0009 00000000 001100A7 ) % Mario, please forgive him! My Lakilester was just  ...
+	Call     ShowChoice  	( 001E0020 ) % Forgive Don't forgive 
+	If  *Var[0]  !=  00000000 
+		ExecWait $Script_80244888 
+		Wait     0000000A 
+		Goto     0000000A 
+	Else
+		Call     SayMessage2 	( 00000001 00CC0004 00CC0001 00000000 001100A9 ) % Really!? Oh, for real? You'll forgive him? Oh, tha ...
+		Call     SetNpcAnimation 	( 00000001 00CC0001 )
+		Call     SetPlayerAnimation 	( .PlayerAnim:NodYes )
+		Wait     0000000A 
+		Call     SetPlayerAnimation 	( .PlayerAnim:StandStill )
+		Wait     00000014 
+		Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+		Add  *Var[0]  00000014 
+		Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+		Call     SetCamDistance ( .Default 000000FA )
+		Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     WaitForCam  	( .Default *Fixed[1.0] )
+		Call     SayMessage0 	( 00000000 0008000B 00080003 00000000 001100AA ) % Stop calling me Lakilester! It's such a stupid nam ...
+		Call     SetNpcAnimation 	( 00000000 00080001 )
+		Call     SayMessage1 	( 00000000 00080009 00080001 00000000 )
+		Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+		Add  *Var[0]  00000028 
+		Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+		Call     SetCamDistance ( .Default 0000015E )
+		Call     SetCamSpeed 	( .Default *Fixed[5.0] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     WaitForCam  	( .Default *Fixed[1.0] )
+		Wait     0000000A 
+		Call     SayMessage0 	( 00000000 0008000B 00080003 00000000 001100AB ) % Hey, man. I've got a question. What in the world a ...
+		Wait     0000000A 
+		Call     ShowChoice  	( 001E0021 ) % For myself For world peace No reason Why Spike? 
+		Switch  *Var[0] 
+			Case  ==  FFFFFFFF 
+			Case  ==  00000000 
+				Call     SayMessage2 	( 00000000 00080009 00080001 00000000 001100AC ) % ....Huh. Yeah...fighting for yourself... That's th ...
+			Case  ==  00000001 
+				Call     SayMessage2 	( 00000000 00080009 00080001 00000000 001100AD ) % World peace, huh? Isn't that a bit melodramatic? S ...
+			Case  ==  00000002 
+				Call     SayMessage2 	( 00000000 00080009 00080001 00000000 001100AE ) % Man, you're a cool customer. You're out there ever ...
+			Case  ==  00000003 
+				Call     SayMessage2 	( 00000000 00080009 00080001 00000000 001100AF ) % Why? Because Spike is a million times cooler! Laki ...
+		EndSwitch
+	EndIf
+	Call     InterpNpcYaw 	( 00000001 0000005A 00000001 )
+	Call     SetNpcAnimation 	( 00000001 00CC0009 )
+	Call     SayMessage0 	( 00000001 00CC000A 00CC0009 00000005 001100B0 ) % Oh, no! Lakilester! You can't leave me! Please tak ...
+	Call     SayMessage0 	( 00000000 00080009 00080001 00000000 001100B1 ) % Aw, Lakilulu, chill out. You've gotta understand.. ...
+	Wait     0000000F 
+	Call     SayMessage0 	( 00000001 00CC000A 00CC0009 00000005 001100B2 ) % ...Oh...OK. I'll wait for you, Lakilester. But you ...
+	Call     SayMessage0 	( 00000000 00080009 00080001 00000000 001100B3 ) % OK! Enough of that! Heh heh... I guess I'd better  ...
+	Wait     0000000A 
+	Thread
+		Call     ResetCam    	( .Default *Fixed[90.0] )
+	EndThread
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Add  *Var[0]  0000001E 
+	Call     SetNpcSpeed 	( 00000000 *Fixed[3.5] )
+	Call     MoveNpcTo   	( 00000000 *Var[0] 0000003C 00000000 )
+	Call     $Function_80240040 ( 00000000 00000008 )
+	Call     $Function_802435D0 ( )
+	Exec     $Script_802438CC 
+	Wait     0000000F 
+	Call     ShowMessage 	( 001D0190 000000A0 00000028 ) % Lakilester joined your party!! Press  to ride Laki ...
+	Exec     $Script_802438F8 
+	Wait     0000000A 
+	Call     PanToTarget 	( .Default 00000000 00000000 )
+    Set  *StoryProgress  00000033
+    Set  *ObtainedLakilester  00000001 
+	Call     EnablePartnerAI 	( )
+	Call     DisablePlayerInput 	( .False )
+	ExecWait $Script_80245014 
+	Return
+	End

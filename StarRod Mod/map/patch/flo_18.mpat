@@ -1,0 +1,175 @@
+@ $Script_80242E28 % Set chapter progress after destroying machine
+	Set  *Var[A]  *Var[0] 
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	If  *Var[0]  <  FFFFFF2E 
+		Return
+	EndIf
+	Call     PlaySound   	( 000001E5 )
+	ExecWait $Script_802413F0 
+	Set  *Var[0]  *Var[A] 
+	If  *StoryProgress  <  00000034 
+		Set  *MapFlag[01]  00000001 
+		Return
+	EndIf
+	If  *MapFlag[03]  ==  00000001 
+		Return
+	EndIf
+	Set  *MapFlag[03]  00000001 
+	If  *Var[0]  >  00000002 
+		Goto     00000000 
+	EndIf
+	If  *Var[0]  ==  00000002 
+		Goto     0000000B 
+	EndIf
+	If  *Var[0]  ==  00000000 
+		Label    0000000B 
+		If  *Byte_FLO_03  ==  00000000 
+			Set  *Byte_FLO_03  00000001 
+			Exec     $Script_80241ED4 
+			Goto     00000000 
+		EndIf
+	EndIf
+	If  *Var[0]  ==  00000001 
+		If  *Byte_FLO_04  ==  00000000 
+			Set  *Byte_FLO_04  00000001 
+			Exec     $Script_80242174 
+			Goto     00000000 
+		EndIf
+	EndIf
+	If  *Var[0]  ==  00000000 
+		If  *Byte_FLO_03  ==  00000001 
+			Set  *Byte_FLO_03  00000002 
+			Exec     $Script_80242474 
+			Goto     00000000 
+		EndIf
+	EndIf
+	If  *Byte_FLO_03  ==  00000002 
+		If  *Byte_FLO_04  ==  00000001 
+			Set  *Byte_FLO_04  00000002 
+			Exec     $Script_80242620 
+			Goto     00000000 
+		EndIf
+	EndIf
+	If  *Byte_FLO_03  ==  00000002 
+		If  *Byte_FLO_04  ==  00000002 
+			Call     DisablePlayerInput 	( .True )
+			Call     UseSettingsFrom 	( .Default 00000028 00000000 00000000 )
+			Call     SetPanTarget 	( .Default 00000028 00000000 00000000 )
+			Call     SetCamSpeed 	( .Default *Fixed[1.5] )
+			Call     PanToTarget 	( .Default 00000000 00000001 )
+			Set  *Byte_FLO_04  00000003 
+			ExecWait $Script_802413F0 
+			ExecWait $Script_802413F0 
+			ExecWait $Script_802413F0 
+			Wait     0000001E 
+			Call     GetModelCenter ( {Model:o113} )
+			Call     PlayEffect  	( {FX:SmokeImpact:Large} *Var[0] 00000032 *Var[2] 00000064 00000014 00000000 0000001E 00000000 00000000 00000000 00000000 00000000 )
+			Call     PlayEffect  	( {FX:SmokeImpact:Large} *Var[0] 0000001E *Var[2] 00000078 00000014 00000000 0000001E 00000000 00000000 00000000 00000000 00000000 )
+			Call     PlayEffect  	( {FX:SmokeImpact:Large} *Var[0] 0000000A *Var[2] 00000064 00000014 00000000 0000001E 00000000 00000000 00000000 00000000 00000000 )
+			Wait     0000000F 
+			Thread
+				Set  *Var[3]  00000006 
+				UseIntBuffer $IntTable_80242DC8 
+				Loop     00000008 
+					Get3Int  *Var[0] *Var[1] *Var[2] 
+					Call     PlaySoundAt 	( 00000190 00000000 *Var[0] *Var[1] *Var[2] )
+					Call     PlayEffect  	( {FX:SmokeBurst:Black} *Var[0] *Var[1] *Var[2] 00000001 00000006 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+					Wait     00000002 
+					Add  *Var[1]  00000005 
+					Call     PlaySoundAt 	( 00000190 00000000 *Var[0] *Var[1] *Var[2] )
+					Call     PlayEffect  	( {FX:SmokeBurst:Black} *Var[0] *Var[1] *Var[2] 00000002 0000000F 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+					Wait     *Var[3] 
+					Add  *Var[3]  00000001 
+				EndLoop
+				SetF  *Var[4]  *Fixed[2.0] 
+				Loop     00000002 
+					UseIntBuffer $IntTable_80242DC8 
+					Loop     00000008 
+						Get3Int  *Var[0] *Var[1] *Var[2] 
+						Call     PlaySoundAt 	( 00000190 00000000 *Var[0] *Var[1] *Var[2] )
+						Call     PlayEffect  	( {FX:SmokeBurst:Black} *Var[0] *Var[1] *Var[2] 00000001 00000019 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+						Wait     *Var[3] 
+						Add  *Var[3]  *Var[4] 
+						AddF  *Var[4]  *Fixed[0.5] 
+					EndLoop
+				EndLoop
+			EndThread
+			Call     PlaySoundAt 	( 000001A0 00000000 00000046 00000028 0000000A )
+			Call     PlayEffect  	( {FX:RingBlast:Red} 00000046 00000028 0000000A *Fixed[3.0] 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+			Call     ShakeCam    	( .Default 00000000 00000014 *Fixed[1.0] )
+			Call     PlaySoundAt 	( 000001A0 00000000 00000000 0000001E 0000001E )
+			Call     PlayEffect  	( {FX:RingBlast:Red} 00000000 0000001E 0000001E *Fixed[4.0] 00000028 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+			Call     ShakeCam    	( .Default 00000000 00000014 *Fixed[2.0] )
+			ExecWait $Script_80242910 
+			Call     PlaySoundAtCollider 	( {Collider:o126} 00000491 00000000 )
+			Call     FadeOutMusic 	( 00000000 000003E8 )
+			Call     DisablePlayerPhysics 	( .True )
+			Wait     0000001E 
+			ExecWait $Script_80242B18 
+            Set  *StoryProgress  00000035
+            Set  *Chapter6Progress  00000035
+			Call     GotoMap     	( $ASCII_80247048 00000001 )
+			Wait     00000046 
+			Return
+		EndIf
+	EndIf
+	Label    00000000 
+	Set  *MapFlag[03]  00000000 
+	Return
+    End
+    
+@ $Script_80244774 % Set chapter6 progress after beating guards
+	Call     DisablePlayerInput 	( .True )
+	Call     DisablePartnerAI 	( 00000000 )
+	Call     GetNpcPos   	( .Npc:Partner *Var[0] *Var[1] *Var[2] )
+	Call     SetNpcPos   	( .Npc:Partner 00000041 *Var[1] 00000050 )
+	Call     SetNpcYaw   	( .Npc:Partner 0000010E )
+	Call     UseSettings 	( .Default *Fixed[8.0] 00000000 000001C2 *Fixed[17.0] *Fixed[-6.0] )
+	Call     SayMessage0 	( 00000004 00570209 00570201 00000000 001100BB ) % Ahhhh, retreat, boys!! He beat us, but good!
+	Wait     00000014 
+	Exec     $Script_80244270 
+	Wait     00000050 
+	Call     UseSettings 	( .Default *Fixed[8.0] 00000000 0000012C *Fixed[19.0] *Fixed[-8.5] )
+	Call     GetCurrentPartner 	( *Var[0] )
+	Call     BringPartnerOut 	( .Partner:Lakilester )
+	If  *Var[0]  !=  00000008 
+		Call     SetNpcJumpscale 	( .Npc:Partner *Fixed[0.0] )
+		Call     GetPlayerPos 	( *Var[1] *Var[2] *Var[3] )
+		Add  *Var[1]  00000014 
+		Add  *Var[2]  00000014 
+		Add  *Var[3]  00000014 
+		Call     NpcJump0    	( .Npc:Partner *Var[1] *Var[2] *Var[3] 0000001E )
+	EndIf
+	Call     NpcFacePlayer 	( .Npc:Partner 00000000 )
+	Call     DisablePartnerAI 	( 00000000 )
+	Call     SayMessage0 	( .Npc:Partner 00080009 00080001 00000005 001100C1 ) % Baah ha ha! Look at those chumps run away! All rig ...
+	Call     EnablePartnerAI 	( )
+	Wait     00000014 
+	Call     PutPartnerAway ( )
+	Call     ResetCam    	( .Default *Fixed[4.0] )
+    Set  *StoryProgress  00000034 
+    Set  *Chapter6Progress  00000034 
+	Call     DisablePlayerInput 	( .False )
+	Call     AwaitPlayerApproach 	( FFFFFF06 00000000 00000032 )
+	Call     DisablePlayerInput 	( .True )
+	Call     GetCurrentPartner 	( *Var[0] )
+	Call     BringPartnerOut 	( .Partner:Lakilester )
+	If  *Var[0]  !=  00000008 
+		Call     SetNpcJumpscale 	( .Npc:Partner *Fixed[0.0] )
+		Call     GetPlayerPos 	( *Var[1] *Var[2] *Var[3] )
+		Add  *Var[1]  00000014 
+		Add  *Var[2]  00000014 
+		Add  *Var[3]  00000014 
+		Call     NpcJump0    	( .Npc:Partner *Var[1] *Var[2] *Var[3] 0000001E )
+	EndIf
+	Call     PlayerFaceNpc 	( .Npc:Partner 00000000 )
+	Call     NpcFacePlayer 	( .Npc:Partner 00000000 )
+	Call     DisablePartnerAI 	( 00000000 )
+	Call     SayMessage0 	( .Npc:Partner 00080009 00080001 00000005 001100C2 ) % Hey, hold up, man. You're just going to walk away  ...
+	Call     EnablePartnerAI 	( )
+	Call     PutPartnerAway ( )
+	Call     ResetCam    	( .Default *Fixed[4.0] )
+	Call     DisablePlayerInput 	( .False )
+	Return
+	End
+

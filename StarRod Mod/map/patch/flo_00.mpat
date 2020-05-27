@@ -1,0 +1,351 @@
+@ $Function_80240ED0 % Function for increasing star power
+	ADDIU     SP, SP, FFE8
+    SW        RA, 10 (SP)
+    LABU	  T0, 8010F51E % Read current star power level in T0
+    ADDIU	  T1, T0, 1 % Increment it by one
+	JAL       800EA1D8
+    ADD		  A0, R0, T1 % Use T1 to set star level instead of hardcoded 6 value
+	LIA       V0, 8010F290
+	LBU       V1, 3 (V0)
+	LBU       A0, 6 (V0)
+	SB        V1, 2 (V0)
+	JAL       800E9B6C
+	SB        A0, 5 (V0)
+	LW        RA, 10 (SP)
+	ADDIU     V0, R0, 2
+	JR        RA
+	ADDIU     SP, SP, 18
+
+@ $Script_Main
+    Set  *StoryProgress  *Chapter6Progress
+	Set  *WorldMapLocation  .Location:FlowerFields
+	Call     SetSpriteShading 	( FFFFFFFF )
+	Call     SetCamLeadPlayer 	( .Default .False )
+	Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+	Call     SetCamBGColor 	( .Default 00000000 00000000 00000000 )
+	Call     SetCamEnabled 	( .Default .True )
+	Set  *Flag_MAP_16  00000001 
+	If  *StoryProgress  <  00000037 
+		Call     ModifyColliderFlags 	( 00000000 {Collider:o351} 7FFFFE00 )
+	EndIf
+	Set  *Flag_Rowf_Badges_Chosen  00000000 
+	Call     GetEntryID  	( *Var[0] )
+	If  *Var[0]  ==  0000000B 
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_80246834 )
+	Else
+		Call     MakeNpcs    	( 00000000 $NpcGroupList_80245DE4 )
+	EndIf
+	ExecWait $Script_MakeEntities 
+	Call     ParentColliderToModel 	( {Collider:o240} {Model:o142} )
+	Exec     $Script_80248F48 
+	Exec     $Script_80248E30 
+	Call     ModifyColliderFlags 	( 00000003 {Collider:o129} 00000006 )
+	Call     ModifyColliderFlags 	( 00000003 {Collider:o363} 00000006 )
+	Set  *Var[0]  00000096 
+	Set  *Var[1]  FFFFFEF2 
+	Set  *Var[2]  0000019A 
+	Set  *Var[3]  000000AA 
+	Set  *Var[4]  00000000 
+	Exec     $Script_802416C0 
+	Set  *Var[0]  00000073 
+	Set  *Var[1]  FFFFFE3E 
+	Set  *Var[2]  000000FA 
+	Set  *Var[3]  FFFFFEF2 
+	Set  *Var[4]  00000000 
+	Exec     $Script_802416C0 
+	Set  *Var[0]  FFFFFEB6 
+	Set  *Var[1]  000000DC 
+	Set  *Var[2]  0000002D 
+	Set  *Var[3]  0000019A 
+	Set  *Var[4]  00000000 
+	Exec     $Script_802416C0 
+	Set  *Var[0]  FFFFFE5C 
+	Set  *Var[1]  FFFFFEFC 
+	Set  *Var[2]  FFFFFF74 
+	Set  *Var[3]  000000A0 
+	Set  *Var[4]  00000000 
+	Exec     $Script_802416C0 
+	Call     ModifyColliderFlags 	( 00000000 {Collider:deilitse} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:deilitne} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:deilitsw} 7FFFFE00 )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:deilitnw} 7FFFFE00 )
+	Exec     $Script_8024205C 
+	Call     GetLoadType 	( *Var[1] )
+	If  *Var[1]  !=  00000001 
+		Call     GetEntryID  	( *Var[0] )
+		If  *Var[0]  ==  0000000A 
+			Wait     00000041 
+		EndIf
+	EndIf
+	ExecWait $Script_802414D0 
+	If  *StoryProgress  >=  00000035 
+		Call     $Function_80240000 ( )
+	EndIf
+	Thread
+		Call     EnableTexPanning 	( {Model:o47} .True )
+		Set  *Var[0]  00000000 
+		Label    00000000 
+		Call     RandInt     	( 0000012C *Var[1] )
+		Add  *Var[1]  00000064 
+		Call     RandInt     	( 00000001 *Var[2] )
+		Add  *Var[2]  00000001 
+		Wait     *Var[1] 
+		Loop     *Var[2] 
+			Call     SetTexPanOffset 	( 0000000C 00000000 FFFF8000 00000000 )
+			Wait     00000002 
+			Call     SetTexPanOffset 	( 0000000C 00000000 FFFF0000 00000000 )
+			Wait     00000002 
+			Call     SetTexPanOffset 	( 0000000C 00000000 FFFE8000 00000000 )
+			Call     RandInt     	( 00000005 *Var[3] )
+			Add  *Var[3]  00000002 
+			Wait     *Var[3] 
+			Call     SetTexPanOffset 	( 0000000C 00000000 FFFF0000 00000000 )
+			Wait     00000002 
+			Call     SetTexPanOffset 	( 0000000C 00000000 FFFF8000 00000000 )
+			Wait     00000002 
+			Call     SetTexPanOffset 	( 0000000C 00000000 00000000 00000000 )
+			Call     RandInt     	( 00000005 *Var[3] )
+			Add  *Var[3]  00000002 
+			Wait     *Var[3] 
+		EndLoop
+		Goto     00000000 
+	EndThread
+	Return
+    End
+    
+  @ $Script_8024196C
+	Call     DisablePlayerInput 	( .True )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:deilittn} 7FFFFE00 )
+	Call     MovePlayerTo 	( 0000001E FFFFFF56 0000000A )
+	Call     InterpPlayerYaw 	( 00000000 00000000 )
+	Call     PlaySoundAtCollider 	( {Collider:deilittn} 000001CF 00000000 )
+	Call     MakeLerp    	( 00000000 FFFFFF9C 00000014 00000004 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     RotateGroup 	( {Model:g27} *Var[0] 00000000 00000001 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+	Call     802D2C14 ( 00000001 )
+	Call     MovePlayerTo 	( 00000000 FFFFFECA 0000001E )
+	Call     802D2C14 ( 00000000 )
+	If  *StoryProgress  ==  0000003B 
+        Set  *StoryProgress  0000003C
+        Set  *Chapter6Progress  0000003C  
+	EndIf
+	Call     MakeLerp    	( FFFFFF9C 00000000 0000001E 00000001 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     RotateGroup 	( {Model:g27} *Var[0] 00000000 00000001 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+	Call     PlaySoundAtCollider 	( {Collider:deilittn} 000001D0 00000000 )
+	Call     GotoMap     	( $ASCII_80249180 00000005 )
+	Wait     00000064 
+	Return
+    End
+    
+  @ $Script_80242AF0
+	Call     DisablePlayerInput 	( .True )
+	Call     UseSettingsFrom 	( .Default 00000000 00000000 FFFFFF56 )
+	Call     SetPanTarget 	( .Default 00000000 00000000 FFFFFF56 )
+	Call     SetCamDistance ( .Default 0000012C )
+	Call     SetCamAngles 	( .Default *Fixed[17.0] *Fixed[-8.0] )
+	Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Wait     0000004B 
+	Call     ShowMessage 	( 00110000 000000A0 00000028 ) % What ho...? Now who might that be?
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Call     SetPlayerJumpscale 	( *Fixed[1.5] )
+	Call     PlayerJump1 	( *Var[0] *Var[1] *Var[2] 0000000C )
+	Wait     0000000A 
+	Call     DisablePartnerAI 	( 00000000 )
+	Call     InterpPlayerYaw 	( 0000010E 00000000 )
+	Call     InterpNpcYaw 	( .Npc:Partner 0000010E 00000000 )
+	Wait     0000000F 
+	Call     InterpPlayerYaw 	( 0000005A 00000000 )
+	Call     InterpNpcYaw 	( .Npc:Partner 0000005A 00000000 )
+	Wait     0000000F 
+	Call     SetCamDistance ( .Default 00000320 )
+	Call     SetCamAngles 	( .Default *Fixed[15.0] *Fixed[-5.7998047] )
+	Call     SetCamPosA  	( .Default FFFFFFFE 00000000 )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Wait     0000000F 
+	Call     SayMessage0 	( 00000000 FFFFFFFF FFFFFFFF 00000005 00110001 ) % Ho ho ho ho! Up here, son! They call me Wise Wiste ...
+	Call     SetPlayerAnimation 	( 00010002 )
+	Call     InterpPlayerYaw 	( 0000015E 00000000 )
+	Wait     0000000F 
+	Call     SayMessage2 	( 00000000 FFFFFFFF FFFFFFFF 00000005 00110002 ) % And you must be Mario. I've heard a lot about you, ...
+	Wait     0000000A 
+	Call     SetCamDistance ( .Default 0000014D )
+	Call     SetCamAngles 	( .Default *Fixed[9.0] *Fixed[-22.0] )
+	Call     SetCamPosA  	( .Default FFFFFFFE 00000000 )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     EnablePartnerAI 	( )
+	Call     802D2C14 ( 00000001 )
+	Wait     0000000A 
+	Call     802D095C ( 00110003 00000000 00000046 FFFFFF38 )
+	Call     SetCamAngles 	( .Default *Fixed[16.5] *Fixed[-11.799805] )
+	Call     SetCamDistance ( .Default 0000020D )
+	Call     SetCamPosA  	( .Default FFFFFFF2 00000000 )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Wait     0000000A 
+	Call     SetPlayerAnimation 	( 00080007 )
+	Wait     00000014 
+	Call     SetPlayerAnimation 	( 00010002 )
+	Call     802D095C ( 00110004 00000000 00000032 FFFFFF38 )
+	Call     SetCamAngles 	( .Default *Fixed[9.0] *Fixed[-22.0] )
+	Call     SetCamDistance ( .Default 0000014D )
+	Call     SetCamPosA  	( .Default FFFFFFFE 00000000 )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Wait     0000000A 
+	Call     802D095C ( 00110005 00000000 00000046 FFFFFF38 )
+	Call     ResetCam    	( .Default *Fixed[90.0] )
+    Set  *StoryProgress  0000002B
+    Set  *Chapter6Progress  0000002B
+	Call     802D2C14 ( 00000000 )
+	Call     DisablePlayerInput 	( .False )
+	Return
+	End
+
+@ $Script_8024427C
+	Call     DisablePartnerAI 	( 00000000 )
+	Call     802CF56C ( 00000002 )
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Set  *Var[3]  *Var[0] 
+	Add  *Var[3]  FFFFFFCE 
+	Set  *Var[4]  *Var[1] 
+	Add  *Var[4]  0000001A 
+	Call     SetNpcPos   	( 00000006 *Var[3] *Var[4] *Var[2] )
+	Call     PlayerFaceNpc 	( 00000006 00000000 )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000006 00000000 )
+	Add  *Var[0]  FFFFFFE7 
+	Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default *Fixed[475.0] )
+	Call     SetCamAngles 	( .Default 00000012 FFFFFFF8 )
+	Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Wait     00000001 
+	Call     802D2508 ( )
+	Call     DisablePlayerInput 	( .True )
+	Wait     00000028 
+	Call     SayMessage0 	( 00000006 00170003 00170001 00000200 001100D8 ) % What a pleasure meeting you. My name is Klevar. Th ...
+	Call     SetCamDistance ( .Default *Fixed[300.0] )
+	Call     SetCamAngles 	( .Default 00000012 FFFFFFF7 )
+	Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     MakeLerp    	( 00000000 00000168 0000000A 00000000 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     SetNpcRotation ( 00000006 00000000 *Var[0] 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+	Call     EnableNpcAI 	( 00000006 .False )
+	Call     SetNpcAnimation 	( 00000006 00170004 )
+	Wait     00000014 
+	Call     SetPlayerAnimation 	( .PlayerAnim:GotItem )
+	Call     PlaySoundAtPlayer 	( 00000139 00000000 )
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Set  *Var[3]  *Var[1] 
+	Add  *Var[1]  00000032 
+	Add  *Var[2]  0000000A 
+	Add  *Var[3]  0000001E 
+	Loop     00000005 
+		Call     PlayEffect  	( 00000011 00000003 *Var[0] *Var[1] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Wait     00000006 
+		Call     PlayEffect  	( {FX:Sparkles:Random} *Var[0] *Var[3] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Wait     00000006 
+	EndLoop
+	Wait     00000014 
+	Call     PlaySoundAtPlayer 	( 00000188 00000000 )
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Add  *Var[1]  00000014 
+	Call     PlayEffect  	( {FX:EnergyWaveOut:Grey} *Var[0] *Var[1] *Var[2] 00000001 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Wait     0000001E 
+	Call     SetPlayerAnimation 	( 00010002 )
+	Call     SetNpcAnimation 	( 00000006 00170001 )
+	Call     EnableNpcAI 	( 00000006 .True )
+	Call     $Function_80240ED0 ( )
+	Call     ShowMessage 	( 001D0196 000000A0 00000028 ) % Mario's Star Energy goes up to 6! Mario can now us ...
+	Wait     0000000A 
+	Call     GetNpcPos   	( 00000006 *Var[0] *Var[1] *Var[2] )
+	Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default *Fixed[250.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Wait     0000000A 
+	Call     SayMessage0 	( 00000006 00170003 00170001 00000200 001100D9 ) % Now, you are able to use the Powers of six Star Sp ...
+	Wait     0000000A 
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Add  *Var[0]  FFFFFFE7 
+	Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default *Fixed[300.0] )
+	Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Wait     0000000A 
+	Call     SayMessage0 	( 00000006 00170003 00170001 00000200 001100DA ) % I'll go back to Star Haven now. I can't wait to ge ...
+	Call     SetNpcFlagBits ( 00000006 00040000 .True )
+	Thread
+		Loop     00000019 
+			Call     GetNpcPos   	( 00000006 *Var[0] *Var[1] *Var[2] )
+			Call     PlayEffect  	( 00000011 00000004 *Var[0] *Var[1] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+			Wait     00000004 
+		EndLoop
+	EndThread
+	Thread
+		Set  *Var[2]  00000000 
+		Set  *Var[3]  00000708 
+		Call     MakeLerp    	( *Var[2] *Var[3] 00000064 00000002 )
+		Loop     
+			Call     UpdateLerp  	( )
+			Call     SetNpcRotation ( 00000006 00000000 *Var[0] 00000000 )
+			Wait     00000001 
+			If  *Var[1]  ==  00000000 
+				BreakLoop
+			EndIf
+		EndLoop
+	EndThread
+	Thread
+		Call     GetNpcPos   	( 00000006 *Var[2] *Var[3] *Var[4] )
+		Set  *Var[5]  *Var[3] 
+		Add  *Var[5]  000000B4 
+		Call     MakeLerp    	( *Var[3] *Var[5] 00000064 00000002 )
+		Loop     
+			Call     UpdateLerp  	( )
+			Call     SetNpcPos   	( 00000006 *Var[2] *Var[0] *Var[4] )
+			Wait     00000001 
+			If  *Var[1]  ==  00000000 
+				BreakLoop
+			EndIf
+		EndLoop
+		Call     SetNpcPos   	( 00000006 00000000 FFFFFC18 00000000 )
+	EndThread
+	Thread
+		Wait     0000000F 
+		Call     PlaySoundAtNpc ( 00000006 00002045 00000000 )
+	EndThread
+	Wait     0000000A 
+	Call     SetPlayerAnimation 	( 0001002A )
+	Wait     0000006E 
+	Call     SetPlayerAnimation 	( 00010002 )
+    Set  *StoryProgress  0000003B 
+    Set  *Chapter6Progress  0000003B 
+	ExecWait $Script_80243368 
+	Call     EnablePartnerAI 	( )
+	Call     DisablePlayerInput 	( .False )
+	Return
+	End
