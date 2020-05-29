@@ -1,6 +1,8 @@
 @ $Script_Main
-    If  *ObtainedLakilester  <  00000001 %Set story back if you dont have lakilester. Makes logic easier to handle
-        Set  *StoryProgress  00000031
+	If  *ObtainedLakilester  <  00000001 %Set story back if you dont have lakilester. Makes logic easier to handle
+		If  *StoryProgress  !=  00000032
+			Set *StoryProgress  00000031
+		EndIf
     EndIf
 	Set  *WorldMapLocation  .Location:FlowerFields
 	Call     SetSpriteShading 	( FFFFFFFF )
@@ -204,7 +206,7 @@
 	Exec     $Script_802438F8 
 	Wait     0000000A 
 	Call     PanToTarget 	( .Default 00000000 00000000 )
-    Set  *StoryProgress  00000033
+    Set  *StoryProgress  *Chapter6Progress
     Set  *ObtainedLakilester  00000001 
 	Call     EnablePartnerAI 	( )
 	Call     DisablePlayerInput 	( .False )
