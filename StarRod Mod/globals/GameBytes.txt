@@ -82,7 +82,7 @@
 051 = ObtainedFertileSoil
 052 = ObtainedCrystalBerry
 053 = ObtainedWaterStone
-054 = GameByte[054] 	% unused Byte_KKJ_07
+054 = FirstTalkedToPetunia
 055 = GameByte[055] 	% unused Byte_KKJ_08
 056 = GameByte[056] 	% unused Byte_KKJ_09
 057 = GameByte[057] 	% unused Byte_KKJ_0A
