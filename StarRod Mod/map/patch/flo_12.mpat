@@ -1,6 +1,27 @@
+@ $Script_Init_802423D0
+	Call     BindNpcInteract 	( .Npc:Self $Script_80241C8C )
+	Call     GetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+	Add  *Var[0]  00000023 
+	Call     SetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+	Call     SetNpcFlagBits ( 00000001 00000002 .True )
+	Call     SetNpcFlagBits ( 00000001 00000010 .True )
+	If  *ObtainedWaterStone  <  00000001
+        Call     SetNpcFlagBits ( 00000001 00000100 .False )
+        Call     SetNpcAnimation 	( .Npc:Self 00CA0002 )
+        Call     MakeItemEntity ( .Item:WaterStone {Vec3d:Item80242524} 00000001 00000564 )
+        Set  *Var[A]  *Var[0] 
+    Else
+        Call     SetNpcFlagBits ( 00000001 00000100 .False )
+        Call     SetNpcAnimation 	( .Npc:Self 00CA0002 )
+        Call     MakeItemEntity ( .Item:CrystalBerry {Vec3d:Item8024258C} 00000001 00000564 )
+        Set  *Var[A]  *Var[0]
+    EndIf 
+	Return
+    End
+    
 @ $Script_80241C8C
     ExecWait $Script_8024080C
-    Call     HasKeyItem  	( .Item:WaterStone *Var[B] )  
+    Call     HasKeyItem  	( .Item:CrystalBerry *Var[B] )  
     If  *Var[B]  >=  00000001 % Player has crystal berry
         Call     FindKeyItem 	( .Item:CrystalBerry *Var[0] )
         If  *Var[0]  !=  FFFFFFFF 
