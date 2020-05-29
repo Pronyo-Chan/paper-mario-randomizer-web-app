@@ -83,8 +83,8 @@
 052 = ObtainedCrystalBerry
 053 = ObtainedWaterStone
 054 = FirstTalkedToPetunia
-055 = GameByte[055] 	% unused Byte_KKJ_08
-056 = GameByte[056] 	% unused Byte_KKJ_09
+055 = ObtainedBucket
+056 = IsIceBroken
 057 = GameByte[057] 	% unused Byte_KKJ_0A
 058 = GameByte[058] 	% unused Byte_KKJ_0B
 059 = GameByte[059] 	% unused Byte_KKJ_0C
