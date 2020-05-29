@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "electron-angular-demo": {
+    "paper-mario-randomizer-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/electron-angular-demo",
+            "outputPath": "dist/paper-mario-randomizer-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,7 +30,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": []            
           },
           "configurations": {
             "production": {
@@ -66,18 +66,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "electron-angular-demo:build"
+            "browserTarget": "paper-mario-randomizer-app:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "electron-angular-demo:build:production"
+              "browserTarget": "paper-mario-randomizer-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "electron-angular-demo:build"
+            "browserTarget": "paper-mario-randomizer-app:build"
           }
         },
         "test": {
@@ -114,15 +115,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "electron-angular-demo:serve"
+            "devServerTarget": "paper-mario-randomizer-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "electron-angular-demo:serve:production"
+              "devServerTarget": "paper-mario-randomizer-app:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "electron-angular-demo"
+  "defaultProject": "paper-mario-randomizer-app"
 }
