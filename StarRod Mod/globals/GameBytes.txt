@@ -85,10 +85,10 @@
 054 = FirstTalkedToPetunia
 055 = ObtainedBucket
 056 = IsIceBroken
-057 = GameByte[057] 	% unused Byte_KKJ_0A
-058 = GameByte[058] 	% unused Byte_KKJ_0B
-059 = GameByte[059] 	% unused Byte_KKJ_0C
-05A = Byte_HOS_00
+057 = ObtainedScarf
+058 = IsShiverMountainOpen
+059 = DefeatedMonstar
+05A = MerleProgress % 0=Initial, 1=MetMerle, 2= TalkedToMerleMiddleTown, 3=DoneTalkingToMerle
 05B = GameByte[05B] 	% unused Byte_HOS_01
 05C = GameByte[05C] 	% unused Byte_HOS_02
 05D = GameByte[05D] 	% unused Byte_HOS_03

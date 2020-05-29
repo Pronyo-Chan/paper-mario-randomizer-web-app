@@ -1,0 +1,142 @@
+@ $Script_80240B84
+	Label    00000001 
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Wait     00000001 
+	If  *Var[0]  <  00000000 
+		Goto     00000001 
+	EndIf
+	Call     DisablePlayerInput 	( .True )
+	Call     802D2B0C ( *Var[0] )
+	If  *Var[0]  !=  00000000 
+		Call     802D2B6C ( )
+		Wait     00000014 
+	EndIf
+	Call     UseSettingsFrom 	( .Default 000000A0 00000000 00000000 )
+	Call     SetPanTarget 	( .Default 000000A0 00000000 00000000 )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     SetPlayerSpeed ( *Fixed[3.0] )
+	Call     MovePlayerTo 	( 0000005A 00000000 00000000 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Wait     00000014 
+	Exec     $Script_802409E0 *Var[9] 
+	Wait     00000064 
+	Call     SetNpcPos   	( 00000000 000000C8 00000032 00000000 )
+	Exec     $Script_80240A78 
+	Call     PlaySoundAtNpc ( 00000000 00000139 00000000 )
+	SetF  *Var[0]  *Fixed[0.0] 
+	Loop     00000064 
+		AddF  *Var[0]  *Fixed[1.0] 
+		Call     802CFD30 ( 00000000 00000007 *Var[0] 00000000 00000000 00000000 )
+		Wait     00000001 
+	EndLoop
+	Exec     $Script_80240894 *Var[8] 
+	Wait     0000001E 
+	Call     SayMessage0 	( 00000000 00B10002 00B10001 00000000 00120133 ) % At last...it is Mario! I'm glad you found this pla ...
+	Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+	Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default *Fixed[225.0] )
+	Call     SetCamAngles 	( .Default *Fixed[15.0] *Fixed[-7.5] )
+	Call     SetCamPosB  	( .Default *Fixed[500.0] *Fixed[60.0] )
+	Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     SayMessage0 	( 00000000 00B10002 00B10001 00000000 00120134 ) % My name is Madam Merlar. I am a messenger of the S ...
+	Call     SetPanTarget 	( .Default 000000A0 00000000 00000000 )
+	Call     SetCamDistance ( .Default *Fixed[400.0] )
+	Call     SetCamAngles 	( .Default *Fixed[15.0] *Fixed[-10.0] )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     SayMessage0 	( 00000000 00B10002 00B10001 00000000 00120135 ) % We have little time to waste, so listen carefully. ...
+	Exec     $Script_80240B30 *Var[A] 
+	Call     SayMessage1 	( 00000000 00B10002 00B10001 00000000 )
+	SetF  *Var[0]  *Fixed[0.0] 
+	Loop     00000032 
+		AddF  *Var[0]  *Fixed[5.100586] 
+		Call     $Function_80240090 ( *Var[0] )
+		Wait     00000001 
+	EndLoop
+	Call     $Function_80240238 ( FFFFFFA6 00000006 FFFFFFFB 00000002 00000000 *Var[7] )
+	Thread
+		Set  *MapFlag[00]  00000000 
+		SetF  *Var[0]  *Fixed[255.0] 
+		Loop     00000064 
+			AddF  *Var[0]  *Fixed[-2.5498047] 
+			Call     $Function_80240090 ( *Var[0] )
+			Wait     00000001 
+		EndLoop
+		Set  *MapFlag[00]  00000001 
+	EndThread
+	Call     SayMessage2 	( 00000000 00B10002 00B10001 00000000 00120136 ) % .................................. ............... ...
+	Label    00000006 
+	If  *MapFlag[00]  ==  00000000 
+		Wait     00000001 
+		Goto     00000006 
+	EndIf
+	Wait     0000001E 
+	Call     RemoveEffect 	( *Var[7] )
+	Kill     *Var[A] 
+	Call     PlaySoundAtPlayer 	( 000002F1 00000000 )
+	Call     SetPlayerAnimation 	( 0008001E )
+	Wait     0000001E 
+	Call     SetPlayerAnimation 	( .PlayerAnim:NodYes )
+	Wait     00000014 
+	Call     SetPlayerAnimation 	( 00080007 )
+	Wait     0000001E 
+	Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+	Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default *Fixed[225.0] )
+	Call     SetCamAngles 	( .Default *Fixed[15.0] *Fixed[-7.5] )
+	Call     SetCamPosB  	( .Default *Fixed[500.0] *Fixed[60.0] )
+	Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     SayMessage0 	( 00000000 00B10002 00B10001 00000000 00120137 ) % Well... OK, then. As I was saying, you need the St ...
+	Wait     0000001E 
+	Call     SetPanTarget 	( .Default 000000E6 00000000 00000000 )
+	Call     SetCamPosB  	( .Default *Fixed[230.0] *Fixed[60.0] )
+	Call     SetCamSpeed 	( .Default *Fixed[1.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Thread
+		Loop     00000005 
+			Call     $Function_80240194 ( 000000E8 0000001F 00000000 )
+			Wait     0000000A 
+		EndLoop
+	EndThread
+	Wait     0000000A 
+	SetF  *Var[0]  *Fixed[0.0] 
+	Loop     00000032 
+		AddF  *Var[0]  *Fixed[0.6201172] 
+		Call     $Function_802400C0 ( *MapVar[0] *Fixed[230.0] *Var[0] *Fixed[0.0] )
+		Wait     00000001 
+	EndLoop
+	Call     SetPanTarget 	( .Default 000000A0 00000000 00000000 )
+	Call     SetCamDistance ( .Default *Fixed[400.0] )
+	Call     SetCamAngles 	( .Default *Fixed[15.0] *Fixed[-10.0] )
+	Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     SayMessage0 	( 00000000 00B10002 00B10001 00000000 00120138 ) % With this stone, you can open the way to the Cryst ...
+	Kill     *Var[8] 
+	Kill     *Var[9] 
+	Thread
+		Set  *Var[0]  0000001E 
+		Loop     00000005 
+			Sub  *Var[0]  00000005 
+			Call     PlayEffect  	( 00000011 00000002 000000E6 0000001E 00000000 *Var[0] 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+			Wait     00000014 
+		EndLoop
+	EndThread
+	SetF  *Var[0]  *Fixed[100.0] 
+	Loop     00000064 
+		AddF  *Var[0]  *Fixed[-1.0] 
+		Call     802CFD30 ( 00000000 00000007 *Var[0] 00000000 00000000 00000000 )
+		Wait     00000001 
+	EndLoop
+	Call     SetNpcPos   	( 00000000 00000000 FFFFFC18 00000000 )
+    Set  *StoryProgress  0000004C
+    Set  *Chapter7Progress  0000004C  
+	Call     PanToTarget 	( .Default 00000000 00000000 )
+	Call     DisablePlayerInput 	( .False )
+	Return
+	End

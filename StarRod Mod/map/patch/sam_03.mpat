@@ -1,0 +1,37 @@
+@ $Script_80241164
+	Call     80045640 ( )
+	Call     GetBattleOutcome 	( *Var[0] )
+	Switch  *Var[0] 
+		Case  ==  .Outcome:PlayerWon % 0
+            Set  *StoryProgress  00000044 
+            Set  *Chapter7Progress  00000044 
+			Call     SetNpcAnimation 	( 00000000 00210014 )
+			Call     SetNpcAnimation 	( 00000001 00210014 )
+			Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+			Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+			Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+			Call     SetCamDistance ( .Default *Fixed[200.0] )
+			Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+			Call     PanToTarget 	( .Default 00000000 00000001 )
+			Call     WaitForCam  	( .Default *Fixed[1.0] )
+			Thread
+				Wait     00000005 
+				Call     PanToTarget 	( .Default 00000000 00000000 )
+				Call     SetCamSpeed 	( .Default *Fixed[2.0] )
+				Call     WaitForCam  	( .Default *Fixed[1.0] )
+				Call     SetCamSpeed 	( .Default *Fixed[1.0] )
+			EndThread
+			Call     SayMessage0 	( 00000000 00210014 00210014 00000005 001200DF ) % Nooooo!!
+			Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+			Call     SetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+			Call     SetNpcCollisionSize 	( 00000000 0000001A 00000018 )
+			Call     SetNpcCollisionSize 	( 00000001 0000001A 00000018 )
+			Call     SetNpcFlagBits ( 00000001 00000002 .True )
+			Call     BindNpcInteract 	( .Npc:Self $Script_80241094 )
+			Call     BindNpcHit  	( 00000001 $Script_802410C4 )
+			Exec     $Script_80240980 
+			Call     DisablePlayerInput 	( .False )
+		Case  ==  .Outcome:PlayerFled % 2
+	EndSwitch
+	Return
+	End

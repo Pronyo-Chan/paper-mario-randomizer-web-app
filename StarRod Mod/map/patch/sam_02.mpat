@@ -1,5 +1,4 @@
 @ $Script_Main
-    Call AddKeyItem ( .Item:WarehouseKey ) 
     Set  *StoryProgress  *Chapter7Progress % Set progress in case you arrive from sewers
 	Set  *WorldMapLocation  .Location:ShiverCity
 	Call     SetSpriteShading 	( FFFFFFFF )
