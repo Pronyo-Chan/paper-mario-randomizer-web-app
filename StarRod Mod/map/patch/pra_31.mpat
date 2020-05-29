@@ -1,0 +1,92 @@
+@ $Script_80242570
+	Loop     
+		If  *MapVar[1]  ==  00000001 
+			BreakLoop
+		EndIf
+		Wait     00000001 
+	EndLoop
+	Call     DisablePlayerInput 	( .True )
+	Loop     
+		If  *MapVar[2]  ==  00000000 
+			BreakLoop
+		EndIf
+		Wait     00000001 
+	EndLoop
+	Call     PlaySound   	( 0000000B )
+	Wait     00000028 
+	Call     UseSettingsFrom 	( .Default 00000145 00000000 00000000 )
+	Call     SetPanTarget 	( .Default 00000145 00000000 00000000 )
+	Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+	Call     SetCamAngles 	( .Default *Fixed[12.0] *Fixed[-10.0] )
+	Call     SetCamDistance ( .Default *Fixed[350.0] )
+	Call     SetCamPosA  	( .Default *Fixed[323.30078] *Fixed[-66.5] )
+	Call     SetCamPosB  	( .Default *Fixed[500.0] *Fixed[296.80078] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Thread
+		Wait     0000002D 
+		Call     802C9308 ( 00000021 00000001 )
+		Call     802C9308 ( 00000023 00000001 )
+		Call     802C9308 ( 00000030 00000001 )
+		Call     802C9308 ( 00000032 00000001 )
+		Call     ModifyColliderFlags 	( 00000001 {Collider:o1071} 7FFFFE00 )
+	EndThread
+	Thread
+		Wait     00000032 
+		Call     PlaySoundAtModel 	( {Model:k1} 00000030 00000000 )
+		Wait     00000019 
+		Call     PlaySoundAtModel 	( {Model:k2} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+		Wait     00000005 
+		Call     PlaySoundAtModel 	( {Model:k3} 000001EE 00000000 )
+	EndThread
+	Thread
+		Wait     00000032 
+		Call     EnableModel 	( {Model:n1} .False )
+		Call     EnableModel 	( {Model:k1} .True )
+		Wait     0000000A 
+		Call     EnableModel 	( {Model:n2} .False )
+		Call     EnableModel 	( {Model:k2} .True )
+		Wait     0000001E 
+		Call     EnableModel 	( {Model:n3} .False )
+		Call     EnableModel 	( {Model:k3} .True )
+		Wait     00000016 
+		Call     EnableModel 	( {Model:n4} .False )
+		Call     EnableModel 	( {Model:k4} .True )
+		Wait     00000012 
+		Call     EnableModel 	( {Model:n5} .False )
+		Call     EnableModel 	( {Model:k5} .True )
+	EndThread
+	Call     PlayModelAnimation 	( 00000000 $???_80246558 )
+	Wait     000000C8 
+    Set  *StoryProgress  00000055
+    Set  *Chapter7Progress  00000055  
+	Call     PanToTarget 	( .Default 00000000 00000000 )
+	Call     DisablePlayerInput 	( .False )
+	Return
+	End

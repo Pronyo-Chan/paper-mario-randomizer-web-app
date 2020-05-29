@@ -1,0 +1,60 @@
+@ $Script_80240AB0
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	If  *Var[0]  <=  00000151 
+		Set  *Var[6]  00000000 
+		Set  *Var[7]  00000032 
+		Set  *Var[8]  00000002 
+	EndIf
+	If  *Var[0]  >=  0000019D 
+		Set  *Var[6]  00000000 
+		Set  *Var[7]  FFFFFFCE 
+		Set  *Var[8]  00000001 
+	Else
+		Return
+	EndIf
+	Set  *Var[9]  0000001C 
+	ExecWait $Script_80240608 
+	If  *Var[8]  !=  FFFFFFFF 
+		Set  *MovedSmallPalaceStatue  00000001 
+		Set  *Byte_PRA_03  *Var[8] 
+		Thread
+			Call     ShakeCam    	( .Default 00000000 0000000A *Fixed[1.0] )
+		EndThread
+		Unbind
+	EndIf
+	Return
+	End
+
+@ $Script_Main
+	Set  *WorldMapLocation  .Location:CrystalPalace
+	Call     SetSpriteShading 	( FFFFFFFF )
+	Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+	Call     SetCamBGColor 	( .Default 00000018 00000018 00000028 )
+	Call     SetCamLeadPlayer 	( .Default .False )
+	Call     SetCamEnabled 	( .Default .True )
+	ExecWait $Script_MakeEntities 
+	Exec     $Script_80240330 
+	If  *MovedSmallPalaceStatue  <  00000001 
+		Bind     $Script_80240AB0 .Trigger:WallPush {Collider:o1064} 00000001 00000000 
+		Set  *Var[0]  00000000 
+	Else
+		Switch  *Byte_PRA_03 
+			Case  ==  00000000 
+				Set  *Var[0]  FFFFFFCE 
+			Case  ==  00000001 
+				Set  *Var[0]  FFFFFFCE 
+			Case  ==  00000002 
+				Set  *Var[0]  00000032 
+		EndSwitch
+	EndIf
+	Call     ParentColliderToModel 	( {Collider:o1064} {Model:o1005} )
+	Call     TranslateModel ( {Model:o1005} *Var[0] 00000000 00000000 )
+	Call     TranslateModel ( {Model:o1006} *Var[0] 00000000 00000000 )
+	Call     TranslateModel ( {Model:o1007} *Var[0] 00000000 00000000 )
+	Call     TranslateModel ( {Model:o1008} *Var[0] 00000000 00000000 )
+	Call     TranslateModel ( {Model:o1009} *Var[0] 00000000 00000000 )
+	Call     UpdateColliderTransform 	( {Collider:o1064} )
+	Exec     $Script_80240510 
+	Wait     00000001 
+	Return
+	End

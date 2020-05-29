@@ -1,0 +1,126 @@
+@ $Script_8024267C
+	Call     GetEntryID  	( *Var[0] )
+	If  *Var[0]  ==  00000002 
+		If  *FoughtMirrorGhosts  <  00000001 
+			Call     DisablePlayerInput 	( .True )
+			Wait     0000000A 
+			Call     SetNpcYaw   	( 00000000 0000005A )
+			Thread
+				Call     SetPlayerSpeed ( *Fixed[2.0] )
+				Call     MovePlayerTo 	( 000001B8 FFFFFFBA 00000000 )
+			EndThread
+			Wait     0000000F 
+			Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+			Call     802CC3EC ( 00000000 *Fixed[5.0] *Var[0] *Var[1] *Var[2] *Fixed[350.0] *Fixed[12.0] *Fixed[-7.0] )
+			Call     SayMessage0 	( 00000000 0001002B 0001002B 00000000 00120139 ) % Yikes! Mario's here!
+			Call     SayMessage0 	( 00000001 0003000E 00030003 00000000 0012013A ) % Whoa! We'd better beat him!
+			Call     ResetCam    	( .Default *Fixed[6.0] )
+			Call     PanToTarget 	( .Default 00000000 00000000 )
+			Thread
+				Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+				Call     SetNpcPos   	( 00000000 00000000 FFFFFC18 00000000 )
+				Call     $Function_80241310 ( *Var[0] *Var[1] *Var[2] )
+				Call     SetNpcPos   	( 00000002 *Var[0] *Var[1] *Var[2] )
+				Call     PlaySoundAtNpc ( 00000002 000002CD 00000000 )
+				Call     SetNpcFlagBits ( 00000002 00000100 .True )
+				Set  *Var[4]  00000002 
+				Call     SetNpcYaw   	( 00000002 0000005A )
+				ExecWait $Script_802425EC 
+				Call     SetNpcAnimation 	( 00000002 004E0004 )
+				Call     SetNpcFlagBits ( 00000002 00000100 .True )
+				Call     MoveNpcTo   	( 00000002 000001AE FFFFFFBA 0000000F )
+			EndThread
+			Thread
+				Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+				Call     $Function_80241310 ( *Var[0] *Var[1] *Var[2] )
+				Call     SetNpcPos   	( 00000001 00000185 00000000 FFFFFFC3 )
+				Call     SetNpcPos   	( 00000003 *Var[0] *Var[1] *Var[2] )
+				Call     PlaySoundAtNpc ( 00000003 000002CD 00000000 )
+				Call     SetNpcFlagBits ( 00000001 01000100 .True )
+				Call     SetNpcFlagBits ( 00000003 00000100 .True )
+				Set  *Var[4]  00000003 
+				Call     SetNpcYaw   	( 00000003 0000005A )
+				ExecWait $Script_802425EC 
+				Call     SetNpcAnimation 	( 00000003 004E0004 )
+				Call     SetNpcFlagBits ( 00000003 00000100 .True )
+				Call     MoveNpcTo   	( 00000003 000001A4 FFFFFFBA 0000000F )
+			EndThread
+			Wait     00000023 
+			Call     StartBossBattle 	( .Song:SpecialBattle )
+		EndIf
+	EndIf
+	Return
+	End
+
+@ $Script_80242A70
+	Call     SetNpcPos   	( 00000002 00000190 00000000 FFFFFFBA )
+	Call     SetNpcPos   	( 00000003 00000172 00000000 FFFFFFBA )
+	Call     SetNpcAnimation 	( 00000002 004E0002 )
+	Call     SetNpcAnimation 	( 00000003 004E0002 )
+	SetGroup 00000000 
+	Call     802D5830 ( 00000001 )
+	Call     SetNpcPos   	( 00000001 00000000 FFFFFC18 00000000 )
+	Wait     0000000A 
+	Call     SayMessage0 	( 00000002 004E0005 004E0002 00000000 0012013B ) % Noo!! The real Mario's so strong!
+	Wait     0000000A 
+	Call     InterpNpcYaw 	( 00000002 0000010E 00000000 )
+	Call     InterpNpcYaw 	( 00000003 0000010E 00000000 )
+	Wait     0000000F 
+	Thread
+		Call     PlaySoundAtNpc ( 00000002 000002CB 00000000 )
+		Call     SetNpcAnimation 	( 00000002 004E0004 )
+		Call     MoveNpcTo   	( 00000002 00000000 FFFFFFBA 0000002D )
+		Call     SetNpcPos   	( 00000002 00000000 FFFFFC18 00000000 )
+	EndThread
+	Call     PlaySoundAtNpc ( 00000003 000002CB 00000000 )
+	Call     SetNpcAnimation 	( 00000003 004E0004 )
+	Call     MoveNpcTo   	( 00000003 FFFFFFE2 FFFFFFBA 0000002D )
+	Call     SetNpcPos   	( 00000003 FFFFFFE2 FFFFFC18 00000000 )
+	Set  *FoughtMirrorGhosts  00000001 
+	Call     802D5830 ( 00000000 )
+	SetGroup 0000000B 
+	Call     DisablePlayerInput 	( .False )
+	Return
+	End
+
+  @ $Script_Init_80242CA0
+	Call     SetNpcFlagBits ( .Npc:Self 10000000 .True )
+	Call     SetNpcAnimation 	( .Npc:Self 00010002 )
+	Call     GetEntryID  	( *Var[0] )
+	If  *Var[0]  ==  00000002 
+		If  *FoughtMirrorGhosts  <  00000001 
+			Call     SetNpcPos   	( .Npc:Self 00000177 00000000 FFFFFFC5 )
+		EndIf
+	Else
+		If  *Flag_PRA_00  ==  00000001 
+			If  *FoughtMirrorGhosts  <  00000001 
+				Call     SetNpcPos   	( .Npc:Self 000001D1 00000000 FFFFFFC5 )
+				Call     InterpNpcYaw 	( .Npc:Self 0000010E 00000000 )
+			EndIf
+		EndIf
+	EndIf
+	Return
+	End
+
+@ $Script_Init_80242DA4
+	Call     BindNpcIdle 	( .Npc:Self $Script_8024267C )
+	Call     BindNpcDefeat 	( .Npc:Self $Script_80242A70 )
+	Call     SetNpcFlagBits ( .Npc:Self 10000000 .True )
+	Call     GetEntryID  	( *Var[0] )
+	If  *Var[0]  ==  00000002 
+		If  *FoughtMirrorGhosts  <  00000001 
+			Call     SetNpcPos   	( .Npc:Self 00000159 00000000 FFFFFFC5 )
+			NewArray 00000010 *Var[A] 
+			Call     $Function_802413D0 ( )
+		EndIf
+	Else
+		If  *Flag_PRA_00  ==  00000001 
+			If  *FoughtMirrorGhosts  <  00000001 
+				Call     SetNpcPos   	( .Npc:Self 000001B3 00000000 FFFFFFC5 )
+				NewArray 00000010 *Var[A] 
+				Call     $Function_802413D0 ( )
+			EndIf
+		EndIf
+	EndIf
+	Return
+	End

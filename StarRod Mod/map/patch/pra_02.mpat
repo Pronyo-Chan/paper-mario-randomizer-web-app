@@ -1,0 +1,87 @@
+@ $Script_80242448
+	Call     GetEntryID  	( *Var[0] )
+	Switch  *Var[0] 
+		Case  ==  00000000 
+			Call     UseDoorSounds 	( .DoorSounds:Basic )
+			If  *Flag_PRA_04  ==  00000000 
+				Set  *Flag_PRA_04  00000001 
+                Set  *StoryProgress  0000004E 
+                Set  *Chapter7Progress  0000004E
+			EndIf
+			If  *Flag_PRA_00  ==  00000000 
+				Set  *Var[2]  $???_80241A5C 
+				Set  *Var[3]  $???_80241A6C 
+			Else
+				Set  *Var[2]  $???_80241A34 
+				Set  *Var[3]  $???_80241A40 
+			EndIf
+		Case  ==  00000001 
+			Call     UseDoorSounds 	( .DoorSounds:Basic )
+			If  *Flag_PRA_00  ==  00000000 
+				Set  *Var[2]  $???_80241AEC 
+				Set  *Var[3]  $???_80241AF4 
+			Else
+				Set  *Var[2]  $???_80241AEC 
+				Set  *Var[3]  $???_80241AFC 
+			EndIf
+		Case  ==  00000002 
+			Call     UseDoorSounds 	( .DoorSounds:Creaky )
+			If  *Flag_PRA_01  ==  00000000 
+				If  *Flag_PRA_00  ==  00000000 
+					Set  *Var[2]  $???_80241AD4 
+					Set  *Var[3]  $???_80241AE0 
+				Else
+					Set  *Var[2]  $???_80241AAC 
+					Set  *Var[3]  $???_80241AB4 
+				EndIf
+			Else
+				If  *Flag_PRA_00  ==  00000000 
+					Set  *Var[2]  $???_80241ABC 
+					Set  *Var[3]  $???_80241AC8 
+				Else
+					Set  *Var[2]  $???_80241A9C 
+					Set  *Var[3]  $???_80241AA4 
+				EndIf
+			EndIf
+		Case  ==  00000003 
+			Call     UseDoorSounds 	( .DoorSounds:Creaky )
+			If  *Flag_PRA_01  ==  00000000 
+				If  *Flag_PRA_00  ==  00000000 
+					Set  *Var[2]  $???_80241AD4 
+					Set  *Var[3]  $???_80241AE0 
+				Else
+					Set  *Var[2]  $???_80241A8C 
+					Set  *Var[3]  $???_80241A94 
+				EndIf
+			Else
+				If  *Flag_PRA_00  ==  00000000 
+					Set  *Var[2]  $???_80241ABC 
+					Set  *Var[3]  $???_80241AC8 
+				Else
+					Set  *Var[2]  $???_80241A7C 
+					Set  *Var[3]  $???_80241A84 
+				EndIf
+			EndIf
+		Case  ==  00000004 
+			Call     UseDoorSounds 	( .DoorSounds:Basic )
+			If  *Flag_PRA_00  ==  00000000 
+				Set  *Var[2]  $???_80241AEC 
+				Set  *Var[3]  $???_80241AF4 
+			Else
+				Set  *Var[2]  $???_80241AFC 
+				Set  *Var[3]  $???_80241AF4 
+			EndIf
+		Case  ==  00000005 
+			Call     UseDoorSounds 	( .DoorSounds:Basic )
+			If  *Flag_PRA_00  ==  00000000 
+				Set  *Var[2]  $???_80241A5C 
+				Set  *Var[3]  $???_80241A6C 
+			Else
+				Set  *Var[2]  $???_80241A4C 
+				Set  *Var[3]  $???_80241A54 
+			EndIf
+	EndSwitch
+	ExecWait 802861B0 
+	Exec     $Script_802422A8 
+	Return
+	End

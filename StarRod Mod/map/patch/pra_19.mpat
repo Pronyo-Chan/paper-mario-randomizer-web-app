@@ -1,0 +1,352 @@
+@ $Script_80241E24
+	Bind     $Script_80241D24 .Trigger:WallPressA {Collider:deilittsw} 00000001 00000000 
+	If  *FoughtKooperGhosts  >=  00000001 
+		Bind     $Script_80241DC8 .Trigger:FloorAbove {Collider:deilise} 00000001 00000000 
+	EndIf
+	Return
+    End
+    
+@ $Script_Main
+	Set  *WorldMapLocation  .Location:CrystalPalace
+	Call     SetSpriteShading 	( FFFFFFFF )
+	Call     SetCamPerspective 	( .Default 00000003 00000019 00000010 00001000 )
+	Call     SetCamBGColor 	( .Default 00000018 00000018 00000028 )
+	Call     SetCamLeadPlayer 	( .Default .False )
+	Call     SetCamEnabled 	( .Default .True )
+	Call     MakeNpcs    	( 00000001 $NpcGroupList_802479AC )
+	Exec     $Script_80241A10 
+	If  *FoughtKooperGhosts  >=  00000001 
+		Call     EnableModel 	( {Model:o1024} .False )
+		Call     ModifyColliderFlags 	( 00000000 {Collider:o1054} 7FFFFE00 )
+	Else
+		Call     EnableModel 	( {Model:o1026} .False )
+	EndIf
+	Set  *Var[0]  0000003B 
+	Set  *Var[1]  0000003C 
+	Set  *Var[2]  00000000 
+	Exec     $Script_80241C08 
+	Set  *Var[0]  00000000 
+	Set  *Var[1]  00000001 
+	Exec     $Script_80241B60 
+	Exec     $Script_80241E84 
+	Wait     00000001 
+	Return
+    End
+    
+@ $Script_80243A44
+	If  *FoughtKooperGhosts  >=  00000001 
+		Goto     0000001E 
+	EndIf
+	If  *Byte_PRA_02  ==  00000000 
+		Goto     00000000 
+	EndIf
+	If  *Byte_PRA_02  ==  00000001 
+		Goto     0000000A 
+	EndIf
+	If  *Byte_PRA_02  ==  00000002 
+		Goto     00000014 
+	EndIf
+	Label    00000000 
+	Call     SetNpcAnimation 	( 00000005 00010002 )
+	Call     SetNpcPos   	( 00000005 00000035 00000000 FFFFFFB5 )
+	Call     SetNpcAnimation 	( 00000006 00020003 )
+	Call     SetNpcPos   	( 00000006 00000017 00000000 FFFFFFB5 )
+	Label    00000001 
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Wait     00000001 
+	If  *Var[0]  <  0000006E 
+		Goto     00000001 
+	EndIf
+	Call     SetNpcSpeed 	( 00000005 *Fixed[3.0] )
+	Call     SetNpcAnimation 	( 00000005 00010004 )
+	Thread
+		Call     SetNpcSpeed 	( 00000006 *Fixed[3.0] )
+		Call     SetNpcAnimation 	( 00000006 00020004 )
+		Call     MoveNpcTo   	( 00000006 00000181 FFFFFFB5 00000000 )
+		Call     SetNpcAnimation 	( 00000006 00020003 )
+	EndThread
+	Call     MoveNpcTo   	( 00000005 0000019F FFFFFFB5 00000000 )
+	Call     SetNpcAnimation 	( 00000005 00010002 )
+	Set  *Byte_PRA_02  00000001 
+	Goto     0000000B 
+	Label    0000000A 
+	Call     SetNpcAnimation 	( 00000005 00010002 )
+	Call     SetNpcPos   	( 00000005 0000019F 00000000 FFFFFFB5 )
+	Call     SetNpcAnimation 	( 00000006 00020003 )
+	Call     SetNpcPos   	( 00000006 00000181 00000000 FFFFFFB5 )
+	Label    0000000B 
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Wait     00000001 
+	If  *Var[0]  <  0000017C 
+		Goto     0000000B 
+	EndIf
+	Exec     $Script_802436C4 
+	Set  *Byte_PRA_02  00000002 
+	Goto     00000015 
+	Label    00000014 
+	Call     SetNpcAnimation 	( 00000005 00010002 )
+	Call     SetNpcPos   	( 00000005 0000019F 00000000 FFFFFFB5 )
+	Call     SetNpcAnimation 	( 00000006 00020003 )
+	Call     SetNpcPos   	( 00000006 00000181 00000000 FFFFFFB5 )
+	Exec     $Script_802436C4 
+	Label    00000015 
+	Call     GetNpcPos   	( .Npc:Partner *Var[0] *Var[1] *Var[2] )
+	Wait     00000001 
+	Call     GetNpcPos   	( .Npc:Partner *Var[3] *Var[4] *Var[5] )
+	If  *Var[0]  <  000001FE 
+		Goto     00000015 
+	EndIf
+	If  *Var[3]  <  *Var[0] 
+		Goto     00000015 
+	EndIf
+	Call     SetNpcFlagBits ( .Npc:Partner 00000102 .True )
+	Call     DisablePlayerInput 	( .True )
+	Call     DisablePartnerAI 	( 00000000 )
+	Call     SetPlayerFlagBits 	( 000000C0 .True )
+	Wait     0000003C 
+	Call     SetPlayerAnimation 	( .PlayerAnim:Question )
+	Call     PlaySoundAtPlayer 	( 00000263 00000000 )
+	Call     ShowEmote   	( 00000000 .Emote:Question 00000000 0000001E 00000000 00000000 00000000 00000000 00000000 )
+	Wait     00000023 
+	Call     SetPlayerAnimation 	( 0001002B )
+	Call     PlaySoundAtCollider 	( {Collider:o1054} 000001E4 00000000 )
+	Call     PlayEffect  	( 00000042 00000000 00000022 00000016 00000001 0000000A 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+	Call     EnableModel 	( {Model:o1024} .False )
+	Call     EnableModel 	( {Model:o1026} .True )
+	Call     ModifyColliderFlags 	( 00000000 {Collider:o1054} 7FFFFE00 )
+	Set  *Var[3]  00000001 
+	Set  *Var[4]  009D0003 
+	Set  *Var[5]  009D0001 
+	Set  *Var[0]  0000015E 
+	Set  *Var[2]  0000005A 
+	Exec     $Script_80243978 
+	Set  *Var[3]  00000002 
+	Set  *Var[4]  0082000A 
+	Set  *Var[5]  00820004 
+	Set  *Var[0]  00000118 
+	Set  *Var[2]  0000005A 
+	Exec     $Script_80243978 
+	Set  *Var[3]  00000003 
+	Set  *Var[4]  00B50003 
+	Set  *Var[5]  00B50001 
+	Set  *Var[0]  000001A4 
+	Set  *Var[2]  0000003C 
+	Exec     $Script_80243978 
+	Set  *Var[3]  00000004 
+	Set  *Var[4]  00B60006 
+	Set  *Var[5]  00B60001 
+	Set  *Var[0]  0000013B 
+	Set  *Var[2]  00000037 
+	Exec     $Script_80243978 
+	Set  *Var[3]  00000000 
+	Set  *Var[4]  00020005 
+	Set  *Var[5]  00020003 
+	Set  *Var[0]  00000181 
+	Set  *Var[2]  00000078 
+	Exec     $Script_80243978 
+	Thread
+		Wait     00000002 
+		Call     $Function_8024175C ( )
+		Call     SetPlayerFlagBits 	( 10101000 .True )
+		Call     MakeLerp    	( 00000000 000007BC 0000001E 00000004 )
+		Loop     
+			Call     UpdateLerp  	( )
+			Call     InterpPlayerYaw 	( *Var[0] 00000000 )
+			Call     $Function_802416F8 ( )
+			Wait     00000001 
+			If  *Var[1]  ==  00000000 
+				BreakLoop
+			EndIf
+		EndLoop
+		Call     SetPlayerFlagBits 	( 10101000 .False )
+	EndThread
+	Wait     0000003C 
+	Call     InterpPlayerYaw 	( 0000010E 00000000 )
+	Call     SetPlayerAnimation 	( 00010002 )
+	Wait     0000000A 
+	Call     GetNpcPos   	( 00000004 *Var[0] *Var[1] *Var[2] )
+	SetF  *Var[A]  *Fixed[3.0] 
+	ExecWait $Script_802424BC 
+	Set  *Var[3]  00000004 
+	Exec     $Script_802429D4 
+	Call     SayMessage0 	( 00000004 00B60008 00B60001 00000000 00120153 ) % Mario, I'm the real Kooper. But of course you know ...
+	Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+	SetF  *Var[A]  *Fixed[3.0] 
+	ExecWait $Script_802424BC 
+	Set  *Var[3]  00000001 
+	Exec     $Script_802429D4 
+	Call     SayMessage0 	( 00000001 009D0008 009D0001 00000000 00120154 ) % Mario! Look at me! I'm the real deal! Nobody else  ...
+	Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+	SetF  *Var[A]  *Fixed[3.0] 
+	ExecWait $Script_802424BC 
+	Set  *Var[3]  00000000 
+	Exec     $Script_802429D4 
+	Call     SayMessage0 	( 00000000 0002000D 00020003 00000000 00120155 ) % Mario, come on! I'm Kooper! I mean, this is ridicu ...
+	Call     GetNpcPos   	( 00000003 *Var[0] *Var[1] *Var[2] )
+	SetF  *Var[A]  *Fixed[3.0] 
+	ExecWait $Script_802424BC 
+	Set  *Var[3]  00000003 
+	Exec     $Script_802429D4 
+	Call     SayMessage0 	( 00000003 00B50004 00B50001 00000000 00120156 ) % I'm the real Kooper, sonny. You believe me, don't  ...
+	Call     GetNpcPos   	( 00000002 *Var[0] *Var[1] *Var[2] )
+	SetF  *Var[A]  *Fixed[3.0] 
+	ExecWait $Script_802424BC 
+	Set  *Var[3]  00000002 
+	Exec     $Script_802429D4 
+	Call     SayMessage0 	( 00000002 00820014 00820004 00000000 00120157 ) % I'm the real Kooper. There isn't any doubt in your ...
+	Call     GetNpcPos   	( 00000004 *Var[0] *Var[1] *Var[2] )
+	SetF  *Var[A]  *Fixed[3.0] 
+	ExecWait $Script_802424BC 
+	Call     SayMessage0 	( 00000004 00B60008 00B60001 00000000 00120158 ) % OK, old bean... You'd best smash these impostors o ...
+	Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+	SetF  *Var[A]  *Fixed[3.0] 
+	ExecWait $Script_802424BC 
+	Call     SayMessage0 	( 00000001 009D0008 009D0001 00000000 00120159 ) % That's a good idea.
+	Call     GetNpcPos   	( 00000002 *Var[0] *Var[1] *Var[2] )
+	SetF  *Var[A]  *Fixed[3.0] 
+	ExecWait $Script_802424BC 
+	Call     SayMessage0 	( 00000002 00820014 00820004 00000000 0012015A ) % Brother, smash them all except me, OK?
+	Call     ResetCam    	( .Default *Fixed[2.0] )
+	Call     PanToTarget 	( .Default 00000000 00000000 )
+	Call     DisablePlayerInput 	( .False )
+	Call     SetPlayerFlagBits 	( 000000C0 .True )
+	Loop     
+		Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+		If  *Var[0]  >  000001EA 
+			Set  *Var[9]  0000010E 
+			ExecWait $Script_80242F9C 
+		EndIf
+		Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+		If  *Var[0]  <  000000BE 
+			Set  *Var[9]  0000005A 
+			ExecWait $Script_80242F9C 
+		EndIf
+		If  *MapVar[2]  ==  00000001 
+			If  *MapVar[3]  ==  00000001 
+				If  *MapVar[4]  ==  00000001 
+					If  *MapVar[5]  ==  00000001 
+						Call     DisablePlayerInput 	( .True )
+						Call     DisablePartnerAI 	( 00000000 )
+						Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+						Call     SetNpcPos   	( .Npc:Partner *Var[0] *Var[1] *Var[2] )
+						Call     SetNpcPos   	( 00000000 00000000 FFFFFC18 00000000 )
+						Call     SetNpcFlagBits ( .Npc:Partner 00000002 .False )
+						Call     GetAngleToNPC 	( .Npc:Partner *Var[A] )
+						Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+						If  *Var[A]  <=  000000B4 
+							Add  *Var[0]  00000032 
+						Else
+							Add  *Var[0]  FFFFFFCE 
+						EndIf
+						Call     SetNpcAnimation 	( .Npc:Partner 00020004 )
+						Call     SetNpcFlagBits ( .Npc:Partner 00000100 .True )
+						Call     MoveNpcTo   	( .Npc:Partner *Var[0] *Var[2] 00000014 )
+						Call     SetNpcAnimation 	( .Npc:Partner 00020003 )
+						Call     SayMessage0 	( .Npc:Partner 0002000D 00020003 00000000 00120166 ) % Yes! Yes! Good call, Mario! I knew you'd get it ri ...
+						Wait     0000000A 
+						Call     SetNpcFlagBits ( .Npc:Partner 00000100 .False )
+						Call     SetPlayerFlagBits 	( 000000C0 .False )
+						Call     EnablePartnerAI 	( )
+						Call     DisablePlayerInput 	( .False )
+						Bind     $Script_80241DC8 .Trigger:FloorAbove {Collider:deilise} 00000001 00000000 
+						Set  *FoughtKooperGhosts  00000001 
+						BreakLoop
+					EndIf
+				EndIf
+			EndIf
+		EndIf
+		Switch  *MapVar[0] 
+			Case  ==  00000000 
+				Wait     00000001 
+			Case  ==  00000001 
+				Call     DisablePlayerInput 	( .True )
+				Call     SetNpcAnimation 	( 00000000 0002000C )
+				Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+				SetF  *Var[A]  *Fixed[6.0] 
+				ExecWait $Script_802424BC 
+				Call     SayMessage0 	( 00000000 0002000C 0002000C 00000000 00120162 ) % Mario! Ow! You did that on purpose, didn't you!? T ...
+				ExecWait $Script_80242588 
+				Call     SetPlayerAnimation 	( 0001002B )
+				ExecWait $Script_80242A70 
+				Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+				Call     SetNpcPos   	( .Npc:Self *Var[0] *Var[1] *Var[2] )
+				Call     $Function_802413A4 ( *MapVar[2] *MapVar[3] *MapVar[4] *MapVar[5] )
+				Call     DisablePlayerInput 	( .False )
+				Call     StartBossBattle 	( .Song:SpecialBattle )
+				BreakLoop
+			Case  ==  00000002 
+				Call     DisablePlayerInput 	( .True )
+				Call     GetNpcPos   	( 00000001 *Var[0] *Var[1] *Var[2] )
+				SetF  *Var[A]  *Fixed[6.0] 
+				ExecWait $Script_802424BC 
+				Set  *Var[3]  00000001 
+				Set  *Var[4]  00000007 
+				Set  *Var[5]  00120161 
+				Set  *Var[6]  009D0008 
+				Set  *Var[7]  009D0001 
+				ExecWait $Script_80242778 
+				Set  *MapVar[0]  00000000 
+				Set  *MapVar[2]  00000001 
+				Call     DisablePlayerInput 	( .False )
+			Case  ==  00000003 
+				Call     DisablePlayerInput 	( .True )
+				Call     GetNpcPos   	( 00000002 *Var[0] *Var[1] *Var[2] )
+				SetF  *Var[A]  *Fixed[6.0] 
+				ExecWait $Script_802424BC 
+				Set  *Var[3]  00000002 
+				Set  *Var[4]  00000008 
+				Set  *Var[5]  00120164 
+				Set  *Var[6]  00820014 
+				Set  *Var[7]  00820004 
+				ExecWait $Script_80242778 
+				Set  *MapVar[0]  00000000 
+				Set  *MapVar[3]  00000001 
+				Call     DisablePlayerInput 	( .False )
+			Case  ==  00000004 
+				Call     DisablePlayerInput 	( .True )
+				Call     GetNpcPos   	( 00000003 *Var[0] *Var[1] *Var[2] )
+				SetF  *Var[A]  *Fixed[6.0] 
+				ExecWait $Script_802424BC 
+				Set  *Var[3]  00000003 
+				Set  *Var[4]  00000009 
+				Set  *Var[5]  00120163 
+				Set  *Var[6]  00B50004 
+				Set  *Var[7]  00B50001 
+				ExecWait $Script_80242778 
+				Set  *MapVar[0]  00000000 
+				Set  *MapVar[4]  00000001 
+				Call     DisablePlayerInput 	( .False )
+			Case  ==  00000005 
+				Call     DisablePlayerInput 	( .True )
+				Call     GetNpcPos   	( 00000004 *Var[0] *Var[1] *Var[2] )
+				SetF  *Var[A]  *Fixed[6.0] 
+				ExecWait $Script_802424BC 
+				Set  *Var[3]  00000004 
+				Set  *Var[4]  0000000A 
+				Set  *Var[5]  00120160 
+				Set  *Var[6]  00B60008 
+				Set  *Var[7]  00B60001 
+				ExecWait $Script_80242778 
+				Wait     00000001 
+				Set  *MapVar[0]  00000000 
+				Set  *MapVar[5]  00000001 
+				Call     DisablePlayerInput 	( .False )
+		EndSwitch
+	EndLoop
+	Label    0000001E 
+	Return
+	End
+
+@ $Script_80244E4C
+	Call     DisablePlayerInput 	( .True )
+	Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+	Call     SetNpcPos   	( .Npc:Partner *Var[0] *Var[1] *Var[2] )
+	Call     SetNpcPos   	( 00000000 00000000 FFFFFC18 00000000 )
+	Call     SetNpcFlagBits ( .Npc:Partner 00000102 .False )
+	Call     SetPlayerFlagBits 	( 000000C0 .False )
+	Call     EnablePartnerAI 	( )
+	Call     DisablePlayerInput 	( .False )
+	Bind     $Script_80241DC8 .Trigger:FloorAbove {Collider:deilise} 00000001 00000000 
+	Set  *FoughtKooperGhosts  00000001 
+	Return
+	End

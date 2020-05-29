@@ -1,0 +1,153 @@
+@ $Function_80241370 % Function for increasing star power
+ADDIU		SP, SP, FFE8
+SW			RA, 10 (SP)
+LABU		T0,	8010F51E % Read current star power level in T0
+ADDIU		T1, T0, 1 % Increment it by one
+JAL			800EA1D8
+ADD		A0, R0, T1 % Use T1 to set star level instead of hardcoded 2 value
+LIA			V0, 8010F290
+LBU			V1, 3 (V0)
+LBU			A0, 6 (V0)
+SB			V1, 2 (V0)
+JAL			800E9B6C
+SB			A0, 5 (V0)
+LW			RA, 10 (SP)
+ADDIU		V0, R0, 2
+JR			RA
+ADDIU		SP, SP, 18
+
+@ $Script_802423A8
+	Call     DisablePartnerAI 	( 00000000 )
+	Call     802CF56C ( 00000002 )
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Set  *Var[3]  *Var[0] 
+	Add  *Var[3]  FFFFFFCE 
+	Set  *Var[4]  *Var[1] 
+	Add  *Var[4]  0000001A 
+	Call     SetNpcPos   	( 00000000 *Var[3] *Var[4] *Var[2] )
+	Call     PlayerFaceNpc 	( 00000000 00000000 )
+	Call     NpcFaceNpc  	( .Npc:Partner 00000000 00000000 )
+	Add  *Var[0]  FFFFFFE7 
+	Call     UseSettingsFrom 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default *Fixed[575.0] )
+	Call     SetCamAngles 	( .Default 00000012 FFFFFFFB )
+	Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Wait     00000001 
+	Call     802D2508 ( )
+	Call     DisablePlayerInput 	( .True )
+	Wait     00000028 
+	Call     SayMessage0 	( 00000000 00180002 00180001 00000200 0012016D ) % My name is Kalmar. Mario, well done. Thank you for ...
+	Call     SetCamDistance ( .Default *Fixed[400.0] )
+	Call     SetCamAngles 	( .Default 00000012 FFFFFFFA )
+	Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Call     MakeLerp    	( 00000000 00000168 0000000A 00000000 )
+	Loop     
+		Call     UpdateLerp  	( )
+		Call     SetNpcRotation ( 00000000 00000000 *Var[0] 00000000 )
+		Wait     00000001 
+		If  *Var[1]  ==  00000000 
+			BreakLoop
+		EndIf
+	EndLoop
+	Call     EnableNpcAI 	( 00000000 .False )
+	Call     SetNpcAnimation 	( 00000000 00180003 )
+	Wait     00000014 
+	Call     SetPlayerAnimation 	( .PlayerAnim:GotItem )
+	Call     PlaySoundAtPlayer 	( 00000139 00000000 )
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Set  *Var[3]  *Var[1] 
+	Add  *Var[1]  00000032 
+	Add  *Var[2]  0000000A 
+	Add  *Var[3]  0000001E 
+	Loop     00000005 
+		Call     PlayEffect  	( 00000011 00000003 *Var[0] *Var[1] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Wait     00000006 
+		Call     PlayEffect  	( {FX:Sparkles:Random} *Var[0] *Var[3] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000 0000000
+		Wait     00000006 
+	EndLoop
+	Wait     00000014 
+	Call     PlaySoundAtPlayer 	( 00000188 00000000 )
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Add  *Var[1]  00000014 
+	Call     PlayEffect  	( {FX:EnergyWaveOut:Grey} *Var[0] *Var[1] *Var[2] 00000001 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+	Wait     0000001E 
+	Call     SetPlayerAnimation 	( 00010002 )
+	Call     SetNpcAnimation 	( 00000000 00180001 )
+	Call     EnableNpcAI 	( 00000000 .True )
+	Call     $Function_80241370 ( )
+	Call     ShowMessage 	( 001D0197 000000A0 00000028 ) % Mario's Star Energy goes up to 7! Mario can now us ...
+	Wait     0000000A 
+	Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+	Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default *Fixed[350.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Wait     0000000A 
+	Call     SayMessage0 	( 00000000 00180002 00180001 00000200 0012016E ) % Mario, you must make your way back to Shooting Sta ...
+	Wait     0000000A 
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Add  *Var[0]  FFFFFFE7 
+	Call     SetPanTarget 	( .Default *Var[0] *Var[1] *Var[2] )
+	Call     SetCamDistance ( .Default *Fixed[400.0] )
+	Call     SetCamSpeed 	( .Default *Fixed[4.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Wait     0000000A 
+	Call     SayMessage0 	( 00000000 00180002 00180001 00000200 0012016F ) % My only wish is for you to save this precious worl ...
+	Call     SetNpcFlagBits ( 00000000 00040000 .True )
+	Thread
+		Loop     00000019 
+			Call     GetNpcPos   	( 00000000 *Var[0] *Var[1] *Var[2] )
+			Call     PlayEffect  	( 00000011 00000004 *Var[0] *Var[1] *Var[2] 00000014 00000000 00000000 00000000 00000000 00000000 00000000 00000000 000000
+			Wait     00000004 
+		EndLoop
+	EndThread
+	Thread
+		Set  *Var[2]  00000000 
+		Set  *Var[3]  00000708 
+		Call     MakeLerp    	( *Var[2] *Var[3] 00000064 00000002 )
+		Loop     
+			Call     UpdateLerp  	( )
+			Call     SetNpcRotation ( 00000000 00000000 *Var[0] 00000000 )
+			Wait     00000001 
+			If  *Var[1]  ==  00000000 
+				BreakLoop
+			EndIf
+		EndLoop
+	EndThread
+	Thread
+		Call     GetNpcPos   	( 00000000 *Var[2] *Var[3] *Var[4] )
+		Set  *Var[5]  *Var[3] 
+		Add  *Var[5]  000000B4 
+		Call     MakeLerp    	( *Var[3] *Var[5] 00000064 00000002 )
+		Loop     
+			Call     UpdateLerp  	( )
+			Call     SetNpcPos   	( 00000000 *Var[2] *Var[0] *Var[4] )
+			Wait     00000001 
+			If  *Var[1]  ==  00000000 
+				BreakLoop
+			EndIf
+		EndLoop
+		Call     SetNpcPos   	( 00000000 00000000 FFFFFC18 00000000 )
+	EndThread
+	Thread
+		Wait     0000000F 
+		Call     PlaySoundAtNpc ( 00000000 00002045 00000000 )
+	EndThread
+	Wait     0000000A 
+	Call     SetPlayerAnimation 	( 0001002A )
+	Wait     0000005A 
+	Call     ResetCam    	( .Default 00000003 )
+	Wait     00000014 
+	Call     SetPlayerAnimation 	( 00010002 )
+    Set  *StoryProgress  00000059
+    Set  *Chapter7Progress  00000059  
+	Exec     $Script_80241440 
+	Call     EnablePartnerAI 	( )
+	Call     DisablePlayerInput 	( .False )
+	Return
+	End
