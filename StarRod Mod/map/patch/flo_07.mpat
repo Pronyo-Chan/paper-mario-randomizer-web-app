@@ -1,0 +1,92 @@
+@ $Script_80242044
+	ExecWait $Script_8024086C 
+    Call     NpcFacePlayer 	( .Npc:Self 00000001 )
+    If  *ObtainedFertileSoil  <  00000001
+        Call     UseSettings 	( .Default *Fixed[4.0] 00000000 *Fixed[350.0] *Fixed[18.0] *Fixed[-7.5] )
+        Call     SayMessage0 	( .Npc:Self 00C80002 00C80001 00000000 00110065 ) % Look at this Crystal Tree. Have you ever seen anyt ...
+        Call     SetNpcAnimation 	( .Npc:Self 00C80005 )
+        Wait     00000014 
+        Call     SetNpcAnimation 	( .Npc:Self 00C80000 )
+        Set  *Var[0]  00000059 
+        Set  *Var[1]  00000001 
+        ExecWait $Script_80241BB4 
+        Call     AddKeyItem  	( .Item:FertileSoil )
+        Set  *ObtainedFertileSoil  00000001 
+        Call     SayMessage0 	( .Npc:Self 00C80002 00C80001 00000000 00110066 ) % Your nose'll be perfect soon! ...Hee hee hee...
+        ExecWait $Script_80241DBC 
+        Call     ResetCam    	( .Default *Fixed[4.0] )
+    Else
+        If  *ObtainedCrystalBerry  <  00000001
+            If  *AreaFlag[006]  ==  00000000 
+                Call     UseSettings 	( .Default *Fixed[4.0] 00000000 *Fixed[350.0] *Fixed[18.0] *Fixed[-7.5] )
+                ExecWait $Script_80241DBC 
+                Call     ResetCam    	( .Default *Fixed[4.0] )
+            Else
+                Call     SayMessage0 	( .Npc:Self 00C80002 00C80001 00000000 00110072 ) % You and I are... plant pals! ...Hee hee hee!
+            EndIf
+        Else
+            If  *ObtainedWaterStone  <  00000001
+                Call     SayMessage0 	( .Npc:Self 00C80002 00C80001 00000000 00110073 ) % Rosie wanted that Crystal Berry, didn't she? Shoul ...
+            Else
+                Call     SayMessage0 	( .Npc:Self 00C80002 00C80001 00000000 00110074 ) % Rosie liked the Crystal Berry? 
+            EndIf
+            Call     SayMessage2 	( .Npc:Self 00C80002 00C80001 00000000 00110075 ) % That Rosie's so selfish. All she cares about is be ...
+        EndIf
+    EndIf
+	ExecWait $Script_80240890 
+	Return
+    End
+
+  @ $Script_80241DBC
+	If  *AreaFlag[006]  ==  00000001 
+		Return
+	EndIf
+	Call     SayMessage0 	( 00000000 00C80002 00C80001 00000000 00110068 ) % Oh? Rosie told you to bring her something beautifu ...
+	Thread
+		Call     SetCamDistance ( .Default 0000012C )
+		Call     SetCamAngles 	( .Default *Fixed[18.0] *Fixed[-7.5] )
+		Call     SetCamSpeed 	( .Default *Fixed[0.5] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+	EndThread
+	Call     PlaySound   	( 8000006B )
+	Exec     $Script_80241D6C *MapVar[0] 
+	Call     SayMessage0 	( 00000000 00C80006 00C80006 00000000 00110069 ) % Hmmm... Rrrrrrghh...... Hyahhhhhhh!!!
+	Kill     *MapVar[0] 
+	Call     SetCamDistance ( .Default 0000015E )
+	Call     SetCamAngles 	( .Default *Fixed[18.0] *Fixed[-7.5] )
+	Call     SetCamSpeed 	( .Default *Fixed[8.0] )
+	Call     PanToTarget 	( .Default 00000000 00000001 )
+	Call     WaitForCam  	( .Default *Fixed[1.0] )
+	Wait     0000000A 
+	Call     GetPlayerPos 	( *Var[0] *Var[1] *Var[2] )
+	Sub  *Var[0]  *Var[2] 
+	If  *Var[0]  <  FFFFFF06 
+		Call     MakeItemEntity ( .Item:CrystalBerry {Vec3d:Item80241F60} 0000000D *Flag_FLO_0C )
+	Else
+		Call     MakeItemEntity ( .Item:CrystalBerry {Vec3d:Item80241F8C} 0000000D *Flag_FLO_0C )
+		Set  *Flag_FLO_22  00000001 
+	EndIf
+	Call     PlaySound   	( 000007BC )
+	Call     802D62E4 ( 000003BC )
+	Set  *AreaFlag[006]  00000001 
+	Wait     00000014 
+	Call     SayMessage0 	( 00000000 00C80002 00C80001 00000000 0011006A ) % Phew... ...Oops. That was a bit unladylike. Hee he ...
+	Set  *ObtainedCrystalBerry  00000001 
+	Return
+	End
+
+    
+ @ $Script_Init_80242428
+     If  *ObtainedCrystalBerry  ==  00000001
+    	If  *Flag_FLO_0C  ==  00000000 
+    		If  *Flag_FLO_22  ==  00000000 
+    			Call     MakeItemEntity ( .Item:CrystalBerry {Vec3d:Item80242458} 00000011 *Flag_FLO_0C )
+    		Else
+    			Call     MakeItemEntity ( .Item:CrystalBerry {Vec3d:Item80242484} 00000011 *Flag_FLO_0C )
+    		EndIf
+        EndIf
+    EndIf
+	Set  *AreaFlag[005]  00000000 
+	Call     BindNpcInteract 	( .Npc:Self $Script_80242044 )
+	Return
+	End
