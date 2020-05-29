@@ -385,7 +385,7 @@ Return
 End
 
 @ $Script_Init_802428DC
-If  *ObtainedWatt  >  00000001
+If  *ObtainedWatt  >=  00000001
 	Call     RemoveNpc   	( .Npc:Self )
 EndIf
 Return

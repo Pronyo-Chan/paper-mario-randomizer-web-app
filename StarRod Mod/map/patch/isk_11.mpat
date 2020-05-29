@@ -201,7 +201,7 @@ Return
 End
 
 @ $Script_80241BC4 % Disable Chomp statue 1 if boss room is opened
-If  *IsBossRoomOpen  >  00000001  
+If  *IsBossRoomOpen  >=  00000001  
 	Unbind
 	Return
 EndIf
@@ -251,7 +251,7 @@ Return
 End
 
 @ $Script_80241E8C % Disable Chomp statue 2 if boss room is opened
-If  *IsBossRoomOpen  >  00000001  
+If  *IsBossRoomOpen  >=  00000001  
 	Unbind
 	Return
 EndIf
@@ -301,7 +301,7 @@ Return
 End
 
 @ $Script_80242154 % Disable Chomp statue 3 if boss room is opened
-If  *IsBossRoomOpen  >  00000001  
+If  *IsBossRoomOpen  >=  00000001  
 	Unbind
 	Return
 EndIf
@@ -351,7 +351,7 @@ Return
 End
 
 @ $Script_8024241C % Disable Chomp statue 4 if boss room is opened
-If  *IsBossRoomOpen  >  00000001  
+If  *IsBossRoomOpen  >=  00000001  
 	Unbind
 	Return
 EndIf
@@ -401,7 +401,7 @@ Return
 End
 
 @ $Script_802426E4 % Disable Chomp statue 5 if boss room is opened
-If  *IsBossRoomOpen  >  00000001  
+If  *IsBossRoomOpen  >= 00000001  
 	Unbind
 	Return
 EndIf
