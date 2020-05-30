@@ -1,0 +1,108 @@
+
+#new:Header $Header
+[MainScript]  $Script_Main 
+[Background]  80200000 
+[MapTattle]   $Function_GetTattle 
+
+#new:Function $Function_GetTattle
+	ADDIU     SP, SP, FFE8
+	LIO       V0, $MapTattle
+	JR        RA
+	ADDIU     SP, SP, 18
+
+% UPDATE THIS
+#string $MapTattle
+[STYLE:TATTLE]{Func_2B}[...]
+Uh-oh, looks like whoever made
+this map forgot to add a tattle!
+[WAIT][END]
+
+% By default, this map uses $NAME_shape for its geometry, $NAME_hit for
+% its collision and $NAME_tex for its textures. We can substitute others in
+% the init function. In this case, we're using the textures from Dry Dry
+% Desert instead of the default.
+#new:Function_Init $Function_Init
+	PUSH	RA
+	/%
+	% Override map geometry
+	LIA       A0, 800D9230
+	LIA       A1, "$NAME_shape"
+	JAL       {Func:AsciiPrintf}
+	RESERVED
+	% Override map collision
+	LIA       A0, 800D91E0
+	LIA       A1, "$NAME_hit"
+	JAL       {Func:AsciiPrintf}
+	RESERVED
+	%/
+	% Override texture package
+	LIA		A0, 800B0CF0
+	LIA		A1, "kmr_tex"
+	JAL		{Func:AsciiPrintf}
+	RESERVED
+	% Done
+	DADDU	V0, R0, R0
+	JPOP	RA
+
+#new:Script_Main $Script_Main
+	Set		*WorldMapLocation	.Location:GoombaRoad			% sets the location on the pause screen map
+	Call	SetSpriteShading 	( FFFFFFFF )
+	Call	SetCamPerspective	( .Default  3  25` 16` 4096` )	% default type, half vertical FOV, near clip, and far clip
+	Call	SetCamBGColor   	( .Default  0  0  0 ) 			% color values are RGB bytes; (0,0,0) is black, (255`,255`,255`) is white, etc.
+	Call	SetCamFlag2 	 	( .Default  .True )				% enabled?
+	Call	SetCamFlag4 	 	( .Default  .False )			% lead player motion?
+	Call	SetMusicTrack    	( 00000000 .Song:PleasantPath 00000000 00000008 )
+%	Call	MakeNpcs			( 00000000 $NpcGroupList )
+	ExecWait $Script_MakeEntities 
+	Set		*Var[0] $Script_MakeExits 
+	Exec	EnterWalk 
+	Return
+	End
+
+#new:Script $Script_MakeEntities
+	Return
+	End
+	
+#new:Script $Script_MakeExits
+	Bind	$Script_ExitN 00080000 {Collider:exit_trigger_n} 00000001 00000000
+	Bind	$Script_ExitE 00080000 {Collider:exit_trigger_e} 00000001 00000000
+	Bind	$Script_ExitS 00080000 {Collider:exit_trigger_s} 00000001 00000000 		
+	Bind	$Script_ExitW 00080000 {Collider:exit_trigger_w} 00000001 00000000 
+	Return
+	End
+
+#new:Script $Script_ExitW
+	SetGroup 0000001B 
+	Call	UseExitHeading	( 60` {EntryID:EntryW} )
+	Exec	ExitWalk 
+	Call	GotoMap			( "mac_01" 00000000 )
+	Wait	100` 
+	Return
+	End
+
+#new:Script $Script_ExitE
+	SetGroup 0000001B 
+	Call	UseExitHeading	( 60` {EntryID:EntryE} )
+	Exec	ExitWalk 
+	Call	GotoMap			( "nok_01" 00000000 )
+	Wait	100` 
+	Return
+	End
+
+#new:Script $Script_ExitN
+	SetGroup 0000001B 
+	Call	UseExitHeading	( 60` {EntryID:EntryN} )
+	Exec	ExitWalk 
+	Call	GotoMap			( "kmr_01" 00000000 )
+	Wait	100` 
+	Return
+	End
+
+#new:Script $Script_ExitS
+	SetGroup 0000001B 
+	Call	UseExitHeading	( 60` {EntryID:EntryS} )
+	Exec	ExitWalk
+	Call	GotoMap			( "dro_01" 00000000 )
+	Wait	100` 
+	Return
+	End

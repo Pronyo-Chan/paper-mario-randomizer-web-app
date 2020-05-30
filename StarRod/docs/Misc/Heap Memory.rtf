@@ -1,0 +1,210 @@
+{\rtf1\ansi\deff0\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\fmodern\fprq1\fcharset128 Consolas;}{\f4\froman\fprq0\fcharset128 ;}{\f5\fnil\fprq2\fcharset0 Microsoft YaHei;}{\f6\fnil\fprq2\fcharset0 Mangal;}{\f7\fnil\fprq0\fcharset128 Mangal;}}
+{\colortbl;\red0\green0\blue0;\red128\green128\blue128;}
+{\stylesheet{\s0\snext0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033 Default;}
+{\s15\sbasedon0\snext16{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\sb240\sa120\keepn\cf0\kerning1\hich\af5\langfe2052\dbch\af6\loch\f2\fs28\lang1033 Heading;}
+{\s16\sbasedon0\snext16{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\sb0\sa120\cf0\kerning1\hich\af0\langfe2052\dbch\af0\loch\f0\fs24\lang1033 Text body;}
+{\s17\sbasedon16\snext17{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\sb0\sa120\cf0\kerning1\hich\af0\langfe2052\dbch\af7\loch\f0\fs24\lang1033 List;}
+{\s18\sbasedon0\snext18{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\sb120\sa120\cf0\i\kerning1\hich\af0\langfe2052\dbch\af7\ai\loch\f0\fs24\lang1033 Caption;}
+{\s19\sbasedon0\snext19{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af0\langfe2052\dbch\af7\loch\f0\fs24\lang1033 Index;}
+{\s20\sbasedon0\snext20{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af4\langfe2052\dbch\af6\loch\f3\fs20\lang1033 Table Contents;}
+}{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\revtim\yr0\mo0\dy0\hr0\min0}{\printim\yr0\mo0\dy0\hr0\min0}{\comment OpenOffice.org}{\vern3410}}\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709\deftab709
+
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse195\pgwsxn12240\pghsxn15840\marglsxn1134\margrsxn1134\margtsxn1134\margbsxn1134\pgdscnxt0 Default;}}
+\formshade{\*\pgdscno0}\paperh15840\paperw12240\margl1134\margr1134\margt1134\margb1134\sectd\sbknone\sectunlocked1\pgndec\pgwsxn12240\pghsxn15840\marglsxn1134\margrsxn1134\margtsxn1134\margbsxn1134\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+\pgndec\pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\afs22\ab\rtlch \ltrch\loch\fs22
+Heap Memory Management}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Heap memory is managed using linked lists. There are several different ones for different types of data. Memory is allocated in 0x10 byte increments, with each block of memory assigned to a node in the linked list.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Each entry in a linked list contains a 10 byte header:}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+00\tab (ptr) next\tab \tab (0 if tail node)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+04\tab (int) length\tab \tab (remaining length for tail node)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+08\tab (short) allocated\tab (0 = no, indicates free space)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+0A\tab (short) entry ID\tab (from counter at 80074270, unique to each entry)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+0C\tab (int) capacity\tab (head node only)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\afs22\ab\rtlch \ltrch\loch\fs22
+Different Heaps}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+80268000 \u8211\'3f 80280000\tab \tab }{\b\ab\rtlch \ltrch\loch
+map collision heap}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Cleared when loading maps. As maps are loaded, this is populated by data structures for colliders.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+802FB800 \u8211\'3f 8034F800\tab \tab }{\b\ab\rtlch \ltrch\loch
+general}{\rtlch \ltrch\loch
+ }{\b\ab\rtlch \ltrch\loch
+map model heap}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Cleared when loading maps. Contains model data structures from the list at 80151770, model transformation matricies, NPCs, and so on.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+8034F800 \u8211\'3f 8038F800\tab \tab }{\b\ab\rtlch \ltrch\loch
+sprite heap}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Cleared when loading maps and battles. Contains the sprites and animation data for NPCs and Actors.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+803DA800 \u8211\'3f 80400000\tab \tab }{\b\ab\rtlch \ltrch\loch
+general battle heap}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Cleared when loading battles.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\afs22\ab\rtlch \ltrch\loch\fs22
+What Goes in Each Heap}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch
+\'81\'67}{\rtlch \ltrch\loch
+map collision\'81\'68}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+colliders\tab }
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch
+\'81\'67}{\rtlch \ltrch\loch
+general map\'81\'68}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+models\tab \tab (from list at }{\afs20\rtlch \ltrch\loch
+80151770)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+triggers\tab (from list at }{\afs20\rtlch \ltrch\loch
+80159190)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+NPCs\tab \tab (from list at }{\afs20\rtlch \ltrch\loch
+800A0990)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\afs20\rtlch \ltrch\loch
+shadows\tab (from list at 80151478)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\afs20\rtlch \ltrch\loch
+scripts\tab (from list at *802DA890)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\afs20\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\afs20\rtlch \ltrch
+\'81\'67}{\afs20\rtlch \ltrch\loch
+general battle\'81\'68}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\afs20\rtlch \ltrch\loch
+scripts}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\afs20\rtlch \ltrch\loch
+colliders for battle stages}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\afs22\ab\rtlch \ltrch\loch\fs22
+Core Functions}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_80029030\tab createHeapLL \tab ( *heapBase, size )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Creates a new linked list at a given address.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_8002906C\tab mallocLL \tab \tab ( *headNode, size )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Allocates size bytes from a linked list.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_80029164\tab mallocTailLL\tab \tab ( *headNode, size )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Allocates size bytes at the tail of a linked list.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_8002921C\tab freeLL}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Marks a memory block as free, merging it with any neighboring free blocks.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_800292C4\tab reallocLL \tab \tab ( *headNode, *node, newsize )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Changes the size of a previously allocated block of memory.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\afs22\ab\rtlch \ltrch\loch\fs22
+Utility Functions}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+A series of utility functions are located from 8002AC00 to 8002AE40.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_8002AC00\tab createMapLL\tab \tab ( )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_8002AC28\tab mallocMap\tab \tab ( nbytes )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_8002AC50\tab mallocMapTail\tab ( nbytes )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_8002AC78\tab freeMap\tab \tab ( *node )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Utility functions to operate on the linked list at 802FB800.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_8002ACA0\tab createBattleLL\tab ( )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_8002ACE4\tab malloc\tab \tab \tab ( nbytes )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_8002AD2C\tab free\tab \tab \tab ( *node )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Operate on either general battle or map heaps, depending on isBattle flag.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_8002AD74\tab createColliderLL\tab ( )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_8002ADB0\tab mallocCollider\tab ( nbytes )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_8002ADF4\tab freeCollider\tab \tab ( *node )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+Utility functions to operate on the map collision or battle linked lists, depending on the state of the isBattle flag at 80074094.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\ab\rtlch \ltrch\loch
+func_802DD8F8\tab createSpriteLL\tab ( )}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\afs20\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\b\afs22\ab\rtlch \ltrch\loch\fs22
+Changes from Star Rod}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+All four heaps have been moved to expansion memory and extended.}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+80500000 \u8211\'3f 805C0000 map collision\tab (18000 \'81\'a8 C0000)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+805C0000 \u8211\'3f 80680000 general map\tab \tab (54000 \'81\'a8 C0000)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+80680000 \u8211\'3f 80740000 sprite \tab \tab (40000 \'81\'a8 C0000)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+80740000 \u8211\'3f 80800000 general battle \tab (25800 \'81\'a8 C0000)}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\rtlch \ltrch\loch
+}
+\par \pard\plain \s0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\kerning1\hich\af4\langfe2052\dbch\af6\afs24\lang1081\loch\f3\fs20\lang1033{\afs20\rtlch \ltrch\loch
+}
+\par }

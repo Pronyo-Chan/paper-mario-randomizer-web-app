@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Sprite visualization guides for the 3D cursor -->
+<!-- Note the anim is hex-->
+<Guides>
+	<Guide player="01" anim="02" height="50" width="10"/>
+	<Guide player="01" anim="06" height="40" width="13">
+		<Cylinder radius="65"/>
+	</Guide>
+	<Guide npc="02" anim="0A" height="25" width="13">
+		<Cylinder radius="160"/>
+	</Guide>
+	<Guide npc="03" anim="06" height="35" width="12">
+		<Cylinder radius="45"/>
+	</Guide>
+	<Guide npc="04" anim="09" height="40" width="15">
+		<Cylinder radius="100"/>
+	</Guide>
+</Guides>

@@ -1,0 +1,25 @@
+
+% resizes all sprites by a uniform scaling factor
+% author: clover
+
+@Hook FFA48 % [802DC958]
+	PUSH		A0, A1, A2, A3
+	LIO			A1, 3F000000		% this is the rescaling factor, 3F000000 == 0.5f	
+	DADDU		A2, A1, R0
+	DADDU		A3, A1, R0
+	JAL			{Func:guScaleF}
+	DADDU		A0, S1, R0
+	DADDU		A0, S1, R0
+	DADDU		A1, S0, R0
+	JAL			{Func:guMtxCatF}
+	ADDIU		A2, SP, 40
+	POP			A0, A1, A2, A3
+	JAL			{Func:guTranslateF}
+	DADDU		A0, S1, R0		
+	DADDU		A0, S1, R0
+	ADDIU		A1, SP, 20
+	DADDU		A2, A1, R0
+	JAL			{Func:guMtxCatF}
+	MTC1		R0, F20
+	J			802DC974
+	NOP
