@@ -12,7 +12,9 @@ export class PatcherRepository {
   public constructor(private _httpClient: HttpClient) {    
   }
 
-  public patch(): Observable<Blob> {
-    return this._httpClient.get(this._rootURL + '/patch', {responseType: 'blob'}).pipe(timeout(30000));
+  public patch(fileToUpload: File): Observable<Blob> {
+    const formData: FormData = new FormData();
+    formData.append('inputRom', fileToUpload, fileToUpload.name);
+    return this._httpClient.post(this._rootURL + '/patch', formData, {responseType: 'blob'}).pipe(timeout(300000));
   }
 }

@@ -4,12 +4,25 @@ const app = express(),
       port = 3080;
 const fs = require('fs');
 
-const users = [{"name": "userA"}];
+const multer  = require('multer')
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, '..\\'),
+  filename: (req, file, cb) => cb(null, 'Paper Mario (USA).z64')
+})
+const upload = multer({storage: storage})
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
-app.get('/api/patch', (req, res) => {
+app.post('/api/patch', upload.single('inputRom', 1), (request, result) => {
+  if(!isRomSizeValid(request.file)) {
+    result.writeHead(400, "invalidRom");
+    result.end('Invalid Rom');
+    return;
+  }
   const patchedRomPath = '..\\StarRod\ Mod\\out\\Paper Mario (USA).z64';
+  console.log(request.file);
   
   const exec = require('child_process').exec;
   const childProcess = exec('java -jar ..\\StarRod\\StarRod.jar -CompileMod', {cwd: '..\\StarRod'}, function(err, stdout, stderr) {
@@ -20,33 +33,23 @@ app.get('/api/patch', (req, res) => {
   childProcess.on('exit', function() {
     fs.exists(patchedRomPath, function(exists){
       if (exists) {     
-        // Content-type is very interesting part that guarantee that
-        // Web browser will handle response in an appropriate manner.
-        res.writeHead(200, {
+        result.writeHead(200, {
           "Content-Type": "application/octet-stream",
           "Content-Disposition": "attachment; filename=Paper\Mario.z64" 
         });
         const outFile = fs.createReadStream(patchedRomPath);
         outFile.on('end', () => fs.unlink(patchedRomPath, () => console.log('deleted file')))
-        outFile.pipe(res);
+        outFile.pipe(result);
       } else {
-        res.writeHead(400, {"Content-Type": "text/plain"});
-        res.end("ERROR File does not exist");
+        result.writeHead(400, {"Content-Type": "text/plain"});
+        result.end("ERROR File does not exist");
       }
     });
-})
+  })
   
 });
 
-app.post('/api/user', (req, res) => {
-  const user = req.body.user;
-  users.push(user);
-  res.json("user addedd");
-});
-
-app.get('/', (req,res) => {
-    res.send('App Works !!!!');
-});
+isRomSizeValid = (file) => file.size === 41943040;
 
 app.listen(port, () => {
     console.log(`Server listening on the port::${port}`);

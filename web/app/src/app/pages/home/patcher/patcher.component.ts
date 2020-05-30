@@ -11,6 +11,7 @@ import {tap, take} from 'rxjs/operators'
 export class PatcherComponent implements OnInit {
 
   public patchingStatus: string;
+  public fileToUpload: File = null;
   public constructor(private _patcherRepo: PatcherRepository) { }
 
   public ngOnInit(): void {
@@ -20,7 +21,7 @@ export class PatcherComponent implements OnInit {
 
   public patch() {
     this.patchingStatus = 'patching in progress'
-    this._patcherRepo.patch()
+    this._patcherRepo.patch(this.fileToUpload)
     .pipe(
       take(1),
       tap(file => {
@@ -35,5 +36,9 @@ export class PatcherComponent implements OnInit {
       })
     ).subscribe();
   }
+
+  public handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+}
 
 }
