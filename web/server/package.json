@@ -1,0 +1,41 @@
+{
+  "name": "randomizer-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
+    "start:watch": "nodemon",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.6",
+    "@types/fs-extra": "^9.0.1",
+    "express": "^4.17.1",
+    "fs-extra": "^9.0.0",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.6",
+    "eslint": "^7.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.3"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "./"
+    ],
+    "exec": "npm start",
+    "ext": "ts"
+  }
+}
