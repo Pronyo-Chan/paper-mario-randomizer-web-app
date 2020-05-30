@@ -3,6 +3,7 @@ const app = express(),
       bodyParser = require("body-parser");
       port = 3080;
 const fs = require('fs');
+const exec = require('child_process').exec;
 
 const multer  = require('multer')
 const storage = multer.diskStorage({
@@ -10,6 +11,8 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => cb(null, 'Paper Mario (USA).z64')
 })
 const upload = multer({storage: storage})
+
+const patchedRomPath = '..\\StarRod\ Mod\\out\\Paper Mario (USA).z64';
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -20,11 +23,8 @@ app.post('/api/patch', upload.single('inputRom', 1), (request, result) => {
     result.writeHead(400, "invalidRom");
     result.end('Invalid Rom');
     return;
-  }
-  const patchedRomPath = '..\\StarRod\ Mod\\out\\Paper Mario (USA).z64';
-  console.log(request.file);
-  
-  const exec = require('child_process').exec;
+  } 
+
   const childProcess = exec('java -jar ..\\StarRod\\StarRod.jar -CompileMod', {cwd: '..\\StarRod'}, function(err, stdout, stderr) {
     if (err) {
         console.log(err)
@@ -54,3 +54,19 @@ isRomSizeValid = (file) => file.size === 41943040;
 app.listen(port, () => {
     console.log(`Server listening on the port::${port}`);
 });
+
+
+function replaceGombarioWithParakarry() {
+  fs.readFile('..\\StarRod\ Mod\\map\\patch\\kmr_02.mpat', 'utf8', (err, data) => {
+    if (err) {
+      return console.log(err);
+    }
+    var result = data.replace('$Function_80241E90 ( 00000002 00000001 )', '$Function_80241E90 ( 00000004 00000004 )');
+    
+    fs.writeFile('..\\StarRod\ Mod\\map\\patch\\kmr_02.mpat', result, 'utf8', function (err) {
+       if (err) {
+        return console.log(err);
+       }
+    });
+  });
+}
