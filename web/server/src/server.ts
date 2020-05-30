@@ -6,16 +6,13 @@ import fs from 'fs-extra';
 const exec = require('child_process').exec;
 
 import multer from 'multer';
+import { Paths } from './enums/paths';
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, '..\\..\\'),
   filename: (req, file, cb) => cb(null, 'PM64.z64')
 })
 const upload = multer({storage: storage})
 
-const patchedRomPath = '..\\..\\WorkingDir\\out\\PM64.z64';
-const cleanModPath = '..\\..\\StarRod\ Mod\\'
-const workingModPath = '..\\..\\WorkingDir\\'
-const cleanRomPath = '..\\..\\PM64.z64'
 var starRodJarPath = `${__dirname}\\..\\..\\..\\StarRod`; // For some reason only childProcess is picky and needs dirName
 
 app.use(bodyParser.urlencoded({
@@ -29,7 +26,7 @@ app.post('/api/patch', upload.single('inputRom', 1), (request: any, result) => {
     return;
   } 
 
-  fs.copy(cleanModPath, workingModPath)
+  fs.copy(Paths.CLEAN_MOD_PATH, Paths.WORKING_MOD_PATH)
   .then(() => {
     const childProcess = exec(`java -jar ${starRodJarPath}\\StarRod.jar -CompileMod`, {cwd: starRodJarPath}, function(err, stdout, stderr) {
       console.log(stdout);
@@ -38,16 +35,16 @@ app.post('/api/patch', upload.single('inputRom', 1), (request: any, result) => {
       }
     })
     childProcess.on('exit', () => {
-      fs.pathExists(patchedRomPath)
+      fs.pathExists(Paths.PATCHED_ROM_PATH)
       .then((exists) => {
         if (exists) {     
           result.writeHead(200, {
             "Content-Type": "application/octet-stream",
             "Content-Disposition": "attachment; filename=Paper\Mario.z64" 
           });
-          const outFile = fs.createReadStream(patchedRomPath);
-          outFile.on('end', () => fs.remove(workingModPath)
-          .then(() => fs.remove(cleanRomPath))
+          const outFile = fs.createReadStream(Paths.PATCHED_ROM_PATH);
+          outFile.on('end', () => fs.remove(Paths.WORKING_MOD_PATH)
+          .then(() => fs.remove(Paths.CLEAN_ROM_PATH))
           .then(() => console.log('deleted workingDir and rom')))
           outFile.pipe(result);
         } else {
