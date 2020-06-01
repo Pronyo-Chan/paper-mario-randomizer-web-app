@@ -1,3 +1,5 @@
+import { Player } from './entities/player';
+import { Randomizer } from './randomizer';
 import express from 'express';
 const app = express();
 import bodyParser from "body-parser";
@@ -20,6 +22,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.post('/api/patch', upload.single('inputRom', 1), (request: any, result) => {
+  var test= new Randomizer();
+  var player = new Player();
+  test.randomizePartners(player);
   if(!isRomSizeValid(request.file)) {
     result.writeHead(400, "invalidRom");
     result.end('Invalid Rom');
