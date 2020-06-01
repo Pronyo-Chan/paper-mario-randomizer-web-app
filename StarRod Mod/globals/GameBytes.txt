@@ -19,7 +19,7 @@
 012 = ObtainedGombario
 013 = ObtainedKooper
 014 = ObtainedBombette
-015 = ObtainedParakerry
+015 = ObtainedParakarry
 016 = ObtainedBow
 017 = ObtainedWatt
 018 = ObtainedSushie

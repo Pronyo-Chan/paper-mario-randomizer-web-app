@@ -1,3 +1,16 @@
+@ $Script_Init_80247688
+	Call     BindNpcInteract 	( .Npc:Self $Script_80246E90 )
+	If  *StoryProgress <  FFFFFFB9 
+		Call     SetNpcPos   	( 00000004 00000000 FFFFFC18 00000000 )
+	EndIf
+		If  *ObtainedParakarry  <  00000001 
+			Call     BindNpcIdle 	( .Npc:Self $Script_802474F8 )
+		Else
+			Call     RemoveNpc   	( .Npc:Self )
+		EndIf
+	Return
+	End
+
 @ $Script_80246408 % First talk to Parakarry
 Label    00000000 
 Wait     00000001 
@@ -131,6 +144,7 @@ Wait     0000000A
 Call     SetNpcAnimation 	( 00000004 00040001 )
 Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D000F ) % Oh! Sorry, folks! Very sorry! I was looking for so ...
 Wait     0000000A 
+Wait     0000000A 
 Call     GetNpcPos   	( 00000004 *Var[0] *Var[1] *Var[2] )
 Call     NpcJump0    	( 00000004 *Var[0] *Var[1] *Var[2] 0000000A )
 Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D0010 ) % What now? Aren't you Mario? Why, you are! You're T ...
@@ -140,6 +154,7 @@ Call     SetPlayerAnimation 	( 00010002 )
 Call     SayMessage0 	( 00000004 00040006 00040001 00000000 000D0011 ) % The name's Parakarry. I deliver letters. Um... I'm ...
 Set  *StoryProgress  FFFFFFB9 
 Set  *Chapter2Progress  FFFFFFB9 
+Set  *ObtainedParakarry  00000001
 Call     ResetCam    	( .Default *Fixed[3.0] )
 Call     DisablePlayerPhysics 	( .False )
 Call     DisablePlayerInput 	( .False )
