@@ -4,7 +4,10 @@ import { PartnerLocationFactory } from './factories/partnerLocationFactory';
 import { ItemLocation } from './entities/itemLocation';
 import { Partner } from './enums/partner';
 import { KeyItem } from './enums/keyItem';
-export class Randomizer {
+import { RandomizedPartner } from './entities/randomizedPartner';
+import { ItemLocationType } from './enums/itemLocationType';
+
+export class PartnerRandomizer {
 
     private partnerLocationsFactory: PartnerLocationFactory
     private availablePartnerLocations: ItemLocation[]
@@ -20,30 +23,36 @@ export class Randomizer {
 
     }
 
-    public randomizePartners(player: Player): void {
+    public randomizePartners(player: Player): RandomizedPartner[] {
         console.log("Randomizing partners")
+        var randomizedPartners = [] as RandomizedPartner[];
         player.partners = player.partners.filter(p => p !== Partner.GOOMBARIO)
         while(player.partners.length > 0) {
             var partnerToRandomize = player.partners[Math.floor(Math.random() * player.partners.length)];
-            var success = this.attemptToPlacePartner(player, partnerToRandomize)
+            var randomizedPartner = this.attemptToPlacePartner(player, partnerToRandomize)
 
             if (this.retryCount > 500) {
                 console.log('failed after ' + this.successCount + ' success' )
-                return;
+                return null;
             }
-            if (!success) {
+            if (randomizedPartner) {
+                randomizedPartners.push(randomizedPartner)
+            } else {
                 this.retryCount++
                 console.log('retrying: ' + this.retryCount)
+                randomizedPartners = [];
                 player.initializePlayer();
                 player.partners = player.partners.filter(p => p !== Partner.GOOMBARIO)
                 this.availablePartnerLocations = this.partnerLocationsFactory.getAllPartnerLocations().sort((a,b) => b.difficulty - a.difficulty);
             }
 
         }
-        this.placeGoombarioInRemainingLocation();
+        const randomizedGoombario = this.placeGoombarioInRemainingLocation();
+        randomizedPartners.push(randomizedGoombario);
+        return randomizedPartners;
     }
 
-    public attemptToPlacePartner(player: Player, partner: Partner) : boolean {
+    public attemptToPlacePartner(player: Player, partner: Partner) : RandomizedPartner {
         for (var availableLocation of this.availablePartnerLocations) {
             if (!player.isAbleToReachLocation(availableLocation)) {
                 continue;                
@@ -63,10 +72,10 @@ export class Randomizer {
                 continue;                
             }
             console.log ('Placed: ' + partner + ' at location:' + availableLocation.originalName)
-            return true;
+            return new RandomizedPartner(availableLocation.originalName as Partner, partner, availableLocation.locationName);
             
         }
-        return false;
+        return null;
      }
 
      public removeLockedObjectsRecursive(player: Player, object: Partner | KeyItem | EquipUpgrade) {
@@ -85,14 +94,16 @@ export class Randomizer {
         }
 
      }
-     
-     public placeGoombarioInRemainingLocation() {
+
+     public placeGoombarioInRemainingLocation() : RandomizedPartner{
          if (!this.availablePartnerLocations.length) {
              console.error('Tried to place Goombario but no location remains')
              return;
          }
 
+         const newlocation = this.availablePartnerLocations[0];
          console.log('Placed: ' + Partner.GOOMBARIO + ' at location:' + this.availablePartnerLocations[0].originalName)
+         return new RandomizedPartner(newlocation.originalName as Partner, Partner.GOOMBARIO, newlocation.locationName)
      }
         
         

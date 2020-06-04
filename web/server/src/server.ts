@@ -1,5 +1,6 @@
+import { PartnerScriptPatcher } from './partnerScriptPatcher';
 import { Player } from './entities/player';
-import { Randomizer } from './randomizer';
+import { PartnerRandomizer } from './partnerRandomizer';
 import express from 'express';
 const app = express();
 import bodyParser from "body-parser";
@@ -22,9 +23,6 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.post('/api/patch', upload.single('inputRom', 1), (request: any, result) => {
-  var test= new Randomizer();
-  var player = new Player();
-  test.randomizePartners(player);
   if(!isRomSizeValid(request.file)) {
     result.writeHead(400, "invalidRom");
     result.end('Invalid Rom');
@@ -33,6 +31,13 @@ app.post('/api/patch', upload.single('inputRom', 1), (request: any, result) => {
 
   fs.copy(Paths.CLEAN_MOD_PATH, Paths.WORKING_MOD_PATH)
   .then(() => {
+    var randomizer = new PartnerRandomizer();
+    var player = new Player();
+    var partnerScriptPatcher = PartnerScriptPatcher.getInstance();
+
+    var randomizedPartners = randomizer.randomizePartners(player);
+    partnerScriptPatcher.patchPartnersInScripts(randomizedPartners);
+
     const childProcess = exec(`java -jar ${starRodJarPath}\\StarRod.jar -CompileMod`, {cwd: starRodJarPath}, function(err, stdout, stderr) {
       console.log(stdout);
       if (err) {
