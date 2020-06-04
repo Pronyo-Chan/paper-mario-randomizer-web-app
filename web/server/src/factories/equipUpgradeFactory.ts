@@ -1,6 +1,4 @@
 import { ItemLocation } from './../entities/itemLocation';
-import { KeyItemFactory } from './keyItemLocationFactory';
-import { PartnerLocationFactory } from './partnerLocationFactory';
 import { EquipUpgrade } from '../enums/equipUpgrade';
 import { ItemLocationType } from '../enums/itemLocationType';
 import { Partner } from '../enums/partner';
@@ -30,41 +28,41 @@ export class EquipUpgradeLocationFactory {
     );
 
     public hammer2 = new ItemLocation(
-        EquipUpgrade.HAMMER,
+        EquipUpgrade.HAMMER2,
         ItemLocationType.EquipUpgrade,
         [
-            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY, KeyItem.RUINS_KEY, KeyItem.RUINS_KEY, EquipUpgrade.HAMMER],
-            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY, KeyItem.RUINS_KEY, KeyItem.RUINS_KEY, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER]
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER2]
         ],
         'isk_09',
         2
     );
 
     public hammer3 = new ItemLocation(
-        EquipUpgrade.HAMMER,
+        EquipUpgrade.HAMMER3,
         ItemLocationType.EquipUpgrade,
         [
             [Partner.WATT, Partner.PARAKARRY, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER],
             [Partner.WATT, Partner.LAKILESTER, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER],
-            [Partner.SUSHIE, Partner.PARAKARRY, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS],
-            [Partner.SUSHIE, Partner.LAKILESTER, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS]
+            [Partner.SUSHIE, Partner.PARAKARRY, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2],
+            [Partner.SUSHIE, Partner.LAKILESTER, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2]
         ],
         'kzn_07',
         2
     );
 
     public boots2 = new ItemLocation(
-        EquipUpgrade.BOOTS,
+        EquipUpgrade.BOOTS2,
         ItemLocationType.EquipUpgrade,
-        [[KeyItem.WEIGHT, EquipUpgrade.BOOTS]],
+        [[KeyItem.WEIGHT, EquipUpgrade.HAMMER]],
         'obk_04',
         1
     );
 
     public boots3 = new ItemLocation(
-        EquipUpgrade.BOOTS,
+        EquipUpgrade.BOOTS3,
         ItemLocationType.EquipUpgrade,
-        [[Partner.SUSHIE, Partner.LAKILESTER, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER]],
+        [[Partner.SUSHIE, Partner.LAKILESTER, EquipUpgrade.HAMMER3]],
         'tik_25',
         2
     );

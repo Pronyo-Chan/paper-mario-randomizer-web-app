@@ -1,6 +1,3 @@
-
-import { KeyItemFactory } from './keyItemLocationFactory';
-import { EquipUpgradeLocationFactory } from './equipUpgradeFactory';
 import { ItemLocation } from '../entities/itemLocation';
 import { ItemLocationType } from '../enums/itemLocationType';
 import { Partner } from '../enums/partner';
@@ -52,7 +49,7 @@ export class PartnerLocationFactory {
         ItemLocationType.Partner,
         [
             [Partner.BOMBETTE, KeyItem.LETTER_01, KeyItem.LETTER_10, KeyItem.LETTER_25, EquipUpgrade.HAMMER],
-            [KeyItem.LETTER_01, KeyItem.LETTER_10, KeyItem.LETTER_25, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER]
+            [KeyItem.LETTER_01, KeyItem.LETTER_10, KeyItem.LETTER_25, EquipUpgrade.HAMMER2]
         ],
         'iwa_10',
         2
@@ -79,7 +76,7 @@ export class PartnerLocationFactory {
         ItemLocationType.Partner,
         [
             [Partner.WATT, EquipUpgrade.HAMMER],
-            [Partner.SUSHIE, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS]
+            [Partner.SUSHIE, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2]
         ],
         'jan_04',
         1

@@ -8,9 +8,11 @@ export class Randomizer {
 
     private partnerLocationsFactory: PartnerLocationFactory
     private availablePartnerLocations: ItemLocation[]
+    private tempRemovedItems: KeyItem[];
+    private tempRemovedEquips: EquipUpgrade[];
 
     private retryCount = 0;
-    private successiveFailureCount = 0;
+    private successCount = 0;
 
     public constructor() {
         this.partnerLocationsFactory = PartnerLocationFactory.getInstance();
@@ -23,51 +25,75 @@ export class Randomizer {
         player.partners = player.partners.filter(p => p !== Partner.GOOMBARIO)
         while(player.partners.length > 0) {
             var partnerToRandomize = player.partners[Math.floor(Math.random() * player.partners.length)];
-            this.attemptToPlacePartner(player, partnerToRandomize)
+            var success = this.attemptToPlacePartner(player, partnerToRandomize)
 
-            if(this.retryCount > 1000) {
-                console.log('fail')
+            if (this.retryCount > 500) {
+                console.log('failed after ' + this.successCount + ' success' )
                 return;
             }
-            if(this.successiveFailureCount > 20) {
-                console.log('retrying: ' + this.retryCount)
+            if (!success) {
                 this.retryCount++
-                this.successiveFailureCount = 0;
-                player.initializePartners();
+                console.log('retrying: ' + this.retryCount)
+                player.initializePlayer();
                 player.partners = player.partners.filter(p => p !== Partner.GOOMBARIO)
-                player.initializeKeyItems();
                 this.availablePartnerLocations = this.partnerLocationsFactory.getAllPartnerLocations().sort((a,b) => b.difficulty - a.difficulty);
             }
 
         }
-        //this.attemptToPlacePartner(player, Partner.GOOMBARIO);
-        console.log('finished in ' + this.retryCount + ' tries')
+        this.placeGoombarioInRemainingLocation();
     }
 
-    public attemptToPlacePartner(player: Player, partner: Partner) {
+    public attemptToPlacePartner(player: Player, partner: Partner) : boolean {
         for (var availableLocation of this.availablePartnerLocations) {
-            for (var i=0; i < availableLocation.requirements.length; i++) {
-                var requirements = availableLocation.requirements[i];
-                if (!player.hasLocationRequirements(requirements)) {
-                    this.successiveFailureCount++;
-                    continue;                
-                }
-                player.partners = player.partners.filter(p => partner !== p)
-                this.availablePartnerLocations = this.availablePartnerLocations.filter(l => availableLocation !== l)
-                var removedItems = player.removeKeyItemsLockedBehindObject(partner);
-                if (!player.hasLocationRequirements(requirements)) {
-                    player.partners.push(partner);
-                    player.keyItems = player.keyItems.concat(removedItems)
-                    this.availablePartnerLocations.push(availableLocation);
-                    this.successiveFailureCount++;
-                    continue;                
-                }
-                console.log ('Placed: ' + partner + ' at location:' + availableLocation.originalName)
-                return;
+            if (!player.isAbleToReachLocation(availableLocation)) {
+                continue;                
             }
+
+            player.partners = player.partners.filter(p => partner !== p)
+            this.availablePartnerLocations = this.availablePartnerLocations.filter(l => availableLocation !== l)
+            this.tempRemovedEquips = [];
+            this.tempRemovedItems = [];
+            this.removeLockedObjectsRecursive(player, partner)
+            
+            if (!player.isAbleToReachLocation(availableLocation)) {
+                player.partners.push(partner);
+                player.keyItems = player.keyItems.concat(this.tempRemovedItems)
+                player.equipUpgrades = player.equipUpgrades.concat(this.tempRemovedEquips)
+                this.availablePartnerLocations.push(availableLocation);
+                continue;                
+            }
+            console.log ('Placed: ' + partner + ' at location:' + availableLocation.originalName)
+            return true;
+            
         }
+        return false;
+     }
+
+     public removeLockedObjectsRecursive(player: Player, object: Partner | KeyItem | EquipUpgrade) {
+        var newlyRemovedItems = player.removeKeyItemsLockedBehindObject(object);
+        var newlyRemovedEquips = player.removeUpgradesLockedBehindObject(object);
+
+        this.tempRemovedItems = this.tempRemovedItems.concat(newlyRemovedItems);
+        this.tempRemovedEquips = this.tempRemovedEquips.concat(newlyRemovedEquips);
+
+        for (var item of newlyRemovedItems) {
+            this.removeLockedObjectsRecursive(player, item)
+        }
+
+        for (var equip of newlyRemovedEquips) {
+            this.removeLockedObjectsRecursive(player, equip)
+        }
+
      }
      
+     public placeGoombarioInRemainingLocation() {
+         if (!this.availablePartnerLocations.length) {
+             console.error('Tried to place Goombario but no location remains')
+             return;
+         }
+
+         console.log('Placed: ' + Partner.GOOMBARIO + ' at location:' + this.availablePartnerLocations[0].originalName)
+     }
         
         
 }

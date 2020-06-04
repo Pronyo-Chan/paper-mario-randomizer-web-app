@@ -20,58 +20,64 @@ export class Player {
         this.partnerLocationFactory = PartnerLocationFactory.getInstance();
         this.equipUpgradeFactory = EquipUpgradeLocationFactory.getInstance()
 
+        this.initializePlayer();
+    }
+
+    public hasObject(name: string) {
+        return this.keyItems.some( i => i === name)
+        || this.partners.some( i => i === name)
+        || this.equipUpgrades.some( i => i === name);
+    
+    }
+
+    public removeKeyItemsLockedBehindObject(object: Partner | KeyItem | EquipUpgrade) : KeyItem[] {
+        const itemsToRemove = this.keyItemLocationsFactory.getAllKeyItemLocations()
+            .filter(location => this.hasObject(location.originalName)
+             && location.requirements.every(reqSet => reqSet.some(r => r === object)));
+        this.keyItems = this.keyItems.filter(ki => !itemsToRemove.some(itr => itr.originalName === ki));
+        return itemsToRemove.map(i => i.originalName as KeyItem);
+    }
+
+    public removeUpgradesLockedBehindObject(object: Partner | KeyItem | EquipUpgrade) : EquipUpgrade[] {
+        const equipsToRemove = this.equipUpgradeFactory.getAllEquipUpgrades()
+            .filter(location => this.hasObject(location.originalName)
+            && location.requirements.every(reqSet => reqSet.some(r => r === object)));
+        this.equipUpgrades = this.equipUpgrades.filter(eq => !equipsToRemove.some(etr => etr.originalName === eq))
+        return equipsToRemove.map(i => i.originalName as EquipUpgrade);
+    }
+
+    public isAbleToReachLocation(itemLocation: ItemLocation) {
+        for (var i=0; i < itemLocation.requirements.length; i++) {
+            var requirements = itemLocation.requirements[i];
+            if (requirements.every(r => this.hasObject(r))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public initializePlayer() {
         this.initializePartners();
         this.initializeKeyItems();
         this.initializeEquipUpgrades();
     }
 
-    public hasRequirement(name: string, ammount =1 ) {
-        return this.keyItems.filter( i => i === name).length >= ammount
-        || this.partners.some( i => i === name)
-        || this.equipUpgrades.filter( i => i === name).length >= ammount;;
-    
-    }
-
-    public hasLocationRequirements(requirements: string[]) : boolean {
-        for(var requirement of requirements) {
-            if (!this.hasRequirement(requirement))
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public initializePartners() {
+    private initializePartners() {
         this.partners = Object.values(Partner);
     }
 
-    public removeKeyItemsLockedBehindObject(object: Partner | KeyItem | EquipUpgrade) : KeyItem[] {
-        const itemsToRemove = this.keyItemLocationsFactory.getAllKeyItemLocations()
-        .filter(location => location.requirements.every(reqPos => reqPos.some(r => r === object)))
-        this.keyItems = this.keyItems.filter(ki => !itemsToRemove.some(itr => itr.originalName === ki))
-        return itemsToRemove.map(i => i.originalName as KeyItem);
-    }
-
-    public removeUpgradesLockedBehindObject(object: Partner | KeyItem | EquipUpgrade) : EquipUpgrade[] {
-        const itemsToRemove = this.equipUpgradeFactory.getAllEquipUpgrades()
-        .filter(location => location.requirements.every(reqPos => reqPos.some(r => r === object)))
-        this.keyItems = this.keyItems.filter(ki => !itemsToRemove.some(itr => itr.originalName === ki))
-        return itemsToRemove.map(i => i.originalName as EquipUpgrade);
-    }
-
-    public initializeKeyItems() {
+    private initializeKeyItems() {
         this.keyItems = Object.values(KeyItem)
         this.keyItems.push(KeyItem.FORTRESS_KEY, KeyItem.FORTRESS_KEY, KeyItem.FORTRESS_KEY)
     }
 
     private initializeEquipUpgrades() {
         this.equipUpgrades = [
-            EquipUpgrade.BOOTS,
-            EquipUpgrade.BOOTS,
+            EquipUpgrade.BOOTS2,
+            EquipUpgrade.BOOTS3,
             EquipUpgrade.HAMMER,
-            EquipUpgrade.HAMMER,
-            EquipUpgrade.HAMMER
+            EquipUpgrade.HAMMER2,
+            EquipUpgrade.HAMMER3
         ]
     }
 }

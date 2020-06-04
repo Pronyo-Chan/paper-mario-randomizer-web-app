@@ -1,7 +1,7 @@
+import { ItemLocationType } from './../enums/itemLocationType';
+import { ItemLocation } from './../entities/itemLocation';
 import { EquipUpgrade } from '../enums/equipUpgrade';
-import { ItemLocation } from '../entities/itemLocation';
 import { KeyItem } from '../enums/keyItem';
-import { ItemLocationType } from '../enums/itemLocationType';
 import { Partner } from '../enums/partner';
 
 export class KeyItemFactory {
@@ -15,6 +15,7 @@ export class KeyItemFactory {
             this.dolly,
             this.kooperShell,
             this.fortressKey1,
+            this.ruinsKey3,
             this.letter1,
             this.letter10,
             this.letter25,
@@ -22,7 +23,8 @@ export class KeyItemFactory {
             this.magicalSeed1,
             this.magicalSeed2,
             this.magicalSeed3,
-            this.magicalSeed4
+            this.magicalSeed4,
+            this.jadeRaven
         ]
     }
 
@@ -51,7 +53,7 @@ export class KeyItemFactory {
     );
 
     public ruinsKey3 = new ItemLocation(
-        KeyItem.RUINS_KEY,
+        KeyItem.RUINS_KEY_3,
         ItemLocationType.KeyItem,
         [
             [Partner.BOMBETTE, Partner.PARAKARRY, EquipUpgrade.HAMMER]
@@ -66,8 +68,8 @@ export class KeyItemFactory {
         [
             [Partner.KOOPER, Partner.BOMBETTE, EquipUpgrade.HAMMER],
             [Partner.PARAKARRY, Partner.BOMBETTE, EquipUpgrade.HAMMER],
-            [Partner.KOOPER, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER],
-            [Partner.PARAKARRY, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER],
+            [Partner.KOOPER, EquipUpgrade.HAMMER2],
+            [Partner.PARAKARRY, EquipUpgrade.HAMMER2],
         ],
         'iwa_01',
         1
@@ -78,7 +80,7 @@ export class KeyItemFactory {
         ItemLocationType.KeyItem,
         [
             [Partner.BOMBETTE, EquipUpgrade.HAMMER],
-            [EquipUpgrade.HAMMER, EquipUpgrade.HAMMER]
+            [EquipUpgrade.HAMMER2]
         ],
         'iwa_04',
         1
@@ -89,7 +91,7 @@ export class KeyItemFactory {
         ItemLocationType.KeyItem,
         [
             [Partner.BOMBETTE, EquipUpgrade.HAMMER],
-            [EquipUpgrade.HAMMER, EquipUpgrade.HAMMER]
+            [EquipUpgrade.HAMMER2]
         ],
         'iwa_03',
         1
@@ -99,7 +101,7 @@ export class KeyItemFactory {
         KeyItem.BOOS_PORTRAIT,
         ItemLocationType.KeyItem,
         [
-            [Partner.PARAKARRY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS],
+            [Partner.PARAKARRY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2],
         ],
         'iwa_03',
         1
@@ -120,7 +122,7 @@ export class KeyItemFactory {
         ItemLocationType.KeyItem,
         [
             [Partner.PARAKARRY, Partner.BOMBETTE, EquipUpgrade.HAMMER],
-            [Partner.PARAKARRY, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER],
+            [Partner.PARAKARRY, EquipUpgrade.HAMMER2],
         ],
         'iwa_02',
         1
@@ -138,12 +140,22 @@ export class KeyItemFactory {
         KeyItem.MAGICAL_SEED_4,
         ItemLocationType.KeyItem,
         [
-            [Partner.WATT, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER],
-            [Partner.SUSHIE, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS],
+            [Partner.WATT, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER3],
+            [Partner.SUSHIE, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER3, EquipUpgrade.BOOTS2],
         ],
         'mim_04',
         3
     );
+
+    public jadeRaven = new ItemLocation(
+        KeyItem.JADE_RAVEN,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOMBETTE, Partner.WATT, Partner.SUSHIE, EquipUpgrade.HAMMER]
+        ],
+        'jan_02',
+        2
+    )
 
 
     static getInstance(): KeyItemFactory {
