@@ -4,8 +4,8 @@ import { EquipUpgrade } from '../enums/equipUpgrade';
 import { KeyItem } from '../enums/keyItem';
 import { Partner } from '../enums/partner';
 
-export class KeyItemFactory {
-    private static instance: KeyItemFactory;
+export class KeyItemLocationFactory {
+    private static instance: KeyItemLocationFactory;
 
     private constructor() {
     }
@@ -158,11 +158,11 @@ export class KeyItemFactory {
     )
 
 
-    static getInstance(): KeyItemFactory {
-        if (!KeyItemFactory.instance) {
-            KeyItemFactory.instance = new KeyItemFactory();
+    static getInstance(): KeyItemLocationFactory {
+        if (!KeyItemLocationFactory.instance) {
+            KeyItemLocationFactory.instance = new KeyItemLocationFactory();
         }
     
-        return KeyItemFactory.instance;
+        return KeyItemLocationFactory.instance;
     }
 }

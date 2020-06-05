@@ -1,5 +1,5 @@
 import { PartnerScriptPatcher } from './partnerScriptPatcher';
-import { Player } from './entities/player';
+import { Player } from './entities/player/player';
 import { PartnerRandomizer } from './partnerRandomizer';
 import express from 'express';
 const app = express();

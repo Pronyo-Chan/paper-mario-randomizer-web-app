@@ -1,19 +1,19 @@
-import { PartnerLocationFactory } from './../factories/partnerLocationFactory';
-import { KeyItemFactory as KeyItemLocationFactory } from '../factories/keyItemLocationFactory';
-import { ItemLocation } from './itemLocation';
-import { KeyItem } from './../enums/keyItem';
-import { EquipUpgrade } from '../enums/equipUpgrade';
-import { Partner } from '../enums/partner';
-import { EquipUpgradeLocationFactory } from '../factories/equipUpgradeFactory';
+import { PartnerLocationFactory } from '../../factories/partnerLocationFactory';
+import { KeyItemLocationFactory as KeyItemLocationFactory } from '../../factories/keyItemLocationFactory';
+import { ItemLocation } from '../itemLocation';
+import { KeyItem } from '../../enums/keyItem';
+import { EquipUpgrade } from '../../enums/equipUpgrade';
+import { Partner } from '../../enums/partner';
+import { EquipUpgradeLocationFactory } from '../../factories/equipUpgradeFactory';
 
 export class Player {
     public partners: Partner[];
     public keyItems: KeyItem[];
     public equipUpgrades: EquipUpgrade[];
 
-    public keyItemLocationsFactory: KeyItemLocationFactory;
-    public partnerLocationFactory: PartnerLocationFactory;
-    public equipUpgradeFactory: EquipUpgradeLocationFactory;
+    private keyItemLocationsFactory: KeyItemLocationFactory;
+    private partnerLocationFactory: PartnerLocationFactory;
+    private equipUpgradeFactory: EquipUpgradeLocationFactory;
 
     public constructor() {
         this.keyItemLocationsFactory = KeyItemLocationFactory.getInstance();
@@ -23,11 +23,10 @@ export class Player {
         this.initializePlayer();
     }
 
-    public hasObject(name: string) {
+    public hasObject(name: string): boolean {
         return this.keyItems.some( i => i === name)
         || this.partners.some( i => i === name)
         || this.equipUpgrades.some( i => i === name);
-    
     }
 
     public removeKeyItemsLockedBehindObject(object: Partner | KeyItem | EquipUpgrade) : KeyItem[] {

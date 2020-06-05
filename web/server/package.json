@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
     "start:watch": "nodemon",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json"
   },
   "author": "",
   "license": "ISC",
@@ -18,9 +19,11 @@
     "multer": "^1.4.2"
   },
   "devDependencies": {
+    "@types/jasmine": "^3.5.10",
     "@types/node": "^14.0.6",
     "eslint": "^7.1.0",
     "eslint-plugin-import": "^2.20.2",
+    "jasmine": "^3.5.0",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.3"

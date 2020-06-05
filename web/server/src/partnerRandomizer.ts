@@ -1,5 +1,5 @@
 import { EquipUpgrade } from './enums/equipUpgrade';
-import { Player } from './entities/player';
+import { Player } from './entities/player/player';
 import { PartnerLocationFactory } from './factories/partnerLocationFactory';
 import { ItemLocation } from './entities/itemLocation';
 import { Partner } from './enums/partner';
