@@ -1,7 +1,7 @@
-import { Paths } from './enums/paths';
+import { Paths } from '../../enums/paths';
 import fs from 'fs-extra';
-import { RandomizedPartner } from './entities/randomizedPartner';
-import { Partner } from './enums/partner';
+import { RandomizedPartner } from '../../entities/randomizedPartner';
+import { Partner } from '../../enums/partner';
 
 enum PartnerFunctionEnd {
     GOOMBARIO = '00000001 )',

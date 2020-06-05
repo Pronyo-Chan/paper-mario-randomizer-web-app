@@ -1,6 +1,6 @@
-import { PartnerScriptPatcher } from './partnerScriptPatcher';
+import { PartnerScriptPatcher } from './randomizer/partnerScriptPatcher/partnerScriptPatcher';
 import { Player } from './entities/player/player';
-import { PartnerRandomizer } from './partnerRandomizer';
+import { PartnerRandomizer } from './randomizer/partnerRandomizer/partnerRandomizer';
 import express from 'express';
 const app = express();
 import bodyParser from "body-parser";
@@ -31,11 +31,11 @@ app.post('/api/patch', upload.single('inputRom', 1), (request: any, result) => {
 
   fs.copy(Paths.CLEAN_MOD_PATH, Paths.WORKING_MOD_PATH)
   .then(() => {
-    var randomizer = new PartnerRandomizer();
     var player = new Player();
+    var randomizer = new PartnerRandomizer(player);
     var partnerScriptPatcher = PartnerScriptPatcher.getInstance();
 
-    var randomizedPartners = randomizer.randomizePartners(player);
+    var randomizedPartners = randomizer.randomizePartners();
     partnerScriptPatcher.patchPartnersInScripts(randomizedPartners);
 
     const childProcess = exec(`java -jar ${starRodJarPath}\\StarRod.jar -CompileMod`, {cwd: starRodJarPath}, function(err, stdout, stderr) {
