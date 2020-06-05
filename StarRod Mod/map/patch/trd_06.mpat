@@ -114,26 +114,38 @@ If  *Var[0]  ==  00000000
 	Set  *StoryProgress  FFFFFFAD
 	Set  *Chapter1Progress  FFFFFFAD 
 	Call     $Function_80240C80 ( )
-	Exec     $Script_80240E14 
+	Exec     $Script_80240E14
 	Wait     0000000F 
 	Call     ShowMessage 	( 001D018B 000000A0 00000028 ) % Bombette joined your party!! Press  to make Bombet ...
 	Exec     $Script_80240E38 
-	Wait     0000000A 
-	Call     SayMessage0 	( .Npc:Partner 0003000E 00030003 00000000 000C00DF ) % Now. Let's think of a way to get out of here.
-	Wait     00000001 
-	Call     SetPlayerAnimation 	( .PlayerAnim:NodYes )
-	Wait     0000000F 
-	Call     SetPlayerAnimation 	( 00010002 )
-	Wait     00000019 
-	Call     PlaySoundAtNpc ( .Npc:Partner 00000262 00000000 )
-	Call     ShowEmote   	( .Npc:Partner .Emote:Exclamation FFFFFFD3 0000001E 00000001 00000000 00000000 00000000 00000000 )
-	Wait     00000028 
-	Call     SayMessage0 	( .Npc:Partner 0003000E 00030003 00000000 000C00E0 ) % Oh, gee, I almost forgot! I haven't even told you  ...
-	ExecWait $Script_80242678 
+	Wait     0000000A
+	ExecWait $Script_80242678  
 EndIf
 Call     ResetCam    	( .Default *Fixed[5.0] )
 Return
 End
+
+@ $Script_80242678
+	Call     SetPanTarget 	( .Default 00000060 00000000 00000081 )
+	Call     SetCamSpeed 	( .Default *Fixed[0.60058594] )
+	Call     DisablePlayerInput 	( .True )
+	Call     DisablePartnerAI 	( 00000000 )
+	Thread
+		Call     SetNpcAnimation 	( .Npc:Partner 00030005 )
+		Call     SetNpcSpeed 	( .Npc:Partner *Fixed[3.0] )
+		Call     MoveNpcTo   	( .Npc:Partner 0000007C 00000081 00000000 )
+		Call     GetAngleToPlayer 	( .Npc:Partner *Var[0] )
+		Call     InterpNpcYaw 	( .Npc:Partner *Var[0] 00000005 )
+	EndThread
+	Wait     0000001E 
+	Call     SetPlayerSpeed ( *Fixed[3.0] )
+	Call     MovePlayerTo 	( 00000060 00000081 00000000 )
+	Call     GetAngleToNPC 	( .Npc:Partner *Var[0] )
+	Call     InterpPlayerYaw 	( *Var[0] 00000005 )
+	Call     DisablePlayerInput 	( .False )
+	Call     EnablePartnerAI 	( )
+	Return
+	End
 
 @ $Script_802433AC % Defeat the jail guards TODO: Figure out why they never show up at all
 Call     GetBattleOutcome 	( *Var[0] )
