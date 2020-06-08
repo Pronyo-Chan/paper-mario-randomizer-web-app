@@ -89,8 +89,6 @@ End
 
 @ $Script_8024134C % If the map is loaded in end of chapter cutscene, go to jan_22 instead of peach cutscene
 Call     FadeOutMusic 	( 00000000 000005DC )
-Set  *StoryProgress  00000026
-Set  *Chapter5Progress  00000026 
 Call     GotoMap ( "jan_22" 00000003 )
 Wait     00000064 
 SetGroup 0000001B 
@@ -100,3 +98,92 @@ Call     GotoMap     	( $ASCII_802462B8 00000002 ) % this makes no sens to me bu
 Wait     00000064 
 Return
 End
+
+@ $Script_802449E0
+	Call     DisablePlayerInput 	( .True )
+	Call     DisablePlayerPhysics 	( .True )
+	Call     802D10D8 ( 0000000A )
+	Call     SetNpcFlagBits ( .Npc:Partner 00000200 .False )
+	Call     GetEntryID  	( *Var[0] )
+	If  *Var[0]  ==  00000001 
+		Call     PlaySound   	( 00000302 )
+		Call     UseSettingsFrom 	( .Default FFFFFEA2 0000012C 00000000 )
+		Call     SetPanTarget 	( .Default FFFFFEA2 0000012C 00000000 )
+		Call     SetCamAngles 	( .Default 0000000A *Fixed[-7.0] )
+		Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     WaitForCam  	( .Default *Fixed[1.0] )
+		Call     MakeEntity  	( .Entity:Chest {Vec4d:Entity80244AE8} 80000000 )
+		Set  *StoryProgress  00000026
+		Set  *Chapter5Progress  00000026 
+		Set  *Var[A]  *Var[0] 
+		Thread
+			Call     $Function_80240BE8 ( )
+		EndThread
+		Thread
+			Set  *Var[9]  *Var[A] 
+			Call     LoadPath    	( 00000046 $VectorList_80244950 00000006 00000004 )
+			Loop     
+				Call     GetNextPathPos ( )
+				Call     $Function_80240A80 ( *Var[9] *Var[1] *Var[2] *Var[3] )
+				Wait     00000001 
+				If  *Var[0]  ==  00000000 
+					BreakLoop
+				EndIf
+			EndLoop
+		EndThread
+		Wait     00000032 
+		Call     GotoMap     	( $ASCII_802462E8 00000002 )
+		Wait     00000064 
+	Else
+		Call     UseSettingsFrom 	( .Default 00000000 00000000 00000000 )
+		Call     SetPanTarget 	( .Default 00000000 000000AA 00000000 )
+		Call     SetCamDistance ( .Default 0000015E )
+		Call     SetCamAngles 	( .Default 00000010 *Fixed[-6.0] )
+		Call     SetCamSpeed 	( .Default *Fixed[90.0] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     WaitForCam  	( .Default *Fixed[1.0] )
+		Wait     00000014 
+		Call     SetPanTarget 	( .Default 00000000 00000000 00000000 )
+		Call     SetCamSpeed 	( .Default *Fixed[1.2001953] )
+		Call     PanToTarget 	( .Default 00000000 00000001 )
+		Call     WaitForCam  	( .Default *Fixed[1.0] )
+		Call     MakeEntity  	( .Entity:Chest {Vec4d:Entity80244D1C} 80000000 )
+		Set  *Var[A]  *Var[0] 
+		Thread
+			Call     $Function_80240D0C ( )
+		EndThread
+		Set  *Var[9]  *Var[A] 
+		Call     LoadPath    	( 0000000C $VectorList_80244998 00000003 00000000 )
+		Loop     
+			Call     GetNextPathPos ( )
+			Call     $Function_80240A80 ( *Var[9] *Var[1] *Var[2] *Var[3] )
+			Wait     00000001 
+			If  *Var[0]  ==  00000000 
+				BreakLoop
+			EndIf
+		EndLoop
+		Call     PlaySoundAt 	( 000001AF 00000000 *Var[1] *Var[2] *Var[3] )
+		Thread
+			Call     PlayEffect  	( {FX:Steam:Ring} FFFFFFF1 00000000 00000000 0000000A 0000000A 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+			Call     PlayEffect  	( {FX:Steam:Ring} 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+			Call     PlayEffect  	( {FX:Steam:Ring} 0000000F 00000000 00000000 0000015E 0000015E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+			Call     ShakeCam    	( .Default 00000000 0000001E *Fixed[1.0] )
+		EndThread
+		Call     LoadPath    	( 0000000A $VectorList_802449BC 00000003 00000000 )
+		Loop     
+			Call     GetNextPathPos ( )
+			Call     $Function_80240A80 ( *Var[9] *Var[1] *Var[2] *Var[3] )
+			Wait     00000001 
+			If  *Var[0]  ==  00000000 
+				BreakLoop
+			EndIf
+		EndLoop
+		Call     PlaySoundAt 	( 000001AF 00000000 *Var[1] *Var[2] *Var[3] )
+		Call     PlayEffect  	( {FX:Steam:Ring} FFFFFFF6 00000000 0000000F 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Call     PlayEffect  	( {FX:Steam:Ring} FFFFFFF6 00000000 0000000F 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Wait     0000003C 
+		Exec     $Script_8024134C 
+	EndIf
+	Return
+	End
