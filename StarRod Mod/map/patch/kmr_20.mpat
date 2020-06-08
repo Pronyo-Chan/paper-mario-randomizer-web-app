@@ -103,7 +103,7 @@
     Call $StartWithMaxFP()
     Call $GiveMaxStarPower()
     Set *Chapter0Progress FFFFFF80
-    Set *Chapter1Progress FFFFFF9D
+    Set *Chapter1Progress FFFFFF9C
     Set *Chapter2Progress FFFFFFC0
     Set *Chapter3Progress FFFFFFCF
     Set *Chapter4Progress FFFFFFF5
