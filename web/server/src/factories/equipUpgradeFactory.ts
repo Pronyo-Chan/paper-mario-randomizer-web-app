@@ -31,8 +31,12 @@ export class EquipUpgradeLocationFactory {
         EquipUpgrade.HAMMER2,
         ItemLocationType.EquipUpgrade,
         [
-            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER],
-            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER2]
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER2],
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER2],
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER2],
         ],
         'isk_09',
         2

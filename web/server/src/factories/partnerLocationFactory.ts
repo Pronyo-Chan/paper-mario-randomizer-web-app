@@ -39,7 +39,18 @@ export class PartnerLocationFactory {
     public bombette = new ItemLocation(
         Partner.BOMBETTE,
         ItemLocationType.Partner,
-        [[Partner.KOOPER, EquipUpgrade.HAMMER, KeyItem.FORTRESS_KEY, KeyItem.FORTRESS_KEY]],
+        [
+            [Partner.KOOPER, EquipUpgrade.HAMMER, KeyItem.FORTRESS_KEY_1, KeyItem.FORTRESS_KEY_2],
+            [Partner.KOOPER, EquipUpgrade.HAMMER, KeyItem.FORTRESS_KEY_1, KeyItem.FORTRESS_KEY_3],
+            [Partner.KOOPER, EquipUpgrade.HAMMER, KeyItem.FORTRESS_KEY_1, KeyItem.FORTRESS_KEY_4],
+            [Partner.KOOPER, EquipUpgrade.HAMMER, KeyItem.FORTRESS_KEY_2, KeyItem.FORTRESS_KEY_3],
+            [Partner.KOOPER, EquipUpgrade.HAMMER, KeyItem.FORTRESS_KEY_2, KeyItem.FORTRESS_KEY_4],
+            [Partner.KOOPER, EquipUpgrade.HAMMER, KeyItem.FORTRESS_KEY_3, KeyItem.FORTRESS_KEY_4],
+            [Partner.KOOPER, Partner.BOMBETTE, EquipUpgrade.HAMMER, KeyItem.FORTRESS_KEY_1],
+            [Partner.KOOPER, Partner.BOMBETTE, EquipUpgrade.HAMMER, KeyItem.FORTRESS_KEY_2],
+            [Partner.KOOPER, Partner.BOMBETTE, EquipUpgrade.HAMMER, KeyItem.FORTRESS_KEY_3],
+            [Partner.KOOPER, Partner.BOMBETTE, EquipUpgrade.HAMMER, KeyItem.FORTRESS_KEY_4],
+        ],
         'trd_06',
         1
     )

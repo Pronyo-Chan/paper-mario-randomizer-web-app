@@ -15,6 +15,9 @@ export class KeyItemLocationFactory {
             this.dolly,
             this.kooperShell,
             this.fortressKey1,
+            this.fortressKey2,
+            this.fortressKey3,
+            this.fortressKey4,
             this.ruinsKey3,
             this.letter1,
             this.letter10,
@@ -45,10 +48,83 @@ export class KeyItemLocationFactory {
     );
 
     public fortressKey1 = new ItemLocation(
-        KeyItem.FORTRESS_KEY,
+        KeyItem.FORTRESS_KEY_1,
         ItemLocationType.KeyItem,
         [[Partner.KOOPER, EquipUpgrade.HAMMER]],
         'trd_01',
+        1
+    );
+
+    public fortressKey2 = new ItemLocation(
+        KeyItem.FORTRESS_KEY_2,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.KOOPER, Partner.BOMBETTE, KeyItem.FORTRESS_KEY_1, EquipUpgrade.HAMMER],
+            [Partner.KOOPER, Partner.BOMBETTE, KeyItem.FORTRESS_KEY_2, EquipUpgrade.HAMMER],
+            [Partner.KOOPER, Partner.BOMBETTE, KeyItem.FORTRESS_KEY_3, EquipUpgrade.HAMMER],
+            [Partner.KOOPER, Partner.BOMBETTE, KeyItem.FORTRESS_KEY_4, EquipUpgrade.HAMMER],
+        ],
+        'trd_03',
+        1
+    );
+
+    public fortressKey3 = new ItemLocation(
+        KeyItem.FORTRESS_KEY_3,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.KOOPER, KeyItem.FORTRESS_KEY_1, KeyItem.FORTRESS_KEY_2, KeyItem.FORTRESS_KEY_3, EquipUpgrade.HAMMER],
+            [Partner.KOOPER, KeyItem.FORTRESS_KEY_1, KeyItem.FORTRESS_KEY_3, KeyItem.FORTRESS_KEY_4, EquipUpgrade.HAMMER],
+            [Partner.KOOPER, KeyItem.FORTRESS_KEY_2, KeyItem.FORTRESS_KEY_3, KeyItem.FORTRESS_KEY_4, EquipUpgrade.HAMMER],
+        ],
+        'trd_03',
+        1
+    );
+
+    public fortressKey4 = new ItemLocation(
+        KeyItem.FORTRESS_KEY_4,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.KOOPER, KeyItem.FORTRESS_KEY_1, EquipUpgrade.HAMMER],
+            [Partner.KOOPER, KeyItem.FORTRESS_KEY_2, EquipUpgrade.HAMMER],
+            [Partner.KOOPER, KeyItem.FORTRESS_KEY_3, EquipUpgrade.HAMMER],
+            [Partner.KOOPER, KeyItem.FORTRESS_KEY_4, EquipUpgrade.HAMMER],
+        ],
+        'trd_08',
+        1
+    );
+
+    public pulseStone = new ItemLocation(
+        KeyItem.PULSE_STONE,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOMBETTE, Partner.PARAKARRY, EquipUpgrade.HAMMER],
+            [EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2]
+        ],
+        'trd_08',
+        1
+    )
+
+    public ruinsKey1 = new ItemLocation(
+        KeyItem.RUINS_KEY_1,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, EquipUpgrade.HAMMER],
+            [KeyItem.PULSE_STONE, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2]
+        ],
+        'isk_03',
+        1
+    );
+
+    public ruinsKey2 = new ItemLocation(
+        KeyItem.RUINS_KEY_2,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, EquipUpgrade.HAMMER],
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, EquipUpgrade.HAMMER],
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER],
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER]
+        ],
+        'isk_06',
         1
     );
 
@@ -56,9 +132,79 @@ export class KeyItemLocationFactory {
         KeyItem.RUINS_KEY_3,
         ItemLocationType.KeyItem,
         [
-            [Partner.BOMBETTE, Partner.PARAKARRY, EquipUpgrade.HAMMER]
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, EquipUpgrade.HAMMER],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
         ],
-        'trd_01',
+        'isk_07',
+        1
+    );
+
+    public ruinsKey4 = new ItemLocation(
+        KeyItem.RUINS_KEY_4,
+        ItemLocationType.KeyItem,
+        [
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+        ],
+        'isk_12',
+        1
+    );
+
+    public artefact = new ItemLocation(
+        KeyItem.ARTEFACT,
+        ItemLocationType.KeyItem,
+        [
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+        ],
+        'isk_07',
+        1
+    );
+
+    public diamondStone = new ItemLocation(
+        KeyItem.DIAMOND_STONE,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOMBETTE, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [Partner.BOMBETTE, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_2, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+        ],
+        'isk_14',
+        1
+    );
+
+    public pyramidStone = new ItemLocation(
+        KeyItem.PYRAMID_STONE,
+        ItemLocationType.KeyItem,
+        [
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_3, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+        ],
+        'isk_05',
+        1
+    );
+
+    public lunarStone = new ItemLocation(
+        KeyItem.PYRAMID_STONE,
+        ItemLocationType.KeyItem,
+        [
+            [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
+        ],
+        'isk_13',
         1
     );
 
