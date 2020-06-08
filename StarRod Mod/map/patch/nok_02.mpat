@@ -79,7 +79,7 @@ If  *StoryProgress  <  FFFFFFA0
 		Call     PlayerFaceNpc 	( 0000000A 00000000 )
 	EndThread
 	Thread
-		Call     $Function_80242FE4 ( 00000001 )
+		%Call     $Function_80242FE4 ( 00000001 )
 		Call     DisablePartnerAI 	( 00000000 )
 		Call     MoveNpcTo   	( .Npc:Partner FFFFFFC9 FFFFFF7E 0000000F )
 		Call     NpcFaceNpc  	( .Npc:Partner 0000000A 00000000 )
