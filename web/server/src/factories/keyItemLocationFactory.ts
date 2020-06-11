@@ -243,13 +243,157 @@ export class KeyItemLocationFactory {
         1
     );
 
+    public record = new ItemLocation(
+        KeyItem.RECORD,
+        ItemLocationType.KeyItem,
+        [
+            [EquipUpgrade.HAMMER],
+        ],
+        'obk_08',
+        1
+    )
+
+    public weight = new ItemLocation(
+        KeyItem.WEIGHT,
+        ItemLocationType.KeyItem,
+        [
+            [KeyItem.RECORD, EquipUpgrade.HAMMER],
+        ],
+        'obk_07',
+        1
+    );
+
     public boosPortrait = new ItemLocation(
         KeyItem.BOOS_PORTRAIT,
         ItemLocationType.KeyItem,
         [
             [Partner.PARAKARRY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2],
         ],
-        'iwa_03',
+        'obk_06',
+        1
+    );
+
+    public castleKey1 = new ItemLocation(
+        KeyItem.CASTLE_KEY_1,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.PARAKARRY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2],
+        ],
+        'dgb_06',
+        1
+    );
+
+    public castleKey2 = new ItemLocation(
+        KeyItem.CASTLE_KEY_2,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_1, EquipUpgrade.HAMMER],
+            [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_2, EquipUpgrade.HAMMER],
+            [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_3, EquipUpgrade.HAMMER],
+        ],
+        'dgb_12',
+        1
+    );
+
+    public castleKey3 = new ItemLocation(
+        KeyItem.CASTLE_KEY_3,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_1, KeyItem.CASTLE_KEY_2, EquipUpgrade.HAMMER],
+            [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_2, KeyItem.CASTLE_KEY_3, EquipUpgrade.HAMMER],
+            [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_1, KeyItem.CASTLE_KEY_3, EquipUpgrade.HAMMER]
+        ],
+        'dgb_16',
+        1
+    );
+
+    public mysticalKey = new ItemLocation(
+        KeyItem.MYSTICAL_KEY,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_1, KeyItem.CASTLE_KEY_2, KeyItem.MYSTICAL_KEY, EquipUpgrade.HAMMER]
+        ],
+        'dgb_18',
+        1
+    );
+
+    public storeroomKey = new ItemLocation(
+        KeyItem.STOREROOM_KEY,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOW, EquipUpgrade.HAMMER]
+        ],
+        'omo_04',
+        1
+    );
+
+    public calculator = new ItemLocation(
+        KeyItem.CALCULATOR,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOW, EquipUpgrade.HAMMER]
+        ],
+        'omo_01',
+        1
+    );
+
+    public toyTrain = new ItemLocation(
+        KeyItem.TOY_TRAIN,
+        ItemLocationType.KeyItem,
+        [
+            [KeyItem.STOREROOM_KEY, EquipUpgrade.HAMMER]
+        ],
+        'mac_04',
+        1
+    );
+
+    public fryingPan = new ItemLocation(
+        KeyItem.FRYING_PAN,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOW, KeyItem.TOY_TRAIN, EquipUpgrade.HAMMER]
+        ],
+        'omo_07',
+        1
+    );
+
+    public mailBag = new ItemLocation(
+        KeyItem.MAIL_BAG,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOW, KeyItem.TOY_TRAIN, EquipUpgrade.HAMMER]
+        ],
+        'omo_06',
+        1
+    );
+
+    public cookbook = new ItemLocation(
+        KeyItem.COOKBOOK,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOW, KeyItem.TOY_TRAIN, KeyItem.FRYING_PAN, EquipUpgrade.HAMMER]
+        ],
+        'omo_05',
+        1
+    );
+
+    public dictionary = new ItemLocation(
+        KeyItem.DICTIONARY,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOW, Partner.PARAKARRY, KeyItem.TOY_TRAIN, KeyItem.FRYING_PAN, EquipUpgrade.HAMMER]
+        ],
+        'omo_09',
+        1
+    );
+
+    public mysteryNote = new ItemLocation(
+        KeyItem.MYSTERY_NOTE,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOW, KeyItem.TOY_TRAIN, KeyItem.FRYING_PAN, EquipUpgrade.HAMMER]
+        ],
+        'omo_09',
         1
     );
 

@@ -67,7 +67,6 @@ export class Player {
 
     private initializeKeyItems() {
         this.keyItems = Object.values(KeyItem)
-        this.keyItems.push(KeyItem.FORTRESS_KEY, KeyItem.FORTRESS_KEY, KeyItem.FORTRESS_KEY)
     }
 
     private initializeEquipUpgrades() {
