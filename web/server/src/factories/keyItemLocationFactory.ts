@@ -100,7 +100,7 @@ export class KeyItemLocationFactory {
             [Partner.BOMBETTE, Partner.PARAKARRY, EquipUpgrade.HAMMER],
             [EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2]
         ],
-        'trd_08',
+        'dro_02',
         1
     )
 
@@ -199,7 +199,7 @@ export class KeyItemLocationFactory {
     );
 
     public lunarStone = new ItemLocation(
-        KeyItem.PYRAMID_STONE,
+        KeyItem.LUNAR_STONE,
         ItemLocationType.KeyItem,
         [
             [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
@@ -430,10 +430,10 @@ export class KeyItemLocationFactory {
         KeyItem.MAGICAL_SEED_4,
         ItemLocationType.KeyItem,
         [
-            [Partner.WATT, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER3],
-            [Partner.SUSHIE, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER3, EquipUpgrade.BOOTS2],
+            [Partner.WATT, KeyItem.VOLCANO_VASE, EquipUpgrade.HAMMER],
+            [Partner.SUSHIE, KeyItem.VOLCANO_VASE, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2],
         ],
-        'mim_04',
+        'jan_03',
         3
     );
 
@@ -445,8 +445,80 @@ export class KeyItemLocationFactory {
         ],
         'jan_02',
         2
+    );
+
+    public ultraStone = new ItemLocation(
+        KeyItem.ULTRA_STONE,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.WATT, Partner.SUSHIE, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER],
+            [Partner.SUSHIE, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2],
+        ],
+        'jan_22',
+        2
     )
 
+    public volcanoVase = new ItemLocation(
+        KeyItem.VOLCANO_VASE,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.WATT, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER3],
+            [Partner.SUSHIE, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER3, EquipUpgrade.BOOTS2],
+        ],
+        'jan_04',
+        2
+    );
+
+    public magicalBean = new ItemLocation(
+        KeyItem.MAGICAL_BEAN,
+        ItemLocationType.KeyItem,
+        [
+            [KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, EquipUpgrade.HAMMER]
+        ],
+        'flo_03',
+        2
+    );
+
+    public fertileSoil = new ItemLocation(
+        KeyItem.FERTILE_SOIL,
+        ItemLocationType.KeyItem,
+        [
+            [KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, EquipUpgrade.HAMMER]
+        ],
+        'flo_07',
+        2
+    );
+
+    public crystalBerry = new ItemLocation(
+        KeyItem.CRYSTAL_BERRY,
+        ItemLocationType.KeyItem,
+        [
+            [KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, EquipUpgrade.HAMMER]
+        ],
+        'flo_07',
+        2
+    );
+
+    public waterStone = new ItemLocation(
+        KeyItem.WATER_STONE,
+        ItemLocationType.KeyItem,
+        [
+            [KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, KeyItem.CRYSTAL_BERRY, EquipUpgrade.HAMMER]
+        ],
+        'flo_12',
+        2
+    );
+
+    public miracleWater = new ItemLocation(
+        KeyItem.MIRACLE_WATER,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.PARAKARRY, Partner.SUSHIE, KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, KeyItem.WATER_STONE, EquipUpgrade.HAMMER],
+            [Partner.LAKILESTER, Partner.SUSHIE, KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, KeyItem.WATER_STONE, EquipUpgrade.HAMMER],
+        ],
+        'flo_10',
+        2
+    );
 
     static getInstance(): KeyItemLocationFactory {
         if (!KeyItemLocationFactory.instance) {
