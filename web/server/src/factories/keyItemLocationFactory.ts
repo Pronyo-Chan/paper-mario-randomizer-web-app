@@ -208,41 +208,6 @@ export class KeyItemLocationFactory {
         1
     );
 
-    public letter1 = new ItemLocation(
-        KeyItem.LETTER_01,
-        ItemLocationType.KeyItem,
-        [
-            [Partner.KOOPER, Partner.BOMBETTE, EquipUpgrade.HAMMER],
-            [Partner.PARAKARRY, Partner.BOMBETTE, EquipUpgrade.HAMMER],
-            [Partner.KOOPER, EquipUpgrade.HAMMER2],
-            [Partner.PARAKARRY, EquipUpgrade.HAMMER2],
-        ],
-        'iwa_01',
-        1
-    );
-
-    public letter10 = new ItemLocation(
-        KeyItem.LETTER_10,
-        ItemLocationType.KeyItem,
-        [
-            [Partner.BOMBETTE, EquipUpgrade.HAMMER],
-            [EquipUpgrade.HAMMER2]
-        ],
-        'iwa_04',
-        1
-    );
-
-    public letter25 = new ItemLocation(
-        KeyItem.LETTER_25,
-        ItemLocationType.KeyItem,
-        [
-            [Partner.BOMBETTE, EquipUpgrade.HAMMER],
-            [EquipUpgrade.HAMMER2]
-        ],
-        'iwa_03',
-        1
-    );
-
     public record = new ItemLocation(
         KeyItem.RECORD,
         ItemLocationType.KeyItem,
@@ -518,6 +483,244 @@ export class KeyItemLocationFactory {
         ],
         'flo_10',
         2
+    );
+
+    public warehouseKey = new ItemLocation(
+        KeyItem.WAREHOUSE_KEY,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
+        ],
+        'sam_11',
+        2
+    );
+
+    public bucket = new ItemLocation(
+        KeyItem.BUCKET,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, KeyItem.WAREHOUSE_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
+        ],
+        'sam_01',
+        2
+    );
+
+    public scarf = new ItemLocation(
+        KeyItem.SCARF,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, KeyItem.WAREHOUSE_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
+        ],
+        'sam_06',
+        2
+    );
+
+    public starStone = new ItemLocation(
+        KeyItem.STAR_STONE,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
+        ],
+        'sam_12',
+        2
+    );
+
+    public blueKey = new ItemLocation(
+        KeyItem.BLUE_KEY,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, KeyItem.STAR_STONE, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
+        ],
+        'pra_05',
+        2
+    );
+
+    public redKey = new ItemLocation(
+        KeyItem.RED_KEY,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, KeyItem.STAR_STONE, KeyItem.BLUE_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
+        ],
+        'pra_11',
+        2
+    );
+
+    public palaceKey = new ItemLocation(
+        KeyItem.PALACE_KEY,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, KeyItem.STAR_STONE, KeyItem.RED_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
+        ],
+        'pra_27',
+        2
+    );
+
+    public firstDegreeCard = new ItemLocation(
+        KeyItem.FIRST_DEGREE_CARD,
+        ItemLocationType.KeyItem,
+        [
+            [EquipUpgrade.HAMMER]
+        ],
+        'mac_00',
+        2
+    );
+
+    public secondDegreeCard = new ItemLocation(
+        KeyItem.SECOND_DEGREE_CARD,
+        ItemLocationType.KeyItem,
+        [
+            [EquipUpgrade.HAMMER]
+        ],
+        'mac_00',
+        2
+    );
+
+    public thirdDegreeCard = new ItemLocation(
+        KeyItem.THIRD_DEGREE_CARD,
+        ItemLocationType.KeyItem,
+        [
+            [EquipUpgrade.HAMMER2, EquipUpgrade.BOOTS2]
+        ],
+        'mac_00',
+        2
+    );
+
+    public fourthDegreeCard = new ItemLocation(
+        KeyItem.FOURTH_DEGREE_CARD,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, KeyItem.STAR_STONE, KeyItem.RED_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
+        ],
+        'mac_00',
+        2
+    );
+    
+    public diploma = new ItemLocation(
+        KeyItem.DIPLOMA,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, KeyItem.STAR_STONE, KeyItem.RED_KEY, KeyItem.PALACE_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
+        ],
+        'mac_00',
+        2
+    );
+
+    public oddKey = new ItemLocation(
+        KeyItem.ODD_KEY,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, EquipUpgrade.BOOTS3]
+        ],
+        'mac_02',
+        2
+    );
+
+    public letter1 = new ItemLocation(
+        KeyItem.LETTER_01,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.KOOPER, Partner.BOMBETTE, EquipUpgrade.HAMMER],
+            [Partner.PARAKARRY, Partner.BOMBETTE, EquipUpgrade.HAMMER],
+            [Partner.KOOPER, EquipUpgrade.HAMMER2],
+            [Partner.PARAKARRY, EquipUpgrade.HAMMER2],
+        ],
+        'iwa_01',
+        1
+    );
+
+    public letter3 = new ItemLocation(
+        KeyItem.LETTER_03,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.PARAKARRY, Partner.BOMBETTE, EquipUpgrade.HAMMER],
+            [EquipUpgrade.HAMMER2]
+        ],
+        'sbk_36',
+        1
+    );
+
+    public letter4 = new ItemLocation(
+        KeyItem.LETTER_04,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.WATT, Partner.SUSHIE, EquipUpgrade.HAMMER],
+            [Partner.SUSHIE, EquipUpgrade.BOOTS2, EquipUpgrade.HAMMER]
+        ],
+        'jan_04',
+        1
+    );
+
+    public letter5 = new ItemLocation(
+        KeyItem.LETTER_05,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, KeyItem.WAREHOUSE_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
+        ],
+        'sam_04',
+        1
+    );
+
+    public letter6 = new ItemLocation(
+        KeyItem.LETTER_06,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, KeyItem.WAREHOUSE_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
+        ],
+        'sam_05',
+        1
+    );
+
+    public letter7 = new ItemLocation(
+        KeyItem.LETTER_07,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.SUSHIE, KeyItem.BOOS_PORTRAIT, EquipUpgrade.HAMMER]
+        ],
+        'arn_02',
+        1
+    );
+
+    public letter8 = new ItemLocation(
+        KeyItem.LETTER_08,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.PARAKARRY, Partner.BOMBETTE, EquipUpgrade.HAMMER],
+            [EquipUpgrade.HAMMER2]
+        ],
+        'arn_02',
+        1
+    );
+
+    public letter9 = new ItemLocation(
+        KeyItem.LETTER_08,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.LAKILESTER, KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, EquipUpgrade.HAMMER],
+        ],
+        'flo_17',
+        1
+    );
+
+    public letter10 = new ItemLocation(
+        KeyItem.LETTER_10,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOMBETTE, EquipUpgrade.HAMMER],
+            [EquipUpgrade.HAMMER2]
+        ],
+        'iwa_04',
+        1
+    );
+
+    public letter25 = new ItemLocation(
+        KeyItem.LETTER_25,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.BOMBETTE, EquipUpgrade.HAMMER],
+            [EquipUpgrade.HAMMER2]
+        ],
+        'iwa_03',
+        1
     );
 
     static getInstance(): KeyItemLocationFactory {
