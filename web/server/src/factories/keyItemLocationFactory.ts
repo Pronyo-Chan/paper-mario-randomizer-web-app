@@ -687,7 +687,7 @@ export class KeyItemLocationFactory {
             [Partner.PARAKARRY, Partner.BOMBETTE, EquipUpgrade.HAMMER],
             [EquipUpgrade.HAMMER2]
         ],
-        'arn_02',
+        'dro_02',
         1
     );
 
@@ -709,6 +709,28 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER2]
         ],
         'iwa_04',
+        1
+    );
+
+    public letter11 = new ItemLocation(
+        KeyItem.LETTER_11,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.WATT, EquipUpgrade.HAMMER],
+            [Partner.SUSHIE, EquipUpgrade.BOOTS2],
+        ],
+        'jan_01',
+        1
+    );
+
+    public letter21 = new ItemLocation(
+        KeyItem.LETTER_21,
+        ItemLocationType.KeyItem,
+        [
+            [Partner.WATT, EquipUpgrade.HAMMER],
+            [Partner.SUSHIE, EquipUpgrade.BOOTS2],
+        ],
+        'mac_03',
         1
     );
 
