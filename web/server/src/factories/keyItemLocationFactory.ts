@@ -18,16 +18,68 @@ export class KeyItemLocationFactory {
             this.fortressKey2,
             this.fortressKey3,
             this.fortressKey4,
+            this.pulseStone,
+            this.ruinsKey1,
+            this.ruinsKey2,
             this.ruinsKey3,
-            this.letter1,
-            this.letter10,
-            this.letter25,
+            this.ruinsKey4,
+            this.artefact,
+            this.diamondStone,
+            this.pyramidStone,
+            this.lunarStone,
+            this.record,
+            this.weight,
+            this.boosPortrait,
+            this.castleKey1,
+            this.castleKey2,
+            this.castleKey3,
+            this.mysticalKey,
+            this.storeroomKey,
+            this.calculator,
+            this.toyTrain,
+            this.fryingPan,
+            this.mailBag,
+            this.cookbook,
+            this.dictionary,
+            this.mysteryNote,
             this.boosPortrait,
             this.magicalSeed1,
             this.magicalSeed2,
             this.magicalSeed3,
             this.magicalSeed4,
-            this.jadeRaven
+            this.jadeRaven,
+            this.ultraStone,
+            this.volcanoVase,
+            this.magicalBean,
+            this.fertileSoil,
+            this.crystalBerry,
+            this.waterStone,
+            this.miracleWater,
+            this.warehouseKey,
+            this.bucket,
+            this.scarf,
+            this.starStone,
+            this.blueKey,
+            this.redKey,
+            this.palaceKey,
+            this.firstDegreeCard,
+            this.secondDegreeCard,
+            this.thirdDegreeCard,
+            this.fourthDegreeCard,
+            this.diploma,
+            this.oddKey,
+            this.letter1,
+            this.letter3,
+            this.letter4,
+            this.letter5,
+            this.letter6,
+            this.letter7,
+            this.letter8,
+            this.letter9,
+            this.letter10,
+            this.letter11,
+            this.letter21,
+            this.letter25
         ]
     }
 
@@ -36,6 +88,7 @@ export class KeyItemLocationFactory {
         ItemLocationType.KeyItem,
         [[EquipUpgrade.HAMMER]],
         'kmr_04',
+        false,
         0
     );
 
@@ -44,6 +97,7 @@ export class KeyItemLocationFactory {
         ItemLocationType.KeyItem,
         [[EquipUpgrade.HAMMER]],
         'nok_04',
+        false,
         0
     );
 
@@ -52,6 +106,7 @@ export class KeyItemLocationFactory {
         ItemLocationType.KeyItem,
         [[Partner.KOOPER, EquipUpgrade.HAMMER]],
         'trd_01',
+        true,
         1
     );
 
@@ -65,7 +120,8 @@ export class KeyItemLocationFactory {
             [Partner.KOOPER, Partner.BOMBETTE, KeyItem.FORTRESS_KEY_4, EquipUpgrade.HAMMER],
         ],
         'trd_03',
-        1
+        true,
+        2
     );
 
     public fortressKey3 = new ItemLocation(
@@ -77,7 +133,8 @@ export class KeyItemLocationFactory {
             [Partner.KOOPER, KeyItem.FORTRESS_KEY_2, KeyItem.FORTRESS_KEY_3, KeyItem.FORTRESS_KEY_4, EquipUpgrade.HAMMER],
         ],
         'trd_03',
-        1
+        true,
+        3
     );
 
     public fortressKey4 = new ItemLocation(
@@ -90,6 +147,7 @@ export class KeyItemLocationFactory {
             [Partner.KOOPER, KeyItem.FORTRESS_KEY_4, EquipUpgrade.HAMMER],
         ],
         'trd_08',
+        true,
         1
     );
 
@@ -101,6 +159,7 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2]
         ],
         'dro_02',
+        true,
         1
     )
 
@@ -112,7 +171,8 @@ export class KeyItemLocationFactory {
             [KeyItem.PULSE_STONE, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2]
         ],
         'isk_03',
-        1
+        true,
+        2
     );
 
     public ruinsKey2 = new ItemLocation(
@@ -125,7 +185,8 @@ export class KeyItemLocationFactory {
             [Partner.BOMBETTE, Partner.PARAKARRY, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER]
         ],
         'isk_06',
-        1
+        true,
+        3
     );
 
     public ruinsKey3 = new ItemLocation(
@@ -144,7 +205,8 @@ export class KeyItemLocationFactory {
             [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
         ],
         'isk_07',
-        1
+        true,
+        3
     );
 
     public ruinsKey4 = new ItemLocation(
@@ -156,7 +218,8 @@ export class KeyItemLocationFactory {
             [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
         ],
         'isk_12',
-        1
+        true,
+        3
     );
 
     public artefact = new ItemLocation(
@@ -171,7 +234,8 @@ export class KeyItemLocationFactory {
             [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
         ],
         'isk_07',
-        1
+        false,
+        2
     );
 
     public diamondStone = new ItemLocation(
@@ -182,7 +246,8 @@ export class KeyItemLocationFactory {
             [Partner.BOMBETTE, KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_2, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
         ],
         'isk_14',
-        1
+        true,
+        2
     );
 
     public pyramidStone = new ItemLocation(
@@ -195,7 +260,8 @@ export class KeyItemLocationFactory {
             [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
         ],
         'isk_05',
-        1
+        true,
+        2
     );
 
     public lunarStone = new ItemLocation(
@@ -205,7 +271,8 @@ export class KeyItemLocationFactory {
             [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_1, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER, EquipUpgrade.HAMMER2],
         ],
         'isk_13',
-        1
+        true,
+        2
     );
 
     public record = new ItemLocation(
@@ -215,6 +282,7 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER],
         ],
         'obk_08',
+        false,
         1
     )
 
@@ -225,6 +293,7 @@ export class KeyItemLocationFactory {
             [KeyItem.RECORD, EquipUpgrade.HAMMER],
         ],
         'obk_07',
+        false,
         1
     );
 
@@ -235,6 +304,7 @@ export class KeyItemLocationFactory {
             [Partner.PARAKARRY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2],
         ],
         'obk_06',
+        true,
         1
     );
 
@@ -245,6 +315,7 @@ export class KeyItemLocationFactory {
             [Partner.PARAKARRY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2],
         ],
         'dgb_06',
+        false,
         1
     );
 
@@ -257,7 +328,8 @@ export class KeyItemLocationFactory {
             [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_3, EquipUpgrade.HAMMER],
         ],
         'dgb_12',
-        1
+        false,
+        2
     );
 
     public castleKey3 = new ItemLocation(
@@ -269,16 +341,18 @@ export class KeyItemLocationFactory {
             [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_1, KeyItem.CASTLE_KEY_3, EquipUpgrade.HAMMER]
         ],
         'dgb_16',
-        1
+        false,
+        2
     );
 
     public mysticalKey = new ItemLocation(
         KeyItem.MYSTICAL_KEY,
         ItemLocationType.KeyItem,
         [
-            [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_1, KeyItem.CASTLE_KEY_2, KeyItem.MYSTICAL_KEY, EquipUpgrade.HAMMER]
+            [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_1, KeyItem.CASTLE_KEY_2, KeyItem.CASTLE_KEY_3, KeyItem.MYSTICAL_KEY, EquipUpgrade.HAMMER]
         ],
         'dgb_18',
+        true,
         1
     );
 
@@ -289,7 +363,8 @@ export class KeyItemLocationFactory {
             [Partner.BOW, EquipUpgrade.HAMMER]
         ],
         'omo_04',
-        1
+        false,
+        0
     );
 
     public calculator = new ItemLocation(
@@ -299,7 +374,8 @@ export class KeyItemLocationFactory {
             [Partner.BOW, EquipUpgrade.HAMMER]
         ],
         'omo_01',
-        1
+        false,
+        0
     );
 
     public toyTrain = new ItemLocation(
@@ -309,7 +385,8 @@ export class KeyItemLocationFactory {
             [KeyItem.STOREROOM_KEY, EquipUpgrade.HAMMER]
         ],
         'mac_04',
-        1
+        true,
+        0
     );
 
     public fryingPan = new ItemLocation(
@@ -319,6 +396,7 @@ export class KeyItemLocationFactory {
             [Partner.BOW, KeyItem.TOY_TRAIN, EquipUpgrade.HAMMER]
         ],
         'omo_07',
+        true,
         1
     );
 
@@ -329,6 +407,7 @@ export class KeyItemLocationFactory {
             [Partner.BOW, KeyItem.TOY_TRAIN, EquipUpgrade.HAMMER]
         ],
         'omo_06',
+        false,
         1
     );
 
@@ -339,6 +418,7 @@ export class KeyItemLocationFactory {
             [Partner.BOW, KeyItem.TOY_TRAIN, KeyItem.FRYING_PAN, EquipUpgrade.HAMMER]
         ],
         'omo_05',
+        false,
         1
     );
 
@@ -349,7 +429,8 @@ export class KeyItemLocationFactory {
             [Partner.BOW, Partner.PARAKARRY, KeyItem.TOY_TRAIN, KeyItem.FRYING_PAN, EquipUpgrade.HAMMER]
         ],
         'omo_09',
-        1
+        false,
+        2
     );
 
     public mysteryNote = new ItemLocation(
@@ -359,6 +440,7 @@ export class KeyItemLocationFactory {
             [Partner.BOW, KeyItem.TOY_TRAIN, KeyItem.FRYING_PAN, EquipUpgrade.HAMMER]
         ],
         'omo_09',
+        false,
         1
     );
 
@@ -369,7 +451,8 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER],
         ],
         'mac_02',
-        1
+        true,
+        0
     );
 
     public magicalSeed2 = new ItemLocation(
@@ -380,14 +463,16 @@ export class KeyItemLocationFactory {
             [Partner.PARAKARRY, EquipUpgrade.HAMMER2],
         ],
         'iwa_02',
+        true,
         1
     );
 
     public magicalSeed3 = new ItemLocation(
         KeyItem.MAGICAL_SEED_3,
         ItemLocationType.KeyItem,
-        [[]],
+        [[EquipUpgrade.HAMMER]],
         'mim_04',
+        true,
         0
     );
 
@@ -399,7 +484,8 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, KeyItem.VOLCANO_VASE, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2],
         ],
         'jan_03',
-        3
+        true,
+        2
     );
 
     public jadeRaven = new ItemLocation(
@@ -409,7 +495,8 @@ export class KeyItemLocationFactory {
             [Partner.BOMBETTE, Partner.WATT, Partner.SUSHIE, EquipUpgrade.HAMMER]
         ],
         'jan_02',
-        2
+        true,
+        1
     );
 
     public ultraStone = new ItemLocation(
@@ -420,6 +507,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2],
         ],
         'jan_22',
+        false,
         2
     )
 
@@ -431,6 +519,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER3, EquipUpgrade.BOOTS2],
         ],
         'jan_04',
+        false,
         2
     );
 
@@ -441,7 +530,8 @@ export class KeyItemLocationFactory {
             [KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, EquipUpgrade.HAMMER]
         ],
         'flo_03',
-        2
+        true,
+        3
     );
 
     public fertileSoil = new ItemLocation(
@@ -451,7 +541,8 @@ export class KeyItemLocationFactory {
             [KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, EquipUpgrade.HAMMER]
         ],
         'flo_07',
-        2
+        true,
+        4
     );
 
     public crystalBerry = new ItemLocation(
@@ -461,7 +552,8 @@ export class KeyItemLocationFactory {
             [KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, EquipUpgrade.HAMMER]
         ],
         'flo_07',
-        2
+        false,
+        3
     );
 
     public waterStone = new ItemLocation(
@@ -471,7 +563,8 @@ export class KeyItemLocationFactory {
             [KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, KeyItem.CRYSTAL_BERRY, EquipUpgrade.HAMMER]
         ],
         'flo_12',
-        2
+        false,
+        3
     );
 
     public miracleWater = new ItemLocation(
@@ -482,7 +575,8 @@ export class KeyItemLocationFactory {
             [Partner.LAKILESTER, Partner.SUSHIE, KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, KeyItem.WATER_STONE, EquipUpgrade.HAMMER],
         ],
         'flo_10',
-        2
+        true,
+        3
     );
 
     public warehouseKey = new ItemLocation(
@@ -492,6 +586,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
         ],
         'sam_11',
+        true,
         2
     );
 
@@ -502,6 +597,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, KeyItem.WAREHOUSE_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
         ],
         'sam_01',
+        true,
         2
     );
 
@@ -512,6 +608,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, KeyItem.WAREHOUSE_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
         ],
         'sam_06',
+        true,
         2
     );
 
@@ -522,7 +619,8 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
         ],
         'sam_12',
-        2
+        true,
+        3
     );
 
     public blueKey = new ItemLocation(
@@ -532,7 +630,8 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, KeyItem.STAR_STONE, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
         ],
         'pra_05',
-        2
+        false,
+        3
     );
 
     public redKey = new ItemLocation(
@@ -542,7 +641,8 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, KeyItem.STAR_STONE, KeyItem.BLUE_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
         ],
         'pra_11',
-        2
+        true,
+        3
     );
 
     public palaceKey = new ItemLocation(
@@ -552,7 +652,8 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, KeyItem.STAR_STONE, KeyItem.RED_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
         ],
         'pra_27',
-        2
+        true,
+        3
     );
 
     public firstDegreeCard = new ItemLocation(
@@ -562,7 +663,8 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER]
         ],
         'mac_00',
-        2
+        false,
+        0
     );
 
     public secondDegreeCard = new ItemLocation(
@@ -572,7 +674,8 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER]
         ],
         'mac_00',
-        2
+        false,
+        0
     );
 
     public thirdDegreeCard = new ItemLocation(
@@ -582,7 +685,8 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER2, EquipUpgrade.BOOTS2]
         ],
         'mac_00',
-        2
+        false,
+        1
     );
 
     public fourthDegreeCard = new ItemLocation(
@@ -592,6 +696,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, KeyItem.STAR_STONE, KeyItem.RED_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
         ],
         'mac_00',
+        false,
         2
     );
     
@@ -602,6 +707,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, KeyItem.STAR_STONE, KeyItem.RED_KEY, KeyItem.PALACE_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
         ],
         'mac_00',
+        false,
         2
     );
 
@@ -612,6 +718,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, EquipUpgrade.BOOTS3]
         ],
         'mac_02',
+        false,
         2
     );
 
@@ -625,6 +732,7 @@ export class KeyItemLocationFactory {
             [Partner.PARAKARRY, EquipUpgrade.HAMMER2],
         ],
         'iwa_01',
+        false,
         1
     );
 
@@ -636,6 +744,7 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER2]
         ],
         'sbk_36',
+        false,
         1
     );
 
@@ -647,6 +756,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, EquipUpgrade.BOOTS2, EquipUpgrade.HAMMER]
         ],
         'jan_04',
+        false,
         1
     );
 
@@ -657,6 +767,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, KeyItem.WAREHOUSE_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
         ],
         'sam_04',
+        false,
         1
     );
 
@@ -667,6 +778,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, KeyItem.WAREHOUSE_KEY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
         ],
         'sam_05',
+        false,
         1
     );
 
@@ -677,6 +789,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, KeyItem.BOOS_PORTRAIT, EquipUpgrade.HAMMER]
         ],
         'arn_02',
+        false,
         1
     );
 
@@ -688,6 +801,7 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER2]
         ],
         'dro_02',
+        false,
         1
     );
 
@@ -698,7 +812,8 @@ export class KeyItemLocationFactory {
             [Partner.LAKILESTER, KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, EquipUpgrade.HAMMER],
         ],
         'flo_17',
-        1
+        false,
+        2
     );
 
     public letter10 = new ItemLocation(
@@ -709,6 +824,7 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER2]
         ],
         'iwa_04',
+        false,
         1
     );
 
@@ -720,6 +836,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, EquipUpgrade.BOOTS2],
         ],
         'jan_01',
+        false,
         1
     );
 
@@ -731,6 +848,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, EquipUpgrade.BOOTS2],
         ],
         'mac_03',
+        false,
         1
     );
 
@@ -742,6 +860,7 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER2]
         ],
         'iwa_03',
+        false,
         1
     );
 

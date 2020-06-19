@@ -25,6 +25,7 @@ export class PartnerLocationFactory {
         ItemLocationType.Partner,
         [[EquipUpgrade.HAMMER]],
         'kmr_02',
+        false,
         0      
     );
 
@@ -33,6 +34,7 @@ export class PartnerLocationFactory {
         ItemLocationType.Partner,
         [[KeyItem.KOOPER_SHELL, EquipUpgrade.HAMMER]],
         'nok_04',
+        true,
         0
     )
 
@@ -52,6 +54,7 @@ export class PartnerLocationFactory {
             [Partner.KOOPER, Partner.BOMBETTE, EquipUpgrade.HAMMER, KeyItem.FORTRESS_KEY_4],
         ],
         'trd_06',
+        true,
         1
     )
 
@@ -63,6 +66,7 @@ export class PartnerLocationFactory {
             [KeyItem.LETTER_01, KeyItem.LETTER_10, KeyItem.LETTER_25, EquipUpgrade.HAMMER2]
         ],
         'iwa_10',
+        true,
         2
     )
 
@@ -71,14 +75,16 @@ export class PartnerLocationFactory {
         ItemLocationType.Partner,
         [[KeyItem.BOOS_PORTRAIT, EquipUpgrade.HAMMER]],
         'obk_09',
+        true,
         1
     )
 
     public watt = new ItemLocation(
         Partner.WATT,
         ItemLocationType.Partner,
-        [[Partner.BOW, KeyItem.TOY_TRAIN, KeyItem.CAKE]],
+        [[Partner.BOW, KeyItem.TOY_TRAIN, KeyItem.FRYING_PAN]],
         'omo_12',
+        true,
         1
     )
 
@@ -90,6 +96,7 @@ export class PartnerLocationFactory {
             [Partner.SUSHIE, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2]
         ],
         'jan_04',
+        true,
         1
     )
 
@@ -121,6 +128,7 @@ export class PartnerLocationFactory {
             ]
         ],
         'flo_13',
+        true,
         3
     )
 

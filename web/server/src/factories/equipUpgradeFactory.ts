@@ -24,6 +24,7 @@ export class EquipUpgradeLocationFactory {
         ItemLocationType.EquipUpgrade,
         [[]],
         'kmr_04',
+        true,
         0
     );
 
@@ -39,6 +40,7 @@ export class EquipUpgradeLocationFactory {
             [KeyItem.PULSE_STONE, KeyItem.RUINS_KEY_2, KeyItem.RUINS_KEY_3, KeyItem.RUINS_KEY_4, EquipUpgrade.HAMMER2],
         ],
         'isk_09',
+        true,
         2
     );
 
@@ -52,6 +54,7 @@ export class EquipUpgradeLocationFactory {
             [Partner.SUSHIE, Partner.LAKILESTER, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2]
         ],
         'kzn_07',
+        true,
         2
     );
 
@@ -60,6 +63,7 @@ export class EquipUpgradeLocationFactory {
         ItemLocationType.EquipUpgrade,
         [[KeyItem.WEIGHT, EquipUpgrade.HAMMER]],
         'obk_04',
+        true,
         1
     );
 
@@ -68,6 +72,7 @@ export class EquipUpgradeLocationFactory {
         ItemLocationType.EquipUpgrade,
         [[Partner.SUSHIE, Partner.LAKILESTER, EquipUpgrade.HAMMER3]],
         'tik_25',
+        true,
         2
     );
 
