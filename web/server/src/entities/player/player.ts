@@ -45,6 +45,14 @@ export class Player {
         return equipsToRemove.map(i => i.originalName as EquipUpgrade);
     }
 
+    public removePartnersLockedBehindObject(object: Partner | KeyItem | EquipUpgrade) : Partner[] {
+        const partnersToRemove = this.partnerLocationFactory.getAllPartnerLocations()
+            .filter(location => this.hasObject(location.originalName)
+            && location.requirements.every(reqSet => reqSet.some(r => r === object)));
+        this.equipUpgrades = this.equipUpgrades.filter(eq => !partnersToRemove.some(etr => etr.originalName === eq))
+        return partnersToRemove.map(i => i.originalName as Partner);
+    }
+
     public isAbleToReachLocation(itemLocation: ItemLocation) {
         for (var i=0; i < itemLocation.requirements.length; i++) {
             var requirements = itemLocation.requirements[i];

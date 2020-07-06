@@ -10,7 +10,7 @@ export class ItemLocation {
         public type: ItemLocationType,
         public requirements: (KeyItem | Partner | EquipUpgrade)[][],
         public locationName: string,
-        public isRequiredItem: boolean,
+        public isProgressionItem: boolean,
         public difficulty: number
     ) {
 

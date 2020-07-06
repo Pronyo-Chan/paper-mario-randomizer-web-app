@@ -97,7 +97,7 @@ export class KeyItemLocationFactory {
         ItemLocationType.KeyItem,
         [[EquipUpgrade.HAMMER]],
         'nok_04',
-        false,
+        true,
         0
     );
 
@@ -282,7 +282,7 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER],
         ],
         'obk_08',
-        false,
+        true,
         1
     )
 
@@ -293,7 +293,7 @@ export class KeyItemLocationFactory {
             [KeyItem.RECORD, EquipUpgrade.HAMMER],
         ],
         'obk_07',
-        false,
+        true,
         1
     );
 
@@ -315,7 +315,7 @@ export class KeyItemLocationFactory {
             [Partner.PARAKARRY, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS2],
         ],
         'dgb_06',
-        false,
+        true,
         1
     );
 
@@ -328,7 +328,7 @@ export class KeyItemLocationFactory {
             [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_3, EquipUpgrade.HAMMER],
         ],
         'dgb_12',
-        false,
+        true,
         2
     );
 
@@ -341,7 +341,7 @@ export class KeyItemLocationFactory {
             [Partner.PARAKARRY, Partner.BOW, KeyItem.CASTLE_KEY_1, KeyItem.CASTLE_KEY_3, EquipUpgrade.HAMMER]
         ],
         'dgb_16',
-        false,
+        true,
         2
     );
 
@@ -363,7 +363,7 @@ export class KeyItemLocationFactory {
             [Partner.BOW, EquipUpgrade.HAMMER]
         ],
         'omo_04',
-        false,
+        true,
         0
     );
 
@@ -519,7 +519,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, KeyItem.JADE_RAVEN, EquipUpgrade.HAMMER3, EquipUpgrade.BOOTS2],
         ],
         'jan_04',
-        false,
+        true,
         2
     );
 
@@ -552,7 +552,7 @@ export class KeyItemLocationFactory {
             [KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, EquipUpgrade.HAMMER]
         ],
         'flo_07',
-        false,
+        true,
         3
     );
 
@@ -563,7 +563,7 @@ export class KeyItemLocationFactory {
             [KeyItem.MAGICAL_SEED_1, KeyItem.MAGICAL_SEED_2, KeyItem.MAGICAL_SEED_3, KeyItem.MAGICAL_SEED_4, KeyItem.CRYSTAL_BERRY, EquipUpgrade.HAMMER]
         ],
         'flo_12',
-        false,
+        true,
         3
     );
 
@@ -630,7 +630,7 @@ export class KeyItemLocationFactory {
             [Partner.SUSHIE, Partner.KOOPER, Partner.BOMBETTE, KeyItem.WAREHOUSE_KEY, KeyItem.SCARF, KeyItem.BUCKET, KeyItem.STAR_STONE, EquipUpgrade.HAMMER, EquipUpgrade.BOOTS3]
         ],
         'pra_05',
-        false,
+        true,
         3
     );
 
@@ -732,7 +732,7 @@ export class KeyItemLocationFactory {
             [Partner.PARAKARRY, EquipUpgrade.HAMMER2],
         ],
         'iwa_01',
-        false,
+        true,
         1
     );
 
@@ -824,7 +824,7 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER2]
         ],
         'iwa_04',
-        false,
+        true,
         1
     );
 
@@ -860,7 +860,7 @@ export class KeyItemLocationFactory {
             [EquipUpgrade.HAMMER2]
         ],
         'iwa_03',
-        false,
+        true,
         1
     );
 
