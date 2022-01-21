@@ -1,0 +1,36 @@
+:host {
+    
+    .mario-title {
+        font-family: SuperMario; 
+        font-size: 4rem;
+        color: #cf2b13;
+        text-shadow: -2px 2px 0 #000, 2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000;
+        text-align: center;
+        margin: 2rem;
+
+     }
+
+     .settings-card {
+         margin: 1rem;
+
+         .settings-title {
+            background-color: #B48B31;
+            font-family: SuperMario;
+            font-size: 2rem;
+            text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+            padding-left: 1rem;
+            color: rgb(255, 255, 255);
+            padding: 1rem;
+            
+         }
+
+         .settings-card-content {
+             margin: 1rem;
+         }
+         
+         ::ng-deep .mat-slide-toggle-content {
+             font-family: popjoy;
+         }
+         
+     }
+}
