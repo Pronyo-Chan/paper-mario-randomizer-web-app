@@ -11,7 +11,7 @@
      }
 
      .settings-card {
-         margin: 1rem;
+         margin: 4rem;
          background-color: #E2E1D8;
 
          .settings-title {
@@ -27,10 +27,24 @@
 
          ::ng-deep .settings-card-content {
              margin: 1rem;
-         }
-         
-         ::ng-deep .mat-slide-toggle-content {
-             font-family: popjoy;
+             display: flex;
+             flex-wrap: wrap;
+
+             .settings-label {
+                font-family: popjoy;
+                margin-left: 4px;
+             }
+
+             .setting-element {
+                 width: 50%;
+                 margin-bottom: 8px;
+
+                 
+             }
+
+             .full-width-element {
+                width: 100%;
+             }
          }
          
      }

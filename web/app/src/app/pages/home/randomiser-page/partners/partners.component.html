@@ -1,3 +1,64 @@
-<mat-card-content class=settings-card-content>
-    <mat-slide-toggle>Partners in default locations</mat-slide-toggle>
-</mat-card-content>
+<form [formGroup]="partnersFormGroup">
+    <mat-card-content class=settings-card-content>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='partnersInDefaultLocations'></mat-slide-toggle>
+            <span class="settings-label">Partners in Default Locations</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='partnersAlwaysUsable'></mat-slide-toggle>
+            <span class="settings-label">Partners Always Usable</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="setting-element full-width-element">
+            <mat-slide-toggle formControlName='startWithRandomPartners'></mat-slide-toggle>
+            <span class="settings-label">Start With Random Partners</span>
+        </div>
+        <ng-container *ngIf="partnersFormGroup.get('startWithRandomPartners').value === true; else fixedPartnersTemplate">
+            <div class="setting-element">
+                <input matInput type="number" min="0" max="8" formControlName='randomPartnersMin'>
+                <span class="settings-label">Min number of starting partners</span>
+            </div>
+            <div class="setting-element">
+                <input matInput type="number" min="0" max="8" formControlName='randomPartnersMax'>
+                <span class="settings-label">Max number of starting partners</span>
+            </div>
+        </ng-container>
+        <ng-template #fixedPartnersTemplate>
+            <form [formGroup]="partnersFormGroup.get('startWithPartners')" class="full-width-element">
+                <div class="setting-element">
+                    <mat-checkbox formControlName='goombario'></mat-checkbox>
+                    <span class="settings-label">Goombario</span>
+                </div>
+                <div class="setting-element">
+                    <mat-checkbox formControlName='kooper'></mat-checkbox>
+                    <span class="settings-label">Kooper</span>
+                </div>
+                <div class="setting-element">
+                    <mat-checkbox formControlName='bombette'></mat-checkbox>
+                    <span class="settings-label">Bombette</span>
+                </div>
+                <div class="setting-element">
+                    <mat-checkbox formControlName='parakarry'></mat-checkbox>
+                    <span class="settings-label">Parakarry</span>
+                </div>
+                <div class="setting-element">
+                    <mat-checkbox formControlName='bow'></mat-checkbox>
+                    <span class="settings-label">Bow</span>
+                </div>
+                <div class="setting-element">
+                    <mat-checkbox formControlName='watt'></mat-checkbox>
+                    <span class="settings-label">Watt</span>
+                </div>
+                <div class="setting-element">
+                    <mat-checkbox formControlName='sushie'></mat-checkbox>
+                    <span class="settings-label">Sushie</span>
+                </div><div class="setting-element">
+                    <mat-checkbox formControlName='lakilester'></mat-checkbox>
+                    <span class="settings-label">Lakilester</span>
+                </div>
+            </form>
+        </ng-template>
+        
+ 
+    </mat-card-content>
+</form>

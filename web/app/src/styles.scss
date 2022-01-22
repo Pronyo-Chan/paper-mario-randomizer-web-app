@@ -51,6 +51,12 @@
   
   .mat-ink-bar {
     background-color: white !important;
+    height: 4px !important;
+  }
+
+  .mat-divider-horizontal {
+    position: relative !important;
+    margin: 12px !important;
   }
   
 html, body { height: 100%; }

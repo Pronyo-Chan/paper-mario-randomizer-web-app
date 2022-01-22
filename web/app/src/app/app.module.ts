@@ -6,6 +6,9 @@ import { MatCardModule } from '@angular/material/card'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatTabsModule } from '@angular/material/tabs'
 import { MatButtonModule } from '@angular/material/button'
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatInputModule } from '@angular/material/input'
+import { MatDividerModule } from '@angular/material/divider'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,7 +38,10 @@ import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
     MatTabsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

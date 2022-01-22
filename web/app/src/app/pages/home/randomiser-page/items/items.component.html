@@ -1,5 +1,28 @@
 <form [formGroup]="itemFormGroup">
     <mat-card-content class=settings-card-content>
-        <mat-slide-toggle formControlName='shuffleItems'>Shuffle Items</mat-slide-toggle>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='shuffleItems'></mat-slide-toggle>
+            <span class="settings-label">Shuffle Items</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='includeCoins'></mat-slide-toggle>
+            <span class="settings-label">Include Coins</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='includeShops'></mat-slide-toggle>
+            <span class="settings-label">Include Shops</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='includePanels'></mat-slide-toggle>
+            <span class="settings-label">Include Panels</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='includeFavors'></mat-slide-toggle>
+            <span class="settings-label">Include Favors</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='keyitemsOutsideDungeon'></mat-slide-toggle>
+            <span class="settings-label">Key Items Oustside of Dungeons</span>
+        </div>   
     </mat-card-content>
 </form>
