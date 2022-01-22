@@ -1,25 +1,29 @@
 import { PatcherRepository } from '../../../repositories/patcher-repository/patcher.repository';
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, of, Subscription } from 'rxjs';
 import {tap, take} from 'rxjs/operators'
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomValidators } from '../../../utilities/custom.validators'
 
 @Component({
   selector: 'app-patcher',
   templateUrl: './randomiser-page.component.html',
   styleUrls: ['./randomiser-page.component.scss']
 })
-export class RandomiserPageComponent implements OnInit {
+export class RandomiserPageComponent implements OnInit, OnDestroy {
 
   public formGroup: FormGroup
+  randomPartnersMinSubscription: Subscription;
   public constructor(private _patcherRepo: PatcherRepository) { }
 
   public ngOnInit(): void {
     this.initFormGroup();
     console.log(this.formGroup)
-
   }
 
+  public ngOnDestroy(): void {
+    this.randomPartnersMinSubscription.unsubscribe();
+  }
   public onSubmit(): void {
     console.log(this.formGroup)
   }
@@ -44,8 +48,8 @@ export class RandomiserPageComponent implements OnInit {
         partnersInDefaultLocations: new FormControl(false),
         partnersAlwaysUsable: new FormControl(false),
         startWithRandomPartners: new FormControl(false),
-        randomPartnersMin: new FormControl(1),
-        randomPartnersMax: new FormControl(8),
+        randomPartnersMin: new FormControl(1, [Validators.min(0), Validators.max(8)]),
+        randomPartnersMax: new FormControl(8, [Validators.min(0), Validators.max(8), CustomValidators.greaterOrEqualTo('randomPartnersMin')]),
         startWithPartners: new FormGroup({
           goombario: new FormControl(false),
           kooper: new FormControl(false),
@@ -85,5 +89,9 @@ export class RandomiserPageComponent implements OnInit {
         whaleOpen: new FormControl(false)
       }),
     });
+
+    this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(
+      tap(() => this.formGroup.get('partners').get('randomPartnersMax').updateValueAndValidity())
+      ).subscribe();
   }
 }
