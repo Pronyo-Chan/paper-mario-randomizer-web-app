@@ -22,7 +22,12 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "optimization": false,
+            "sourceMap": true,
+            "namedChunks": true,
+            "extractLicenses": false,
+            "vendorChunk": false,
+            "buildOptimizer": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -62,25 +67,12 @@
               ]
             },
             "development": {
-              "optimization": true,
-              "outputHashing": "all",
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
+              "namedChunks": true
             }
           }
         },
@@ -95,9 +87,10 @@
               "browserTarget": "paper-mario-randomizer-app:build:production"
             },
             "development": {
-              "browserTarget": "paper-mario-randomizer-app:build:dev"
+              "browserTarget": "paper-mario-randomizer-app:build:development"
             }
-          }
+          },          
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -121,19 +114,6 @@
               "src/styles.scss"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         },
         "e2e": {
