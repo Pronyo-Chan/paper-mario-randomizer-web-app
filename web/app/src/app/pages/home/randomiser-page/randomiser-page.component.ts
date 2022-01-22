@@ -65,16 +65,17 @@ export class RandomiserPageComponent implements OnInit, OnDestroy {
         shuffleChapterDifficulty: new FormControl(false),
         randomFormations: new FormControl(false),
         randomQuiz: new FormControl(false),
-        skipQuiz: new FormControl(false),
-        colorA: new FormControl(false),
-        colorB: new FormControl(false),
-        randomCoinPalette: new FormControl(false),      
+        randomCoinPalette: new FormControl(false)
+      }),
+      qualityOfLife: new FormGroup({  
         blocksMatchContent: new FormControl(false),      
         alwaysSpeedySpin: new FormControl(false),      
         alwaysISpy: new FormControl(false),      
-        alwaysPeekaboo: new FormControl(false),      
+        alwaysPeekaboo: new FormControl(false),        
+        skipQuiz: new FormControl(false)      
       }),
       difficulty: new FormGroup({
+        initialCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]),
         capEnemyXP: new FormControl(false),
         noXP: new FormControl(false),
         damageMultiplier: new FormControl(1),

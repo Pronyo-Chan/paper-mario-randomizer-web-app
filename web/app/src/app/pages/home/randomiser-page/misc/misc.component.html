@@ -1,1 +1,20 @@
-<p>misc works!</p>
+<form [formGroup]="miscFormGroup">
+    <mat-card-content class=settings-card-content>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='shuffleChapterDifficulty'></mat-slide-toggle>
+            <span class="settings-label">Shuffle Chapter Difficulty</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='randomFormations'></mat-slide-toggle>
+            <span class="settings-label">Shuffle Battle Formations</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='randomQuiz'></mat-slide-toggle>
+            <span class="settings-label">Shuffle Quiz Questions</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='randomCoinPalette'></mat-slide-toggle>
+            <span class="settings-label">Random Coin Palette</span>
+        </div>
+    </mat-card-content>
+</form>

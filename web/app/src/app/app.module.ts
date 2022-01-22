@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatInputModule } from '@angular/material/input'
 import { MatDividerModule } from '@angular/material/divider'
+import { MatSelectModule } from '@angular/material/select'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,9 @@ import { PartnersComponent } from './pages/home/randomiser-page/partners/partner
 import { BadgesAndMovesComponent } from './pages/home/randomiser-page/badges-and-moves/badges-and-moves.component';
 import { MiscComponent } from './pages/home/randomiser-page/misc/misc.component';
 import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { OpenWorldSettingsComponent } from './pages/home/randomiser-page/open-world-settings/open-world-settings.component';
+import { DifficultySettingsComponent } from './pages/home/randomiser-page/difficulty-settings/difficulty-settings.component';
+import { QolSettingsComponent } from './pages/home/qol-settings/qol-settings.component';
 
 
 @NgModule({
@@ -27,7 +31,10 @@ import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
     ItemsComponent,
     PartnersComponent,
     BadgesAndMovesComponent,
-    MiscComponent
+    MiscComponent,
+    OpenWorldSettingsComponent,
+    DifficultySettingsComponent,
+    QolSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,8 @@ import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

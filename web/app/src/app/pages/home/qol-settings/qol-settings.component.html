@@ -1,0 +1,24 @@
+<form [formGroup]="qualityOfLifeFormGroup">
+    <mat-card-content class=settings-card-content>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='blocksMatchContent'></mat-slide-toggle>
+            <span class="settings-label">Blocks Match Content</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='alwaysSpeedySpin'></mat-slide-toggle>
+            <span class="settings-label">Always Speedy Spin</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='alwaysISpy'></mat-slide-toggle>
+            <span class="settings-label">Always ISpy</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='alwaysPeekaboo'></mat-slide-toggle>
+            <span class="settings-label">Always Peekaboo</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='skipQuiz'></mat-slide-toggle>
+            <span class="settings-label">Skip Quiz</span>
+        </div>
+    </mat-card-content>
+</form>

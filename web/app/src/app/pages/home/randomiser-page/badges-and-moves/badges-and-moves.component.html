@@ -1,1 +1,20 @@
-<p>badges-and-moves works!</p>
+<form [formGroup]="badgesAndMovesFormGroup">
+    <mat-card-content class=settings-card-content>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='shuffleBadgesBP'></mat-slide-toggle>
+            <span class="settings-label">Shuffle Badges BP</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='shuffleBadgesFP'></mat-slide-toggle>
+            <span class="settings-label">Shuffle Badges FP</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='shufflePartnerFP'></mat-slide-toggle>
+            <span class="settings-label">Shuffle Partner FP</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='shuffleStarpowerSP'></mat-slide-toggle>
+            <span class="settings-label">Shuffle StarPower SP</span>
+        </div> 
+    </mat-card-content>
+</form>

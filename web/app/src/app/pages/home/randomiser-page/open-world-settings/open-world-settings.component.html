@@ -1,0 +1,20 @@
+<form [formGroup]="openLocationsFormGroup">
+    <mat-card-content class=settings-card-content>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='flowerGateOpen'></mat-slide-toggle>
+            <span class="settings-label">Open Flower Gate</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='blueHouseOpen'></mat-slide-toggle>
+            <span class="settings-label">Open Blue House</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='toyboxOpen'></mat-slide-toggle>
+            <span class="settings-label">Open ToyBox</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='whaleOpen'></mat-slide-toggle>
+            <span class="settings-label">Open Whale</span>
+        </div>
+    </mat-card-content>
+</form>

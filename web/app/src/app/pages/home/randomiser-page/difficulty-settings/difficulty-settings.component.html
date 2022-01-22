@@ -1,0 +1,45 @@
+<form [formGroup]="difficultyFormGroup">
+    <mat-card-content class=settings-card-content>
+        <div class="setting-element">
+            <input matInput type="number" min="0" max="999" formControlName='initialCoins'>
+            <span class="settings-label">Initial Coins</span>
+        </div>
+        <div class="setting-element">
+            <select formControlName='damageMultiplier'>
+                <option [value]="'1'">1x</option>
+                <option [value]="'2'">2x</option>
+                <option [value]="'4'">4x</option>
+            </select>
+            <span class="settings-label">Damage Multiplier</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>
+            <span class="settings-label">Cap Enemy XP</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='noXP'></mat-slide-toggle>
+            <span class="settings-label">No XP</span>
+        </div>
+        
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='oneHitKO'></mat-slide-toggle>
+            <span class="settings-label">One Hit KO</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='noSaveBlocks'></mat-slide-toggle>
+            <span class="settings-label">No Save Blocks</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='noHeartBlocks'></mat-slide-toggle>
+            <span class="settings-label">No Heart Blocks</span>
+        </div>
+        
+    </mat-card-content>
+    <ul *ngIf="difficultyFormGroup.invalid">
+        <mat-divider></mat-divider>
+        <li *ngIf="difficultyFormGroup.get('initialCoins').errors">
+            Initial Coins must be a value between 0 and 999
+        </li>
+
+    </ul>
+</form>
