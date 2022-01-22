@@ -12,6 +12,7 @@
 
      .settings-card {
          margin: 1rem;
+         background-color: #E2E1D8;
 
          .settings-title {
             background-color: #B48B31;
@@ -24,7 +25,7 @@
             
          }
 
-         .settings-card-content {
+         ::ng-deep .settings-card-content {
              margin: 1rem;
          }
          
@@ -33,4 +34,12 @@
          }
          
      }
+
+     button {
+        background-color: #B48B31;
+        margin: 1rem;
+        font-family: popjoy !important;
+        color: white !important;
+        text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+      }
 }

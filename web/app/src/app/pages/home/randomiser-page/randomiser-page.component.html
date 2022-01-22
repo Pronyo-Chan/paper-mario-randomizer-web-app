@@ -1,10 +1,23 @@
-<div class="main-page">
-    <h1 class="mario-title">Paper Mario Randomizer</h1>
-    <mat-card class="settings-card">
-        <mat-card-title class="settings-title">Randomiser Settings</mat-card-title>
-        <mat-card-content class=settings-card-content>
-            <mat-slide-toggle>Shuffle Items</mat-slide-toggle>
-        </mat-card-content>
-    </mat-card>
-
-</div>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="main-page">
+        <h1 class="mario-title">Paper Mario Randomizer</h1>
+        <mat-card class="settings-card">
+            <mat-card-title class="settings-title">Randomiser Settings</mat-card-title>
+            <mat-tab-group>
+                <mat-tab label="Items" class="items-tab">
+                <app-items [itemFormGroup]="formGroup.get('items')"></app-items>
+                </mat-tab>
+                <mat-tab label="Partners">
+                    <app-partners></app-partners>
+                </mat-tab>
+                <mat-tab label="Badges / Moves">
+                    <app-badges-and-moves></app-badges-and-moves>
+                </mat-tab>
+                <mat-tab label="Misc">
+                    <app-misc></app-misc>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card>
+    </div>
+    <button mat-raised-button color="accent" type="submit">Patch</button>
+</form>

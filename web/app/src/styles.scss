@@ -11,6 +11,47 @@
     src: url(assets/Fonts/SuperMario.ttf) format("opentype");
   }
 
+  #mat-tab-label-0-0 {
+    opacity: 1;
+    background-color: #18224a !important;
+    &.mat-tab-label-active{
+        background-color: #2141d5 !important;
+    }  
+  }
+
+  #mat-tab-label-0-1 {
+    opacity: 1;
+    background-color: #1a3a34 !important;
+    &.mat-tab-label-active{
+        background-color: #14A98E !important;
+    }  
+  }
+
+  #mat-tab-label-0-2 {
+    opacity: 1;
+    background-color: #48241a !important;
+    &.mat-tab-label-active{
+        background-color: #AB4B2E !important;
+    }  
+  }
+
+  #mat-tab-label-0-3 {
+    opacity: 1;
+    background-color: #37283c !important;
+    &.mat-tab-label-active{
+        background-color: #794E89 !important;
+    }  
+  }
+
+  .mat-tab-label-content {
+    font-family: popjoy;
+    color: white;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+  }
+  
+  .mat-ink-bar {
+    background-color: white !important;
+  }
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
