@@ -21,7 +21,8 @@ import { MiscComponent } from './pages/home/randomiser-page/misc/misc.component'
 import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { OpenWorldSettingsComponent } from './pages/home/randomiser-page/open-world-settings/open-world-settings.component';
 import { DifficultySettingsComponent } from './pages/home/randomiser-page/difficulty-settings/difficulty-settings.component';
-import { QolSettingsComponent } from './pages/home/qol-settings/qol-settings.component';
+import { QolSettingsComponent } from './pages/home/randomiser-page/qol-settings/qol-settings.component';
+import { PresetSettingsComponent } from './pages/home/randomiser-page/preset-settings/preset-settings.component';
 
 
 @NgModule({
@@ -34,12 +35,14 @@ import { QolSettingsComponent } from './pages/home/qol-settings/qol-settings.com
     MiscComponent,
     OpenWorldSettingsComponent,
     DifficultySettingsComponent,
-    QolSettingsComponent
+    QolSettingsComponent,
+    PresetSettingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     MatCardModule,
     MatSlideToggleModule,
     MatTabsModule,

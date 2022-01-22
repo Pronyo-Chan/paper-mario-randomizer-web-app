@@ -1,5 +1,13 @@
 {
     "search.exclude": {
         "**/.angular": true
+    },
+    "launch": {
+        "configurations": [{
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Webpack",
+            "program": "${workspaceFolder}/node_modules/webpack/bin/webpack.js"
+        }]
     }
 }

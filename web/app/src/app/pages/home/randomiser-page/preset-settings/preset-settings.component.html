@@ -1,0 +1,11 @@
+<form [formGroup]="formGroup">
+    <mat-card-content class=settings-card-content>
+        <div class="setting-element">            
+            <span class="settings-label">Preset</span>
+            <select [(ngModel)]="selectedPreset">
+                <option *ngFor="let presetName of presetNames">{{presetName}}</option>
+            </select>
+        </div>
+        <button mat-raised (click)="loadPreset()"> Load Preset</button>
+    </mat-card-content>
+</form>
