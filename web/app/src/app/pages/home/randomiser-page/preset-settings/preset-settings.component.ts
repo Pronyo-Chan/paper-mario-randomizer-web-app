@@ -20,7 +20,8 @@ export class PresetSettingsComponent implements OnInit {
   }
 
   public loadPreset(): void {
-    this.populateFormGroupWithPreset(this.formGroup, this.selectedPreset['settings']);
+    let preset = presetsJson.find(p => p['name'] == this.selectedPreset);
+    this.populateFormGroupWithPreset(this.formGroup, preset['settings']);
   }
 
   public populateFormGroupWithPreset(formGroup: FormGroup, preset: any) {
