@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/paper-mario-randomiser-app'),
+      dir: require('path').join(__dirname, './coverage/paper-mario-randomizer-app'),
       subdir: '.',
       reporters: [
         { type: 'html' },

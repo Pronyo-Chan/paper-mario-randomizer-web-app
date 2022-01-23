@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RandomiserPageComponent } from './pages/home/randomiser-page/randomiser-page.component';
+import { RandomizerPageComponent } from './pages/home/randomizer-page/randomizer-page.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card'
@@ -14,21 +14,21 @@ import { MatSelectModule } from '@angular/material/select'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ItemsComponent } from './pages/home/randomiser-page/items/items.component';
-import { PartnersComponent } from './pages/home/randomiser-page/partners/partners.component';
-import { BadgesAndMovesComponent } from './pages/home/randomiser-page/badges-and-moves/badges-and-moves.component';
-import { MiscComponent } from './pages/home/randomiser-page/misc/misc.component';
+import { ItemsComponent } from './pages/home/randomizer-page/items/items.component';
+import { PartnersComponent } from './pages/home/randomizer-page/partners/partners.component';
+import { BadgesAndMovesComponent } from './pages/home/randomizer-page/badges-and-moves/badges-and-moves.component';
+import { MiscComponent } from './pages/home/randomizer-page/misc/misc.component';
 import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { OpenWorldSettingsComponent } from './pages/home/randomiser-page/open-world-settings/open-world-settings.component';
-import { DifficultySettingsComponent } from './pages/home/randomiser-page/difficulty-settings/difficulty-settings.component';
-import { QolSettingsComponent } from './pages/home/randomiser-page/qol-settings/qol-settings.component';
-import { PresetSettingsComponent } from './pages/home/randomiser-page/preset-settings/preset-settings.component';
+import { OpenWorldSettingsComponent } from './pages/home/randomizer-page/open-world-settings/open-world-settings.component';
+import { DifficultySettingsComponent } from './pages/home/randomizer-page/difficulty-settings/difficulty-settings.component';
+import { QolSettingsComponent } from './pages/home/randomizer-page/qol-settings/qol-settings.component';
+import { PresetSettingsComponent } from './pages/home/randomizer-page/preset-settings/preset-settings.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RandomiserPageComponent,
+    RandomizerPageComponent,
     ItemsComponent,
     PartnersComponent,
     BadgesAndMovesComponent,

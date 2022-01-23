@@ -1,0 +1,11 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: dist/paper-mario-randomizer-app/index.html
+  upload: dist/paper-mario-randomizer-app/index.html
+
+- url: /
+  static_dir: dist/paper-mario-randomizer-app

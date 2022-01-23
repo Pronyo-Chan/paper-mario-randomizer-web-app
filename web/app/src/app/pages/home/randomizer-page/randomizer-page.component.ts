@@ -7,10 +7,10 @@ import { CustomValidators } from '../../../utilities/custom.validators'
 
 @Component({
   selector: 'app-patcher',
-  templateUrl: './randomiser-page.component.html',
-  styleUrls: ['./randomiser-page.component.scss']
+  templateUrl: './randomizer-page.component.html',
+  styleUrls: ['./randomizer-page.component.scss']
 })
-export class RandomiserPageComponent implements OnInit, OnDestroy {
+export class RandomizerPageComponent implements OnInit, OnDestroy {
 
   public formGroup: FormGroup
   randomPartnersMinSubscription: Subscription;

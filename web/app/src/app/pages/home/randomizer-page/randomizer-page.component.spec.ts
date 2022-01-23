@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RandomiserPageComponent } from './randomiser-page.component';
+import { RandomizerPageComponent } from './randomizer-page.component';
 
-describe('RandomiserPageomponent', () => {
-  let component: RandomiserPageComponent;
-  let fixture: ComponentFixture<RandomiserPageComponent>;
+describe('RandomizerPageomponent', () => {
+  let component: RandomizerPageComponent;
+  let fixture: ComponentFixture<RandomizerPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RandomiserPageComponent ]
+      declarations: [ RandomizerPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RandomiserPageComponent);
+    fixture = TestBed.createComponent(RandomizerPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

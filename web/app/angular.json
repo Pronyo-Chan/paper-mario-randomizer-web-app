@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "paper-mario-randomiser-app": {
+    "paper-mario-randomizer-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/paper-mario-randomiser-app",
+            "outputPath": "dist/paper-mario-randomizer-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "paper-mario-randomiser-app:build:production"
+              "browserTarget": "paper-mario-randomizer-app:build:production"
             },
             "development": {
-              "browserTarget": "paper-mario-randomiser-app:build:development"
+              "browserTarget": "paper-mario-randomizer-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "paper-mario-randomiser-app:build"
+            "browserTarget": "paper-mario-randomizer-app:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "paper-mario-randomiser-app"
+  "defaultProject": "paper-mario-randomizer-app"
 }
