@@ -21,6 +21,7 @@ export class PatcherComponent implements OnInit {
   public patchedRomBlob: Blob = null;
 
   public isRomValid = false;
+  public isUserRomLoading = false;
 
   public constructor(private _patcherRepo: PatcherRepository) { }
 
@@ -40,7 +41,9 @@ export class PatcherComponent implements OnInit {
   }
 
   public handleFileInput(files: FileList) {
-    this.isRomValid = false;
+    this.userRom = null;
+    this.isRomValid = false;    
+    this.isUserRomLoading = true;
     this.userRom = new MarcFile(files[0], () => this.romFileReadyCallback());
   }
 
@@ -57,6 +60,7 @@ export class PatcherComponent implements OnInit {
     if (checksum == Constants.VALID_ROM_CRC) {
       this.isRomValid = true;
     }
+    this.isUserRomLoading = false;
   }
 
   public serveDownload(blob: Blob) {

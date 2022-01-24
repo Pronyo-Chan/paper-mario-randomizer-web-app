@@ -7,5 +7,5 @@
         </label>        
     </div>
     <button  [disabled]="!isRomValid" type="submit" (click)="patch()"><span>Patch</span></button>
-    <span class="error-message" *ngIf="(!isRomValid && userRom)">❌The provided file is a not a valid Paper Mario z64 USA rom</span>
+    <span class="error-message" *ngIf="(userRom && !isRomValid && !isUserRomLoading)">❌The provided file is a not a valid Paper Mario z64 USA rom</span>
 </div>
