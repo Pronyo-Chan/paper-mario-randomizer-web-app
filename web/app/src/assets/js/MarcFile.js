@@ -142,7 +142,7 @@ MarcFile.prototype.save=function(){
 			return false;
 		}
 	}
-	saveAs(blob,this.fileName);
+	return blob
 }
 
 

@@ -267,6 +267,7 @@ function preparePatchedRom(originalRom, patchedRom, headerSize){
 		}
 	}
 
+	return patchedRom.save();
 
 
 	/* fix checksum if needed */
@@ -275,8 +276,8 @@ function preparePatchedRom(originalRom, patchedRom, headerSize){
 
 
 
-	setMessage('apply');
-	patchedRom.save();
+	/*setMessage('apply');
+	patchedRom.save();*/
 
 
 	/*if(fixedChecksum){
@@ -338,7 +339,7 @@ function applyPatch(p,r,validateChecksums){
 
 			try{
 				p.apply(r, validateChecksums);
-				preparePatchedRom(r, p.apply(r, validateChecksums), headerSize);
+				return preparePatchedRom(r, p.apply(r, validateChecksums), headerSize);
 
 			}catch(e){
 				//setMessage('apply', 'Error: '+_(e.message), 'error');

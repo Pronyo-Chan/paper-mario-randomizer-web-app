@@ -14,8 +14,10 @@ declare var parseBPSFile: any;
 })
 export class PatcherComponent implements OnInit {
 
-  public fileToUpload: any = null;
+  public userRom: any = null;
   public patchFile: any = null;
+  public patchedRomBlob: Blob = null;
+
   public constructor(private _patcherRepo: PatcherRepository) { }
 
   public ngOnInit(): void {
@@ -26,7 +28,7 @@ export class PatcherComponent implements OnInit {
     .pipe(
       take(1),
       tap(patch => {
-        console.log(this.fileToUpload)
+        console.log(this.userRom)
         this.patchFile = new MarcFile(new File([patch], 'patch'), () => this.patchFileReadyCallback());
              
       })
@@ -34,16 +36,24 @@ export class PatcherComponent implements OnInit {
   }
 
   public handleFileInput(files: FileList) {
-    this.fileToUpload = new MarcFile(files[0]);
+    this.userRom = new MarcFile(files[0]);
   }
 
   public patchFileReadyCallback() {
-    console.log('a')
-    console.log(this.fileToUpload)
-    console.log(this.patchFile)
-    console.log('b')
     var bpsPatch = new parseBPSFile(this.patchFile);
-    var result = new applyPatch(bpsPatch, this.fileToUpload);
+    this.patchedRomBlob = new applyPatch(bpsPatch, this.userRom);
+
+    this.serveDownload(this.patchedRomBlob);
+
+  }
+
+  public serveDownload(blob: Blob) {
+    const data = window.URL.createObjectURL(blob);
+
+    var link = document.createElement('a');
+    link.href = data;
+    link.download = 'Paper Mario (patched).z64';
+    link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
   }
 
 }
