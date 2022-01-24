@@ -1,3 +1,4 @@
+import { Constants } from './../../../../utilities/constants';
 import { PatcherRepository } from './../../../../repositories/patcher-repository/patcher.repository';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
@@ -5,6 +6,7 @@ import {tap, take} from 'rxjs/operators';
 declare var applyPatch: any; 
 declare var MarcFile: any; 
 declare var parseBPSFile: any; 
+declare var crc32: any;
 
   
 @Component({
@@ -17,6 +19,8 @@ export class PatcherComponent implements OnInit {
   public userRom: any = null;
   public patchFile: any = null;
   public patchedRomBlob: Blob = null;
+
+  public isRomValid = false;
 
   public constructor(private _patcherRepo: PatcherRepository) { }
 
@@ -36,7 +40,8 @@ export class PatcherComponent implements OnInit {
   }
 
   public handleFileInput(files: FileList) {
-    this.userRom = new MarcFile(files[0]);
+    this.isRomValid = false;
+    this.userRom = new MarcFile(files[0], () => this.romFileReadyCallback());
   }
 
   public patchFileReadyCallback() {
@@ -45,6 +50,13 @@ export class PatcherComponent implements OnInit {
 
     this.serveDownload(this.patchedRomBlob);
 
+  }
+
+  public romFileReadyCallback() {
+    var checksum = crc32(this.userRom, 0, false);
+    if (checksum == Constants.VALID_ROM_CRC) {
+      this.isRomValid = true;
+    }
   }
 
   public serveDownload(blob: Blob) {

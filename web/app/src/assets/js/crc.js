@@ -86,7 +86,8 @@ function crc32(marcFile, headerSize, ignoreLast4Bytes){
 	for(var i=0;i<len;i++)
 		crc=(crc>>>8)^CRC32_TABLE[(crc^data[i])&0xff];
 
-	return ((crc^(-1))>>>0);
+	crc = ((crc^(-1))>>>0);
+	return crc;
 }
 
 

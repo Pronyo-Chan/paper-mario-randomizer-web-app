@@ -1,0 +1,73 @@
+:host {
+    .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+
+        
+    }
+
+    label {
+        font-size: 16px;
+        width: 10%;
+        margin: 0 0 1rem 4rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-table;
+        overflow: hidden;
+        padding: 0.5rem 1rem;
+        background-color: #cf2b13;        
+        color: white;
+        border-radius: 10px;
+
+        svg {
+            fill: currentColor;
+            padding-right: 8px;
+        }
+
+        span {
+            pointer-events: none;
+            font-family: popjoy;            
+            text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+        }
+    }
+
+    button {
+        span {
+            
+            font-family: popjoy ;
+            color: white ;
+            text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+
+        }
+        margin: 0 0 1rem 4rem;
+        font-size: 16px;
+        width: 7%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-block;
+        overflow: hidden;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 10px;
+        background-color: #47B836;        
+
+        
+    }
+
+    button:disabled {
+        cursor: not-allowed;
+        opacity: 30%;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 12px !important;
+        font-weight: 600;
+    }
+}
