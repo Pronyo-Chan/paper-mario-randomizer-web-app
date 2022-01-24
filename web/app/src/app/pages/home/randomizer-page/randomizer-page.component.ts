@@ -6,7 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../utilities/custom.validators'
 
 @Component({
-  selector: 'app-patcher',
+  selector: 'app-randomizer-page',
   templateUrl: './randomizer-page.component.html',
   styleUrls: ['./randomizer-page.component.scss']
 })

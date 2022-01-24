@@ -23,6 +23,7 @@ import { OpenWorldSettingsComponent } from './pages/home/randomizer-page/open-wo
 import { DifficultySettingsComponent } from './pages/home/randomizer-page/difficulty-settings/difficulty-settings.component';
 import { QolSettingsComponent } from './pages/home/randomizer-page/qol-settings/qol-settings.component';
 import { PresetSettingsComponent } from './pages/home/randomizer-page/preset-settings/preset-settings.component';
+import { PatcherComponent } from './pages/home/randomizer-page/patcher/patcher.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { PresetSettingsComponent } from './pages/home/randomizer-page/preset-set
     OpenWorldSettingsComponent,
     DifficultySettingsComponent,
     QolSettingsComponent,
-    PresetSettingsComponent
+    PresetSettingsComponent,
+    PatcherComponent
   ],
   imports: [
     BrowserModule,

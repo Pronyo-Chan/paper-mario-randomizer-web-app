@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { timeout } from 'rxjs/operators';
+import { timeout, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,8 @@ export class PatcherRepository {
   public constructor(private _httpClient: HttpClient) {    
   }
 
-  public patch(fileToUpload: File): Observable<Blob> {
-    const formData: FormData = new FormData();
-    formData.append('inputRom', fileToUpload, fileToUpload.name);
-    return this._httpClient.post(this._rootURL + '/patch', formData, {responseType: 'blob'}).pipe(timeout(300000));
+  public patch(): Observable<Blob> {
+    //return this._httpClient.post(this._rootURL + '/patch', formData, {responseType: 'blob'}).pipe(timeout(300000));
+    return this._httpClient.get('assets/OWPM_alpha_ISpy.bps', { responseType: 'blob' })
   }
 }
