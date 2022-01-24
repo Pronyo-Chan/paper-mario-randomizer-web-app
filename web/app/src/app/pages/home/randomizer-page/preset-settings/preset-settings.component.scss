@@ -1,0 +1,25 @@
+.select-container{
+    margin-top: 14px;
+    select {
+        margin-left: 4px;
+    }
+}
+
+
+button {
+    span {
+        
+        font-family: popjoy ;
+        color: white ;
+        text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+
+    }
+    margin: 0 0 0 1rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #47B836;        
+
+    
+}
