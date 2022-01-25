@@ -1,5 +1,58 @@
 [
     {
+        "name": "Default",
+        "settings": {
+            "shuffleItems": true,
+            "includeCoins": false,
+            "includeShops": true,
+            "includePanels": true,
+            "includeFavors": false,
+            "keyitemsOutsideDungeon": false,
+            "shuffleBadgesBP": false,
+            "shuffleBadgesFP": false,
+            "shufflePartnerFP": false,
+            "shuffleStarpowerSP": false,
+            "partnersInDefaultLocations": true,
+            "partnersAlwaysUsable": true,
+            "startWithRandomPartners": false,  
+            "randomPartnersMin": "1",
+            "randomPartnersMax": "8",
+            "goombario": true,
+            "kooper": false,
+            "bombette": false,
+            "parakarry": false,
+            "bow": false,
+            "watt": false,
+            "sushie": false,
+            "lakilester": false,
+            "shuffleChapterDifficulty": false,
+            "randomFormations": false,
+            "randomQuiz": true,
+            "randomCoinPalette": true,
+            "blocksMatchContent": true,
+            "alwaysSpeedySpin": true,
+            "alwaysISpy": false,
+            "alwaysPeekaboo": true,
+            "skipQuiz": false,
+            "initialCoins": "50",
+            "capEnemyXP": true,
+            "noXP": false,
+            "damageMultiplier": "1",
+            "oneHitKO": false,
+            "noSaveBlocks": false,
+            "noHeartBlock": false,
+            "blueHouseOpen": false,
+            "toyboxOpen": false,
+            "whaleOpen": false,
+            "flowerGateOpen": false,
+            "includeDojo": false,
+            "allowPhysicsGlitches": true,
+            "hiddenBlockMode": 0,
+            "turnOffMusic": false,
+            "progressiveScaling": true
+        }
+    },
+    {
         "name": "Dev Preset",
         "settings": {
             "shuffleItems": true,
@@ -48,7 +101,8 @@
             "includeDojo": false,
             "allowPhysicsGlitches": true,
             "hiddenBlockMode": 0,
-            "turnOffMusic": false
+            "turnOffMusic": false,            
+            "progressiveScaling": true
         }
     },
     {
@@ -100,7 +154,8 @@
             "includeDojo": true,
             "allowPhysicsGlitches": true,
             "hiddenBlockMode": 3,
-            "turnOffMusic": true
+            "turnOffMusic": true,            
+            "progressiveScaling": true
         }
     }
 ]

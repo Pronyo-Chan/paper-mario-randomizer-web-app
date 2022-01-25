@@ -17,6 +17,8 @@ export class PresetSettingsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.presetNames = presetsJson.map(p => p.name);
+    this.selectedPreset = this.presetNames[0];
+    this.loadPreset();
   }
 
   public loadPreset(): void {
