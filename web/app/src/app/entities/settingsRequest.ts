@@ -1,9 +1,9 @@
-export class SetingsRequest {
+export interface SettingsRequest {
     BlocksMatchContent: boolean;
     AlwaysSpeedySpin: boolean;
     AlwaysISpy: boolean;
     AlwaysPeekaboo: boolean;
-    HiddenBlockMode: number
+    HiddenBlockMode: number;
     AllowPhysicsGlitches: boolean;
     InitialCoins: number;
     CapEnemyXP: boolean;
@@ -44,7 +44,7 @@ export class SetingsRequest {
     IncludeDojo: boolean;
 }
 
-interface StartingPartners {
+export interface StartingPartners {
     Goombario: boolean;
     Kooper: boolean;
     Bombette: boolean;

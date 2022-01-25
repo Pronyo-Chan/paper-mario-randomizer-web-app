@@ -1,8 +1,10 @@
+import { FormGroup } from '@angular/forms';
 import { Constants } from './../../../../utilities/constants';
-import { PatcherRepository } from './../../../../repositories/patcher-repository/patcher.repository';
-import { Component, OnInit } from '@angular/core';
+import { RandomizerRepository } from '../../../../repositories/randomizer-repository/randomizer.repository';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import {tap, take} from 'rxjs/operators';
+import { RandomizerService } from 'src/app/services/randomizer.service';
 declare var applyPatch: any; 
 declare var MarcFile: any; 
 declare var parseBPSFile: any; 
@@ -16,6 +18,7 @@ declare var crc32: any;
 })
 export class PatcherComponent implements OnInit {
 
+  @Input() public formGroup: FormGroup;
   public userRom: any = null;
   public patchFile: any = null;
   public patchedRomBlob: Blob = null;
@@ -23,13 +26,15 @@ export class PatcherComponent implements OnInit {
   public isRomValid = false;
   public isUserRomLoading = false;
 
-  public constructor(private _patcherRepo: PatcherRepository) { }
+  public constructor(private _randomizerService: RandomizerService, private _randomizerRepo: RandomizerRepository) { }
 
   public ngOnInit(): void {
   }
 
   public patch() {
-     this._patcherRepo.patch()
+    
+    this._randomizerService.createSeedWithSettings(this.formGroup).subscribe();
+     this._randomizerRepo.patch()
     .pipe(
       take(1),
       tap(patch => {

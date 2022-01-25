@@ -1,4 +1,5 @@
-import { environment } from './../../../environments/environment.prod';
+import { SettingsRequest } from './../../entities/settingsRequest';
+import { environment } from '../../../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,7 +8,7 @@ import { timeout, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class PatcherRepository {
+export class RandomizerRepository {
 
   private _rootURL = '/api';
   public constructor(private _httpClient: HttpClient) {    
@@ -18,7 +19,9 @@ export class PatcherRepository {
     return this._httpClient.get('assets/OWPM_alpha_ISpy.bps', { responseType: 'blob' })
   }
 
-  public sendRandoSettings(request: any): any {
-    return this._httpClient.post(environment.apiEndPoint + '/randomizer_settings', request)
+  public sendRandoSettings(request: SettingsRequest): Observable<string> {
+    return this._httpClient.post(environment.apiEndPoint + 'randomizer_settings/', request).pipe(
+      map(response => response.toString())
+    );
   }
 }

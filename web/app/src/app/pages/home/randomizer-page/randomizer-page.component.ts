@@ -1,4 +1,4 @@
-import { PatcherRepository } from '../../../repositories/patcher-repository/patcher.repository';
+import { RandomizerService } from './../../../services/randomizer.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, of, Subscription } from 'rxjs';
 import {tap, take} from 'rxjs/operators'
@@ -14,7 +14,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
   public formGroup: FormGroup
   randomPartnersMinSubscription: Subscription;
-  public constructor(private _patcherRepo: PatcherRepository) { }
+
+  public constructor(private _randomizerService: RandomizerService) { 
+
+  }
 
   public ngOnInit(): void {
     this.initFormGroup();
@@ -69,13 +72,15 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomCoinPalette: new FormControl(false)
       }),
       qualityOfLife: new FormGroup({  
-        blocksMatchContent: new FormControl(false),      
+        blocksMatchContent: new FormControl(false),    
+        hiddenBlockMode: new FormControl(0),           
         alwaysSpeedySpin: new FormControl(false),      
         alwaysISpy: new FormControl(false),      
         alwaysPeekaboo: new FormControl(false),        
         skipQuiz: new FormControl(false),      
-        allowPhysicsGlitches: new FormControl(false),      
-        writeSpoilerLog: new FormControl(true)      
+        allowPhysicsGlitches: new FormControl(false), 
+        writeSpoilerLog: new FormControl(true),        
+        turnOffMusic: new FormControl(false),        
       }),
       difficulty: new FormGroup({
         initialCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]),
@@ -84,7 +89,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         damageMultiplier: new FormControl(1),
         oneHitKO: new FormControl(false),
         noSaveBlocks: new FormControl(false),
-        noHeartBlocks: new FormControl(false)      
+        noHeartBlock: new FormControl(false)      
       }),
       openLocations: new FormGroup({
         flowerGateOpen: new FormControl(false),

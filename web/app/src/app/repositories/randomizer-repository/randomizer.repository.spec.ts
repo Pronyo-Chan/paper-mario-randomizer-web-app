@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PatcherRepository } from './patcher.repository';
+import { RandomizerRepository } from './randomizer.repository';
 
 describe('PatcherRepositoryService', () => {
-  let service: PatcherRepository;
+  let service: RandomizerRepository;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PatcherRepository);
+    service = TestBed.inject(RandomizerRepository);
   });
 
   it('should be created', () => {

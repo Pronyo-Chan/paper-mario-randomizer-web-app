@@ -5,6 +5,10 @@
             <span class="settings-label">Blocks Match Content</span>
         </div>
         <div class="setting-element">
+            <mat-slide-toggle formControlName='hiddenBlockMode'></mat-slide-toggle>
+            <span class="settings-label">Hidden Block Mode</span>
+        </div>
+        <div class="setting-element">
             <mat-slide-toggle formControlName='alwaysSpeedySpin'></mat-slide-toggle>
             <span class="settings-label">Always Speedy Spin</span>
         </div>
@@ -21,12 +25,16 @@
             <span class="settings-label">Skip Quiz</span>
         </div>
         <div class="setting-element">
-            <mat-slide-toggle formControlName='allowPhysicGlitches'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='allowPhysicsGlitches'></mat-slide-toggle>
             <span class="settings-label">Allow Physics Glitches</span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='writeSpoilerLog'></mat-slide-toggle>
             <span class="settings-label">Include Spoiler log</span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='turnOffMusic'></mat-slide-toggle>
+            <span class="settings-label">Turn Off Music</span>
         </div>
     </mat-card-content>
 </form>
