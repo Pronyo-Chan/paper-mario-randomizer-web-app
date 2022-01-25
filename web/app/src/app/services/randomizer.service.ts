@@ -13,7 +13,7 @@ export class RandomizerService {
   { 
   }
 
-  public createSeedWithSettings(settingsForm: FormGroup): Observable<string> 
+  public createSeedWithSettings(settingsForm: FormGroup): Observable<Blob> 
   {
     var request =
     {

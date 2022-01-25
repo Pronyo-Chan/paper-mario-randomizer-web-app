@@ -19,9 +19,7 @@ export class RandomizerRepository {
     return this._httpClient.get('assets/OWPM_alpha_ISpy.bps', { responseType: 'blob' })
   }
 
-  public sendRandoSettings(request: SettingsRequest): Observable<string> {
-    return this._httpClient.post(environment.apiEndPoint + 'randomizer_settings/', request).pipe(
-      map(response => response.toString())
-    );
+  public sendRandoSettings(request: SettingsRequest): Observable<Blob> {
+    return this._httpClient.post(environment.apiEndPoint + 'randomizer_settings/', request, {responseType: 'blob'});
   }
 }

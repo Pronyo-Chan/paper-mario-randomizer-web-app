@@ -33,8 +33,7 @@ export class PatcherComponent implements OnInit {
 
   public patch() {
     
-    this._randomizerService.createSeedWithSettings(this.formGroup).subscribe();
-     this._randomizerRepo.patch()
+    this._randomizerService.createSeedWithSettings(this.formGroup)
     .pipe(
       take(1),
       tap(patch => {
