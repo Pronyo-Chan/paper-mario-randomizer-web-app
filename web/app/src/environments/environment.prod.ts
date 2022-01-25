@@ -1,4 +1,4 @@
 export const environment = {
   production: true,  
-  apiEndPoint: "http://127.0.0.1:8000/" //TODO: change prod URL
+  apiEndPoint: "https://paper-mario-randomizer-server.ue.r.appspot.com/"
 };
