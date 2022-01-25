@@ -2,19 +2,39 @@
     <mat-card-content class=settings-card-content>
         <div class="setting-element">
             <mat-slide-toggle formControlName='flowerGateOpen'></mat-slide-toggle>
-            <span class="settings-label">Open Flower Gate</span>
+            <app-tooltip-span
+                 spanText="Open Flower Gate"
+                 tooltipText="Off: The 4 mystical seeds are required to open the flower gate
+
+                            On: Flower Gate is opened from the start">
+            </app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='blueHouseOpen'></mat-slide-toggle>
-            <span class="settings-label">Open Blue House</span>
+            <app-tooltip-span
+                 spanText="Open Blue House"
+                 tooltipText="Off: Mario must obtain the Odd Key to open the blue house door
+
+                            On: Blue house door is unlocked from the start">
+            </app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='toyboxOpen'></mat-slide-toggle>
-            <span class="settings-label">Open ToyBox</span>
+            <app-tooltip-span
+                 spanText="Open ToyBox"
+                 tooltipText="Off: Mario must use Bow to hide from the ShyGuy and enter ToyBox for the first time
+
+                            On: The door to ToyBox can be opened from the start">
+            </app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='whaleOpen'></mat-slide-toggle>
-            <span class="settings-label">Open Whale</span>
+            <app-tooltip-span
+                 spanText="Open Whale"
+                 tooltipText="Off: Mario must use Watt and defeat Fuzzipede to be able to ride the whale
+                 
+                            On: Mario can ride the whale from the start simply by talking to it">
+            </app-tooltip-span>
         </div>
     </mat-card-content>
 </form>

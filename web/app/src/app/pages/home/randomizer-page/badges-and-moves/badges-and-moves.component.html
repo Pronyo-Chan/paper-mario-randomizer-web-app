@@ -1,20 +1,20 @@
 <form [formGroup]="badgesAndMovesFormGroup">
     <mat-card-content class=settings-card-content>
         <div class="setting-element">
-            <mat-slide-toggle formControlName='shuffleBadgesBP'></mat-slide-toggle>
-            <span class="settings-label">Shuffle Badges BP</span>
+            <mat-slide-toggle formControlName='shuffleBadgesBP'></mat-slide-toggle>            
+            <app-tooltip-span spanText="Shuffle Badges BP" tooltipText="Shuffle the BP requirement of equipping badges"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='shuffleBadgesFP'></mat-slide-toggle>
-            <span class="settings-label">Shuffle Badges FP</span>
+            <app-tooltip-span spanText="Shuffle Badges FP" tooltipText="Shuffle the amount of FP required to use badge abilities"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='shufflePartnerFP'></mat-slide-toggle>
-            <span class="settings-label">Shuffle Partner FP</span>
+            <app-tooltip-span spanText="Shuffle Partners FP" tooltipText="Shuffle the amount of FP required to use partner abilities"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='shuffleStarpowerSP'></mat-slide-toggle>
-            <span class="settings-label">Shuffle StarPower SP</span>
+            <app-tooltip-span spanText="Shuffle StarPower SP" tooltipText="Shuffle the amount of SP required to use star abilities"></app-tooltip-span>
         </div> 
     </mat-card-content>
 </form>

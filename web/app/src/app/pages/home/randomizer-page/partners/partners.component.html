@@ -2,16 +2,29 @@
     <mat-card-content class=settings-card-content>
         <div class="setting-element">
             <mat-slide-toggle formControlName='partnersInDefaultLocations'></mat-slide-toggle>
-            <span class="settings-label">Partners in Default Locations</span>
+            <app-tooltip-span 
+                spanText="Partners in Default Locations" 
+                tooltipText="Off: Partners are added to the item pool and are obtained as an item. Vanilla partner locations will give a random item instead
+
+                    On: Partners can can be obtained at their vanilla locations">
+            </app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='partnersAlwaysUsable'></mat-slide-toggle>
-            <span class="settings-label">Partners Always Usable</span>
+            <app-tooltip-span 
+                spanText="Partners Always Usable" 
+                tooltipText="Off: Partners can be upgraded, but their ability can't be used before obtaining them
+                            On: partner abilities will be usable on the overworld from the start"></app-tooltip-span>
         </div>
         <mat-divider></mat-divider>
         <div class="setting-element full-width-element">
             <mat-slide-toggle formControlName='startWithRandomPartners'></mat-slide-toggle>
-            <span class="settings-label">Start With Random Partners</span>
+            <app-tooltip-span 
+                spanText="Start With Random Partners"
+                 tooltipText="Off: Start the game with a custom selection of starting partners
+
+                            On:Start the game with a random set of partners">
+            </app-tooltip-span>
         </div>
         <ng-container *ngIf="partnersFormGroup.get('startWithRandomPartners').value === true; else fixedPartnersTemplate">
             <div class="setting-element">

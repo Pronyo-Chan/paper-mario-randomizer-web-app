@@ -2,7 +2,7 @@
     <mat-card-content class=settings-card-content>
         <div class="setting-element">
             <input matInput type="number" min="0" max="999" formControlName='initialCoins'>
-            <span class="settings-label">Initial Coins</span>
+            <app-tooltip-span spanText="Initial Coins" tooltipText="Amount of coins Mario will start the game with"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <select formControlName='damageMultiplier'>
@@ -10,28 +10,27 @@
                 <option [value]="'2'">2x</option>
                 <option [value]="'4'">4x</option>
             </select>
-            <span class="settings-label">Damage Multiplier</span>
+            <app-tooltip-span spanText="Damage Multiplier" tooltipText="Increases the damage of player and enemy attack"></app-tooltip-span>
         </div>
         <div class="setting-element">
-            <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>
-            <span class="settings-label">Cap Enemy XP</span>
+            <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>            
+            <app-tooltip-span spanText="Cap Enemy XP" tooltipText="Limits the amount of XP obtainble per defeated enemy to 5 XP"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='noXP'></mat-slide-toggle>
-            <span class="settings-label">No XP</span>
+            <app-tooltip-span spanText="No XP" tooltipText="Mario gains no XP from fights if turned on"></app-tooltip-span>
         </div>
-        
         <div class="setting-element">
             <mat-slide-toggle formControlName='oneHitKO'></mat-slide-toggle>
-            <span class="settings-label">One Hit KO</span>
+            <app-tooltip-span spanText="One Hit KO" tooltipText="Every enemy attack will Mario instantly if turned on"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='noSaveBlocks'></mat-slide-toggle>
-            <span class="settings-label">No Save Blocks</span>
+            <app-tooltip-span spanText="No Save Blocks" tooltipText="Save blocks will be removed from the game if turned on"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='noHeartBlock'></mat-slide-toggle>
-            <span class="settings-label">No Heart Blocks</span>
+            <app-tooltip-span spanText="No Heart Blocks" tooltipText="Heart blocks will be removed from the game if turned on"></app-tooltip-span>
         </div>
         
     </mat-card-content>
