@@ -36,7 +36,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includeShops: new FormControl(false),
         includePanels: new FormControl(false),
         includeFavors: new FormControl(false),
-        keyitemsOutsideDungeon: new FormControl(false)
+        keyitemsOutsideDungeon: new FormControl(false),
+        includeDojo: new FormControl(false)
       }),
       badgesAndMoves: new FormGroup({
         shuffleBadgesBP: new FormControl(false),
@@ -72,7 +73,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         alwaysSpeedySpin: new FormControl(false),      
         alwaysISpy: new FormControl(false),      
         alwaysPeekaboo: new FormControl(false),        
-        skipQuiz: new FormControl(false)      
+        skipQuiz: new FormControl(false),      
+        allowPhysicsGlitches: new FormControl(false),      
+        writeSpoilerLog: new FormControl(true)      
       }),
       difficulty: new FormGroup({
         initialCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]),

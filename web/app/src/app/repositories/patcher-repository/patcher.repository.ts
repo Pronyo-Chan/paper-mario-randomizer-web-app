@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -15,5 +16,9 @@ export class PatcherRepository {
   public patch(): Observable<Blob> {
     //return this._httpClient.post(this._rootURL + '/patch', formData, {responseType: 'blob'}).pipe(timeout(300000));
     return this._httpClient.get('assets/OWPM_alpha_ISpy.bps', { responseType: 'blob' })
+  }
+
+  public sendRandoSettings(request: any): any {
+    return this._httpClient.post(environment.apiEndPoint + '/randomizer_settings', request)
   }
 }
