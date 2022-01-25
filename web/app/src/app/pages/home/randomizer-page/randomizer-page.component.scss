@@ -22,7 +22,10 @@
             padding-left: 1rem;
             color: rgb(255, 255, 255);
             padding: 1rem;
-            
+            border: outset;
+            border-color: #F0C74E;
+            border-width: 3px;
+            border-radius: 4px;
          }
 
          ::ng-deep .settings-card-content {

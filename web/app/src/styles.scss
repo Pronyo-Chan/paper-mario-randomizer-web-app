@@ -11,36 +11,37 @@
     src: url(assets/Fonts/SuperMario.ttf) format("opentype");
   }
 
-  #mat-tab-label-0-0 {
-    opacity: 1;
-    background-color: #18224a !important;
-    &.mat-tab-label-active{
-        background-color: #2141d5 !important;
+  .mat-tab-label {
+    opacity: 1 !important;        
+    min-width: 165px !important;
+    border: outset;
+    border-width: 2px;
+    border-radius: 30px;
+    margin: 0 0 4px 4px;
+    filter: brightness(.5);
+    &.mat-tab-label-active{      
+      filter: brightness(1);
     }  
+  }
+
+  #mat-tab-label-0-0 {
+      background-color: #2141d5 !important;        
+      border-color: #172F9F !important;
   }
 
   #mat-tab-label-0-1 {
-    opacity: 1;
-    background-color: #1a3a34 !important;
-    &.mat-tab-label-active{
-        background-color: #14A98E !important;
-    }  
+      background-color: #14A98E !important;
+      border-color: #22EEC9 !important;
   }
 
   #mat-tab-label-0-2 {
-    opacity: 1;
-    background-color: #48241a !important;
-    &.mat-tab-label-active{
         background-color: #AB4B2E !important;
-    }  
+        border-color: #FD744A;
   }
 
   #mat-tab-label-0-3 {
-    opacity: 1;
-    background-color: #37283c !important;
-    &.mat-tab-label-active{
         background-color: #794E89 !important;
-    }  
+        border-color: #AD72C2; 
   }
 
   .mat-tab-label-content {
@@ -50,8 +51,7 @@
   }
   
   .mat-ink-bar {
-    background-color: white !important;
-    height: 4px !important;
+    display: none;
   }
 
   .mat-divider-horizontal {
@@ -65,6 +65,19 @@
     max-width: 350px !important;
     font-size: 12px;
 }
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #F0C74E;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: #B48B31;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #B48B31;
+}
+
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

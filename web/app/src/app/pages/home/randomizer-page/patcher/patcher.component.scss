@@ -20,9 +20,12 @@
         display: inline-table;
         overflow: hidden;
         padding: 0.5rem 1rem;
-        background-color: #db260b;        
+        background-color: #A75959;        
         color: white;
-        border-radius: 10px;
+        border-radius: 30px;        
+        border: outset;
+        border-width: 2px;
+        border-color: #D78C96;
 
         svg {
             fill: currentColor;
@@ -53,9 +56,11 @@
         display: inline-block;
         overflow: hidden;
         padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 10px;
         background-color: #47B836;        
+        border-radius: 30px;        
+        border: outset;
+        border-width: 2px;
+        border-color: #68FF51;
 
         
     }
