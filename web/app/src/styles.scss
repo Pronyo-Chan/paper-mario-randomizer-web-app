@@ -59,6 +59,11 @@
     margin: 12px !important;
     width: 90% !important;
   }
+
+  .mat-tooltip  {
+    white-space: pre-line;
+    max-width: 300px !important;
+}
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -10,6 +10,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatInputModule } from '@angular/material/input'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatSelectModule } from '@angular/material/select'
+import { MatTooltipModule } from '@angular/material/tooltip'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { DifficultySettingsComponent } from './pages/home/randomizer-page/diffic
 import { QolSettingsComponent } from './pages/home/randomizer-page/qol-settings/qol-settings.component';
 import { PresetSettingsComponent } from './pages/home/randomizer-page/preset-settings/preset-settings.component';
 import { PatcherComponent } from './pages/home/randomizer-page/patcher/patcher.component';
+import { TooltipSpanComponent } from './common/tooltip-span/tooltip-span.component';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { PatcherComponent } from './pages/home/randomizer-page/patcher/patcher.c
     DifficultySettingsComponent,
     QolSettingsComponent,
     PresetSettingsComponent,
-    PatcherComponent
+    PatcherComponent,
+    TooltipSpanComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { PatcherComponent } from './pages/home/randomizer-page/patcher/patcher.c
     MatCheckboxModule,
     MatInputModule,
     MatDividerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

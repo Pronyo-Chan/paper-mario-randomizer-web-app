@@ -2,31 +2,41 @@
     <mat-card-content class=settings-card-content>
         <div class="setting-element">
             <mat-slide-toggle formControlName='shuffleItems'></mat-slide-toggle>
-            <span class="settings-label">Shuffle Items</span>
+            <app-tooltip-span spanText="Shuffle Items" tooltipText="Shuffle overworld items (free-standing, given by NPC, found in blocks, bushes and trees etc.)"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeCoins'></mat-slide-toggle>
-            <span class="settings-label">Include Coins</span>
+            <app-tooltip-span spanText="Include Coins" tooltipText="Overworld coins are included in the item pool"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeShops'></mat-slide-toggle>
-            <span class="settings-label">Include Shops</span>
+            <app-tooltip-span spanText="Include Shops" 
+                                tooltipText="Shop Items are included in the item pool.
+                                            
+                                            Includes regular item shops, Rowf's badge shop, Merlow's star piece trade and Rip Cheato's shady deals">
+            </app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='includePanels'></mat-slide-toggle>
-            <span class="settings-label">Include Panels</span>
+            <app-tooltip-span spanText="Include Panels" tooltipText="Star Pieces hidden under hidden panels are included in the item pool"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeFavors'></mat-slide-toggle>
-            <span class="settings-label">Include Favors</span>
+            <app-tooltip-span spanText="Include Koopa Koot Favors" tooltipText="Rewards given for completing Koopa Koot's quests are included in the item pool"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='keyitemsOutsideDungeon'></mat-slide-toggle>
-            <span class="settings-label">Key Items Oustside of Dungeons</span>
+            <app-tooltip-span spanText="Key Items Outside of Dungeons" 
+                                tooltipText="Off: Dungeon keys can only be found in their respective dungeon
+                                 
+                                On: Dungeon keys can be found anywhere
+
+                                Items affected by this setting: RuinsKey, PyramidStone, LunarStone, DiamondStone, CastleKey, ToyTrain, Dictionary, MysteryNote, Cake, MagicalBean, FertileSoil, MiracleWater, BubbleBerry, RedBerry, BlueBerry, YellowBerry, BlueKey, RedKey, PalaceKey" >
+            </app-tooltip-span>
         </div>   
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeDojo'></mat-slide-toggle>
-            <span class="settings-label">Include Dojo</span>
+            <app-tooltip-span spanText="Include Dojo" tooltipText="Include Dojo rewards in the item pool"></app-tooltip-span>
         </div> 
     </mat-card-content>
 </form>
