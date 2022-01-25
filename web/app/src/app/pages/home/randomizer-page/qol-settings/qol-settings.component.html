@@ -5,7 +5,12 @@
             <span class="settings-label">Blocks Match Content</span>
         </div>
         <div class="setting-element">
-            <mat-slide-toggle formControlName='hiddenBlockMode'></mat-slide-toggle>
+            <select formControlName='hiddenBlockMode'>
+                <option [value]="'0'">Watt's ability (Vanilla)</option>
+                <option [value]="'1'">Watt Out</option>
+                <option [value]="'2'">Watt Obtained</option>
+                <option [value]="'3'">Always Visible</option>
+            </select>
             <span class="settings-label">Hidden Block Mode</span>
         </div>
         <div class="setting-element">
