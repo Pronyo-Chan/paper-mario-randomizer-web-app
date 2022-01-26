@@ -15,6 +15,25 @@
          margin: 2rem 4rem 2rem 4rem;
          background-color: variables.$beige-background-secondary;
 
+         &.partners-tab-error{
+            ::ng-deep .mat-tab-group {
+                .mat-tab-header {
+                   .mat-tab-label-container {
+                       .mat-tab-list {
+                           .mat-tab-labels {
+                               #mat-tab-label-0-1 {
+                                   -webkit-box-shadow:0 0 20px red; 
+                                   -moz-box-shadow: 0 0 20px red; 
+                                   box-shadow:0 0 6px  3px red;
+                                   transition: box-shadow 0.1s ease-in-out;
+                               }
+                           }
+                       }
+                   }
+               }
+            }
+         }
+
          .settings-title {
             background-color: variables.$yellow-stat-main;
             font-family: SuperMario;
@@ -27,6 +46,7 @@
             border-color: variables.$yellow-stat-border;
             border-width: 3px;
             border-radius: 4px;
+            margin-bottom: 2px;
          }
 
          ::ng-deep .settings-card-content {
@@ -41,18 +61,13 @@
 
              .setting-element {
                  width: 50%;
-                 margin-bottom: 8px;
-                 
-
-                 
+                 margin-bottom: 8px;                
              }
 
              .full-width-element {
                 width: 100%;
              }
-         }
-         
-         
+         }        
      }
 
      button {

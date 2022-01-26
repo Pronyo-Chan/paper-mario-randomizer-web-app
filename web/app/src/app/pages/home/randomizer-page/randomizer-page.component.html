@@ -5,7 +5,7 @@
             <mat-card-title class="settings-title">Preset Settings</mat-card-title>
             <app-preset-settings [formGroup]="formGroup"></app-preset-settings>
         </mat-card>
-        <mat-card class="settings-card">
+        <mat-card class="settings-card" [ngClass]="{ 'partners-tab-error': formGroup.get('partners').invalid}">
             <mat-card-title class="settings-title">Randomizer Settings</mat-card-title>
             <mat-tab-group animationDuration="1000ms">
                 <mat-tab label="Items" class="items-tab">
