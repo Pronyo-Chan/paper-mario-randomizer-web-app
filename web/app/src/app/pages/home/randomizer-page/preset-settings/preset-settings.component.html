@@ -1,6 +1,6 @@
 <mat-card-content class=settings-card-content>
     <div class="select-container">            
-        <span class="settings-label">Preset</span>
+        <span class="settings-label">Preset: </span>
         <select [(ngModel)]="selectedPreset">
             <option *ngFor="let presetName of presetNames">{{presetName}}</option>
         </select>

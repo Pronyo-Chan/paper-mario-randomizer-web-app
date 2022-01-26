@@ -106,7 +106,7 @@
         }
     },
     {
-        "name": "All true (test preset)",
+        "name": "All true",
         "settings": {
             "shuffleItems": true,
             "includeCoins": true,
