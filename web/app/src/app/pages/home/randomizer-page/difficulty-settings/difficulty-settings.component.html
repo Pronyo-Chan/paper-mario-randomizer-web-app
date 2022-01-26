@@ -10,7 +10,7 @@
                 <option [value]="'2'">2x</option>
                 <option [value]="'4'">4x</option>
             </select>
-            <app-tooltip-span spanText="Damage Multiplier" tooltipText="Increases the damage of player and enemy attack"></app-tooltip-span>
+            <app-tooltip-span spanText="Enemy Damage Multiplier" tooltipText="Increases the damage done by enemy attacks"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>            
@@ -22,11 +22,13 @@
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='oneHitKO'></mat-slide-toggle>
-            <app-tooltip-span spanText="One Hit KO" tooltipText="Every enemy attack will Mario instantly if turned on"></app-tooltip-span>
+            <app-tooltip-span spanText="One Hit KO" tooltipText="Mario will die instantly from an enemy attack if a block action command is failed"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='noSaveBlocks'></mat-slide-toggle>
-            <app-tooltip-span spanText="No Save Blocks" tooltipText="Save blocks will be removed from the game if turned on"></app-tooltip-span>
+            <app-tooltip-span spanText="No Save Blocks" tooltipText="Save blocks will be removed from the game if turned on.
+            
+            It is still possible to save after every chapter with the 'Save and Continue' menu "></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='noHeartBlock'></mat-slide-toggle>
