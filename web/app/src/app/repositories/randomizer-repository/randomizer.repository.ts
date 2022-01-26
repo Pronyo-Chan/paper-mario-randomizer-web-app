@@ -1,5 +1,5 @@
 import { SettingsRequest } from './../../entities/settingsRequest';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
