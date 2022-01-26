@@ -78,6 +78,22 @@
   background-color: #B48B31;
 }
 
+input.mat-input-element {
+  border: inset;
+  border-radius: 4px;
+  border-color: #F0C74E;
+  border-width: 3px;
+
+  &.error {
+    border-color: red;
+  }
+
+  
+}
+input.mat-input-element:focus {
+  outline: none !important;
+}
+
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
