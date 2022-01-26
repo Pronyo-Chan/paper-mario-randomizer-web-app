@@ -1,12 +1,6 @@
 <form [formGroup]="miscFormGroup">
     <mat-card-content class=settings-card-content>
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='shuffleChapterDifficulty'></mat-slide-toggle>
-            <app-tooltip-span 
-                spanText="Shuffle Chapter Difficulty" 
-                tooltipText="Shuffling chapter difficulty will assign each of the first 7 chapters a new chapter number, scaling the strength of enemies encountered there up or down">
-            </app-tooltip-span>
-        </div>
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='randomFormations'></mat-slide-toggle>
             <app-tooltip-span

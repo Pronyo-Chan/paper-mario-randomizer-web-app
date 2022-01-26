@@ -4,6 +4,7 @@ import { Observable, of, Subscription } from 'rxjs';
 import {tap, take} from 'rxjs/operators'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../utilities/custom.validators'
+import { DifficultySetting } from 'src/app/entities/enum/difficultySetting';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -69,7 +70,6 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         }, CustomValidators.atLeastOneTrueControl())
       }),
       misc: new FormGroup({
-        shuffleChapterDifficulty: new FormControl(false),
         randomFormations: new FormControl(false),
         randomQuiz: new FormControl(false),
         randomCoinPalette: new FormControl(false)
@@ -85,6 +85,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         turnOffMusic: new FormControl(false),        
       }),
       difficulty: new FormGroup({
+        difficultyMode: new FormControl(DifficultySetting.Vanilla),
         initialCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]),
         capEnemyXP: new FormControl(false),
         noXP: new FormControl(false),

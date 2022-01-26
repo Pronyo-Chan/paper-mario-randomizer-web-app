@@ -17,6 +17,7 @@ export interface SettingsRequest {
     ToyboxOpen: boolean;
     WhaleOpen: boolean;
     ShuffleChapterDifficulty: boolean;
+    ProgressiveScaling: boolean;
     RandomFormations: boolean;
     ShuffleItems: boolean;
     IncludeCoins: boolean;

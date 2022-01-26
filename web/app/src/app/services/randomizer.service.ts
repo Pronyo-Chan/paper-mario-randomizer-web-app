@@ -3,6 +3,7 @@ import { RandomizerRepository } from './../repositories/randomizer-repository/ra
 import { FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { SettingsRequest, StartingPartners } from '../entities/settingsRequest';
+import { DifficultySetting } from '../entities/enum/difficultySetting';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,8 @@ export class RandomizerService {
       ToyboxOpen: settingsForm.get('openLocations').get('toyboxOpen').value,
       FlowerGateOpen: settingsForm.get('openLocations').get('flowerGateOpen').value,
       WhaleOpen: settingsForm.get('openLocations').get('whaleOpen').value,
-      ShuffleChapterDifficulty: settingsForm.get('misc').get('shuffleChapterDifficulty').value,
+      ShuffleChapterDifficulty: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.RandomChapterDifficulty,
+      ProgressiveScaling: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.ProgressiveScaling,
       RandomFormations: settingsForm.get('misc').get('randomFormations').value,
       ShuffleItems: settingsForm.get('items').get('shuffleItems').value,
       IncludeCoins: settingsForm.get('items').get('includeCoins').value,
