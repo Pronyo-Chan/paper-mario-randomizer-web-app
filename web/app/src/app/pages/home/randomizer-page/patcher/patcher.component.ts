@@ -53,6 +53,9 @@ export class PatcherComponent implements OnInit, OnDestroy {
   }
 
   public handleFileInput(files: FileList) {
+    if(!files[0]) {
+      return;
+    }
     this.userRom = null;
     this.isRomValid = false;    
     this.isUserRomLoading = true;
