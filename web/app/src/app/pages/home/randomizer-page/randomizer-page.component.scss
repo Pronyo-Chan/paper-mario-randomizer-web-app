@@ -1,5 +1,8 @@
 @use './../../../../variables';
 :host {
+    .main-page {
+        padding-bottom: 4rem;
+    }
     
     .mario-title {
         font-family: SuperMario; 

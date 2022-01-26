@@ -6,6 +6,32 @@
             <span>{{userRom?.fileName ? userRom.fileName : "Rom Select (.z64)" }}</span>
         </label>        
     </div>
-    <button  [disabled]="!isRomValid" type="submit" (click)="patch()"><span>Patch</span></button>
-    <span class="error-message" *ngIf="(userRom && !isRomValid && !isUserRomLoading)">❌The provided file is a not a valid Paper Mario z64 USA rom</span>
+    <button  [disabled]="!isRomValid || formGroup.invalid" type="submit" (click)="patch()"><span>Patch</span></button>
+    <ul *ngIf="formGroup.invalid || (userRom && !isRomValid && !isUserRomLoading)">
+        <mat-divider></mat-divider>
+        <li *ngIf="(userRom && !isRomValid && !isUserRomLoading)">
+            The provided file is a not a valid Paper Mario z64 USA rom
+        </li>
+        <li *ngIf="formGroup.get('items').invalid">
+            The Randomizer Settings: Items section has error(s)
+        </li>
+        <li *ngIf="formGroup.get('partners').invalid">
+            The Randomizer Settings: Partners section has error(s)
+        </li>
+        <li *ngIf="formGroup.get('badgesAndMoves').invalid">
+            The Randomizer Settings: Badges/Moves section has error(s)
+        </li>
+        <li *ngIf="formGroup.get('misc').invalid">
+            The Randomizer Settings: Misc section has error(s)
+        </li>
+        <li *ngIf="formGroup.get('openLocations').invalid">            
+            The Open World Settings section has error(s)
+        </li>
+        <li *ngIf="formGroup.get('difficulty').invalid">
+            The Difficulty Settings section has error(s)
+        </li>
+        <li *ngIf="formGroup.get('qualityOfLife').invalid">
+            The Quality of Life Settings section has error(s)
+        </li>
+    </ul>
 </div>

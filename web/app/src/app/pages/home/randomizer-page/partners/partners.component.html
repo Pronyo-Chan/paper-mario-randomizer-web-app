@@ -28,11 +28,23 @@
         </div>
         <ng-container *ngIf="partnersFormGroup.get('startWithRandomPartners').value === true; else fixedPartnersTemplate">
             <div class="setting-element">
-                <input matInput type="number" min="0" max="8" formControlName='randomPartnersMin' [ngClass]="{ 'error': partnersFormGroup.get('randomPartnersMin').invalid || partnersFormGroup.get('randomPartnersMax').hasError('greaterOrEqual')}">
+                <input matInput 
+                        type="number" 
+                        min="1" 
+                        max="8" 
+                        formControlName='randomPartnersMin' 
+                        (blur)="onRandomPartnersMinBlur()"
+                        [ngClass]="{ 'error': partnersFormGroup.get('randomPartnersMin').invalid || partnersFormGroup.get('randomPartnersMax').hasError('greaterOrEqual')}">
                 <span class="settings-label">Min number of starting partners</span>
             </div>
             <div class="setting-element">
-                <input matInput type="number" min="0" max="8" formControlName='randomPartnersMax' [ngClass]="{ 'error': partnersFormGroup.get('randomPartnersMax').invalid}">
+                <input matInput
+                         type="number" 
+                         min="1" 
+                         max="8" 
+                         formControlName='randomPartnersMax' 
+                         (blur)="onRandomPartnersMaxBlur()"
+                         [ngClass]="{ 'error': partnersFormGroup.get('randomPartnersMax').invalid}">
                 <span class="settings-label">Max number of starting partners</span>
             </div>
         </ng-container>
@@ -75,13 +87,13 @@
     <ul *ngIf="partnersFormGroup.invalid">
         <mat-divider></mat-divider>
         <li *ngIf="partnersFormGroup.get('randomPartnersMin').hasError('min')">
-            Minimum number of starting partners must be greater or equal to 0
+            Minimum number of starting partners must be greater or equal to 1
         </li>
         <li *ngIf="partnersFormGroup.get('randomPartnersMin').hasError('max')">
             Minimum number of starting partners must be smaller or equal to 8
         </li>
         <li *ngIf="partnersFormGroup.get('randomPartnersMax').hasError('min')">
-            Maximum number of starting partners must be greater or equal to 0
+            Maximum number of starting partners must be greater or equal to 1
         </li>
         <li *ngIf="partnersFormGroup.get('randomPartnersMax').hasError('max')">
             Maximum number of starting partners must be smaller or equal to 8

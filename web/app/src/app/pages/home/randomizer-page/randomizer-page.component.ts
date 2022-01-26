@@ -25,7 +25,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.randomPartnersMinSubscription.unsubscribe();
+    if(this.randomPartnersMinSubscription) {
+      this.randomPartnersMinSubscription.unsubscribe();
+    }
+    
   }
   public onSubmit(): void {
     console.log(this.formGroup)
@@ -52,8 +55,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         partnersInDefaultLocations: new FormControl(false),
         partnersAlwaysUsable: new FormControl(false),
         startWithRandomPartners: new FormControl(false),
-        randomPartnersMin: new FormControl(1, [Validators.min(0), Validators.max(8)]),
-        randomPartnersMax: new FormControl(8, [Validators.min(0), Validators.max(8), CustomValidators.greaterOrEqualTo('randomPartnersMin')]),
+        randomPartnersMin: new FormControl(1, [Validators.min(1), Validators.max(8)]),
+        randomPartnersMax: new FormControl(8, [Validators.min(1), Validators.max(8), CustomValidators.greaterOrEqualTo('randomPartnersMin')]),
         startWithPartners: new FormGroup({
           goombario: new FormControl(false),
           kooper: new FormControl(false),

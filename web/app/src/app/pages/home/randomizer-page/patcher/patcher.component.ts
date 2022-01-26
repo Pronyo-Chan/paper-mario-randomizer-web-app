@@ -1,8 +1,8 @@
 import { FormGroup } from '@angular/forms';
 import { Constants } from './../../../../utilities/constants';
 import { RandomizerRepository } from '../../../../repositories/randomizer-repository/randomizer.repository';
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Observable, of, Subscription } from 'rxjs';
 import {tap, take} from 'rxjs/operators';
 import { RandomizerService } from 'src/app/services/randomizer.service';
 declare var applyPatch: any; 
@@ -16,7 +16,7 @@ declare var crc32: any;
   templateUrl: './patcher.component.html',
   styleUrls: ['./patcher.component.scss']
 })
-export class PatcherComponent implements OnInit {
+export class PatcherComponent implements OnInit, OnDestroy {
 
   @Input() public formGroup: FormGroup;
   public userRom: any = null;
@@ -26,14 +26,22 @@ export class PatcherComponent implements OnInit {
   public isRomValid = false;
   public isUserRomLoading = false;
 
+  private _createSeedSubscription: Subscription;
+
   public constructor(private _randomizerService: RandomizerService, private _randomizerRepo: RandomizerRepository) { }
 
   public ngOnInit(): void {
   }
 
+  public ngOnDestroy(): void {
+    if(this._createSeedSubscription) {
+      this._createSeedSubscription.unsubscribe();
+    }
+  }
+
   public patch() {
     
-    this._randomizerService.createSeedWithSettings(this.formGroup)
+    this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup)
     .pipe(
       take(1),
       tap(patch => {

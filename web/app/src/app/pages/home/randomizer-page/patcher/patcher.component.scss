@@ -1,5 +1,20 @@
 @use './../../../../../variables';
 :host {
+    ul {
+        list-style-type: none;
+        li {
+            color: red;
+            font-family: 'popjoy';
+        }
+        li:before {
+            content: "❌" !important; 
+            font-size: 12px !important;
+        }
+        li:marker {
+            display: none;
+        }
+    }
+
     .inputfile {
         width: 0.1px;
         height: 0.1px;
@@ -48,7 +63,7 @@
             text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
 
         }
-        margin: 0 0 1rem 4rem;
+        margin: 0 0 0 4rem;
         font-size: 16px;
         width: 7%;
         text-overflow: ellipsis;
@@ -69,11 +84,5 @@
     button:disabled {
         cursor: not-allowed;
         opacity: 30%;
-    }
-
-    .error-message {
-        color: red;
-        font-size: 12px !important;
-        font-weight: 600;
     }
 }
