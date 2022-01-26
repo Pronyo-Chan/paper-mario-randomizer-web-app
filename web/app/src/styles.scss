@@ -94,6 +94,9 @@ input.mat-input-element:focus {
   outline: none !important;
 }
 
+.mat-tab-body-content {
+  overflow: hidden !important; /* Hide scrollbars */
+}
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
