@@ -1,14 +1,6 @@
 <form [formGroup]="qualityOfLifeFormGroup">
     <mat-card-content class=settings-card-content>
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='blocksMatchContent'></mat-slide-toggle>
-            <app-tooltip-span
-                 spanText="Blocks Match Content"
-                  tooltipText="Off: Block colors will be the same as vanilla, regardless of their content
-                  
-                                On: Block colors will indicate their content">
-            </app-tooltip-span>
-        </div>
+
         <div class="setting-element">
             <select formControlName='hiddenBlockMode'>
                 <option [value]="'0'">Watt's ability</option>
@@ -45,7 +37,7 @@
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='allowPhysicsGlitches'></mat-slide-toggle>
-            <app-tooltip-span spanText="Allow Physic Glitches" tooltipText="Prevents out of bound exploits"></app-tooltip-span>
+            <app-tooltip-span spanText="Allow Physics Glitches" tooltipText="Allows out of bound exploits present in the original game"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='writeSpoilerLog'></mat-slide-toggle>

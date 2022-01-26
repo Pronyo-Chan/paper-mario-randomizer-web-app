@@ -1,5 +1,4 @@
 export interface SettingsRequest {
-    BlocksMatchContent: boolean;
     AlwaysSpeedySpin: boolean;
     AlwaysISpy: boolean;
     AlwaysPeekaboo: boolean;

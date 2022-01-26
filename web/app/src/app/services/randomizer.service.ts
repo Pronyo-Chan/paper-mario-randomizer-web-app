@@ -17,7 +17,6 @@ export class RandomizerService {
   {
     var request =
     {
-      BlocksMatchContent: settingsForm.get('qualityOfLife').get('blocksMatchContent').value,
       AlwaysSpeedySpin: settingsForm.get('qualityOfLife').get('alwaysSpeedySpin').value,
       AlwaysISpy: settingsForm.get('qualityOfLife').get('alwaysISpy').value,
       AlwaysPeekaboo: settingsForm.get('qualityOfLife').get('alwaysPeekaboo').value,

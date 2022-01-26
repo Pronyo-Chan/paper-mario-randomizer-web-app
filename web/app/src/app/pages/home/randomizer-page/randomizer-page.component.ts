@@ -71,8 +71,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomQuiz: new FormControl(false),
         randomCoinPalette: new FormControl(false)
       }),
-      qualityOfLife: new FormGroup({  
-        blocksMatchContent: new FormControl(false),    
+      qualityOfLife: new FormGroup({   
         hiddenBlockMode: new FormControl(0),           
         alwaysSpeedySpin: new FormControl(false),      
         alwaysISpy: new FormControl(false),      
