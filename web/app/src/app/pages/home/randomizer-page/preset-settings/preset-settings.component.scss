@@ -1,3 +1,4 @@
+@use './../../../../../variables';
 .select-container{
     margin-top: 14px;
     select {
@@ -17,11 +18,11 @@ button {
     margin: 0 0 0 1rem;
     cursor: pointer;
     padding: 0.5rem 1rem;
-    background-color: #47B836;     
+    background-color: variables.$green-spirit-main;     
     border-radius: 30px;        
     border: outset;
     border-width: 2px;
-    border-color: #68FF51;
+    border-color: variables.$green-spirit-border;
 
     
 }

@@ -1,9 +1,10 @@
+@use './../../../../variables';
 :host {
     
     .mario-title {
         font-family: SuperMario; 
         font-size: 4rem;
-        color: #db260b;
+        color: variables.$red-mario;
         text-shadow: -1px 1px 0 #FFF, 1px 1px 0 #FFF, 1px -1px 0 #FFF, -1px -1px 0 #FFF;
         text-align: center;
         margin: 2rem;
@@ -12,10 +13,10 @@
 
      .settings-card {
          margin: 2rem 4rem 2rem 4rem;
-         background-color: #E2E1D8;
+         background-color: variables.$beige-background-secondary;
 
          .settings-title {
-            background-color: #B48B31;
+            background-color: variables.$yellow-stat-main;
             font-family: SuperMario;
             font-size: 2rem;
             text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
@@ -23,7 +24,7 @@
             color: rgb(255, 255, 255);
             padding: 1rem;
             border: outset;
-            border-color: #F0C74E;
+            border-color: variables.$yellow-stat-border;
             border-width: 3px;
             border-radius: 4px;
          }
@@ -55,7 +56,7 @@
      }
 
      button {
-        background-color: #B48B31;
+        background-color: variables.$yellow-stat-main;
         margin: 1rem;
         font-family: popjoy !important;
         color: white !important;

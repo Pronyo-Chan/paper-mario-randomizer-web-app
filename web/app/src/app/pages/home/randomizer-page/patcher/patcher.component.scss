@@ -1,3 +1,4 @@
+@use './../../../../../variables';
 :host {
     .inputfile {
         width: 0.1px;
@@ -20,12 +21,12 @@
         display: inline-table;
         overflow: hidden;
         padding: 0.5rem 1rem;
-        background-color: #A75959;        
+        background-color: variables.$red-file-main;        
         color: white;
         border-radius: 30px;        
         border: outset;
         border-width: 2px;
-        border-color: #D78C96;
+        border-color: variables.$red-file-border;
 
         svg {
             fill: currentColor;
@@ -56,11 +57,11 @@
         display: inline-block;
         overflow: hidden;
         padding: 0.5rem 1rem;
-        background-color: #47B836;        
+        background-color: variables.$green-spirit-main;        
         border-radius: 30px;        
         border: outset;
         border-width: 2px;
-        border-color: #68FF51;
+        border-color: variables.$green-spirit-border;
 
         
     }

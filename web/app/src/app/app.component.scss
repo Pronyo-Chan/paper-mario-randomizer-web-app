@@ -1,3 +1,4 @@
+@use './../variables';
 body {
-    background-color: #D2C090;
+    background-color: variables.$beige-background-main;
 }
