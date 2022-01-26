@@ -28,11 +28,11 @@
         </div>
         <ng-container *ngIf="partnersFormGroup.get('startWithRandomPartners').value === true; else fixedPartnersTemplate">
             <div class="setting-element">
-                <input matInput type="number" min="0" max="8" formControlName='randomPartnersMin'>
+                <input matInput type="number" min="0" max="8" formControlName='randomPartnersMin' [ngClass]="{ 'error': partnersFormGroup.get('randomPartnersMin').invalid || partnersFormGroup.get('randomPartnersMax').hasError('greaterOrEqual')}">
                 <span class="settings-label">Min number of starting partners</span>
             </div>
             <div class="setting-element">
-                <input matInput type="number" min="0" max="8" formControlName='randomPartnersMax'>
+                <input matInput type="number" min="0" max="8" formControlName='randomPartnersMax' [ngClass]="{ 'error': partnersFormGroup.get('randomPartnersMax').invalid}">
                 <span class="settings-label">Max number of starting partners</span>
             </div>
         </ng-container>
