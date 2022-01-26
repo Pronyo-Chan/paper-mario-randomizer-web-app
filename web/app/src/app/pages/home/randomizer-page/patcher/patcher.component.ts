@@ -3,7 +3,7 @@ import { Constants } from './../../../../utilities/constants';
 import { RandomizerRepository } from '../../../../repositories/randomizer-repository/randomizer.repository';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Observable, of, Subscription } from 'rxjs';
-import {tap, take} from 'rxjs/operators';
+import {tap, take, catchError} from 'rxjs/operators';
 import { RandomizerService } from 'src/app/services/randomizer.service';
 declare var applyPatch: any; 
 declare var MarcFile: any; 
@@ -25,6 +25,9 @@ export class PatcherComponent implements OnInit, OnDestroy {
 
   public isRomValid = false;
   public isUserRomLoading = false;
+  public isRandomizing = false;
+
+  public patchingError: string;
 
   private _createSeedSubscription: Subscription;
 
@@ -40,14 +43,20 @@ export class PatcherComponent implements OnInit, OnDestroy {
   }
 
   public patch() {
-    
+    this.patchingError = null
+    this.isRandomizing = true;
+
     this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup)
     .pipe(
       take(1),
       tap(patch => {
         console.log(this.userRom)
-        this.patchFile = new MarcFile(new File([patch], 'patch'), () => this.patchFileReadyCallback());
-             
+        this.patchFile = new MarcFile(new File([patch], 'patch'), () => this.patchFileReadyCallback());             
+      }),
+      catchError( err => {
+        this.isRandomizing = false;
+        this.patchingError = 'A server error has occured';
+        return of(err);
       })
     ).subscribe();
   }
@@ -65,6 +74,8 @@ export class PatcherComponent implements OnInit, OnDestroy {
   public patchFileReadyCallback() {
     var bpsPatch = new parseBPSFile(this.patchFile);
     this.patchedRomBlob = new applyPatch(bpsPatch, this.userRom);
+
+    this.isRandomizing = false;
 
     this.serveDownload(this.patchedRomBlob);
 
