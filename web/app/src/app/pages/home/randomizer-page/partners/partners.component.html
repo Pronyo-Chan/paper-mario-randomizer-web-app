@@ -89,5 +89,8 @@
         <li *ngIf="partnersFormGroup.get('randomPartnersMax').hasError('greaterOrEqual')">
             Maximum number of starting partners must be greater or equal to minimum
         </li>
+        <li *ngIf="partnersFormGroup.get('startWithPartners').hasError('atLeastOneTrueControl')">
+            At least one partner must be selected
+        </li>
     </ul>
 </form>

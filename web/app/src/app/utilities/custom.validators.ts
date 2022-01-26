@@ -1,4 +1,4 @@
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, FormGroup } from '@angular/forms';
 
 export namespace CustomValidators {
 
@@ -15,6 +15,26 @@ export namespace CustomValidators {
 
             return {
                 'greaterOrEqual': true
+            }
+        };
+    }
+
+    export function atLeastOneTrueControl() {
+        return (formGroup: FormGroup): { [key: string]: boolean } | null => {
+
+            var hasTrueValue = false;
+
+            Object.keys(formGroup.controls).forEach(formControlName => {
+                if (formGroup.get(formControlName).value == true) {
+                  hasTrueValue = true;
+                }
+              });
+            if (hasTrueValue) {
+                return null;
+            }
+
+            return {
+                'atLeastOneTrueControl': true
             }
         };
     }

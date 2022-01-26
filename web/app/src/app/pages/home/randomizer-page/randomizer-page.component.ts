@@ -63,7 +63,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
           watt: new FormControl(false),
           sushie: new FormControl(false),
           lakilester: new FormControl(false)
-        })
+        }, CustomValidators.atLeastOneTrueControl())
       }),
       misc: new FormGroup({
         shuffleChapterDifficulty: new FormControl(false),
