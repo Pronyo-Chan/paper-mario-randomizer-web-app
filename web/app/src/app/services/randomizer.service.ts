@@ -51,6 +51,7 @@ export class RandomizerService {
       ShuffleStarpowerSP: settingsForm.get('badgesAndMoves').get('shuffleStarpowerSP').value,
       RandomQuiz: settingsForm.get('misc').get('randomQuiz').value,
       SkipQuiz: settingsForm.get('qualityOfLife').get('skipQuiz').value,
+      QuizmoAlwaysAppears: false, //TODO: WIP
       PartnersInDefaultLocations: settingsForm.get('partners').get('partnersInDefaultLocations').value,
       PartnersAlwaysUsable: settingsForm.get('partners').get('partnersAlwaysUsable').value,
       StartWithRandomPartners: settingsForm.get('partners').get('startWithRandomPartners').value,
@@ -68,6 +69,7 @@ export class RandomizerService {
       } as StartingPartners,
       WriteSpoilerLog: settingsForm.get('qualityOfLife').get('writeSpoilerLog').value,
       RandomCoinPalette: settingsForm.get('misc').get('randomCoinPalette').value,
+      RomanNumerals: false, //TODO: NYI
       TurnOffMusic: settingsForm.get('qualityOfLife').get('turnOffMusic').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value
     } as SettingsRequest

@@ -32,6 +32,7 @@ export interface SettingsRequest {
     ShuffleStarpowerSP: boolean;
     RandomQuiz: boolean;
     SkipQuiz: boolean;
+    QuizmoAlwaysAppears: boolean;
     PartnersInDefaultLocations: boolean;
     PartnersAlwaysUsable: boolean;
     StartWithRandomPartners: boolean;
@@ -40,6 +41,7 @@ export interface SettingsRequest {
     StartWithPartners: StartingPartners;
     WriteSpoilerLog : boolean;
     RandomCoinPalette: boolean;
+    RomanNumerals: boolean;
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
 }
