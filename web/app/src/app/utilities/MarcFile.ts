@@ -2,15 +2,15 @@ import { Observable, Subscriber } from 'rxjs';
 /* MODDED VERSION OF MarcFile.js v20181020 - Marc Robledo 2014-2018 - http://www.marcrobledo.com/license */
 
 export class MarcFile {
-    littleEndian: boolean;
-    offset: number = 0;
-    lastRead: any;
-    fileName : string;
-    fileType : string;
-    fileSize : number;
-    fileReader: any;
-    u8Array: any;
-    dataView: any;
+    public littleEndian: boolean;
+    public offset: number = 0;
+    public lastRead: any;
+    public fileName : string;
+    public fileType : string;
+    public fileSize : number;
+    public fileReader: any;
+    public u8Array: any;
+    public dataView: any;
 
     IS_MACHINE_LITTLE_ENDIAN(){	/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView#Endianness */
         var buffer=new ArrayBuffer(2);
@@ -20,7 +20,7 @@ export class MarcFile {
     }  
     
     
-    seek(offset){
+    public seek(offset){
         this.offset=offset;
     }
     skip(nBytes){
@@ -61,7 +61,7 @@ export class MarcFile {
         }
     }
 
-    save(){
+    public save(): Blob{
         var blob;
         try{
             blob=new Blob([this.u8Array],{type:this.fileType});

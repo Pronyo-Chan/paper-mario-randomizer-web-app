@@ -7,6 +7,7 @@ import { DifficultySetting } from '../entities/enum/difficultySetting';
 import { getMarcFileFromSource } from '../utilities/MarcFile';
 import { applyPatch } from '../utilities/RomPatcher';
 import { parseBPSFile } from '../utilities/bps';
+import { parseRandoPatchFile } from '../utilities/randopatch';
 
 
 @Injectable({
@@ -27,15 +28,22 @@ export class RandomizerService {
       map(starRodMarcFile => {
         var bpsPatch = parseBPSFile(starRodMarcFile);
         var starRodRomBlob = applyPatch(bpsPatch, userRom);
-        return starRodRomBlob  
+        return starRodRomBlob;
       })
     );
-    var randoPatch$ = this._randomizerRepo.sendRandoSettings(request);
+    var randoPatch$ = this._randomizerRepo.sendRandoSettings(request).pipe(
+      switchMap(randoPatchFile => getMarcFileFromSource(new File([randoPatchFile], 'patch'))),
+      map(randoPatchFile => {
+        var randoPatch = parseRandoPatchFile(randoPatchFile);
+        return randoPatch;  
+      })
+    );
 
     return forkJoin([starRodRom$, randoPatch$]).pipe(
       map(results => {
         //execute randopatch and change return
-        return results[0];
+        var finalRomMarcFile = applyPatch(results[1], results[0]);
+        return finalRomMarcFile.save();
       })
     ) 
   }

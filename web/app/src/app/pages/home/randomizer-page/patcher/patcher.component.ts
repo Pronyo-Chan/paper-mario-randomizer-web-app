@@ -6,7 +6,7 @@ import { Observable, of, Subscription } from 'rxjs';
 import {tap, take, catchError} from 'rxjs/operators';
 import { RandomizerService } from 'src/app/services/randomizer.service';
 import { getMarcFileFromSource } from 'src/app/utilities/MarcFile';
-declare var crc32: any;
+import { crc32 } from 'src/app/utilities/crc32';
 
   
 @Component({
@@ -70,7 +70,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
     getMarcFileFromSource(files[0]).pipe(
       tap(marcFile => {
         this.userRom = marcFile
-        var checksum = crc32(this.userRom, 0, false);
+        var checksum = crc32(this.userRom, 0, false).toString();
         if (checksum == Constants.VALID_ROM_CRC) {
           this.isRomValid = true;
         }

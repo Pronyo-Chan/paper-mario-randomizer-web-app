@@ -1,6 +1,6 @@
 /* Rom Patcher JS v20210920 - Marc Robledo 2016-2021 - http://www.marcrobledo.com/license */
 
-import { getMarcFileFromSource } from "./MarcFile";
+import { getMarcFileFromSource, MarcFile } from "./MarcFile";
 
 const TOO_BIG_ROM_SIZE=67108863;
 const HEADERS_INFO=[
@@ -25,19 +25,13 @@ function el(e){return document.getElementById(e)}
 function _(str){return userLanguage[str] || str}
 
 
-function preparePatchedRom(originalRom, patchedRom, headerSize){
-	patchedRom.fileName=originalRom.fileName.replace(/\.([^\.]*?)$/, ' (patched).$1');
-	patchedRom.fileType=originalRom.fileType;
-
-	return patchedRom.save();
-}
-
-export function applyPatch(p,r,validateChecksums?){
+export function applyPatch(p,r,validateChecksums?): MarcFile{
 	if(p && r){
 
 			try{
-				var tempFile = p.apply(r, validateChecksums);
-                var patchedRom = preparePatchedRom(r, tempFile, headerSize);
+				var patchedRom = p.apply(r, validateChecksums);
+				patchedRom.fileName=r.fileName.replace(/\.([^\.]*?)$/, ' (patched).$1');
+				patchedRom.fileType=r.fileType;
                 return patchedRom
 
 			}catch(e){
