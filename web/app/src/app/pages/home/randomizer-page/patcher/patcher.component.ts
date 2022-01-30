@@ -5,9 +5,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Observable, of, Subscription } from 'rxjs';
 import {tap, take, catchError} from 'rxjs/operators';
 import { RandomizerService } from 'src/app/services/randomizer.service';
-declare var applyPatch: any; 
-declare var MarcFile: any; 
-declare var parseBPSFile: any; 
+import { getMarcFileFromSource } from 'src/app/utilities/MarcFile';
 declare var crc32: any;
 
   
@@ -46,14 +44,15 @@ export class PatcherComponent implements OnInit, OnDestroy {
     this.patchingError = null
     this.isRandomizing = true;
 
-    this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup)
+    this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup, this.userRom)
     .pipe(
       take(1),
-      tap(patch => {
-        console.log(this.userRom)
-        this.patchFile = new MarcFile(new File([patch], 'patch'), () => this.patchFileReadyCallback());             
+      tap(romResult => {
+        this.isRandomizing = false;
+        this.serveDownload(romResult);     
       }),
       catchError( err => {
+        console.log(err)
         this.isRandomizing = false;
         this.patchingError = 'A server error has occured';
         return of(err);
@@ -68,25 +67,16 @@ export class PatcherComponent implements OnInit, OnDestroy {
     this.userRom = null;
     this.isRomValid = false;    
     this.isUserRomLoading = true;
-    this.userRom = new MarcFile(files[0], () => this.romFileReadyCallback());
-  }
-
-  public patchFileReadyCallback() {
-    var bpsPatch = new parseBPSFile(this.patchFile);
-    this.patchedRomBlob = new applyPatch(bpsPatch, this.userRom);
-
-    this.isRandomizing = false;
-
-    this.serveDownload(this.patchedRomBlob);
-
-  }
-
-  public romFileReadyCallback() {
-    var checksum = crc32(this.userRom, 0, false);
-    if (checksum == Constants.VALID_ROM_CRC) {
-      this.isRomValid = true;
-    }
-    this.isUserRomLoading = false;
+    getMarcFileFromSource(files[0]).pipe(
+      tap(marcFile => {
+        this.userRom = marcFile
+        var checksum = crc32(this.userRom, 0, false);
+        if (checksum == Constants.VALID_ROM_CRC) {
+          this.isRomValid = true;
+        }
+        this.isUserRomLoading = false;
+      }) 
+    ).subscribe();
   }
 
   public serveDownload(blob: Blob) {

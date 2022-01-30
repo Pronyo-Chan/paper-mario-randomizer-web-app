@@ -14,13 +14,13 @@ function _sha1_promise(hash){
 	var hexString='';
 	for(var i=0;i<bytes.length;i++)
 		hexString+=padZeroes(bytes[i], 1);
-	el('sha1').innerHTML=hexString;
+	//el('sha1').innerHTML=hexString;
 }
 function sha1(marcFile){
-	window.crypto.subtle.digest('SHA-1', marcFile._u8array.buffer)
+	window.crypto.subtle.digest('SHA-1', marcFile.u8Array.buffer)
 		.then(_sha1_promise)
 		.catch(function(error){
-			el('sha1').innerHTML='Error';
+			//el('sha1').innerHTML='Error';
 		})
 	;
 }
@@ -38,7 +38,7 @@ function gg(a,b,c,d,x,s,t){return _cmn((b&d)|(c&(~d)),a,b,x,s,t)}
 function hh(a,b,c,d,x,s,t){return _cmn(b^c^d,a,b,x,s,t)}
 function ii(a,b,c,d,x,s,t){return _cmn(c^(b|(~d)),a,b,x,s,t)}
 function md5(marcFile, headerSize){
-	var data=headerSize? new Uint8Array(marcFile._u8array.buffer, headerSize):marcFile._u8array;
+	var data=headerSize? new Uint8Array(marcFile.u8Array.buffer, headerSize):marcFile.u8Array;
 
 	var n=data.length,state=[1732584193,-271733879,-1732584194,271733878],i;
 	for(i=64;i<=data.length;i+=64)
@@ -55,11 +55,11 @@ function md5(marcFile, headerSize){
 	tail[14]=n*8;
 	_md5cycle(state,tail);
 
-	for(var i=0;i<state.length;i++){
+	for(i=0;i<state.length;i++){
 		var s='',j=0;
 		for(;j<4;j++)
 			s+=HEX_CHR[(state[i]>>(j*8+4))&0x0f]+HEX_CHR[(state[i]>>(j*8))&0x0f];
-		state[i]=s;
+		state[i]=s as any;
 	}
 	return state.join('')
 }
@@ -77,8 +77,8 @@ const CRC32_TABLE=(function(){
 	}
 	return crcTable;
 }());
-function crc32(marcFile, headerSize, ignoreLast4Bytes){
-	var data=headerSize? new Uint8Array(marcFile._u8array.buffer, headerSize):marcFile._u8array;
+export function crc32(marcFile, headerSize?, ignoreLast4Bytes?){
+	var data=headerSize? new Uint8Array(marcFile.u8Array.buffer, headerSize):marcFile.u8Array;
 
 	var crc=0^(-1);
 
@@ -98,7 +98,7 @@ function adler32(marcFile, offset, len){
 	var a=1, b=0;
 
 	for(var i=0; i<len; i++){
-		a=(a+marcFile._u8array[i+offset])%ADLER32_MOD;
+		a=(a+marcFile.u8Array[i+offset])%ADLER32_MOD;
 		b=(b+a)%ADLER32_MOD;
 	}
 
@@ -123,8 +123,8 @@ const CRC16_TABLE=(function(){
 function crc16(marcFile){
 	var crc=0^(-1);
 
-	for(var i=0;i<marcFile._u8array.length;i++)
-		crc=((crc>>>8)&0x0ff)^CRC16_TABLE[(crc^marcFile._u8array[i])&0xff];
+	for(var i=0;i<marcFile.u8Array.length;i++)
+		crc=((crc>>>8)&0x0ff)^CRC16_TABLE[(crc^marcFile.u8Array[i])&0xff];
 
 	return ((crc^(-1))>>>0) & 0xffff;
 }
@@ -147,87 +147,65 @@ const CONSOLES=[
 			var megadrive=true;
 			var genesis=true;
 			for(var i=0; i<12 && (megadrive || genesis); i++){
-				if(marcFile._u8array[0x100+i]!==this.MEGADRIVE_LOGO[i])
+				if(marcFile.u8Array[0x100+i]!==this.MEGADRIVE_LOGO[i])
 					megadrive=false;
-				if(marcFile._u8array[0x100+i]!==this.GENESIS_LOGO[i])
+				if(marcFile.u8Array[0x100+i]!==this.GENESIS_LOGO[i])
 					genesis=false;
 			}
 			return megadrive || genesis;
 		},
 		getChecksum:function(marcFile){
-			return (marcFile._u8array[0x018e]<<8) + marcFile._u8array[0x018f];
+			return (marcFile.u8Array[0x018e]<<8) + marcFile.u8Array[0x018f];
 		},
 		recalculateChecksum:function(marcFile){
 			var checksum=0;
 
 			for(var i=0x200; i<marcFile.fileSize; i+=2)
-				checksum=(checksum + (((marcFile._u8array[i]<<8) + marcFile._u8array[i+1])>>>0)) & 0xffff;
+				checksum=(checksum + (((marcFile.u8Array[i]<<8) + marcFile.u8Array[i+1])>>>0)) & 0xffff;
 
 			return checksum
 		},
 		updateChecksum:function(marcFile, newChecksum){
-			marcFile._u8array[0x18e]=newChecksum>>8;
-			marcFile._u8array[0x18f]=newChecksum & 0xff;
+			marcFile.u8Array[0x18e]=newChecksum>>8;
+			marcFile.u8Array[0x18f]=newChecksum & 0xff;
 		}
 	},{
 		title:'Game Boy',
 		NINTENDO_LOGO:[0xce, 0xed, 0x66, 0x66, 0xcc, 0x0d, 0x00, 0x0b, 0x03, 0x73, 0x00, 0x83, 0x00, 0x0c, 0x00, 0x0d],
 		checkHeader:function(marcFile){
 			for(var i=0; i<this.NINTENDO_LOGO.length; i++){
-				if(marcFile._u8array[0x104+i]!==this.NINTENDO_LOGO[i])
+				if(marcFile.u8Array[0x104+i]!==this.NINTENDO_LOGO[i])
 					return false;
 			}
 			return true;
 		},
 		getChecksum:function(marcFile){
-			return marcFile._u8array[0x14d]
+			return marcFile.u8Array[0x14d]
 		},
 		recalculateChecksum:function(marcFile){
 			var checksum=0;
 
 			for(var i=0x134; i<0x014d; i++){
-				checksum=(checksum - marcFile._u8array[i] - 1) & 0xff;
+				checksum=(checksum - marcFile.u8Array[i] - 1) & 0xff;
 			}
 
 			return checksum
 		},
 		updateChecksum:function(marcFile, newChecksum){
-			marcFile._u8array[0x014d]=newChecksum;
+			marcFile.u8Array[0x014d]=newChecksum;
 
 
 			/* global checksum isn't checked by real hw, but fix it anyway */
-			var globalChecksumOld=(marcFile._u8array[0x014e]<<8) + marcFile._u8array[0x014f];
+			var globalChecksumOld=(marcFile.u8Array[0x014e]<<8) + marcFile.u8Array[0x014f];
 			var globalChecksumNew=0;
 			for(var i=0x0000; i<0x014e; i++)
-				globalChecksumNew=((globalChecksumNew + marcFile._u8array[i]) >>> 0) & 0xffff;
+				globalChecksumNew=((globalChecksumNew + marcFile.u8Array[i]) >>> 0) & 0xffff;
 			for(i=0x0150;i<marcFile.fileSize; i++)
-				globalChecksumNew=((globalChecksumNew + marcFile._u8array[i]) >>> 0) & 0xffff;
+				globalChecksumNew=((globalChecksumNew + marcFile.u8Array[i]) >>> 0) & 0xffff;
 			if(globalChecksumOld!==globalChecksumNew){
-				marcFile._u8array[0x014e]=globalChecksumNew>>8;
-				marcFile._u8array[0x014f]=globalChecksumNew & 0xff;
+				marcFile.u8Array[0x014e]=globalChecksumNew>>8;
+				marcFile.u8Array[0x014f]=globalChecksumNew & 0xff;
 			}
 		}
 	}
 ];
-function checkConsole(marcFile){
-	return false;
-}
-function fixConsoleChecksum(marcFile){
-	var system=false;
-	for(var i=0; i<CONSOLES.length && !system; i++)
-		if(CONSOLES[i].checkHeader(marcFile))
-			system=CONSOLES[i];
-	if(!system)
-		return false;
-	
-	var oldChecksum=console.getChecksum(marcFile);
-	var newChecksum=console.recalculateChecksum(marcFile);
-	
-	if(oldChecksum!==newChecksum)
-		if(alert('Fix '+console.title+' checksum?')){
-			console.updateChecksum(marcFile, newChecksum);
-			return true;
-		}
-	
-	return false;
-}

@@ -1,9 +1,13 @@
-import { Observable } from 'rxjs';
+import { combineLatest, combineLatestAll, combineLatestWith, forkJoin, map, merge, mergeMap, Observable, switchMap } from 'rxjs';
 import { RandomizerRepository } from './../repositories/randomizer-repository/randomizer.repository';
 import { FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { SettingsRequest, StartingPartners } from '../entities/settingsRequest';
 import { DifficultySetting } from '../entities/enum/difficultySetting';
+import { getMarcFileFromSource } from '../utilities/MarcFile';
+import { applyPatch } from '../utilities/RomPatcher';
+import { parseBPSFile } from '../utilities/bps';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +18,30 @@ export class RandomizerService {
   { 
   }
 
-  public createSeedWithSettings(settingsForm: FormGroup): Observable<Blob> 
+  public createSeedWithSettings(settingsForm: FormGroup, userRom: any): Observable<Blob> 
   {
-    var request =
-    {
+    var request = this.prepareRequestObject(settingsForm)
+
+    var starRodRom$ = this._randomizerRepo.getStarRodPatch().pipe(
+      switchMap(starRodPatchFile => getMarcFileFromSource(new File([starRodPatchFile], 'patch'))),
+      map(starRodMarcFile => {
+        var bpsPatch = parseBPSFile(starRodMarcFile);
+        var starRodRomBlob = applyPatch(bpsPatch, userRom);
+        return starRodRomBlob  
+      })
+    );
+    var randoPatch$ = this._randomizerRepo.sendRandoSettings(request);
+
+    return forkJoin([starRodRom$, randoPatch$]).pipe(
+      map(results => {
+        //execute randopatch and change return
+        return results[0];
+      })
+    ) 
+  }
+
+  private prepareRequestObject(settingsForm: FormGroup) {
+    return {
       AlwaysSpeedySpin: settingsForm.get('qualityOfLife').get('alwaysSpeedySpin').value,
       AlwaysISpy: settingsForm.get('qualityOfLife').get('alwaysISpy').value,
       AlwaysPeekaboo: settingsForm.get('qualityOfLife').get('alwaysPeekaboo').value,
@@ -43,7 +67,7 @@ export class RandomizerService {
       IncludeShops: settingsForm.get('items').get('includeShops').value,
       IncludePanels: settingsForm.get('items').get('includePanels').value,
       IncludeFavors: settingsForm.get('items').get('includeFavors').value,
-      IncludeLetterChain: false, //TODO: Not yet implemented
+      IncludeLetterChain: false,
       KeyitemsOutsideDungeon: settingsForm.get('items').get('keyitemsOutsideDungeon').value,
       ShuffleBadgesBP: settingsForm.get('badgesAndMoves').get('shuffleBadgesBP').value,
       ShuffleBadgesFP: settingsForm.get('badgesAndMoves').get('shuffleBadgesFP').value,
@@ -51,7 +75,7 @@ export class RandomizerService {
       ShuffleStarpowerSP: settingsForm.get('badgesAndMoves').get('shuffleStarpowerSP').value,
       RandomQuiz: settingsForm.get('misc').get('randomQuiz').value,
       SkipQuiz: settingsForm.get('qualityOfLife').get('skipQuiz').value,
-      QuizmoAlwaysAppears: false, //TODO: WIP
+      QuizmoAlwaysAppears: false,
       PartnersInDefaultLocations: settingsForm.get('partners').get('partnersInDefaultLocations').value,
       PartnersAlwaysUsable: settingsForm.get('partners').get('partnersAlwaysUsable').value,
       StartWithRandomPartners: settingsForm.get('partners').get('startWithRandomPartners').value,
@@ -69,11 +93,9 @@ export class RandomizerService {
       } as StartingPartners,
       WriteSpoilerLog: settingsForm.get('qualityOfLife').get('writeSpoilerLog').value,
       RandomCoinPalette: settingsForm.get('misc').get('randomCoinPalette').value,
-      RomanNumerals: false, //TODO: NYI
+      RomanNumerals: false,
       TurnOffMusic: settingsForm.get('qualityOfLife').get('turnOffMusic').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value
-    } as SettingsRequest
-
-    return this._randomizerRepo.sendRandoSettings(request);
+    } as SettingsRequest;
   }
 }

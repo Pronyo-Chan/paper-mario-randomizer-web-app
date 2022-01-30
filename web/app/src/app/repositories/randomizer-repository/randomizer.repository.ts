@@ -14,9 +14,9 @@ export class RandomizerRepository {
   public constructor(private _httpClient: HttpClient) {    
   }
 
-  public patch(): Observable<Blob> {
+  public getStarRodPatch(): Observable<Blob> {
     //return this._httpClient.post(this._rootURL + '/patch', formData, {responseType: 'blob'}).pipe(timeout(300000));
-    return this._httpClient.get('assets/OWPM_alpha_ISpy.bps', { responseType: 'blob' })
+    return this._httpClient.get('assets/starrod.bps', { responseType: 'blob' })
   }
 
   public sendRandoSettings(request: SettingsRequest): Observable<Blob> {
