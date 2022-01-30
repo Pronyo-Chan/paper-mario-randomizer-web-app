@@ -16,23 +16,14 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public formGroup: FormGroup
   randomPartnersMinSubscription: Subscription;
 
-  public constructor(private _randomizerService: RandomizerService) { 
-
-  }
-
   public ngOnInit(): void {
     this.initFormGroup();
-    console.log(this.formGroup)
   }
 
   public ngOnDestroy(): void {
     if(this.randomPartnersMinSubscription) {
       this.randomPartnersMinSubscription.unsubscribe();
-    }
-    
-  }
-  public onSubmit(): void {
-    console.log(this.formGroup)
+    }    
   }
 
   public initFormGroup() {

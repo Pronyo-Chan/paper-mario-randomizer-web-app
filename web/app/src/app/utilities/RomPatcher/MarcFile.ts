@@ -1,5 +1,5 @@
+// Striped down and converted to TS version of https://github.com/marcrobledo/RomPatcher.js/
 import { Observable, Subscriber } from 'rxjs';
-/* MODDED VERSION OF MarcFile.js v20181020 - Marc Robledo 2014-2018 - http://www.marcrobledo.com/license */
 
 export class MarcFile {
     public littleEndian: boolean;
@@ -12,7 +12,7 @@ export class MarcFile {
     public u8Array: any;
     public dataView: any;
 
-    IS_MACHINE_LITTLE_ENDIAN(){	/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView#Endianness */
+    public IS_MACHINE_LITTLE_ENDIAN(){	/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView#Endianness */
         var buffer=new ArrayBuffer(2);
         new DataView(buffer).setInt16(0, 256, true /* littleEndian */);
         // Int16Array uses the platform's endianness.
@@ -23,14 +23,15 @@ export class MarcFile {
     public seek(offset){
         this.offset=offset;
     }
-    skip(nBytes){
+
+    public skip(nBytes){
         this.offset+=nBytes;
     }
-    isEOF(){
+    public isEOF(){
         return !(this.offset<this.fileSize)
     }
     
-    slice(offset, len){
+    public slice(offset, len){
         len=len || (this.fileSize-offset);
     
         var newFile;
@@ -39,7 +40,7 @@ export class MarcFile {
             newFile=getMarcFileFromSource(0);
             newFile.fileSize=len;
             newFile.u8Array=new Uint8Array(this.u8Array.buffer.slice(offset, offset+len));
-        }else{
+        } else{
             newFile=getMarcFileFromSource(len);
             this.copyToFile(newFile, offset, len, 0);
         }
@@ -50,7 +51,7 @@ export class MarcFile {
     }
     
     
-    copyToFile(target, offsetSource, len, offsetTarget){
+    public copyToFile(target, offsetSource, len, offsetTarget){
         if(typeof offsetTarget==='undefined')
             offsetTarget=offsetSource;
     
@@ -73,13 +74,13 @@ export class MarcFile {
         return blob
     }
     
-    readU8(){
+    public readU8(){
         this.lastRead=this.u8Array[this.offset];
     
         this.offset++;
         return this.lastRead
     }
-    readU16(){
+    public readU16(){
         if(this.littleEndian)
             this.lastRead=this.u8Array[this.offset] + (this.u8Array[this.offset+1] << 8);
         else
@@ -88,7 +89,8 @@ export class MarcFile {
         this.offset+=2;
         return this.lastRead >>> 0
     }
-    readU24(){
+
+    public readU24(){
         if(this.littleEndian)
             this.lastRead=this.u8Array[this.offset] + (this.u8Array[this.offset+1] << 8) + (this.u8Array[this.offset+2] << 16);
         else
@@ -97,7 +99,7 @@ export class MarcFile {
         this.offset+=3;
         return this.lastRead >>> 0
     }
-    readU32(){
+    public readU32(){
         if(this.littleEndian)
             this.lastRead=this.u8Array[this.offset] + (this.u8Array[this.offset+1] << 8) + (this.u8Array[this.offset+2] << 16) + (this.u8Array[this.offset+3] << 24);
         else
@@ -107,7 +109,7 @@ export class MarcFile {
         return this.lastRead >>> 0
     }
     
-    readBytes(len){
+    public readBytes(len){
         this.lastRead=new Array(len);
         for(var i=0; i<len; i++){
             this.lastRead[i]=this.u8Array[this.offset+i];
@@ -117,7 +119,7 @@ export class MarcFile {
         return this.lastRead
     }
     
-    readString(len){
+    public readString(len){
         this.lastRead='';
         for(var i=0;i<len && (this.offset+i)<this.fileSize && this.u8Array[this.offset+i]>0;i++)
             this.lastRead=this.lastRead+String.fromCharCode(this.u8Array[this.offset+i]);
@@ -126,23 +128,24 @@ export class MarcFile {
         return this.lastRead
     }
     
-    writeU8(u8){
+    public writeU8(u8){
         this.u8Array[this.offset]=u8;
     
         this.offset++;
     }
-    writeU16(u16){
+
+    public writeU16(u16){
         if(this.littleEndian){
             this.u8Array[this.offset]=u16 & 0xff;
             this.u8Array[this.offset+1]=u16 >> 8;
-        }else{
+        } else {
             this.u8Array[this.offset]=u16 >> 8;
             this.u8Array[this.offset+1]=u16 & 0xff;
         }
     
         this.offset+=2;
     }
-    writeU24(u24){
+    public writeU24(u24){
         if(this.littleEndian){
             this.u8Array[this.offset]=u24 & 0x0000ff;
             this.u8Array[this.offset+1]=(u24 & 0x00ff00) >> 8;
@@ -155,7 +158,8 @@ export class MarcFile {
     
         this.offset+=3;
     }
-    writeU32(u32){
+
+    public writeU32(u32){
         if(this.littleEndian){
             this.u8Array[this.offset]=u32 & 0x000000ff;
             this.u8Array[this.offset+1]=(u32 & 0x0000ff00) >> 8;
@@ -171,15 +175,14 @@ export class MarcFile {
         this.offset+=4;
     }
     
-    
-    writeBytes(a){
+    public writeBytes(a){
         for(var i=0;i<a.length;i++)
             this.u8Array[this.offset+i]=a[i]
     
         this.offset+=a.length;
     }
     
-    writeString(str,len){
+    public writeString(str,len){
         len=len || str.length;
         for(var i=0;i<str.length && i<len;i++)
             this.u8Array[this.offset+i]=str.charCodeAt(i);
@@ -230,40 +233,6 @@ export function getMarcFileFromSource(source): Observable<MarcFile>{
                 observer.error(error);
             }
         });
-
-
-
-	} else if(typeof source==='object' && typeof source.fileName==='string' && typeof source.littleEndian==='boolean'){ /* source is MarcFile */
-        throw new Error('not implemented');
-		/* this.fileName=source.fileName;
-		this.fileType=source.fileType;
-		this.fileSize=source.fileSize;
-
-		var ab=new ArrayBuffer(source);
-		this.u8Array=new Uint8Array(this.fileType);
-		this.dataView=new DataView(this.fileType);
-		
-		source.copyToFile(this, 0);
-		if(onLoad)
-			onLoad.call(); */
-
-
-
-	}else if(typeof source==='object' && typeof source.byteLength==='number'){ /* source is ArrayBuffer or TypedArray */
-        throw new Error('not implemented');
-		/* this.fileName='file.bin';
-		this.fileType='application/octet-stream';
-		this.fileSize=source.byteLength;
-
-		if(typeof source.buffer !== 'undefined')
-			source=source.buffer;
-		this.u8Array=new Uint8Array(source);
-		this.dataView=new DataView(source);
-
-		if(onLoad)
-			onLoad.call(); */
-
-
 
 	}else if(typeof source==='number'){ /* source is integer (new empty file) */	 
         throw new Error('Please use getMarcFileFromLength() instead');

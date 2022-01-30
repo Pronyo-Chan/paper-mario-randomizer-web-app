@@ -1,4 +1,4 @@
-/* Rom Patcher JS - CRC32/MD5/SHA-1/checksums calculators v20200926 - Marc Robledo 2016-2020 - http://www.marcrobledo.com/license */
+// Striped down and converted to TS version of https://github.com/marcrobledo/RomPatcher.js/
 
 function padZeroes(intVal, nBytes){
 	var hexString=intVal.toString(16);

@@ -4,10 +4,10 @@ import { FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { SettingsRequest, StartingPartners } from '../entities/settingsRequest';
 import { DifficultySetting } from '../entities/enum/difficultySetting';
-import { getMarcFileFromSource } from '../utilities/MarcFile';
-import { applyPatch } from '../utilities/RomPatcher';
-import { parseBPSFile } from '../utilities/bps';
-import { parseRandoPatchFile } from '../utilities/randopatch';
+import { getMarcFileFromSource } from '../utilities/RomPatcher/MarcFile';
+import { applyPatch } from '../utilities/RomPatcher/RomPatcher';
+import { parseBPSFile } from '../utilities/RomPatcher/bps';
+import { parseRandoPatchFile } from '../utilities/RomPatcher/randopatch';
 
 
 @Injectable({

@@ -1,10 +1,15 @@
 import { MarcFile } from "./MarcFile";
 
-const RANDO_PATCH_ACTION_SEEK=0;
-const RANDO_PATCH_ACTION_WRITE=1;
-const RANDO_PATCH_FINAL_SEEK=2;
-
+// This custom patch format done just for our needs is very simple.
+// It will ready a single byte that represents one of three actions: seek, write, or final_seek
+// Seek: Places offset of original rom at next 4bytes position
+// Write: Writes the next 4bytes at current offset
+// Final Seek: From now on, the patch will write non-stop, 4bytes at a time.
 export class RandoPatch {
+    private readonly RANDO_PATCH_ACTION_SEEK = 0;
+    private readonly RANDO_PATCH_ACTION_WRITE = 1;
+    private readonly RANDO_PATCH_FINAL_SEEK = 2;
+
 	public initialRom: MarcFile;
 
     public apply(romFile: MarcFile, validate){    
@@ -12,23 +17,22 @@ export class RandoPatch {
         var randomizedRom= Object.create(romFile) as MarcFile //deep copy original file
         var finalSeekHit = false;
 
-        //Patch structure: 1byte indicates read or write, then 4bytes data. Repeat
         while(this.initialRom.offset < this.initialRom.fileSize){
             if(finalSeekHit) {
                 var data = this.initialRom.readU32();
                 randomizedRom.writeU32(data);
             } else {
                 var operationType=this.initialRom.readU8();
-                if(operationType == RANDO_PATCH_ACTION_SEEK) 
+                if(operationType == this.RANDO_PATCH_ACTION_SEEK) 
                 {
                     var address = this.initialRom.readU32();
                     randomizedRom.seek(address)              
                     
-                } else if (operationType == RANDO_PATCH_ACTION_WRITE) 
+                } else if (operationType == this.RANDO_PATCH_ACTION_WRITE) 
                 {
                     var data = this.initialRom.readU32();
                     randomizedRom.writeU32(data);                 
-                }else if (operationType == RANDO_PATCH_FINAL_SEEK) 
+                }else if (operationType == this.RANDO_PATCH_FINAL_SEEK) 
                 {
                     var address = this.initialRom.readU32();
                     randomizedRom.seek(address)

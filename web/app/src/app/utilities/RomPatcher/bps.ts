@@ -1,4 +1,4 @@
-/* BPS module for Rom Patcher JS v20180930 - Marc Robledo 2016-2018 - http://www.marcrobledo.com/license */
+// Striped down and converted to TS version of https://github.com/marcrobledo/RomPatcher.js/
 
 import { crc32 } from "./crc32";
 import { getMarcFileFromLength } from "./MarcFile";

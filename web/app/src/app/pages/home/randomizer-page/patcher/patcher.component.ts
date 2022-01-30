@@ -5,8 +5,8 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Observable, of, Subscription } from 'rxjs';
 import {tap, take, catchError} from 'rxjs/operators';
 import { RandomizerService } from 'src/app/services/randomizer.service';
-import { getMarcFileFromSource } from 'src/app/utilities/MarcFile';
-import { crc32 } from 'src/app/utilities/crc32';
+import { getMarcFileFromSource } from 'src/app/utilities/RomPatcher/MarcFile';
+import { crc32 } from 'src/app/utilities/RomPatcher/crc32';
 
   
 @Component({
