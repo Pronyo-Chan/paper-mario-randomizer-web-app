@@ -19,6 +19,7 @@
          background-color: variables.$beige-background-card;
 
          &.partners-tab-error{
+             background-color: variables.$red-background-error;
             ::ng-deep .mat-tab-group {
                 .mat-tab-header {
                    .mat-tab-label-container {
@@ -73,11 +74,45 @@
          }        
      }
 
-     button {
-        background-color: variables.$yellow-stat-main;
-        margin: 1rem;
-        font-family: popjoy !important;
-        color: white !important;
-        text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
-      }
+     div.button-container {
+
+        button.submit {
+            span {
+                
+                font-family: popjoy ;
+                color: white ;
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+                font-size: 25px;
+        
+            }
+            cursor: pointer;
+            padding: 0.1rem 2rem;
+            margin-left: 4rem;
+            background-color: variables.$yellow-stat-main;     
+            border-radius: 30px;        
+            border: outset;
+            border-width: 2px;
+            border-color: variables.$yellow-stat-border;   
+        }
+        button:disabled {
+            cursor: not-allowed;
+        }
+     }
+
+     ul {
+        list-style-type: none;
+        li {
+            color: red;
+            font-family: 'popjoy';
+            text-shadow: -1px 1px 0 #FFF, 1px 1px 0 #FFF, 1px -1px 0 #FFF, -1px -1px 0 #FFF;      
+        }
+        li:before {
+            content: "❌" !important; 
+            font-size: 12px !important;
+        }
+        li:marker {
+            display: none;
+        }
+    }
+     
 }

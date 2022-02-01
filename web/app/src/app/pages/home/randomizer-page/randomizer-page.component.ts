@@ -16,6 +16,12 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public formGroup: FormGroup
   randomPartnersMinSubscription: Subscription;
 
+  public isRandomizing = false;
+  public patchingError: string;
+  private _createSeedSubscription: Subscription;
+
+  public constructor(private _randomizerService: RandomizerService){}
+
   public ngOnInit(): void {
     this.initFormGroup();
   }
@@ -24,6 +30,22 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     if(this.randomPartnersMinSubscription) {
       this.randomPartnersMinSubscription.unsubscribe();
     }    
+
+    if(this._createSeedSubscription) {
+      this._createSeedSubscription.unsubscribe();
+    }   
+  }
+
+  public onSubmit() {
+    this.patchingError = null;
+    this.isRandomizing = false;
+    this._randomizerService.createSeedWithSettings(this.formGroup).pipe(
+      tap(seedId => this.navigateToSeedPage(seedId))
+    ).subscribe()
+  }
+
+  public navigateToSeedPage(seedId: string): void {
+    console.log(seedId)
   }
 
   public initFormGroup() {

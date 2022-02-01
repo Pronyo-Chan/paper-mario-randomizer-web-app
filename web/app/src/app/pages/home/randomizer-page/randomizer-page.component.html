@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
     <div class="main-page">
         <h1 class="mario-title">Paper Mario Randomizer</h1>
         <mat-card class="settings-card">
@@ -34,7 +34,20 @@
             <mat-card-title class="settings-title">Quality of Life Settings</mat-card-title>
             <app-qol-settings [qualityOfLifeFormGroup]="formGroup.get('qualityOfLife')"></app-qol-settings>
         </mat-card>        
-        <app-patcher [formGroup]="formGroup"></app-patcher>
+        <div class="button-container">
+
+            <button [disabled]="formGroup.invalid || isRandomizing" class="submit" type="submit">
+                <span [matTooltip]="formGroup.invalid ? 'Please fix the errors on the page to submit' : ''" matTooltipPosition="right">Generate Seed</span>
+            </button>
+            <ng-container *ngIf="isRandomizing;">
+                <img class="animated-coin" src="./../../../../../assets/images/coin_loading.gif">
+                <span class="loading-text">Preparing Custom Seed...</span>
+            </ng-container>
+            <ng-container *ngIf="patchingError">
+                <span>❌</span>
+                <span class="server-error"> {{patchingError}}</span>
+            </ng-container>
+        </div>
     </div>
 </form>
  

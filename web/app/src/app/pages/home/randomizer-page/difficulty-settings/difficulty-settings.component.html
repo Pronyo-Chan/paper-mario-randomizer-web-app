@@ -5,7 +5,6 @@
                  min="0" 
                  max="999" 
                  formControlName='initialCoins' 
-                 [ngClass]="{ 'error': difficultyFormGroup.get('initialCoins').invalid}"
                  (blur)="onInitialCoinsBlur()">
             <app-tooltip-span spanText="Initial Coins" tooltipText="Amount of coins Mario will start the game with"></app-tooltip-span>
         </div>
@@ -54,11 +53,4 @@
         </div>
         
     </mat-card-content>
-    <ul *ngIf="difficultyFormGroup.invalid">
-        <mat-divider></mat-divider>
-        <li *ngIf="difficultyFormGroup.get('initialCoins').errors">
-            Initial Coins must be a value between 0 and 999
-        </li>
-
-    </ul>
 </form>

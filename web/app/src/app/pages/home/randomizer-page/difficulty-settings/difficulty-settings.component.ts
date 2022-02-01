@@ -20,10 +20,22 @@ export class DifficultySettingsComponent implements OnInit {
   }
 
   public onInitialCoinsBlur() {
-    if(!this.difficultyFormGroup.get('initialCoins').value)
+    var initialCoinsControl = this.difficultyFormGroup.get('initialCoins')
+    if(initialCoinsControl.invalid)
       {
-        this.difficultyFormGroup.get('initialCoins').setValue(0);
+        if(initialCoinsControl.value < 0)
+        {
+          initialCoinsControl.setValue(0)
+        }
+        else if(initialCoinsControl.value > 999)
+        {
+          initialCoinsControl.setValue(999)
+        }
       }
+    else if(!initialCoinsControl.value)
+    {
+      initialCoinsControl.setValue(0)
+    }
     this.difficultyFormGroup.updateValueAndValidity();
   }
 

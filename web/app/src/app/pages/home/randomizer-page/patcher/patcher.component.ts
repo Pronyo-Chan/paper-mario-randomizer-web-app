@@ -44,7 +44,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
     this.patchingError = null
     this.isRandomizing = true;
 
-    this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup, this.userRom)
+    this._createSeedSubscription = this._randomizerService.downloadPatchedRom(this.formGroup, this.userRom)
     .pipe(
       take(1),
       tap(romResult => {
