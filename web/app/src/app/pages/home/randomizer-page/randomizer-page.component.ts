@@ -1,7 +1,7 @@
 import { RandomizerService } from './../../../services/randomizer.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, of, Subscription } from 'rxjs';
-import {tap, take} from 'rxjs/operators'
+import {tap, take, catchError} from 'rxjs/operators'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../utilities/custom.validators'
 import { DifficultySetting } from 'src/app/entities/enum/difficultySetting';
@@ -38,9 +38,15 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
   public onSubmit() {
     this.patchingError = null;
-    this.isRandomizing = false;
-    this._randomizerService.createSeedWithSettings(this.formGroup).pipe(
-      tap(seedId => this.navigateToSeedPage(seedId))
+    this.isRandomizing = true;
+
+    this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup).pipe(
+      tap(seedId => this.navigateToSeedPage(seedId)),
+      catchError(err => {
+        this.patchingError = 'A server error has occured';
+        this.isRandomizing = false;
+        return err
+      })
     ).subscribe()
   }
 
