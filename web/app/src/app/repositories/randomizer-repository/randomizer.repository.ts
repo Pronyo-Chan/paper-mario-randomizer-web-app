@@ -15,11 +15,18 @@ export class RandomizerRepository {
   }
 
   public getStarRodPatch(): Observable<Blob> {
-    //return this._httpClient.post(this._rootURL + '/patch', formData, {responseType: 'blob'}).pipe(timeout(300000));
     return this._httpClient.get('assets/starrod.bps', { responseType: 'blob' })
   }
 
   public sendRandoSettings(request: SettingsRequest): Observable<Blob> {
     return this._httpClient.post(environment.apiEndPoint + 'randomizer_settings/', request, {responseType: 'blob'});
+  }
+
+  public getRandoPatch(seedId: number): Observable<Blob> {
+    return this._httpClient.get(environment.apiEndPoint +'patch/' + seedId, { responseType: 'blob' }).pipe(timeout(30000))
+  }
+
+  public getSpoilerLog(seedId: number): Observable<Blob> {
+    return this._httpClient.get(environment.apiEndPoint +'spoiler/' + seedId, { responseType: 'blob' }).pipe(timeout(30000))
   }
 }
