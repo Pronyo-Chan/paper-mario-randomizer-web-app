@@ -1,4 +1,10 @@
 @use './../variables';
 body {
     background-color: variables.$beige-background-main;
+    background-size: 49px 49px;
+    background-position: 0 0, 25px 25px;
+    background-image: linear-gradient(45deg, variables.$beige-background-secondary 25%, transparent 25%, transparent 75%,
+                        variables.$beige-background-secondary 75%, variables.$beige-background-secondary),
+                        linear-gradient(45deg, variables.$beige-background-secondary 25%, transparent 25%, transparent 75%,
+                         variables.$beige-background-secondary 75%, variables.$beige-background-secondary);
 }

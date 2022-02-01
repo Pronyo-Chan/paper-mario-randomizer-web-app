@@ -16,7 +16,7 @@
 
      .settings-card {
          margin: 2rem 4rem 2rem 4rem;
-         background-color: variables.$beige-background-secondary;
+         background-color: variables.$beige-background-card;
 
          &.partners-tab-error{
             ::ng-deep .mat-tab-group {
