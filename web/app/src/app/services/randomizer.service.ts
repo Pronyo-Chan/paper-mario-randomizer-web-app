@@ -19,10 +19,8 @@ export class RandomizerService {
   { 
   }
 
-  public createSeedWithSettings(settingsForm: FormGroup, userRom: any): Observable<Blob> 
+  public downloadPatchedRom(userRom: any, seedId: string): Observable<Blob> 
   {
-    var request = this.prepareRequestObject(settingsForm)
-
     var starRodRom$ = this._randomizerRepo.getStarRodPatch().pipe(
       switchMap(starRodPatchFile => getMarcFileFromSource(new File([starRodPatchFile], 'patch'))),
       map(starRodMarcFile => {
@@ -31,7 +29,7 @@ export class RandomizerService {
         return starRodRomBlob;
       })
     );
-    var randoPatch$ = this._randomizerRepo.sendRandoSettings(request).pipe(
+    var randoPatch$ = this._randomizerRepo.getRandoPatch(seedId).pipe(
       switchMap(randoPatchFile => getMarcFileFromSource(new File([randoPatchFile], 'patch'))),
       map(randoPatchFile => {
         var randoPatch = parseRandoPatchFile(randoPatchFile);
@@ -46,6 +44,12 @@ export class RandomizerService {
         return finalRomMarcFile.save();
       })
     ) 
+  }
+
+  public createSeedWithSettings(settingsForm: FormGroup): Observable<string> {
+    var request = this.prepareRequestObject(settingsForm);
+    return this._randomizerRepo.sendRandoSettings(request)
+
   }
 
   private prepareRequestObject(settingsForm: FormGroup) {
