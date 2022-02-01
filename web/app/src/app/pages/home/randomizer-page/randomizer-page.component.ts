@@ -1,10 +1,11 @@
 import { RandomizerService } from './../../../services/randomizer.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, of, Subscription } from 'rxjs';
-import {tap, take, catchError} from 'rxjs/operators'
+import { Subscription } from 'rxjs';
+import {tap, catchError} from 'rxjs/operators'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../utilities/custom.validators'
 import { DifficultySetting } from 'src/app/entities/enum/difficultySetting';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -20,7 +21,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public patchingError: string;
   private _createSeedSubscription: Subscription;
 
-  public constructor(private _randomizerService: RandomizerService){}
+  public constructor(private _randomizerService: RandomizerService, private _router: Router){}
 
   public ngOnInit(): void {
     this.initFormGroup();
@@ -51,7 +52,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   }
 
   public navigateToSeedPage(seedId: string): void {
-    console.log(seedId)
+    this._router.navigate(['/seed'], {queryParams: {id: seedId}})
   }
 
   public initFormGroup() {

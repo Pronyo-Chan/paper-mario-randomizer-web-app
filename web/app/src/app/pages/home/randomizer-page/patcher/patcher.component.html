@@ -6,8 +6,25 @@
             <span>{{userRom?.fileName ? userRom.fileName : "Rom Select (.z64)" }}</span>
         </label>        
     </div>
+    <div class="button-container">
 
-    <ul *ngIf="formGroup.invalid || (userRom && !isRomValid && !isUserRomLoading)">
+        <button class = 'patch-button' (click)="patch()" [disabled]="!userRom || !isRomValid || isUserRomLoading" >
+            <span [matTooltip]="!userRom || !isRomValid || isUserRomLoading ? 'This file is not a valid Paper Mario (U) rom' : ''" matTooltipPosition="right">Patch</span>
+        </button>
+        <ng-container *ngIf="isPatching;">
+            <img class="animated-coin" src="./../../../../../assets/images/coin_loading.gif">
+            <span class="loading-text">Patching...</span>
+        </ng-container>
+        <ng-container *ngIf="patchingError">
+            <span>❌</span>
+            <span class="server-error"> {{patchingError}}</span>
+        </ng-container>
+        <button class='spoiler-button' (click)="downloadSpoilerLog()" >
+            <span>Download Spoiler Log</span>
+        </button>
+    </div>
+
+    <ul *ngIf="(userRom && !isRomValid && !isUserRomLoading)">
                 <mat-divider></mat-divider>
                 <li *ngIf="(userRom && !isRomValid && !isUserRomLoading)">
                     The provided file is a not a valid Paper Mario z64 USA rom

@@ -46,6 +46,11 @@ export class RandomizerService {
     ) 
   }
 
+  public downloadSpoilerLog(seedId: string): Observable<Blob> 
+  {
+    return this._randomizerRepo.getSpoilerLog(seedId);
+  }
+
   public createSeedWithSettings(settingsForm: FormGroup): Observable<string> {
     var request = this.prepareRequestObject(settingsForm);
     return this._randomizerRepo.sendRandoSettings(request)

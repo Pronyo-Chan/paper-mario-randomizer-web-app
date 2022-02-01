@@ -1,4 +1,4 @@
-import { FormGroup } from '@angular/forms';
+
 import { Constants } from './../../../../utilities/constants';
 import { RandomizerRepository } from '../../../../repositories/randomizer-repository/randomizer.repository';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
@@ -16,18 +16,19 @@ import { crc32 } from 'src/app/utilities/RomPatcher/crc32';
 })
 export class PatcherComponent implements OnInit, OnDestroy {
 
-  @Input() public formGroup: FormGroup;
+  @Input() public seedId: string;
   public userRom: any = null;
   public patchFile: any = null;
   public patchedRomBlob: Blob = null;
 
   public isRomValid = false;
   public isUserRomLoading = false;
-  public isRandomizing = false;
+  public isPatching = false;
 
   public patchingError: string;
 
   private _createSeedSubscription: Subscription;
+  private _spoilerLogSubscription: Subscription;
 
   public constructor(private _randomizerService: RandomizerService, private _randomizerRepo: RandomizerRepository) { }
 
@@ -38,24 +39,44 @@ export class PatcherComponent implements OnInit, OnDestroy {
     if(this._createSeedSubscription) {
       this._createSeedSubscription.unsubscribe();
     }
+
+    if(this._spoilerLogSubscription) {
+      this._spoilerLogSubscription.unsubscribe();
+    }
   }
 
   public patch() {
     this.patchingError = null
-    this.isRandomizing = true;
+    this.isPatching = true;
 
-    this._createSeedSubscription = this._randomizerService.downloadPatchedRom(this.formGroup, this.userRom)
+    this._createSeedSubscription = this._randomizerService.downloadPatchedRom(this.userRom, this.seedId)
     .pipe(
       take(1),
       tap(romResult => {
-        this.isRandomizing = false;
-        this.serveDownload(romResult);     
+        this.isPatching = false;
+        this.serveDownload(romResult, 'Paper_Mario_' + this.seedId + '.z64');     
       }),
       catchError( err => {
         console.log(err)
-        this.isRandomizing = false;
+        this.isPatching = false;
         this.patchingError = 'A server error has occured';
         return of(err);
+      })
+    ).subscribe();
+  }
+
+  public downloadSpoilerLog() {
+
+    this._spoilerLogSubscription = this._randomizerService.downloadSpoilerLog(this.seedId)
+    .pipe(
+      take(1),
+      tap(spoilerLog => {
+        this.isPatching = false;
+        this.serveDownload(spoilerLog, this.seedId+ '_spoiler.txt');     
+      }),
+      catchError( err => {
+        console.log(err)
+        return err;
       })
     ).subscribe();
   }
@@ -79,12 +100,12 @@ export class PatcherComponent implements OnInit, OnDestroy {
     ).subscribe();
   }
 
-  public serveDownload(blob: Blob) {
+  public serveDownload(blob: Blob, filename: string) {
     const data = window.URL.createObjectURL(blob);
 
     var link = document.createElement('a');
     link.href = data;
-    link.download = 'Paper Mario (patched).z64';
+    link.download = filename;
     link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
   }
 

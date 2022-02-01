@@ -26,6 +26,7 @@ import { QolSettingsComponent } from './pages/home/randomizer-page/qol-settings/
 import { PresetSettingsComponent } from './pages/home/randomizer-page/preset-settings/preset-settings.component';
 import { PatcherComponent } from './pages/home/randomizer-page/patcher/patcher.component';
 import { TooltipSpanComponent } from './common/tooltip-span/tooltip-span.component';
+import { SeedPageComponent } from './pages/seed/seed-page/seed-page.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { TooltipSpanComponent } from './common/tooltip-span/tooltip-span.compone
     QolSettingsComponent,
     PresetSettingsComponent,
     PatcherComponent,
-    TooltipSpanComponent
+    TooltipSpanComponent,
+    SeedPageComponent
   ],
   imports: [
     BrowserModule,

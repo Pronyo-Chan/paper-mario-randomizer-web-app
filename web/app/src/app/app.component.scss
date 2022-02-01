@@ -8,3 +8,87 @@ body {
                         linear-gradient(45deg, variables.$beige-background-secondary 25%, transparent 25%, transparent 75%,
                          variables.$beige-background-secondary 75%, variables.$beige-background-secondary);
 }
+
+body.blue-bg {
+    background-color: variables.$blue-background-main;
+    background-size: 49px 49px;
+    background-position: 0 0, 25px 25px;
+    background-image: linear-gradient(45deg, variables.$blue-background-secondary 25%, transparent 25%, transparent 75%,
+                        variables.$blue-background-secondary 75%, variables.$blue-background-secondary),
+                        linear-gradient(45deg, variables.$blue-background-secondary 25%, transparent 25%, transparent 75%,
+                         variables.$blue-background-secondary 75%, variables.$blue-background-secondary);
+}
+
+.main-page {
+    padding-bottom: 4rem;
+}
+
+.mario-title {
+    font-family: SuperMario; 
+    font-size: 4rem;
+    color: variables.$red-mario;
+    text-shadow: -1px 1px 0 #FFF, 1px 1px 0 #FFF, 1px -1px 0 #FFF, -1px -1px 0 #FFF;
+    text-align: center;
+    margin: 2rem;
+
+ }
+
+ .settings-card {
+     margin: 2rem 4rem 2rem 4rem;
+     background-color: variables.$beige-background-card;
+
+     &.partners-tab-error{
+         background-color: variables.$red-background-error;
+        ::ng-deep .mat-tab-group {
+            .mat-tab-header {
+               .mat-tab-label-container {
+                   .mat-tab-list {
+                       .mat-tab-labels {
+                           #mat-tab-label-0-1 {
+                               -webkit-box-shadow:0 0 20px red; 
+                               -moz-box-shadow: 0 0 20px red; 
+                               box-shadow:0 0 6px  3px red;
+                               transition: box-shadow 0.1s ease-in-out;
+                           }
+                       }
+                   }
+               }
+           }
+        }
+     }
+
+     .settings-title {
+        background-color: variables.$yellow-stat-main;
+        font-family: SuperMario;
+        font-size: 2rem;
+        text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+        padding-left: 1rem;
+        color: rgb(255, 255, 255);
+        padding: 1rem;
+        border: outset;
+        border-color: variables.$yellow-stat-border;
+        border-width: 3px;
+        border-radius: 4px;
+        margin-bottom: 2px;
+     }
+
+     .settings-card-content {
+         margin: 1rem;
+         display: flex;
+         flex-wrap: wrap;
+
+         .settings-label {
+            font-family: popjoy;
+            margin-left: 4px;
+         }
+
+         .setting-element {
+             width: 50%;
+             margin-bottom: 8px;                
+         }
+
+         .full-width-element {
+            width: 100%;
+         }
+     }        
+ }
