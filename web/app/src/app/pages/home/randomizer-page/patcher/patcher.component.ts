@@ -76,7 +76,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
       }),
       catchError( err => {
         console.log(err)
-        return err;
+        return of(err);
       })
     ).subscribe();
   }

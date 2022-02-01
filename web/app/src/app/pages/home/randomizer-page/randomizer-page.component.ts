@@ -1,6 +1,6 @@
 import { RandomizerService } from './../../../services/randomizer.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { of, Subscription } from 'rxjs';
 import {tap, catchError} from 'rxjs/operators'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../utilities/custom.validators'
@@ -46,7 +46,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       catchError(err => {
         this.patchingError = 'A server error has occured';
         this.isRandomizing = false;
-        return err
+        return of(err)
       })
     ).subscribe()
   }
