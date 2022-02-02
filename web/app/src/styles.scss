@@ -25,25 +25,29 @@
   }  
 }
 
-#mat-tab-label-0-0 {
-  background-color: variables.$blue-item-main !important;        
-  border-color: variables.$blue-item-border !important;
+.mat-tab-labels {
+  > :first-child {
+    background-color: variables.$blue-item-main !important;        
+    border-color: variables.$blue-item-border !important;
+  }
+
+  > :nth-child(2) {
+    background-color: variables.$turquoise-partner-main !important;
+    border-color: variables.$turquoise-partner-border !important;
+  }
+  
+  > :nth-child(3) {
+    background-color: variables.$orange-badge-main!important;
+    border-color: variables.$orange-badge-border !important;
+  }
+  
+  > :nth-child(4) {
+    background-color: variables.$purple-misc-main !important;
+    border-color: variables.$purple-misc-border !important; 
+  }
 }
 
-#mat-tab-label-0-1 {
-  background-color: variables.$turquoise-partner-main !important;
-  border-color: variables.$turquoise-partner-border !important;
-}
 
-#mat-tab-label-0-2 {
-  background-color: variables.$orange-badge-main!important;
-  border-color: variables.$orange-badge-border !important;
-}
-
-#mat-tab-label-0-3 {
-  background-color: variables.$purple-misc-main !important;
-  border-color: variables.$purple-misc-border !important; 
-}
 
 .mat-tab-label-content {
   font-family: popjoy;
