@@ -1,0 +1,20 @@
+.mat-expansion-panel {
+    margin: 1rem 6rem 2rem 6rem;
+
+    .mat-table {
+        font-family: popjoy;
+        background-color: inherit;
+
+        .mat-cell {
+            overflow-wrap: break-word;
+            width: 25rem;
+        }
+        .mat-header-cell:last-of-type {
+            padding-left: 10rem;
+        }
+
+        td.mat-cell:last-of-type{
+            padding-left: 10rem;
+        }
+    }
+}

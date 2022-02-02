@@ -7,6 +7,85 @@
         margin-right: auto;
     }
 
+    .settings-card {
+        ::ng-deep .mat-tab-group {
+            .mat-tab-header {
+                .mat-tab-label-container {
+                    .mat-tab-list {
+
+                        .mat-ink-bar {
+                            display: none;
+                          }
+
+                        .mat-tab-labels {
+                            .mat-tab-label {
+                                opacity: 1 !important;        
+                                min-width: 165px !important;
+                                border: outset;
+                                border-width: 2px;
+                                border-radius: 30px;
+                                margin: 8px 0 8px 4px;
+                                filter: brightness(.5);
+
+                                &.mat-tab-label-active {      
+                                  filter: brightness(1);
+                                }
+
+                                .mat-tab-label-content {
+                                    font-family: popjoy;
+                                    color: white;
+                                    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+                                  }  
+                              }
+
+                              
+
+                            > :first-child {
+                              background-color: variables.$blue-item-main !important;        
+                              border-color: variables.$blue-item-border !important;
+                            }
+                          
+                            > :nth-child(2) {
+                              background-color: variables.$turquoise-partner-main !important;
+                              border-color: variables.$turquoise-partner-border !important;
+                            }
+                            
+                            > :nth-child(3) {
+                              background-color: variables.$orange-badge-main!important;
+                              border-color: variables.$orange-badge-border !important;
+                            }
+                            
+                            > :nth-child(4) {
+                              background-color: variables.$purple-misc-main !important;
+                              border-color: variables.$purple-misc-border !important; 
+                            }
+                          }
+                    }
+                }
+            }
+        }
+
+        &.partners-tab-error{
+            background-color: variables.$red-background-error;
+           ::ng-deep .mat-tab-group {
+               .mat-tab-header {
+                  .mat-tab-label-container {
+                      .mat-tab-list {
+                          .mat-tab-labels {
+                              #mat-tab-label-0-1 {
+                                  -webkit-box-shadow:0 0 20px red; 
+                                  -moz-box-shadow: 0 0 20px red; 
+                                  box-shadow:0 0 6px  3px red;
+                                  transition: box-shadow 0.1s ease-in-out;
+                              }
+                          }
+                      }
+                  }
+              }
+           }
+        }
+    }
+
     div.button-container {
 
         button.submit {
@@ -47,8 +126,6 @@
             color: red;   
             text-shadow: -1px 1px 0 #FFF, 1px 1px 0 #FFF, 1px -1px 0 #FFF, -1px -1px 0 #FFF;         
         }
-     }
-
-    
+     }   
      
 }

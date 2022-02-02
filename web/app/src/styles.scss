@@ -12,53 +12,6 @@
     src: url(assets/Fonts/SuperMario.ttf) format("opentype");
   }
 
-.mat-tab-label {
-  opacity: 1 !important;        
-  min-width: 165px !important;
-  border: outset;
-  border-width: 2px;
-  border-radius: 30px;
-  margin: 8px 0 8px 4px;
-  filter: brightness(.5);
-  &.mat-tab-label-active {      
-    filter: brightness(1);
-  }  
-}
-
-.mat-tab-labels {
-  > :first-child {
-    background-color: variables.$blue-item-main !important;        
-    border-color: variables.$blue-item-border !important;
-  }
-
-  > :nth-child(2) {
-    background-color: variables.$turquoise-partner-main !important;
-    border-color: variables.$turquoise-partner-border !important;
-  }
-  
-  > :nth-child(3) {
-    background-color: variables.$orange-badge-main!important;
-    border-color: variables.$orange-badge-border !important;
-  }
-  
-  > :nth-child(4) {
-    background-color: variables.$purple-misc-main !important;
-    border-color: variables.$purple-misc-border !important; 
-  }
-}
-
-
-
-.mat-tab-label-content {
-  font-family: popjoy;
-  color: white;
-  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
-}
-
-.mat-ink-bar {
-  display: none;
-}
-
 .mat-divider-horizontal {
   position: relative !important;
   margin: 12px !important;

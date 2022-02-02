@@ -13,6 +13,7 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatTableModule } from '@angular/material/table'
+import { MatIconModule } from '@angular/material/icon'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { PatcherComponent } from './pages/home/randomizer-page/patcher/patcher.c
 import { TooltipSpanComponent } from './common/tooltip-span/tooltip-span.component';
 import { SeedPageComponent } from './pages/seed/seed-page/seed-page.component';
 import { SettingsInfoComponent } from './pages/seed/seed-page/settings-info/settings-info.component';
+import { SpoilerLogComponent } from './pages/seed/seed-page/spoiler-log/spoiler-log.component';
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { SettingsInfoComponent } from './pages/seed/seed-page/settings-info/sett
     PatcherComponent,
     TooltipSpanComponent,
     SeedPageComponent,
-    SettingsInfoComponent
+    SettingsInfoComponent,
+    SpoilerLogComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,7 @@ import { SettingsInfoComponent } from './pages/seed/seed-page/settings-info/sett
     MatTooltipModule,
     MatExpansionModule,
     MatTableModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
