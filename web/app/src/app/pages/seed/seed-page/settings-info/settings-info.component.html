@@ -1,0 +1,23 @@
+<div class="seed-info">
+    <p>Seed ID: {{seedInfo.SeedID}}</p>
+    <p>Creation Date: {{seedInfo.CreationDate | date}}</p>
+</div>
+<div class="right-container">
+    <div class="table-container">
+        <mat-table [dataSource]="settingRows">
+            <ng-container matColumnDef="name" >
+                <th mat-header-cell *matHeaderCellDef stic>Name</th>
+                <td mat-cell *matCellDef="let setting">{{setting.name}}</td>
+            </ng-container>
+            
+            <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef>Value</th>
+                <td mat-cell *matCellDef="let setting">{{setting.value}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="['name', 'value']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['name', 'value'];"></tr>
+        </mat-table>
+    </div>
+</div>
+
+        

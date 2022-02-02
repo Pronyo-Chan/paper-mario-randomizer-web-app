@@ -1,3 +1,4 @@
+import { SettingsResponse } from './../entities/settingsResponse';
 import { combineLatest, combineLatestAll, combineLatestWith, forkJoin, map, merge, mergeMap, Observable, switchMap } from 'rxjs';
 import { RandomizerRepository } from './../repositories/randomizer-repository/randomizer.repository';
 import { FormGroup } from '@angular/forms';
@@ -17,6 +18,11 @@ export class RandomizerService {
 
   public constructor(private _randomizerRepo: RandomizerRepository) 
   { 
+  }
+
+  public getSeedInfo(seedId: string): Observable<SettingsResponse> 
+  {
+    return this._randomizerRepo.getSeedInfo(seedId);
   }
 
   public downloadPatchedRom(userRom: any, seedId: string): Observable<Blob> 

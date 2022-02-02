@@ -1,3 +1,4 @@
+import { SettingsResponse } from './../../entities/settingsResponse';
 import { SettingsRequest } from './../../entities/settingsRequest';
 import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -20,6 +21,13 @@ export class RandomizerRepository {
 
   public sendRandoSettings(request: SettingsRequest): Observable<string> {
     return this._httpClient.post(environment.apiEndPoint + 'randomizer_settings/', request, {responseType: 'text'});
+  }
+
+  public getSeedInfo(seedId: string): Observable<SettingsResponse> {
+    return this._httpClient.get(environment.apiEndPoint +'randomizer_settings/' + seedId, { responseType: 'json' }).pipe(
+      timeout(30000),
+      map(response => response as SettingsResponse)
+    )
   }
 
   public getRandoPatch(seedId: string): Observable<Blob> {

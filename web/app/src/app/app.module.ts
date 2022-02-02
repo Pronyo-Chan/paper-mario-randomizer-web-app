@@ -11,6 +11,8 @@ import { MatInputModule } from '@angular/material/input'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatSelectModule } from '@angular/material/select'
 import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatExpansionModule } from '@angular/material/expansion'
+import { MatTableModule } from '@angular/material/table'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +29,7 @@ import { PresetSettingsComponent } from './pages/home/randomizer-page/preset-set
 import { PatcherComponent } from './pages/home/randomizer-page/patcher/patcher.component';
 import { TooltipSpanComponent } from './common/tooltip-span/tooltip-span.component';
 import { SeedPageComponent } from './pages/seed/seed-page/seed-page.component';
+import { SettingsInfoComponent } from './pages/seed/seed-page/settings-info/settings-info.component';
 
 
 @NgModule({
@@ -43,7 +46,8 @@ import { SeedPageComponent } from './pages/seed/seed-page/seed-page.component';
     PresetSettingsComponent,
     PatcherComponent,
     TooltipSpanComponent,
-    SeedPageComponent
+    SeedPageComponent,
+    SettingsInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,9 @@ import { SeedPageComponent } from './pages/seed/seed-page/seed-page.component';
     MatInputModule,
     MatDividerModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatExpansionModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
-import { Subscription } from 'rxjs';
+import { SettingsResponse } from './../../../entities/settingsResponse';
+import { Subscription, tap, switchMap, Observable } from 'rxjs';
 import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RandomizerService } from 'src/app/services/randomizer.service';
 
 @Component({
   selector: 'app-seed-page',
@@ -8,31 +10,26 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./seed-page.component.scss']
 })
 export class SeedPageComponent implements OnInit, OnDestroy {
-  private _queryParamsSubscription: Subscription;
   
   public seedId: string;
+  public seedInfo$: Observable<SettingsResponse>;
 
-  constructor(private _renderer: Renderer2, private _route: ActivatedRoute) { }
+  constructor(private _renderer: Renderer2, private _route: ActivatedRoute, private _randomizerService: RandomizerService) { }
   
 
   ngOnInit(): void {
     this._renderer.addClass(document.body, 'purple-bg')
 
-    this._queryParamsSubscription = this._route.queryParams
-      .subscribe(params => {
+    this.seedInfo$ = this._route.queryParams.pipe(
+      switchMap(params => {
         this.seedId = params.id;
-        console.log(params); // { orderby: "price" }
-
-      }
-    );
+        return this._randomizerService.getSeedInfo(this.seedId)
+      })
+    )
   }
 
   ngOnDestroy(): void {
     this._renderer.removeClass(document.body, 'purple-bg')
-
-    if(this._queryParamsSubscription) {
-      this._queryParamsSubscription.unsubscribe();
-    }
   }
 
 }

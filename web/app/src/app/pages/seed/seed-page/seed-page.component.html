@@ -1,10 +1,14 @@
-<div class="main-page">
+<div class="main-page" *ngIf="seedInfo$ | async as seedInfo">
     <img class="logo" src="assets/images/logo.png">
 
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">Download</mat-card-title>
         <app-patcher [seedId] = "seedId"></app-patcher>
-    </mat-card>        
+    </mat-card>
+    <mat-card class="settings-card">
+        <mat-card-title class="settings-title">Generated Seed Info</mat-card-title>
+        <app-settings-info [seedInfo]="seedInfo"></app-settings-info>
+    </mat-card>           
     
 </div>
  
