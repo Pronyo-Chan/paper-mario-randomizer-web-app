@@ -17,10 +17,13 @@ export class SettingsInfoComponent implements OnInit {
   @Input() public seedInfo: SettingsResponse
 
   public settingRows: SettingRow[] = [];
+  expirationDate: Date;
   
   public constructor() { }
 
   public ngOnInit(): void {
+    this.expirationDate = new Date(this.seedInfo.CreationDate)
+    this.expirationDate.setDate(this.expirationDate.getDate() + 30)
     this.initSettingRows();
   }
 
@@ -36,6 +39,8 @@ export class SettingsInfoComponent implements OnInit {
           this.settingRows.push({name: key, value: HiddenBlockMode[this.seedInfo[key]]})
         case 'SeedID':
         case 'CreationDate': 
+        case 'RomanNumerals':
+        case 'IncludeLetterChain':
           break;
 
         default: {

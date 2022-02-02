@@ -1,9 +1,21 @@
 :host {
     display: flex;
     div.seed-info {
+        display: flex;
+        flex-direction: column;
         width: 40%;
         p {
+            font-family: popjoy
+        }
+        span.expiration-warning{
+            color: red;
             font-family: popjoy;
+            font-size: 12px;
+            overflow-wrap: break-word;
+            align-self: flex-end;
+            margin-top: auto;
+            margin-right: 20%;
+
         }
     }
     div.right-container {
