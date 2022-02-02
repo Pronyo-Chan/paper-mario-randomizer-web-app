@@ -1,5 +1,6 @@
 import { SettingsResponse } from './../../../../entities/settingsResponse';
 import { Component, Input, OnInit } from '@angular/core';
+import { HiddenBlockMode } from 'src/app/entities/enum/hiddenBlockMode';
 
 interface SettingRow {
   name: string;
@@ -30,7 +31,9 @@ export class SettingsInfoComponent implements OnInit {
           var startingPartners = Object.keys(this.seedInfo["StartWithPartners"]).filter(partner => this.seedInfo["StartWithPartners"][partner] == true)
           this.settingRows.push({name: key, value: startingPartners.join(', ')} as SettingRow)
           break;
-        
+        case 'HiddenBlockMode':
+
+          this.settingRows.push({name: key, value: HiddenBlockMode[this.seedInfo[key]]})
         case 'SeedID':
         case 'CreationDate': 
           break;
