@@ -96,6 +96,11 @@ export class PatcherComponent implements OnInit, OnDestroy {
           this.isRomValid = true;
         }
         this.isUserRomLoading = false;
+      }),
+      catchError(err => {
+        this.isRomValid = false;
+        this.isUserRomLoading = false;
+        return of(err)
       }) 
     ).subscribe();
   }

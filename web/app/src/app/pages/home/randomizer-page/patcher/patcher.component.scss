@@ -16,49 +16,60 @@
         }
     }
 
-    .inputfile {
-        width: 0.1px;
-        height: 0.1px;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
-
-        
-    }
-
-    label {
-        font-size: 16px;
-        width: 10%;
-        margin: 0 0 1rem 4rem;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        cursor: pointer;
-        display: inline-table;
-        overflow: hidden;
-        padding: 0.5rem 1rem;
-        background-color: variables.$red-file-main;        
-        color: white;
-        border-radius: 30px;        
-        border: outset;
-        border-width: 2px;
-        border-color: variables.$red-file-border;
-
-        svg {
-            fill: currentColor;
-            padding-right: 8px;
+    div.download-section {
+        display: flex;
+        .inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;        
         }
-
-        span {
-            pointer-events: none;
-            font-family: popjoy;            
-            text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
-        }
-    }
-
     
-
-    div.button-container {
+        label { //Sorry for disgusting code here, should throw in garbage someday
+            text-align: center;
+            font-size: 14px;
+            width: 14rem;
+            margin: 0 0 1rem 4rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            overflow: hidden;
+            padding: 0.5rem 1rem;
+            background-color: variables.$red-file-main;        
+            color: white;
+            border-radius: 15px;        
+            border: double;
+            border-width: 6px;
+            border-color: variables.$red-file-border;
+            float: left;
+    
+            svg {
+                fill: currentColor;
+                padding-right: 8px;
+            }
+    
+            span {
+                pointer-events: none;
+                font-family: popjoy;            
+                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+                
+            }
+        }
+    
+        
+    
+        div.patch-container {
+            width: 60%;
+            margin-top: 1rem;
+        }
+    
+        div.spoiler-container {
+            width: 30%;
+            margin-top: 1rem;
+        }
+    
         button {
             span {
                 
@@ -67,9 +78,9 @@
                 text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
     
             }
-
+    
             margin: 0 0 0 4rem;
-            font-size: 16px;
+            font-size: 14px;
             
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -77,31 +88,23 @@
             display: inline-block;
             overflow: hidden;
             padding: 0.5rem 1rem;
-                  
-            border-radius: 30px;        
-            border: outset;
-            border-width: 2px;
-               
-
-            &.patch-button{
-                background-color: variables.$green-spirit-main;
-                border-color: variables.$green-spirit-border;    
-                width: 7%;
-            }
-
-            &.spoiler-button{
-                background-color: variables.$purple-misc-main;
-                border-color: variables.$purple-misc-border;    
-                width: 15%;
-            }
-                   
+                    
+            border-radius: 15px;        
+            border: double;
+            border-width: 6px;
+    
+            background-color: variables.$purple-misc-main;
+            border-color: variables.$purple-misc-border;   
+    
+            width: 14rem;
+                    
         }
-
+    
         button:disabled {
             cursor: not-allowed;
             opacity: 30%;
         }
-
+    
         img.animated-coin{
             position: relative;
             top: 5px;
@@ -118,6 +121,8 @@
             color: red;   
             text-shadow: -1px 1px 0 #FFF, 1px 1px 0 #FFF, 1px -1px 0 #FFF, -1px -1px 0 #FFF;         
         }
-     }
+    }
+
+    
     
 }

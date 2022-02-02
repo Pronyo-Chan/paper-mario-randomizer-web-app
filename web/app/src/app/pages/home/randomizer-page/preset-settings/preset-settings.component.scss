@@ -18,10 +18,10 @@ button {
     margin: 0 0 0 1rem;
     cursor: pointer;
     padding: 0.5rem 1rem;
-    background-color: variables.$green-spirit-main;     
-    border-radius: 30px;        
-    border: outset;
-    border-width: 2px;
-    border-color: variables.$green-spirit-border;
+    background-color: variables.$yellow-stat-main;    
+    border-radius: 15px;        
+    border: double;
+    border-width: 6px;
+    border-color: variables.$yellow-stat-border;
     
 }

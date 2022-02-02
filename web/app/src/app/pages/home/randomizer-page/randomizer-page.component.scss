@@ -22,9 +22,9 @@
             padding: 0.1rem 2rem;
             margin-left: 4rem;
             background-color: variables.$yellow-stat-main;     
-            border-radius: 30px;        
-            border: outset;
-            border-width: 2px;
+            border-radius: 15px;        
+            border: double;
+            border-width: 6px;
             border-color: variables.$yellow-stat-border;   
         }
         button:disabled {
