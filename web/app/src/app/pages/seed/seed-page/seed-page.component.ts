@@ -16,7 +16,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   
 
   ngOnInit(): void {
-    this._renderer.addClass(document.body, 'blue-bg')
+    this._renderer.addClass(document.body, 'purple-bg')
 
     this._queryParamsSubscription = this._route.queryParams
       .subscribe(params => {
@@ -28,7 +28,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this._renderer.removeClass(document.body, 'blue-bg')
+    this._renderer.removeClass(document.body, 'purple-bg')
 
     if(this._queryParamsSubscription) {
       this._queryParamsSubscription.unsubscribe();

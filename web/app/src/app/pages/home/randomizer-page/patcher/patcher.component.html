@@ -16,6 +16,12 @@
             <span>❌</span>
             <span class="server-error"> {{patchingError}}</span>
         </ng-container>
+        <ul *ngIf="(userRom && !isRomValid && !isUserRomLoading)">
+            <mat-divider></mat-divider>
+            <li *ngIf="(userRom && !isRomValid && !isUserRomLoading)">
+                The provided file is a not a valid Paper Mario z64 USA rom
+            </li>
+        </ul>
         
         
     </div>
@@ -25,11 +31,6 @@
         </button>
     </div>
 
-    <ul *ngIf="(userRom && !isRomValid && !isUserRomLoading)">
-                <mat-divider></mat-divider>
-                <li *ngIf="(userRom && !isRomValid && !isUserRomLoading)">
-                    The provided file is a not a valid Paper Mario z64 USA rom
-                </li>
-            </ul>
+    
     
 </div>
