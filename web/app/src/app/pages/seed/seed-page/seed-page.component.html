@@ -1,5 +1,7 @@
 <div class="main-page" *ngIf="seedInfo$ | async as seedInfo">
-    <img class="logo" src="assets/images/logo.png">
+    <a [href]="homepageLink">
+        <img class="logo" src="assets/images/logo.png">
+    </a>
 
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">Download</mat-card-title>

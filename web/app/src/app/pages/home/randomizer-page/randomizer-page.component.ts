@@ -6,6 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../utilities/custom.validators'
 import { DifficultySetting } from 'src/app/entities/enum/difficultySetting';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class RandomizerPageComponent implements OnInit, OnDestroy {
 
+  public homepageLink;
   public formGroup: FormGroup
   randomPartnersMinSubscription: Subscription;
 
@@ -24,6 +26,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public constructor(private _randomizerService: RandomizerService, private _router: Router){}
 
   public ngOnInit(): void {
+    this.homepageLink = environment.homepage;
     this.initFormGroup();
   }
 

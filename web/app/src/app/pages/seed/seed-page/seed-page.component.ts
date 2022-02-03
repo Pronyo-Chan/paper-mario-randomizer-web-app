@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RandomizerService } from 'src/app/services/randomizer.service';
 import { stringify } from 'querystring';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-seed-page',
@@ -13,6 +14,7 @@ import { SpoilerLog } from 'src/app/entities/spoilerLog';
 })
 export class SeedPageComponent implements OnInit, OnDestroy {
   
+  public homepageLink: string;
   public seedId: string;
   public seedInfo$: Observable<SettingsResponse>;
 
@@ -25,6 +27,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   
 
   public ngOnInit(): void {
+    this.homepageLink = environment.homepage;
     this._renderer.addClass(document.body, 'purple-bg');
 
     this.seedInfo$ = this._route.queryParams.pipe(
