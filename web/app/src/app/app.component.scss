@@ -33,16 +33,6 @@ body.purple-bg {
     padding-bottom: 4rem;
 }
 
-.mario-title {
-    font-family: SuperMario; 
-    font-size: 4rem;
-    color: variables.$red-mario;
-    text-shadow: -1px 1px 0 #FFF, 1px 1px 0 #FFF, 1px -1px 0 #FFF, -1px -1px 0 #FFF;
-    text-align: center;
-    margin: 2rem;
-
- }
-
  .settings-card {
      margin: 1rem 6rem 2rem 6rem;
      background-color: variables.$beige-background-card;
