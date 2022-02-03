@@ -1,6 +1,0 @@
-@ $Script_802419AC % Always enable ch7 door collider
-	Bind     $Script_802417CC .Trigger:FloorAbove {Collider:deiliw} 00000001 00000000 
-	Bind     $Script_80241828 .Trigger:WallPressA {Collider:tte} 00000001 00000000 
-    Bind     $Script_8024190C .Trigger:FloorTouch {Collider:o49} 00000001 00000000 
-	Return
-	End

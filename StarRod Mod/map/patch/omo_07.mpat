@@ -1,7 +1,0 @@
-@ $Script_80245F4C
-Set  *Var[A]  00000023 
-Set  *Var[B]  00000001 
-Set  *Flag_OMO_2C  00000001 
-ExecWait $Script_80245E6C 
-Return
-End

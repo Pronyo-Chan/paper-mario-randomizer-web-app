@@ -1,6 +1,0 @@
-
-name	802A10E4	Function_GetHitChance
-name	802A1194	Function_InitializeHitCounter
-name	802A11A4	Function_IncrementHitCounter
-name	802A11C0	Function_StoreHitCountRecord
-
