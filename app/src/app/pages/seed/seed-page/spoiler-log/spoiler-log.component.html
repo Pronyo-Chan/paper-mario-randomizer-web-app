@@ -7,23 +7,26 @@
         <div class="search-container">
             <h1>Item/Partner Search</h1>
             <input type="text"
+                    maxlength="30"
                     placeholder="Item/Partner Name"
                     [(ngModel)]="searchText"
                     (ngModelChange)="filter()"
                     matInput
                     [matAutocomplete]="auto">
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"  (optionSelected)="onItemSearchChange($event)">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"  (optionSelected)="onItemSearchChange()">
                 <mat-option *ngFor="let item of filteredSearchItems" [value]="item">
                 {{item}}
                 </mat-option>
             </mat-autocomplete>
-            <ng-container *ngIf="locationSearchResults.length">
-                <p><span class="item-name">{{searchedItem}}</span> can be found at:</p>
+            <ng-container *ngIf="itemSearchresult ; else noResult">
+                <p><span class="item-name">{{itemSearchresult}}</span> can be found at:</p>
                 <p *ngFor="let location of locationSearchResults; let i=index">
                     -<span class="location-name">{{locationSearchResults[i]}}</span>
                      within the <span class="area-name">{{areaSearchResults[i]}}</span> region</p>
-                
             </ng-container>
+            <ng-template #noResult>
+                <p *ngIf="!filteredSearchItems.length && searchText?.length >= MIN_AMOUNT_OF_CHARS">There is no item with this name</p>
+            </ng-template>
         </div>
         <div class="right-container">
             <div class="table-container">

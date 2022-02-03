@@ -12,12 +12,14 @@ export class SpoilerLogComponent implements OnInit {
 
   @Input() public spoilerLog: SpoilerLog;
 
+  public readonly MIN_AMOUNT_OF_CHARS = 2;
+
   public areas: string[];
   public items: string[];
 
   public searchText: string;
   public filteredSearchItems: string[] = []
-  public searchedItem: string
+  public itemSearchresult: string
   public locationSearchResults: string[] = []
   public areaSearchResults: string[] = []
 
@@ -28,9 +30,9 @@ export class SpoilerLogComponent implements OnInit {
     this.items = Object.values(this.spoilerLog).flat().flatMap(itemLocation => itemLocation.item)
   }
 
-  public onItemSearchChange(event: MatAutocompleteSelectedEvent) {
-    this.searchedItem = event.option.value;
-    var itemLocations = Object.values(this.spoilerLog).flat().filter(itemLocation => itemLocation.item == this.searchedItem);
+  public onItemSearchChange() {
+    this.itemSearchresult = this.searchText
+    var itemLocations = Object.values(this.spoilerLog).flat().filter(itemLocation => itemLocation.item == this.itemSearchresult);
     this.locationSearchResults = itemLocations.map(itemLocation => itemLocation.location);
 
     this.areaSearchResults = [];
@@ -43,13 +45,20 @@ export class SpoilerLogComponent implements OnInit {
   }
 
   public filter() {
-    if(this.searchText.length < 2) {
+
+    if(this.searchText.length < this.MIN_AMOUNT_OF_CHARS) {
       this.filteredSearchItems = [];
       return;
     }
     const filterValue = this.searchText.toLowerCase();
     // Filter unique items that inclue value
     this.filteredSearchItems =  this.items.filter((item, index, array) => array.indexOf(item) === index && item.toLowerCase().includes(filterValue));
+
+    if(!this.filteredSearchItems.length) {
+      this.itemSearchresult = null;
+    } else if(this.filteredSearchItems.find(item => item == this.searchText)) {
+      this.onItemSearchChange()
+    }
   }
 
 }
