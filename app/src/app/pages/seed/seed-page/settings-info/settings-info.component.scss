@@ -1,3 +1,4 @@
+@use './../../../../../variables';
 :host {
     display: flex;
     div.seed-info {
@@ -5,7 +6,12 @@
         flex-direction: column;
         width: 40%;
         p {
-            font-family: popjoy
+            font-family: popjoy;
+            span {
+                font-size: 18px;
+                font-style: oblique;        
+                color: variables.$yellow-stat-text;        
+            }
         }
         span.expiration-warning{
             color: red;
