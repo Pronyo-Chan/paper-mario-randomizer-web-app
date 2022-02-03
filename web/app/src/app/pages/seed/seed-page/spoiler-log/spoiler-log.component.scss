@@ -20,8 +20,20 @@
                 font-family: popjoy;
                 span {
                     font-style: oblique;
-                    font-size: 18px;
-                    color: variables.$purple-misc-border;
+                    font-size: 14px;
+                    
+
+                    &.item-name{
+                        color: variables.$blue-item-main;
+                    }
+
+                    &.location-name{
+                        color: variables.$yellow-stat-text
+                    }
+
+                    &.area-name{
+                        color: variables.$purple-text
+                    }
                 }
             }
         }

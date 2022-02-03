@@ -5,9 +5,9 @@
 <mat-tab-group disablePagination="true" animationDuration="1000ms">
     <mat-tab *ngFor="let spoilerArea of areas; let index = index" [label]="spoilerArea">
         <div class="search-container">
-            <h1>Item Search</h1>
+            <h1>Item/Partner Search</h1>
             <input type="text"
-                    placeholder="Item Name"
+                    placeholder="Item/Partner Name"
                     [(ngModel)]="searchText"
                     (ngModelChange)="filter()"
                     matInput
@@ -17,7 +17,13 @@
                 {{item}}
                 </mat-option>
             </mat-autocomplete>
-            <p *ngIf="this.searchedItem">The item <span>{{searchedItem}}</span> can be found at <span>{{searchedLocation}}</span> within the <span>{{searchedArea}}</span> region</p>
+            <ng-container *ngIf="locationSearchResults.length">
+                <p><span class="item-name">{{searchedItem}}</span> can be found at:</p>
+                <p *ngFor="let location of locationSearchResults; let i=index">
+                    -<span class="location-name">{{locationSearchResults[i]}}</span>
+                     within the <span class="area-name">{{areaSearchResults[i]}}</span> region</p>
+                
+            </ng-container>
         </div>
         <div class="right-container">
             <div class="table-container">
