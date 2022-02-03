@@ -3,9 +3,17 @@ api_version: 1
 threadsafe: true
 
 handlers:
+# index files
+- url: /([^.]+)/?$  # urls with no dot in them
+  static_files: dist/paper-mario-randomizer-app/index.html
+  upload: dist/index.html
+
+# site root
 - url: /
   static_files: dist/paper-mario-randomizer-app/index.html
   upload: dist/paper-mario-randomizer-app/index.html
 
-- url: /
-  static_dir: dist/paper-mario-randomizer-app
+# everything else
+- url: /(.*)
+  static_files: dist/paper-mario-randomizer-app/\1
+  upload: dist/paper-mario-randomizer-app/(.*)
