@@ -1,13 +1,26 @@
 
 
-<mat-accordion>
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <mat-panel-title>Spoiler Log</mat-panel-title>
-            <mat-icon>account_circle</mat-icon>
-        </mat-expansion-panel-header>
-        <mat-tab-group animationDuration="1000ms">
-            <mat-tab *ngFor="let spoilerArea of areas; let index = index" [label]="spoilerArea">
+
+        
+<mat-tab-group disablePagination="true" animationDuration="1000ms">
+    <mat-tab *ngFor="let spoilerArea of areas; let index = index" [label]="spoilerArea">
+        <div class="search-container">
+            <h1>Item Search</h1>
+            <input type="text"
+                    placeholder="Item Name"
+                    [(ngModel)]="searchText"
+                    (ngModelChange)="filter()"
+                    matInput
+                    [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"  (optionSelected)="onItemSearchChange($event)">
+                <mat-option *ngFor="let item of filteredSearchItems" [value]="item">
+                {{item}}
+                </mat-option>
+            </mat-autocomplete>
+            <p *ngIf="this.searchedItem">The item <span>{{searchedItem}}</span> can be found at <span>{{searchedLocation}}</span> within the <span>{{searchedArea}}</span> region</p>
+        </div>
+        <div class="right-container">
+            <div class="table-container">
                 <mat-table [dataSource]="spoilerLog[spoilerArea]">
                     <ng-container matColumnDef="location" >
                         <th mat-header-cell *matHeaderCellDef stic>Location</th>
@@ -21,7 +34,7 @@
                     <tr mat-header-row *matHeaderRowDef="['location', 'item']"></tr>
                     <tr mat-row *matRowDef="let row; columns: ['location', 'item'];"></tr>
                 </mat-table>
-            </mat-tab>
-        </mat-tab-group>
-    </mat-expansion-panel>
-</mat-accordion>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>

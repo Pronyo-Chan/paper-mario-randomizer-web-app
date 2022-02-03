@@ -5,11 +5,20 @@
         <mat-card-title class="settings-title">Download</mat-card-title>
         <app-patcher [seedId] = "seedId"></app-patcher>
     </mat-card>
+    <mat-accordion>
+        <mat-expansion-panel class="settings-card">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="settings-title">Spoiler Log</mat-panel-title>
+            </mat-expansion-panel-header>
+            <app-spoiler-log *ngIf="spoilerLog | async" [spoilerLog]="spoilerLog | async"></app-spoiler-log>
+        </mat-expansion-panel>
+    </mat-accordion>
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">Generated Seed Info</mat-card-title>
         <app-settings-info [seedInfo]="seedInfo"></app-settings-info>
     </mat-card>           
-    <app-spoiler-log *ngIf="spoilerLog | async" [spoilerLog]="spoilerLog | async"></app-spoiler-log>
+    
+    
     
 </div>
  

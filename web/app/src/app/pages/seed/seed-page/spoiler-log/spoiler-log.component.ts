@@ -1,5 +1,7 @@
+import { ItemLocation } from './../../../../entities/itemLocation';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
 import { Component, Input, OnInit } from '@angular/core';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-spoiler-log',
@@ -10,11 +12,36 @@ export class SpoilerLogComponent implements OnInit {
 
   @Input() public spoilerLog: SpoilerLog;
 
-  public areas: string[]
-  constructor() { }
+  public areas: string[];
+  public items: string[];
 
-  ngOnInit(): void {
-    this.areas = Object.keys(this.spoilerLog)
+  public searchText: string;
+  public filteredSearchItems: string[]
+  public searchedItem: string
+  public searchedLocation: string
+  public searchedArea: string
+
+  public constructor() { }
+
+  public ngOnInit(): void {
+    this.areas = Object.keys(this.spoilerLog);
+    this.items = Object.values(this.spoilerLog).flat().flatMap(itemLocation => itemLocation.item)
+  }
+
+  public onItemSearchChange(event: MatAutocompleteSelectedEvent) {
+    this.searchedItem = event.option.value;
+    var itemLocation = Object.values(this.spoilerLog).flat().find(itemLocation => itemLocation.item == this.searchedItem);
+    this.searchedLocation = itemLocation.location
+    this.searchedArea = Object.keys(this.spoilerLog).find(key => this.spoilerLog[key].find(value => value == itemLocation));
+  }
+
+  public filter() {
+    if(this.searchText.length < 2) {
+      this.filteredSearchItems = [];
+      return;
+    }
+    const filterValue = this.searchText.toLowerCase();
+    this.filteredSearchItems =  this.items.filter(item => item.toLowerCase().includes(filterValue));
   }
 
 }

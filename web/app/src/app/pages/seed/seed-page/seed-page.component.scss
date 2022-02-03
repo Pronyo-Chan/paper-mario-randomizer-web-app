@@ -8,4 +8,63 @@ img.logo{
 
 .settings-card {
     background-color: variables.$purple-background-card;
+
+    ::ng-deep .mat-tab-group {
+        .mat-tab-header {
+            .mat-tab-label-container {
+                .mat-tab-list {
+
+                    .mat-ink-bar {
+                        display: none;
+                      }
+
+                    .mat-tab-labels {
+                        display: inline-block;
+                        .mat-tab-label {
+                            opacity: 1 !important;        
+                            width: 195px !important;
+                            border: outset;
+                            border-width: 2px;
+                            border-radius: 30px;
+                            margin: 8px 0 8px 4px;
+                            filter: brightness(.5);
+                            background-color: variables.$purple-misc-main !important;
+                            border-color: variables.$purple-misc-border !important; 
+                            padding: 0 5px;
+
+                            &.mat-tab-label-active {      
+                              filter: brightness(1);
+                            }
+
+                            .mat-tab-label-content {
+                                font-family: popjoy;
+                                color: white;
+                                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+                              }  
+                          }
+                      }
+                }
+            }
+        }
+    }
+}
+
+.mat-expansion-panel {
+    margin: 0 6rem 0 6rem;
+    padding:16px 7px 16px 16px; //hack because the collapse button takes 9px
+
+    ::ng-deep .mat-expansion-panel-header {
+        padding: 10px 0 10px 0;
+        .mat-content {
+            
+            .mat-expansion-panel-header-title {
+                margin-right: 0 !important
+            }
+        }
+
+        .mat-expansion-indicator {
+            position: relative;
+            right: 40px;
+        }
+    }
 }

@@ -65,14 +65,14 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     fileLines.forEach(line => {
       
       if(line[0] != ' ') { // Region group name, first char not empty
-        currentRegion = line
+        currentRegion = line.replace(':', '')
         
       } else if(line != '') {
         if(!spoilerLogData[currentRegion]) {
           spoilerLogData[currentRegion] = [];
         }
           var splitLine = line.split('):'); // Split the location and item
-          spoilerLogData[currentRegion].push({location: splitLine[0].trimLeft(), item: splitLine[1]})
+          spoilerLogData[currentRegion].push({location: splitLine[0].trimLeft().substring(1), item: splitLine[1].trimLeft()}) //trimleft removes whitespace, substring(1) removes the first (
       }
     });
     this.spoilerLog = of(spoilerLogData); 
