@@ -6,7 +6,7 @@
     </div>
     
 
-    <ng-container *ngIf="!seedInfoErrorCode">
+    <ng-container *ngIf="!pageLoadingErrorCode">
         <mat-card class="settings-card">
             <mat-card-title class="settings-title">Download</mat-card-title>
             <app-patcher [seedId] = "seedId" [hasSpoilerLog]="seedInfo.WriteSpoilerLog"></app-patcher>
@@ -25,12 +25,20 @@
         </mat-card>  
     </ng-container>
 
-    <ng-container *ngIf="seedInfoErrorCode == '404'">
-        <mat-card class="settings-card not-found-error">
+    <ng-container *ngIf="pageLoadingErrorCode == '404'">
+        <mat-card class="settings-card server-error">
             <h1>Seed ID not found</h1>
             <p>No seed with the ID <span>{{seedId}}</span> was found on the server. Keep in mind that seeds are cleaned up routinely if they're older than 30 days.</p>
             <p></p>
             <p> <a [href]="homepageLink">Click here</a> to go back to the main page and generate a new one.</p>
+        </mat-card>
+    </ng-container>
+
+    <ng-container *ngIf="pageLoadingErrorCode && pageLoadingErrorCode != '404'">
+        <mat-card class="settings-card server-error">
+            <h1>Server Error: {{pageLoadingErrorCode}}</h1>
+            <p>An servor error has occured. Please try again later and report the issue if it persists</p>
+            <p> <a [href]="homepageLink">Click here</a> to go back to the main page.</p>
         </mat-card>
     </ng-container>
              

@@ -18,9 +18,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   public seedId: string;
   public seedInfo$: Observable<SettingsResponse>;
 
-  public seedInfoErrorCode: string;
-  public spoilerLogError: boolean;
-
+  public pageLoadingErrorCode: string;
   public spoilerLog: Observable<SpoilerLog>;
 
   constructor(private _renderer: Renderer2, private _route: ActivatedRoute, private _randomizerService: RandomizerService) { }
@@ -38,16 +36,12 @@ export class SeedPageComponent implements OnInit, OnDestroy {
             if(seedInfo.WriteSpoilerLog) {
               this.initSpoilerLog();
             }
-          })
+          }),
+          catchError(err => this.handleError(err))
         )
         
       }),
-      catchError(err => {
-        this.seedInfoErrorCode = err?.status;
-        this._renderer.removeClass(document.body, 'puple-bg')
-        this._renderer.addClass(document.body, 'red-bg')
-        return of(err)
-      })
+      catchError(err => this.handleError(err))
     )
   }
 
@@ -60,10 +54,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
           this.convertSpoilerFileToDict(spoilerFile)
         })
       }),
-      catchError( err => {
-        this.spoilerLogError = true;
-        return of(err);
-      })
+      catchError(err => this.handleError(err))
     ).subscribe();
   }
 
@@ -90,6 +81,13 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this._renderer.removeClass(document.body, 'purple-bg')
+  }
+
+  private handleError(err: any): Observable<any> {
+    this.pageLoadingErrorCode = err?.status ? err?.status : err?.name;
+      this._renderer.removeClass(document.body, 'puple-bg')
+      this._renderer.addClass(document.body, 'red-bg')
+      return of(err)
   }
 
 }
