@@ -29,6 +29,16 @@ body.purple-bg {
                          variables.$purple-background-secondary 75%, variables.$purple-background-secondary);
 }
 
+body.red-bg {
+    background-color: variables.$red-background-main;
+    background-size: 49px 49px;
+    background-position: 0 0, 25px 25px;
+    background-image: linear-gradient(45deg, variables.$red-background-secondary 25%, transparent 25%, transparent 75%,
+                        variables.$red-background-secondary 75%, variables.$red-background-secondary),
+                        linear-gradient(45deg, variables.$red-background-secondary 25%, transparent 25%, transparent 75%,
+                         variables.$red-background-secondary 75%, variables.$red-background-secondary);
+}
+
 .main-page {
     padding-bottom: 4rem;
 }

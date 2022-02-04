@@ -68,3 +68,19 @@ img.logo{
         }
     }
 }
+
+.not-found-error {
+    font-family: popjoy;
+    h1 {
+        color: red;
+        text-align: center;
+    }
+
+    p{
+        margin: 2rem 10rem 2rem 10rem;
+
+        span {
+            color:red;
+        }
+    }
+}

@@ -18,7 +18,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   public seedId: string;
   public seedInfo$: Observable<SettingsResponse>;
 
-  public seedInfoError: boolean;
+  public seedInfoErrorCode: string;
   public spoilerLogError: boolean;
 
   public spoilerLog: Observable<SpoilerLog>;
@@ -43,7 +43,9 @@ export class SeedPageComponent implements OnInit, OnDestroy {
         
       }),
       catchError(err => {
-        this.seedInfoError = true;
+        this.seedInfoErrorCode = err?.status;
+        this._renderer.removeClass(document.body, 'puple-bg')
+        this._renderer.addClass(document.body, 'red-bg')
         return of(err)
       })
     )
