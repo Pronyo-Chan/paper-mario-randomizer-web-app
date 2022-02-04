@@ -46,6 +46,7 @@
             <app-loading *ngIf="isRandomizing" [isLoading]="isRandomizing" [loadingText]="'Generating Seed'"></app-loading>
             <app-error *ngIf="seedGenError" [errorText]="seedGenError"></app-error>
         </div>
+        <p class="bottom-note">*Seed generation may take up to a minute, please be patient</p>
     </div>
 </form>
  
