@@ -17,6 +17,8 @@ import { crc32 } from 'src/app/utilities/RomPatcher/crc32';
 export class PatcherComponent implements OnInit, OnDestroy {
 
   @Input() public seedId: string;
+  @Input() public hasSpoilerLog: boolean;
+  
   public userRom: any = null;
   public patchFile: any = null;
   public patchedRomBlob: Blob = null;

@@ -25,7 +25,7 @@
         
         
     </div>
-    <div class = "spoiler-container">
+    <div *ngIf="hasSpoilerLog" class="spoiler-container">
         <button class='spoiler-button' (click)="downloadSpoilerLog()" >
             <span>Download Spoiler Log</span>
         </button>
