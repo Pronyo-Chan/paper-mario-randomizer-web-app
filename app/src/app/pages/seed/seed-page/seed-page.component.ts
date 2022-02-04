@@ -33,7 +33,6 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
     this.seedInfo$ = this._route.queryParams.pipe(
       switchMap(params => {
-        console.log(params)
         this.seedId = params.id;
         return this._randomizerService.getSeedInfo(this.seedId).pipe(
           tap(seedInfo => {

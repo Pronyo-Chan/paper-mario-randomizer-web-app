@@ -1,12 +1,14 @@
+<div class="logo-wrapper">
+    <a [href]="homepageLink">
+        <img class="logo" src="assets/images/logo.png">
+    </a>
+</div>
+
 <app-loading [isLoading]="isPageLoading" [loadingText]="'Loading Seed Data'"></app-loading>
 
 <ng-container *ngIf="seedInfo$ | async as seedInfo">
     <div class="main-page" *ngIf="!isPageLoading">
-        <div class="logo-wrapper">
-            <a [href]="homepageLink">
-                <img class="logo" src="assets/images/logo.png">
-            </a>
-        </div>
+        
         
 
         <ng-container *ngIf="!pageLoadingErrorCode">
