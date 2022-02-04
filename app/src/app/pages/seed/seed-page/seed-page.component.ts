@@ -20,6 +20,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
   public pageLoadingErrorCode: string;
   public spoilerLog: Observable<SpoilerLog>;
+  public isPageLoading: boolean;
 
   constructor(private _renderer: Renderer2, private _route: ActivatedRoute, private _randomizerService: RandomizerService) { }
   
@@ -28,13 +29,19 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     this.homepageLink = environment.homepage;
     this._renderer.addClass(document.body, 'purple-bg');
 
+    this.isPageLoading = true;
+
     this.seedInfo$ = this._route.queryParams.pipe(
       switchMap(params => {
+        console.log(params)
         this.seedId = params.id;
         return this._randomizerService.getSeedInfo(this.seedId).pipe(
           tap(seedInfo => {
             if(seedInfo.WriteSpoilerLog) {
               this.initSpoilerLog();
+            }
+            else {
+              this.isPageLoading = false;
             }
           }),
           catchError(err => this.handleError(err))
@@ -52,6 +59,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       tap(spoilerLog => {
         spoilerLog.text().then(spoilerFile =>{
           this.convertSpoilerFileToDict(spoilerFile)
+          this.isPageLoading = false;
         })
       }),
       catchError(err => this.handleError(err))
@@ -85,9 +93,10 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
   private handleError(err: any): Observable<any> {
     this.pageLoadingErrorCode = err?.status ? err?.status : err?.name;
-      this._renderer.removeClass(document.body, 'puple-bg')
-      this._renderer.addClass(document.body, 'red-bg')
-      return of(err)
+    this.isPageLoading = false;
+    this._renderer.removeClass(document.body, 'puple-bg')
+    this._renderer.addClass(document.body, 'red-bg')
+    return of(err)
   }
 
 }

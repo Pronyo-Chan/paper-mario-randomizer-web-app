@@ -1,5 +1,10 @@
 @use './../../../../variables';
 
+app-loading {
+    margin: 40%;
+    position: relative;
+    top: 10rem;
+}
 img.logo{
     display: block;
     margin-left: auto;
