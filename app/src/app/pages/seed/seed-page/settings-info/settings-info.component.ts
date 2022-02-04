@@ -35,8 +35,13 @@ export class SettingsInfoComponent implements OnInit {
           this.settingRows.push({name: key, value: startingPartners.join(', ')} as SettingRow)
           break;
         case 'HiddenBlockMode':
-
           this.settingRows.push({name: key, value: HiddenBlockMode[this.seedInfo[key]]})
+          break;
+        case 'AllowPhysicsGlitches':
+          this.settingRows.push({name: 'PreventPhysicsGlitches', value: this.inverseStringBoolean(this.seedInfo[key])} as SettingRow)
+        case 'PartnersInDefaultLocations':
+          this.settingRows.push({name: 'ShufflePartners', value: this.inverseStringBoolean(this.seedInfo[key])} as SettingRow)
+          break;
         case 'SeedID':
         case 'CreationDate': 
         case 'StarRodModVersion':
@@ -49,6 +54,10 @@ export class SettingsInfoComponent implements OnInit {
         }
       }
     }
+  }
+
+  private inverseStringBoolean(value: boolean) {
+    return String(!value);
   }
 
 }

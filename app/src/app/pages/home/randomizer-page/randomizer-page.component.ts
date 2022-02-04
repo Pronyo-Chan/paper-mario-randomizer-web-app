@@ -76,7 +76,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         shuffleStarpowerSP: new FormControl(false)
       }),
       partners: new FormGroup({
-        partnersInDefaultLocations: new FormControl(false),
+        shufflePartners: new FormControl(false),
         partnersAlwaysUsable: new FormControl(false),
         startWithRandomPartners: new FormControl(false),
         randomPartnersMin: new FormControl(1, [Validators.min(1), Validators.max(8)]),
@@ -103,7 +103,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         alwaysISpy: new FormControl(false),      
         alwaysPeekaboo: new FormControl(false),        
         skipQuiz: new FormControl(false),      
-        allowPhysicsGlitches: new FormControl(false), 
+        preventPhysicsGlitches: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),        
         turnOffMusic: new FormControl(false),        
       }),
