@@ -20,7 +20,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   randomPartnersMinSubscription: Subscription;
 
   public isRandomizing = false;
-  public patchingError: string;
+  public seedGenError: string;
   private _createSeedSubscription: Subscription;
 
   public constructor(private _randomizerService: RandomizerService, private _router: Router){}
@@ -41,13 +41,13 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit() {
-    this.patchingError = null;
+    this.seedGenError = null;
     this.isRandomizing = true;
 
     this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup).pipe(
       tap(seedId => this.navigateToSeedPage(seedId)),
       catchError(err => {
-        this.patchingError = 'A server error has occured';
+        this.seedGenError = 'A server error has occured';
         this.isRandomizing = false;
         return of(err)
       })

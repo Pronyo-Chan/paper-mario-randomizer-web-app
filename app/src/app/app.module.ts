@@ -33,6 +33,8 @@ import { TooltipSpanComponent } from './common/tooltip-span/tooltip-span.compone
 import { SeedPageComponent } from './pages/seed/seed-page/seed-page.component';
 import { SettingsInfoComponent } from './pages/seed/seed-page/settings-info/settings-info.component';
 import { SpoilerLogComponent } from './pages/seed/seed-page/spoiler-log/spoiler-log.component';
+import { LoadingComponent } from './common/loading/loading.component';
+import { ErrorComponent } from './common/error/error.component';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { SpoilerLogComponent } from './pages/seed/seed-page/spoiler-log/spoiler-
     TooltipSpanComponent,
     SeedPageComponent,
     SettingsInfoComponent,
-    SpoilerLogComponent
+    SpoilerLogComponent,
+    LoadingComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

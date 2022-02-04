@@ -43,14 +43,8 @@
             <button [disabled]="formGroup.invalid || isRandomizing" class="submit" (click)="onSubmit()">
                 <span [matTooltip]="formGroup.invalid ? 'Please fix the errors on the page to submit' : ''" matTooltipPosition="right">Generate Seed</span>
             </button>
-            <ng-container *ngIf="isRandomizing;">
-                <img class="animated-coin" src="./../../../../../assets/images/coin_loading.gif">
-                <span class="loading-text">Preparing Custom Seed...</span>
-            </ng-container>
-            <ng-container *ngIf="patchingError">
-                <span>❌</span>
-                <span class="server-error"> {{patchingError}}</span>
-            </ng-container>
+            <app-loading *ngIf="isRandomizing" [isLoading]="isRandomizing" [loadingText]="'Generating Seed'"></app-loading>
+            <app-error *ngIf="seedGenError" [errorText]="seedGenError"></app-error>
         </div>
     </div>
 </form>

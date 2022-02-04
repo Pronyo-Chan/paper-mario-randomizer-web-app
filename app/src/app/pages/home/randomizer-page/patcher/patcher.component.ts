@@ -18,7 +18,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
 
   @Input() public seedId: string;
   @Input() public hasSpoilerLog: boolean;
-  
+
   public userRom: any = null;
   public patchFile: any = null;
   public patchedRomBlob: Blob = null;
@@ -26,8 +26,10 @@ export class PatcherComponent implements OnInit, OnDestroy {
   public isRomValid = false;
   public isUserRomLoading = false;
   public isPatching = false;
+  public isDownloadingSpoilerLog = false;
 
   public patchingError: string;
+  public spoilerLogError: string;
 
   private _createSeedSubscription: Subscription;
   private _spoilerLogSubscription: Subscription;
@@ -59,7 +61,6 @@ export class PatcherComponent implements OnInit, OnDestroy {
         this.serveDownload(romResult, 'Paper_Mario_' + this.seedId + '.z64');     
       }),
       catchError( err => {
-        console.log(err)
         this.isPatching = false;
         this.patchingError = 'A server error has occured';
         return of(err);
@@ -69,15 +70,18 @@ export class PatcherComponent implements OnInit, OnDestroy {
 
   public downloadSpoilerLog() {
 
+    this.spoilerLogError = null;
+    this.isDownloadingSpoilerLog = true;
     this._spoilerLogSubscription = this._randomizerService.downloadSpoilerLog(this.seedId)
     .pipe(
       take(1),
       tap(spoilerLog => {
-        this.isPatching = false;
+        this.isDownloadingSpoilerLog = false;
         this.serveDownload(spoilerLog, this.seedId+ '_spoiler.txt');     
       }),
       catchError( err => {
-        console.log(err)
+        this.spoilerLogError = 'A server error has occured'
+        this.isDownloadingSpoilerLog = false;
         return of(err);
       })
     ).subscribe();
