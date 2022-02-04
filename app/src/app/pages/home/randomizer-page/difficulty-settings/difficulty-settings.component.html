@@ -27,11 +27,11 @@
         </div>
         <div class="setting-element">
             <select formControlName='damageMultiplier'>
-                <option [value]="'1'">1x</option>
-                <option [value]="'2'">2x</option>
-                <option [value]="'4'">4x</option>
+                <option [value]="'1'">Normal</option>
+                <option [value]="'2'">Double Pain</option>
+                <option [value]="'4'">Quadruple Pain</option>
             </select>
-            <app-tooltip-span spanText="Enemy Damage Multiplier" tooltipText="Increases the damage done by enemy attacks"></app-tooltip-span>
+            <app-tooltip-span spanText="Enemy Damage" tooltipText="Increases the damage done by enemy attacks"></app-tooltip-span>
         </div>        
         <div class="setting-element">
             <mat-slide-toggle formControlName='noXP'></mat-slide-toggle>
