@@ -1,6 +1,7 @@
 export interface SettingsResponse{
     SeedID: string;
     CreationDate: Date;
+    StarRodModVersion: number,
     AlwaysSpeedySpin: boolean;
     AlwaysISpy: boolean;
     AlwaysPeekaboo: boolean;

@@ -14,7 +14,7 @@
         <ng-container *ngIf="!pageLoadingErrorCode">
             <mat-card class="settings-card">
                 <mat-card-title class="settings-title">Download</mat-card-title>
-                <app-patcher [seedId] = "seedId" [hasSpoilerLog]="seedInfo.WriteSpoilerLog"></app-patcher>
+                <app-patcher [seedId] = "seedId" [hasSpoilerLog]="seedInfo.WriteSpoilerLog" [modVersion]="seedInfo.StarRodModVersion"></app-patcher>
             </mat-card>
             <mat-accordion *ngIf="seedInfo.WriteSpoilerLog">
                 <mat-expansion-panel class="settings-card">

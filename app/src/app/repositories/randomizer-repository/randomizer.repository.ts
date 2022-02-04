@@ -15,16 +15,16 @@ export class RandomizerRepository {
   public constructor(private _httpClient: HttpClient) {    
   }
 
-  public getStarRodPatch(): Observable<Blob> {
-    return this._httpClient.get('assets/starrod.bps', { responseType: 'blob' }).pipe(take(1))
+  public getStarRodPatch(modVersion: number): Observable<Blob> {
+    return this._httpClient.get(`assets/starrod_${modVersion}.bps`, { responseType: 'blob' }).pipe(take(1))
   }
 
   public sendRandoSettings(request: SettingsRequest): Observable<string> {
-    return this._httpClient.post(environment.apiEndPoint + 'randomizer_settings/', request, {responseType: 'text'}).pipe(take(1));
+    return this._httpClient.post(`${environment.apiEndPoint}randomizer_settings/`, request, {responseType: 'text'}).pipe(take(1));
   }
 
   public getSeedInfo(seedId: string): Observable<SettingsResponse> {
-    return this._httpClient.get(environment.apiEndPoint +'randomizer_settings/' + seedId, { responseType: 'json' }).pipe(
+    return this._httpClient.get(`${environment.apiEndPoint}randomizer_settings/${seedId}`, { responseType: 'json' }).pipe(
       take(1),
       timeout(30000),
       map(response => response as SettingsResponse)
@@ -32,10 +32,10 @@ export class RandomizerRepository {
   }
 
   public getRandoPatch(seedId: string): Observable<Blob> {
-    return this._httpClient.get(environment.apiEndPoint +'patch/' + seedId, { responseType: 'blob' }).pipe(take(1), timeout(30000))
+    return this._httpClient.get(`${environment.apiEndPoint}patch/${seedId}`, { responseType: 'blob' }).pipe(take(1), timeout(30000))
   }
 
   public getSpoilerLog(seedId: string): Observable<Blob> {
-    return this._httpClient.get(environment.apiEndPoint +'spoiler/' + seedId, { responseType: 'blob' }).pipe(take(1), timeout(30000))
+    return this._httpClient.get(`${environment.apiEndPoint}spoiler/${seedId}`, { responseType: 'blob' }).pipe(take(1), timeout(30000))
   }
 }

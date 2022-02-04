@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { SettingsResponse } from './../entities/settingsResponse';
 import { combineLatest, combineLatestAll, combineLatestWith, forkJoin, map, merge, mergeMap, Observable, switchMap } from 'rxjs';
 import { RandomizerRepository } from './../repositories/randomizer-repository/randomizer.repository';
@@ -25,9 +26,9 @@ export class RandomizerService {
     return this._randomizerRepo.getSeedInfo(seedId);
   }
 
-  public downloadPatchedRom(userRom: any, seedId: string): Observable<Blob> 
+  public downloadPatchedRom(userRom: any, seedId: string, modVersion: number): Observable<Blob> 
   {
-    var starRodRom$ = this._randomizerRepo.getStarRodPatch().pipe(
+    var starRodRom$ = this._randomizerRepo.getStarRodPatch(modVersion).pipe(
       switchMap(starRodPatchFile => getMarcFileFromSource(new File([starRodPatchFile], 'patch'))),
       map(starRodMarcFile => {
         var bpsPatch = parseBPSFile(starRodMarcFile);
@@ -65,6 +66,7 @@ export class RandomizerService {
 
   private prepareRequestObject(settingsForm: FormGroup) {
     return {
+      StarRodModVersion: environment.currentModVersion,
       AlwaysSpeedySpin: settingsForm.get('qualityOfLife').get('alwaysSpeedySpin').value,
       AlwaysISpy: settingsForm.get('qualityOfLife').get('alwaysISpy').value,
       AlwaysPeekaboo: settingsForm.get('qualityOfLife').get('alwaysPeekaboo').value,

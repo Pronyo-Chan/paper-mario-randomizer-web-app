@@ -1,4 +1,5 @@
 export interface SettingsRequest {
+    StarRodModVersion: number;
     AlwaysSpeedySpin: boolean;
     AlwaysISpy: boolean;
     AlwaysPeekaboo: boolean;

@@ -39,6 +39,7 @@ export class SettingsInfoComponent implements OnInit {
           this.settingRows.push({name: key, value: HiddenBlockMode[this.seedInfo[key]]})
         case 'SeedID':
         case 'CreationDate': 
+        case 'StarRodModVersion':
         case 'RomanNumerals':
         case 'IncludeLetterChain':
           break;

@@ -18,6 +18,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
 
   @Input() public seedId: string;
   @Input() public hasSpoilerLog: boolean;
+  @Input() public modVersion: number
 
   public userRom: any = null;
   public patchFile: any = null;
@@ -53,7 +54,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
     this.patchingError = null
     this.isPatching = true;
 
-    this._createSeedSubscription = this._randomizerService.downloadPatchedRom(this.userRom, this.seedId)
+    this._createSeedSubscription = this._randomizerService.downloadPatchedRom(this.userRom, this.seedId, this.modVersion)
     .pipe(
       take(1),
       tap(romResult => {
