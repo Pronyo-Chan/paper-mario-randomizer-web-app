@@ -1,7 +1,10 @@
 <div class="main-page" *ngIf="seedInfo$ | async as seedInfo">
-    <a [href]="homepageLink">
-        <img class="logo" src="assets/images/logo.png">
-    </a>
+    <div class="logo-wrapper">
+        <a [href]="homepageLink">
+            <img class="logo" src="assets/images/logo.png">
+        </a>
+    </div>
+    
 
     <ng-container *ngIf="!seedInfoErrorCode">
         <mat-card class="settings-card">

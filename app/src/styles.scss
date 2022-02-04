@@ -12,6 +12,10 @@
     src: url(assets/Fonts/SuperMario.ttf) format("opentype");
   }
 
+.logo-wrapper {
+  margin: 0 33% 0 33%; //prevents clicking outside of image
+  }
+
 .mat-divider-horizontal {
   position: relative !important;
   margin: 12px !important;
