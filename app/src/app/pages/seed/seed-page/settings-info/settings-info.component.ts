@@ -29,18 +29,21 @@ export class SettingsInfoComponent implements OnInit {
 
   public initSettingRows() {
     for (var key in this.seedInfo) {
+      var cleanSettingName = key.replace(/([A-Z0-9])/g, " $1").trimLeft();
+      cleanSettingName = cleanSettingName.charAt(0).toUpperCase() + cleanSettingName.slice(1); 
+      cleanSettingName = cleanSettingName.replace("S P", "SP").replace("B P", "BP").replace("F P", "FP").replace("X P", "XP").replace("O H K O", "One Hit KO")
       switch(key){
         case 'StartWithPartners': 
           var startingPartners = Object.keys(this.seedInfo["StartWithPartners"]).filter(partner => this.seedInfo["StartWithPartners"][partner] == true)
-          this.settingRows.push({name: key, value: startingPartners.join(', ')} as SettingRow)
+          this.settingRows.push({name: cleanSettingName, value: startingPartners.join(', ')} as SettingRow)
           break;
         case 'HiddenBlockMode':
-          this.settingRows.push({name: key, value: HiddenBlockMode[this.seedInfo[key]]})
+          this.settingRows.push({name: cleanSettingName, value: HiddenBlockMode[this.seedInfo[key]]})
           break;
         case 'AllowPhysicsGlitches':
-          this.settingRows.push({name: 'PreventPhysicsGlitches', value: this.inverseStringBoolean(this.seedInfo[key])} as SettingRow)
+          this.settingRows.push({name: 'Prevent Physics Glitches', value: this.inverseStringBoolean(this.seedInfo[key])} as SettingRow)
         case 'PartnersInDefaultLocations':
-          this.settingRows.push({name: 'ShufflePartners', value: this.inverseStringBoolean(this.seedInfo[key])} as SettingRow)
+          this.settingRows.push({name: 'Shuffle Partners', value: this.inverseStringBoolean(this.seedInfo[key])} as SettingRow)
           break;
         case 'SeedID':
         case 'CreationDate': 
@@ -50,7 +53,7 @@ export class SettingsInfoComponent implements OnInit {
           break;
 
         default: {
-          this.settingRows.push({name: key, value: this.seedInfo[key]} as SettingRow)
+          this.settingRows.push({name: cleanSettingName, value: this.seedInfo[key]} as SettingRow)
         }
       }
     }
