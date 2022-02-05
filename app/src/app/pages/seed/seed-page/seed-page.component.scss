@@ -66,13 +66,31 @@ img.logo{
                 margin-right: 0 !important
             }
         }
+        
+        &.expanded {
+            .mat-expansion-indicator:after{
+                content: url('../../../../assets/images/page_up.png');
+            }
+        }
+
+        &.collapsed {
+            .mat-expansion-indicator::after{
+                content: url('../../../../assets/images/page_down.png');
+            }
+        }
 
         .mat-expansion-indicator {
-            position: relative;
-            right: 40px;
+            transform: rotate(0) !important;
+        }
+        .mat-expansion-indicator::after{
+                border: inherit;
+                padding: 0;
+                transform: none;
         }
     }
 }
+
+.mat-ex
 
 .server-error {
     font-family: popjoy;

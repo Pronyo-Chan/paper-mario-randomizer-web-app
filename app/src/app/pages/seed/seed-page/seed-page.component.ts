@@ -22,6 +22,8 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   public spoilerLog: Observable<SpoilerLog>;
   public isPageLoading: boolean;
 
+  public isSpoilerLogExpanded: boolean = false;
+
   constructor(private _renderer: Renderer2, private _route: ActivatedRoute, private _randomizerService: RandomizerService) { }
   
 
