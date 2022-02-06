@@ -2,6 +2,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RandomizerPageComponent } from './pages/home/randomizer-page/randomizer-page.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { MatCardModule } from '@angular/material/card'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatTabsModule } from '@angular/material/tabs'
@@ -15,6 +16,7 @@ import { MatExpansionModule } from '@angular/material/expansion'
 import { MatTableModule } from '@angular/material/table'
 import { MatIconModule } from '@angular/material/icon'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { MatToolbarModule } from '@angular/material/toolbar'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +37,7 @@ import { SettingsInfoComponent } from './pages/seed/seed-page/settings-info/sett
 import { SpoilerLogComponent } from './pages/seed/seed-page/spoiler-log/spoiler-log.component';
 import { LoadingComponent } from './common/loading/loading.component';
 import { ErrorComponent } from './common/error/error.component';
+import { HelpPageComponent } from './pages/help-page/help-page.component';
 
 
 @NgModule({
@@ -55,13 +58,15 @@ import { ErrorComponent } from './common/error/error.component';
     SettingsInfoComponent,
     SpoilerLogComponent,
     LoadingComponent,
-    ErrorComponent
+    ErrorComponent,
+    HelpPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    FontAwesomeModule,
     MatCardModule,
     MatSlideToggleModule,
     MatTabsModule,
@@ -76,7 +81,9 @@ import { ErrorComponent } from './common/error/error.component';
     MatExpansionModule,
     MatTableModule,
     MatIconModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatToolbarModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

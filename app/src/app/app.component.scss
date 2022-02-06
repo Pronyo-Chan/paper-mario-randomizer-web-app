@@ -1,4 +1,35 @@
 @use './../variables';
+.mat-toolbar {
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+    background-color: variables.$beige-background-card;
+    height:50px;
+    font-family: popjoy;
+    font-size: 14px;
+
+    a {
+        text-decoration: none;
+        
+        .fa-discord {
+            position: relative;
+            top:5px;
+        }
+        img {
+            height:50px;
+            width: auto;
+        }
+        span {
+            color: black;
+            padding-right: 20px;
+        }
+    }
+
+    .example-spacer {
+        flex: 1 1 auto;
+      }
+}
 body {
     background-color: variables.$beige-background-main;
     background-size: 49px 49px;
@@ -44,7 +75,7 @@ body.red-bg {
 }
 
  .settings-card {
-     margin: 1rem 6rem 2rem 6rem;
+     margin: 0rem 6rem 2rem 6rem;
      background-color: variables.$beige-background-card;
 
      
