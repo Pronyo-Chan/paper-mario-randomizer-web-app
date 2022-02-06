@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiEndPoint: "http://127.0.0.1:8000/",
+  apiEndPoint: "http://127.0.0.1:5000/",
   homepage:"http://localhost:4200",
   currentModVersion: 1
 };

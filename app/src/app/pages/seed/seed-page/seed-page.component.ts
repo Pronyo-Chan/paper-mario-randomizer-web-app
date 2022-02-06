@@ -3,7 +3,6 @@ import { Subscription, tap, switchMap, Observable, take, catchError, of } from '
 import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RandomizerService } from 'src/app/services/randomizer.service';
-import { stringify } from 'querystring';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
 import { environment } from 'src/environments/environment';
 

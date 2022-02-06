@@ -20,7 +20,7 @@ export class RandomizerRepository {
   }
 
   public sendRandoSettings(request: SettingsRequest): Observable<string> {
-    return this._httpClient.post(`${environment.apiEndPoint}randomizer_settings/`, request, {responseType: 'text'}).pipe(take(1));
+    return this._httpClient.post(`${environment.apiEndPoint}randomizer_settings`, request, {responseType: 'text'}).pipe(take(1));
   }
 
   public getSeedInfo(seedId: string): Observable<SettingsResponse> {
