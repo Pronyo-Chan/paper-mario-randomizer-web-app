@@ -42,14 +42,22 @@ export class SettingsInfoComponent implements OnInit {
           break;
         case 'AllowPhysicsGlitches':
           this.settingRows.push({name: 'Prevent Physics Glitches', value: this.inverseStringBoolean(this.seedInfo[key])} as SettingRow)
+          break;
         case 'PartnersInDefaultLocations':
           this.settingRows.push({name: 'Shuffle Partners', value: this.inverseStringBoolean(this.seedInfo[key])} as SettingRow)
           break;
         case 'SeedID':
         case 'CreationDate': 
         case 'StarRodModVersion':
+        case 'SettingsName':
+        case 'SettingsVersion':
+        case 'PlacementLogic':
+        case 'PlacementAlgorithm':
+        case 'PrettySpoilerLog':
         case 'RomanNumerals':
         case 'IncludeLetterChain':
+        case 'ColorA':
+        case 'ColorB':
           break;
 
         default: {
