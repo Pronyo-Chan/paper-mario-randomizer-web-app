@@ -104,6 +104,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         alwaysPeekaboo: new FormControl(false),        
         skipQuiz: new FormControl(false),      
         preventPhysicsGlitches: new FormControl(false), 
+        shortenBowsersCastle: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),        
         turnOffMusic: new FormControl(false),        
       }),

@@ -120,7 +120,8 @@ export class RandomizerService {
       RandomCoinPalette: settingsForm.get('misc').get('randomCoinPalette').value,
       RomanNumerals: false,
       TurnOffMusic: settingsForm.get('qualityOfLife').get('turnOffMusic').value,
-      IncludeDojo: settingsForm.get('items').get('includeDojo').value
+      IncludeDojo: settingsForm.get('items').get('includeDojo').value,
+      ShortenBowsersCastle: settingsForm.get('qualityOfLife').get('shortenBowsersCastle').value
     } as SettingsRequest;
   }
 }

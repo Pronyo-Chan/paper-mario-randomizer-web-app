@@ -48,7 +48,8 @@
             "preventPhysicsGlitches": false,
             "hiddenBlockMode": 0,
             "turnOffMusic": false,
-            "progressiveScaling": true
+            "progressiveScaling": true,
+            "shortenBowsersCastle": false
         }
     },
     {
@@ -100,7 +101,8 @@
             "preventPhysicsGlitches": false,
             "hiddenBlockMode": 0,
             "turnOffMusic": false,            
-            "progressiveScaling": true
+            "progressiveScaling": true,
+            "shortenBowsersCastle": false
         }
     },
     {
@@ -152,7 +154,8 @@
             "preventPhysicsGlitches": false,
             "hiddenBlockMode": 3,
             "turnOffMusic": true,            
-            "progressiveScaling": true
+            "progressiveScaling": true,
+            "shortenBowsersCastle": true
         }
     }
 ]

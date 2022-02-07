@@ -45,6 +45,7 @@ export interface SettingsRequest {
     RomanNumerals: boolean;
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
+    ShortenBowsersCastle: boolean;
 }
 
 export interface StartingPartners {
