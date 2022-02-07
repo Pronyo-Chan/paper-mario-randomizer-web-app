@@ -1,0 +1,20 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+service: uat
+
+handlers:
+# index files
+- url: /([^.]+)/?$  # urls with no dot in them
+  static_files: dist/paper-mario-randomizer-app/index.html
+  upload: dist/index.html
+
+# site root
+- url: /
+  static_files: dist/paper-mario-randomizer-app/index.html
+  upload: dist/paper-mario-randomizer-app/index.html
+
+# everything else
+- url: /(.*)
+  static_files: dist/paper-mario-randomizer-app/\1
+  upload: dist/paper-mario-randomizer-app/(.*)

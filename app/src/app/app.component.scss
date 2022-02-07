@@ -30,6 +30,10 @@
         flex: 1 1 auto;
       }
 }
+
+.mat-toolbar-purple {
+    background-color: variables.$purple-background-card;
+}
 body {
     background-color: variables.$beige-background-main;
     background-size: 49px 49px;
