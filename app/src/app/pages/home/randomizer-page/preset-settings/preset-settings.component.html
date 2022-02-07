@@ -1,9 +1,14 @@
 <mat-card-content class=settings-card-content>
-    <div class="select-container">            
-        <span class="settings-label">Preset: </span>
-        <select [(ngModel)]="selectedPreset">
-            <option *ngFor="let presetName of presetNames">{{presetName}}</option>
-        </select>
+    <div>
+        <div class="select-container">            
+            <span class="settings-label">Preset: </span>
+            <select [(ngModel)]="selectedPreset">
+                <option *ngFor="let presetName of presetNames">{{presetName}}</option>
+                <option *ngFor="let customPresetName of customPresetNames">{{customPresetName}}</option>
+            </select>
+        </div>
+        <button (click)="loadPreset()"><span>Load Preset</span></button>
     </div>
-    <button (click)="loadPreset()"><span>Load Preset</span></button>
+    <input placeholder="Preset Name" [(ngModel)]="newPresetName">
+    <button (click)="savePreset()"><span>Save Preset</span></button>
 </mat-card-content>
