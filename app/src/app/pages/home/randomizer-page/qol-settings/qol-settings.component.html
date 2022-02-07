@@ -3,10 +3,10 @@
 
         <div class="setting-element">
             <select formControlName='hiddenBlockMode'>
-                <option [value]="'0'">Watt's ability</option>
-                <option [value]="'1'">Watt Out</option>
-                <option [value]="'2'">Watt Obtained</option>
-                <option [value]="'3'">Always Visible</option>
+                <option [ngValue]="0">Watt's ability</option>
+                <option [ngValue]="1">Watt Out</option>
+                <option [ngValue]="2">Watt Obtained</option>
+                <option [ngValue]="3">Always Visible</option>
             </select>
             <app-tooltip-span
                  spanText="Hidden Block Mode"
