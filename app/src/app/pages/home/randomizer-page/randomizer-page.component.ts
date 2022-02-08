@@ -110,7 +110,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       }),
       difficulty: new FormGroup({
         difficultyMode: new FormControl(DifficultySetting.Vanilla),
-        initialCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]),
+        startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]),
         capEnemyXP: new FormControl(false),
         noXP: new FormControl(false),
         damageMultiplier: new FormControl(1),

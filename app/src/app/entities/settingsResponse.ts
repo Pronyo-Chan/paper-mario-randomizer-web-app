@@ -7,7 +7,7 @@ export interface SettingsResponse{
     AlwaysPeekaboo: boolean;
     HiddenBlockMode: number;
     AllowPhysicsGlitches: boolean;
-    InitialCoins: number;
+    StartingCoins: number;
     CapEnemyXP: boolean;
     NoXP: boolean;
     DoubleDamage: boolean;

@@ -11,7 +11,6 @@ export class DifficultySettingsComponent implements OnInit {
 
   @Input() public difficultyFormGroup: FormGroup;
 
-  private initialCoinsSubscription: Subscription;
   public constructor() { }
   
 
@@ -19,22 +18,22 @@ export class DifficultySettingsComponent implements OnInit {
 
   }
 
-  public onInitialCoinsBlur() {
-    var initialCoinsControl = this.difficultyFormGroup.get('initialCoins')
-    if(initialCoinsControl.invalid)
+  public onStartingCoinsBlur() {
+    var startingCoinsControl = this.difficultyFormGroup.get('startingCoins')
+    if(startingCoinsControl.invalid)
       {
-        if(initialCoinsControl.value < 0)
+        if(startingCoinsControl.value < 0)
         {
-          initialCoinsControl.setValue(0)
+          startingCoinsControl.setValue(0)
         }
-        else if(initialCoinsControl.value > 999)
+        else if(startingCoinsControl.value > 999)
         {
-          initialCoinsControl.setValue(999)
+          startingCoinsControl.setValue(999)
         }
       }
-    else if(!initialCoinsControl.value)
+    else if(!startingCoinsControl.value)
     {
-      initialCoinsControl.setValue(0)
+      startingCoinsControl.setValue(0)
     }
     this.difficultyFormGroup.updateValueAndValidity();
   }

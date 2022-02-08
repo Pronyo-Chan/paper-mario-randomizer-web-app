@@ -72,7 +72,7 @@ export class RandomizerService {
       AlwaysPeekaboo: settingsForm.get('qualityOfLife').get('alwaysPeekaboo').value,
       HiddenBlockMode: settingsForm.get('qualityOfLife').get('hiddenBlockMode').value,
       AllowPhysicsGlitches: !settingsForm.get('qualityOfLife').get('preventPhysicsGlitches').value,
-      InitialCoins: settingsForm.get('difficulty').get('initialCoins').value,
+      StartingCoins: settingsForm.get('difficulty').get('startingCoins').value,
       CapEnemyXP: settingsForm.get('difficulty').get('capEnemyXP').value,
       NoXP: settingsForm.get('difficulty').get('noXP').value,
       DoubleDamage: settingsForm.get('difficulty').get('damageMultiplier').value == 2,
