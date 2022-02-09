@@ -1,13 +1,14 @@
 @use './../../../../../variables';
-.select-container{
-    margin-top: 14px;
-    select {
+.preset-button-container{
+    width: 50%;
+    select, input {
         margin-left: 4px;
     }
 }
 
 
 button {
+    width: 100px;
     span {
         
         font-family: popjoy ;
@@ -24,4 +25,9 @@ button {
     border-width: 6px;
     border-color: variables.$yellow-stat-border;
     
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 30%;
 }
