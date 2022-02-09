@@ -1,7 +1,7 @@
 @use './../../../../../variables';
-.select-container{
-    margin-top: 14px;
-    select {
+.preset-button-container{
+    width: 50%;
+    select, input {
         margin-left: 4px;
     }
 }
