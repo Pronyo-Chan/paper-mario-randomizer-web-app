@@ -2,16 +2,21 @@
     <div class="preset-button-container">            
         <span class="settings-label">Preset: </span>
         <select [(ngModel)]="selectedPreset">
-            <option *ngFor="let presetName of presetNames">{{presetName}}</option>
-            <option *ngFor="let customPresetName of customPresetNames">{{customPresetName}}</option>
+            <option *ngFor="let preset of premadePresets">{{preset.name}}</option>
+            <option *ngFor="let customPreset of customPresets">{{customPreset.name}}</option>
         </select>
-        <button (click)="loadPreset()"><span>Load Preset</span></button>
+        <button (click)="loadPreset()"><span>Load</span></button>
+        <button [disabled]="isSelectedPresetPremade()" (click)="removePreset()">
+            <span [matTooltip]="isSelectedPresetPremade() ? 'Built-in presets cannot be removed': ''" matTooltipPosition="right">Remove</span>
+        </button>
     </div>
         
     <div class="preset-button-container">
         <span class="settings-label">Save Current Settings: </span>
-        <input matInput placeholder="Preset Name" [(ngModel)]="newPresetName">
-        <button (click)="savePreset()"><span>Save Preset</span></button>
+        <input matInput placeholder="Preset Name" [(ngModel)]="newPresetName" (ngModelChange)="validatePresetName()">
+        <button [disabled]="invalidPresetError" (click)="savePreset()">
+            <span [matTooltip]="invalidPresetError ? invalidPresetError: ''" matTooltipPosition="right">Save</span>
+        </button>
     </div>
     
 </mat-card-content>

@@ -11,28 +11,26 @@ export class PresetSettingsComponent implements OnInit {
 
   @Input() public formGroup: FormGroup
 
-  public presetNames: string[]
   public selectedPreset: string;
 
-  public customPresetNames: string[];
+  public premadePresets: {name, settings}[];
   public customPresets: {name, settings}[];
-
+ 
   public newPresetName: string;
+  public invalidPresetError: string = "A preset name is required"; 
 
   public constructor() { }
 
 
   //TODO: Prevent from saving existing name, styling
   public ngOnInit(): void {
-    this.presetNames = presetsJson.map(p => p.name);
-    this.selectedPreset = this.presetNames[0];
+    this.premadePresets = presetsJson;
+    this.selectedPreset = this.premadePresets[0].name;
     this.loadPreset();
 
     var customPresetsString = localStorage.getItem("presets")
     if (customPresetsString) {
-      this.customPresets = JSON.parse(customPresetsString)
-      this.customPresets
-      this.customPresetNames = this.customPresets.map(p => p.name)
+      this.customPresets = JSON.parse(customPresetsString);
     } 
     else {
       this.customPresets = []
@@ -52,8 +50,19 @@ export class PresetSettingsComponent implements OnInit {
     let formObj = this.formGroup.getRawValue();
     let newPreset = {name: this.newPresetName, settings: formObj}
 
-    this.customPresets.push(newPreset)
+    this.customPresets.push(newPreset);
     localStorage.setItem("presets", JSON.stringify(this.customPresets))
+
+    this.selectedPreset = this.newPresetName;
+    this.newPresetName = null;
+    this.validatePresetName();
+  }
+
+  public removePreset(): void {
+    this.customPresets = this.customPresets.filter(p => p.name != this.selectedPreset);
+    this.selectedPreset = this.premadePresets[0].name;
+    localStorage.setItem("presets", JSON.stringify(this.customPresets))
+    this.validatePresetName();
 
   }
 
@@ -68,8 +77,17 @@ export class PresetSettingsComponent implements OnInit {
     });
   }
 
-  public initCustomPresets(): void {
-    var customPresets = JSON.parse(localStorage.getItem("presets"))
+  public validatePresetName() {
+    if(!this.newPresetName || this.newPresetName == '') {
+      this.invalidPresetError = "A preset name is required"
+    } else if(this.customPresets.find(p => p.name == this.newPresetName) || this.premadePresets.find(p => p.name == this.newPresetName)) {
+      this.invalidPresetError = "A preset with this name already exists"
+    } else {
+      this.invalidPresetError = null;
+    }
   }
 
+  public isSelectedPresetPremade() {
+    return this.premadePresets.some(p => p.name == this.selectedPreset)
+  }
 }

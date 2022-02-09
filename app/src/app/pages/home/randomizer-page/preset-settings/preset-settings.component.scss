@@ -8,6 +8,7 @@
 
 
 button {
+    width: 100px;
     span {
         
         font-family: popjoy ;
@@ -24,4 +25,9 @@ button {
     border-width: 6px;
     border-color: variables.$yellow-stat-border;
     
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 30%;
 }
