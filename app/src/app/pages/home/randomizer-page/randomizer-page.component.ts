@@ -45,7 +45,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     this.isRandomizing = true;
 
     this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup).pipe(
-      tap(seedId => this.navigateToSeedPage(seedId)),
+      tap(seedId => {
+        localStorage.setItem("latestSeedId", JSON.stringify(seedId))
+        this.navigateToSeedPage(seedId);
+      }),
       catchError(err => {
         this.seedGenError = 'A server error has occured';
         this.isRandomizing = false;
