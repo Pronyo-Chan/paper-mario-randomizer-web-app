@@ -10,31 +10,31 @@ export class RandoPatch {
     private readonly RANDO_PATCH_ACTION_WRITE = 1;
     private readonly RANDO_PATCH_FINAL_SEEK = 2;
 
-	public initialRom: MarcFile;
+	public patchData: MarcFile;
 
     public apply(romFile: MarcFile, validate){    
     
         var randomizedRom= Object.create(romFile) as MarcFile //deep copy original file
         var finalSeekHit = false;
 
-        while(this.initialRom.offset < this.initialRom.fileSize){
+        while(this.patchData.offset < this.patchData.fileSize){
             if(finalSeekHit) {
-                var data = this.initialRom.readU32();
+                var data = this.patchData.readU32();
                 randomizedRom.writeU32(data);
             } else {
-                var operationType=this.initialRom.readU8();
+                var operationType=this.patchData.readU8();
                 if(operationType == this.RANDO_PATCH_ACTION_SEEK) 
                 {
-                    var address = this.initialRom.readU32();
+                    var address = this.patchData.readU32();
                     randomizedRom.seek(address)              
                     
                 } else if (operationType == this.RANDO_PATCH_ACTION_WRITE) 
                 {
-                    var data = this.initialRom.readU32();
+                    var data = this.patchData.readU32();
                     randomizedRom.writeU32(data);                 
                 }else if (operationType == this.RANDO_PATCH_FINAL_SEEK) 
                 {
-                    var address = this.initialRom.readU32();
+                    var address = this.patchData.readU32();
                     randomizedRom.seek(address)
                     finalSeekHit = true;                    
                 }
@@ -112,6 +112,6 @@ export function parseRandoPatchFile(file: MarcFile){
     
     file.littleEndian=false;
     var patch = new RandoPatch();
-    patch.initialRom = file;
+    patch.patchData = file;
     return patch;
 }
