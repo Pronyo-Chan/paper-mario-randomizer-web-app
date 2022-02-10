@@ -6,8 +6,9 @@
     z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
     background-color: variables.$beige-background-card;
     height:50px;
-    font-family: popjoy;
-    font-size: 14px;
+    font-family: gluten;
+    font-size: 16px;
+    font-weight: bold;
 
     a.text-link {
         text-decoration: none;
@@ -120,8 +121,10 @@ body.red-bg {
          flex-wrap: wrap;
 
          .settings-label {
-            font-family: popjoy;
+            font-family: gluten;
             margin-left: 4px;
+            font-size: 16px;
+            font-weight: 600;
          }
 
          .setting-element {

@@ -32,7 +32,8 @@
                                 }
 
                                 .mat-tab-label-content {
-                                    font-family: popjoy;
+                                    font-family: gluten;
+                                    font-size: 16px;
                                     color: white;
                                     text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
                                   }  
@@ -91,14 +92,14 @@
         button.submit {
             span {
                 
-                font-family: popjoy ;
+                font-family: gluten ;
                 color: white ;
                 text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
-                font-size: 25px;
+                font-size: 30px;
         
             }
             cursor: pointer;
-            padding: 0.1rem 2rem;
+            padding: 1rem 2rem;
             margin-left: 6rem;
             background-color: variables.$yellow-stat-main;     
             border-radius: 15px;        
@@ -112,9 +113,10 @@
      }  
 
      p.bottom-note {
-        font-family: 'popjoy';
+        font-family: 'gluten';
         margin-left: 6rem;
-        font-size: 12px;
+        font-size: 14px;
+        font-weight: 600;
     } 
      
 }

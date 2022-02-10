@@ -7,20 +7,21 @@
         margin-top:2rem;
     
         div.search-container {
-            width: 40%;
+            width: 45%;
             h1 {
-                font-family: popjoy;
+                font-family: gluten;
             }
             input {
-                height: 2rem;
-                font-family: popjoy;
+                height: 1.5rem;
                 width: 15rem;
             }
             p {
-                font-family: popjoy;
+                font-family: gluten;
+                font-size: 15px;
+                font-weight: 600;
+                padding: 0 1rem 0 1rem;
                 span {
-                    font-style: oblique;
-                    font-size: 14px;                    
+                    font-style: italic;                  
 
                     &.item-name{
                         color: variables.$blue-item-main;
@@ -37,17 +38,25 @@
             }
         }
         div.right-container {
-            width: 60%;
+            width: 55%;
             div.table-container {
                 float:right;
                 .mat-table {
-                    font-family: popjoy;
+                    font-family: gluten;
                     background-color: inherit;
                     min-height: 30rem;
-        
+                    
                     .mat-cell {
                         overflow-wrap: break-word;
-                        width: 20rem;
+                        width: 25rem;
+                        font-size: 15px;
+                        font-weight: 600;
+                        line-height: 40px; //Hack to make things centered in table
+                    }
+
+                    .mat-header-cell {
+                        font-size: 13px;
+                        font-weight: 600;
                     }
                     .mat-header-cell:last-of-type {
                         padding-left: 10rem;

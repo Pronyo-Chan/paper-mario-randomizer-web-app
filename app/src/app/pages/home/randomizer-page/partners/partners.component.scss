@@ -3,12 +3,12 @@
         list-style-type: none;
         li {
             color: red;
-            font-family: 'popjoy';
-            text-shadow: -1px 1px 0 #FFF, 1px 1px 0 #FFF, 1px -1px 0 #FFF, -1px -1px 0 #FFF;      
+            font-family: 'gluten';
         }
         li:before {
             content: "❌" !important; 
-            font-size: 12px !important;
+            font-size: 14px !important;
+            font-weight: 600;
         }
         li:marker {
             display: none;

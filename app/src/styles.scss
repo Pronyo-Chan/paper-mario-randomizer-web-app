@@ -3,8 +3,8 @@
 
 
 @font-face {
-    font-family: popjoy;
-    src: url(assets/Fonts/PopJoy.otf) format("opentype");
+    font-family: gluten;
+    src: url(assets/Fonts/gluten.ttf) format("truetype");
   }
 
 @font-face {
@@ -29,8 +29,9 @@
 }
 
 .mat-option-text {
-  font-family: popjoy;
-  font-size: 12px;
+  font-family: gluten;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
@@ -71,7 +72,6 @@ select {
   border-radius: 4px;
   border-color: variables.$yellow-stat-border;
   border-width: 3px;
-  font-family: 'popjoy';
 }
 
 html, body { height: 100%; }
