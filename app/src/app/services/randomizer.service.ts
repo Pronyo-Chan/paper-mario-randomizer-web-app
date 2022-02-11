@@ -65,7 +65,7 @@ export class RandomizerService {
   }
 
   private prepareRequestObject(settingsForm: FormGroup) {
-    return {
+    var request =  {
       StarRodModVersion: environment.currentModVersion,
       AlwaysSpeedySpin: settingsForm.get('qualityOfLife').get('alwaysSpeedySpin').value,
       AlwaysISpy: settingsForm.get('qualityOfLife').get('alwaysISpy').value,
@@ -104,18 +104,6 @@ export class RandomizerService {
       PartnersInDefaultLocations: !settingsForm.get('partners').get('shufflePartners').value,
       PartnersAlwaysUsable: settingsForm.get('partners').get('partnersAlwaysUsable').value,
       StartWithRandomPartners: settingsForm.get('partners').get('startWithRandomPartners').value,
-      RandomPartnersMin: settingsForm.get('partners').get('randomPartnersMin').value,
-      RandomPartnersMax: settingsForm.get('partners').get('randomPartnersMax').value,
-      StartWithPartners:  settingsForm.get('partners').get('startWithRandomPartners').value ? {Goombario: true}: {
-        Goombario: settingsForm.get('partners').get('startWithPartners').get('goombario').value,
-        Kooper: settingsForm.get('partners').get('startWithPartners').get('kooper').value,
-        Bombette: settingsForm.get('partners').get('startWithPartners').get('bombette').value,
-        Parakarry: settingsForm.get('partners').get('startWithPartners').get('parakarry').value,
-        Bow: settingsForm.get('partners').get('startWithPartners').get('bow').value,
-        Watt: settingsForm.get('partners').get('startWithPartners').get('watt').value,
-        Sushie: settingsForm.get('partners').get('startWithPartners').get('sushie').value,
-        Lakilester: settingsForm.get('partners').get('startWithPartners').get('lakilester').value,
-      } as StartingPartners,
       WriteSpoilerLog: settingsForm.get('qualityOfLife').get('writeSpoilerLog').value,
       RandomCoinPalette: settingsForm.get('misc').get('randomCoinPalette').value,
       RomanNumerals: false,
@@ -123,5 +111,23 @@ export class RandomizerService {
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
       ShortenBowsersCastle: settingsForm.get('qualityOfLife').get('shortenBowsersCastle').value
     } as SettingsRequest;
+
+    if(request.StartWithRandomPartners) {
+      request.RandomPartnersMin = settingsForm.get('partners').get('randomPartnersMin').value;
+      request.RandomPartnersMax = settingsForm.get('partners').get('randomPartnersMax').value;
+      
+    }else {
+      request.StartWithPartners = {
+        Goombario: settingsForm.get('partners').get('startWithPartners').get('goombario').value,
+        Kooper: settingsForm.get('partners').get('startWithPartners').get('kooper').value,
+        Bombette: settingsForm.get('partners').get('startWithPartners').get('bombette').value,
+        Parakarry: settingsForm.get('partners').get('startWithPartners').get('parakarry').value,
+        Bow: settingsForm.get('partners').get('startWithPartners').get('bow').value,
+        Watt: settingsForm.get('partners').get('startWithPartners').get('watt').value,
+        Sushie: settingsForm.get('partners').get('startWithPartners').get('sushie').value,
+        Lakilester: settingsForm.get('partners').get('startWithPartners').get('lakilester').value
+      } as StartingPartners;
+    }
+    return request;
   }
 }

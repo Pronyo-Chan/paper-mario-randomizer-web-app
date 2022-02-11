@@ -33,11 +33,9 @@ export class SettingsInfoComponent implements OnInit {
       cleanSettingName = cleanSettingName.charAt(0).toUpperCase() + cleanSettingName.slice(1); 
       cleanSettingName = cleanSettingName.replace("S P", "SP").replace("B P", "BP").replace("F P", "FP").replace("X P", "XP").replace("O H K O", "One Hit KO")
       switch(key){
-        case 'StartWithPartners':
-          if(!this.seedInfo.StartWithRandomPartners) {
-            var startingPartners = Object.keys(this.seedInfo["StartWithPartners"]).filter(partner => this.seedInfo["StartWithPartners"][partner] == true)
-            this.settingRows.push({name: cleanSettingName, value: startingPartners.join(', ')} as SettingRow)
-          }        
+        case 'StartWithPartners': 
+          var startingPartners = Object.keys(this.seedInfo["StartWithPartners"]).filter(partner => this.seedInfo["StartWithPartners"][partner] == true)
+          this.settingRows.push({name: cleanSettingName, value: startingPartners.join(', ')} as SettingRow)
           break;
         case 'HiddenBlockMode':
           this.settingRows.push({name: cleanSettingName, value: HiddenBlockMode[this.seedInfo[key]]})
@@ -47,12 +45,6 @@ export class SettingsInfoComponent implements OnInit {
           break;
         case 'PartnersInDefaultLocations':
           this.settingRows.push({name: 'Shuffle Partners', value: this.inverseStringBoolean(this.seedInfo[key])} as SettingRow)
-          break;
-        case 'RandomPartnersMin':
-        case 'RandomPartnersMax':
-          if(this.seedInfo.StartWithRandomPartners) {
-            this.settingRows.push({name: cleanSettingName, value: this.seedInfo[key].toString()} as SettingRow)
-          }
           break;
         case 'SeedID':
         case 'CreationDate': 
@@ -66,6 +58,7 @@ export class SettingsInfoComponent implements OnInit {
         case 'IncludeLetterChain':
         case 'ColorA':
         case 'ColorB':
+        case 'StartingMap':
           break;
 
         default: {

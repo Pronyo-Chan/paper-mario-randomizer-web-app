@@ -37,9 +37,9 @@ export interface SettingsRequest {
     PartnersInDefaultLocations: boolean;
     PartnersAlwaysUsable: boolean;
     StartWithRandomPartners: boolean;
-    RandomPartnersMin: number;
-    RandomPartnersMax: number;
-    StartWithPartners: StartingPartners;
+    RandomPartnersMin?: number;
+    RandomPartnersMax?: number;
+    StartWithPartners?: StartingPartners;
     WriteSpoilerLog : boolean;
     RandomCoinPalette: boolean;
     RomanNumerals: boolean;
