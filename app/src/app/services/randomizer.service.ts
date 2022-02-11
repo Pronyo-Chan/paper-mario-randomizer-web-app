@@ -106,7 +106,7 @@ export class RandomizerService {
       StartWithRandomPartners: settingsForm.get('partners').get('startWithRandomPartners').value,
       RandomPartnersMin: settingsForm.get('partners').get('randomPartnersMin').value,
       RandomPartnersMax: settingsForm.get('partners').get('randomPartnersMax').value,
-      StartWithPartners: {
+      StartWithPartners:  settingsForm.get('partners').get('startWithRandomPartners').value ? {Goombario: true}: {
         Goombario: settingsForm.get('partners').get('startWithPartners').get('goombario').value,
         Kooper: settingsForm.get('partners').get('startWithPartners').get('kooper').value,
         Bombette: settingsForm.get('partners').get('startWithPartners').get('bombette').value,
