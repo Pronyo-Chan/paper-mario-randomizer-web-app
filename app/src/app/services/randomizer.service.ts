@@ -91,7 +91,7 @@ export class RandomizerService {
       IncludeCoins: settingsForm.get('items').get('includeCoins').value,
       IncludeShops: settingsForm.get('items').get('includeShops').value,
       IncludePanels: settingsForm.get('items').get('includePanels').value,
-      IncludeFavors: settingsForm.get('items').get('includeFavors').value,
+      IncludeFavors: false,
       IncludeLetterChain: false,
       KeyitemsOutsideDungeon: settingsForm.get('items').get('keyitemsOutsideDungeon').value,
       ShuffleBadgesBP: settingsForm.get('badgesAndMoves').get('shuffleBadgesBP').value,
