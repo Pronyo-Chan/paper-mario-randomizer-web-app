@@ -11,12 +11,18 @@ import { timeout, map, take } from 'rxjs/operators';
 })
 export class RandomizerRepository {
 
-  private _rootURL = '/api';
+  private modFileNamePrefix;
   public constructor(private _httpClient: HttpClient) {    
+    if(environment.production) {
+      this.modFileNamePrefix = "starrod_"
+    }
+    else {
+      this.modFileNamePrefix = "starrod_debug_"
+    }
   }
 
   public getStarRodPatch(modVersion: number): Observable<Blob> {
-    return this._httpClient.get(`assets/starrod_${modVersion}.bps`, { responseType: 'blob' }).pipe(take(1))
+    return this._httpClient.get(`assets/${this.modFileNamePrefix}${modVersion}.bps`, { responseType: 'blob' }).pipe(take(1))
   }
 
   public sendRandoSettings(request: SettingsRequest): Observable<string> {
