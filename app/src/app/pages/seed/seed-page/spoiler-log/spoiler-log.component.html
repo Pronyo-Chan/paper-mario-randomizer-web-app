@@ -37,8 +37,8 @@
                     </ng-container>
                     
                     <ng-container matColumnDef="item">
-                        <th mat-header-cell *matHeaderCellDef>Item</th>
-                        <td mat-cell *matCellDef="let spoiler">{{spoiler.item}}</td>
+                        <th mat-header-cell *matHeaderCellDef>Item <mat-checkbox [(ngModel)]="hideItemNames">Hide Item names</mat-checkbox></th>
+                        <td [ngClass]="{ 'hidden-items': hideItemNames}" mat-cell *matCellDef="let spoiler"><span>{{spoiler.item}}</span></td>
                     </ng-container>
                     <tr mat-header-row *matHeaderRowDef="['location', 'item']"></tr>
                     <tr mat-row *matRowDef="let row; columns: ['location', 'item'];"></tr>

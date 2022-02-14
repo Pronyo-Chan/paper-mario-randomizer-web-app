@@ -23,6 +23,8 @@ export class SpoilerLogComponent implements OnInit {
   public locationSearchResults: string[] = []
   public areaSearchResults: string[] = []
 
+  public hideItemNames = true;
+
   public constructor() { }
 
   public ngOnInit(): void {

@@ -52,11 +52,26 @@
                         font-size: 15px;
                         font-weight: 600;
                         line-height: 40px; //Hack to make things centered in table
+
+                        &.hidden-items {
+                            span {
+                                filter: blur(6px);
+                                background-color: black;
+                                display: block;
+                                line-height: 16px;
+                            }
+                           
+                        }
                     }
 
                     .mat-header-cell {
                         font-size: 13px;
                         font-weight: 600;
+
+                        .mat-checkbox {
+                            float:right;
+                            font-family: gluten;
+                        }
                     }
                     .mat-header-cell:last-of-type {
                         padding-left: 10rem;
