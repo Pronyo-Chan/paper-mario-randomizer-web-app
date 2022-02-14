@@ -4,30 +4,7 @@
         
 <mat-tab-group disablePagination="true" animationDuration="0">
     <mat-tab *ngFor="let spoilerArea of areas; let index = index" [label]="spoilerArea">
-        <div class="search-container">
-            <h1>Item/Partner Search</h1>
-            <input type="text"
-                    maxlength="30"
-                    placeholder="Item/Partner Name"
-                    [(ngModel)]="searchText"
-                    (ngModelChange)="filter()"
-                    matInput
-                    [matAutocomplete]="auto">
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"  (optionSelected)="onItemSearchChange()">
-                <mat-option *ngFor="let item of filteredSearchItems" [value]="item">
-                {{item}}
-                </mat-option>
-            </mat-autocomplete>
-            <ng-container *ngIf="itemSearchresult ; else noResult">
-                <p><span class="item-name">{{itemSearchresult}}</span> can be found at:</p>
-                <p *ngFor="let location of locationSearchResults; let i=index">
-                    -<span class="location-name">{{locationSearchResults[i]}}</span>
-                     within the <span class="area-name">{{areaSearchResults[i]}}</span> region</p>
-            </ng-container>
-            <ng-template #noResult>
-                <p *ngIf="!filteredSearchItems.length && searchText?.length >= MIN_AMOUNT_OF_CHARS">There is no item with this name</p>
-            </ng-template>
-        </div>
+        <ng-template [ngTemplateOutlet]="searchContainer"></ng-template>
         <div class="right-container">
             <div class="table-container">
                 <mat-table [dataSource]="spoilerLog[spoilerArea]">
@@ -46,4 +23,52 @@
             </div>
         </div>
     </mat-tab>
+
+    <mat-tab *ngIf="chapterDifficulties.length" [label]="'Chapter Difficulties'">
+        <ng-template [ngTemplateOutlet]="searchContainer"></ng-template>
+        <div class="right-container">
+            <div class="table-container">
+                <mat-table [dataSource]="chapterDifficulties">
+                    <ng-container matColumnDef="chapter" >
+                        <th mat-header-cell *matHeaderCellDef stic>Chapter</th>
+                        <td mat-cell *matCellDef="let i=index">Chapter {{i + 1}}</td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="newDiff">
+                        <th mat-header-cell *matHeaderCellDef>New Difficulty</th>
+                        <td mat-cell *matCellDef="let chapterDiff"><span>{{chapterDiff}}</span></td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="['chapter', 'newDiff']"></tr>
+                    <tr mat-row *matRowDef="let row; columns: ['chapter', 'newDiff'];"></tr>
+                </mat-table>
+            </div>
+        </div>
+    </mat-tab>
 </mat-tab-group>
+
+<ng-template #searchContainer>
+    <div class="search-container">
+        <h1>Item/Partner Search</h1>
+        <input type="text"
+                maxlength="30"
+                placeholder="Item/Partner Name"
+                [(ngModel)]="searchText"
+                (ngModelChange)="filter()"
+                matInput
+                [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"  (optionSelected)="onItemSearchChange()">
+            <mat-option *ngFor="let item of filteredSearchItems" [value]="item">
+            {{item}}
+            </mat-option>
+        </mat-autocomplete>
+        <ng-container *ngIf="itemSearchresult ; else noResult">
+            <p><span class="item-name">{{itemSearchresult}}</span> can be found at:</p>
+            <p *ngFor="let location of locationSearchResults; let i=index">
+                -<span class="location-name">{{locationSearchResults[i]}}</span>
+                 within the <span class="area-name">{{areaSearchResults[i]}}</span> region</p>
+        </ng-container>
+        <ng-template #noResult>
+            <p *ngIf="!filteredSearchItems.length && searchText?.length >= MIN_AMOUNT_OF_CHARS">There is no item with this name</p>
+        </ng-template>
+    </div>
+</ng-template>

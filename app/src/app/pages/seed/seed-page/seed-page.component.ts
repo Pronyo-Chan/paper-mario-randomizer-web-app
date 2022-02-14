@@ -19,6 +19,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
   public pageLoadingErrorCode: string;
   public spoilerLog: Observable<SpoilerLog>;
+  public chapterDifficulties: string[] = []
   public isPageLoading: boolean;
 
   public isSpoilerLogExpanded: boolean = false;
@@ -72,10 +73,13 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
     var currentRegion = '';
     fileLines.forEach(line => {
-      
-      if(line[0] != ' ') { // Region group name, first char not empty
-        currentRegion = line.replace(':', '')
-        
+
+      if(line.includes("-> Chapter")) { // Parse shuffled chapter difficulties
+        this.chapterDifficulties.push(line.charAt(line.length-1))
+
+      }else if(line[0] != ' ') { // Region group name, first char not empty
+        currentRegion = line.replace(':', '') 
+
       } else if(line != '') {
         if(!spoilerLogData[currentRegion]) {
           spoilerLogData[currentRegion] = [];

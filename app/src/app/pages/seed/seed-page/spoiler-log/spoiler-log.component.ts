@@ -11,6 +11,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 export class SpoilerLogComponent implements OnInit {
 
   @Input() public spoilerLog: SpoilerLog;
+  @Input() public chapterDifficulties: string[]
 
   public readonly MIN_AMOUNT_OF_CHARS = 2;
 
