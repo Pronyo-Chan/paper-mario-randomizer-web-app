@@ -1,8 +1,21 @@
+@use './../../../variables';
 ul {
     font-family: gluten;
     font-size: 16px;
     font-weight: 600;
     li {
-        padding:0.5rem
+        padding: 0.8rem;
+
+        span.item-name{
+            color: variables.$blue-item-main;
+        }
+
+        span.location-name{
+            color: variables.$yellow-stat-text
+        }
+
+        span.area-name{
+            color: variables.$purple-text
+        }
     }
 }
