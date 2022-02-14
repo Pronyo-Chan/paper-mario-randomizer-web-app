@@ -1,0 +1,330 @@
+<div class="logo-wrapper">
+    <a [href]="homepageLink">
+        <img class="logo" src="assets/images/logo.png">
+    </a>
+</div>
+<div class="main-page">
+    <mat-card class="settings-card">
+        <mat-card-title class="settings-title">ALPHA 3</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>
+            <li>In Mt. Lavalava Mario can softlock when beating Lava Piranha but not having access to Bombette. Logic does expect Bombette here to progress.</li>
+            <li> The logic does not account for enough StarPieces to buy out Merlow, so in rare circumstances progress can softlock if not enough StarPieces are available and a keyitem on Merlow has not been bought yet.</li>
+            <li> The logic does not account for shuffled chapter difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> Loading the mod on certain emulators results in a black screen on boot.</li>
+            <li> Under certain unknown conditions the piranha miniboss fight near Raphael's Tree may retrigger.</li>
+        </ul>
+
+        <h2>General Changes</h2>
+        <ul>
+            <li> Added Homeward Shroom key item and made Mario start the game with it. Use it within the key item menu to warp back to the starting map.</li>
+            <li> The quiz at Bowser's Castle's second Bowser Door is now harder and randomized. Additionally, it only requires 3 out of 5 correct answers.</li>
+            <li> Progressive Scaling should now ramp up the difficulty more slowly.</li>
+            <li> The calculator thief Shy Guy now holds both items he can drop at once. This makes it so Mario is no longer required to leave and re-enter the Toy Box to get the Shy Guys's second item.</li>
+            <li> When a NPC hands out a consumable item and the player's inventory is full, the player is now able to discard a chosen item. Previously the NPC item would just disapear.</li>
+            <li> Simon the poet in Toad Town will now give you his item on first interaction, without needing to exit and reenter the map.</li>
+            <li> The speed at which Mario pushes blocks has been slightly increased.</li>
+            <li> Title Screen: Added a new title logo for the randomizer.</li>
+            <li> Random Formations:As Medi Guys scale the same as other chapter 4 enemies, they no longer appear outside of the Toy Box during Random Formations if ProgressiveScaling is turned off.</li>
+        </ul>
+
+        <h2>New Option: Shorten Bowser's Castle</h2>
+        <ul>
+            <li>If this is turned on, then the loading zones in Bowser's Castle are re-routed to noticably shorten Mario's stay there.</li>
+            <li> The second Bowser door takes the place of the first Bowser door. This removes access to the basement entirely.</li>
+            <li> The water puzzle rooms are removed, sending Mario straight to the Bill Blaster room.</li>
+            <li> Most hidden rooms around the second Bowser Door room are removed, sending Mario outside to the Ramparts straight away.</li>
+            <li> The Up/Down puzzle room and surrounding rooms are removed, sending Mario to the bridge before Fake Peach Hallway instead. This reduces the size of Bowser's Castle by about 50%.</li>
+        </ul>
+
+        <h2>Bug Fixes</h2>
+        <ul>
+            <li> The ISpy badge should now be removed properly during the AlwaysISpy setting.</li>
+            <li> When starting the game with Bow, entering Boo's Mansion should no longer reset the chapter 3 progress to a state before reaching the top of the mansion.</li>
+            <li> Boo's Portrait is now correctly removed from the item pool and the portrait teleporter set to active when starting with Bow.</li>
+            <li> Rip Cheato's final offer and the yellow Yoshi's trade are no longer considered replenishing locations by the item placement logic.</li>
+            <li> Strong items should no longer spawn infinitely on some item locations.</li>
+            <li> Shy Guys should no longer hold an item above their head they won't drop on defeat.</li>
+            <li> Shy Guys should now properly drop their items if Mario has not collected them before.</li>
+            <li> Fixed Bombette not following Mario after talking to her in the jail.</li>
+            <li> Rowf should now allow cycling his inventory even if all three currently shown offers have been bought.</li>
+            <li> Merluvlee's hints should no longer crash when playing on console.</li>
+            <li> The star piece on the brick block in Koopa Village should now properly be the rando'd item instead of a star piece every time.</li>
+            <li> Beating chapter 6 should no longer softlock after getting the star power there.</li>
+            <li> Fixed Koloardo's wife buggy animation.</li>
+            <li> Fixed Kolorado not returning to Koopa Village after chapter 5 is completed.</li>
+            <li> Fixed Flower Fields background being sunny before the cloud machine was destroyed.</li>
+            <li> Fixed an issue where Storeroom Items in Toad Town would sometimes not spawn.</li>
+            <li> Mario's sprite should no longer have a bright pink spot in his mouth on
+            the default color palette.</li>
+            <li> (spoilerlog) Fixed a misnamed location on the beach.</li>
+        </ul>
+    </mat-card>
+
+    <mat-card class="settings-card">
+        <mat-card-title class="settings-title">ALPHA 2 (2022-01-28)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>
+            <li> Game may stutter for a second when loading into the mod.</li>
+            <li> In Boo's Mansion, entering the basement library from above without Bombette's overworld ability available softlocks the game.</li>
+            <li> On Shiver Mountain, behind the snowmen door, Mario can softlock the game by falling into the pit where he needs to use the SuperBoots if he does not have them.</li>
+            <li> In Mt. Lavalava Mario can softlock when beating Lava Piranha but not having access to Bombette. Logic does expect Bombette here to progress.</li>
+            <li> The logic does not account for enough StarPieces do buy out Merlow, so in rare circumstances progress can softlock if not enough StarPieces are available and a keyitem on Merlow has not been bought yet.</li>
+            <li> The logic does not account for shuffled chapter difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> Loading the mod on certain emulators results in a black screen on boot.</li>
+            <li> Under certain unknown conditions the piranha miniboss fight near Raphael's Tree may retrigger.</li>
+            <li> Under certain progress conditions, the animation of Kolorado's Wife bringing Mario the KoopaLegends keyitem will behave weirdly.</li>
+            <li> Asking for Merluvlee has a high chance of crashing the game on console; it seems fine on emulator though. Save your game before asking her!</li>
+        </ul>
+
+        <h2>Alpha Test modifications</h2>
+        <ul>
+            <li>All shop items cost only one coin or one starpiece</li>
+        </ul>
+        <h2>General Changes</h2>
+        <h3>Items and Item Checks</h3>
+        <ul>
+            <li> A new Toss overworld ability has been added to help clear out Mario's
+            inventory. Hold R, then press C-Left to open the item toss menu.</li>
+            <li> The Toad Town dojo degrees are now shuffled, turning Chan, Lee and the
+            Master into 5 new item checks. Logic expects Mario to be able to beat
+            the dojo battles on 0/2/3/4/5 starspirits saved respectively.</li>
+            <li> As Koopa Koot usually gives three StarPieces at once for certain favors, a new 3xStarPiece item has been created to replace this.
+                When randomizing Koopa Koot favors, these 3xStarPiece items will enter the general item pool.</li>
+            <li> The item in the palm tree on the right hand side of the Yoshi Village shop map is now randomized (was always a Coconut before).
+            <li> The mysterious block in Dry Dry Desert now has to be hit 1, 5 and 10 times for the three hidden blocks to appear (down from vanilla 1, 10, 100).</li>
+            <li> If a chosen randomizer setting makes an item entirely useless to Mario (like FlowerGateOpen or the new AlwaysSpeedySpin), then said item will
+            be removed from the item pool. The gaps left by this removal are then filled with random items chosen from Tayce T.'s cooking repertoire
+            (save for Mistake, Cake, KookieCookie, LemonCandy, KoopaTea, Koopasta, NuttyCake).</li>
+            <li> The item spawning system has been overhauled. Duplicate unique items will no longer show up as Mistakes on the overworld, instead there will
+            simply be no item at all. If the item is given by a chest or NPC, the actual item will show, but if the item is a duplicate, a Mistake will be
+            added to the inventory if not full.</li>
+            <li> Returning the Calculator to Rowf is now an actual item check.</li>
+            <li> Rowf now allows to cycle his currently available inventory by talking to him. This does not pick 3 random items from his inventory
+            as it would in vanilla, instead it iterates through his inventory. His inventory order is re-shuffled every time Mario is two maps
+            away from his shop (vanilla behavior).</li>
+            <li> Merlow now shows his wares even if Mario has no StarPieces.</li>
+            <li> Due to technical reasons, the yellow Yoshi in Yoshi's Village will now only give his item in exchange for a Tayce T. item once.</li>
+            <li> Due to technical reasons, Rip Cheato will now only give his last, formerly infinite, item once.</li>
+        </ul>
+        
+        <h3>Progression</h3>
+        <ul>
+            <li>Entering Toad Town Station via the train (before breaking the boulder that blocks the tracks) now breaks the boulder instead of letting the train pass through it.</li>
+            <li>The Yoshi Kids are now missing the moment Mario sets foot on the island, allowing to search for them without entering the village beforehand.</li>
+        </ul>
+
+        <h3>Title Screen</h3>
+        <ul>
+            <li>The title screen now shows the seed's hash in the form of four item icons instead of a list of byte values. The hash has been moved down, outside of the overscan area, to be more easily visible.</li>
+            <li>The save select screen now properly shows which star spirits have been rescued already instead of showing all of them as rescued.</li>
+        </ul>
+
+        <h3>NPC Interaction</h3>
+        <ul>
+            <li> The interaction with the Goombario NPC in Goomba Village has been changed to flow a bit more naturaly.</li>
+            <li> Merluvlee's hints changed: Due to the huge amount of items in her hint pool, Merluvlee was very likely to give a hint that was useless to Mario,
+            wasting time and coins. The pool of keyitems and badges she gives hints about has been shrunk to give a much higher chance at receiving a
+            useful hint. She now only gives hints on the most important keyitems, and leaves out keyitems in dungeons during the "KeyitemsOutsideDungeon: false" setting.
+            Additionally, when asking for hints about badges, she only hints towards the stronger end of the badge spectrum (taking the Glitzpit discord's tier lists into
+            consideration). However, both her hint pools of keyitems and badges also include a few intentional duds.</li>
+            <li> Chuck Quizmo now randomizes the order of the answers he offers Mario for his questions. This does not change which answer is correct, but
+            memorizing the location of the correct answer instead of the answer itself is no longer possible for Mario.</li>
+        </ul>
+
+        <h2>Experimental</h2>
+        <p>The following changes have been made and have been put into the alpha for evaluation by the community. Based on community feedback these changes might
+        be kept, turned into an Option, or be removed entirely. In case you're wondering why we didn't turn these into Options right away: Turning changes into Options takes additional time.</p>
+        <ul>
+            <li> Running away from a battle now drops less coins. To compensate, Mario drops some of his star points instead.</li>
+            <li> Most replenishing item sources now have a limit on very strong regular items and Mario can only receive these items once. This effectively
+            removes infinite LifeShroom bushes, infinite UltraShroom trees and similarly strong locations. Shops are unaffected by this change.</li>
+            <li> A new way of displaying custom popup messages has been implemented, allowing the game to display a new "inventory is full" message when
+            getting items from chests or NPCs. If a chest or NPC attempts to give Mario a regular item while Mario's inventory is full, the item will now
+            drop to the ground as if tossed by Mario instead of being lost. For testing purposes, this feature is only implemented sporadically.
+            Some locations (but not all), where this is implemented, are:
+                * All vanilla partner unlock checks
+                * Rip Cheato
+                * Kolorado in Yoshi Village </li>
+        </ul>
+
+        <h2>Suggestions</h2>
+        <p>These changes have been made following suggestions by the community:</p>
+        <ul>
+            <li> A save block has been added to the Fake Peach Hallway room in Bowser's Castle.</li>
+            <li> A recovery block (heart block) has been added to the central area in Flower Fields.</li>
+            <li> During shuffled chapter difficulty, the spoilerlog will now list the chapter numbers at the start of the file instead of at the end.</li>
+        </ul>
+
+        <h2>New Options</h2>
+        <ul>
+            <li>AlwaysSpeedySpin:
+            If this is turned on, Mario is always under the effect of the
+            Speedy Spin badge. To compensate, the Speedy Spin badge is removed
+            from the item pool.</li>
+            <li>AlwaysISpy:
+            If this is turned on, Mario is always under the effect of the
+            I Spy badge. To compensate, the I Spy badge is removed from the item pool.</li>
+            <li>AlwaysPeekaboo:
+            If this is turned on, Mario is always under the effect of the Peekaboo
+            badge. To compensate, the Peekaboo badge is removed from the item pool.</li>
+            <li>HiddenBlockMode:
+            Choose one of four options for hidden blocks:
+                0 = vanilla
+                1 = show hidden blocks when Watt is the active partner (overworld
+                    ability not needed)
+                2 = show hidden blocks when Watt's overworld ability is available
+                    (Watt unlocked or always active via PartnersAlwaysUsable)
+                3 = always show hidden blocks (this option changes logic)</li>
+            <li>IncludeDojo: Includes the 5 items gained from the dojo into the item pool.</li>
+            <li>ProgressiveScaling: Overrides normal difficulty and shuffled chapter difficulty. Makes all enemies of chapters 1-7 scale with overall seed progress.
+            Each item influencing progression has a value associated with it, and when the sum of the values of all collected items reaches certain threshholds, the affected enemies level up by one chapter.</li>
+            <li>QuizmoAlwaysAppears: Setting this to true forces Quizmo to appear in a town, but not necessarily in every map of that town, 100% of the time until his
+            local questions have been answered.</li>
+        </ul>
+
+        <h2>Performance</h2>
+        <ul>
+            <li>Removed pause menu code that blurs the background. This should reduce lag (in the case of some emulators very noticably) when opening the pause menu.</li>
+        </ul>
+
+        <h2>Logic Changes</h2>
+        <ul>
+            <li> Whacka is now treated as a missable check and should no longer hold items that are required to beat the seed.</li>
+            <li> Anti Guy is no longer considered beatable upon first encountering him. Instead the logic now assumes Mario to bribe him with a LemonCandy, so
+            his chest now logically requires access to Tayce T., the CookBook, a replenishing Lemon source and a replenishing CakeMix source.</li>
+            <li> The logic now considers the Mt. Lavalava UltraHammer room and the two adjacent rooms with lava rivers in them to be traversible with Lakilester, in addition to being traversible with Parakarry.</li>
+            <li> The yellow blocks that make up the block bridge in Toad Town Tunnels that leads to Shiver City are now considered reachable with SuperBoots instead of UltraBoots, as Mario can groundpound them.</li>
+            <li> The Yoshi kids now need to be saved for yellow Yoshi to offer his Melon trade for a Tayce T. item.</li>
+        </ul>
+
+        <h2>Softlock Prevention</h2>
+        <p>This probably should've been an entry in the first readme, but here's the currently implemented softlock preventions:</p>
+        <ul>
+            <li> Falling into the Jail in Koopa Bros Fortress sets the wall to open temporarily if all of the following conditions are met:
+                *PartnersAlwaysUsable is turned off, and
+                *Bombette has not been unlocked yet, and
+                *the Bombette partner item is not held by the Bombette NPC</li>
+            <li> Doing Gourmet Guy Skip in the Toybox changes the gate blocking the train tracks to open temporarily, allowing Mario to squeeze around Gourmet Guy on his way back.</li>
+            <li> Giving Lily the WaterStone but not having Sushie will make it so the room before Lily's Fountain is not filled with water (until the player unlocks Sushie).</li>
+            <li> Triggering the Shiver City Murder Mystery does not block off the pipe back to Toad Town.</li>
+            <li> Placing the StarStone into its socket on Shiver Mountain usually blocks off the entrance to Merlar's Sanctuary. This is changed to allow removing
+            the StarStone from the socket again after reloading the map.</li>
+        </ul>
+
+        <h2>Rando Bugfixes</h2>
+        <ul>
+            <li> The item in the yellow block in Gusty Gulch's Ghost Town's house should no longer get stuck in the house's roof and instead fall down to Mario.</li>
+            <li> The letter deliveries to Koover and Nomadimouse should now work correctly.</li>
+            <li> Entering Crystal Palace should no longer set the game's story progress byte and lock Peach's Castle from being entered by Mario.</li>
+            <li> Items should no longer be shown (or added to the inventory) as Mistake items for no apparent reason.</li>
+            <li> The following locations should now properly display their newly
+            randomized item instead of the vanilla item:
+                * Goomba Road signboard
+                * Kammy cutscenes in the Toybox
+                * MysteryNote ShyGuy
+                * Kolorado's MagicalSeed
+                * Petunia's MagicalBean, Rosie's Waterstone and Lily's MiracleWater
+                * Merle's scarf
+            </li>
+            <li> The following places have had their music better adjusted to the current
+            chapter progress:
+                * Infront of the windmill in Gusty Gulch
+                * Central Flower Fields area
+                * Petunia's field when doing her sidequest after breaking the
+                Puff Puff Machine
+                * Toad Town during the epilogue
+            </li>
+            <li> Rip Cheato should no longer give only star pieces (unless the seed just happens to rando that way).</li>
+            <li> Talking to Mort T. near Toad Town Station should no longer crash the game.</li>
+            <li> Taking part in Chuck Quizmo's quiz should no longer freeze or crash the game.</li>
+            <li> Breaking the thunderbolt block on Pleasant Path near Koopa Bros. Fortress should no longer crash the game.</li>
+            <li> Coins should now have a proper item name and description when offered in an item shop.</li>
+            <li> The ground in Bowser's Castle's shop should now stay solid after buying an item there.</li>
+            <li> The pause menu's world map should no longer be a garbled mess.</li>
+            <li> Starting a game on a new savefile, Game Over'ing before saving and then loading the same new savefile again should no longer crash the game.</li>
+            <li> Opening a chest should no longer have weird timings on the ShowItem pop-up message and on regaining control of Mario.</li>
+            <li> Fixed spacing issues on the GotItem messages.</li>
+            <li> Entering the Right Stairway room in Koopa Bros. Fortress from one of the basement entrances should now always lower the stairs instantly.</li>
+            <li> That one bush in Koopa Village no longer allows its item to be missable.</li>
+            <li> Beating Lakilester in Flower Fields after defeating Huff 'n Puff should no longer crash the game.</li>
+            <li> Pausing the game shortly after standing near an item offer inside a shop should no longer crash the game when closing the pause menu again.</li>
+            <li> The FirstAttack, SpinAttack and BumpAttack badges should now work correctly with the ShuffleChapterDifficulty setting.</li>
+            <li> The camera during the Jr. Troopa battle in Pleasant Path should no longer behave weirdly.</li>
+            <li> The chapter 5 Jr. Troopa battle now correctly triggers after saving Sushie from the tree, instead of upon reaching the village.</li>
+            <li> The chapter 5 Jr. Troopa will now have 50% of max HP during Chapter Difficulty Shuffle, instead of always 20 HP.</li>
+            <li> Fuzzipede during the battle in the whale now has a tattle string, no longer crashing the game when Tattle'd</li>
+            <li> The padlock in the Stone Puzzle room in Dry Dry Ruins should longer stay floating in the air after being unlocked.
+            <li> Visiting the jail in Koopa Bros Fortress after defeating the Koopa Bros should no longer have odd behavior, like blocking off Bombette or crashing the game.</li>
+            <li> Kooper should no longer appear in Koopa Village if he was one of Mario's starting partners.</li>
+            <li> The item icons of Luigi's Autograph and Merluvlee's Autograph should no longer be swapped.</li>
+            <li> When buying a badge from a shop that usually does not sell badges, the BP costs of the badge should no longer show up in the "You need X coins for Y" dialog.</li>
+            <li> Random Battle Formations: Battles in Dry Dry Ruins and the Crystal Palace should no longer have hovering Swoopers and Swoopulas in them.</li>
+            <li> Random Chapter Difficulty: Some enemies were having their HP and damage values increased by one on accident, this should no longer happen.</li>
+            <li> Spoilerlog: Fixed a typo that made Kolorado's deal for the VolcanoVase appear to be his deal for the Artifact.</li>
+            <li> Spoilerlog: Several misnamed item names fixed</li>
+        </ul>
+
+        <h2>Vanilla Bugfixes</h2>
+        <ul>
+            <li> Hurting Whacka with Bombette's overworld ability should now deal less "damage" to Whacka and correctly drop his item.</li>
+            <li> It should no longer be possible for Mario's partners to get stuck in collision when attempting to board the train in Toad Town</li>
+            <li> Getting caught by Sentinels ("UFOs") in Tubba Blubba's Castle while riding Lakilester should no longer softlock the game.</li>
+            <li> Catching the item on the tree near the snowmen in Shiver Mountain in midair should no longer crash the game.</li>
+            <li> Tattle'ing the Goombario NPC in Goomba Village should no longer softlock the game due to a missing tattle string.</li>
+            <li> Sushie's Tidal Wave now caps at 14 successful action command inputs. If the cap is reached, the action command immediately closes and starts the move.</li>
+            <li> The unused HustleDrink item has been fixed to now properly clear the status effect if Mario is affected by one. Thusly, Mario should no longer
+            be able to permanently stun himself by using a HustleDrink. This is in preparation to allow unused items into the item pool.</li>
+            <li> DoubleDipping or TripleDipping EggMissile items at Lava Piranha should no longer crash the game.</li>
+            <li> The tree that opens up the hidden Playroom in Toad Town can now properly be hit by Bombette's explosion (moved the bomb trigger).</li>
+        </ul>
+
+        <h2>Visuals and Music</h2>
+        <ul>
+            <li>Color palettes for Mario and Peach are no longer random per animation per map load. Instead, they can now be locked to a chosen sprite palette.</li>
+            <li>New color palettes have been added to the following sprites:
+                * Partner: Kooper
+                * Boss: Tutankoopa
+                * Boss: Tubba Blubba
+                * Boss: Lava Piranha
+                * Boss: Crystal King
+                * NPC: Ninji</li>
+        </ul>
+    </mat-card>
+
+    <mat-card class="settings-card">
+        <mat-card-title class="settings-title">ALPHA 1 (2022-01-15)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>
+            <li> Game may stutter for a second when loading into the mod</li>
+            <li> Getting caught by Sentinels in Tubba Blubba's Castle while riding Lakilester softlocks the game (vanilla bug)</li>
+            <li> The "You got" item message for star pieces does not fit inside of the popup message box</li>
+            <li> When buying a badge from a shop that usually does not sell badges, the BP costs of the badge show up in the "You need X coins for Y" dialog</li>
+            <li> Chests do not check if Mario has enough space in his regular item inventory to actually put the item there. In this case the item is lost</li>
+            <li> In Boo's Mansion, entering the basement library from above without Bombette's overworld ability available softlocks the game</li>
+            <li> On Shiver Mountain, behind the snowmen door, Mario can softlock the game by falling into the pit where he needs to use the UltraBoots if he does not have them</li>
+        </ul>
+        
+        <h2>Vanilla bug fixes</h2>
+        <p>Some changes have been made to vanilla game behavior to fix bugs left by the developers.</p>
+
+        <h3>Major</h3>
+        <ul>
+            <li>Goombario's Multibonk was bugged, stopping the attack very early under certain circumstances. This has been fixed</li>
+            <li>Kookie Cookie: In battle, this item recovered 30 FP instead of the 15 FP mentioned in the item description. This has been fixed to always restore 15 FP</li>
+            <li>Electro Pop: In battle, this item set Mario's FP to his current HP + 15, instead of recovering 15 FP like mentioned in the item description. This has been fixed to always recover 15 FP</li>
+            <li>Flower Fields: Under certain circumstances, it was possible to softlock when talking to Tulielip, because of missing dialogue. This has been fixed</li>
+            <li>Boo's Mansion Blue Warp Pipe - Former behavior: Activating the Blue Warp Pipe to Boo's Mansion in Toad Town tunnels, but then
+                walking to the mansion instead of taking the Warp Pipe there unlocks the Goomba Village Blue
+                Warp Pipe instead of the Boo's Mansion Blue Warp Pipe. New behavior: Walking to Boo's Mansion instead of taking the pipe there correctly activates
+                its Warp Pipe.</li>
+        </ul>
+        <h3>Minor</h3>
+        <ul>
+            <li>Tubba Blubba's Heart tunnel chase - Former behavior: Inside Gusty Gulch's windmill Tubba Blubba's Heart can be seen fleeing from Mario in the Heart Chamber,
+                 the first tunnel on the way back, the spring at the bottom of the well and the upper room.
+                  New behavior: Tubba Blubba's Heart can additionally be seen fleeing in the two remaining tunnel rooms.
+                   The animations for this are programmed in the vanilla game, but were called incorrectly.</li>
+        </ul>
+    </mat-card>
+</div>

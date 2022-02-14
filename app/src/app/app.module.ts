@@ -38,6 +38,7 @@ import { SpoilerLogComponent } from './pages/seed/seed-page/spoiler-log/spoiler-
 import { LoadingComponent } from './common/loading/loading.component';
 import { ErrorComponent } from './common/error/error.component';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
+import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { HelpPageComponent } from './pages/help-page/help-page.component';
     SpoilerLogComponent,
     LoadingComponent,
     ErrorComponent,
-    HelpPageComponent
+    HelpPageComponent,
+    ChangelogPageComponent
   ],
   imports: [
     BrowserModule,

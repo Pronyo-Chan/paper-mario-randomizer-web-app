@@ -1,0 +1,31 @@
+@use './../../../variables';
+
+h2, h3 {
+    font-family: 'gluten';
+    padding: 2rem 0 0 1rem;
+}
+
+p {
+    font-family: gluten;
+}
+ul {
+    font-family: gluten;
+    font-size: 16px;
+    font-weight: 600;
+    li {
+        padding: 0.8rem;
+        line-height: 18px;
+
+        span.item-name{
+            color: variables.$blue-item-main;
+        }
+
+        span.location-name{
+            color: variables.$yellow-stat-text
+        }
+
+        span.area-name{
+            color: variables.$purple-text
+        }
+    }
+}
