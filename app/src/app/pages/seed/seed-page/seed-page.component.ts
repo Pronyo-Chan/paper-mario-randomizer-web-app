@@ -19,7 +19,10 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
   public pageLoadingErrorCode: string;
   public spoilerLog: Observable<SpoilerLog>;
-  public chapterDifficulties: string[] = []
+
+  public chapterDifficulties: string[] = [];
+  public isDifficultyShuffled: boolean = false;
+
   public isPageLoading: boolean;
 
   public isSpoilerLogExpanded: boolean = false;
@@ -43,6 +46,9 @@ export class SeedPageComponent implements OnInit, OnDestroy {
             }
             else {
               this.isPageLoading = false;
+            }
+            if(seedInfo.ShuffleChapterDifficulty) {
+              this.isDifficultyShuffled = true;
             }
           }),
           catchError(err => this.handleError(err))
@@ -74,7 +80,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     var currentRegion = '';
     fileLines.forEach(line => {
 
-      if(line.includes("-> Chapter")) { // Parse shuffled chapter difficulties
+      if(line.includes("-> Chapter") && this.isDifficultyShuffled) { // Parse shuffled chapter difficulties
         this.chapterDifficulties.push(line.charAt(line.length-1))
 
       }else if(line[0] != ' ') { // Region group name, first char not empty
