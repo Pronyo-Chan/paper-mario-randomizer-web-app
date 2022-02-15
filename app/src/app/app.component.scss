@@ -96,7 +96,7 @@ body.red-bg {
 }
 
  .settings-card {
-     margin: 0rem 6rem 2rem 6rem;
+     margin: 0 5% 2% 5%;
      background-color: variables.$beige-background-card;
 
      
@@ -106,7 +106,6 @@ body.red-bg {
         font-family: SuperMario;
         font-size: 2rem;
         text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
-        padding-left: 1rem;
         color: rgb(255, 255, 255);
         padding: 1rem;
         border: outset;
