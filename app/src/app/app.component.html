@@ -1,6 +1,6 @@
 
 <mat-toolbar>
-    <a [href]="homepageLink">
+    <a class="image-link" [href]="homepageLink">
         <img class="logo" src="assets/images/logo.png">
     </a>
     <a class="text-link" [href]="homepageLink">
@@ -21,4 +21,9 @@
         <span> Discord</span>
     </a>
   </mat-toolbar>
+  <div class="logo-wrapper">
+        <a [href]="homepageLink">
+            <img class="logo" src="assets/images/logo.png">
+        </a>
+    </div>
 <router-outlet></router-outlet>

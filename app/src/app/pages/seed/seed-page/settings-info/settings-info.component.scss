@@ -3,8 +3,10 @@
     display: flex;
     div.seed-info {
         display: flex;
+        flex-wrap: wrap;
         flex-direction: column;
-        width: 40%;
+        flex-basis: 40%;
+        
         p {
             font-family: gluten;
             font-weight: 600;
@@ -28,7 +30,7 @@
         }
     }
     div.right-container {
-        width: 60%;
+        flex-basis: 60%;
         div.table-container {
             max-height: 30rem;
             overflow: auto;

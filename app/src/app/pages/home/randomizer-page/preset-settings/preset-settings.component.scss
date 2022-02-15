@@ -1,8 +1,17 @@
 @use './../../../../../variables';
 .preset-button-container{
-    width: 50%;
+    flex-basis: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    
     select, input {
         margin-left: 4px;
+    }
+
+    .input-label {
+        position: relative;
+        top: 10px;
+        margin-right: 1%;
     }
 }
 
@@ -17,7 +26,7 @@ button {
         text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
 
     }
-    margin: 0 0 0 1rem;
+    margin: 0 1rem 0 0;
     cursor: pointer;
     padding: 0.6rem 1rem;
     background-color: variables.$yellow-stat-main;    

@@ -1,4 +1,13 @@
 @use './../variables';
+
+.logo-wrapper {
+    margin: 0 33% 0 33%; //prevents clicking outside of image
+  
+    img.logo {
+      width: 100%;
+    }
+  }
+
 .mat-toolbar {
     position: sticky;
     position: -webkit-sticky; /* For macOS/iOS Safari */
@@ -24,10 +33,14 @@
             padding: 0 10px 0 10px;
         }
     }
-    a > img {
-            height:50px;
-            width: auto;
-    }
+
+    a.image-link {
+        height: 100%;
+
+        img.logo {
+            height:100%;
+        }
+    } 
 
     .example-spacer {
         flex: 1 1 auto;
@@ -128,12 +141,12 @@ body.red-bg {
          }
 
          .setting-element {
-             width: 50%;
+             flex-basis: 50%;
              margin-top: 8px;                
          }
 
          .full-width-element {
-            width: 100%;
+            flex-basis: 100%;
          }
      }        
  }

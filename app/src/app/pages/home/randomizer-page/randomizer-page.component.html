@@ -1,10 +1,5 @@
 <form [formGroup]="formGroup">
     <div class="main-page">
-        <div class="logo-wrapper">
-            <a [href]="homepageLink">
-                <img class="logo" src="assets/images/logo.png">
-            </a>
-        </div>
         <mat-card class="settings-card">
             <mat-card-title class="settings-title">Preset Settings</mat-card-title>
             <app-preset-settings [formGroup]="formGroup"></app-preset-settings>

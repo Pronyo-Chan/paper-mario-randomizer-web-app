@@ -1,11 +1,6 @@
 @use './../../../../variables';
 :host {
     
-    img.logo{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
 
     .settings-card {
         ::ng-deep .mat-tab-group {

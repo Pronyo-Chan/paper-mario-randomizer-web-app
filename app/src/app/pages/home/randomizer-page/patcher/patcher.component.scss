@@ -18,6 +18,8 @@
 
     div.download-section {
         display: flex;
+        flex-wrap: wrap;
+        
         .inputfile {
             width: 0.1px;
             height: 0.1px;
@@ -61,12 +63,12 @@
         
     
         div.patch-container {
-            width: 60%;
+            flex-basis: 60%;
             margin-top: 1rem;
         }
     
         div.spoiler-container {
-            width: 35%;
+            flex-basis: 35%;
             margin-top: 1rem;
         }
     

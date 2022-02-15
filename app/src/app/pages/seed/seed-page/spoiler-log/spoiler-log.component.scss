@@ -4,10 +4,11 @@
 
      .mat-tab-body-content {
         display: flex;
+        flex-wrap: wrap;
         margin-top:2rem;
     
         div.search-container {
-            width: 45%;
+            flex-basis: 45%;
             h2 {
                 font-family: gluten;
             }
@@ -38,7 +39,7 @@
             }
         }
         div.right-container {
-            width: 55%;
+            flex-basis: 55%;
             div.table-container {
                 float:right;
                 .mat-table {
