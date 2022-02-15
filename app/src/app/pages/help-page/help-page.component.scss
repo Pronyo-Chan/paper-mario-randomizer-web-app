@@ -1,4 +1,8 @@
 @use './../../../variables';
+
+.settings-card {
+    background-color: variables.$turquoise-background-card;
+}
 ul {
     font-family: gluten;
     font-size: 16px;
