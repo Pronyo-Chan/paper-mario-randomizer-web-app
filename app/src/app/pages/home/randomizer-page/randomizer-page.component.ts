@@ -110,6 +110,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         shortenBowsersCastle: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),        
         turnOffMusic: new FormControl(false),        
+        romanNumerals: new FormControl(false),        
       }),
       difficulty: new FormGroup({
         difficultyMode: new FormControl(DifficultySetting.Vanilla),

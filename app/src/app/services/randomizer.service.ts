@@ -106,7 +106,7 @@ export class RandomizerService {
       StartWithRandomPartners: settingsForm.get('partners').get('startWithRandomPartners').value,
       WriteSpoilerLog: settingsForm.get('qualityOfLife').get('writeSpoilerLog').value,
       RandomCoinPalette: settingsForm.get('misc').get('randomCoinPalette').value,
-      RomanNumerals: false,
+      RomanNumerals: settingsForm.get('qualityOfLife').get('romanNumerals').value,
       TurnOffMusic: settingsForm.get('qualityOfLife').get('turnOffMusic').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
       ShortenBowsersCastle: settingsForm.get('qualityOfLife').get('shortenBowsersCastle').value
