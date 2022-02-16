@@ -100,7 +100,7 @@ export class RandomizerService {
       ShuffleStarpowerSP: settingsForm.get('badgesAndMoves').get('shuffleStarpowerSP').value,
       RandomQuiz: settingsForm.get('misc').get('randomQuiz').value,
       SkipQuiz: settingsForm.get('qualityOfLife').get('skipQuiz').value,
-      QuizmoAlwaysAppears: false,
+      QuizmoAlwaysAppears: settingsForm.get('qualityOfLife').get('quizmoAlwaysAppears').value,
       PartnersInDefaultLocations: !settingsForm.get('partners').get('shufflePartners').value,
       PartnersAlwaysUsable: settingsForm.get('partners').get('partnersAlwaysUsable').value,
       StartWithRandomPartners: settingsForm.get('partners').get('startWithRandomPartners').value,

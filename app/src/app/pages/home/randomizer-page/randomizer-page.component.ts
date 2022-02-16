@@ -109,7 +109,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         preventPhysicsGlitches: new FormControl(false), 
         shortenBowsersCastle: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),        
-        turnOffMusic: new FormControl(false),        
+        turnOffMusic: new FormControl(false),     
+        quizmoAlwaysAppears: new FormControl(false),
         romanNumerals: new FormControl(false),        
       }),
       difficulty: new FormGroup({
