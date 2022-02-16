@@ -9,14 +9,7 @@
             <span [matTooltip]="!userRom || !isRomValid || isUserRomLoading ? 'This file is not a valid Paper Mario (U) rom' : ''" matTooltipPosition="right">Patch</span>
         </button>
         <app-loading  *ngIf="isPatching" [isLoading]="isPatching" [loadingText]="'Patching'"></app-loading>
-        <app-error *ngIf="patchingError" [errorText]="patchingError"></app-error>
-        <ul *ngIf="(userRom && !isRomValid && !isUserRomLoading)">
-            <mat-divider></mat-divider>
-            <li *ngIf="(userRom && !isRomValid && !isUserRomLoading)">
-                The provided file is a not a valid Paper Mario z64 USA rom
-            </li>
-        </ul>
-        
+        <app-error *ngIf="patchingError" [errorText]="patchingError"></app-error>       
         
     </div>
     <div *ngIf="hasSpoilerLog" class="spoiler-container">
@@ -26,7 +19,11 @@
         <app-loading *ngIf="isDownloadingSpoilerLog" [isLoading]="isDownloadingSpoilerLog" [loadingText]="'Loading'"></app-loading>
         <app-error *ngIf="spoilerLogError" [errorText]="spoilerLogError"></app-error>
     </div>
-
-    
+    <ul *ngIf="(userRom && !isRomValid && !isUserRomLoading)">
+        <mat-divider></mat-divider>
+        <li *ngIf="(userRom && !isRomValid && !isUserRomLoading)">
+            The provided file is a not a valid Paper Mario z64 USA rom
+        </li>
+    </ul>   
     
 </div>

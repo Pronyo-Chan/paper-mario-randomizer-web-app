@@ -1,5 +1,5 @@
 
-<app-loading [isLoading]="isPageLoading" [loadingText]="'Loading Seed Data'"></app-loading>
+<app-loading class="page-loading" [isLoading]="isPageLoading" [loadingText]="'Loading Seed Data'"></app-loading>
 
 <ng-container *ngIf="seedInfo$ | async as seedInfo">
     <div class="main-page" *ngIf="!isPageLoading">

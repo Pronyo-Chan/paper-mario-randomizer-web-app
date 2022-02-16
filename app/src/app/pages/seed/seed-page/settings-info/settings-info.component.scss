@@ -1,11 +1,13 @@
 @use './../../../../../variables';
 :host {
     display: flex;
+    flex-wrap: wrap;
     div.seed-info {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        flex-basis: 40%;
+        flex-grow: 2;
+        flex-basis: 45%;
         
         p {
             font-family: gluten;
@@ -30,11 +32,13 @@
         }
     }
     div.right-container {
-        flex-basis: 60%;
+        flex-basis: 55%;
+        flex-grow: 2;
         div.table-container {
             max-height: 30rem;
             overflow: auto;
             float:right;
+            width: 100%;
             
             mat-table {
                 font-family: gluten;
@@ -42,21 +46,21 @@
                 
                 .mat-cell {
                     overflow-wrap: break-word;
-                    width: 25rem;
+                    width: 25%;
                     font-size: 15px;
                     font-weight: 600;
-                    line-height: 40px; //Hack to make things centered in table
+                    padding: 16px;
                 }
                 .mat-header-cell {
                     font-size: 13px;
                     font-weight: 600;
                 }
                 .mat-header-cell:last-of-type {
-                    padding-left: 10rem;
+                    padding-left: 10%;
                 }
     
                 td.mat-cell:last-of-type{
-                    padding-left: 10rem;
+                    padding-left: 10%;
                 }
             }
         }

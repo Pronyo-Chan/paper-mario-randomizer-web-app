@@ -6,32 +6,11 @@ import { interval, takeWhile } from 'rxjs';
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.scss']
 })
-export class LoadingComponent implements OnInit, OnDestroy {
+export class LoadingComponent {
 
   @Input() public isLoading: boolean;
   @Input() public loadingText: string;
 
-  public dynamicDots: string = "..."
-  private _dynamicDotSubscription: any;
-
   public constructor() { }
   
-
-  public ngOnInit(): void {
-    this._dynamicDotSubscription = interval(1000)
-    .pipe(takeWhile(() => this.isLoading))
-    .subscribe(() => {
-      if(this.dynamicDots.length >= 3) {
-        this.dynamicDots = "";
-      } else {
-        this.dynamicDots += "."
-      }
-    });
-  }
-
-  public ngOnDestroy(): void {
-    if(this._dynamicDotSubscription) {
-      this._dynamicDotSubscription.unsubscribe()
-    }
-  }
 }

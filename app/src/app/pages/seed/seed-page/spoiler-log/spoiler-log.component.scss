@@ -9,6 +9,7 @@
     
         div.search-container {
             flex-basis: 45%;
+            flex-grow: 2;
             h2 {
                 font-family: gluten;
             }
@@ -40,8 +41,12 @@
         }
         div.right-container {
             flex-basis: 55%;
+            flex-grow: 2;
+
             div.table-container {
-                float:right;
+                float:right;                
+                width: 100%;
+
                 .mat-table {
                     font-family: gluten;
                     background-color: inherit;
@@ -49,10 +54,10 @@
                     
                     .mat-cell {
                         overflow-wrap: break-word;
-                        width: 25rem;
+                        width: 25%;
                         font-size: 15px;
                         font-weight: 600;
-                        line-height: 40px; //Hack to make things centered in table
+                        padding: 16px;
 
                         &.hidden-items {
                             span {

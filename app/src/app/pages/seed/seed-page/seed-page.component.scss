@@ -1,9 +1,13 @@
 @use './../../../../variables';
 
-app-loading {
-    margin: 40%;
-    position: relative;
-    top: 10rem;
+::ng-deep app-loading.page-loading {
+    div {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
 }
 
 
