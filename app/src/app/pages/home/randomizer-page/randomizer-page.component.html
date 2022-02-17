@@ -19,6 +19,9 @@
                 <mat-tab label="Misc">
                     <app-misc [miscFormGroup]="formGroup.get('misc')"></app-misc>
                 </mat-tab>
+                <mat-tab label="Colors">
+                    <app-color-palettes [colorPalettesFormGroup]="formGroup.get('colorPalettes')"></app-color-palettes>
+                </mat-tab>
             </mat-tab-group>
         </mat-card>
         <mat-card class="settings-card">

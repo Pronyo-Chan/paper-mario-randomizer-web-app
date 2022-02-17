@@ -1,0 +1,27 @@
+<form [formGroup]="colorPalettesFormGroup">
+    <mat-card-content class=settings-card-content>
+        <div class="setting-element">
+            <select formControlName='menu'>
+                <option [value]="0">Default</option>
+                <option [value]="1">Red</option>
+<!--                 <option [value]="2">Blue</option>
+                <option [value]="3">Cyan</option>
+                <option [value]="4">Green</option>
+                <option [value]="5">Purple</option> -->
+            </select> 
+            <app-tooltip-span spanText="Menu" tooltipText="Color of the upper screen stat menu"></app-tooltip-span>
+        </div>
+<!--         <div class="setting-element">
+            <select formControlName='mario'>
+                <option [value]="0">Default</option>
+            </select> 
+            <app-tooltip-span spanText="Mario" tooltipText="Mario's color palette"></app-tooltip-span>
+        </div>
+        <div class="setting-element">
+            <select formControlName='goombario'>
+                <option [value]="0">Default</option>
+            </select> 
+            <app-tooltip-span spanText="Goombario" tooltipText="Goombario's color palette"></app-tooltip-span>
+        </div> -->
+    </mat-card-content>
+</form>

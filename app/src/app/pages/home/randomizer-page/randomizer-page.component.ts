@@ -129,6 +129,11 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         toyboxOpen: new FormControl(false),
         whaleOpen: new FormControl(false)
       }),
+      colorPalettes: new FormGroup({
+        menu: new FormControl(0),
+        mario : new FormControl(0),
+        goombario: new FormControl(0),
+      }),
     });
 
     this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(

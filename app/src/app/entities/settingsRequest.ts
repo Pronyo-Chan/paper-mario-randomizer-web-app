@@ -46,6 +46,8 @@ export interface SettingsRequest {
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
     ShortenBowsersCastle: boolean;
+    Box5ColorA: number;
+    Box5ColorB: number;
 }
 
 export interface StartingPartners {

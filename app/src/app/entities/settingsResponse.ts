@@ -48,6 +48,8 @@ export interface SettingsResponse{
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
     ShortenBowsersCastle: boolean;
+    ColorA: number;
+    ColorB: number;
 }
 
 export interface StartingPartners {

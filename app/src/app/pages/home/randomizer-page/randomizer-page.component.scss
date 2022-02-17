@@ -55,6 +55,11 @@
                               background-color: variables.$purple-misc-main !important;
                               border-color: variables.$purple-misc-border !important; 
                             }
+
+                            > :nth-child(5) {
+                                background-color: variables.$green-spirit-main !important;
+                                border-color: variables.$green-spirit-border !important; 
+                              }
                           }
                     }
                 }

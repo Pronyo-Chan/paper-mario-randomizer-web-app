@@ -39,6 +39,7 @@ import { LoadingComponent } from './common/loading/loading.component';
 import { ErrorComponent } from './common/error/error.component';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
 import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.component';
+import { ColorPalettesComponent } from './pages/home/randomizer-page/color-palettes/color-palettes.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.co
     LoadingComponent,
     ErrorComponent,
     HelpPageComponent,
-    ChangelogPageComponent
+    ChangelogPageComponent,
+    ColorPalettesComponent
   ],
   imports: [
     BrowserModule,

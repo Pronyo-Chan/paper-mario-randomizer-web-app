@@ -1,3 +1,4 @@
+import { Constants } from './../utilities/constants';
 import { environment } from 'src/environments/environment';
 import { SettingsResponse } from './../entities/settingsResponse';
 import { combineLatest, combineLatestAll, combineLatestWith, forkJoin, map, merge, mergeMap, Observable, switchMap } from 'rxjs';
@@ -109,7 +110,9 @@ export class RandomizerService {
       RomanNumerals: settingsForm.get('qualityOfLife').get('romanNumerals').value,
       TurnOffMusic: settingsForm.get('qualityOfLife').get('turnOffMusic').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
-      ShortenBowsersCastle: settingsForm.get('qualityOfLife').get('shortenBowsersCastle').value
+      ShortenBowsersCastle: settingsForm.get('qualityOfLife').get('shortenBowsersCastle').value,
+      Box5ColorA: Constants.MENU_COLORS[settingsForm.get('colorPalettes').get('menu').value].colorA,
+      Box5ColorB: Constants.MENU_COLORS[settingsForm.get('colorPalettes').get('menu').value].colorB
     } as SettingsRequest;
 
     if(request.StartWithRandomPartners) {
