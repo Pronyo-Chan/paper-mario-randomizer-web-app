@@ -43,13 +43,14 @@
         <div class="setting-element">
             <select formControlName='menu'>
                 <option [ngValue]="0">Default</option>
-                <option [ngValue]="1">Red</option>
-                <option [ngValue]="2">Blue</option>
-                <option [ngValue]="3">Cyan</option>
-                <option [ngValue]="4">Green</option>
+                <option [ngValue]="1">Blue</option>
+                <option [ngValue]="2">Green</option>
+                <option [ngValue]="3">Teal</option>
+                <option [ngValue]="4">Brown</option>
                 <option [ngValue]="5">Purple</option>
+                <option [ngValue]="6">Grey</option>
             </select> 
-            <app-tooltip-span spanText="Stats Menu" tooltipText="Color of the upper screen stat menu"></app-tooltip-span>
+            <app-tooltip-span spanText="Status Menu" tooltipText="Color of the upper screen status menu"></app-tooltip-span>
         </div> 
         <div class="setting-element">
             <mat-slide-toggle formControlName='randomCoinPalette'></mat-slide-toggle>
