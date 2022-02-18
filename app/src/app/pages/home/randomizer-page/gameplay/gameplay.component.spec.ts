@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BadgesAndMovesComponent } from './badges-and-moves.component';
+import { GameplayComponent } from './gameplay.component';
 
-describe('BadgesAndMovesComponent', () => {
-  let component: BadgesAndMovesComponent;
-  let fixture: ComponentFixture<BadgesAndMovesComponent>;
+describe('GameplayComponent', () => {
+  let component: GameplayComponent;
+  let fixture: ComponentFixture<GameplayComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BadgesAndMovesComponent ]
+      declarations: [ GameplayComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BadgesAndMovesComponent);
+    fixture = TestBed.createComponent(GameplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

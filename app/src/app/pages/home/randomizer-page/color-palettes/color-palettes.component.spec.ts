@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MiscComponent } from './misc.component';
+import { ColorPalettesComponent } from './color-palettes.component';
 
-describe('MiscComponent', () => {
-  let component: MiscComponent;
-  let fixture: ComponentFixture<MiscComponent>;
+describe('ColorPalettesComponent', () => {
+  let component: ColorPalettesComponent;
+  let fixture: ComponentFixture<ColorPalettesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MiscComponent ]
+      declarations: [ ColorPalettesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MiscComponent);
+    fixture = TestBed.createComponent(ColorPalettesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

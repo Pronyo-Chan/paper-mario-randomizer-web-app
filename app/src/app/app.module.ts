@@ -23,8 +23,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemsComponent } from './pages/home/randomizer-page/items/items.component';
 import { PartnersComponent } from './pages/home/randomizer-page/partners/partners.component';
-import { BadgesAndMovesComponent } from './pages/home/randomizer-page/badges-and-moves/badges-and-moves.component';
-import { MiscComponent } from './pages/home/randomizer-page/misc/misc.component';
+import { GameplayComponent } from './pages/home/randomizer-page/gameplay/gameplay.component';
 import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { OpenWorldSettingsComponent } from './pages/home/randomizer-page/open-world-settings/open-world-settings.component';
 import { DifficultySettingsComponent } from './pages/home/randomizer-page/difficulty-settings/difficulty-settings.component';
@@ -39,6 +38,7 @@ import { LoadingComponent } from './common/loading/loading.component';
 import { ErrorComponent } from './common/error/error.component';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
 import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.component';
+import { ColorPalettesComponent } from './pages/home/randomizer-page/color-palettes/color-palettes.component';
 
 
 @NgModule({
@@ -47,8 +47,7 @@ import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.co
     RandomizerPageComponent,
     ItemsComponent,
     PartnersComponent,
-    BadgesAndMovesComponent,
-    MiscComponent,
+    GameplayComponent,
     OpenWorldSettingsComponent,
     DifficultySettingsComponent,
     QolSettingsComponent,
@@ -61,7 +60,8 @@ import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.co
     LoadingComponent,
     ErrorComponent,
     HelpPageComponent,
-    ChangelogPageComponent
+    ChangelogPageComponent,
+    ColorPalettesComponent
   ],
   imports: [
     BrowserModule,

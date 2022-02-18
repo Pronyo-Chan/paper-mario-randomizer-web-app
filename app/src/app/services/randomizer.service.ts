@@ -1,3 +1,4 @@
+import { Constants } from './../utilities/constants';
 import { environment } from 'src/environments/environment';
 import { SettingsResponse } from './../entities/settingsResponse';
 import { combineLatest, combineLatestAll, combineLatestWith, forkJoin, map, merge, mergeMap, Observable, switchMap } from 'rxjs';
@@ -10,6 +11,7 @@ import { getMarcFileFromSource } from '../utilities/RomPatcher/MarcFile';
 import { applyPatch } from '../utilities/RomPatcher/RomPatcher';
 import { parseBPSFile } from '../utilities/RomPatcher/bps';
 import { parseRandoPatchFile } from '../utilities/RomPatcher/randopatch';
+import { CharacterSpriteSetting } from '../entities/characterSpriteSetting';
 
 
 @Injectable({
@@ -86,7 +88,7 @@ export class RandomizerService {
       WhaleOpen: settingsForm.get('openLocations').get('whaleOpen').value,
       ShuffleChapterDifficulty: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.RandomChapterDifficulty,
       ProgressiveScaling: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.ProgressiveScaling,
-      RandomFormations: settingsForm.get('misc').get('randomFormations').value,
+      RandomFormations: settingsForm.get('gameplay').get('randomFormations').value,
       ShuffleItems: settingsForm.get('items').get('shuffleItems').value,
       IncludeCoins: settingsForm.get('items').get('includeCoins').value,
       IncludeShops: settingsForm.get('items').get('includeShops').value,
@@ -94,22 +96,34 @@ export class RandomizerService {
       IncludeFavors: false,
       IncludeLetterChain: false,
       KeyitemsOutsideDungeon: settingsForm.get('items').get('keyitemsOutsideDungeon').value,
-      ShuffleBadgesBP: settingsForm.get('badgesAndMoves').get('shuffleBadgesBP').value,
-      ShuffleBadgesFP: settingsForm.get('badgesAndMoves').get('shuffleBadgesFP').value,
-      ShufflePartnerFP: settingsForm.get('badgesAndMoves').get('shufflePartnerFP').value,
-      ShuffleStarpowerSP: settingsForm.get('badgesAndMoves').get('shuffleStarpowerSP').value,
-      RandomQuiz: settingsForm.get('misc').get('randomQuiz').value,
+      ShuffleBadgesBP: settingsForm.get('gameplay').get('shuffleBadgesBP').value,
+      ShuffleBadgesFP: settingsForm.get('gameplay').get('shuffleBadgesFP').value,
+      ShufflePartnerFP: settingsForm.get('gameplay').get('shufflePartnerFP').value,
+      ShuffleStarpowerSP: settingsForm.get('gameplay').get('shuffleStarpowerSP').value,
+      RandomQuiz: settingsForm.get('gameplay').get('randomQuiz').value,
       SkipQuiz: settingsForm.get('qualityOfLife').get('skipQuiz').value,
       QuizmoAlwaysAppears: settingsForm.get('qualityOfLife').get('quizmoAlwaysAppears').value,
       PartnersInDefaultLocations: !settingsForm.get('partners').get('shufflePartners').value,
       PartnersAlwaysUsable: settingsForm.get('partners').get('partnersAlwaysUsable').value,
       StartWithRandomPartners: settingsForm.get('partners').get('startWithRandomPartners').value,
       WriteSpoilerLog: settingsForm.get('qualityOfLife').get('writeSpoilerLog').value,
-      RandomCoinPalette: settingsForm.get('misc').get('randomCoinPalette').value,
       RomanNumerals: settingsForm.get('qualityOfLife').get('romanNumerals').value,
       TurnOffMusic: settingsForm.get('qualityOfLife').get('turnOffMusic').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
-      ShortenBowsersCastle: settingsForm.get('qualityOfLife').get('shortenBowsersCastle').value
+      ShortenBowsersCastle: settingsForm.get('qualityOfLife').get('shortenBowsersCastle').value,
+      Box5ColorA: Constants.MENU_COLORS[settingsForm.get('colorPalettes').get('menu').value].colorA,
+      Box5ColorB: Constants.MENU_COLORS[settingsForm.get('colorPalettes').get('menu').value].colorB,
+      MarioSetting: (settingsForm.get('colorPalettes').get('marioSprite').value as CharacterSpriteSetting).setting,
+      MarioSprite: (settingsForm.get('colorPalettes').get('marioSprite').value as CharacterSpriteSetting).paletteSelection,
+      GoombarioSetting: (settingsForm.get('colorPalettes').get('goombarioSprite').value as CharacterSpriteSetting).setting,
+      GoombarioSprite: (settingsForm.get('colorPalettes').get('goombarioSprite').value as CharacterSpriteSetting).paletteSelection,
+      KooperSetting: (settingsForm.get('colorPalettes').get('kooperSprite').value as CharacterSpriteSetting).setting,
+      KooperSprite: (settingsForm.get('colorPalettes').get('kooperSprite').value as CharacterSpriteSetting).paletteSelection,
+      BowSetting: (settingsForm.get('colorPalettes').get('bowSprite').value as CharacterSpriteSetting).setting,
+      BowSprite: (settingsForm.get('colorPalettes').get('bowSprite').value as CharacterSpriteSetting).paletteSelection,
+      BossesSetting: settingsForm.get('colorPalettes').get('bossesSetting').value,
+      NPCSetting: settingsForm.get('colorPalettes').get('npcSetting').value,
+      RandomCoinPalette: settingsForm.get('colorPalettes').get('randomCoinPalette').value,
     } as SettingsRequest;
 
     if(request.StartWithRandomPartners) {

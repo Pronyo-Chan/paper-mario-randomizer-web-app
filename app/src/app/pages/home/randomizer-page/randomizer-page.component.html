@@ -13,11 +13,11 @@
                 <mat-tab label="Partners">
                     <app-partners [partnersFormGroup]="formGroup.get('partners')"></app-partners>
                 </mat-tab>
-                <mat-tab label="Badges/Moves">
-                    <app-badges-and-moves [badgesAndMovesFormGroup]="formGroup.get('badgesAndMoves')"></app-badges-and-moves>
+                <mat-tab label="Gameplay">
+                    <app-gameplay [gameplayFormGroup]="formGroup.get('gameplay')"></app-gameplay>
                 </mat-tab>
-                <mat-tab label="Misc">
-                    <app-misc [miscFormGroup]="formGroup.get('misc')"></app-misc>
+                <mat-tab label="Colors">
+                    <app-color-palettes [colorPalettesFormGroup]="formGroup.get('colorPalettes')"></app-color-palettes>
                 </mat-tab>
             </mat-tab-group>
         </mat-card>

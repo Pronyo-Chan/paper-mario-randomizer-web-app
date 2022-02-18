@@ -1,3 +1,8 @@
+import { BowSprite } from './enum/bowSprite';
+import { GoombarioSprite } from './enum/goombarioSprite';
+import { KooperSprite } from './enum/kooperSprite';
+import { MarioSprite } from './enum/marioSprite';
+import { SpriteSetting } from './enum/spriteSetting';
 export interface SettingsRequest {
     StarRodModVersion: number;
     AlwaysSpeedySpin: boolean;
@@ -46,6 +51,18 @@ export interface SettingsRequest {
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
     ShortenBowsersCastle: boolean;
+    Box5ColorA: number;
+    Box5ColorB: number;
+    MarioSetting: SpriteSetting;
+    MarioSprite: MarioSprite;
+    GoombarioSetting: SpriteSetting;
+    GoombarioSprite: GoombarioSprite;
+    KooperSetting: SpriteSetting;
+    KooperSprite: KooperSprite;
+    BowSetting: SpriteSetting;
+    BowSprite: BowSprite;
+    BossesSetting: SpriteSetting;
+    NPCSetting: SpriteSetting;
 }
 
 export interface StartingPartners {
