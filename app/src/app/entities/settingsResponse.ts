@@ -1,3 +1,9 @@
+import { BowSprite } from "./enum/bowSprite";
+import { GoombarioSprite } from "./enum/goombarioSprite";
+import { KooperSprite } from "./enum/kooperSprite";
+import { MarioSprite } from "./enum/marioSprite";
+import { SpriteSetting } from "./enum/spriteSetting";
+
 export interface SettingsResponse{
     SeedID: string;
     CreationDate: Date;
@@ -50,6 +56,16 @@ export interface SettingsResponse{
     ShortenBowsersCastle: boolean;
     ColorA: number;
     ColorB: number;
+    MarioSetting: SpriteSetting;
+    MarioSprite: MarioSprite;
+    GoombarioSetting: SpriteSetting;
+    GoombarioSprite: GoombarioSprite;
+    KooperSetting: SpriteSetting;
+    KooperSprite: KooperSprite;
+    BowSetting: SpriteSetting;
+    BowSprite: BowSprite;
+    BossesSetting: SpriteSetting;
+    NPCSetting: SpriteSetting;
 }
 
 export interface StartingPartners {

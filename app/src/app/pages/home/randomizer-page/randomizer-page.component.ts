@@ -1,3 +1,5 @@
+
+import { SpriteSetting } from './../../../entities/enum/spriteSetting';
 import { RandomizerService } from './../../../services/randomizer.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
@@ -72,11 +74,13 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         keyitemsOutsideDungeon: new FormControl(false),
         includeDojo: new FormControl(false)
       }),
-      badgesAndMoves: new FormGroup({
+      gameplay: new FormGroup({
         shuffleBadgesBP: new FormControl(false),
         shuffleBadgesFP: new FormControl(false),
         shufflePartnerFP: new FormControl(false),
-        shuffleStarpowerSP: new FormControl(false)
+        shuffleStarpowerSP: new FormControl(false),
+        randomFormations: new FormControl(false),
+        randomQuiz: new FormControl(false)
       }),
       partners: new FormGroup({
         shufflePartners: new FormControl(false),
@@ -94,11 +98,6 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
           sushie: new FormControl(false),
           lakilester: new FormControl(false)
         }, CustomValidators.atLeastOneTrueControl())
-      }),
-      misc: new FormGroup({
-        randomFormations: new FormControl(false),
-        randomQuiz: new FormControl(false),
-        randomCoinPalette: new FormControl(false)
       }),
       qualityOfLife: new FormGroup({   
         hiddenBlockMode: new FormControl(0),           
@@ -131,8 +130,13 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       }),
       colorPalettes: new FormGroup({
         menu: new FormControl(0),
-        mario : new FormControl(0),
-        goombario: new FormControl(0),
+        marioSprite : new FormControl(),
+        goombarioSprite : new FormControl(),
+        kooperSprite : new FormControl(),
+        bowSprite : new FormControl(),
+        bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
+        npcSetting: new FormControl(SpriteSetting.DefaultPalette),
+        randomCoinPalette: new FormControl(false)
       }),
     });
 

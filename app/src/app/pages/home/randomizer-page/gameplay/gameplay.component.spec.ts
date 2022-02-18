@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MiscComponent } from './misc.component';
+import { GameplayComponent } from './gameplay.component';
 
-describe('MiscComponent', () => {
-  let component: MiscComponent;
-  let fixture: ComponentFixture<MiscComponent>;
+describe('GameplayComponent', () => {
+  let component: GameplayComponent;
+  let fixture: ComponentFixture<GameplayComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MiscComponent ]
+      declarations: [ GameplayComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MiscComponent);
+    fixture = TestBed.createComponent(GameplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
