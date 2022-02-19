@@ -2,6 +2,12 @@ runtime: python27
 api_version: 1
 threadsafe: true
 
+skip_files:
+- node_modules/
+- .angular/
+- e2e/
+- src/
+
 handlers:
 # index files
 - url: /([^.]+)/?$  # urls with no dot in them
