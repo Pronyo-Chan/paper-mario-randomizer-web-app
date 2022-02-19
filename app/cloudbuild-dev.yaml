@@ -1,0 +1,21 @@
+steps:
+
+  # Install node packages
+  - name: node
+    entrypoint: npm
+    args: [ 'install' ]
+    dir: 'app'
+
+  # Build productive files
+  - name: node
+    entrypoint: npm
+    args: [ 'run', 'build', '-c', 'uat' ] 
+    dir: 'app'
+
+  # Deploy to google cloud app egnine
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy', 'uat.yaml']
+    dir: 'app'
+    
+options:
+ logging: CLOUD_LOGGING_ONLY

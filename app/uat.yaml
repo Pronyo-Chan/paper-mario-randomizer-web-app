@@ -3,6 +3,12 @@ api_version: 1
 threadsafe: true
 service: uat
 
+skip_files:
+- node_modules/
+- .angular/
+- e2e/
+- src/
+
 handlers:
 # index files
 - url: /([^.]+)/?$  # urls with no dot in them
