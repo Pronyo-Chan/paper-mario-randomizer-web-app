@@ -9,7 +9,7 @@ steps:
   # Build productive files
   - name: node
     entrypoint: npm
-    args: [ 'run', 'build', '-c', 'production' ] 
+    args: [ 'run', 'build-prod'] 
     dir: 'app'
 
   # Deploy to google cloud app egnine
