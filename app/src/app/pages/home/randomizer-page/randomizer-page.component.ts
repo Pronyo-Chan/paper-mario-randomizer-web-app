@@ -107,6 +107,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         skipQuiz: new FormControl(false),      
         preventPhysicsGlitches: new FormControl(false), 
         shortenBowsersCastle: new FormControl(false), 
+        shortenCutscenes: new FormControl(false), 
+        skipEpilogue: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),        
         turnOffMusic: new FormControl(false),     
         quizmoAlwaysAppears: new FormControl(false),

@@ -54,6 +54,8 @@ export interface SettingsResponse{
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
     ShortenBowsersCastle: boolean;
+    ShortenCutscenes: boolean;
+    SkipEpilogue: boolean;
     ColorA: number;
     ColorB: number;
     MarioSetting: SpriteSetting;

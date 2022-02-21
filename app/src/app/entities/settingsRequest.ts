@@ -51,6 +51,8 @@ export interface SettingsRequest {
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
     ShortenBowsersCastle: boolean;
+    ShortenCutscenes: boolean;
+    SkipEpilogue: boolean;
     Box5ColorA: number;
     Box5ColorB: number;
     MarioSetting: SpriteSetting;

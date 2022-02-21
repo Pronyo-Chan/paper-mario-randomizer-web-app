@@ -111,6 +111,8 @@ export class RandomizerService {
       TurnOffMusic: settingsForm.get('qualityOfLife').get('turnOffMusic').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
       ShortenBowsersCastle: settingsForm.get('qualityOfLife').get('shortenBowsersCastle').value,
+      ShortenCutscenes: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,
+      SkipEpilogue: settingsForm.get('qualityOfLife').get('skipEpilogue').value,
       Box5ColorA: Constants.MENU_COLORS[settingsForm.get('colorPalettes').get('menu').value].colorA,
       Box5ColorB: Constants.MENU_COLORS[settingsForm.get('colorPalettes').get('menu').value].colorB,
       MarioSetting: (settingsForm.get('colorPalettes').get('marioSprite').value as CharacterSpriteSetting).setting,
