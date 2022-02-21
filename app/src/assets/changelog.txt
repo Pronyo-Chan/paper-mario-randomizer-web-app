@@ -62,7 +62,7 @@ Changelog for Open World Paper Mario Randomizer
     * Option: SkipEpilogue. If this is turned on, the game directly goes to the credit upon defeating the final boss and grabbing the star rod
     * Option: Roman Numerals. Changes the enemy HP display in battle to roman numerals.
     * Option: Mario and partners color palettes are now selectable instead of always random. NPCs and bosses can be configured to be a random pick, or always random on every loading.
-    * Option: Shorten Cutscenes now skips the following scenes: Train Ride to Mt. Rugged, beanstalk ride to chapter 6 boss, star ship ride in chapter 8.
+    * Option: Shorten Cutscenes now skips the following scenes: Train Ride to Mt. Rugged, beanstalk growth in chapter 6, star ship ride in chapter 8.
 
 ## Rando Bugfixes
     * The ISpy badge should now be removed properly during the AlwaysISpy
