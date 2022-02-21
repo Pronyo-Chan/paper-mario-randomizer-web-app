@@ -12,51 +12,57 @@ Changelog for Open World Paper Mario Randomizer
 # ALPHA 3
 
 ## Known Issues
-    * In Mt. Lavalava Mario can softlock when beating Lava Piranha but not having
-      access to Bombette. Logic does expect Bombette here to progress.
-    * The logic does not account for enough StarPieces to buy out Merlow, so in
-      rare circumstances progress can softlock if not enough StarPieces are
-      available and a keyitem on Merlow has not been bought yet.
     * The logic does not account for shuffled chapter difficulty and may expect
       Mario to progress by visiting places where the enemies are far too strong.
-    * Loading the mod on certain emulators results in a black screen on boot.
     * Under certain unknown conditions the piranha miniboss fight near Raphael's
       Tree may retrigger.
 
 ## General Changes
     * Gameplay
         * Added Homeward Shroom key item and made Mario start the game with it.
-          Use it within the key item menu to warp back to the starting map.
+          Use it within the key item menu to warp back to the starting map. It is disabled during the volcano escape and Tubba Blubba Castle escape.
         * The quiz at Bowser's Castle's second Bowser Door is now harder and randomized.
           Additionally, it only requires 3 out of 5 correct answers.
-        * Progressive Scaling should now ramp up the difficulty more slowly.
+        * Progressive Scaling should now ramp up the difficulty more slowly and the enemy stats have been toned down overall.
         * The calculator thief Shy Guy now holds both items he can drop at once.
           This makes it so Mario is no longer required to leave and re-enter the
           Toy Box to get the Shy Guys's second item.
-	* When a NPC hands out a consumable item and the player's inventory is full, the player is now able
-	  to discard a chosen item. Previously the NPC item would just disapear.
-	* Simon the poet in Toad Town will now give you his item on first interaction, without needing to exit and reenter the map.
-	* The speed at which Mario pushes blocks has been slightly increased.
+        * The star pieces cost to buy Merlow's items have been changed to the following: Prices range from 2SP to 6SP, with 3 items for each price.
+        * When a NPC hands out a consumable item and the player's inventory is full, the player is now able
+          to discard a chosen item. Previously the NPC item would just disapear.
+        * Simon the poet in Toad Town will now give you his item on first interaction, without needing to exit and reenter the map.
+        * The speed at which Mario pushes blocks has been slightly increased.
+        * AlwaysISpy option is now silent, the star piece indicator will be visually present when entering a room with a hidden pannel, but makes no sound.
+        * It is now possible to re-enter Tubba Bubba's castle after the escape and before beating the chapter boss. This prevents players from being softlocked if an item leading to the super boots was in the castle and not collected.
     * Title Screen
         * Added a new title logo for the randomizer.
     * Random Formations
         * As Medi Guys scale the same as other chapter 4 enemies, they no
           longer appear outside of the Toy Box during Random Formations if
           ProgressiveScaling is turned off.
+    * Logic
+      * Logic now expects the player to have the Bowser's Castle required partners before starting it
+      * The bombable wall during the volcano escape is now always open to prevent softlocks if the player doesn't have Bombette
+      * Star pieces are now considered in logic so it should be impossible to be locked because of spending star pieces on non-progression items
+
 
 ## New Options
     * Option: ShortenBowsersCastle
       If this is turned on, then the loading zones in Bowser's Castle are re-
       routed to noticably shorten Mario's stay there.
-      * The second Bowser door takes the place of the first Bowser door.
-        This removes access to the basement entirely.
-      * The water puzzle rooms are removed, sending Mario straight to the
-        Bill Blaster room.
-      * Most hidden rooms around the second Bowser Door room are removed,
-        sending Mario outside to the Ramparts straight away.
-      * The Up/Down puzzle room and surrounding rooms are removed, sending Mario
-        to the bridge before Fake Peach Hallway instead.
-      This reduces the size of Bowser's Castle by about 50%.
+        * The second Bowser door takes the place of the first Bowser door.
+          This removes access to the basement entirely.
+        * The water puzzle rooms are removed, sending Mario straight to the
+          Bill Blaster room.
+        * Most hidden rooms around the second Bowser Door room are removed,
+          sending Mario outside to the Ramparts straight away.
+        * The Up/Down puzzle room and surrounding rooms are removed, sending Mario
+          to the bridge before Fake Peach Hallway instead.
+        This reduces the size of Bowser's Castle by about 50%.
+    * Option: SkipEpilogue. If this is turned on, the game directly goes to the credit upon defeating the final boss and grabbing the star rod
+    * Option: Roman Numerals. Changes the enemy HP display in battle to roman numerals.
+    * Option: Mario and partners color palettes are now selectable instead of always random. NPCs and bosses can be configured to be a random pick, or always random on every loading.
+    * Option: Shorten Cutscenes now skips the following scenes: Train Ride to Mt. Rugged, beanstalk ride to chapter 6 boss, star ship ride in chapter 8.
 
 ## Rando Bugfixes
     * The ISpy badge should now be removed properly during the AlwaysISpy
@@ -83,11 +89,15 @@ Changelog for Open World Paper Mario Randomizer
       there.
     * Fixed Koloardo's wife buggy animation.
     * Fixed Kolorado not returning to Koopa Village after chapter 5 is completed.
-    * Fixed Flower Fields background being sunny before the cloud machine was destroyed.
+    * Fixed Flower Fields background and music being sunny before the cloud machine was destroyed.
     * Fixed an issue where Storeroom Items in Toad Town would sometimes not spawn.
     * Mario's sprite should no longer have a bright pink spot in his mouth on
       the default color palette.
     * (spoilerlog) Fixed a misnamed location on the beach.
+    * Fixed Random Quiz option not randomizing the questions properly.
+    * Fixed some cutscenes having weird camera angles when triggering them from a different side (ch1 JrTroopa).
+    * Fixed items on brick blocks in the desert, toy box and volcano that would sometimes despawn if they were consumable items.
+    * The Koopa Bros tower spin attack now has it's damage scaled according to the Progressive Scaling or Random Chapter Difficulty scaling.
 
 
 
