@@ -20,4 +20,12 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
+
+  describe('On Init', () => {
+    it('should get latest seed id from localStorage', () => {
+      localStorage.setItem('latestSeedId', '123')
+      expect(localStorage.getItem('latestSeedId')).toBe('123');
+    });
+  });
+  
 });
