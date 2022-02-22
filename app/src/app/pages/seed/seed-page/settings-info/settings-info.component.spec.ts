@@ -1,4 +1,6 @@
+import { MatTableModule } from '@angular/material/table';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SettingsResponse } from 'src/app/entities/settingsResponse';
 
 import { SettingsInfoComponent } from './settings-info.component';
 
@@ -8,7 +10,8 @@ describe('SettingsInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SettingsInfoComponent ]
+      declarations: [ SettingsInfoComponent ],
+      imports: [MatTableModule]
     })
     .compileComponents();
   });
@@ -16,6 +19,7 @@ describe('SettingsInfoComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SettingsInfoComponent);
     component = fixture.componentInstance;
+    component.seedInfo = {CreationDate: new Date()} as SettingsResponse
     fixture.detectChanges();
   });
 

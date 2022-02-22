@@ -1,4 +1,7 @@
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCardModule } from '@angular/material/card';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PresetSettingsComponent } from './preset-settings.component';
 
@@ -8,7 +11,8 @@ describe('PresetSettingsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PresetSettingsComponent ]
+      declarations: [ PresetSettingsComponent ],
+      imports: [FormsModule, ReactiveFormsModule, MatCardModule, MatTooltipModule]
     })
     .compileComponents();
   });
@@ -16,6 +20,7 @@ describe('PresetSettingsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PresetSettingsComponent);
     component = fixture.componentInstance;
+    component.formGroup = new FormGroup({});
     fixture.detectChanges();
   });
 

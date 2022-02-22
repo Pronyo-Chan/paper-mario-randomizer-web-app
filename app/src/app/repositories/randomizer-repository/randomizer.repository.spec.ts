@@ -1,12 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { RandomizerRepository } from './randomizer.repository';
 
-describe('PatcherRepositoryService', () => {
+describe('RandomizerRepository', () => {
   let service: RandomizerRepository;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    const httpClientSpy = jasmine.createSpyObj('HttpClient', ['post', 'get']);
+    httpClientSpy.post.and.returnValue({ status: 200, data: {} });
+    httpClientSpy.get.and.returnValue({ status: 200, data: {} });
+    
+    TestBed.configureTestingModule({
+      providers: [{provide: HttpClient, useValue: httpClientSpy}]
+    });
     service = TestBed.inject(RandomizerRepository);
   });
 

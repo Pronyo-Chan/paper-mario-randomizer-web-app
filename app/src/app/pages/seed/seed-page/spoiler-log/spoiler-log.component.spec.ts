@@ -1,3 +1,6 @@
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { SpoilerLog } from './../../../../entities/spoilerLog';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SpoilerLogComponent } from './spoiler-log.component';
@@ -8,7 +11,8 @@ describe('SpoilerLogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpoilerLogComponent ]
+      declarations: [ SpoilerLogComponent ],
+      imports: [MatTableModule, MatTabsModule]
     })
     .compileComponents();
   });
@@ -16,6 +20,9 @@ describe('SpoilerLogComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SpoilerLogComponent);
     component = fixture.componentInstance;
+    component.spoilerLog = {      
+    } as SpoilerLog;
+    component.chapterDifficulties = [];
     fixture.detectChanges();
   });
 

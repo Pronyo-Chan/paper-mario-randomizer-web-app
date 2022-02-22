@@ -1,3 +1,4 @@
+import { MatCardModule } from '@angular/material/card';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HelpPageComponent } from './help-page.component';
@@ -8,7 +9,8 @@ describe('HelpPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HelpPageComponent ]
+      declarations: [ HelpPageComponent ],
+      imports: [MatCardModule]
     })
     .compileComponents();
   });
