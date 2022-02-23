@@ -1,3 +1,4 @@
+import { StartingMap } from './../../../../entities/enum/startingMaps';
 import { SettingsResponse } from './../../../../entities/settingsResponse';
 import { Component, Input, OnInit } from '@angular/core';
 import { HiddenBlockMode } from 'src/app/entities/enum/hiddenBlockMode';
@@ -46,6 +47,9 @@ export class SettingsInfoComponent implements OnInit {
         case 'PartnersInDefaultLocations':
           this.settingRows.push({name: 'Shuffle Partners', value: this.inverseStringBoolean(this.seedInfo[key])} as SettingRow)
           break;
+        case 'StartingMap':
+          this.settingRows.push({name: cleanSettingName, value: StartingMap[this.seedInfo[key]]} as SettingRow)
+          break;
         case 'SeedID':
         case 'CreationDate': 
         case 'StarRodModVersion':
@@ -59,7 +63,6 @@ export class SettingsInfoComponent implements OnInit {
         case 'IncludeLetterChain':
         case 'ColorA':
         case 'ColorB':
-        case 'StartingMap':
           break;
 
         default: {

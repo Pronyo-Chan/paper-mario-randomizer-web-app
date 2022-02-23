@@ -86,6 +86,7 @@ export class RandomizerService {
       ToyboxOpen: settingsForm.get('openLocations').get('toyboxOpen').value,
       FlowerGateOpen: settingsForm.get('openLocations').get('flowerGateOpen').value,
       WhaleOpen: settingsForm.get('openLocations').get('whaleOpen').value,
+      StartingMap: settingsForm.get('openLocations').get('startingMap').value,
       ShuffleChapterDifficulty: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.RandomChapterDifficulty,
       ProgressiveScaling: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.ProgressiveScaling,
       RandomFormations: settingsForm.get('gameplay').get('randomFormations').value,
