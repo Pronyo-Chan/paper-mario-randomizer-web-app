@@ -69,13 +69,13 @@ export class SeedPageComponent implements OnInit, OnDestroy {
           this.isPageLoading = false;
         })
       }),
-      catchError(err => this.handleError(err))
+      catchError(err => this.handleError(err)) 
     ).subscribe();
   }
 
   public convertSpoilerFileToDict(spoilerFile: string) {
     var fileLines = spoilerFile.split('\n')
-    var spoilerLogData: SpoilerLog = {};
+    var spoilerLogData: SpoilerLog = {}; 
 
     var currentRegion = '';
     fileLines.forEach(line => {
@@ -93,11 +93,11 @@ export class SeedPageComponent implements OnInit, OnDestroy {
           var splitLine = line.split('):'); // Split the location and item
 
           var location = splitLine[0].trimLeft().substring(1);        
-          var item = splitLine[1].trimLeft();
+          var item = splitLine[1];
           
           item = item.replace(/([A-Z0-9])/g, " $1");
           var cleanItemName = item.charAt(0).toUpperCase() + item.slice(1); 
-          var cleanestItemName = cleanItemName.replace("H P", "HP").replace("B P", "BP").replace("F P", "FP").replace("F X", "FX").replace("P O W", "POW")
+          var cleanestItemName = cleanItemName.replace("H P", "HP").replace("B P", "BP").replace("F P", "FP").replace("F X", "FX").replace("P O W", "POW").trimLeft()
 
           spoilerLogData[currentRegion].push({location: location, item: cleanestItemName}) //trimleft removes whitespace, substring(1) removes the first (
       }
