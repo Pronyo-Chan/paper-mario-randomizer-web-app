@@ -39,6 +39,7 @@ import { ErrorComponent } from './common/error/error.component';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
 import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.component';
 import { ColorPalettesComponent } from './pages/home/randomizer-page/color-palettes/color-palettes.component';
+import { MarioSettingsComponent } from './pages/home/randomizer-page/mario-settings/mario-settings.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { ColorPalettesComponent } from './pages/home/randomizer-page/color-palet
     ErrorComponent,
     HelpPageComponent,
     ChangelogPageComponent,
-    ColorPalettesComponent
+    ColorPalettesComponent,
+    MarioSettingsComponent
   ],
   imports: [
     BrowserModule,

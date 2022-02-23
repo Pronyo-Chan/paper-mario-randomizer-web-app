@@ -65,6 +65,9 @@ export interface SettingsRequest {
     BowSprite: BowSprite;
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
+    StartingMaxHP: number;
+    StartingMaxFP: number;
+    StartingMaxBP: number;
 }
 
 export interface StartingPartners {

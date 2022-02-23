@@ -74,7 +74,7 @@ export class RandomizerService {
       AlwaysPeekaboo: settingsForm.get('qualityOfLife').get('alwaysPeekaboo').value,
       HiddenBlockMode: settingsForm.get('qualityOfLife').get('hiddenBlockMode').value,
       AllowPhysicsGlitches: !settingsForm.get('qualityOfLife').get('preventPhysicsGlitches').value,
-      StartingCoins: settingsForm.get('difficulty').get('startingCoins').value,
+      StartingCoins: settingsForm.get('marioStats').get('startingCoins').value,
       CapEnemyXP: settingsForm.get('difficulty').get('capEnemyXP').value,
       NoXP: settingsForm.get('difficulty').get('noXP').value,
       DoubleDamage: settingsForm.get('difficulty').get('damageMultiplier').value == 2,
@@ -127,6 +127,9 @@ export class RandomizerService {
       BossesSetting: settingsForm.get('colorPalettes').get('bossesSetting').value,
       NPCSetting: settingsForm.get('colorPalettes').get('npcSetting').value,
       RandomCoinPalette: settingsForm.get('colorPalettes').get('randomCoinPalette').value,
+      StartingMaxHP: settingsForm.get('marioStats').get('startingMaxHP').value,
+      StartingMaxFP: settingsForm.get('marioStats').get('startingMaxFP').value,
+      StartingMaxBP: settingsForm.get('marioStats').get('startingMaxBP').value,
     } as SettingsRequest;
 
     if(request.StartWithRandomPartners) {
