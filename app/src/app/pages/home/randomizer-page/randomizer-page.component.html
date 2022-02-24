@@ -30,6 +30,9 @@
                 <mat-tab label="Starting Stats">
                     <app-mario-settings [marioStatsFormGroup]="formGroup.get('marioStats')"></app-mario-settings>
                 </mat-tab>
+                <mat-tab label="Starting Items">
+                    <app-starting-items [startingItemsFormControl]="formGroup.get('marioStats').get('startingItems')"></app-starting-items>
+                </mat-tab>
             </mat-tab-group>
         </mat-card>
         <mat-card class="settings-card">

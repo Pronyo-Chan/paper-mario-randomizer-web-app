@@ -97,10 +97,5 @@ export enum Items {
 	MapleShroom = 0x00D7, 
 	BoiledEgg = 0x00D8,
 	YoshiCookie = 0x00D9, 
-	JellyShroom1 = 0x00DA, 
-	JellyShroom2 = 0x00DB,
-	JellyShroom3 = 0x00DC,
-	JellyShroom4 = 0x00DD,
-	JellyShroom5 = 0x00DE,
-	JellyShroom6 = 0x00DF
+	JellyShroom = 0x00DA,
 }

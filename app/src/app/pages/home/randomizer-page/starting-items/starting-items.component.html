@@ -1,0 +1,24 @@
+<mat-card-content class=settings-card-content>
+    <mat-chip-list #chipList aria-label="Item Selection">
+        <mat-chip *ngFor="let item of startingItemsFormControl.value" (removed)="remove(item.value)">
+          {{item.name}}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+      placeholder="Item / Key Item / Badge"
+      #fruitInput
+      [(ngModel)]="searchText"
+      (ngModelChange)="filter()"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="chipList"
+      (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="onItemSearchChange()">
+        <mat-option *ngFor="let searchItem of filteredSearchItems" [value]="searchItem">
+          {{searchItem}}
+        </mat-option>
+      </mat-autocomplete>
+    
+</mat-card-content>

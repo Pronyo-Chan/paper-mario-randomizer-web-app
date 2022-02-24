@@ -17,6 +17,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatIconModule } from '@angular/material/icon'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatChipsModule } from '@angular/material/chips'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { HelpPageComponent } from './pages/help-page/help-page.component';
 import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.component';
 import { ColorPalettesComponent } from './pages/home/randomizer-page/color-palettes/color-palettes.component';
 import { MarioSettingsComponent } from './pages/home/randomizer-page/mario-settings/mario-settings.component';
+import { StartingItemsComponent } from './pages/home/randomizer-page/starting-items/starting-items.component';
 
 
 @NgModule({
@@ -63,7 +65,8 @@ import { MarioSettingsComponent } from './pages/home/randomizer-page/mario-setti
     HelpPageComponent,
     ChangelogPageComponent,
     ColorPalettesComponent,
-    MarioSettingsComponent
+    MarioSettingsComponent,
+    StartingItemsComponent
   ],
   imports: [
     BrowserModule,
@@ -87,6 +90,7 @@ import { MarioSettingsComponent } from './pages/home/randomizer-page/mario-setti
     MatIconModule,
     MatAutocompleteModule,
     MatToolbarModule,
+    MatChipsModule,
     FontAwesomeModule
   ],
   providers: [],
