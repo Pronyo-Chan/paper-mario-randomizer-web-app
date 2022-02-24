@@ -1,3 +1,6 @@
+import { Badges } from './../../../../entities/enum/badges';
+import { KeyItems } from './../../../../entities/enum/keyItems';
+import { Items } from './../../../../entities/enum/items';
 import { StartingMap } from './../../../../entities/enum/startingMaps';
 import { SettingsResponse } from './../../../../entities/settingsResponse';
 import { Component, Input, OnInit } from '@angular/core';
@@ -49,6 +52,9 @@ export class SettingsInfoComponent implements OnInit {
         case 'StartingMap':
           this.settingRows.push({name: cleanSettingName, value: StartingMap[this.seedInfo[key]]} as SettingRow)
           break;
+        case String(key.match(/.*StartingItem.*/)):
+          this.settingRows.push({name: cleanSettingName, value: this.getStartingItemName(this.seedInfo[key])} as SettingRow)
+          break;
         case 'SeedID':
         case 'CreationDate': 
         case 'StarRodModVersion':
@@ -75,4 +81,14 @@ export class SettingsInfoComponent implements OnInit {
     return String(!value);
   }
 
+  private getStartingItemName(itemNumber: string) {
+    var name = Items[itemNumber];
+    if(!name) {
+      name = KeyItems[itemNumber];
+    }
+    if(!name){
+      name = Badges[itemNumber];
+    }
+    return pascalToVerboseString(name);
+  }
 }
