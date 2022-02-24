@@ -58,8 +58,6 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
   }
 
   public onStartingHPBlur() {
-    
-    console.log(this.getAdjustedHPValue())
     this.marioStatsFormGroup.get('startingMaxHP').setValue(this.getAdjustedHPValue())
     this.marioStatsFormGroup.updateValueAndValidity();
     this.updateStartingLevel();

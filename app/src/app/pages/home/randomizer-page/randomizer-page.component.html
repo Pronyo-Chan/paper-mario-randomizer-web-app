@@ -6,7 +6,7 @@
         </mat-card>
         <mat-card class="settings-card" [ngClass]="{ 'partners-tab-error': formGroup.get('partners').invalid}">
             <mat-card-title class="settings-title">Randomizer Settings</mat-card-title>
-            <mat-tab-group animationDuration="1000ms">
+            <mat-tab-group animationDuration="0">
                 <mat-tab label="Items">
                 <app-items [itemFormGroup]="formGroup.get('items')"></app-items>
                 </mat-tab>
@@ -23,12 +23,15 @@
         </mat-card>
         <mat-card class="settings-card">
             <mat-card-title class="settings-title">Difficulty Settings</mat-card-title>
-            <mat-tab-group animationDuration="1000ms">
+            <mat-tab-group animationDuration="0">
                 <mat-tab label="General">
                 <app-difficulty-settings [difficultyFormGroup]="formGroup.get('difficulty')"></app-difficulty-settings>
                 </mat-tab>
                 <mat-tab label="Starting Stats">
                     <app-mario-settings [marioStatsFormGroup]="formGroup.get('marioStats')"></app-mario-settings>
+                </mat-tab>
+                <mat-tab label="Starting Items">
+                    <app-starting-items [startingItemsFormControl]="formGroup.get('marioStats').get('startingItems')"></app-starting-items>
                 </mat-tab>
             </mat-tab-group>
         </mat-card>

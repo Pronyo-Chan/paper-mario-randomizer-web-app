@@ -1,0 +1,20 @@
+.starting-items-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 10rem;
+
+    .chiplist-container {
+        flex-basis: 27%;
+        margin: 0 3%;
+    }
+}
+
+div.bottom-note {
+    margin-top: 2rem;
+    p {
+        font-family: gluten;
+        margin:2px;
+        font-weight: 600;
+    }
+}

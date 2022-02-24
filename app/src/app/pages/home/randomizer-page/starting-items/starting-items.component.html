@@ -1,0 +1,19 @@
+<mat-card-content class=settings-card-content>
+  <div class="starting-items-container">
+    <div class="chiplist-container">
+      <app-item-chiplist [startingItemsFormControl]="startingItemsFormControl" [availableItems]="availableItems" [itemType] = "'Item'"></app-item-chiplist>
+    </div>
+    <div class="chiplist-container">
+      <app-item-chiplist [startingItemsFormControl]="startingItemsFormControl" [availableItems]="availableBadges" [itemType] = "'Badge'"></app-item-chiplist>
+    </div>
+    <div class="chiplist-container">
+      <app-item-chiplist [startingItemsFormControl]="startingItemsFormControl" [availableItems]="availableKeyItems" [itemType] = "'Key Item'"></app-item-chiplist>
+    </div>
+  </div>
+  <div class="bottom-note">
+    <p>*Homeward Shroom is a new item that warps Mario back to the starting location and can be used from the key items menu</p>
+    <p>*A maximum of 16 custom starting items is currently supported</p>
+  </div>
+    
+  
+</mat-card-content>

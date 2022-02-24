@@ -130,6 +130,23 @@ export class RandomizerService {
       StartingMaxHP: settingsForm.get('marioStats').get('startingMaxHP').value,
       StartingMaxFP: settingsForm.get('marioStats').get('startingMaxFP').value,
       StartingMaxBP: settingsForm.get('marioStats').get('startingMaxBP').value,
+      StartingItem0: settingsForm.get('marioStats').get('startingItems').value[0]?.value,
+      StartingItem1: settingsForm.get('marioStats').get('startingItems').value[1]?.value,
+      StartingItem2: settingsForm.get('marioStats').get('startingItems').value[2]?.value,
+      StartingItem3: settingsForm.get('marioStats').get('startingItems').value[3]?.value,
+      StartingItem4: settingsForm.get('marioStats').get('startingItems').value[4]?.value,
+      StartingItem5: settingsForm.get('marioStats').get('startingItems').value[5]?.value,
+      StartingItem6: settingsForm.get('marioStats').get('startingItems').value[6]?.value,
+      StartingItem7: settingsForm.get('marioStats').get('startingItems').value[7]?.value,
+      StartingItem8: settingsForm.get('marioStats').get('startingItems').value[8]?.value,
+      StartingItem9: settingsForm.get('marioStats').get('startingItems').value[9]?.value,
+      StartingItemA: settingsForm.get('marioStats').get('startingItems').value[10]?.value,
+      StartingItemB: settingsForm.get('marioStats').get('startingItems').value[11]?.value,
+      StartingItemC: settingsForm.get('marioStats').get('startingItems').value[12]?.value,
+      StartingItemD: settingsForm.get('marioStats').get('startingItems').value[13]?.value,
+      StartingItemE: settingsForm.get('marioStats').get('startingItems').value[14]?.value,
+      StartingItemF: settingsForm.get('marioStats').get('startingItems').value[15]?.value,
+      
     } as SettingsRequest;
 
     if(request.StartWithRandomPartners) {
