@@ -1,3 +1,4 @@
+import { StartingItem } from './../../../../entities/startingItem';
 import { Badges } from './../../../../entities/enum/badges';
 import { KeyItems } from './../../../../entities/enum/keyItems';
 import { Items } from './../../../../entities/enum/items';
@@ -13,77 +14,32 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 })
 export class StartingItemsComponent implements OnInit {
 
-  public readonly MIN_AMOUNT_OF_CHARS = 2;
+  public availableItems: StartingItem[] = [];
+  public availableBadges: StartingItem[] = [];
+  public availableKeyItems: StartingItem[] = [];
 
-  public allStartingItems: {name: string, value: number, type: 'Badge' | 'Item' | 'KeyItem'}[];
-  public addOnBlur = true;
-  public searchText: string;
-
-  public filteredSearchItems: string[];
-
-  @Input() public startingItemsFormControl: FormControl
+  @Input() public startingItemsFormControl: FormControl;
 
   public constructor() { }
 
   public ngOnInit(): void {
-    this.allStartingItems = [];
     for(var itemEnum in Items) {
       if(isNaN(Number(Items[itemEnum])))
       {
-        this.allStartingItems.push({name: Items[itemEnum], value: Number(itemEnum), type: 'Item'})
+        this.availableItems.push({name: Items[itemEnum], value: Number(itemEnum)})
       }
     }
     for(var keyItemEnum in KeyItems) {
       if(isNaN(Number(KeyItems[keyItemEnum]))) {
-        this.allStartingItems.push({name: KeyItems[keyItemEnum], value: Number(keyItemEnum), type: 'KeyItem'})
+        this.availableKeyItems.push({name: KeyItems[keyItemEnum], value: Number(keyItemEnum)})
       }
         
     }
     for(var badgeEnum in Badges) {
       if(isNaN(Number(Badges[badgeEnum]))) {
-        this.allStartingItems.push({name: Badges[badgeEnum], value: Number(badgeEnum), type: 'Badge'})
+        this.availableBadges.push({name: Badges[badgeEnum], value: Number(badgeEnum)})
       }
         
-    }
-  }
-
-  public add(event: MatChipInputEvent): void {
-    const value = (event.value || '').trim();
-
-    if (value) {
-      this.startingItemsFormControl.value.push({name: value});
-    }
-    event.chipInput!.clear();
-  }
-
-  public remove(startingItem: number): void {
-    const index = this.allStartingItems.map(i => i.value).indexOf(startingItem);
-
-    if (index >= 0) {
-      this.allStartingItems.splice(index, 1);
-    }
-  }
-
-  public onItemSearchChange() {
-    var item = this.allStartingItems.find(i => i.name == this.searchText);
-    if(!item) {
-      return;
-    }
-    this.startingItemsFormControl.value.push(item)
-    this.searchText = null;
-  }
-
-  public filter() {
-    if(this.searchText.length < this.MIN_AMOUNT_OF_CHARS) {
-      this.filteredSearchItems = [];
-      return;
-    }
-    const filterValue = this.searchText.toLowerCase();
-    // Filter unique items that inclue value
-    this.filteredSearchItems =  this.allStartingItems.filter(item => item.name.toLowerCase().includes(filterValue)).map(item => item.name);
-
-    if(this.filteredSearchItems.find(item => item == this.searchText)) {
-      this.onItemSearchChange()
     }
   }
 

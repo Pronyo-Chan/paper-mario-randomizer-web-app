@@ -11,7 +11,7 @@ export enum Items {
 	BakingMilk = 0x0066,
 	FireFlower  = 0x0080,
 	SnowmanDoll = 0x0081,
-	ThunderRag = 0x0082,
+	ThunderRage = 0x0082,
 	ShootingStar = 0x0083,
 	ThunderBolt  = 0x0084,
 	Pebble = 0x0085,

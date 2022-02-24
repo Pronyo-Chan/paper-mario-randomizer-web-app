@@ -42,6 +42,7 @@ import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.co
 import { ColorPalettesComponent } from './pages/home/randomizer-page/color-palettes/color-palettes.component';
 import { MarioSettingsComponent } from './pages/home/randomizer-page/mario-settings/mario-settings.component';
 import { StartingItemsComponent } from './pages/home/randomizer-page/starting-items/starting-items.component';
+import { ItemChiplistComponent } from './pages/home/randomizer-page/starting-items/item-chiplist/item-chiplist.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { StartingItemsComponent } from './pages/home/randomizer-page/starting-it
     ChangelogPageComponent,
     ColorPalettesComponent,
     MarioSettingsComponent,
-    StartingItemsComponent
+    StartingItemsComponent,
+    ItemChiplistComponent
   ],
   imports: [
     BrowserModule,
