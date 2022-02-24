@@ -1,4 +1,5 @@
 <div>
+    <h2>{{itemType}}s</h2>
     <input
     [placeholder]="itemType + ' Name'"
     #fruitInput
@@ -6,12 +7,12 @@
     [matAutocomplete]="auto"
     [matChipInputFor]="chipList">
 </div>  
-<mat-chip-list #chipList aria-label="Item Selection" class="mat-chip-list-stacked">
+<mat-chip-list #chipList aria-label="Item Selection">
     
 <mat-chip *ngFor="let item of selectedItems" (removed)="removeItem(item)">
     {{item.name}}
     <button matChipRemove>
-    <mat-icon>cancel</mat-icon>
+    <mat-icon class="material-icons-outlined">cancel</mat-icon>
     </button>
 </mat-chip>
 </mat-chip-list>

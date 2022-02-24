@@ -2,6 +2,7 @@ import { StartingMap } from './../../../../entities/enum/startingMaps';
 import { SettingsResponse } from './../../../../entities/settingsResponse';
 import { Component, Input, OnInit } from '@angular/core';
 import { HiddenBlockMode } from 'src/app/entities/enum/hiddenBlockMode';
+import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
 
 interface SettingRow {
   name: string;
@@ -30,9 +31,7 @@ export class SettingsInfoComponent implements OnInit {
 
   public initSettingRows() {
     for (var key in this.seedInfo) {
-      var cleanSettingName = key.replace(/([A-Z0-9])/g, " $1").trimLeft();
-      cleanSettingName = cleanSettingName.charAt(0).toUpperCase() + cleanSettingName.slice(1); 
-      cleanSettingName = cleanSettingName.replace("S P", "SP").replace("B P", "BP").replace("F P", "FP").replace("X P", "XP").replace("O H K O", "One Hit KO")
+      var cleanSettingName = pascalToVerboseString(key)
       switch(key){
         case 'StartWithPartners': 
           var startingPartners = Object.keys(this.seedInfo["StartWithPartners"]).filter(partner => this.seedInfo["StartWithPartners"][partner] == true)

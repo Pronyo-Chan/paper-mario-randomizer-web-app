@@ -1,3 +1,4 @@
+import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
 import { StartingItem } from './../../../../entities/startingItem';
 import { Badges } from './../../../../entities/enum/badges';
 import { KeyItems } from './../../../../entities/enum/keyItems';
@@ -26,21 +27,25 @@ export class StartingItemsComponent implements OnInit {
     for(var itemEnum in Items) {
       if(isNaN(Number(Items[itemEnum])))
       {
-        this.availableItems.push({name: Items[itemEnum], value: Number(itemEnum)})
+        this.availableItems.push({name: pascalToVerboseString(Items[itemEnum]), value: Number(itemEnum)})
       }
     }
     for(var keyItemEnum in KeyItems) {
       if(isNaN(Number(KeyItems[keyItemEnum]))) {
-        this.availableKeyItems.push({name: KeyItems[keyItemEnum], value: Number(keyItemEnum)})
+        this.availableKeyItems.push({name: pascalToVerboseString(KeyItems[keyItemEnum]), value: Number(keyItemEnum)})
       }
         
     }
     for(var badgeEnum in Badges) {
       if(isNaN(Number(Badges[badgeEnum]))) {
-        this.availableBadges.push({name: Badges[badgeEnum], value: Number(badgeEnum)})
+        this.availableBadges.push({name: pascalToVerboseString(Badges[badgeEnum]), value: Number(badgeEnum)})
       }
         
     }
+
+    this.availableItems.sort((a, b) => a.name.localeCompare(b.name))
+    this.availableKeyItems.sort((a, b) => a.name.localeCompare(b.name))
+    this.availableBadges.sort((a, b) => a.name.localeCompare(b.name))
   }
 
 }

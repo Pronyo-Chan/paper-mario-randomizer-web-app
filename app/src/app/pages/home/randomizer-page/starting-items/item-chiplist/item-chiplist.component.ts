@@ -1,3 +1,5 @@
+import { KeyItems } from './../../../../../entities/enum/keyItems';
+import { Items } from './../../../../../entities/enum/items';
 import { tap } from 'rxjs';
 import { ChangeDetectorRef, Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -29,6 +31,10 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
     this._searchTextSubscription = this.searchText.valueChanges.pipe(
       tap(() => this.filter())
     ).subscribe();
+
+    if(this.itemType == 'Key Item') {
+      this.addItem(this.availableItems.find(i => i.name == 'Homeward Shroom'));
+    }
   }
 
   public ngOnDestroy(): void {
@@ -42,28 +48,32 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
 
     if (formControlIndex >= 0) {
       this.startingItemsFormControl.value.splice(formControlIndex, 1);
-      this.selectedItems = this.startingItemsFormControl.value.map(i => i);
+
+      var selectedItemIndex = this.selectedItems.indexOf(startingItem);
+      this.selectedItems.splice(selectedItemIndex, 1);
     }
   }
 
   public onItemSearchChange() {
-    console.log('begin this.onItemSearchChange')
     var item = this.availableItems.find(i => i.name == this.searchText.value);
     if(!item) {
       return;
     }
+
+    this.addItem(item);
+  }
+
+  public addItem(item: StartingItem) {
     this.startingItemsFormControl.value.push(item)
     this.selectedItems.push(item)
     this.searchText.setValue('');
   }
 
   public filter() {
-    console.log('filter1')
     const filterValue = this.searchText.value.toLowerCase();
     // Filter unique items that inclue value
     this.filteredSearchItems =  this.availableItems.filter(item => item.name.toLowerCase().includes(filterValue)).map(item => item.name);
     if(this.itemType == 'Badge' || this.itemType == 'Key Item') {
-      console.log('filter2')
       this.filteredSearchItems = this.filteredSearchItems.filter(itemName => !this.selectedItems.find(selectedItem => selectedItem.name == itemName))
     }
   }

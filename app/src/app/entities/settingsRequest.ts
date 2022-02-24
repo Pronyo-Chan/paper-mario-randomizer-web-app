@@ -68,6 +68,7 @@ export interface SettingsRequest {
     StartingMaxHP: number;
     StartingMaxFP: number;
     StartingMaxBP: number;
+    StartingItem0: number;
     StartingItem1: number;
     StartingItem2: number;
     StartingItem3: number;

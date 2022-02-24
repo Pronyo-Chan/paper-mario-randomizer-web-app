@@ -1,5 +1,14 @@
 <mat-card-content class=settings-card-content>
-    <app-item-chiplist [startingItemsFormControl]="startingItemsFormControl" [availableItems]="availableItems" [itemType] = "'Item'"></app-item-chiplist>
-    <app-item-chiplist [startingItemsFormControl]="startingItemsFormControl" [availableItems]="availableBadges" [itemType] = "'Badge'"></app-item-chiplist>
-    <app-item-chiplist [startingItemsFormControl]="startingItemsFormControl" [availableItems]="availableKeyItems" [itemType] = "'Key Item'"></app-item-chiplist>
+  <div class="starting-items-container">
+    <div class="chiplist-container">
+      <app-item-chiplist [startingItemsFormControl]="startingItemsFormControl" [availableItems]="availableItems" [itemType] = "'Item'"></app-item-chiplist>
+    </div>
+    <div class="chiplist-container">
+      <app-item-chiplist [startingItemsFormControl]="startingItemsFormControl" [availableItems]="availableBadges" [itemType] = "'Badge'"></app-item-chiplist>
+    </div>
+    <div class="chiplist-container">
+      <app-item-chiplist [startingItemsFormControl]="startingItemsFormControl" [availableItems]="availableKeyItems" [itemType] = "'Key Item'"></app-item-chiplist>
+    </div>
+  </div>
+  
 </mat-card-content>

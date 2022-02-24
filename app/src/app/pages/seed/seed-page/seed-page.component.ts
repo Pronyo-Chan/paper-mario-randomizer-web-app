@@ -1,3 +1,4 @@
+import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
 import { SettingsResponse } from './../../../entities/settingsResponse';
 import { Subscription, tap, switchMap, Observable, take, catchError, of } from 'rxjs';
 import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
@@ -95,11 +96,9 @@ export class SeedPageComponent implements OnInit, OnDestroy {
           var location = splitLine[0].trimLeft().substring(1);        
           var item = splitLine[1];
           
-          item = item.replace(/([A-Z0-9])/g, " $1");
-          var cleanItemName = item.charAt(0).toUpperCase() + item.slice(1); 
-          var cleanestItemName = cleanItemName.replace("H P", "HP").replace("B P", "BP").replace("F P", "FP").replace("F X", "FX").replace("P O W", "POW").trimLeft()
+          var cleanItemName = pascalToVerboseString(item);
 
-          spoilerLogData[currentRegion].push({location: location, item: cleanestItemName}) //trimleft removes whitespace, substring(1) removes the first (
+          spoilerLogData[currentRegion].push({location: location, item: cleanItemName}) //trimleft removes whitespace, substring(1) removes the first (
       }
     });
     this.spoilerLog = of(spoilerLogData); 
