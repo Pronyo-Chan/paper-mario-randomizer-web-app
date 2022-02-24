@@ -1,7 +1,7 @@
 import { KeyItems } from './../../../../../entities/enum/keyItems';
 import { Items } from './../../../../../entities/enum/items';
 import { tap } from 'rxjs';
-import { ChangeDetectorRef, Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { StartingItem } from 'src/app/entities/startingItem';
 
@@ -16,11 +16,17 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
   @Input() public startingItemsFormControl: FormControl;
   @Input() public itemType: string;
 
+  @ViewChild('autocomplete') public autocomplete;
+
   public selectedItems: StartingItem[] = [];
 
   public searchText: FormControl;
   public filteredSearchItems: string[] = [];
+
+  public isInputDisabled = false;
+
   private _searchTextSubscription: any;
+  private _startingItemsControlSubscription: any;
 
   public constructor(private _changeDectector: ChangeDetectorRef) { }
   
@@ -28,8 +34,13 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.filteredSearchItems = this.availableItems.map(item => item.name);
     this.searchText = new FormControl('');
+
     this._searchTextSubscription = this.searchText.valueChanges.pipe(
       tap(() => this.filter())
+    ).subscribe();
+
+    this._startingItemsControlSubscription = this.startingItemsFormControl.valueChanges.pipe(
+      tap(startingItems => this.itemType == 'Item' && this.selectedItems.length >= 10 || startingItems.length >= 16 ? this.searchText.disable() : this.searchText.enable())
     ).subscribe();
 
     if(this.itemType == 'Key Item') {
@@ -41,16 +52,19 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
     if(this._searchTextSubscription) {
       this._searchTextSubscription.unsubscribe();
     }
+    if(this._startingItemsControlSubscription) {
+      this._startingItemsControlSubscription.unsubscribe();
+    }
   }
 
   public removeItem(startingItem: StartingItem): void {
     const formControlIndex = this.startingItemsFormControl.value.indexOf(startingItem);
 
     if (formControlIndex >= 0) {
-      this.startingItemsFormControl.value.splice(formControlIndex, 1);
-
       var selectedItemIndex = this.selectedItems.indexOf(startingItem);
       this.selectedItems.splice(selectedItemIndex, 1);
+
+      this.startingItemsFormControl.setValue(this.startingItemsFormControl.value.filter((_, i) => i != formControlIndex));
     }
   }
 
@@ -61,11 +75,13 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
     }
 
     this.addItem(item);
+    if(this.searchText.enabled)
+      setTimeout(() => this.autocomplete.openPanel(), 500)
   }
 
   public addItem(item: StartingItem) {
-    this.startingItemsFormControl.value.push(item)
     this.selectedItems.push(item)
+    this.startingItemsFormControl.setValue([...this.startingItemsFormControl.value, item]);
     this.searchText.setValue('');
   }
 

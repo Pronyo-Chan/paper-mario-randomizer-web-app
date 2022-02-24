@@ -1,9 +1,9 @@
 <div>
-    <h2>{{itemType}}s</h2>
+    <h2>{{itemType}}s <span *ngIf="itemType == 'Item'"> (Max 10)</span></h2>
     <input
     [placeholder]="itemType + ' Name'"
-    #fruitInput
     [formControl]="searchText"
+    #autocomplete="matAutocompleteTrigger"
     [matAutocomplete]="auto"
     [matChipInputFor]="chipList">
 </div>  
@@ -16,7 +16,7 @@
     </button>
 </mat-chip>
 </mat-chip-list>
-<mat-autocomplete #auto="matAutocomplete"  (optionSelected)="onItemSearchChange()">
+<mat-autocomplete #auto="matAutocomplete"  (optionSelected)="onItemSearchChange()" postion="up">
     <mat-option *ngFor="let searchItem of filteredSearchItems" [value]="searchItem">
     {{searchItem}}
     </mat-option>
