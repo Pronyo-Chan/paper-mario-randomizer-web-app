@@ -1,9 +1,5 @@
 export enum KeyItems {
 	HomewardShroom = 0x0008,
-    FirstDegreeCard = 0x000A, 
-	SecondDegreeCard = 0x000B,
-	ThirdDegreeCard = 0x000C,
-	FourthDegreeCard = 0x000D,
 	Diploma   = 0x000E,
 	UltraStone = 0x000F,
 	PulseStone = 0x0012,
@@ -73,7 +69,6 @@ export enum KeyItems {
 	Mailbag = 0x0069,
 	OddKey = 0x006B,
 	StarStone = 0x006C,
-	SneakyParasol = 0x006D,
 	KootKoopaLegends = 0x006E,
 	KootLuigiAutograph = 0x006F,
 	KootEmptyWallet = 0x0070,
@@ -102,5 +97,5 @@ export enum KeyItems {
 	BowserCastleKeyD = 0x017B,
 	BowserCastleKeyE = 0x017C,
 	PrisonKeyA  = 0x017D,
-	PrisonKeyB  = 0x017E,
+	PrisonKeyB  = 0x017E
 }
