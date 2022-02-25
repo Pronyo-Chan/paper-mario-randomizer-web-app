@@ -49,7 +49,25 @@
             "hiddenBlockMode": 3,
             "turnOffMusic": false,           
             "shortenBowsersCastle": true,
-            "writeSpoilerLog": true
+            "writeSpoilerLog": true,
+            "shortenCutscenes": true,
+            "skipEpilogue": true,
+            "quizmoAlwaysAppears": true,
+            "romanNumerals": false,
+            "startingMaxHP": 10,
+            "startingMaxFP": 5,
+            "startingMaxBP": 3,
+            "startingMap": 65796,
+            "startingItems": [
+                {"name" : "Homeward Shroom", "value": 8, "itemType": "Key Item"}
+            ],
+            "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bossesSetting": 0,
+            "npcSetting": 0,
+            "menu": 0
         }
     },
     {
@@ -102,7 +120,25 @@
             "hiddenBlockMode": 2,
             "turnOffMusic": false,           
             "shortenBowsersCastle": false,
-            "writeSpoilerLog": true
+            "writeSpoilerLog": true,
+            "shortenCutscenes": true,
+            "skipEpilogue": true,
+            "quizmoAlwaysAppears": true,
+            "romanNumerals": false,
+            "startingMaxHP": 10,
+            "startingMaxFP": 5,
+            "startingMaxBP": 3,
+            "startingMap": 65796,
+            "startingItems": [
+                {"name" : "Homeward Shroom", "value": 8, "itemType": "Key Item"}
+            ],
+            "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bossesSetting": 0,
+            "npcSetting": 0,
+            "menu": 0
         }
     },
     {
@@ -155,7 +191,25 @@
             "hiddenBlockMode": 2,
             "turnOffMusic": false,           
             "shortenBowsersCastle": true,
-            "writeSpoilerLog": true
+            "writeSpoilerLog": true,
+            "shortenCutscenes": true,
+            "skipEpilogue": true,
+            "quizmoAlwaysAppears": true,
+            "romanNumerals": false,
+            "startingMaxHP": 10,
+            "startingMaxFP": 5,
+            "startingMaxBP": 3,
+            "startingMap": 65796,
+            "startingItems": [
+                {"name" : "Homeward Shroom", "value": 8, "itemType": "Key Item"}
+            ],
+            "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bossesSetting": 0,
+            "npcSetting": 0,
+            "menu": 0
         }
     },
     {
@@ -208,7 +262,25 @@
             "hiddenBlockMode": 0,
             "turnOffMusic": false,        
             "shortenBowsersCastle": false,
-            "writeSpoilerLog": true
+            "writeSpoilerLog": true,
+            "shortenCutscenes": true,
+            "skipEpilogue": true,
+            "quizmoAlwaysAppears": true,
+            "romanNumerals": false,
+            "startingMaxHP": 10,
+            "startingMaxFP": 5,
+            "startingMaxBP": 3,
+            "startingMap": 65796,
+            "startingItems": [
+                {"name" : "Homeward Shroom", "value": 8, "itemType": "Key Item"}
+            ],
+            "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bossesSetting": 0,
+            "npcSetting": 0,
+            "menu": 0
         }
     }
 ]

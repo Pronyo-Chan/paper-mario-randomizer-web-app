@@ -21,8 +21,6 @@ export class PresetSettingsComponent implements OnInit {
 
   public constructor() { }
 
-
-  //TODO: Prevent from saving existing name, styling
   public ngOnInit(): void {
     this.premadePresets = presetsJson;
     this.selectedPreset = this.premadePresets[0].name;

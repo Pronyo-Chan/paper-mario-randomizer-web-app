@@ -27,18 +27,18 @@ export class StartingItemsComponent implements OnInit {
     for(var itemEnum in Items) {
       if(isNaN(Number(Items[itemEnum])))
       {
-        this.availableItems.push({name: pascalToVerboseString(Items[itemEnum]), value: Number(itemEnum)})
+        this.availableItems.push({name: pascalToVerboseString(Items[itemEnum]), value: Number(itemEnum), itemType: 'Item'})
       }
     }
     for(var keyItemEnum in KeyItems) {
       if(isNaN(Number(KeyItems[keyItemEnum]))) {
-        this.availableKeyItems.push({name: pascalToVerboseString(KeyItems[keyItemEnum]), value: Number(keyItemEnum)})
+        this.availableKeyItems.push({name: pascalToVerboseString(KeyItems[keyItemEnum]), value: Number(keyItemEnum), itemType: 'Key Item'})
       }
         
     }
     for(var badgeEnum in Badges) {
       if(isNaN(Number(Badges[badgeEnum]))) {
-        this.availableBadges.push({name: pascalToVerboseString(Badges[badgeEnum]), value: Number(badgeEnum)})
+        this.availableBadges.push({name: pascalToVerboseString(Badges[badgeEnum]), value: Number(badgeEnum), itemType: 'Badge'})
       }
         
     }

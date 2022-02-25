@@ -28,11 +28,12 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
   private _searchTextSubscription: any;
   private _startingItemsControlSubscription: any;
 
-  public constructor(private _changeDectector: ChangeDetectorRef) { }
+  public constructor() { }
   
 
   public ngOnInit(): void {
     this.filteredSearchItems = this.availableItems.map(item => item.name);
+    this.selectedItems =  this.startingItemsFormControl.value.filter(i => i.itemType == this.itemType)
     this.searchText = new FormControl('');
 
     this._searchTextSubscription = this.searchText.valueChanges.pipe(
@@ -40,12 +41,16 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
     ).subscribe();
 
     this._startingItemsControlSubscription = this.startingItemsFormControl.valueChanges.pipe(
-      tap(startingItems => this.itemType == 'Item' && this.selectedItems.length >= 10 || startingItems.length >= 16 ? this.searchText.disable() : this.searchText.enable())
+      tap(startingItems => {
+        if(this.itemType == 'Item' && this.selectedItems.length >= 10 || startingItems.length >= 16) {
+          this.searchText.disable()
+        } 
+        else {
+          this.searchText.enable()
+        }
+        this.selectedItems =  startingItems.filter(i => i.itemType == this.itemType)
+      })
     ).subscribe();
-
-    if(this.itemType == 'Key Item') {
-      this.addItem(this.availableItems.find(i => i.name == 'Homeward Shroom'));
-    }
   }
 
   public ngOnDestroy(): void {
@@ -61,9 +66,6 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
     const formControlIndex = this.startingItemsFormControl.value.indexOf(startingItem);
 
     if (formControlIndex >= 0) {
-      var selectedItemIndex = this.selectedItems.indexOf(startingItem);
-      this.selectedItems.splice(selectedItemIndex, 1);
-
       this.startingItemsFormControl.setValue(this.startingItemsFormControl.value.filter((_, i) => i != formControlIndex));
     }
   }
@@ -80,7 +82,6 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
   }
 
   public addItem(item: StartingItem) {
-    this.selectedItems.push(item)
     this.startingItemsFormControl.setValue([...this.startingItemsFormControl.value, item]);
     this.searchText.setValue('');
   }
