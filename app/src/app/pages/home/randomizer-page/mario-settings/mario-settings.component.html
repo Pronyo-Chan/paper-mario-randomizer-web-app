@@ -1,26 +1,27 @@
 <form [formGroup]="marioStatsFormGroup" autocomplete="nope">
     <mat-card-content class=settings-card-content>
-        <div class="setting-element">
+        <div class="setting-element input-element">
+            <app-tooltip-span spanText="Coins" tooltipText="Amount of coins Mario will start the game with"></app-tooltip-span>
             <input matInput type="number"
                  min="0" 
                  max="999" 
                  formControlName='startingCoins' 
                  (blur)="onStartingCoinsBlur()">
-            <app-tooltip-span spanText="Coins" tooltipText="Amount of coins Mario will start the game with"></app-tooltip-span>
         </div>
 
-        <div class="setting-element">
+        <div class="setting-element input-element">
+            <app-tooltip-span spanText="Max HP" tooltipText="Amount of HP Mario will start the game with"></app-tooltip-span>
             <input matInput type="number"
                  min="10" 
                  max="50" 
                  step="5"
                  formControlName='startingMaxHP' 
                  (blur)="onStartingHPBlur()">
-            <app-tooltip-span spanText="Max HP" tooltipText="Amount of HP Mario will start the game with"></app-tooltip-span>
         </div>
 
         <input style="display: none;">
-        <div class="setting-element">
+        <div class="setting-element input-element">
+            <app-tooltip-span spanText="Max BP" tooltipText="Amount of BP Mario will start the game with"></app-tooltip-span>
             <input matInput type="number"
                  min="3" 
                  max="30" 
@@ -28,10 +29,10 @@
                  formControlName='startingMaxBP' 
                  (blur)="onStartingBPBlur()"
                  autocomplete="false">
-            <app-tooltip-span spanText="Max BP" tooltipText="Amount of BP Mario will start the game with"></app-tooltip-span>
         </div>
 
-        <div class="setting-element">
+        <div class="setting-element input-element">
+            <app-tooltip-span spanText="Max FP" tooltipText="Amount of FP Mario will start the game with"></app-tooltip-span>
             <input matInput type="number"
                  min="5" 
                  max="50"
@@ -39,10 +40,7 @@
                  formControlName='startingMaxFP' 
                  (blur)="onStartingFPBlur()"
                  autocomplete="off">
-            <app-tooltip-span spanText="Max FP" tooltipText="Amount of FP Mario will start the game with"></app-tooltip-span>
         </div>
-
-        
 
         <div class="setting-element">
             <span>Starting Level: {{this.startingLevel}}</span>

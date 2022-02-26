@@ -164,6 +164,12 @@ body.red-bg {
             align-items: baseline;
         }
 
+        .input-element {
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: baseline;
+        }
+
          .full-width-element {
             flex-basis: 100%;
          }
