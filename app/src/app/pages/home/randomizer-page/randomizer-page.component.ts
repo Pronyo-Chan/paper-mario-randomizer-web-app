@@ -122,7 +122,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         damageMultiplier: new FormControl(1),
         oneHitKO: new FormControl(false),
         noSaveBlocks: new FormControl(false),
-        noHeartBlock: new FormControl(false)      
+        noHeartBlock: new FormControl(false),
+        itemScarcity: new FormControl(0)      
       }),
       marioStats: new FormGroup({
         startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]), 

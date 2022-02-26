@@ -87,6 +87,7 @@ export interface SettingsResponse{
     StartingItemD: number;
     StartingItemE: number;
     StartingItemF: number;
+    ItemScarcity: number;
 }
 
 export interface StartingPartners {

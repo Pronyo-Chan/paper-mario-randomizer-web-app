@@ -84,6 +84,7 @@ export interface SettingsRequest {
     StartingItemD: number;
     StartingItemE: number;
     StartingItemF: number;
+    ItemScarcity: number;
 }
 
 export interface StartingPartners {

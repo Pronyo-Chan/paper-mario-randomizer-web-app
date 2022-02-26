@@ -18,6 +18,15 @@
   width: 90% !important;
 }
 
+
+.mat-slider-horizontal {
+  height: 16px !important;
+  min-width: 180px !important;
+  position: relative !important;
+  bottom: 16px !important;
+  padding: 10px !important;
+}
+
 .mat-tooltip  {
   white-space: pre-line;
   max-width: 350px !important;

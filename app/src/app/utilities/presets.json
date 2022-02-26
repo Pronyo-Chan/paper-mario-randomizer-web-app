@@ -67,7 +67,8 @@
             "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
             "bossesSetting": 0,
             "npcSetting": 0,
-            "menu": 0
+            "menu": 0,
+            "itemScarcity": 0
         }
     },
     {
@@ -138,7 +139,8 @@
             "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
             "bossesSetting": 0,
             "npcSetting": 0,
-            "menu": 0
+            "menu": 0,
+            "itemScarcity": 0
         }
     },
     {
@@ -209,7 +211,8 @@
             "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
             "bossesSetting": 0,
             "npcSetting": 0,
-            "menu": 0
+            "menu": 0,
+            "itemScarcity": 0
         }
     },
     {
@@ -280,7 +283,8 @@
             "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
             "bossesSetting": 0,
             "npcSetting": 0,
-            "menu": 0
+            "menu": 0,
+            "itemScarcity": 0
         }
     }
 ]

@@ -149,6 +149,21 @@ body.red-bg {
              align-items: center;       
          }
 
+         .slider-element {
+             flex-wrap: wrap;
+             flex-direction: column;
+             align-items: baseline;
+             margin-top: 0;
+             position: relative;
+             top: 8px;
+         }
+
+         .dropdown-element {
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: baseline;
+        }
+
          .full-width-element {
             flex-basis: 100%;
          }
