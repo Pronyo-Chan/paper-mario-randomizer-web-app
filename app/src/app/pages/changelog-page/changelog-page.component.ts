@@ -2,7 +2,7 @@ import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-help-page',
+  selector: 'app-changelog-page',
   templateUrl: './changelog-page.component.html',
   styleUrls: ['./changelog-page.component.scss']
 })

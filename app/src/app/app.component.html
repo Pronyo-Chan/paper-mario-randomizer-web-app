@@ -6,12 +6,12 @@
     <a class="text-link" [href]="homepageLink">
         <span>  Generate Seed</span>
     </a>
-    <a class="text-link" [href]="homepageLink + '/help'">
-        <span>  Help</span>
-    </a>
-    <a class="text-link" [href]="homepageLink + '/changelog'">
-        <span>  Changelog</span>
-    </a>
+    <button class="text-link" [matMenuTriggerFor]="menu">Help <span class="caret">▼</span></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="'../tips'">Useful Tips</button>
+            <button mat-menu-item [routerLink]="'../changelog'"> Changelog</button>
+        </mat-menu>
+    
     <a *ngIf="latestSeedId" class="text-link" [href]="homepageLink + '/seed?id=' + latestSeedId">
         <span>  Most Recent Seed</span>
     </a>

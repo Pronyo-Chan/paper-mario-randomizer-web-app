@@ -8,6 +8,14 @@
     }
   }
 
+span.caret {
+    font-size: 0.5vw;
+    padding: 0 !important;
+    position: relative;
+    top: 0.1vw;
+    left: 0.1vw;
+}
+
 .mat-toolbar {
     position: sticky;
     position: -webkit-sticky; /* For macOS/iOS Safari */
@@ -15,16 +23,25 @@
     z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
     background-color: variables.$beige-background-card;
     height: 2.6vw;
-    line-height: 2.6vw;
-    font-family: gluten;
-    font-weight: bold;
+    line-height: 2.6vw !important;
+    font-family: gluten !important;
+    font-weight: bold !important;
     padding: 0 1vw !important;
 
-    a.text-link {
+    .text-link{
+        // Need a bunch of inherits for when this class is applied to button
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        background-color: inherit;
+        padding: inherit;
+        cursor: pointer;
+
         text-decoration: none;
         font-size: 1.0vw;
         display: flex;
         align-items: center;
+        border: none;
         
         .fa-discord {
             color:inherit;
@@ -35,7 +52,7 @@
         }
     }
 
-    a.image-link {
+    .image-link {
         height: 100%;
 
         img.logo {
@@ -47,7 +64,7 @@
         flex: 1 1 auto;
       }
 
-    a.text-link:hover {
+    .text-link:hover {
         background-color: variables.$yellow-stat-border;
     }
 }
