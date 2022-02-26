@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatChipsModule } from '@angular/material/chips'
+import { MatSliderModule } from '@angular/material/slider'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -93,6 +94,7 @@ import { ItemChiplistComponent } from './pages/home/randomizer-page/starting-ite
     MatAutocompleteModule,
     MatToolbarModule,
     MatChipsModule,
+    MatSliderModule,
     FontAwesomeModule
   ],
   providers: [],

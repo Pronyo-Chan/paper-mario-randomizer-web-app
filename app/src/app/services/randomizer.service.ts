@@ -146,6 +146,7 @@ export class RandomizerService {
       StartingItemD: settingsForm.get('marioStats').get('startingItems').value[13]?.value,
       StartingItemE: settingsForm.get('marioStats').get('startingItems').value[14]?.value,
       StartingItemF: settingsForm.get('marioStats').get('startingItems').value[15]?.value,
+      ItemScarcity: settingsForm.get('difficulty').get('itemScarcity').value,
       
     } as SettingsRequest;
 
