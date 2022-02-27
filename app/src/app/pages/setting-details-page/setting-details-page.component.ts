@@ -1,13 +1,13 @@
-import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-changelog-page',
-  templateUrl: './changelog-page.component.html',
-  styleUrls: ['./changelog-page.component.scss']
+  selector: 'app-setting-details-page',
+  templateUrl: './setting-details-page.component.html',
+  styleUrls: ['./setting-details-page.component.scss']
 })
-export class ChangelogPageComponent implements OnInit, OnDestroy {
-  
+export class SettingDetailsPageComponent implements OnInit {
+
   public homepageLink: string;
 
   public constructor(private _renderer: Renderer2) { }
@@ -20,5 +20,4 @@ export class ChangelogPageComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this._renderer.removeClass(document.body, 'blue-bg')
   }
-
 }

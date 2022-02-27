@@ -19,6 +19,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatChipsModule } from '@angular/material/chips'
 import { MatSliderModule } from '@angular/material/slider'
+import { MatMenuModule } from '@angular/material/menu'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,12 +39,13 @@ import { SettingsInfoComponent } from './pages/seed/seed-page/settings-info/sett
 import { SpoilerLogComponent } from './pages/seed/seed-page/spoiler-log/spoiler-log.component';
 import { LoadingComponent } from './common/loading/loading.component';
 import { ErrorComponent } from './common/error/error.component';
-import { HelpPageComponent } from './pages/help-page/help-page.component';
+import { TipsPageComponent } from './pages/tips-page/tips-page.component';
 import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.component';
 import { ColorPalettesComponent } from './pages/home/randomizer-page/color-palettes/color-palettes.component';
 import { MarioSettingsComponent } from './pages/home/randomizer-page/mario-settings/mario-settings.component';
 import { StartingItemsComponent } from './pages/home/randomizer-page/starting-items/starting-items.component';
 import { ItemChiplistComponent } from './pages/home/randomizer-page/starting-items/item-chiplist/item-chiplist.component';
+import { SettingDetailsPageComponent } from './pages/setting-details-page/setting-details-page.component';
 
 
 @NgModule({
@@ -64,12 +66,13 @@ import { ItemChiplistComponent } from './pages/home/randomizer-page/starting-ite
     SpoilerLogComponent,
     LoadingComponent,
     ErrorComponent,
-    HelpPageComponent,
+    TipsPageComponent,
     ChangelogPageComponent,
     ColorPalettesComponent,
     MarioSettingsComponent,
     StartingItemsComponent,
-    ItemChiplistComponent
+    ItemChiplistComponent,
+    SettingDetailsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +98,7 @@ import { ItemChiplistComponent } from './pages/home/randomizer-page/starting-ite
     MatToolbarModule,
     MatChipsModule,
     MatSliderModule,
+    MatMenuModule,
     FontAwesomeModule
   ],
   providers: [],

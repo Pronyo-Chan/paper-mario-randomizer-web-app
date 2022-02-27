@@ -1,22 +1,22 @@
 import { MatCardModule } from '@angular/material/card';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HelpPageComponent } from './help-page.component';
+import { TipsPageComponent } from './tips-page.component';
 
-describe('HelpPageComponent', () => {
-  let component: HelpPageComponent;
-  let fixture: ComponentFixture<HelpPageComponent>;
+describe('TipsPageComponent', () => {
+  let component: TipsPageComponent;
+  let fixture: ComponentFixture<TipsPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HelpPageComponent ],
+      declarations: [ TipsPageComponent ],
       imports: [MatCardModule]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HelpPageComponent);
+    fixture = TestBed.createComponent(TipsPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

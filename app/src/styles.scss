@@ -60,8 +60,21 @@ input.mat-input-element {
   &.error {
     border-color: red;
   }
+}
 
+.mat-menu-content {
+  background-color: variables.$beige-background-card;
+  padding: 0 !important;
 
+  .mat-menu-item {
+    font-family: 'gluten';
+    font-weight: 600;
+    font-size: 0.9vw;
+  }
+
+  .mat-menu-item:hover {
+      background-color: variables.$yellow-stat-border;
+  }
 }
 
 input.mat-input-element:focus {
