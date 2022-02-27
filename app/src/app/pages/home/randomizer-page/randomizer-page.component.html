@@ -42,16 +42,18 @@
         <mat-card class="settings-card">
             <mat-card-title class="settings-title">Quality of Life Settings</mat-card-title>
             <app-qol-settings [qualityOfLifeFormGroup]="formGroup.get('qualityOfLife')"></app-qol-settings>
-        </mat-card>        
+        </mat-card>
+        <mat-card class="settings-card small-card">     
         <div class="button-container">
 
-            <button [disabled]="formGroup.invalid || isRandomizing" class="submit" (click)="onSubmit()">
-                <span [matTooltip]="formGroup.invalid ? 'Please fix the errors on the page to submit' : ''" matTooltipPosition="right">Generate Seed</span>
-            </button>
-            <app-loading *ngIf="isRandomizing" [isLoading]="isRandomizing" [loadingText]="'Generating Seed'"></app-loading>
-            <app-error *ngIf="seedGenError" [errorText]="seedGenError"></app-error>
-        </div>
-        <p class="bottom-note">*Seed generation may take up to a minute, please be patient</p>
+                <button [disabled]="formGroup.invalid || isRandomizing" class="submit" (click)="onSubmit()">
+                    <span [matTooltip]="formGroup.invalid ? 'Please fix the errors on the page to submit' : ''" matTooltipPosition="right">Generate Seed</span>
+                </button>
+                <app-loading *ngIf="isRandomizing" [isLoading]="isRandomizing" [loadingText]="'Generating Seed'"></app-loading>
+                <app-error *ngIf="seedGenError" [errorText]="seedGenError"></app-error>
+            </div>
+            <p class="bottom-note">*First time playing? We recommend you give the <a href="{{homepageLink}}/tips" target="_blank" rel="noopener noreferrer">Useful Tips</a> section a quick look before starting.</p>
+        </mat-card>   
     </div>
 </form>
  
