@@ -12,6 +12,9 @@ import { StartingItem } from 'src/app/entities/startingItem';
 })
 export class ItemChiplistComponent implements OnInit, OnDestroy {
 
+  public readonly MAX_CONSUMABLES_TOTAL = 10;
+  public readonly MAX_ITEMS_TOTAL = 15;
+
   @Input() public availableItems: StartingItem[];
   @Input() public startingItemsFormControl: FormControl;
   @Input() public itemType: string;
@@ -21,9 +24,7 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
   public selectedItems: StartingItem[] = [];
 
   public searchText: FormControl;
-  public filteredSearchItems: string[] = [];
-
-  public isInputDisabled = false;
+  public filteredSearchItems: string[] = []
 
   private _searchTextSubscription: any;
   private _startingItemsControlSubscription: any;
@@ -42,13 +43,13 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
 
     this._startingItemsControlSubscription = this.startingItemsFormControl.valueChanges.pipe(
       tap(startingItems => {
-        if(this.itemType == 'Item' && this.selectedItems.length >= 10 || startingItems.length >= 16) {
+        this.selectedItems =  startingItems.filter(i => i.itemType == this.itemType)
+        if(this.itemType == 'Item' && this.selectedItems.length >= this.MAX_CONSUMABLES_TOTAL || startingItems.length >= this.MAX_ITEMS_TOTAL) {
           this.searchText.disable()
         } 
         else {
           this.searchText.enable()
         }
-        this.selectedItems =  startingItems.filter(i => i.itemType == this.itemType)
       })
     ).subscribe();
   }

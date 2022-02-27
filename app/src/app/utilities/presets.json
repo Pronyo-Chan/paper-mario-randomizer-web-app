@@ -58,9 +58,7 @@
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingMap": 65796,
-            "startingItems": [
-                {"name" : "Homeward Shroom", "value": 8, "itemType": "Key Item"}
-            ],
+            "startingItems": [],
             "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
             "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
             "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
@@ -68,7 +66,8 @@
             "bossesSetting": 0,
             "npcSetting": 0,
             "menu": 0,
-            "itemScarcity": 0
+            "itemScarcity": 0,
+            "homewardShroom": true
         }
     },
     {
@@ -130,9 +129,7 @@
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingMap": 65796,
-            "startingItems": [
-                {"name" : "Homeward Shroom", "value": 8, "itemType": "Key Item"}
-            ],
+            "startingItems": [],
             "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
             "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
             "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
@@ -140,7 +137,8 @@
             "bossesSetting": 0,
             "npcSetting": 0,
             "menu": 0,
-            "itemScarcity": 0
+            "itemScarcity": 0,
+            "homewardShroom": true
         }
     },
     {
@@ -202,9 +200,7 @@
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingMap": 65796,
-            "startingItems": [
-                {"name" : "Homeward Shroom", "value": 8, "itemType": "Key Item"}
-            ],
+            "startingItems": [],
             "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
             "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
             "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
@@ -212,7 +208,8 @@
             "bossesSetting": 0,
             "npcSetting": 0,
             "menu": 0,
-            "itemScarcity": 0
+            "itemScarcity": 0,
+            "homewardShroom": true
         }
     },
     {
@@ -274,9 +271,7 @@
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingMap": 65796,
-            "startingItems": [
-                {"name" : "Homeward Shroom", "value": 8, "itemType": "Key Item"}
-            ],
+            "startingItems": [],
             "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
             "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
             "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
@@ -284,7 +279,8 @@
             "bossesSetting": 0,
             "npcSetting": 0,
             "menu": 0,
-            "itemScarcity": 0
+            "itemScarcity": 0,
+            "homewardShroom": true
         }
     }
 ]

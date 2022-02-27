@@ -138,6 +138,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         toyboxOpen: new FormControl(false),
         whaleOpen: new FormControl(false),
         startingMap: new FormControl(0),
+        homewardShroom: new FormControl(true),
       }),
       colorPalettes: new FormGroup({
         menu: new FormControl(0),
