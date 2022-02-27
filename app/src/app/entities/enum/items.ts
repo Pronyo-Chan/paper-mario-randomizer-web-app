@@ -29,7 +29,7 @@ export enum Items {
 	Lime  = 0x009D,
 	BlueBerry = 0x009E,
 	RedBerry = 0x009F,
-	YellowBerry  = 0x0,
+	YellowBerry  = 0x0A0,
 	BubbleBerry  = 0x00A1,
 	JamminJelly  = 0x00A2,
 	MapleSyrup = 0x00A3,
