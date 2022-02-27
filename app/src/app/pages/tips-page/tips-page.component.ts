@@ -14,11 +14,11 @@ export class TipsPageComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.homepageLink = environment.homepage;
-    this._renderer.addClass(document.body, 'turquoise-bg');
+    this._renderer.addClass(document.body, 'blue-bg');
   }
 
   public ngOnDestroy(): void {
-    this._renderer.removeClass(document.body, 'turquoise-bg')
+    this._renderer.removeClass(document.body, 'blue-bg')
   }
 
 }
