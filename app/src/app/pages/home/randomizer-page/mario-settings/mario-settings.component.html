@@ -42,6 +42,17 @@
                  autocomplete="off">
         </div>
 
+        <div class="setting-element input-element">
+            <app-tooltip-span spanText="Star Power" tooltipText="Amount of star power Mario will start the game with"></app-tooltip-span>
+            <input matInput type="number"
+                 min="0" 
+                 max="7"
+                 step="1" 
+                 formControlName='startingStarPower' 
+                 (blur)="onStartingSPBlur()"
+                 autocomplete="off">
+        </div>
+
         <div class="setting-element">
             <span>Starting Level: {{this.startingLevel}}</span>
         </div>

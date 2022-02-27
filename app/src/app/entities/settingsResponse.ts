@@ -71,6 +71,7 @@ export interface SettingsResponse{
     StartingMaxHP: number;
     StartingMaxFP: number;
     StartingMaxBP: number;
+    StartingStarPower: number;
     StartingItem0: number;
     StartingItem1: number;
     StartingItem2: number;
@@ -88,6 +89,7 @@ export interface SettingsResponse{
     StartingItemE: number;
     StartingItemF: number;
     ItemScarcity: number;
+    StarWaySpiritsNeeded: number;
 }
 
 export interface StartingPartners {

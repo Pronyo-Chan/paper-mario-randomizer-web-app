@@ -123,13 +123,15 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         oneHitKO: new FormControl(false),
         noSaveBlocks: new FormControl(false),
         noHeartBlock: new FormControl(false),
-        itemScarcity: new FormControl(0)      
+        itemScarcity: new FormControl(0),
+        starWaySpiritsNeeded: new FormControl(7)      
       }),
       marioStats: new FormGroup({
         startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]), 
         startingMaxHP: new FormControl(10), 
         startingMaxFP: new FormControl(5), 
         startingMaxBP: new FormControl(3),
+        startingStarPower: new FormControl(0),
         startingItems: new FormControl([]) 
       }),
       openLocations: new FormGroup({

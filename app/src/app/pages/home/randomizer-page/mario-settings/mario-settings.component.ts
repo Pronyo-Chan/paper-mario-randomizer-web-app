@@ -133,4 +133,24 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
 
     return adjustedValue;
   }
+
+  public onStartingSPBlur() {  
+    this.marioStatsFormGroup.get('startingStarPower').setValue(this.getAdjustedSPValue())
+    this.marioStatsFormGroup.updateValueAndValidity();
+  }
+
+  public getAdjustedSPValue(): number {
+    var startingSPControl = this.marioStatsFormGroup.get('startingStarPower')
+    var adjustedValue = startingSPControl.value;
+    if(startingSPControl.value < 0)
+    {
+      adjustedValue = 0;
+    }
+    else if(startingSPControl.value > 7)
+    {
+      adjustedValue = 7;
+    }
+
+    return adjustedValue;
+  }
 }

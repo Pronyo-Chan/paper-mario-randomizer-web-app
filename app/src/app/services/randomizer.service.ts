@@ -131,6 +131,7 @@ export class RandomizerService {
       StartingMaxHP: settingsForm.get('marioStats').get('startingMaxHP').value,
       StartingMaxFP: settingsForm.get('marioStats').get('startingMaxFP').value,
       StartingMaxBP: settingsForm.get('marioStats').get('startingMaxBP').value,
+      StartingStarPower: settingsForm.get('marioStats').get('startingStarPower').value,
       StartingItem0: settingsForm.get('marioStats').get('startingItems').value[0]?.value,
       StartingItem1: settingsForm.get('marioStats').get('startingItems').value[1]?.value,
       StartingItem2: settingsForm.get('marioStats').get('startingItems').value[2]?.value,
@@ -148,6 +149,7 @@ export class RandomizerService {
       StartingItemE: settingsForm.get('marioStats').get('startingItems').value[14]?.value,
       StartingItemF: settingsForm.get('openLocations').get('homewardShroom').value == true ? KeyItems.HomewardShroom : null,
       ItemScarcity: settingsForm.get('difficulty').get('itemScarcity').value,
+      StarWaySpiritsNeeded: settingsForm.get('difficulty').get('starWaySpiritsNeeded').value
       
     } as SettingsRequest;
 

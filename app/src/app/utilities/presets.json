@@ -57,6 +57,7 @@
             "startingMaxHP": 10,
             "startingMaxFP": 5,
             "startingMaxBP": 3,
+            "startingStarPower": 0,
             "startingMap": 65796,
             "startingItems": [],
             "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
@@ -67,7 +68,8 @@
             "npcSetting": 0,
             "menu": 0,
             "itemScarcity": 0,
-            "homewardShroom": true
+            "homewardShroom": true,
+            "starWaySpiritsNeeded": 7
         }
     },
     {
@@ -128,6 +130,7 @@
             "startingMaxHP": 10,
             "startingMaxFP": 5,
             "startingMaxBP": 3,
+            "startingStarPower": 0,
             "startingMap": 65796,
             "startingItems": [],
             "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
@@ -138,7 +141,8 @@
             "npcSetting": 0,
             "menu": 0,
             "itemScarcity": 0,
-            "homewardShroom": true
+            "homewardShroom": true,
+            "starWaySpiritsNeeded": 7
         }
     },
     {
@@ -199,6 +203,7 @@
             "startingMaxHP": 10,
             "startingMaxFP": 5,
             "startingMaxBP": 3,
+            "startingStarPower": 0,
             "startingMap": 65796,
             "startingItems": [],
             "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
@@ -209,7 +214,8 @@
             "npcSetting": 0,
             "menu": 0,
             "itemScarcity": 0,
-            "homewardShroom": true
+            "homewardShroom": true,
+            "starWaySpiritsNeeded": 7
         }
     },
     {
@@ -270,6 +276,7 @@
             "startingMaxHP": 10,
             "startingMaxFP": 5,
             "startingMaxBP": 3,
+            "startingStarPower": 0,
             "startingMap": 65796,
             "startingItems": [],
             "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
@@ -280,7 +287,8 @@
             "npcSetting": 0,
             "menu": 0,
             "itemScarcity": 0,
-            "homewardShroom": true
+            "homewardShroom": true,
+            "starWaySpiritsNeeded": 7
         }
     }
 ]
