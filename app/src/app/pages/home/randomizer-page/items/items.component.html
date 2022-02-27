@@ -6,11 +6,11 @@
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeCoins'></mat-slide-toggle>
-            <app-tooltip-span spanText="Include Coins" tooltipText="Overworld coins are included in the item pool"></app-tooltip-span>
+            <app-tooltip-span spanText="Coinsanity" tooltipText="Overworld coins are included in the item pool"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeShops'></mat-slide-toggle>
-            <app-tooltip-span spanText="Include Shops" 
+            <app-tooltip-span spanText="Shopsanity" 
                                 tooltipText="Shop Items are included in the item pool.
                                             
                                             Includes regular item shops, Rowf's badge shop, Merlow's star piece trade and Rip Cheato's shady deals">
@@ -18,7 +18,7 @@
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='includePanels'></mat-slide-toggle>
-            <app-tooltip-span spanText="Include Panels" tooltipText="Star Pieces hidden under hidden panels are included in the item pool"></app-tooltip-span>
+            <app-tooltip-span spanText="Include Hidden Panels" tooltipText="Star Pieces hidden under hidden panels are included in the item pool"></app-tooltip-span>
         </div>
         <!-- <div class="setting-element">
             <mat-slide-toggle formControlName='includeFavors'></mat-slide-toggle>
@@ -26,17 +26,15 @@
         </div> -->
         <div class="setting-element">
             <mat-slide-toggle formControlName='keyitemsOutsideDungeon'></mat-slide-toggle>
-            <app-tooltip-span spanText="Key Items Outside of Dungeons" 
+            <app-tooltip-span spanText="Keysanity" 
                                 tooltipText="Off: Dungeon keys can only be found in their respective dungeon
                                  
-                                On: Dungeon keys can be found anywhere
-
-                                Items affected by this setting: RuinsKey, PyramidStone, LunarStone, DiamondStone, CastleKey, ToyTrain, Dictionary, MysteryNote, Cake, MagicalBean, FertileSoil, MiracleWater, BubbleBerry, RedBerry, BlueBerry, YellowBerry, BlueKey, RedKey, PalaceKey" >
+                                On: Dungeon keys can be found anywhere" >
             </app-tooltip-span>
         </div>   
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeDojo'></mat-slide-toggle>
-            <app-tooltip-span spanText="Include Dojo" tooltipText="Include Dojo rewards in the item pool. The logic can only expect you to do the 2nd fight with 2 star spirits saved, 3rd fight with 3 star spirits saved, and so on."></app-tooltip-span>
+            <app-tooltip-span spanText="Include Dojo Rewards" tooltipText="Include Dojo fight rewards in the item pool. The logic can only expect you to do the 2nd fight with 2 star spirits saved, 3rd fight with 3 star spirits saved, and so on."></app-tooltip-span>
         </div> 
     </mat-card-content>
 </form>
