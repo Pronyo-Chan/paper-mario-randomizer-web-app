@@ -14,16 +14,19 @@ handlers:
 - url: /([^.]+)/?$  # urls with no dot in them
   static_files: dist/paper-mario-randomizer-app/index.html
   upload: dist/index.html
+  secure: always
 
 # site root
 - url: /
   static_files: dist/paper-mario-randomizer-app/index.html
   upload: dist/paper-mario-randomizer-app/index.html
+  secure: always
 
 # everything else
 - url: /(.*)
   static_files: dist/paper-mario-randomizer-app/\1
   upload: dist/paper-mario-randomizer-app/(.*)
+  secure: always
   
 automatic_scaling:
   max_instances: 2
