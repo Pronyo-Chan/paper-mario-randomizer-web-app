@@ -27,6 +27,7 @@ span.caret {
     font-family: gluten !important;
     font-weight: bold !important;
     padding: 0 1vw !important;
+    box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
 
     .text-link{
         // Need a bunch of inherits for when this class is applied to button
