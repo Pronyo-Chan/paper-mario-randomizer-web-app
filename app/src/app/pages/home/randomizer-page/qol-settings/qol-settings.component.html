@@ -1,13 +1,7 @@
 <form [formGroup]="qualityOfLifeFormGroup">
     <mat-card-content class=settings-card-content>
 
-        <div class="setting-element">
-            <select formControlName='hiddenBlockMode'>
-                <option [ngValue]="0">Watt's ability</option>
-                <option [ngValue]="1">Watt Out</option>
-                <option [ngValue]="2">Watt Obtained</option>
-                <option [ngValue]="3">Always Visible</option>
-            </select>
+        <div class="setting-element dropdown-element">
             <app-tooltip-span
                  spanText="Hidden Block Mode"
                   tooltipText="Watt's ability: Mario needs to use Watt's ability to see hidden blocks (Vanilla)
@@ -18,6 +12,12 @@
                                 
                                 Always Visible: Hidden blocks will be visible from the start">
             </app-tooltip-span>
+            <select formControlName='hiddenBlockMode'>
+                <option [ngValue]="0">Watt's ability</option>
+                <option [ngValue]="1">Watt Out</option>
+                <option [ngValue]="2">Watt Obtained</option>
+                <option [ngValue]="3">Always Visible</option>
+            </select>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='alwaysSpeedySpin'></mat-slide-toggle>
@@ -42,21 +42,32 @@
             <app-tooltip-span spanText="Skip Quiz" tooltipText="Quiz rewards will be handed out without having to answer questions"></app-tooltip-span>
         </div>
         <div class="setting-element">
-            <mat-slide-toggle formControlName='quizmoAlwaysAppears'></mat-slide-toggle>
-            <app-tooltip-span spanText="Quizmo Always Appear" tooltipText="Setting this to true forces Quizmo to appear in a town,
-                                                                             but not necessarily in every map of that town, 100% of the time until his local questions have been answered.">
-            </app-tooltip-span>
-        </div>
-        <div class="setting-element">
             <mat-slide-toggle formControlName='alwaysISpy'></mat-slide-toggle>
             <app-tooltip-span spanText="Always ISpy" tooltipText="Hidden Panels will always be indicated to be in the present room without needing to equip the ISpy badge.
             
             The ISpy badge is also removed from the item pool"></app-tooltip-span>
         </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='quizmoAlwaysAppears'></mat-slide-toggle>
+            <app-tooltip-span spanText="Quizmo Always Appear" tooltipText="Setting this to true forces Quizmo to appear in a town,
+                                                                             but not necessarily in every map of that town, 100% of the time until his local questions have been answered.">
+            </app-tooltip-span>
+        </div>
+        
 
         <div class="setting-element">
             <mat-slide-toggle formControlName='shortenBowsersCastle'></mat-slide-toggle>
             <app-tooltip-span spanText="Shorten Bowser's Castle" tooltipText="Multiple sections of Bowser's Castle are skipped when on. A single Bowser Castle's key will be required if activated"></app-tooltip-span>
+        </div>
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='shortenCutscenes'></mat-slide-toggle>
+            <app-tooltip-span spanText="Shorten Cutscenes" tooltipText="Multiple cutscenes will have less text or be entirely removed when turned on"></app-tooltip-span>
+        </div>
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='skipEpilogue'></mat-slide-toggle>
+            <app-tooltip-span spanText="Skip Epilogue" tooltipText="Makes the game skip directly to the credits upon grabbing the star rod after the final boss"></app-tooltip-span>
         </div>
         
         <div class="setting-element">

@@ -54,6 +54,8 @@ export interface SettingsResponse{
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
     ShortenBowsersCastle: boolean;
+    ShortenCutscenes: boolean;
+    SkipEpilogue: boolean;
     ColorA: number;
     ColorB: number;
     MarioSetting: SpriteSetting;
@@ -66,6 +68,28 @@ export interface SettingsResponse{
     BowSprite: BowSprite;
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
+    StartingMaxHP: number;
+    StartingMaxFP: number;
+    StartingMaxBP: number;
+    StartingStarPower: number;
+    StartingItem0: number;
+    StartingItem1: number;
+    StartingItem2: number;
+    StartingItem3: number;
+    StartingItem4: number;
+    StartingItem5: number;
+    StartingItem6: number;
+    StartingItem7: number;
+    StartingItem8: number;
+    StartingItem9: number;
+    StartingItemA: number;
+    StartingItemB: number;
+    StartingItemC: number;
+    StartingItemD: number;
+    StartingItemE: number;
+    StartingItemF: number;
+    ItemScarcity: number;
+    StarWaySpiritsNeeded: number;
 }
 
 export interface StartingPartners {

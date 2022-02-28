@@ -1,3 +1,5 @@
+import { MatCardModule } from '@angular/material/card';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChangelogPageComponent } from './changelog-page.component';
@@ -8,7 +10,9 @@ describe('ChangelogPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChangelogPageComponent ]
+      declarations: [ ChangelogPageComponent ],
+      imports: [MatCardModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });

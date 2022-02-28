@@ -107,6 +107,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         skipQuiz: new FormControl(false),      
         preventPhysicsGlitches: new FormControl(false), 
         shortenBowsersCastle: new FormControl(false), 
+        shortenCutscenes: new FormControl(false), 
+        skipEpilogue: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),        
         turnOffMusic: new FormControl(false),     
         quizmoAlwaysAppears: new FormControl(false),
@@ -120,13 +122,25 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         damageMultiplier: new FormControl(1),
         oneHitKO: new FormControl(false),
         noSaveBlocks: new FormControl(false),
-        noHeartBlock: new FormControl(false)      
+        noHeartBlock: new FormControl(false),
+        itemScarcity: new FormControl(0),
+        starWaySpiritsNeeded: new FormControl(7)      
+      }),
+      marioStats: new FormGroup({
+        startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]), 
+        startingMaxHP: new FormControl(10), 
+        startingMaxFP: new FormControl(5), 
+        startingMaxBP: new FormControl(3),
+        startingStarPower: new FormControl(0),
+        startingItems: new FormControl([]) 
       }),
       openLocations: new FormGroup({
         flowerGateOpen: new FormControl(false),
         blueHouseOpen : new FormControl(false),
         toyboxOpen: new FormControl(false),
-        whaleOpen: new FormControl(false)
+        whaleOpen: new FormControl(false),
+        startingMap: new FormControl(0),
+        homewardShroom: new FormControl(true),
       }),
       colorPalettes: new FormGroup({
         menu: new FormControl(0),

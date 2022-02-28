@@ -1,38 +1,41 @@
 <form [formGroup]="difficultyFormGroup">
     <mat-card-content class=settings-card-content>
-        <div class="setting-element">
-            <input matInput type="number"
-                 min="0" 
-                 max="999" 
-                 formControlName='startingCoins' 
-                 (blur)="onStartingCoinsBlur()">
-            <app-tooltip-span spanText="Initial Coins" tooltipText="Amount of coins Mario will start the game with"></app-tooltip-span>
-        </div>
-        <div class="setting-element">
-            <select formControlName='difficultyMode'>
-                <option [value]="0">Vanilla</option>
-                <option [value]="1">Shuffle Chapter Difficulty</option>
-                <option [value]="2">Progressive Scaling</option>
-            </select>
+        <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Enemy Difficulty" 
                                 tooltipText="Vanilla: Untouched enemy stats from original game
                                             
                                 Shuffle Chapter Difficulty: Will assign each of the first 7 chapters a new chapter number, scaling the strength of enemies encountered there up or down
                                 
                                 Progressive Scaling: Enemies get stronger as Mario gains more progression items and partners"></app-tooltip-span>
+            <select formControlName='difficultyMode'>
+                <option [value]="0">Vanilla</option>
+                <option [value]="1">Shuffle Chapter Difficulty</option>
+                <option [value]="2">Progressive Scaling</option>
+            </select>
         </div>
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>            
-            <app-tooltip-span spanText="Cap Enemy XP" tooltipText="Limits the amount of XP obtainable per defeated enemy to 5 XP"></app-tooltip-span>
-        </div>
-        <div class="setting-element">
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Enemy Damage" tooltipText="Increases the damage done by enemy attacks"></app-tooltip-span>
             <select formControlName='damageMultiplier'>
                 <option [value]="'1'">Normal</option>
                 <option [value]="'2'">Double Pain</option>
                 <option [value]="'4'">Quadruple Pain</option>
             </select>
-            <app-tooltip-span spanText="Enemy Damage" tooltipText="Increases the damage done by enemy attacks"></app-tooltip-span>
-        </div>        
+        </div>    
+        <div class="setting-element slider-element" >
+            <app-tooltip-span [spanText]="'Item Scarcity: ' + difficultyFormGroup.get('itemScarcity').value"
+                             tooltipText="Randomly replaces consumable items in the item pool by weaker ones. Higher value means items have a higher chance of being replaced by weaker ones, 0 means they won't ever be replaced"></app-tooltip-span>
+            <mat-slider formControlName="itemScarcity" (input)="difficultyFormGroup.get('itemScarcity').setValue($event.value)" min=0 max= 5 step="1" tickInterval="1"></mat-slider>
+        </div>    
+        <div class="setting-element slider-element" >
+            <app-tooltip-span [spanText]="'Star Spirits Required: ' + difficultyFormGroup.get('starWaySpiritsNeeded').value"
+                             tooltipText="Number of star spirits saved required to open the way to Ch.8"></app-tooltip-span>
+            <mat-slider formControlName="starWaySpiritsNeeded" (input)="difficultyFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=0 max= 7 step="1" tickInterval="1" ></mat-slider>
+        </div>  
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>            
+            <app-tooltip-span spanText="Cap Enemy XP" tooltipText="Limits the amount of XP obtainable per defeated enemy to 5 XP.
+            Mandatory for the progressive scaling difficulty mode."></app-tooltip-span>
+        </div>  
         <div class="setting-element">
             <mat-slide-toggle formControlName='noXP'></mat-slide-toggle>
             <app-tooltip-span spanText="No XP" tooltipText="Mario gains no XP from fights if turned on"></app-tooltip-span>

@@ -1,5 +1,6 @@
-
-<app-loading class="page-loading" [isLoading]="isPageLoading" [loadingText]="'Loading Seed Data'"></app-loading>
+<mat-card *ngIf="isPageLoading" class="loading-card">
+    <app-loading class="page-loading" [isLoading]="isPageLoading" [loadingText]="'Loading Seed Data'"></app-loading>
+</mat-card>
 
 <ng-container *ngIf="seedInfo$ | async as seedInfo">
     <div class="main-page" *ngIf="!isPageLoading">

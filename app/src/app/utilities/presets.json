@@ -1,6 +1,6 @@
 [
     {
-        "name": "Easy",
+        "name": "Beginner",
         "settings": {
             "shuffleItems": true,
             "includeCoins": false,
@@ -25,7 +25,7 @@
             "watt": false,
             "sushie": false,
             "lakilester": false,
-            "difficultyMode": 0,
+            "difficultyMode": 2,
             "randomFormations": false,
             "randomQuiz": false,
             "randomCoinPalette": true,
@@ -49,7 +49,27 @@
             "hiddenBlockMode": 3,
             "turnOffMusic": false,           
             "shortenBowsersCastle": true,
-            "writeSpoilerLog": true
+            "writeSpoilerLog": true,
+            "shortenCutscenes": true,
+            "skipEpilogue": true,
+            "quizmoAlwaysAppears": true,
+            "romanNumerals": false,
+            "startingMaxHP": 10,
+            "startingMaxFP": 5,
+            "startingMaxBP": 3,
+            "startingStarPower": 0,
+            "startingMap": 65796,
+            "startingItems": [],
+            "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bossesSetting": 0,
+            "npcSetting": 0,
+            "menu": 0,
+            "itemScarcity": 0,
+            "homewardShroom": true,
+            "starWaySpiritsNeeded": 7
         }
     },
     {
@@ -102,7 +122,27 @@
             "hiddenBlockMode": 2,
             "turnOffMusic": false,           
             "shortenBowsersCastle": false,
-            "writeSpoilerLog": true
+            "writeSpoilerLog": true,
+            "shortenCutscenes": true,
+            "skipEpilogue": true,
+            "quizmoAlwaysAppears": true,
+            "romanNumerals": false,
+            "startingMaxHP": 10,
+            "startingMaxFP": 5,
+            "startingMaxBP": 3,
+            "startingStarPower": 0,
+            "startingMap": 65796,
+            "startingItems": [],
+            "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bossesSetting": 0,
+            "npcSetting": 0,
+            "menu": 0,
+            "itemScarcity": 0,
+            "homewardShroom": true,
+            "starWaySpiritsNeeded": 7
         }
     },
     {
@@ -155,7 +195,27 @@
             "hiddenBlockMode": 2,
             "turnOffMusic": false,           
             "shortenBowsersCastle": true,
-            "writeSpoilerLog": true
+            "writeSpoilerLog": true,
+            "shortenCutscenes": true,
+            "skipEpilogue": true,
+            "quizmoAlwaysAppears": true,
+            "romanNumerals": false,
+            "startingMaxHP": 10,
+            "startingMaxFP": 5,
+            "startingMaxBP": 3,
+            "startingStarPower": 0,
+            "startingMap": 65796,
+            "startingItems": [],
+            "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bossesSetting": 0,
+            "npcSetting": 0,
+            "menu": 0,
+            "itemScarcity": 0,
+            "homewardShroom": true,
+            "starWaySpiritsNeeded": 7
         }
     },
     {
@@ -208,7 +268,27 @@
             "hiddenBlockMode": 0,
             "turnOffMusic": false,        
             "shortenBowsersCastle": false,
-            "writeSpoilerLog": true
+            "writeSpoilerLog": true,
+            "shortenCutscenes": true,
+            "skipEpilogue": true,
+            "quizmoAlwaysAppears": true,
+            "romanNumerals": false,
+            "startingMaxHP": 10,
+            "startingMaxFP": 5,
+            "startingMaxBP": 3,
+            "startingStarPower": 0,
+            "startingMap": 65796,
+            "startingItems": [],
+            "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "bossesSetting": 0,
+            "npcSetting": 0,
+            "menu": 0,
+            "itemScarcity": 0,
+            "homewardShroom": true,
+            "starWaySpiritsNeeded": 7
         }
     }
 ]

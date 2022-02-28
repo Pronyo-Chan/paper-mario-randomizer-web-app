@@ -1,46 +1,47 @@
 <form [formGroup]="colorPalettesFormGroup">
     <mat-card-content class=settings-card-content>
-        <div class="setting-element">
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Mario" tooltipText="Mario's color palette"></app-tooltip-span>
             <select formControlName='marioSprite'>
                 <option *ngFor="let marioOption of marioOptions" [ngValue]="marioOption">{{marioOption.optionDisplay}}</option>
             </select> 
-            <app-tooltip-span spanText="Mario" tooltipText="Mario's color palette"></app-tooltip-span>
         </div>
-        <div class="setting-element">
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Goombario" tooltipText="Goombario's color palette"></app-tooltip-span>
             <select formControlName='goombarioSprite'>
                 <option *ngFor="let goombarioOption of goombarioOptions" [ngValue]="goombarioOption">{{goombarioOption.optionDisplay}}</option>
             </select> 
-            <app-tooltip-span spanText="Goombario" tooltipText="Goombario's color palette"></app-tooltip-span>
         </div>
-        <div class="setting-element">
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Kooper" tooltipText="Kooper's color palette"></app-tooltip-span>
             <select formControlName='kooperSprite'>
                 <option *ngFor="let kooperOption of kooperOptions" [ngValue]="kooperOption">{{kooperOption.optionDisplay}}</option>
             </select> 
-            <app-tooltip-span spanText="Kooper" tooltipText="Kooper's color palette"></app-tooltip-span>
         </div>
-        <div class="setting-element">
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Bow" tooltipText="Bow's color palette"></app-tooltip-span>
             <select formControlName='bowSprite'>
                 <option *ngFor="let bowOption of bowOptions" [ngValue]="bowOption">{{bowOption.optionDisplay}}</option>
             </select> 
-            <app-tooltip-span spanText="Bow" tooltipText="Bow's color palette"></app-tooltip-span>
         </div>
-        <div class="setting-element">
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Bosses" tooltipText="Color shuffle setting for bosses"></app-tooltip-span>
             <select formControlName='bossesSetting'>
                 <option [ngValue]="0">Default</option>
                 <option [ngValue]="2">Random Pick</option>
                 <option [ngValue]="3">Random on every load</option>
             </select> 
-            <app-tooltip-span spanText="Bosses" tooltipText="Color shuffle setting for bosses"></app-tooltip-span>
         </div> 
-        <div class="setting-element">
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="NPC" tooltipText="Color shuffle setting for non playable characters"></app-tooltip-span>
             <select formControlName='npcSetting'>
                 <option [ngValue]="0">Default</option>
                 <option [ngValue]="2">Random Pick</option>
                 <option [ngValue]="3">Random on every load</option>
             </select> 
-            <app-tooltip-span spanText="NPC" tooltipText="Color shuffle setting for non playable characters"></app-tooltip-span>
         </div> 
-        <div class="setting-element">
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Status Menu" tooltipText="Color of the upper screen status menu"></app-tooltip-span>
             <select formControlName='menu'>
                 <option [ngValue]="0">Default</option>
                 <option [ngValue]="1">Blue</option>
@@ -50,7 +51,6 @@
                 <option [ngValue]="5">Purple</option>
                 <option [ngValue]="6">Grey</option>
             </select> 
-            <app-tooltip-span spanText="Status Menu" tooltipText="Color of the upper screen status menu"></app-tooltip-span>
         </div> 
         <div class="setting-element">
             <mat-slide-toggle formControlName='randomCoinPalette'></mat-slide-toggle>

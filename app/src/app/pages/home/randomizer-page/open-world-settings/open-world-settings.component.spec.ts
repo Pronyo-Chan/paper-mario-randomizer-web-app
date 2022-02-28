@@ -1,4 +1,8 @@
+import { MatCardModule } from '@angular/material/card';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { OpenWorldSettingsComponent } from './open-world-settings.component';
 
@@ -8,7 +12,9 @@ describe('OpenWorldSettingsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OpenWorldSettingsComponent ]
+      declarations: [ OpenWorldSettingsComponent ],
+      imports: [ MatSlideToggleModule, MatCardModule, ReactiveFormsModule ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });
@@ -16,6 +22,12 @@ describe('OpenWorldSettingsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(OpenWorldSettingsComponent);
     component = fixture.componentInstance;
+    component.openLocationsFormGroup = new FormGroup({
+      flowerGateOpen: new FormControl(false),
+      blueHouseOpen : new FormControl(false),
+      toyboxOpen: new FormControl(false),
+      whaleOpen: new FormControl(false)
+    })
     fixture.detectChanges();
   });
 

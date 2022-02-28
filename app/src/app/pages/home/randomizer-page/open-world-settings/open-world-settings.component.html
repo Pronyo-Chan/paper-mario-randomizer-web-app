@@ -1,5 +1,13 @@
 <form [formGroup]="openLocationsFormGroup">
     <mat-card-content class=settings-card-content>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Starting Location" 
+                                tooltipText="Sets the town / village where the game starts. It is also the location where the homeward shroom warps Mario."></app-tooltip-span>
+            <select formControlName='startingMap'>
+                <option *ngFor="let location of startingMaps" [ngValue]="location.value">{{location.name}}</option>
+            </select>
+        </div>
+        
         <div class="setting-element">
             <mat-slide-toggle formControlName='flowerGateOpen'></mat-slide-toggle>
             <app-tooltip-span
@@ -34,6 +42,13 @@
                  tooltipText="Off: Mario must use Watt and defeat Fuzzipede to be able to ride the whale
 
                             On: Mario can ride the whale from the start simply by talking to it">
+            </app-tooltip-span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='homewardShroom'></mat-slide-toggle>
+            <app-tooltip-span
+                 spanText="Homeward Shroom"
+                 tooltipText="Warps Mario to the starting location. You can press A in the key items menu to use it. Mandatory for Dry Dry Outpost starting location">
             </app-tooltip-span>
         </div>
     </mat-card-content>

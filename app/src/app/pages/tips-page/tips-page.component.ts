@@ -2,11 +2,11 @@ import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-help-page',
-  templateUrl: './help-page.component.html',
-  styleUrls: ['./help-page.component.scss']
+  selector: 'app-tips-page',
+  templateUrl: './tips-page.component.html',
+  styleUrls: ['./tips-page.component.scss']
 })
-export class HelpPageComponent implements OnInit, OnDestroy {
+export class TipsPageComponent implements OnInit, OnDestroy {
   
   public homepageLink: string;
 
@@ -14,11 +14,11 @@ export class HelpPageComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.homepageLink = environment.homepage;
-    this._renderer.addClass(document.body, 'turquoise-bg');
+    this._renderer.addClass(document.body, 'blue-bg');
   }
 
   public ngOnDestroy(): void {
-    this._renderer.removeClass(document.body, 'turquoise-bg')
+    this._renderer.removeClass(document.body, 'blue-bg')
   }
 
 }

@@ -1,0 +1,61 @@
+<form [formGroup]="marioStatsFormGroup" autocomplete="nope">
+    <mat-card-content class=settings-card-content>
+        <div class="setting-element input-element">
+            <app-tooltip-span spanText="Coins" tooltipText="Amount of coins Mario will start the game with"></app-tooltip-span>
+            <input matInput type="number"
+                 min="0" 
+                 max="999" 
+                 formControlName='startingCoins' 
+                 (blur)="onStartingCoinsBlur()">
+        </div>
+
+        <div class="setting-element input-element">
+            <app-tooltip-span spanText="Max HP" tooltipText="Amount of HP Mario will start the game with"></app-tooltip-span>
+            <input matInput type="number"
+                 min="10" 
+                 max="50" 
+                 step="5"
+                 formControlName='startingMaxHP' 
+                 (blur)="onStartingHPBlur()">
+        </div>
+
+        <input style="display: none;">
+        <div class="setting-element input-element">
+            <app-tooltip-span spanText="Max BP" tooltipText="Amount of BP Mario will start the game with"></app-tooltip-span>
+            <input matInput type="number"
+                 min="3" 
+                 max="30" 
+                 step="3"
+                 formControlName='startingMaxBP' 
+                 (blur)="onStartingBPBlur()"
+                 autocomplete="false">
+        </div>
+
+        <div class="setting-element input-element">
+            <app-tooltip-span spanText="Max FP" tooltipText="Amount of FP Mario will start the game with"></app-tooltip-span>
+            <input matInput type="number"
+                 min="5" 
+                 max="50"
+                 step="5" 
+                 formControlName='startingMaxFP' 
+                 (blur)="onStartingFPBlur()"
+                 autocomplete="off">
+        </div>
+
+        <div class="setting-element input-element">
+            <app-tooltip-span spanText="Star Power" tooltipText="Amount of star power Mario will start the game with"></app-tooltip-span>
+            <input matInput type="number"
+                 min="0" 
+                 max="7"
+                 step="1" 
+                 formControlName='startingStarPower' 
+                 (blur)="onStartingSPBlur()"
+                 autocomplete="off">
+        </div>
+
+        <div class="setting-element">
+            <span>Starting Level: {{this.startingLevel}}</span>
+        </div>
+        
+    </mat-card-content>
+</form>

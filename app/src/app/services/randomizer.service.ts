@@ -1,3 +1,4 @@
+import { KeyItems } from './../entities/enum/keyItems';
 import { Constants } from './../utilities/constants';
 import { environment } from 'src/environments/environment';
 import { SettingsResponse } from './../entities/settingsResponse';
@@ -74,7 +75,7 @@ export class RandomizerService {
       AlwaysPeekaboo: settingsForm.get('qualityOfLife').get('alwaysPeekaboo').value,
       HiddenBlockMode: settingsForm.get('qualityOfLife').get('hiddenBlockMode').value,
       AllowPhysicsGlitches: !settingsForm.get('qualityOfLife').get('preventPhysicsGlitches').value,
-      StartingCoins: settingsForm.get('difficulty').get('startingCoins').value,
+      StartingCoins: settingsForm.get('marioStats').get('startingCoins').value,
       CapEnemyXP: settingsForm.get('difficulty').get('capEnemyXP').value,
       NoXP: settingsForm.get('difficulty').get('noXP').value,
       DoubleDamage: settingsForm.get('difficulty').get('damageMultiplier').value == 2,
@@ -86,6 +87,7 @@ export class RandomizerService {
       ToyboxOpen: settingsForm.get('openLocations').get('toyboxOpen').value,
       FlowerGateOpen: settingsForm.get('openLocations').get('flowerGateOpen').value,
       WhaleOpen: settingsForm.get('openLocations').get('whaleOpen').value,
+      StartingMap: settingsForm.get('openLocations').get('startingMap').value,
       ShuffleChapterDifficulty: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.RandomChapterDifficulty,
       ProgressiveScaling: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.ProgressiveScaling,
       RandomFormations: settingsForm.get('gameplay').get('randomFormations').value,
@@ -111,6 +113,8 @@ export class RandomizerService {
       TurnOffMusic: settingsForm.get('qualityOfLife').get('turnOffMusic').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
       ShortenBowsersCastle: settingsForm.get('qualityOfLife').get('shortenBowsersCastle').value,
+      ShortenCutscenes: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,
+      SkipEpilogue: settingsForm.get('qualityOfLife').get('skipEpilogue').value,
       Box5ColorA: Constants.MENU_COLORS[settingsForm.get('colorPalettes').get('menu').value].colorA,
       Box5ColorB: Constants.MENU_COLORS[settingsForm.get('colorPalettes').get('menu').value].colorB,
       MarioSetting: (settingsForm.get('colorPalettes').get('marioSprite').value as CharacterSpriteSetting).setting,
@@ -124,6 +128,29 @@ export class RandomizerService {
       BossesSetting: settingsForm.get('colorPalettes').get('bossesSetting').value,
       NPCSetting: settingsForm.get('colorPalettes').get('npcSetting').value,
       RandomCoinPalette: settingsForm.get('colorPalettes').get('randomCoinPalette').value,
+      StartingMaxHP: settingsForm.get('marioStats').get('startingMaxHP').value,
+      StartingMaxFP: settingsForm.get('marioStats').get('startingMaxFP').value,
+      StartingMaxBP: settingsForm.get('marioStats').get('startingMaxBP').value,
+      StartingStarPower: settingsForm.get('marioStats').get('startingStarPower').value,
+      StartingItem0: settingsForm.get('marioStats').get('startingItems').value[0]?.value,
+      StartingItem1: settingsForm.get('marioStats').get('startingItems').value[1]?.value,
+      StartingItem2: settingsForm.get('marioStats').get('startingItems').value[2]?.value,
+      StartingItem3: settingsForm.get('marioStats').get('startingItems').value[3]?.value,
+      StartingItem4: settingsForm.get('marioStats').get('startingItems').value[4]?.value,
+      StartingItem5: settingsForm.get('marioStats').get('startingItems').value[5]?.value,
+      StartingItem6: settingsForm.get('marioStats').get('startingItems').value[6]?.value,
+      StartingItem7: settingsForm.get('marioStats').get('startingItems').value[7]?.value,
+      StartingItem8: settingsForm.get('marioStats').get('startingItems').value[8]?.value,
+      StartingItem9: settingsForm.get('marioStats').get('startingItems').value[9]?.value,
+      StartingItemA: settingsForm.get('marioStats').get('startingItems').value[10]?.value,
+      StartingItemB: settingsForm.get('marioStats').get('startingItems').value[11]?.value,
+      StartingItemC: settingsForm.get('marioStats').get('startingItems').value[12]?.value,
+      StartingItemD: settingsForm.get('marioStats').get('startingItems').value[13]?.value,
+      StartingItemE: settingsForm.get('marioStats').get('startingItems').value[14]?.value,
+      StartingItemF: settingsForm.get('openLocations').get('homewardShroom').value == true ? KeyItems.HomewardShroom : null,
+      ItemScarcity: settingsForm.get('difficulty').get('itemScarcity').value,
+      StarWaySpiritsNeeded: settingsForm.get('difficulty').get('starWaySpiritsNeeded').value
+      
     } as SettingsRequest;
 
     if(request.StartWithRandomPartners) {

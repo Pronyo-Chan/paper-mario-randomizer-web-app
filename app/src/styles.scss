@@ -18,6 +18,15 @@
   width: 90% !important;
 }
 
+
+.mat-slider-horizontal {
+  height: 16px !important;
+  min-width: 180px !important;
+  position: relative !important;
+  bottom: 16px !important;
+  padding: 10px !important;
+}
+
 .mat-tooltip  {
   white-space: pre-line;
   max-width: 350px !important;
@@ -26,7 +35,7 @@
 
 .mat-option-text {
   font-family: gluten;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
 }
 
@@ -51,8 +60,21 @@ input.mat-input-element {
   &.error {
     border-color: red;
   }
+}
 
+.mat-menu-content {
+  background-color: variables.$beige-background-card;
+  padding: 0 !important;
 
+  .mat-menu-item {
+    font-family: 'gluten';
+    font-weight: 600;
+    font-size: 0.9vw;
+  }
+
+  .mat-menu-item:hover {
+      background-color: variables.$yellow-stat-border;
+  }
 }
 
 input.mat-input-element:focus {
@@ -69,6 +91,9 @@ select {
   border-color: variables.$yellow-stat-border;
   border-width: 3px;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

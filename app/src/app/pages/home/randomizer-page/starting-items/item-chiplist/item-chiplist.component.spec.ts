@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HelpPageComponent } from './help-page.component';
+import { ItemChiplistComponent } from './item-chiplist.component';
 
-describe('HelpPageComponent', () => {
-  let component: HelpPageComponent;
-  let fixture: ComponentFixture<HelpPageComponent>;
+describe('ItemChiplistComponent', () => {
+  let component: ItemChiplistComponent;
+  let fixture: ComponentFixture<ItemChiplistComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HelpPageComponent ]
+      declarations: [ ItemChiplistComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HelpPageComponent);
+    fixture = TestBed.createComponent(ItemChiplistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

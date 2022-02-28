@@ -1,4 +1,8 @@
+import { MatCardModule } from '@angular/material/card';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { ItemsComponent } from './items.component';
 
@@ -8,7 +12,9 @@ describe('ItemsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItemsComponent ]
+      declarations: [ ItemsComponent ],
+      imports: [ MatSlideToggleModule, MatCardModule, ReactiveFormsModule ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });
@@ -16,6 +22,16 @@ describe('ItemsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ItemsComponent);
     component = fixture.componentInstance;
+
+    component.itemFormGroup = new FormGroup({
+      shuffleItems: new FormControl(false),
+      includeCoins: new FormControl(false),
+      includeShops: new FormControl(false),
+      includePanels: new FormControl(false),
+      includeFavors: new FormControl(false),
+      keyitemsOutsideDungeon: new FormControl(false),
+      includeDojo: new FormControl(false)
+    })
     fixture.detectChanges();
   });
 

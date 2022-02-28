@@ -1,6 +1,8 @@
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TooltipSpanComponent } from './tooltip-span.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('TooltipSpanComponent', () => {
   let component: TooltipSpanComponent;
@@ -8,7 +10,9 @@ describe('TooltipSpanComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TooltipSpanComponent ]
+      declarations: [ TooltipSpanComponent ],
+      imports: [ MatTooltipModule ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });

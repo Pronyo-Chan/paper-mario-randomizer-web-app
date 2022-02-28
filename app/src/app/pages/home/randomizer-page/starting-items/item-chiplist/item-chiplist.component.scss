@@ -1,0 +1,24 @@
+h2 {
+    font-family: gluten;
+    margin-left: 4px;
+}
+
+input.mat-chip-input {
+    width: 15rem;
+}
+
+input:disabled {
+    cursor: not-allowed;
+}
+
+.mat-standard-chip {
+    background-color: #2141d5;
+    color: white;
+    font-family: 'gluten';
+    font-size: 15px;
+}
+
+.mat-chip-remove {
+    color: white !important;
+    opacity: 1 !important;
+}

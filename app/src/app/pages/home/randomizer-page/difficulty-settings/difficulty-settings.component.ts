@@ -1,41 +1,41 @@
 import { FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { tap, Subscription } from 'rxjs';
+import { DifficultySetting } from 'src/app/entities/enum/difficultySetting';
 
 @Component({
   selector: 'app-difficulty-settings',
   templateUrl: './difficulty-settings.component.html',
   styleUrls: ['./difficulty-settings.component.scss']
 })
-export class DifficultySettingsComponent implements OnInit {
+export class DifficultySettingsComponent implements OnInit, OnDestroy {
 
   @Input() public difficultyFormGroup: FormGroup;
+  private _enemyDifficultySubscription: Subscription;
 
   public constructor() { }
   
 
   public ngOnInit(): void {
-
+    
+    this._enemyDifficultySubscription =  this.difficultyFormGroup.get('difficultyMode').valueChanges.pipe(
+      tap(value => {
+        if(value == DifficultySetting.ProgressiveScaling) {
+          this.difficultyFormGroup.get('capEnemyXP').setValue(true);
+          this.difficultyFormGroup.get('capEnemyXP').disable();
+        } else {
+          this.difficultyFormGroup.get('capEnemyXP').enable();
+        }
+      })
+    ).subscribe();
   }
 
-  public onStartingCoinsBlur() {
-    var startingCoinsControl = this.difficultyFormGroup.get('startingCoins')
-    if(startingCoinsControl.invalid)
-      {
-        if(startingCoinsControl.value < 0)
-        {
-          startingCoinsControl.setValue(0)
-        }
-        else if(startingCoinsControl.value > 999)
-        {
-          startingCoinsControl.setValue(999)
-        }
-      }
-    else if(!startingCoinsControl.value)
-    {
-      startingCoinsControl.setValue(0)
+  public ngOnDestroy(): void {
+    if(this._enemyDifficultySubscription) {
+      this._enemyDifficultySubscription.unsubscribe();
     }
-    this.difficultyFormGroup.updateValueAndValidity();
   }
+
+  
 
 }

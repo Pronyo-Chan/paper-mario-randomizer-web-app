@@ -6,8 +6,8 @@
         </mat-card>
         <mat-card class="settings-card" [ngClass]="{ 'partners-tab-error': formGroup.get('partners').invalid}">
             <mat-card-title class="settings-title">Randomizer Settings</mat-card-title>
-            <mat-tab-group animationDuration="1000ms">
-                <mat-tab label="Items" class="items-tab">
+            <mat-tab-group animationDuration="0">
+                <mat-tab label="Items">
                 <app-items [itemFormGroup]="formGroup.get('items')"></app-items>
                 </mat-tab>
                 <mat-tab label="Partners">
@@ -22,26 +22,38 @@
             </mat-tab-group>
         </mat-card>
         <mat-card class="settings-card">
+            <mat-card-title class="settings-title">Difficulty Settings</mat-card-title>
+            <mat-tab-group animationDuration="0">
+                <mat-tab label="General">
+                <app-difficulty-settings [difficultyFormGroup]="formGroup.get('difficulty')"></app-difficulty-settings>
+                </mat-tab>
+                <mat-tab label="Starting Stats">
+                    <app-mario-settings [marioStatsFormGroup]="formGroup.get('marioStats')"></app-mario-settings>
+                </mat-tab>
+                <mat-tab label="Starting Items">
+                    <app-starting-items [startingItemsFormControl]="formGroup.get('marioStats').get('startingItems')"></app-starting-items>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card>
+        <mat-card class="settings-card">
             <mat-card-title class="settings-title">Open World Settings</mat-card-title>
             <app-open-world-settings [openLocationsFormGroup]="formGroup.get('openLocations')"></app-open-world-settings>
         </mat-card>
         <mat-card class="settings-card">
-            <mat-card-title class="settings-title">Difficulty Settings</mat-card-title>
-            <app-difficulty-settings [difficultyFormGroup]="formGroup.get('difficulty')"></app-difficulty-settings>
-        </mat-card>
-        <mat-card class="settings-card">
             <mat-card-title class="settings-title">Quality of Life Settings</mat-card-title>
             <app-qol-settings [qualityOfLifeFormGroup]="formGroup.get('qualityOfLife')"></app-qol-settings>
-        </mat-card>        
+        </mat-card>
+        <mat-card class="settings-card small-card">     
         <div class="button-container">
 
-            <button [disabled]="formGroup.invalid || isRandomizing" class="submit" (click)="onSubmit()">
-                <span [matTooltip]="formGroup.invalid ? 'Please fix the errors on the page to submit' : ''" matTooltipPosition="right">Generate Seed</span>
-            </button>
-            <app-loading *ngIf="isRandomizing" [isLoading]="isRandomizing" [loadingText]="'Generating Seed'"></app-loading>
-            <app-error *ngIf="seedGenError" [errorText]="seedGenError"></app-error>
-        </div>
-        <p class="bottom-note">*Seed generation may take up to a minute, please be patient</p>
+                <button [disabled]="formGroup.invalid || isRandomizing" class="submit" (click)="onSubmit()">
+                    <span [matTooltip]="formGroup.invalid ? 'Please fix the errors on the page to submit' : ''" matTooltipPosition="right">Generate Seed</span>
+                </button>
+                <app-loading *ngIf="isRandomizing" [isLoading]="isRandomizing" [loadingText]="'Generating Seed'"></app-loading>
+                <app-error *ngIf="seedGenError" [errorText]="seedGenError"></app-error>
+            </div>
+            <p class="bottom-note">*First time playing? We recommend you give the <a href="{{homepageLink}}/tips" target="_blank" rel="noopener noreferrer">Useful Tips</a> section a quick look before starting.</p>
+        </mat-card>   
     </div>
 </form>
  
