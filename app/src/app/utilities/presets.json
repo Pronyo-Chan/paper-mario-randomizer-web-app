@@ -1,6 +1,6 @@
 [
     {
-        "name": "Easy",
+        "name": "Beginner",
         "settings": {
             "shuffleItems": true,
             "includeCoins": false,
@@ -25,7 +25,7 @@
             "watt": false,
             "sushie": false,
             "lakilester": false,
-            "difficultyMode": 0,
+            "difficultyMode": 2,
             "randomFormations": false,
             "randomQuiz": false,
             "randomCoinPalette": true,
