@@ -102,7 +102,7 @@ export class RandomizerService {
       ShuffleBadgesFP: settingsForm.get('gameplay').get('shuffleBadgesFP').value,
       ShufflePartnerFP: settingsForm.get('gameplay').get('shufflePartnerFP').value,
       ShuffleStarpowerSP: settingsForm.get('gameplay').get('shuffleStarpowerSP').value,
-      RandomQuiz: settingsForm.get('gameplay').get('randomQuiz').value,
+      RandomQuiz: true, // We're forcing it to true, at least for now
       SkipQuiz: settingsForm.get('qualityOfLife').get('skipQuiz').value,
       QuizmoAlwaysAppears: settingsForm.get('qualityOfLife').get('quizmoAlwaysAppears').value,
       PartnersInDefaultLocations: !settingsForm.get('partners').get('shufflePartners').value,
