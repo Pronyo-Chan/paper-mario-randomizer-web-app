@@ -9,7 +9,7 @@ Changelog for Open World Paper Mario Randomizer
 # ADDITIONALLY, CRASHES AND OTHER BUGS MAY OCCUR. PLEASE REPORT THEM!
 # WE ARE LOOKING FOR FEEDBACK FOR ANY AND ALL PARTS OF THE MOD!
 
-# ALPHA 3
+# 1.0.0
 
 ## Known Issues
     * The logic does not account for shuffled chapter difficulty and may expect
@@ -34,6 +34,10 @@ Changelog for Open World Paper Mario Randomizer
         * The speed at which Mario pushes blocks has been slightly increased.
         * AlwaysISpy option is now silent, the star piece indicator will be visually present when entering a room with a hidden pannel, but makes no sound.
         * It is now possible to re-enter Tubba Bubba's castle after the escape and before beating the chapter boss. This prevents players from being softlocked if an item leading to the super boots was in the castle and not collected.
+        * Star power abilities will now be cast by the star spirit that was saved to unlock it. If the game was started with more than 0SP, abilities that were unlocked without having saved a spirit for it will be cast by Twink.
+        * The Spirits pause menu will now properly display which star spirit was saved.
+        * The first berry of each color will now be added as a key item. In the case of Blue Berry, the first two are added as key items because one is also needed for the well.
+        * A new warp pipe has been added. It can be activated in front of Peach's castle in the sky at the end of the game, and connects to Peach's Castle ground in Toad Town.
     * Title Screen
         * Added a new title logo for the randomizer.
     * Random Formations
@@ -50,6 +54,7 @@ Changelog for Open World Paper Mario Randomizer
     * Option: ShortenBowsersCastle
       If this is turned on, then the loading zones in Bowser's Castle are re-
       routed to noticably shorten Mario's stay there.
+        * The first door is already unlocked.
         * The second Bowser door takes the place of the first Bowser door.
           This removes access to the basement entirely.
         * The water puzzle rooms are removed, sending Mario straight to the
@@ -62,7 +67,15 @@ Changelog for Open World Paper Mario Randomizer
     * Option: SkipEpilogue. If this is turned on, the game directly goes to the credit upon defeating the final boss and grabbing the star rod
     * Option: Roman Numerals. Changes the enemy HP display in battle to roman numerals.
     * Option: Mario and partners color palettes are now selectable instead of always random. NPCs and bosses can be configured to be a random pick, or always random on every loading.
-    * Option: Shorten Cutscenes now skips the following scenes: Train Ride to Mt. Rugged, beanstalk growth in chapter 6, star ship ride in chapter 8.
+    * Option: Custom starting items. Items selected as starting items will be removed from the item pool
+    * Option: Item Scarcity. Provides different levels of difficulty for consumable items, giving them a chance to be replaced by less powerful items.
+    * Option: Custom starting stats. It is possible to set a starting Max HP, FP, BP and SP.
+    * Option: Required Star Spirits. Sets how many chapters need to be completed to open the way to chapter 8.
+    * Option: Shorten Cutscenes now skips the following scenes: Train Ride to Mt. Rugged, beanstalk growth in chapter 6, star ship ride in chapter 8, Peach/Twink vs Kammy fight.
+    * Option: Include Coins (Coinsanity) won't include bushes and trees, as they were not all included and it made things confusing.
+
+## Website
+    * First public version of the website!
 
 ## Rando Bugfixes
     * The ISpy badge should now be removed properly during the AlwaysISpy
@@ -98,6 +111,8 @@ Changelog for Open World Paper Mario Randomizer
     * Fixed some cutscenes having weird camera angles when triggering them from a different side (ch1 JrTroopa).
     * Fixed items on brick blocks in the desert, toy box and volcano that would sometimes despawn if they were consumable items.
     * The Koopa Bros tower spin attack now has it's damage scaled according to the Progressive Scaling or Random Chapter Difficulty scaling.
+    * Fixed an issue where the tree on the LavaLava beach that gives 2 items would keep giving the first one infinitely.
+    * Fixed vanilla issue where the wrong star was lit for chapter 6 spirit on shooting star summit.
 
 
 
