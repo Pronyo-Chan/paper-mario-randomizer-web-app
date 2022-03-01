@@ -6,20 +6,23 @@
 ul {
     font-family: gluten;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     li {
         padding: 0.8rem;
 
         span.item-name{
             color: variables.$blue-item-main;
+            font-weight: 700;
         }
 
         span.location-name{
-            color: variables.$yellow-stat-text
+            color: variables.$yellow-stat-text;
+            font-weight: 700;
         }
 
         span.area-name{
-            color: variables.$purple-text
+            color: variables.$purple-text;
+            font-weight: 700;
         }
     }
 }
