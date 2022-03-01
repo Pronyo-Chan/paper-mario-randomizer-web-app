@@ -20,21 +20,24 @@
             p {
                 font-family: gluten;
                 font-size: 15px;
-                font-weight: 600;
+                font-weight: 500;
                 padding: 0 1% 0 1%;
                 span {
                     font-style: italic;                  
 
                     &.item-name{
                         color: variables.$blue-item-main;
+                        font-weight: 700;
                     }
 
                     &.location-name{
-                        color: variables.$yellow-stat-text
+                        color: variables.$yellow-stat-text;
+                        font-weight: 700;
                     }
 
                     &.area-name{
-                        color: variables.$purple-text
+                        color: variables.$purple-text;
+                        font-weight: 700;
                     }
                 }
             }
@@ -56,7 +59,7 @@
                         overflow-wrap: break-word;
                         width: 25%;
                         font-size: 15px;
-                        font-weight: 600;
+                        font-weight: 500;
                         padding: 16px;
 
                         &.hidden-items {
