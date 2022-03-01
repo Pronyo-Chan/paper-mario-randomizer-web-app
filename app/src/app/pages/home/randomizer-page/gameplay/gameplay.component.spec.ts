@@ -28,7 +28,6 @@ describe('GameplayComponent', () => {
       shufflePartnerFP: new FormControl(false),
       shuffleStarpowerSP: new FormControl(false),
       randomFormations: new FormControl(false),
-      randomQuiz: new FormControl(false)
     })
     fixture.detectChanges();
   });

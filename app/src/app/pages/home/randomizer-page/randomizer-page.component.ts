@@ -80,7 +80,6 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         shufflePartnerFP: new FormControl(false),
         shuffleStarpowerSP: new FormControl(false),
         randomFormations: new FormControl(false),
-        randomQuiz: new FormControl(false)
       }),
       partners: new FormGroup({
         shufflePartners: new FormControl(false),
