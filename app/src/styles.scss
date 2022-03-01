@@ -5,6 +5,7 @@
 @font-face {
     font-family: gluten;
     src: url(assets/Fonts/gluten.ttf) format("truetype");
+    font-weight: 1 999;
   }
 
 @font-face {
@@ -36,7 +37,7 @@
 .mat-option-text {
   font-family: gluten;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
@@ -68,7 +69,7 @@ input.mat-input-element {
 
   .mat-menu-item {
     font-family: 'gluten';
-    font-weight: 600;
+    font-weight: 500;
     font-size: 0.9vw;
   }
 
