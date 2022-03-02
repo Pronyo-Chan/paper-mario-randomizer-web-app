@@ -71,6 +71,7 @@ export class SettingsInfoComponent implements OnInit {
         case 'RomanNumerals':
         case 'IncludeFavors':
         case 'IncludeLetterChain':
+        case 'PeachCastleReturnPipe':
         case String(key.match(/.*Color.*/)):
         case String(key.match(/.*Sprite.*/)):
         case String(key.match(/.*Setting.*/)): //GoombarioSetting, KooperSetting, etc. Handle colors manually
