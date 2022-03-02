@@ -27,7 +27,7 @@ Changelog for Open World Paper Mario Randomizer
         * The calculator thief Shy Guy now holds both items he can drop at once.
           This makes it so Mario is no longer required to leave and re-enter the
           Toy Box to get the Shy Guys's second item.
-        * The star pieces cost to buy Merlow's items have been changed to the following: Prices range from 2SP to 6SP, with 3 items for each price.
+        * The star pieces price to buy Merlow's items have been changed to the following: Prices range from 2SP to 6SP, with 3 items for each price.
         * When a NPC hands out a consumable item and the player's inventory is full, the player is now able
           to discard a chosen item. Previously the NPC item would just disapear.
         * Simon the poet in Toad Town will now give you his item on first interaction, without needing to exit and reenter the map.
@@ -37,7 +37,8 @@ Changelog for Open World Paper Mario Randomizer
         * Star power abilities will now be cast by the star spirit that was saved to unlock it. If the game was started with more than 0SP, abilities that were unlocked without having saved a spirit for it will be cast by Twink.
         * The Spirits pause menu will now properly display which star spirit was saved.
         * The first berry of each color will now be added as a key item. In the case of Blue Berry, the first two are added as key items because one is also needed for the well.
-        * A new warp pipe has been added. It can be activated in front of Peach's castle in the sky at the end of the game, and connects to Peach's Castle ground in Toad Town.
+        * A new warp pipe has been added. It can be activated in front of Peach's castle in the sky at the end of the game, and connects to Peach's Castle Grounds in Toad Town.
+        * Tattle descriptions will now display the good HP and Attack Power values during Progressive Scaling and Shuffled difficulty.
     * Title Screen
         * Added a new title logo for the randomizer.
     * Random Formations
@@ -64,7 +65,7 @@ Changelog for Open World Paper Mario Randomizer
         * The Up/Down puzzle room and surrounding rooms are removed, sending Mario
           to the bridge before Fake Peach Hallway instead.
         This reduces the size of Bowser's Castle by about 50%.
-    * Option: SkipEpilogue. If this is turned on, the game directly goes to the credit upon defeating the final boss and grabbing the star rod
+    * Option: SkipEpilogue. If this is turned on, the game directly goes to the credits upon defeating the final boss and grabbing the star rod
     * Option: Roman Numerals. Changes the enemy HP display in battle to roman numerals.
     * Option: Mario and partners color palettes are now selectable instead of always random. NPCs and bosses can be configured to be a random pick, or always random on every loading.
     * Option: Custom starting items. Items selected as starting items will be removed from the item pool
@@ -100,7 +101,7 @@ Changelog for Open World Paper Mario Randomizer
       be the rando'd item instead of a star piece every time.
     * Beating chapter 6 should no longer softlock after getting the star power
       there.
-    * Fixed Koloardo's wife buggy animation.
+    * Fixed Kolorado's wife buggy animation.
     * Fixed Kolorado not returning to Koopa Village after chapter 5 is completed.
     * Fixed Flower Fields background and music being sunny before the cloud machine was destroyed.
     * Fixed an issue where Storeroom Items in Toad Town would sometimes not spawn.
