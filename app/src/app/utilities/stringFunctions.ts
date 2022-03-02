@@ -12,6 +12,7 @@ export function pascalToVerboseString(text: string): string {
         .replace("F X", "FX")
         .replace("P O W", "POW")
         .replace("O H K O", "One Hit KO")
+        .replace("N P C", "NPC")
         .trimLeft()
 
     return cleanText;

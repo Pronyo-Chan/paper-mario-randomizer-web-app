@@ -56,8 +56,8 @@ export interface SettingsResponse{
     ShortenBowsersCastle: boolean;
     ShortenCutscenes: boolean;
     SkipEpilogue: boolean;
-    ColorA: number;
-    ColorB: number;
+    Box5ColorA: number;
+    Box5ColorB: number;
     RandomCoinColor: boolean;
     CoinColor: CoinColor;
     MarioSetting: SpriteSetting;
