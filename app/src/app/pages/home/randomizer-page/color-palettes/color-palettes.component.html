@@ -52,9 +52,16 @@
                 <option [ngValue]="6">Grey</option>
             </select> 
         </div> 
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='randomCoinPalette'></mat-slide-toggle>
-            <app-tooltip-span spanText="Random Coin Palette" tooltipText="Randomly picks a coin color"></app-tooltip-span>
-        </div>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Coin Color" tooltipText="Color for coins throughout the game"></app-tooltip-span>
+            <select formControlName='coinColor'>
+                <option [ngValue]="0">Default</option>
+                <option [ngValue]="1">Red</option>
+                <option [ngValue]="2">Blue</option>
+                <option [ngValue]="3">Purple</option>
+                <option [ngValue]="4">Silver</option>
+                <option [ngValue]="5">Random</option>
+            </select> 
+        </div> 
     </mat-card-content>
 </form>

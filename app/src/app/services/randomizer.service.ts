@@ -13,6 +13,7 @@ import { applyPatch } from '../utilities/RomPatcher/RomPatcher';
 import { parseBPSFile } from '../utilities/RomPatcher/bps';
 import { parseRandoPatchFile } from '../utilities/RomPatcher/randopatch';
 import { CharacterSpriteSetting } from '../entities/characterSpriteSetting';
+import { CoinColor } from '../entities/enum/coinColor';
 
 
 @Injectable({
@@ -117,6 +118,8 @@ export class RandomizerService {
       SkipEpilogue: settingsForm.get('qualityOfLife').get('skipEpilogue').value,
       Box5ColorA: Constants.MENU_COLORS[settingsForm.get('colorPalettes').get('menu').value].colorA,
       Box5ColorB: Constants.MENU_COLORS[settingsForm.get('colorPalettes').get('menu').value].colorB,
+      CoinColor: settingsForm.get('colorPalettes').get('coinColor').value != CoinColor.Random ? settingsForm.get('colorPalettes').get('coinColor').value : 0, // Is ignored if random
+      RandomCoinColor: settingsForm.get('colorPalettes').get('coinColor').value == CoinColor.Random,
       MarioSetting: (settingsForm.get('colorPalettes').get('marioSprite').value as CharacterSpriteSetting).setting,
       MarioSprite: (settingsForm.get('colorPalettes').get('marioSprite').value as CharacterSpriteSetting).paletteSelection,
       GoombarioSetting: (settingsForm.get('colorPalettes').get('goombarioSprite').value as CharacterSpriteSetting).setting,
@@ -127,7 +130,6 @@ export class RandomizerService {
       BowSprite: (settingsForm.get('colorPalettes').get('bowSprite').value as CharacterSpriteSetting).paletteSelection,
       BossesSetting: settingsForm.get('colorPalettes').get('bossesSetting').value,
       NPCSetting: settingsForm.get('colorPalettes').get('npcSetting').value,
-      RandomCoinPalette: settingsForm.get('colorPalettes').get('randomCoinPalette').value,
       StartingMaxHP: settingsForm.get('marioStats').get('startingMaxHP').value,
       StartingMaxFP: settingsForm.get('marioStats').get('startingMaxFP').value,
       StartingMaxBP: settingsForm.get('marioStats').get('startingMaxBP').value,
