@@ -1,3 +1,4 @@
+import { CoinColor } from './../../../../entities/enum/coinColor';
 import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -31,7 +32,7 @@ describe('ColorPalettesComponent', () => {
       bowSprite : new FormControl(),
       bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
       npcSetting: new FormControl(SpriteSetting.DefaultPalette),
-      randomCoinPalette: new FormControl(false)
+      coinColor: new FormControl(CoinColor.Default)
     })
     fixture.detectChanges();
   });

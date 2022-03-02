@@ -1,4 +1,5 @@
 import { BowSprite } from "./enum/bowSprite";
+import { CoinColor } from "./enum/coinColor";
 import { GoombarioSprite } from "./enum/goombarioSprite";
 import { KooperSprite } from "./enum/kooperSprite";
 import { MarioSprite } from "./enum/marioSprite";
@@ -49,7 +50,6 @@ export interface SettingsResponse{
     RandomPartnersMax: number;
     StartWithPartners: StartingPartners;
     WriteSpoilerLog : boolean;
-    RandomCoinPalette: boolean;
     RomanNumerals: boolean;
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
@@ -58,6 +58,8 @@ export interface SettingsResponse{
     SkipEpilogue: boolean;
     ColorA: number;
     ColorB: number;
+    RandomCoinColor: boolean;
+    CoinColor: CoinColor;
     MarioSetting: SpriteSetting;
     MarioSprite: MarioSprite;
     GoombarioSetting: SpriteSetting;
