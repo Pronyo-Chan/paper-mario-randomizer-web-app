@@ -1,6 +1,5 @@
 export enum KeyItems {
 	HomewardShroom = 0x0008,
-	Diploma   = 0x000E,
 	UltraStone = 0x000F,
 	PulseStone = 0x0012,
 	TubbaCastleKey   = 0x0013,
@@ -12,7 +11,6 @@ export enum KeyItems {
 	BooWeight = 0x001C,
 	BooPortrait = 0x001D,
 	CrystalBerry = 0x001E,
-	MysticalKey = 0x001F,
 	StoreroomKey   = 0x0020,
 	ToyTrain = 0x0021,
 	BooRecord = 0x0022,
