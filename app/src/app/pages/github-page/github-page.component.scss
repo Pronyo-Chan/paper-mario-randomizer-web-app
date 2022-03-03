@@ -1,0 +1,15 @@
+@use './../../../variables';
+
+.settings-card {
+    background-color: variables.$blue-background-card;
+}
+
+ul {
+    font-family: gluten;
+    font-size: 16px;
+    font-weight: 500;
+    li {
+        padding: 0.8rem;
+        line-height: 18px;
+    }
+}

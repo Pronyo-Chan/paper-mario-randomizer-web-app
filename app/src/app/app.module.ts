@@ -46,6 +46,7 @@ import { MarioSettingsComponent } from './pages/home/randomizer-page/mario-setti
 import { StartingItemsComponent } from './pages/home/randomizer-page/starting-items/starting-items.component';
 import { ItemChiplistComponent } from './pages/home/randomizer-page/starting-items/item-chiplist/item-chiplist.component';
 import { SettingDetailsPageComponent } from './pages/setting-details-page/setting-details-page.component';
+import { GithubPageComponent } from './pages/github-page/github-page.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { SettingDetailsPageComponent } from './pages/setting-details-page/settin
     MarioSettingsComponent,
     StartingItemsComponent,
     ItemChiplistComponent,
-    SettingDetailsPageComponent
+    SettingDetailsPageComponent,
+    GithubPageComponent
   ],
   imports: [
     BrowserModule,
