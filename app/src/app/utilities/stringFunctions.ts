@@ -8,7 +8,7 @@ export function pascalToVerboseString(text: string): string {
         .replace("B P", "BP")
         .replace("F P", "FP")
         .replace("S P", "SP")
-        .replace("X P", "SP")
+        .replace("X P", "XP")
         .replace("F X", "FX")
         .replace("P O W", "POW")
         .replace("O H K O", "One Hit KO")
