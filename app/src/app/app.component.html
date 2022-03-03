@@ -12,7 +12,7 @@
             <button mat-menu-item [routerLink]="'../changelog'">Changelog</button>
             <button mat-menu-item [routerLink]="'../settings'">Setting Details</button>
         </mat-menu>
-    
+
     <a *ngIf="latestSeedId" class="text-link" [href]="homepageLink + '/seed?id=' + latestSeedId">
         <span>  Most Recent Seed</span>
     </a>
@@ -21,12 +21,12 @@
         <i class="fab fa-discord fa-2x"></i>
         <span> Discord</span>
     </a>
-  </mat-toolbar>
-  <div class="logo-wrapper">
-        <a [href]="homepageLink">
-            <img class="logo" src="assets/images/logo.png">
-        </a>
-    </div>
+</mat-toolbar>
+<div class="logo-wrapper">
+    <a [href]="homepageLink">
+        <img class="logo" src="assets/images/logo.png">
+    </a>
+</div>
 <router-outlet></router-outlet>
 <!-- Preload images so there's no delay when displaying them -->
 <img style="display: none;" src="../assets/images/coin_loading.gif">
