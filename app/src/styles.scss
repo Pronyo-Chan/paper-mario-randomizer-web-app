@@ -4,9 +4,58 @@
 
 @font-face {
     font-family: gluten;
-    src: url(assets/Fonts/gluten.ttf) format("truetype");
-    font-weight: 1 999;
-  }
+    src: url(assets/Fonts/Gluten-Thin.ttf) format("truetype");
+    font-weight: 100;
+}
+
+@font-face {
+  font-family: gluten;
+  src: url(assets/Fonts/Gluten-ExtraLight.ttf) format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: gluten;
+  src: url(assets/Fonts/Gluten-Light.ttf) format("truetype");
+  font-weight: 300;
+}
+
+
+@font-face {
+  font-family: gluten;
+  src: url(assets/Fonts/Gluten-Regular.ttf) format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: gluten;
+  src: url(assets/Fonts/Gluten-Medium.ttf) format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: gluten;
+  src: url(assets/Fonts/Gluten-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: gluten;
+  src: url(assets/Fonts/Gluten-Bold.ttf) format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: gluten;
+  src: url(assets/Fonts/Gluten-ExtraBold.ttf) format("truetype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: gluten;
+  src: url(assets/Fonts/Gluten-Black.ttf) format("truetype");
+  font-weight: 900;
+}
 
 @font-face {
     font-family: SuperMario;
