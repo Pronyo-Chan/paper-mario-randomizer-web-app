@@ -122,7 +122,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         damageMultiplier: new FormControl(1),
         oneHitKO: new FormControl(false),
         noSaveBlocks: new FormControl(false),
-        noHeartBlock: new FormControl(false),
+        noHeartBlocks: new FormControl(false),
         itemScarcity: new FormControl(0),
         starWaySpiritsNeeded: new FormControl(7)      
       }),

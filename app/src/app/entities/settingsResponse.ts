@@ -21,7 +21,7 @@ export interface SettingsResponse{
     QuadrupleDamage: boolean;
     OHKO: boolean;
     NoSaveBlocks: boolean;
-    NoHeartBlock: boolean;
+    NoHeartBlocks: boolean;
     FlowerGateOpen: boolean;
     BlueHouseOpen: boolean;
     ToyboxOpen: boolean;
