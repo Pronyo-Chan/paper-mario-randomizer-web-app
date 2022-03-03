@@ -67,7 +67,7 @@ export class SettingsInfoComponent implements OnInit {
         case 'SettingsVersion':
         case 'PlacementLogic':
         case 'PlacementAlgorithm':
-        case 'PrettySpoilerLog':
+        case 'PrettySpoilerlog':
         case 'RomanNumerals':
         case 'IncludeFavors':
         case 'IncludeLetterChain':
