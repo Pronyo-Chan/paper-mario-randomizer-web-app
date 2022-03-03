@@ -2,7 +2,7 @@
     <mat-card-content class=settings-card-content>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Starting Location" 
-                                tooltipText="Sets the town / village where the game starts. It is also the location where the homeward shroom warps Mario."></app-tooltip-span>
+                                tooltipText="Sets the town / village where the game starts. It is also the location where the Homeward Shroom warps Mario."></app-tooltip-span>
             <select formControlName='startingMap'>
                 <option *ngFor="let location of startingMaps" [ngValue]="location.value">{{location.name}}</option>
             </select>
@@ -12,18 +12,18 @@
             <mat-slide-toggle formControlName='flowerGateOpen'></mat-slide-toggle>
             <app-tooltip-span
                  spanText="Open Flower Gate"
-                 tooltipText="Off: The 4 magical seeds are required to open the flower gate.
+                 tooltipText="Off: The 4 magical seeds are required to open the Flower Gate.
 
-                            On: Flower Gate is opened from the start. Magical Seeds are removed from the item pool.">
+                            On: The Flower Gate is opened from the start. Magical Seeds are removed from the item pool.">
             </app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='blueHouseOpen'></mat-slide-toggle>
             <app-tooltip-span
                  spanText="Open Blue House"
-                 tooltipText="Off: Mario must obtain the Odd Key to open the blue house door.
+                 tooltipText="Off: Mario must obtain the Odd Key to open the Blue House door.
 
-                            On: Blue house door is unlocked from the start. Odd Key is removed from the item pool">
+                            On: The Blue House door is unlocked from the start. The Odd Key is removed from the item pool">
             </app-tooltip-span>
         </div>
         <div class="setting-element">
@@ -48,7 +48,7 @@
             <mat-slide-toggle formControlName='homewardShroom'></mat-slide-toggle>
             <app-tooltip-span
                  spanText="Homeward Shroom"
-                 tooltipText="Warps Mario to the starting location. You can press A in the key items menu to use it. Mandatory for Dry Dry Outpost starting location">
+                 tooltipText="Adds the Homeward Shroom key item to Marios's inventory. You can press A in the key items menu to use it to warp Mario back to the seed's starting location. Mandatory for the Dry Dry Outpost starting location">
             </app-tooltip-span>
         </div>
     </mat-card-content>
