@@ -127,8 +127,6 @@ export class SettingsInfoComponent implements OnInit {
     }
   }
   private getBoxColorName(colorA: number, colorB: number): string {
-    console.log('A: ' + colorA);
-    console.log('B: ' + colorB);
       return Constants.MENU_COLORS.find(menuColor => menuColor.colorA == colorA && menuColor.colorB == colorB)?.colorName;
   }
 }
