@@ -1,7 +1,5 @@
-import { ItemLocation } from './../../../../entities/itemLocation';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
 import { Component, Input, OnInit } from '@angular/core';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-spoiler-log',

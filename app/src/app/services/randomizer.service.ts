@@ -2,7 +2,7 @@ import { KeyItems } from './../entities/enum/keyItems';
 import { Constants } from './../utilities/constants';
 import { environment } from 'src/environments/environment';
 import { SettingsResponse } from './../entities/settingsResponse';
-import { combineLatest, combineLatestAll, combineLatestWith, forkJoin, map, merge, mergeMap, Observable, switchMap } from 'rxjs';
+import { forkJoin, map, Observable, switchMap } from 'rxjs';
 import { RandomizerRepository } from './../repositories/randomizer-repository/randomizer.repository';
 import { FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';

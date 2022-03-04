@@ -1,5 +1,4 @@
 import { CoinColor } from './../../../../entities/enum/coinColor';
-import { map } from 'rxjs';
 import { Badges } from './../../../../entities/enum/badges';
 import { KeyItems } from './../../../../entities/enum/keyItems';
 import { Items } from './../../../../entities/enum/items';

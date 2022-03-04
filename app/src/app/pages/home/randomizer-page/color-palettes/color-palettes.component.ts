@@ -1,10 +1,5 @@
 import { Constants } from './../../../../utilities/constants';
-import { MarioSprite } from './../../../../entities/enum/marioSprite';
-import { GoombarioSprite } from './../../../../entities/enum/goombarioSprite';
-import { KooperSprite } from './../../../../entities/enum/kooperSprite';
 import { CharacterSpriteSetting } from './../../../../entities/characterSpriteSetting';
-import { BowSprite } from './../../../../entities/enum/bowSprite';
-import { SpriteSetting } from './../../../../entities/enum/spriteSetting';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { tap } from 'rxjs';

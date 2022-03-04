@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { RandomizerRepository } from './../repositories/randomizer-repository/randomizer.repository';
 import { TestBed } from '@angular/core/testing';
 
 import { RandomizerService } from './randomizer.service';

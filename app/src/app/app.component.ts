@@ -1,6 +1,5 @@
 import { environment } from 'src/environments/environment';
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-root',
