@@ -23,7 +23,7 @@
         </div>    
         <div class="setting-element slider-element" >
             <app-tooltip-span [spanText]="'Item Scarcity: ' + difficultyFormGroup.get('itemScarcity').value"
-                             tooltipText="Randomly replaces consumable items in the item pool by weaker ones. Higher value means items have a higher chance of being replaced by weaker ones, 0 means they won't ever be replaced"></app-tooltip-span>
+                             tooltipText="Randomly replaces consumable items in the item pool with weaker ones. A higher scarcity value means items have a higher chance of being replaced by weaker ones, 0 means they won't ever be replaced"></app-tooltip-span>
             <mat-slider formControlName="itemScarcity" (input)="difficultyFormGroup.get('itemScarcity').setValue($event.value)" min=0 max= 5 step="1" tickInterval="1"></mat-slider>
         </div>    
         <div class="setting-element slider-element" >
@@ -51,7 +51,7 @@
             It is still possible to save after every chapter with the 'Save and Continue' menu "></app-tooltip-span>
         </div>
         <div class="setting-element">
-            <mat-slide-toggle formControlName='noHeartBlock'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='noHeartBlocks'></mat-slide-toggle>
             <app-tooltip-span spanText="No Heart Blocks" tooltipText="Heart blocks will be removed from the game if turned on"></app-tooltip-span>
         </div>
         

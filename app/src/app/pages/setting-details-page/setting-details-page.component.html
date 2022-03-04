@@ -4,71 +4,72 @@
         <mat-card-title class="settings-title">Randomizer Settings Details</mat-card-title>
         <h2>Shuffle Items</h2>
         <ul>
-            <li>All freestanding items on the overworld.</li>
-            <li>All items, badges and key items located in ? blocks.</li>
-            <li>All items found in trees and bushes, except the ones part of Koopa Koot's quests.</li>
-            <li>Most rewards handed / traded by NPCs. Currently excluded: Russ T. reward for bringing the dictionary, post office Mailbag reward.</li>
-            <li>Rip Cheato's trading items are randomized in this setting, he is not considered as a shop.</li>
-            <li>The anti-guy chest in Toy Box can contain a progression item. However, the logic doesn't expect you to beat him, as he can be bribed with a Lemon Candy.
-                This means the logic expects you to have access to Cookbook, cake mix and lemon before placing a progression item there.</li>
+            <li>Includes all freestanding items on the overworld.</li>
+            <li>Include all items, badges and key items located in ? blocks.</li>
+            <li>Includes all items found in trees and bushes, except the ones part of Koopa Koot's quests.</li>
+            <li>Includes most rewards handed over / traded by NPCs. Currently excluded: Russ T. reward for bringing the Dictionary and the post office Mailbag reward.</li>
+            <li>Rip Cheato's trading items are randomized in this setting, as he is not considered a shop.</li>
+            <li>The Anti Guy chest in the Toy Box can contain a progression item. However, the logic doesn't expect Mario to beat him, as he can be bribed with a Lemon Candy.
+                This means the logic expects Mario to have access to the Cookbook, a Cake Mix and a Lemon before placing a progression item there.</li>
         </ul>
 
         <h2>Shopsanity</h2>
         <ul>
-            <li>Melow's badge shop has random items for sale. The first 3 ones cost 2SP, the next 3 cost 3SP...And so on until the last 3 for 6SP.</li>
-            <li>The logic considers the player needs 60 star pieces for any of Merlow's items to be mandatory, to prevent being softlocked by buying all the useless items.</li>
-            <li>Rowf's badge shop now sells random items and he upgrades his inventory after each star spirit saved. He updates his inventory 5 times total.</li>
+            <li>Merlow's badge shop has random items for sale. The first 3 ones cost 2 SP, the next 3 cost 3 SP ... and so on until the last 3 for 6 SP.</li>
+            <li>The logic considers Mario to need 60 Star Pieces for any of Merlow's items to be in logic. This is to prevent being softlocked by buying all the non-required items from him.</li>
+            <li>Rowf's badge shop now sells random items, and he upgrades his inventory after each star spirit saved. He updates his inventory 5 times total.</li>
             <li>Rowf's items are all unique. Items sold by regular shops can be bought infinitely if they are consumables. Badges and key items can only be bought once.</li>
         </ul>
 
         <h2>Coinsanity</h2>
         <ul>
-            <li>All freestanding coins on the overworld.</li>
-            <li>All coins located in ? blocks.</li>
+            <li>Includes all freestanding coins on the overworld.</li>
+            <li>Includes all coins located in ?-blocks.</li>
             <li>Coins in bushes and trees are not included.</li>
         </ul>
 
         <h2>Include Hidden Panels</h2>
         <ul>
-            <li>The Ultra Hammer OR Super Boots is required to flip panels.</li>
-            <li>Logic doesn't consider it required to have the ISpy badge to detect panels, so it is highly recommended you use the Always ISpy setting if you're not familiar with the locations.</li>
+            <li>The Ultra Hammer or Super Boots are required to flip panels.</li>
+            <li>Logic doesn't consider it required to have the I Spy badge to detect panels, so it is highly recommended to use the Always I Spy setting if the player is not familiar with the locations.</li>
         </ul>
 
         <h2>Keysanity</h2>
         <ul>
-            <li>Items affected by this setting: Ruins Key, Pyramid Stone, Lunar Stone, Diamond Stone, Castle Key, Toy Train, Dictionary, Mystery Note, Cake, Magical Bean, Fertile Soil, Miracle Water, Bubble Berry, Red Berry, Blue Berry, Yellow Berry, Blue Key, Red Key, Palace Key.</li>
+            <li>Items affected by this setting: Fortress Key, Ruins Key, Pyramid Stone, Lunar Stone, Diamond Stone, Castle Key (Tubba's Castle), Toy Train, Cake, Dictionary, Mystery Note, Magical Bean, Fertile Soil, Miracle Water, Bubble Berry, Red Berry, Blue Berry, Yellow Berry, Blue Key, Red Key, Palace Key, Castle Key (Bowser's Castle).</li>
         </ul>
 
         <h2>Include Dojo Rewards</h2>
         <ul>
-            <li>The logic can only expect you to do the 2nd fight with 2 star spirits saved, 3rd fight with 3 star spirits saved, and so on.</li>
+            <li>The logic can only expect Mario to win the 2nd dojo fight with 2 star spirits saved, 3rd fight with 3 star spirits saved, and so on.</li>
         </ul>
 
         <h2>Shuffle Partners</h2>
         <ul>
-            <li>Starting partners will already have their "quest" considered done and you won't be able to talk to them and get an item from them.</li>
-            <li>An important implication of this is that when starting with Bow, the mansion's shop and Gusty Gulch gate will be opened right away, since the vanilla requirement to open them is to get Bow at the top of the mansion.</li>
-            <li>Items that are part of the partner quest (Kooper's Shell, Boo portrait) will be removed from the item pool when starting with that partner.</li>
+            <li>Starting partners will already have their "sidequest" considered finished, and Mario won't be able to get an item from their vanilla unlock locations.</li>
+            <li>An important implication of this is that when starting with Bow, the mansion's shop and Gusty Gulch gate will be opened right away, as the vanilla requirement to open them is to get Bow at the top of the mansion.</li>
+            <li>Items that are part of a partner sidequest (Kooper's Shell, Boo's Portrait) will be removed from the item pool when starting with that partner.</li>
         </ul>
 
         <h2>Start With Random Partners</h2>
         <ul>
             <li>When setting a wide range of min/max number of partners, it is way more likely to get a low number.</li>
-            <li>The algorithm starts by giving you the lowest number of partners, then flips a coin for every following partner.</li>
-            <li>Example: Min 1, Max 8. You'll have a 50% chance to get 2 partners, 25% to get 3, 12.5% to get 4.</li>
+            <li>The algorithm starts by giving Mario the lowest number of partners, then flips a coin for every following partner.</li>
+            <li>Example: Min 1, Max 8: Mario has a 50% chance to get 2 partners, 25% to get 3, 12.5% to get 4 etc.</li>
         </ul>
 
-        <h2>Shuffle BP, FP, SP options</h2>
+        <h2>Shuffle BP, FP, and SP options</h2>
         <ul>
-            <li>The values are only shuffled between what's in the game for that category. This means that badges with a high BP requirement are almost certain to have it lowered, for example.</li>
-            <li>Badgew descriptionw are not updated, so the required amount of FP for badge abilities in the badge menu's description won't be accurate with Shuffle Badges FP</li>
+            <li>The values are only shuffled among the vanilla values for the respective category. This means that badges with a high BP requirement are likely to have it lowered, for example.</li>
+            <li>Badge descriptions are not updated, so the required amount of FP for badge abilities in the badge menu's description won't be accurate with Shuffle Badges FP.</li>
         </ul>
 
         <h2>Color options</h2>
         <ul>
-            <li>Random pick means the color is determined during seed generation and will stay constant throughout gameplay</li>
-            <li>Random on every load means the color will be picked at random ingame, and might change at every loading</li>
-            <li>Random pick includes the default palette so it is possible to see no change if the default is randomly picked</li>
+            <li>Random Pick means the color is determined during seed generation and will stay consistent throughout gameplay.</li>
+            <li>Random On Every Load means the color will be picked at random ingame, and might change frequently.</li>
+            <li>Random Pick includes the default color palette, so it is possible to see no change if said default is randomly picked.</li>
+            <li>Color options for more partners will be added in the future.</li>
         </ul>
     </mat-card>
 
@@ -76,39 +77,26 @@
         <mat-card-title class="settings-title">Difficulty Settings Details</mat-card-title>
         <h2>Enemy Difficulty</h2>
         <ul>
-            <li>Progressive Scaling gets harder according to the number of progression key items and partners you get</li>
-            <li>Partners give 3x more progress score than key items</li>
-            <li>If Mario's Star Power is greater than the current difficulty level determined by the progress score, star power will be taken as chapter difficulty instead.
-                 For example, if you have 3 star power gauges but a low progress score that would only compute as chapter 3 difficulty, chapter 4 difficulty would be taken</li>
-            <li>Random Chapter Difficulty has no logic, so it might be possible that you are required to beat very hard fights early on.</li>
+            <li>Progressive Scaling gets harder according to the number of progression key items and partners Mario acquires.</li>
+            <li>Partners give 3x more progress score than key items.</li>
+            <li>If the number of chapters beaten is greater than the current difficulty level determined by the progress score, then the amount of chapters completed dictates the difficulty instead.
+                 For example, if Mario has saved 3 star spirits, but he has a low progress score which would only compute as chapter 3 difficulty, chapter 4 difficulty is used.</li>
+            <li>Random Chapter Difficulty has no logic, so it might be possible that Mario is required to beat very hard fights early on.</li>
+            <li>The following battles are unaffected by this setting and will have vanilla stats: All enemies/bosses in Toad Town Tunnels, all enemies/bosses in chapter 8, Dojo Fights (Toad Town), Kent C. Koopa (Pleasant Path), Anti Guy (Toy Box).</li>
         </ul>
 
-        <h2>Item Scarcity - Difficulty Levels</h2>
+        <h2>Item Scarcity</h2>
         <ul>
-            <li>Items have been separated in 10 tiers according to how strong they are considered</li>
-            <li>When the generator places a non-essential item, it has a chance to replace it with another from a lower tier according to the setting's value:</li>
-            <li>0: Items are never replaced</li>
-            <li>1: 30% chance to divide tier by 2</li>
-            <li>2: 40% chance to divide tier by 2, 10% chance to divide tier by 3</li>
-            <li>3: 50% chance to divide tier by 2, 20% chance to divide tier by 3</li>
-            <li>4: 60% chance to divide tier by 2, 40% chance to divide tier by 3</li>
-            <li>5: 100% chance to divide tier by 3</li>
+            <li>When the generator places a non-essential item, it has a chance to replace it with another weaker item according to the setting's value.</li>
+            <li>At level 0, this setting is turned off. The item pool for consumable items isn't changed.</li>
+            <li>From there, every increment on this setting makes it more likely that items will be randomly replaced by a weaker one.</li>
+            <li>When setting item scarcity to the maximum level, every non-essential item will be replaced by a weaker one.</li>
         </ul>
 
-        <h2>Item Scarcity - Item Tiers</h2>
+        <h2>Star Spirits Required</h2>
         <ul>
-            <li>Here are the different item tiers and their content:</li>
-            <li>0: Coin</li>
-            <li>1: Pebble, Dusty Hammer, Tasty Tonic, Dried Shroom, Mistake</li>
-            <li>2: Lemon, Lime, Koopa Leaf, Stinky Herb, Coconut, Goomnut, Yellow Berry, Mushroom, Apple, Blue Berry, Red Berry, Super Soda, Bubble Berry, Honey Syrup, Fried Shroom</li>
-            <li>3: Egg, Iced Potato, POW Block, Koopa Tea, Dried Pasta, Volt Shroom, Spicy Soup</li>
-            <li>4: Mystery, Cake Mix, Fire Flower, Thunder Bolt, Potato Salad, Nutty Cake, Spaghetti, Super Shroom, Fried Egg, Honey Shroom, Koopasta, Maple Syrup, Boiled Egg, Strange Cake</li>
-            <li>5: Strange Leaf, Sleepy Sheep, Dried Fruit, Snowman Doll, Melon, Egg Missile, Bland Meal, Cake, Coco Pop, Frozen Fries, Honey Super, Shroom Cake, Fire Pop, Maple Shroom, Maple Super</li>
-            <li>6: Fright Jar, Dizzy Dial, Thunder Rage, Hustle Drink, Apple Pie, Kooky Cookie, Hot Shroom, Lemon Candy, Honey Candy, Lime Candy, Yummy Meal, Yoshi Cookie, Electro Pop, Shroom Steak</li>
-            <li>7: Special Shake, Big Cookie, Stone Cap, Life Shroom, Healthy Juice, Whacka's Bump, Sweet Shroom</li>
-            <li>8: Stop Watch, Shooting Star, Ultra Shroom, Jammin Jelly, Honey Ultra, Jelly Shroom</li>
-            <li>9: Maple Ultra, Jelly Super, Jelly Pop</li>
-            <li>10: Repel Gel, Deluxe Feast, Jelly Ultra</li>
+            <li>Determines how many star spirits are required to complete the game.</li>
+            <li>The current number of star spirits left to save can be observed at Shooting Star Summit, by counting the unlit stars on the ground at the top.</li>
         </ul>
     </mat-card>
 
@@ -121,8 +109,8 @@
 
         <h2>Homeward Shroom</h2>
         <ul>
-            <li>Warps Mario back to the starting location</li>
-            <li>Cannot be used during the volcano escape and Tubba Blubba's Castle Escape</li>
+            <li>Permanent key item that warps Mario back to the starting location.</li>
+            <li>Cannot be used during the volcano escape and Tubba Blubba's Castle Escape.</li>
         </ul>
     </mat-card>
 
@@ -130,22 +118,25 @@
         <mat-card-title class="settings-title">Quality of Life Settings Details</mat-card-title>
         <h2>Skip Quiz</h2>
         <ul>
-            <li>Quizmo will instantly give a star piece when talked to. Keep in mind that without this setting, you can get up to 8 star pieces in a row by answering questions right though.</li>
+            <li>Quizmo will instantly give a Star Piece when talked to, without actually asking a question.</li>
         </ul>
 
         <h2>Shorten Cutscenes</h2>
         <ul>
-            <li>Currently applies to: First Mt.Rugged train ride, Merluvlee's fortune telling, ch6. magic bean growing, star ship ride to Bowser's Castle.</li>
+            <li>Currently only applies to: First Mt. Rugged train ride, Merluvlee's fortune telling, ch6. beanstalk growing, star ship ride to Bowser's Castle.</li>
+            <li>Also ends the Peach / Twink vs Kammy fight in one round.</li>
             <li>More shortened cutscenes will be added over time.</li>
         </ul>
 
         <h2>Shorten Bowser's Castle</h2>
         <ul>
-            <li>The front door is already unlocked.</li>
-            <li>The entire undeground section has been cut. The first Bowser guard door will actually be the second, asking quiz questions.</li>
-            <li>The torches puzzle labyrinth room has been removed.</li>
-            <li>The water drain rooms where you need Sushie have been removed.</li>
-            <li>As a result, no key is required to reach Peach's Castle.</li>
+            <li> If this is turned on, the first door is already unlocked.</li>
+            <li> The loading zones in Bowser's Castle are re-routed to noticably shorten Mario's stay there.</li>
+            <li> The second Bowser door takes the place of the first Bowser door. This removes access to the basement entirely.</li>
+            <li> The water puzzle rooms are removed, sending Mario straight to the Bill Blaster room.</li>
+            <li> Most hidden rooms around the second Bowser Door room are removed, sending Mario outside to the Ramparts straight away.</li>
+            <li> The Up/Down puzzle room and surrounding rooms are removed, sending Mario to the bridge before Fake Peach Hallway instead.</li>
+            <li> Overall, this reduces the size of Bowser's Castle by about 50%.</li>
         </ul>
     </mat-card>
 </div>

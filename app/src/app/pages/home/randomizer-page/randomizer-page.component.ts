@@ -9,6 +9,7 @@ import { CustomValidators } from '../../../utilities/custom.validators'
 import { DifficultySetting } from 'src/app/entities/enum/difficultySetting';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { CoinColor } from 'src/app/entities/enum/coinColor';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -121,7 +122,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         damageMultiplier: new FormControl(1),
         oneHitKO: new FormControl(false),
         noSaveBlocks: new FormControl(false),
-        noHeartBlock: new FormControl(false),
+        noHeartBlocks: new FormControl(false),
         itemScarcity: new FormControl(0),
         starWaySpiritsNeeded: new FormControl(7)      
       }),
@@ -149,7 +150,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         bowSprite : new FormControl(),
         bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
         npcSetting: new FormControl(SpriteSetting.DefaultPalette),
-        randomCoinPalette: new FormControl(false)
+        coinColor: new FormControl(CoinColor.Default)
       }),
     });
 

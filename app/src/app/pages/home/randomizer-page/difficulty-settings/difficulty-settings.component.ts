@@ -18,14 +18,10 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     
+    this.forceXpCapWhenProgressiveScaling(this.difficultyFormGroup.get('difficultyMode').value)
     this._enemyDifficultySubscription =  this.difficultyFormGroup.get('difficultyMode').valueChanges.pipe(
       tap(value => {
-        if(value == DifficultySetting.ProgressiveScaling) {
-          this.difficultyFormGroup.get('capEnemyXP').setValue(true);
-          this.difficultyFormGroup.get('capEnemyXP').disable();
-        } else {
-          this.difficultyFormGroup.get('capEnemyXP').enable();
-        }
+        this.forceXpCapWhenProgressiveScaling(value)
       })
     ).subscribe();
   }
@@ -33,6 +29,15 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     if(this._enemyDifficultySubscription) {
       this._enemyDifficultySubscription.unsubscribe();
+    }
+  }
+
+  public forceXpCapWhenProgressiveScaling(difficultySetting: DifficultySetting) {
+    if(difficultySetting == DifficultySetting.ProgressiveScaling) {
+      this.difficultyFormGroup.get('capEnemyXP').setValue(true);
+      this.difficultyFormGroup.get('capEnemyXP').disable();
+    } else {
+      this.difficultyFormGroup.get('capEnemyXP').enable();
     }
   }
 

@@ -33,7 +33,7 @@
             </select> 
         </div> 
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="NPC" tooltipText="Color shuffle setting for non playable characters"></app-tooltip-span>
+            <app-tooltip-span spanText="NPC" tooltipText="Color shuffle setting for non playable characters other than bosses"></app-tooltip-span>
             <select formControlName='npcSetting'>
                 <option [ngValue]="0">Default</option>
                 <option [ngValue]="2">Random Pick</option>
@@ -41,7 +41,7 @@
             </select> 
         </div> 
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="Status Menu" tooltipText="Color of the upper screen status menu"></app-tooltip-span>
+            <app-tooltip-span spanText="Status Menu" tooltipText="Color of the status menu at the top of the screen"></app-tooltip-span>
             <select formControlName='menu'>
                 <option [ngValue]="0">Default</option>
                 <option [ngValue]="1">Blue</option>
@@ -52,9 +52,16 @@
                 <option [ngValue]="6">Grey</option>
             </select> 
         </div> 
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='randomCoinPalette'></mat-slide-toggle>
-            <app-tooltip-span spanText="Random Coin Palette" tooltipText="Coins will be a different random color"></app-tooltip-span>
-        </div>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Coin Color" tooltipText="Color of coins throughout the game"></app-tooltip-span>
+            <select formControlName='coinColor'>
+                <option [ngValue]="0">Default</option>
+                <option [ngValue]="1">Red</option>
+                <option [ngValue]="2">Blue</option>
+                <option [ngValue]="3">Purple</option>
+                <option [ngValue]="4">Silver</option>
+                <option [ngValue]="5">Random</option>
+            </select> 
+        </div> 
     </mat-card-content>
 </form>

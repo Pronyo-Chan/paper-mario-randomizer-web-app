@@ -1,4 +1,5 @@
 import { BowSprite } from './enum/bowSprite';
+import { CoinColor } from './enum/coinColor';
 import { GoombarioSprite } from './enum/goombarioSprite';
 import { KooperSprite } from './enum/kooperSprite';
 import { MarioSprite } from './enum/marioSprite';
@@ -17,7 +18,7 @@ export interface SettingsRequest {
     QuadrupleDamage: boolean;
     OHKO: boolean;
     NoSaveBlocks: boolean;
-    NoHeartBlock: boolean;
+    NoHeartBlocks: boolean;
     FlowerGateOpen: boolean;
     BlueHouseOpen: boolean;
     ToyboxOpen: boolean;
@@ -46,7 +47,6 @@ export interface SettingsRequest {
     RandomPartnersMax?: number;
     StartWithPartners?: StartingPartners;
     WriteSpoilerLog : boolean;
-    RandomCoinPalette: boolean;
     RomanNumerals: boolean;
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
@@ -54,7 +54,9 @@ export interface SettingsRequest {
     ShortenCutscenes: boolean;
     SkipEpilogue: boolean;
     Box5ColorA: number;
-    Box5ColorB: number;
+    Box5ColorB: number;    
+    RandomCoinColor: boolean;
+    CoinColor: CoinColor;
     MarioSetting: SpriteSetting;
     MarioSprite: MarioSprite;
     GoombarioSetting: SpriteSetting;
