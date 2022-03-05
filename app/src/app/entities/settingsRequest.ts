@@ -86,7 +86,7 @@ export interface SettingsRequest {
     StartingItemC: number;
     StartingItemD: number;
     StartingItemE: number;
-    StartingItemF: number;
+    StartingItemF?: number;
     ItemScarcity: number;
     StarWaySpiritsNeeded: number;
 }

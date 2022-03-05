@@ -149,11 +149,14 @@ export class RandomizerService {
       StartingItemC: settingsForm.get('marioStats').get('startingItems').value[12]?.value,
       StartingItemD: settingsForm.get('marioStats').get('startingItems').value[13]?.value,
       StartingItemE: settingsForm.get('marioStats').get('startingItems').value[14]?.value,
-      StartingItemF: settingsForm.get('openLocations').get('homewardShroom').value == true ? KeyItems.HomewardShroom : null,
       ItemScarcity: settingsForm.get('difficulty').get('itemScarcity').value,
       StarWaySpiritsNeeded: settingsForm.get('difficulty').get('starWaySpiritsNeeded').value
       
     } as SettingsRequest;
+
+    if(settingsForm.get('openLocations').get('homewardShroom').value) {
+      request.StartingItemF = KeyItems.HomewardShroom;
+    }
 
     if(request.StartWithRandomPartners) {
       request.RandomPartnersMin = settingsForm.get('partners').get('randomPartnersMin').value;
