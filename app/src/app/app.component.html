@@ -14,7 +14,7 @@
             <button mat-menu-item [routerLink]="'../github'">Github</button>
         </mat-menu>
 
-    <a *ngIf="latestSeedId" class="text-link" [href]="homepageLink + '/seed?id=' + (latestSeedId | async)">
+    <a *ngIf="$latestSeedId | async" class="text-link" [href]="homepageLink + '/seed?id=' + ($latestSeedId | async)">
         <span>  Most Recent Seed</span>
     </a>
     <span class="example-spacer"></span>
