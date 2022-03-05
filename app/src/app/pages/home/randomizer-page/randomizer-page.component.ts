@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../../../services/localStorage/localStorage.service';
 
 import { SpriteSetting } from './../../../entities/enum/spriteSetting';
 import { RandomizerService } from './../../../services/randomizer.service';
@@ -26,7 +27,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public seedGenError: string;
   private _createSeedSubscription: Subscription;
 
-  public constructor(private _randomizerService: RandomizerService, private _router: Router){}
+  public constructor(private _randomizerService: RandomizerService, private _localStorage: LocalStorageService, private _router: Router){}
 
   public ngOnInit(): void {
     this.homepageLink = environment.homepage;
@@ -49,7 +50,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup).pipe(
       tap(seedId => {
-        localStorage.setItem("latestSeedId", JSON.stringify(seedId))
+        this._localStorage.set("latestSeedId", seedId)
         this.navigateToSeedPage(seedId);
       }),
       catchError(err => {
