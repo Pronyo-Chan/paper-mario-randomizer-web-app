@@ -1,6 +1,7 @@
 import { environment } from 'src/environments/environment';
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { throwToolbarMixedModesError } from '@angular/material/toolbar';
+import { LocalStorageService } from './services/localStorage/localStorage.service';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,14 @@ import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 export class AppComponent implements OnInit {
 
   public homepageLink: string;
-  public latestSeedId: string;
+  public $latestSeedId: Observable<string>;
+
+  public constructor(private _localStorage: LocalStorageService) {
+
+  }
 
   public ngOnInit(): void {
     this.homepageLink = environment.homepage;
-    this.latestSeedId = JSON.parse(localStorage.getItem("latestSeedId"))
+    this.$latestSeedId = this._localStorage.watch('latestSeedId');
   }
 }

@@ -2,7 +2,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RandomizerPageComponent } from './pages/home/randomizer-page/randomizer-page.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { MatCardModule } from '@angular/material/card'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatTabsModule } from '@angular/material/tabs'
@@ -27,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ItemsComponent } from './pages/home/randomizer-page/items/items.component';
 import { PartnersComponent } from './pages/home/randomizer-page/partners/partners.component';
 import { GameplayComponent } from './pages/home/randomizer-page/gameplay/gameplay.component';
-import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OpenWorldSettingsComponent } from './pages/home/randomizer-page/open-world-settings/open-world-settings.component';
 import { DifficultySettingsComponent } from './pages/home/randomizer-page/difficulty-settings/difficulty-settings.component';
 import { QolSettingsComponent } from './pages/home/randomizer-page/qol-settings/qol-settings.component';
@@ -81,7 +80,6 @@ import { GithubPageComponent } from './pages/github-page/github-page.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FontAwesomeModule,
     MatCardModule,
     MatSlideToggleModule,
     MatTabsModule,
@@ -101,7 +99,6 @@ import { GithubPageComponent } from './pages/github-page/github-page.component';
     MatChipsModule,
     MatSliderModule,
     MatMenuModule,
-    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

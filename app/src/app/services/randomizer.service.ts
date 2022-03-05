@@ -2,7 +2,7 @@ import { KeyItems } from './../entities/enum/keyItems';
 import { Constants } from './../utilities/constants';
 import { environment } from 'src/environments/environment';
 import { SettingsResponse } from './../entities/settingsResponse';
-import { combineLatest, combineLatestAll, combineLatestWith, forkJoin, map, merge, mergeMap, Observable, switchMap } from 'rxjs';
+import { forkJoin, map, Observable, switchMap } from 'rxjs';
 import { RandomizerRepository } from './../repositories/randomizer-repository/randomizer.repository';
 import { FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
@@ -149,11 +149,14 @@ export class RandomizerService {
       StartingItemC: settingsForm.get('marioStats').get('startingItems').value[12]?.value,
       StartingItemD: settingsForm.get('marioStats').get('startingItems').value[13]?.value,
       StartingItemE: settingsForm.get('marioStats').get('startingItems').value[14]?.value,
-      StartingItemF: settingsForm.get('openLocations').get('homewardShroom').value == true ? KeyItems.HomewardShroom : null,
       ItemScarcity: settingsForm.get('difficulty').get('itemScarcity').value,
       StarWaySpiritsNeeded: settingsForm.get('difficulty').get('starWaySpiritsNeeded').value
       
     } as SettingsRequest;
+
+    if(settingsForm.get('openLocations').get('homewardShroom').value) {
+      request.StartingItemF = KeyItems.HomewardShroom;
+    }
 
     if(request.StartWithRandomPartners) {
       request.RandomPartnersMin = settingsForm.get('partners').get('randomPartnersMin').value;
