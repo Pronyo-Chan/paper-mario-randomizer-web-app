@@ -1,9 +1,9 @@
 
 <mat-toolbar>
-    <a class="image-link" [href]="homepageLink">
+    <a class="image-link" [routerLink]="'../'">
         <img class="logo" src="assets/images/logo.png">
     </a>
-    <a class="text-link" [href]="homepageLink">
+    <a class="text-link" [routerLink]="'../'">
         <span>  Generate Seed</span>
     </a>
     <button class="text-link" [matMenuTriggerFor]="menu">Help <span class="caret">▼</span></button>
@@ -14,7 +14,7 @@
             <button mat-menu-item [routerLink]="'../github'">Github</button>
         </mat-menu>
 
-    <a *ngIf="$latestSeedId | async" class="text-link" [href]="homepageLink + '/seed?id=' + ($latestSeedId | async)">
+    <a *ngIf="$latestSeedId | async" class="text-link" [routerLink]="'../seed'" [queryParams]="{id: ($latestSeedId | async)}">
         <span>  Most Recent Seed</span>
     </a>
     <span class="example-spacer"></span>
@@ -23,7 +23,7 @@
     </a>
 </mat-toolbar>
 <div class="logo-wrapper">
-    <a [href]="homepageLink">
+    <a [routerLink]="'../'">
         <img class="logo" src="assets/images/logo.png">
     </a>
 </div>

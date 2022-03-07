@@ -46,6 +46,7 @@ import { StartingItemsComponent } from './pages/home/randomizer-page/starting-it
 import { ItemChiplistComponent } from './pages/home/randomizer-page/starting-items/item-chiplist/item-chiplist.component';
 import { SettingDetailsPageComponent } from './pages/setting-details-page/setting-details-page.component';
 import { GithubPageComponent } from './pages/github-page/github-page.component';
+import { HttpCacheInterceptorModule } from '@ngneat/cashew';
 
 
 @NgModule({
@@ -99,6 +100,7 @@ import { GithubPageComponent } from './pages/github-page/github-page.component';
     MatChipsModule,
     MatSliderModule,
     MatMenuModule,
+    HttpCacheInterceptorModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

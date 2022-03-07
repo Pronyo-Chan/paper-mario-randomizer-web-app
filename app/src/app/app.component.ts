@@ -11,7 +11,7 @@ import { Observable, tap } from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
-  public homepageLink: string;
+
   public $latestSeedId: Observable<string>;
 
   public constructor(private _localStorage: LocalStorageService) {
@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.homepageLink = environment.homepage;
     this.$latestSeedId = this._localStorage.watch('latestSeedId');
   }
 }
