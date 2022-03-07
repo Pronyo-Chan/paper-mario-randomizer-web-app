@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { timeout, map, take } from 'rxjs/operators';
+import { withCache } from '@ngneat/cashew';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class RandomizerRepository {
   }
 
   public getSeedInfo(seedId: string): Observable<SettingsResponse> {
-    return this._httpClient.get(`${environment.apiEndPoint}randomizer_settings/${seedId}`, { responseType: 'json' }).pipe(
+    return this._httpClient.get(`${environment.apiEndPoint}randomizer_settings/${seedId}`, { responseType: 'json', context: withCache() }).pipe(
       take(1),
       timeout(30000),
       map(response => response as SettingsResponse)
@@ -38,10 +39,10 @@ export class RandomizerRepository {
   }
 
   public getRandoPatch(seedId: string): Observable<Blob> {
-    return this._httpClient.get(`${environment.apiEndPoint}patch/${seedId}`, { responseType: 'blob' }).pipe(take(1), timeout(30000))
+    return this._httpClient.get(`${environment.apiEndPoint}patch/${seedId}`, { responseType: 'blob', context: withCache() }).pipe(take(1), timeout(30000))
   }
 
   public getSpoilerLog(seedId: string): Observable<Blob> {
-    return this._httpClient.get(`${environment.apiEndPoint}spoiler/${seedId}`, { responseType: 'blob' }).pipe(take(1), timeout(30000))
+    return this._httpClient.get(`${environment.apiEndPoint}spoiler/${seedId}`, { responseType: 'blob', context: withCache() }).pipe(take(1), timeout(30000))
   }
 }

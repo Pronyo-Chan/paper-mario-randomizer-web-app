@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
+    "@ngneat/cashew": "^3.0.0",
     "follow-redirects": "^1.14.9",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",

@@ -8,12 +8,9 @@ import { environment } from 'src/environments/environment';
 })
 export class TipsPageComponent implements OnInit, OnDestroy {
   
-  public homepageLink: string;
-
   public constructor(private _renderer: Renderer2) { }
 
   public ngOnInit(): void {
-    this.homepageLink = environment.homepage;
     this._renderer.addClass(document.body, 'blue-bg');
   }
 

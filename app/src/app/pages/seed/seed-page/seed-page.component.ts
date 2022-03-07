@@ -14,7 +14,6 @@ import { environment } from 'src/environments/environment';
 })
 export class SeedPageComponent implements OnInit, OnDestroy {
   
-  public homepageLink: string;
   public seedId: string;
   public seedInfo$: Observable<SettingsResponse>;
 
@@ -32,7 +31,6 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   
 
   public ngOnInit(): void {
-    this.homepageLink = environment.homepage;
     this._renderer.addClass(document.body, 'purple-bg');
 
     this.isPageLoading = true;

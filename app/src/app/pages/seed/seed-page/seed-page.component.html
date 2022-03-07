@@ -29,7 +29,7 @@
         <ng-container *ngIf="pageLoadingErrorCode == '404'">
             <mat-card class="settings-card server-error">
                 <h1>Seed ID not found</h1>
-                <p>No seed with the ID <span>{{seedId}}</span> was found on the server. Keep in mind that seeds are deleted if they're older than 30 days. <a [href]="homepageLink">Click here</a> to go back to the main page</p>
+                <p>No seed with the ID <span>{{seedId}}</span> was found on the server. Keep in mind that seeds are deleted if they're older than 30 days. <a [routerLink]="'../'">Click here</a> to go back to the main page</p>
                 <p> </p>
             </mat-card>
         </ng-container>
@@ -37,7 +37,7 @@
         <ng-container *ngIf="pageLoadingErrorCode && pageLoadingErrorCode != '404'">
             <mat-card class="settings-card server-error">
                 <h1>Server Error: {{pageLoadingErrorCode}}</h1>
-                <p>An servor error has occured. Please try again later and report the issue if it persists. <a [href]="homepageLink">Click here</a> to go back to the main page.</p>
+                <p>A servor error has occured. Please try again later and report the issue if it persists. <a [routerLink]="'../'">Click here</a> to go back to the main page.</p>
             </mat-card>
         </ng-container>
                 
