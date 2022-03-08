@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RandomizerPageComponent } from './pages/home/randomizer-page/randomizer-page.component';
 
 const routes: Routes = [
-  { path: 'seed', component: SeedPageComponent },
+  { path: 'seed', component: SeedPageComponent, runGuardsAndResolvers: 'always', },
   { path: 'tips', component: TipsPageComponent },
   { path: 'changelog', component: ChangelogPageComponent },
   { path: 'settings', component: SettingDetailsPageComponent },
@@ -19,7 +19,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-    scrollPositionRestoration: "enabled"
+    scrollPositionRestoration: "enabled",
+    onSameUrlNavigation: 'reload'
   })
 ],
   exports: [RouterModule]

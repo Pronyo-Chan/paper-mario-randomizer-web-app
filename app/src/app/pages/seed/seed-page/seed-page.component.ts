@@ -2,7 +2,7 @@ import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
 import { SettingsResponse } from './../../../entities/settingsResponse';
 import { Subscription, tap, switchMap, Observable, take, catchError, of } from 'rxjs';
 import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { RandomizerService } from 'src/app/services/randomizer.service';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
 import { environment } from 'src/environments/environment';
@@ -26,8 +26,9 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   public isPageLoading: boolean;
 
   public isSpoilerLogExpanded: boolean = false;
+  private _navigationSubscription: Subscription;
 
-  constructor(private _renderer: Renderer2, private _route: ActivatedRoute, private _randomizerService: RandomizerService) { }
+  constructor(private _renderer: Renderer2, private _activatedRoute: ActivatedRoute, private _router: Router, private _randomizerService: RandomizerService) { }
   
 
   public ngOnInit(): void {
@@ -35,7 +36,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
     this.isPageLoading = true;
 
-    this.seedInfo$ = this._route.queryParams.pipe(
+    this.seedInfo$ = this._activatedRoute.queryParams.pipe(
       switchMap(params => {
         this.seedId = params.id;
         return this._randomizerService.getSeedInfo(this.seedId).pipe(
@@ -56,6 +57,17 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       }),
       catchError(err => this.handleError(err))
     )
+
+    this._navigationSubscription = this._router.events.subscribe((e: any) => {
+      // If it is a NavigationEnd event re-initalise the component
+      if (e instanceof NavigationEnd && (e as NavigationEnd).url.includes('seed?')) {
+        if(this.pageLoadingErrorCode) {
+          this._renderer.removeClass(document.body, 'red-bg')
+          this.pageLoadingErrorCode = null;
+        }
+        this.ngOnInit();
+      }
+    });
   }
 
   public initSpoilerLog(): void {
@@ -103,6 +115,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    console.log('destroy()')
     this._renderer.removeClass(document.body, 'purple-bg')
   }
 
