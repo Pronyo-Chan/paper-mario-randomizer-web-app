@@ -19,6 +19,9 @@ export class PresetSettingsComponent implements OnInit {
   public newPresetName: string;
   public invalidPresetError: string = "A preset name is required"; 
 
+  public settingsString: string = null;
+  public importStatus: string = null;
+
   public constructor() { }
 
   public ngOnInit(): void {
@@ -85,7 +88,25 @@ export class PresetSettingsComponent implements OnInit {
     }
   }
 
+  public exportSettings() {
+    this.importStatus = null;
+    let formData = JSON.stringify(this.formGroup.getRawValue());
+    this.settingsString = btoa(formData)
+  }
+
+  public importSettings() {
+    this.importStatus = null;
+    try {      
+      this.formGroup.patchValue(JSON.parse(atob(this.settingsString)))
+      this.importStatus = "success";
+    }
+    catch(error) {
+      this.importStatus = "error";
+    }
+  }
+
   public isSelectedPresetPremade() {
     return this.premadePresets.some(p => p.name == this.selectedPreset)
   }
+
 }
