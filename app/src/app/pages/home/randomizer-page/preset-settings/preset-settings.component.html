@@ -17,23 +17,16 @@
         
     </div>
         
-    <div class="preset-button-container">
-        <div class="input-label">
-            <span class="settings-label">Save Current Settings: </span>
-            <input matInput placeholder="Preset Name" [(ngModel)]="newPresetName" (ngModelChange)="validatePresetName()">
-        </div>
-        
+    <div class="preset-button-container">        
         <div>
-            <button [disabled]="invalidPresetError" (click)="savePreset()">
-                <span [matTooltip]="invalidPresetError ? invalidPresetError: ''" matTooltipPosition="right">Save</span>
-            </button>
+            <button (click)="savePreset()"><span>Save</span></button>
         </div>
     </div>
 
     <div class="setting-string-container">
         <div class="input-label">
             <span class="settings-label">Settings string</span>
-            <textarea rows="3" matInput [(ngModel)]="newPresetName" [(ngModel)]="settingsString"></textarea>
+            <textarea rows="3" matInput [(ngModel)]="settingsString"></textarea>
         </div>
 
         <div>

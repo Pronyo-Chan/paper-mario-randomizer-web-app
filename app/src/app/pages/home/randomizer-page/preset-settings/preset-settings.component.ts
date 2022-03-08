@@ -1,6 +1,8 @@
+import { SavePresetDialogComponent } from './save-preset-dialog/save-preset-dialog.component';
 import { FormGroup } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 import presetsJson from  '../../../../utilities/presets.json';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-preset-settings',
@@ -15,14 +17,11 @@ export class PresetSettingsComponent implements OnInit {
 
   public premadePresets: {name, settings}[];
   public customPresets: {name, settings}[];
- 
-  public newPresetName: string;
-  public invalidPresetError: string = "A preset name is required"; 
 
   public settingsString: string = null;
   public importStatus: string = null;
 
-  public constructor() { }
+  public constructor(private _dialog: MatDialog) { }
 
   public ngOnInit(): void {
     this.premadePresets = presetsJson;
@@ -48,23 +47,33 @@ export class PresetSettingsComponent implements OnInit {
   }
 
   public savePreset(): void {
-    let formObj = this.formGroup.getRawValue();
-    let newPreset = {name: this.newPresetName, settings: formObj}
 
-    this.customPresets.push(newPreset);
-    localStorage.setItem("presets", JSON.stringify(this.customPresets))
+    const dialogRef = this._dialog.open(SavePresetDialogComponent, {
+      width: '50%',
+      data: this.customPresets.map(p => p.name)
+    });
 
-    this.selectedPreset = this.newPresetName;
-    this.newPresetName = null;
-    this.validatePresetName();
+    dialogRef.afterClosed().subscribe(newPresetName => {
+      if(!newPresetName) {
+        return;
+      }
+
+      let formObj = this.formGroup.getRawValue();
+      let newPreset = {name: newPresetName, settings: formObj}
+
+      this.customPresets.push(newPreset);
+      localStorage.setItem("presets", JSON.stringify(this.customPresets))
+
+      this.selectedPreset = newPresetName;
+    });
+
+    
   }
 
   public removePreset(): void {
     this.customPresets = this.customPresets.filter(p => p.name != this.selectedPreset);
     this.selectedPreset = this.premadePresets[0].name;
     localStorage.setItem("presets", JSON.stringify(this.customPresets))
-    this.validatePresetName();
-
   }
 
   public populateFormGroupWithPreset(formGroup: FormGroup, preset: any) {
@@ -77,17 +86,7 @@ export class PresetSettingsComponent implements OnInit {
       }
     });
   }
-
-  public validatePresetName() {
-    if(!this.newPresetName || this.newPresetName == '') {
-      this.invalidPresetError = "A preset name is required"
-    } else if(this.customPresets.find(p => p.name == this.newPresetName) || this.premadePresets.find(p => p.name == this.newPresetName)) {
-      this.invalidPresetError = "A preset with this name already exists"
-    } else {
-      this.invalidPresetError = null;
-    }
-  }
-
+  
   public exportSettings() {
     this.importStatus = null;
     let formData = JSON.stringify(this.formGroup.getRawValue());
