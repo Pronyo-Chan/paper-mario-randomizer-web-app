@@ -19,6 +19,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatChipsModule } from '@angular/material/chips'
 import { MatSliderModule } from '@angular/material/slider'
 import { MatMenuModule } from '@angular/material/menu'
+import { MatDialogModule } from '@angular/material/dialog'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,6 +48,8 @@ import { ItemChiplistComponent } from './pages/home/randomizer-page/starting-ite
 import { SettingDetailsPageComponent } from './pages/setting-details-page/setting-details-page.component';
 import { GithubPageComponent } from './pages/github-page/github-page.component';
 import { HttpCacheInterceptorModule } from '@ngneat/cashew';
+import { SavePresetDialogComponent } from './pages/home/randomizer-page/preset-settings/save-preset-dialog/save-preset-dialog.component';
+import { DevPageComponent } from './pages/dev-page/dev-page.component';
 
 
 @NgModule({
@@ -74,7 +77,9 @@ import { HttpCacheInterceptorModule } from '@ngneat/cashew';
     StartingItemsComponent,
     ItemChiplistComponent,
     SettingDetailsPageComponent,
-    GithubPageComponent
+    SavePresetDialogComponent,
+    GithubPageComponent,
+    DevPageComponent
   ],
   imports: [
     BrowserModule,
@@ -100,6 +105,7 @@ import { HttpCacheInterceptorModule } from '@ngneat/cashew';
     MatChipsModule,
     MatSliderModule,
     MatMenuModule,
+    MatDialogModule,
     HttpCacheInterceptorModule.forRoot()
   ],
   providers: [],

@@ -1,3 +1,4 @@
+import { DevPageComponent } from './pages/dev-page/dev-page.component';
 import { GithubPageComponent } from './pages/github-page/github-page.component';
 import { SettingDetailsPageComponent } from './pages/setting-details-page/setting-details-page.component';
 import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.component';
@@ -8,18 +9,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { RandomizerPageComponent } from './pages/home/randomizer-page/randomizer-page.component';
 
 const routes: Routes = [
-  { path: 'seed', component: SeedPageComponent },
+  { path: 'seed', component: SeedPageComponent, runGuardsAndResolvers: 'always', },
   { path: 'tips', component: TipsPageComponent },
   { path: 'changelog', component: ChangelogPageComponent },
   { path: 'settings', component: SettingDetailsPageComponent },
   { path: 'github', component: GithubPageComponent },
+  { path: 'dev-tools', component: DevPageComponent },
   { path: '', pathMatch: 'full', component: RandomizerPageComponent },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-    scrollPositionRestoration: "enabled"
+    scrollPositionRestoration: "enabled",
+    onSameUrlNavigation: 'reload'
   })
 ],
   exports: [RouterModule]

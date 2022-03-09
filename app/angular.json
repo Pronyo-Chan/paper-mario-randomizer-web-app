@@ -37,6 +37,7 @@
               "src/styles.scss"
             ],
             "scripts": [
+              "./node_modules/yaml/index.js"
             ]
           },
           "configurations": {
