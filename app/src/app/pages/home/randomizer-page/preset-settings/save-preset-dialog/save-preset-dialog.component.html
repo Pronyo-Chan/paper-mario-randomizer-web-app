@@ -1,0 +1,12 @@
+
+<h2 mat-dialog-title>Save Preset</h2>
+<div class="input-label">
+    <span class="settings-label">Name: </span>
+    <input  autocomplete="off" maxlength="20" matInput [(ngModel)]="newPresetName" (ngModelChange)="validatePresetName()">
+</div>
+<div mat-dialog-actions>
+    <button [disabled]="!isPresetValid || !newPresetName?.length" [mat-dialog-close]="newPresetName">
+        <span [matTooltip]="isPresetValid ? '': 'A preset with this name already exists'" matTooltipPosition="right">Save</span>
+    </button>
+    <button (click)="onCancelClick()"><span>Cancel</span></button>
+</div>

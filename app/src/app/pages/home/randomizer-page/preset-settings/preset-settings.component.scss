@@ -12,9 +12,41 @@
 
     .input-label {
         margin-right: 1%;
+        margin-top: 1rem;
     }
 }
 
+.setting-string-container{
+    margin-top: 1rem;
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .input-label {
+        flex-basis: 100%;
+        margin-top: 1rem;
+
+        textarea {
+            width: 100%;
+        }
+    }
+}
+
+span {
+    font-size: 16px;
+}
+
+span.error {
+    font-family: gluten;
+    color: red;   
+    font-weight: 600;  
+}
+
+span.success {
+    font-family: gluten;
+    font-weight: 600;  
+}
 
 button {
     width: 110px;
@@ -26,15 +58,12 @@ button {
         text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
 
     }
-    margin: 0 1rem 0 0;
+    margin: 1rem 1rem 0 0;
     cursor: pointer;
     padding: 0.6rem 1rem;
-    background-color: variables.$yellow-stat-main;    
-    border-radius: 15px;        
-    border: double;
-    border-width: 6px;
-    border-color: variables.$yellow-stat-border;
-    
+    background-color: variables.$yellow-stat-main;         
+    border: none;
+    border-radius: 24px;
 }
 
 button:disabled {
