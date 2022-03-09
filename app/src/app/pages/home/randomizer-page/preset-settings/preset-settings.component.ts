@@ -11,12 +11,16 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PresetSettingsComponent implements OnInit {
 
+  public readonly CUSTOM_PRESET_NAME = "[New Preset]"
+
   @Input() public formGroup: FormGroup
 
   public selectedPreset: string;
 
-  public premadePresets: {name, settings}[];
-  public customPresets: {name, settings}[];
+  public premadePresets: {name: string, settings}[];
+  public customPresets: {name: string, settings}[];
+  public presetStatus: string = null;
+  public recentlyRemovedPreset: string = null;
 
   public settingsString: string = null;
   public importStatus: string = null;
@@ -25,16 +29,18 @@ export class PresetSettingsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.premadePresets = presetsJson;
-    this.selectedPreset = this.premadePresets[0].name;
-    this.loadPreset();
-
     var customPresetsString = localStorage.getItem("presets")
+
     if (customPresetsString) {
       this.customPresets = JSON.parse(customPresetsString);
     } 
     else {
       this.customPresets = []
     }
+
+    this.selectedPreset = this.customPresets?.length ? this.customPresets[0].name : this.premadePresets[0].name;
+    this.loadPreset();
+    this.presetStatus = null;
   } 
 
   public loadPreset(): void {
@@ -43,50 +49,54 @@ export class PresetSettingsComponent implements OnInit {
     if(!preset) {
       preset = this.customPresets.find(p => p.name == this.selectedPreset);
     }
-    this.populateFormGroupWithPreset(this.formGroup, preset['settings']);
+    this.formGroup.patchValue(preset['settings'])
+    this.presetStatus = "loaded";
   }
 
   public savePreset(): void {
 
-    const dialogRef = this._dialog.open(SavePresetDialogComponent, {
-      width: '50%',
-      data: this.customPresets.map(p => p.name)
-    });
+    if(this.selectedPreset == this.CUSTOM_PRESET_NAME) {
+      const dialogRef = this._dialog.open(SavePresetDialogComponent, {
+        width: '30rem',
+        
+        data: this.customPresets.map(p => p.name).concat(this.premadePresets.map(p => p.name))
+      });
+  
+      dialogRef.afterClosed().subscribe(newPresetName => {
+        if(!newPresetName) {
+          return;
+        }
+  
+        let formObj = this.formGroup.getRawValue();
+        let newPreset = {name: newPresetName, settings: formObj}
+  
+        this.customPresets.push(newPreset);
+        localStorage.setItem("presets", JSON.stringify(this.customPresets))
+  
+        this.selectedPreset = newPresetName;
+        this.presetStatus = "saved";
+      });
+    }
+    else {
+      let updatedPresetSettings = this.formGroup.getRawValue();
+      this.customPresets.find(p => p.name == this.selectedPreset).settings = updatedPresetSettings;
 
-    dialogRef.afterClosed().subscribe(newPresetName => {
-      if(!newPresetName) {
-        return;
-      }
-
-      let formObj = this.formGroup.getRawValue();
-      let newPreset = {name: newPresetName, settings: formObj}
-
-      this.customPresets.push(newPreset);
       localStorage.setItem("presets", JSON.stringify(this.customPresets))
-
-      this.selectedPreset = newPresetName;
-    });
+      this.presetStatus = "saved";
+    }
 
     
   }
 
   public removePreset(): void {
     this.customPresets = this.customPresets.filter(p => p.name != this.selectedPreset);
-    this.selectedPreset = this.premadePresets[0].name;
+    this.recentlyRemovedPreset = this.selectedPreset;
+    this.selectedPreset = this.customPresets?.length ? this.customPresets[0].name : this.premadePresets[0].name;
     localStorage.setItem("presets", JSON.stringify(this.customPresets))
+
+    this.presetStatus = "removed";
   }
 
-  public populateFormGroupWithPreset(formGroup: FormGroup, preset: any) {
-    Object.keys(formGroup.controls).forEach(formControl => {
-      if( Object.keys(preset).find(p => p == formControl)) {
-        formGroup.controls[formControl].setValue(preset[formControl])
-      }
-      else if((formGroup.controls[formControl] as FormGroup)?.controls) {
-        this.populateFormGroupWithPreset(formGroup.controls[formControl] as FormGroup, preset)
-      }
-    });
-  }
-  
   public exportSettings() {
     this.importStatus = null;
     let formData = JSON.stringify(this.formGroup.getRawValue());
@@ -104,8 +114,12 @@ export class PresetSettingsComponent implements OnInit {
     }
   }
 
-  public isSelectedPresetPremade() {
-    return this.premadePresets.some(p => p.name == this.selectedPreset)
+  public isSelectedPresetPremade(): boolean {
+    return this.premadePresets.some(p => p.name == this.selectedPreset && p.name != this.CUSTOM_PRESET_NAME)
+  }
+
+  public onSelectedPresetChange(): void {
+    this.presetStatus = null;
   }
 
 }

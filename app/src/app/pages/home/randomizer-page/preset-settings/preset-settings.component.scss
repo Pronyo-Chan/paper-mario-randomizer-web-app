@@ -31,17 +31,21 @@
             width: 100%;
         }
     }
+}
 
-    span.error {
-        font-family: gluten;
-        color: red;   
-        font-weight: 600;  
-    }
+span {
+    font-size: 16px;
+}
 
-    span.success {
-        font-family: gluten;
-        font-weight: 600;  
-    }
+span.error {
+    font-family: gluten;
+    color: red;   
+    font-weight: 600;  
+}
+
+span.success {
+    font-family: gluten;
+    font-weight: 600;  
 }
 
 button {
@@ -60,7 +64,6 @@ button {
     background-color: variables.$yellow-stat-main;         
     border: none;
     border-radius: 24px;
-    
 }
 
 button:disabled {
