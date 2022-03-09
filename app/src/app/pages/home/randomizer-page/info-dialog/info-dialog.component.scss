@@ -1,0 +1,32 @@
+@use './../../../../../variables';
+
+:host {
+    background-color: variables.$blue-background-card !important;
+    margin-bottom: 2rem;
+}
+h2, span {
+    font-family: 'gluten';
+}
+
+button {
+    width: 110px;
+    span {
+        
+        font-family: gluten ;
+        font-size: 16px;
+        color: white ;
+        text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+
+    }
+    margin: 1rem 1rem 0 0;
+    cursor: pointer;
+    padding: 0.6rem 1rem;
+    background-color: variables.$yellow-stat-main;         
+    border: none;
+    border-radius: 24px;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 30%;
+}

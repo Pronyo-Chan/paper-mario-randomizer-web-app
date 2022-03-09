@@ -50,6 +50,7 @@ import { GithubPageComponent } from './pages/github-page/github-page.component';
 import { HttpCacheInterceptorModule } from '@ngneat/cashew';
 import { SavePresetDialogComponent } from './pages/home/randomizer-page/preset-settings/save-preset-dialog/save-preset-dialog.component';
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
+import { InfoDialogComponent } from './pages/home/randomizer-page/info-dialog/info-dialog.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { DevPageComponent } from './pages/dev-page/dev-page.component';
     SettingDetailsPageComponent,
     SavePresetDialogComponent,
     GithubPageComponent,
-    DevPageComponent
+    DevPageComponent,
+    InfoDialogComponent
   ],
   imports: [
     BrowserModule,
