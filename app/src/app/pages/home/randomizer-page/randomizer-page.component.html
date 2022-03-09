@@ -1,7 +1,7 @@
 <form [formGroup]="formGroup">
     <div class="main-page">
         <mat-card class="settings-card">
-            <mat-card-title class="settings-title">Preset Settings</mat-card-title>
+            <mat-card-title class="settings-title">Presets</mat-card-title>
             <app-preset-settings [formGroup]="formGroup"></app-preset-settings>
         </mat-card>
         <mat-card class="settings-card" [ngClass]="{ 'partners-tab-error': formGroup.get('partners').invalid}">
