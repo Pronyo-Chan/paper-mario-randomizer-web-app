@@ -2,110 +2,163 @@
     {
         "name": "Beginner",
         "settings": {
-            "shuffleItems": true,
-            "includeCoins": false,
-            "includeShops": false,
-            "includePanels": false,
-            "includeFavors": false,
-            "keyitemsOutsideDungeon": false,
-            "shuffleBadgesBP": false,
-            "shuffleBadgesFP": false,
-            "shufflePartnerFP": false,
-            "shuffleStarpowerSP": false,
-            "shufflePartners": false,
-            "partnersAlwaysUsable": true,
-            "startWithRandomPartners": true,  
-            "randomPartnersMin": 1,
-            "randomPartnersMax": 8,
-            "goombario": true,
-            "kooper": false,
-            "bombette": false,
-            "parakarry": false,
-            "bow": false,
-            "watt": false,
-            "sushie": false,
-            "lakilester": false,
-            "difficultyMode": 2,
-            "randomFormations": false,
-            "randomQuiz": true,
-            "coinColor": 0,
-            "alwaysSpeedySpin": true,
-            "alwaysISpy": false,
-            "alwaysPeekaboo": true,
-            "skipQuiz": false,
-            "startingCoins": 50,
-            "capEnemyXP": true,
-            "noXP": false,
-            "damageMultiplier": 1,
-            "oneHitKO": false,
-            "noSaveBlocks": false,
-            "noHeartBlocks": false,
-            "blueHouseOpen": false,
-            "toyboxOpen": false,
-            "whaleOpen": false,
-            "flowerGateOpen": false,
-            "includeDojo": false,
-            "preventPhysicsGlitches": false,
-            "hiddenBlockMode": 3,
-            "turnOffMusic": false,           
-            "shortenBowsersCastle": true,
-            "writeSpoilerLog": true,
-            "shortenCutscenes": true,
-            "skipEpilogue": true,
-            "quizmoAlwaysAppears": false,
-            "romanNumerals": false,
-            "startingMaxHP": 10,
-            "startingMaxFP": 5,
-            "startingMaxBP": 3,
-            "startingStarPower": 0,
-            "startingMap": 65796,
-            "startingItems": [],
-            "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "bossesSetting": 0,
-            "npcSetting": 0,
-            "menu": 0,
-            "itemScarcity": 0,
-            "homewardShroom": true,
-            "starWaySpiritsNeeded": 7
+            "items": {
+                "shuffleItems": true,
+                "includeCoins": false,
+                "includeShops": false,
+                "includePanels": false,
+                "includeFavors": false,
+                "keyitemsOutsideDungeon": false,
+                "includeDojo": false
+            },
+            "gameplay": {
+                "shuffleBadgesBP": false,
+                "shuffleBadgesFP": false,
+                "shufflePartnerFP": false,
+                "shuffleStarpowerSP": false,
+                "randomFormations": false
+            },
+            "partners": {
+                "shufflePartners": false,
+                "partnersAlwaysUsable": true,
+                "startWithRandomPartners": true,
+                "randomPartnersMin": 1,
+                "randomPartnersMax": 1,
+                "startWithPartners": {
+                    "goombario": true,
+                    "kooper": false,
+                    "bombette": false,
+                    "parakarry": false,
+                    "bow": false,
+                    "watt": false,
+                    "sushie": false,
+                    "lakilester": false
+                }
+            },
+            "qualityOfLife": {
+                "hiddenBlockMode": 3,
+                "alwaysSpeedySpin": true,
+                "alwaysISpy": false,
+                "alwaysPeekaboo": true,
+                "skipQuiz": false,
+                "preventPhysicsGlitches": false,
+                "shortenBowsersCastle": true,
+                "shortenCutscenes": true,
+                "skipEpilogue": true,
+                "writeSpoilerLog": true,
+                "turnOffMusic": false,
+                "quizmoAlwaysAppears": false,
+                "romanNumerals": false
+            },
+            "difficulty": {
+                "difficultyMode": 2,
+                "startingCoins": 50,
+                "capEnemyXP": true,
+                "noXP": false,
+                "damageMultiplier": 1,
+                "oneHitKO": false,
+                "noSaveBlocks": false,
+                "noHeartBlocks": false,
+                "itemScarcity": 0,
+                "starWaySpiritsNeeded": 7
+            },
+            "marioStats": {
+                "startingCoins": 50,
+                "startingMaxHP": 10,
+                "startingMaxFP": 5,
+                "startingMaxBP": 3,
+                "startingStarPower": 0,
+                "startingItems": []
+            },
+            "openLocations": {
+                "flowerGateOpen": false,
+                "blueHouseOpen": false,
+                "toyboxOpen": false,
+                "whaleOpen": false,
+                "startingMap": 65796,
+                "homewardShroom": true
+            },
+            "colorPalettes": {
+                "menu": 0,
+                "marioSprite": {
+                    "setting": 0,
+                    "paletteSelection": 0,
+                    "optionDisplay": "Default"
+                },
+                "goombarioSprite": {
+                    "setting": 0,
+                    "paletteSelection": 0,
+                    "optionDisplay": "Default"
+                },
+                "kooperSprite": {
+                    "setting": 0,
+                    "paletteSelection": 0,
+                    "optionDisplay": "Default"
+                },
+                "bowSprite": {
+                    "setting": 0,
+                    "paletteSelection": 0,
+                    "optionDisplay": "Default"
+                },
+                "bossesSetting": 0,
+                "npcSetting": 0,
+                "coinColor": 0
+            }
         }
     },
     {
         "name": "Open World",
         "settings": {
+          "items": {
             "shuffleItems": true,
             "includeCoins": false,
             "includeShops": false,
             "includePanels": false,
             "includeFavors": false,
             "keyitemsOutsideDungeon": false,
+            "includeDojo": false
+          },
+          "gameplay": {
             "shuffleBadgesBP": false,
             "shuffleBadgesFP": false,
             "shufflePartnerFP": false,
             "shuffleStarpowerSP": false,
+            "randomFormations": false
+          },
+          "partners": {
             "shufflePartners": false,
             "partnersAlwaysUsable": true,
-            "startWithRandomPartners": true,  
+            "startWithRandomPartners": true,
             "randomPartnersMin": 1,
-            "randomPartnersMax": 8,
-            "goombario": true,
-            "kooper": false,
-            "bombette": false,
-            "parakarry": false,
-            "bow": false,
-            "watt": false,
-            "sushie": false,
-            "lakilester": false,
-            "difficultyMode": 2,
-            "randomFormations": false,
-            "randomQuiz": true,
-            "coinColor": 0,
+            "randomPartnersMax": 1,
+            "startWithPartners": {
+              "goombario": true,
+              "kooper": false,
+              "bombette": false,
+              "parakarry": false,
+              "bow": false,
+              "watt": false,
+              "sushie": false,
+              "lakilester": false
+            }
+          },
+          "qualityOfLife": {
+            "hiddenBlockMode": 2,
             "alwaysSpeedySpin": true,
             "alwaysISpy": false,
             "alwaysPeekaboo": true,
             "skipQuiz": false,
+            "preventPhysicsGlitches": false,
+            "shortenBowsersCastle": false,
+            "shortenCutscenes": true,
+            "skipEpilogue": true,
+            "writeSpoilerLog": true,
+            "turnOffMusic": false,
+            "quizmoAlwaysAppears": false,
+            "romanNumerals": false
+          },
+          "difficulty": {
+            "difficultyMode": 2,
             "startingCoins": 50,
             "capEnemyXP": true,
             "noXP": false,
@@ -113,72 +166,106 @@
             "oneHitKO": false,
             "noSaveBlocks": false,
             "noHeartBlocks": false,
-            "blueHouseOpen": true,
-            "toyboxOpen": true,
-            "whaleOpen": true,
-            "flowerGateOpen": true,
-            "includeDojo": false,
-            "preventPhysicsGlitches": false,
-            "hiddenBlockMode": 2,
-            "turnOffMusic": false,           
-            "shortenBowsersCastle": false,
-            "writeSpoilerLog": true,
-            "shortenCutscenes": true,
-            "skipEpilogue": true,
-            "quizmoAlwaysAppears": false,
-            "romanNumerals": false,
+            "itemScarcity": 0,
+            "starWaySpiritsNeeded": 7
+          },
+          "marioStats": {
+            "startingCoins": 50,
             "startingMaxHP": 10,
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingStarPower": 0,
+            "startingItems": []
+          },
+          "openLocations": {
+            "flowerGateOpen": true,
+            "blueHouseOpen": true,
+            "toyboxOpen": true,
+            "whaleOpen": true,
             "startingMap": 65796,
-            "startingItems": [],
-            "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "homewardShroom": true
+          },
+          "colorPalettes": {
+            "menu": 0,
+            "marioSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "goombarioSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "kooperSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "bowSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
             "bossesSetting": 0,
             "npcSetting": 0,
-            "menu": 0,
-            "itemScarcity": 0,
-            "homewardShroom": true,
-            "starWaySpiritsNeeded": 7
+            "coinColor": 0
+          }
         }
     },
     {
         "name": "Intermediate",
         "settings": {
+          "items": {
             "shuffleItems": true,
             "includeCoins": false,
             "includeShops": true,
             "includePanels": true,
             "includeFavors": false,
             "keyitemsOutsideDungeon": true,
+            "includeDojo": false
+          },
+          "gameplay": {
             "shuffleBadgesBP": false,
             "shuffleBadgesFP": false,
             "shufflePartnerFP": false,
             "shuffleStarpowerSP": false,
+            "randomFormations": true
+          },
+          "partners": {
             "shufflePartners": true,
             "partnersAlwaysUsable": false,
-            "startWithRandomPartners": true,  
+            "startWithRandomPartners": true,
             "randomPartnersMin": 1,
-            "randomPartnersMax": 8,
-            "goombario": true,
-            "kooper": false,
-            "bombette": false,
-            "parakarry": false,
-            "bow": false,
-            "watt": false,
-            "sushie": false,
-            "lakilester": false,
-            "difficultyMode": 2,
-            "randomFormations": true,
-            "randomQuiz": true,
-            "coinColor": 0,
+            "randomPartnersMax": 1,
+            "startWithPartners": {
+              "goombario": true,
+              "kooper": false,
+              "bombette": false,
+              "parakarry": false,
+              "bow": false,
+              "watt": false,
+              "sushie": false,
+              "lakilester": false
+            }
+          },
+          "qualityOfLife": {
+            "hiddenBlockMode": 2,
             "alwaysSpeedySpin": true,
             "alwaysISpy": false,
             "alwaysPeekaboo": true,
             "skipQuiz": false,
+            "preventPhysicsGlitches": false,
+            "shortenBowsersCastle": true,
+            "shortenCutscenes": true,
+            "skipEpilogue": true,
+            "writeSpoilerLog": true,
+            "turnOffMusic": false,
+            "quizmoAlwaysAppears": false,
+            "romanNumerals": false
+          },
+          "difficulty": {
+            "difficultyMode": 2,
             "startingCoins": 50,
             "capEnemyXP": true,
             "noXP": false,
@@ -186,72 +273,106 @@
             "oneHitKO": false,
             "noSaveBlocks": false,
             "noHeartBlocks": false,
-            "blueHouseOpen": false,
-            "toyboxOpen": false,
-            "whaleOpen": false,
-            "flowerGateOpen": false,
-            "includeDojo": false,
-            "preventPhysicsGlitches": false,
-            "hiddenBlockMode": 2,
-            "turnOffMusic": false,           
-            "shortenBowsersCastle": true,
-            "writeSpoilerLog": true,
-            "shortenCutscenes": true,
-            "skipEpilogue": true,
-            "quizmoAlwaysAppears": false,
-            "romanNumerals": false,
+            "itemScarcity": 0,
+            "starWaySpiritsNeeded": 7
+          },
+          "marioStats": {
+            "startingCoins": 50,
             "startingMaxHP": 10,
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingStarPower": 0,
+            "startingItems": []
+          },
+          "openLocations": {
+            "flowerGateOpen": false,
+            "blueHouseOpen": false,
+            "toyboxOpen": false,
+            "whaleOpen": false,
             "startingMap": 65796,
-            "startingItems": [],
-            "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "homewardShroom": true
+          },
+          "colorPalettes": {
+            "menu": 0,
+            "marioSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "goombarioSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "kooperSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "bowSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
             "bossesSetting": 0,
             "npcSetting": 0,
-            "menu": 0,
-            "itemScarcity": 0,
-            "homewardShroom": true,
-            "starWaySpiritsNeeded": 7
+            "coinColor": 0
+          }
         }
     },
     {
         "name": "Extreme Shuffle",
         "settings": {
+          "items": {
             "shuffleItems": true,
             "includeCoins": true,
             "includeShops": true,
             "includePanels": true,
             "includeFavors": true,
             "keyitemsOutsideDungeon": true,
+            "includeDojo": true
+          },
+          "gameplay": {
             "shuffleBadgesBP": false,
             "shuffleBadgesFP": false,
             "shufflePartnerFP": false,
             "shuffleStarpowerSP": false,
+            "randomFormations": true
+          },
+          "partners": {
+            "shufflePartners": true,
             "partnersAlwaysUsable": false,
             "startWithRandomPartners": true,
-            "shufflePartners": true,
             "randomPartnersMin": 1,
-            "randomPartnersMax": 8,
-            "goombario": true,
-            "kooper": false,
-            "bombette": false,
-            "parakarry": false,
-            "bow": false,
-            "watt": false,
-            "sushie": false,
-            "lakilester": false,
-            "difficultyMode": 1,
-            "randomFormations": true,
-            "randomQuiz": true,
-            "coinColor": 0,
+            "randomPartnersMax": 1,
+            "startWithPartners": {
+              "goombario": true,
+              "kooper": false,
+              "bombette": false,
+              "parakarry": false,
+              "bow": false,
+              "watt": false,
+              "sushie": false,
+              "lakilester": false
+            }
+          },
+          "qualityOfLife": {
+            "hiddenBlockMode": 0,
             "alwaysSpeedySpin": true,
             "alwaysISpy": false,
             "alwaysPeekaboo": true,
             "skipQuiz": false,
+            "preventPhysicsGlitches": false,
+            "shortenBowsersCastle": false,
+            "shortenCutscenes": true,
+            "skipEpilogue": true,
+            "writeSpoilerLog": true,
+            "turnOffMusic": false,
+            "quizmoAlwaysAppears": false,
+            "romanNumerals": false
+          },
+          "difficulty": {
+            "difficultyMode": 1,
             "startingCoins": 50,
             "capEnemyXP": false,
             "noXP": false,
@@ -259,36 +380,55 @@
             "oneHitKO": false,
             "noSaveBlocks": false,
             "noHeartBlocks": false,
-            "blueHouseOpen": false,
-            "toyboxOpen": false,
-            "whaleOpen": false,
-            "flowerGateOpen": false,
-            "includeDojo": true,
-            "preventPhysicsGlitches": false,
-            "hiddenBlockMode": 0,
-            "turnOffMusic": false,        
-            "shortenBowsersCastle": false,
-            "writeSpoilerLog": true,
-            "shortenCutscenes": true,
-            "skipEpilogue": true,
-            "quizmoAlwaysAppears": false,
-            "romanNumerals": false,
+            "itemScarcity": 0,
+            "starWaySpiritsNeeded": 7
+          },
+          "marioStats": {
+            "startingCoins": 50,
             "startingMaxHP": 10,
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingStarPower": 0,
+            "startingItems": []
+          },
+          "openLocations": {
+            "flowerGateOpen": false,
+            "blueHouseOpen": false,
+            "toyboxOpen": false,
+            "whaleOpen": false,
             "startingMap": 65796,
-            "startingItems": [],
-            "marioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "goombarioSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "kooperSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
-            "bowSprite": {"setting": 0, "paletteSelection": 0, "optionDisplay": "Default"},
+            "homewardShroom": true
+          },
+          "colorPalettes": {
+            "menu": 0,
+            "marioSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "goombarioSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "kooperSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "bowSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
             "bossesSetting": 0,
             "npcSetting": 0,
-            "menu": 0,
-            "itemScarcity": 0,
-            "homewardShroom": true,
-            "starWaySpiritsNeeded": 7
+            "coinColor": 0
+          }
         }
+    },
+    {
+        "name": "[New Preset]",
+        "settings": {}
     }
 ]
