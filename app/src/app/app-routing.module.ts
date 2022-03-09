@@ -1,3 +1,4 @@
+import { DevPageComponent } from './pages/dev-page/dev-page.component';
 import { GithubPageComponent } from './pages/github-page/github-page.component';
 import { SettingDetailsPageComponent } from './pages/setting-details-page/setting-details-page.component';
 import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'changelog', component: ChangelogPageComponent },
   { path: 'settings', component: SettingDetailsPageComponent },
   { path: 'github', component: GithubPageComponent },
+  { path: 'dev-tools', component: DevPageComponent },
   { path: '', pathMatch: 'full', component: RandomizerPageComponent },
 ];
 

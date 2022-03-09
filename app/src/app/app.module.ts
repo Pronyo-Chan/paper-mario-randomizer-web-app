@@ -49,6 +49,7 @@ import { SettingDetailsPageComponent } from './pages/setting-details-page/settin
 import { GithubPageComponent } from './pages/github-page/github-page.component';
 import { HttpCacheInterceptorModule } from '@ngneat/cashew';
 import { SavePresetDialogComponent } from './pages/home/randomizer-page/preset-settings/save-preset-dialog/save-preset-dialog.component';
+import { DevPageComponent } from './pages/dev-page/dev-page.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { SavePresetDialogComponent } from './pages/home/randomizer-page/preset-s
     ItemChiplistComponent,
     SettingDetailsPageComponent,
     SavePresetDialogComponent,
-    GithubPageComponent
+    GithubPageComponent,
+    DevPageComponent
   ],
   imports: [
     BrowserModule,
