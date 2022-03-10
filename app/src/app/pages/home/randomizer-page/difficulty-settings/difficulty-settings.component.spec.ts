@@ -25,7 +25,6 @@ describe('DifficultySettingsComponent', () => {
     component = fixture.componentInstance;
     component.difficultyFormGroup = new FormGroup({
       difficultyMode: new FormControl(DifficultySetting.Vanilla),
-      startingCoins: new FormControl(0),
       capEnemyXP: new FormControl(false),
       noXP: new FormControl(false),
       damageMultiplier: new FormControl(1),

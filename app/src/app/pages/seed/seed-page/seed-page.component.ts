@@ -115,7 +115,6 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    console.log('destroy()')
     this._renderer.removeClass(document.body, 'purple-bg')
   }
 

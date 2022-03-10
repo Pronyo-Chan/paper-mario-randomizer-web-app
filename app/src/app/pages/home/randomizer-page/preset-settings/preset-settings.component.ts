@@ -1,5 +1,5 @@
 import { SavePresetDialogComponent } from './save-preset-dialog/save-preset-dialog.component';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, AbstractControl } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 import presetsJson from  '../../../../utilities/presets.json';
 import { MatDialog } from '@angular/material/dialog';
@@ -99,18 +99,56 @@ export class PresetSettingsComponent implements OnInit {
 
   public exportSettings() {
     this.importStatus = null;
-    let formData = JSON.stringify(this.formGroup.getRawValue());
-    this.settingsString = btoa(formData)
+    let formData = this.getFormValues(this.formGroup);
+
+    this.settingsString = btoa(JSON.stringify(formData))
   }
 
   public importSettings() {
     this.importStatus = null;
     try {      
-      this.formGroup.patchValue(JSON.parse(atob(this.settingsString)))
+      this.setFormValues(this.formGroup, JSON.parse(atob(this.settingsString)));
       this.importStatus = "success";
     }
     catch(error) {
+      console.error(error);
       this.importStatus = "error";
+    }
+  }
+
+  public getFormValues(formElement: FormGroup): string[] {
+    var formValues: string[] = [];
+    Object.keys(formElement.controls).forEach(controlName => {
+      var nestedFormElement = formElement.controls[controlName] as FormGroup
+      if(nestedFormElement?.controls) {
+        formValues = formValues.concat(this.getFormValues(nestedFormElement))
+      }
+      else {
+        if(nestedFormElement.value.toString() == 'true' || nestedFormElement.value.toString() == 'false') {
+          formValues.push(this.encodeBoolean(nestedFormElement.value))
+        }
+        else {
+          formValues.push(nestedFormElement.value)
+        }
+      }
+    })
+    return formValues
+  }
+
+  public setFormValues(formElement: AbstractControl, formValues: string[]): void {
+    if((formElement as FormGroup).controls) {
+      Object.keys((formElement as FormGroup).controls).forEach(formControl => {
+        if(((formElement as FormGroup).controls[formControl])) {
+          this.setFormValues((formElement as FormGroup).controls[formControl] as FormGroup, formValues)
+        }
+      });
+    }
+    else {
+      var valueToAdd: any = formValues.shift();
+      if(valueToAdd == 't' || valueToAdd == 'f') {
+        valueToAdd = this.decodeBoolean(valueToAdd);
+      }
+      formElement.setValue(valueToAdd)
     }
   }
 
@@ -120,6 +158,14 @@ export class PresetSettingsComponent implements OnInit {
 
   public onSelectedPresetChange(): void {
     this.presetStatus = null;
+  }
+
+  public encodeBoolean(value: boolean): string {
+    return value ? 't': 'f';
+  }
+
+  public decodeBoolean(value: string): boolean {
+    return value == 't' ? true : false;
   }
 
 }
