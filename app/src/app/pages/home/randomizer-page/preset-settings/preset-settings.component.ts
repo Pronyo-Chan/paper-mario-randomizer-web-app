@@ -66,6 +66,7 @@ export class PresetSettingsComponent implements OnInit {
         if(!newPresetName) {
           return;
         }
+        newPresetName = newPresetName.trim().replace(/\s+/g, ' ')
   
         let formObj = this.formGroup.getRawValue();
         let newPreset = {name: newPresetName, settings: formObj}

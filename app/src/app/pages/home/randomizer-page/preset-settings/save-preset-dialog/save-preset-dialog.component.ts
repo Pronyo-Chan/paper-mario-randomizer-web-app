@@ -25,7 +25,7 @@ export class SavePresetDialogComponent {
   }
 
   public validatePresetName() {
-     if(this.presetNames.find(name => name == this.newPresetName)) {
+     if(this.presetNames.find(name => name.trim().replace(/\s+/g, ' ') == this.newPresetName.trim().replace(/\s+/g, ' '))) {
       this.isPresetValid = false;
     } else {
       this.isPresetValid = true;
