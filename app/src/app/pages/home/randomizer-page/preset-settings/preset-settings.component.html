@@ -35,25 +35,24 @@
     </div>
     <div class="setting-string-container">
         <div class="input-label">
-            <span class="settings-label">Settings string</span>
-            <textarea rows="3" matInput [(ngModel)]="settingsString"></textarea>
+            <span class="settings-label">Settings string: </span>
+            <input matInput [(ngModel)]="settingsString">
+        </div>
+        <div>
+            <button  (click)="importSettings()"><span>Import</span></button>
+            <button (click)="exportSettings()"><span>Export</span></button>
+            <ng-container *ngIf="importStatus == 'error'">
+                <span>❌</span>
+                <span class="error">Invalid setting string</span>
+            </ng-container>
+            <ng-container *ngIf="importStatus == 'success'">
+                <span>✔️</span>
+                <span class="success">Settings import successful!</span>
+            </ng-container>
+
         </div>
 
-        <div>
-            <div>
-                <button  (click)="importSettings()"><span>Import</span></button>
-                <button (click)="exportSettings()"><span>Export</span></button>
-                <ng-container *ngIf="importStatus == 'error'">
-                    <span>❌</span>
-                    <span class="error">Invalid setting string</span>
-                </ng-container>
-                <ng-container *ngIf="importStatus == 'success'">
-                    <span>✔️</span>
-                    <span class="success">Settings import successful!</span>
-                </ng-container>
-                
-            </div>
-        </div>
+            
     </div>
     
 </mat-card-content>
