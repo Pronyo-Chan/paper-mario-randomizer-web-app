@@ -107,12 +107,13 @@ export class PresetSettingsComponent implements OnInit {
 
   public importSettings() {
     this.importStatus = null;
+    const previousFormState = this.formGroup.getRawValue()
     try {      
       this._mappingService.decompressFormGroup(this.settingsString, this.formGroup, this._mappingService.settingsMap)
       this.importStatus = "success";
     }
     catch(error) {
-      console.error(error);
+      this.formGroup.patchValue(previousFormState)
       this.importStatus = "error";
     }
   }
