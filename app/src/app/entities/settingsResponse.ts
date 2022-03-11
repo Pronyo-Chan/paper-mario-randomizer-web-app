@@ -8,7 +8,8 @@ import { SpriteSetting } from "./enum/spriteSetting";
 export interface SettingsResponse{
     SeedID: string;
     CreationDate: Date;
-    StarRodModVersion: number,
+    StarRodModVersion: number;
+    SettingsString: string;
     AlwaysSpeedySpin: boolean;
     AlwaysISpy: boolean;
     AlwaysPeekaboo: boolean;

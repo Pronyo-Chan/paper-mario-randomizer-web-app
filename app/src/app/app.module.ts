@@ -20,6 +20,7 @@ import { MatChipsModule } from '@angular/material/chips'
 import { MatSliderModule } from '@angular/material/slider'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatDialogModule } from '@angular/material/dialog'
+import { ClipboardModule } from '@angular/cdk/clipboard'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -108,6 +109,7 @@ import { InfoDialogComponent } from './pages/home/randomizer-page/info-dialog/in
     MatSliderModule,
     MatMenuModule,
     MatDialogModule,
+    ClipboardModule,
     HttpCacheInterceptorModule.forRoot()
   ],
   providers: [],

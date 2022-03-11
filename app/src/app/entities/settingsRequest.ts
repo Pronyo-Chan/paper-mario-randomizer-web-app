@@ -6,6 +6,7 @@ import { MarioSprite } from './enum/marioSprite';
 import { SpriteSetting } from './enum/spriteSetting';
 export interface SettingsRequest {
     StarRodModVersion: number;
+    SettingsString: string;
     AlwaysSpeedySpin: boolean;
     AlwaysISpy: boolean;
     AlwaysPeekaboo: boolean;

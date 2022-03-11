@@ -101,7 +101,7 @@
   background-color: variables.$yellow-stat-main;
 }
 
-input.mat-input-element {
+input, textarea {
   border: inset;
   border-radius: 4px;
   border-color: variables.$yellow-stat-border;

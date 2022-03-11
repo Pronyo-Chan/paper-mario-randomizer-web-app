@@ -30,6 +30,22 @@
             line-height: 18px;
 
         }
+
+        div.input-label {
+    
+            textarea {
+                width: 80%;
+                resize: none;
+                color: black;
+            }
+
+            .mat-icon {
+                position: relative;
+                top: 6px;
+                font-size: 20px;
+                cursor: pointer;
+            }
+        }
     }
     div.right-container {
         flex-basis: 55%;
