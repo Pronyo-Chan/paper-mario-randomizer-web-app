@@ -1,5 +1,49 @@
 
 <div class="main-page">
+    <mat-card class="settings-card">
+        <mat-card-title class="settings-title">0.8.4 (beta) (2022-03-16)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>            
+            <li> The game can crash when pausing and unpausing in shops immediately after walking away from an item displayed in the shop.</li>
+            <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
+            <li> Under unknown circumstances, it is possible for some trees to drop unique items multiple times.</li> 
+            <li> When playing on vanilla difficulty, some enemies have stats that differ from the original game.</li>
+            <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
+            <li> The "Include Koopa Koot Favors" and "Turn Off Music" settings  have been temporarily removed from the generator, as they need to be reworked.</li>
+            <li> Berries sometimes do not respawn in replenishable locations such as trees.</li>
+            <li> Under rare conditions, it might be possible to meet sushie in the jungle tree even if you started with her.</li>
+            <li> During the volcano escape, it is possible to go back in the boss room by riding Lakilester, softlocking the game.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        </ul>
+
+        <h2>Game Mod</h2>
+        <ul>
+            <li> Fixed a crash that would occur after not giving any berry to the Blue Plant if prompted to do so.</li>
+        </ul>
+
+        <h2>Bug Fixes (Vanilla)</h2>
+        <ul>
+            <li> Fixed an issue with the partner selection cursor in the battle menu not being on the currently active partner by default.</li>
+        </ul>
+
+        <h2>Seed Generator</h2>
+        <ul>
+            <li> Shuffled BP cost was adjusted so every BP cost is more likely to be +/- 2 from it's original cost.</li>
+            <li> Prevent placement of coins on the Goomba Road sign since it created a visual glitch.</li>
+            <li> Prevent random formations from having more than one White Magikoopa in a single formation.</li>
+            <li> Prevent random formations from having more than one MediGuy in a single formation.</li>
+            <li> Remove Degree Cards from the item pool when playing with the option "Shuffle Dojo Rewards".</li>
+            <li> Fixed an issue with colors where NPC: Random Pick had a chance to select an invalid palette for Peach, resulting in glitchy visuals.</li>
+            <li> Merluvlee now tells hints about partner locations.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li> Fixed an issue that allowed selecting BP values in multiples of 5.</li>
+            <li> Fixed an issue where making a custom preset with extra whitespaces in the name could lead to it being not removable or not displayed properly.</li>
+            <li> Improvement to settings string: It is now much smaller and is displayed on the seed info page after generation.</li>
+        </ul>
+    </mat-card>
 
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.8.3 (beta) (2022-03-09)</mat-card-title>
