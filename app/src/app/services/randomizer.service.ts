@@ -1,3 +1,4 @@
+import { SettingStringMappingService } from './setting-string-mapping/setting-string-mapping.service';
 import { KeyItems } from './../entities/enum/keyItems';
 import { Constants } from './../utilities/constants';
 import { environment } from 'src/environments/environment';
@@ -21,7 +22,7 @@ import { CoinColor } from '../entities/enum/coinColor';
 })
 export class RandomizerService {
 
-  public constructor(private _randomizerRepo: RandomizerRepository) 
+  public constructor(private _randomizerRepo: RandomizerRepository, private _settingsStringService: SettingStringMappingService) 
   { 
   }
 
@@ -71,6 +72,7 @@ export class RandomizerService {
   private prepareRequestObject(settingsForm: FormGroup) {
     var request =  {
       StarRodModVersion: environment.currentModVersion,
+      SettingsString: this._settingsStringService.compressFormGroup(settingsForm, this._settingsStringService.settingsMap),
       AlwaysSpeedySpin: settingsForm.get('qualityOfLife').get('alwaysSpeedySpin').value,
       AlwaysISpy: settingsForm.get('qualityOfLife').get('alwaysISpy').value,
       AlwaysPeekaboo: settingsForm.get('qualityOfLife').get('alwaysPeekaboo').value,

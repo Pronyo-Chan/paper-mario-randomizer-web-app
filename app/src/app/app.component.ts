@@ -22,9 +22,9 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.$latestSeedId = this._localStorage.watch('latestSeedId');
-    const userSawWarning = this._localStorage.get('viewed 0.8.3 warning')
+    // const userSawWarning = this._localStorage.get('viewed 0.8.3 warning')
 
-    if(userSawWarning) {
+    if(true) {
       return;
     }
 

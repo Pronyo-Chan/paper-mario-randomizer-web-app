@@ -1,5 +1,6 @@
+import { SettingStringMappingService } from './../../../../services/setting-string-mapping/setting-string-mapping.service';
 import { SavePresetDialogComponent } from './save-preset-dialog/save-preset-dialog.component';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, AbstractControl } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 import presetsJson from  '../../../../utilities/presets.json';
 import { MatDialog } from '@angular/material/dialog';
@@ -25,7 +26,7 @@ export class PresetSettingsComponent implements OnInit {
   public settingsString: string = null;
   public importStatus: string = null;
 
-  public constructor(private _dialog: MatDialog) { }
+  public constructor(private _dialog: MatDialog, private _mappingService: SettingStringMappingService) { }
 
   public ngOnInit(): void {
     this.premadePresets = presetsJson;
@@ -66,6 +67,7 @@ export class PresetSettingsComponent implements OnInit {
         if(!newPresetName) {
           return;
         }
+        newPresetName = newPresetName.trim().replace(/\s+/g, ' ')
   
         let formObj = this.formGroup.getRawValue();
         let newPreset = {name: newPresetName, settings: formObj}
@@ -99,17 +101,19 @@ export class PresetSettingsComponent implements OnInit {
 
   public exportSettings() {
     this.importStatus = null;
-    let formData = JSON.stringify(this.formGroup.getRawValue());
-    this.settingsString = btoa(formData)
+
+    this.settingsString = this._mappingService.compressFormGroup(this.formGroup, this._mappingService.settingsMap)
   }
 
   public importSettings() {
     this.importStatus = null;
+    const previousFormState = this.formGroup.getRawValue()
     try {      
-      this.formGroup.patchValue(JSON.parse(atob(this.settingsString)))
+      this._mappingService.decompressFormGroup(this.settingsString, this.formGroup, this._mappingService.settingsMap)
       this.importStatus = "success";
     }
     catch(error) {
+      this.formGroup.patchValue(previousFormState)
       this.importStatus = "error";
     }
   }

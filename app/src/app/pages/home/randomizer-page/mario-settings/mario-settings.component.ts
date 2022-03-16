@@ -126,7 +126,7 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
     {
       adjustedValue = 30;
     }
-    else if(startingBPControl.value % 5 > 0)
+    else if(startingBPControl.value % 3 > 0)
     {
       adjustedValue = Math.ceil(startingBPControl.value/3)*3;
     }

@@ -24,11 +24,11 @@
     align-items: center;
 
     .input-label {
-        flex-basis: 100%;
+        flex-basis: 80%;
         margin-top: 1rem;
 
-        textarea {
-            width: 100%;
+        input {
+            width: 85%;
         }
     }
 }
