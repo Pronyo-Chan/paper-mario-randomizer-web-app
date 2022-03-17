@@ -70,6 +70,11 @@ export class RandomizerService {
   }
 
   private prepareRequestObject(settingsForm: FormGroup) {
+    var menuColor = settingsForm.get('colorPalettes').get('menu').value
+    if(menuColor == 7) { // If random pick
+      menuColor = Math.floor(Math.random() * 7);
+    } 
+
     var request =  {
       StarRodModVersion: environment.currentModVersion,
       SettingsString: this._settingsStringService.compressFormGroup(settingsForm, this._settingsStringService.settingsMap),
@@ -118,8 +123,8 @@ export class RandomizerService {
       ShortenBowsersCastle: settingsForm.get('qualityOfLife').get('shortenBowsersCastle').value,
       ShortenCutscenes: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,
       SkipEpilogue: settingsForm.get('qualityOfLife').get('skipEpilogue').value,
-      Box5ColorA: Constants.MENU_COLORS[settingsForm.get('colorPalettes').get('menu').value].colorA,
-      Box5ColorB: Constants.MENU_COLORS[settingsForm.get('colorPalettes').get('menu').value].colorB,
+      Box5ColorA: Constants.MENU_COLORS[menuColor].colorA,
+      Box5ColorB: Constants.MENU_COLORS[menuColor].colorB,
       CoinColor: settingsForm.get('colorPalettes').get('coinColor').value != CoinColor.Random ? settingsForm.get('colorPalettes').get('coinColor').value : 0, // Is ignored if random
       RandomCoinColor: settingsForm.get('colorPalettes').get('coinColor').value == CoinColor.Random,
       MarioSetting: (settingsForm.get('colorPalettes').get('marioSprite').value as CharacterSpriteSetting).setting,
