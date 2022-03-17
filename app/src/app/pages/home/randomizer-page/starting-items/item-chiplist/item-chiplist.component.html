@@ -1,7 +1,7 @@
 <div>
     <h2>{{itemType}}s <span *ngIf="itemType == 'Item'"> (Max 10)</span></h2>
     <input
-    [placeholder]="itemType + ' Name'"
+    [placeholder]="itemType + ' Search'"
     [formControl]="searchText"
     #autocomplete="matAutocompleteTrigger"
     [matAutocomplete]="auto"
