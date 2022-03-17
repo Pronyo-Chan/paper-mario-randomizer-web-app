@@ -95,5 +95,10 @@ export enum KeyItems {
 	BowserCastleKeyD = 0x017B,
 	BowserCastleKeyE = 0x017C,
 	PrisonKeyA  = 0x017D,
-	PrisonKeyB  = 0x017E
+	PrisonKeyB  = 0x017E,
+	PouchA  = 0x01CC,
+	PouchB  = 0x01CD,
+	PouchC  = 0x01CE,
+	PouchD  = 0x01CF,
+	PouchE  = 0x01D0,
 }
