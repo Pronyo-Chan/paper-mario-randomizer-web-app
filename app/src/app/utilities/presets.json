@@ -48,7 +48,8 @@
                 "writeSpoilerLog": true,
                 "turnOffMusic": false,
                 "quizmoAlwaysAppears": false,
-                "romanNumerals": false
+                "romanNumerals": false,                
+                "foliageItemHints": true
             },
             "difficulty": {
                 "difficultyMode": 2,
@@ -102,7 +103,8 @@
                 },
                 "bossesSetting": 0,
                 "npcSetting": 0,
-                "coinColor": 0
+                "coinColor": 0,
+                "randomText": false
             }
         }
     },
@@ -155,7 +157,8 @@
             "writeSpoilerLog": true,
             "turnOffMusic": false,
             "quizmoAlwaysAppears": false,
-            "romanNumerals": false
+            "romanNumerals": false,
+            "foliageItemHints": false
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -209,7 +212,8 @@
             },
             "bossesSetting": 0,
             "npcSetting": 0,
-            "coinColor": 0
+            "coinColor": 0,
+            "randomText": false
           }
         }
     },
@@ -262,7 +266,8 @@
             "writeSpoilerLog": true,
             "turnOffMusic": false,
             "quizmoAlwaysAppears": false,
-            "romanNumerals": false
+            "romanNumerals": false,
+            "foliageItemHints": false
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -316,7 +321,8 @@
             },
             "bossesSetting": 0,
             "npcSetting": 0,
-            "coinColor": 0
+            "coinColor": 0,
+            "randomText": false
           }
         }
     },
@@ -369,7 +375,8 @@
             "writeSpoilerLog": true,
             "turnOffMusic": false,
             "quizmoAlwaysAppears": false,
-            "romanNumerals": false
+            "romanNumerals": false,            
+            "foliageItemHints": false
           },
           "difficulty": {
             "difficultyMode": 1,
@@ -423,7 +430,8 @@
             },
             "bossesSetting": 0,
             "npcSetting": 0,
-            "coinColor": 0
+            "coinColor": 0,
+            "randomText": false
           }
         }
     },

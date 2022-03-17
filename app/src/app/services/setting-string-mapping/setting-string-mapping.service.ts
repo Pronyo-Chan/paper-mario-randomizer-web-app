@@ -23,6 +23,7 @@ export class SettingStringMappingService {
     { compressedString: "m", key: "menu", type: "number"},
     { compressedString: "p", key: "marioSprite", type: "sprite"},
     { compressedString: "n", key: "npcSetting", type: "number"},
+    { compressedString: "t", key: "randomText", type: "bool"},
   ]
 
   public readonly difficultyMap: SettingModel [] = [
@@ -107,6 +108,7 @@ export class SettingStringMappingService {
     { compressedString: "z", key: "skipQuiz", type: "bool"},
     { compressedString: "m", key: "turnOffMusic", type: "bool"},
     { compressedString: "l", key: "writeSpoilerLog", type: "bool"},
+    { compressedString: "f", key: "foliageItemHints", type: "bool"},
   ]
 
   public readonly settingsMap: SettingModel[] = [
@@ -149,7 +151,7 @@ export class SettingStringMappingService {
             break;
         
           default:
-            throw new Error("Unimplementent setting string mapping type: " + settingModel.type);
+            throw new Error("Unimplemented setting string mapping type: " + settingModel.type);
             break;
         }
       }

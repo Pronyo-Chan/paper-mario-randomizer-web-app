@@ -152,7 +152,10 @@ export class RandomizerService {
       StartingItemD: settingsForm.get('marioStats').get('startingItems').value[13]?.value,
       StartingItemE: settingsForm.get('marioStats').get('startingItems').value[14]?.value,
       ItemScarcity: settingsForm.get('difficulty').get('itemScarcity').value,
-      StarWaySpiritsNeeded: settingsForm.get('difficulty').get('starWaySpiritsNeeded').value
+      StarWaySpiritsNeeded: settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
+      FoliageItemHints: settingsForm.get('qualityOfLife').get('foliageItemHints').value,
+      RandomText: settingsForm.get('colorPalettes').get('randomText').value,
+
       
     } as SettingsRequest;
 

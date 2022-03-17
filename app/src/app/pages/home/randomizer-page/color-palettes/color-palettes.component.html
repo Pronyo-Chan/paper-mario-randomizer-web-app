@@ -63,5 +63,9 @@
                 <option [ngValue]="5">Random</option>
             </select> 
         </div> 
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='randomText'></mat-slide-toggle>
+            <app-tooltip-span spanText="Random Text" tooltipText="Makes all the game's text completely random."></app-tooltip-span>
+        </div>
     </mat-card-content>
 </form>

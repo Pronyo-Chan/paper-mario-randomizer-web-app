@@ -114,6 +114,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         turnOffMusic: new FormControl(false),     
         quizmoAlwaysAppears: new FormControl(false),
         romanNumerals: new FormControl(false),        
+        foliageItemHints: new FormControl(false),        
       }),
       difficulty: new FormGroup({
         difficultyMode: new FormControl(DifficultySetting.Vanilla),
@@ -150,7 +151,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         bowSprite : new FormControl(),
         bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
         npcSetting: new FormControl(SpriteSetting.DefaultPalette),
-        coinColor: new FormControl(CoinColor.Default)
+        coinColor: new FormControl(CoinColor.Default),
+        randomText: new FormControl(false),
       }),
     });
 

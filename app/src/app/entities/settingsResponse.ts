@@ -93,6 +93,8 @@ export interface SettingsResponse{
     StartingItemF: number;
     ItemScarcity: number;
     StarWaySpiritsNeeded: number;
+    FoliageItemHints: boolean;
+    RandomText: boolean;
 }
 
 export interface StartingPartners {
