@@ -34,6 +34,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
 
   private _createSeedSubscription: Subscription;
   private _spoilerLogSubscription: Subscription;
+  private _marcFileSubscription: Subscription;
 
   public constructor(private _randomizerService: RandomizerService, private _randomizerRepo: RandomizerRepository) { }
 
@@ -47,6 +48,10 @@ export class PatcherComponent implements OnInit, OnDestroy {
 
     if(this._spoilerLogSubscription) {
       this._spoilerLogSubscription.unsubscribe();
+    }
+
+    if(this._marcFileSubscription) {
+      this._marcFileSubscription.unsubscribe();
     }
   }
 
@@ -95,7 +100,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
     this.userRom = null;
     this.isRomValid = false;    
     this.isUserRomLoading = true;
-    getMarcFileFromSource(files[0]).pipe(
+    this._marcFileSubscription = getMarcFileFromSource(files[0]).pipe(
       tap(marcFile => {
         this.userRom = marcFile
         var checksum = crc32(this.userRom, 0, false).toString();
