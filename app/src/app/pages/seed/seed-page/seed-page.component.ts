@@ -6,6 +6,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { RandomizerService } from 'src/app/services/randomizer.service';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
 import { environment } from 'src/environments/environment';
+import { SphereSpoilerLog } from 'src/app/entities/sphereSpoilerLog';
 
 @Component({
   selector: 'app-seed-page',
@@ -19,6 +20,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
   public pageLoadingErrorCode: string;
   public spoilerLog: Observable<SpoilerLog>;
+  public spheresLog: Observable<SphereSpoilerLog>;
 
   public chapterDifficulties: string[] = [];
   public isDifficultyShuffled: boolean = false;
@@ -85,33 +87,52 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   }
 
   public convertSpoilerFileToDict(spoilerFile: string) {
-    var fileLines = spoilerFile.split('\n')
+    const progressionItemIndicator = '*';
+    var fileLines = spoilerFile.split('\n');
     var spoilerLogData: SpoilerLog = {}; 
+    var spheresData: SphereSpoilerLog = {}; 
 
     var currentRegion = '';
     fileLines.forEach(line => {
 
       if(line.includes("-> Chapter") && this.isDifficultyShuffled) { // Parse shuffled chapter difficulties
         this.chapterDifficulties.push(line.charAt(line.length-1))
-
-      }else if(line[0] != ' ') { // Region group name, first char not empty
-        currentRegion = line.replace(':', '') 
-
+      } else if(line[0] != ' ') { // Region group name, first char not empty
+        currentRegion = line.replace(':', '')
       } else if(line != '') {
-        if(!spoilerLogData[currentRegion]) {
-          spoilerLogData[currentRegion] = [];
+        if(currentRegion.includes("Sphere") || currentRegion.includes("Starting Items")) {
+          if(!spheresData[currentRegion]) {
+            spheresData[currentRegion] = [];
+          }
+          // Only write sphere items that are progression
+          if(line.endsWith(progressionItemIndicator)) {
+            var regionName = line.split(')', 2)[0].replace('((', '').trim();
+            var locationName = line.split('):', 2)[0].replace(regionName, '').replace(':', '').replace('((', '').replace(')', '').trim();
+
+            var itemName = line.split('):')[1].replace('*', '').trim();
+            var cleanItemName = pascalToVerboseString(itemName);
+
+            spheresData[currentRegion].push({region: regionName, location: locationName, item: cleanItemName});
+          }
         }
-          var splitLine = line.split('):'); // Split the location and item
-
-          var location = splitLine[0].trimLeft().substring(1);        
-          var item = splitLine[1];
-          
-          var cleanItemName = pascalToVerboseString(item);
-
-          spoilerLogData[currentRegion].push({location: location, item: cleanItemName}) //trimleft removes whitespace, substring(1) removes the first (
+        else {
+          if(!spoilerLogData[currentRegion]) {
+            spoilerLogData[currentRegion] = [];
+          }
+            var splitLine = line.split('):'); // Split the location and item
+  
+            var locationName = splitLine[0].trimLeft().substring(1);        
+            var itemName = splitLine[1];
+            
+            var cleanItemName = pascalToVerboseString(itemName);
+  
+            spoilerLogData[currentRegion].push({location: locationName, item: cleanItemName}) //trimleft removes whitespace, substring(1) removes the first (
+        }
+        
       }
     });
     this.spoilerLog = of(spoilerLogData); 
+    this.spheresLog = of(spheresData);
   }
 
   public ngOnDestroy(): void {

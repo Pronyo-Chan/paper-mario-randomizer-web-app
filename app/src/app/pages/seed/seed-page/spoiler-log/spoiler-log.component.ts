@@ -1,3 +1,4 @@
+import { SphereSpoilerLog } from './../../../../entities/sphereSpoilerLog';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -9,12 +10,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SpoilerLogComponent implements OnInit {
 
   @Input() public spoilerLog: SpoilerLog;
+  @Input() public spheres: SphereSpoilerLog;
   @Input() public chapterDifficulties: string[]
 
   public readonly MIN_AMOUNT_OF_CHARS = 2;
 
   public areas: string[];
   public items: string[];
+  public sphereNames: string[];
 
   public searchText: string;
   public filteredSearchItems: string[] = []
@@ -23,10 +26,12 @@ export class SpoilerLogComponent implements OnInit {
   public areaSearchResults: string[] = []
 
   public hideItemNames = true;
+  public isSphereModeSelected = false;
 
   public constructor() { }
 
   public ngOnInit(): void {
+    this.sphereNames = Object.keys(this.spheres)
     this.areas = Object.keys(this.spoilerLog);
     this.items = Object.values(this.spoilerLog).flat().flatMap(itemLocation => itemLocation.item)
   }
