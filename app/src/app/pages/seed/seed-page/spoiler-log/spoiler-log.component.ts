@@ -10,7 +10,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SpoilerLogComponent implements OnInit {
 
   @Input() public spoilerLog: SpoilerLog;
-  @Input() public spheres: SphereSpoilerLog;
+  @Input() public progressionSpheres: SphereSpoilerLog;
+  @Input() public allItemSpheres: SphereSpoilerLog;
   @Input() public chapterDifficulties: string[]
 
   public readonly MIN_AMOUNT_OF_CHARS = 2;
@@ -26,12 +27,12 @@ export class SpoilerLogComponent implements OnInit {
   public areaSearchResults: string[] = []
 
   public hideItemNames = true;
-  public isSphereModeSelected = false;
+  public viewMode: number = 0;
 
   public constructor() { }
 
   public ngOnInit(): void {
-    this.sphereNames = Object.keys(this.spheres)
+    this.sphereNames = Object.keys(this.progressionSpheres)
     this.areas = Object.keys(this.spoilerLog);
     this.items = Object.values(this.spoilerLog).flat().flatMap(itemLocation => itemLocation.item)
   }

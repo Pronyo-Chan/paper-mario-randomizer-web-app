@@ -20,7 +20,8 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
   public pageLoadingErrorCode: string;
   public spoilerLog: Observable<SpoilerLog>;
-  public spheresLog: Observable<SphereSpoilerLog>;
+  public progressionSphereLog: Observable<SphereSpoilerLog>;
+  public allItemsSphereLog: Observable<SphereSpoilerLog>;
 
   public chapterDifficulties: string[] = [];
   public isDifficultyShuffled: boolean = false;
@@ -90,7 +91,8 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     const progressionItemIndicator = '*';
     var fileLines = spoilerFile.split('\n');
     var spoilerLogData: SpoilerLog = {}; 
-    var spheresData: SphereSpoilerLog = {}; 
+    var progressionSphereData: SphereSpoilerLog = {}; 
+    var allItemsSphereData: SphereSpoilerLog = {}; 
 
     var currentRegion = '';
     fileLines.forEach(line => {
@@ -101,19 +103,24 @@ export class SeedPageComponent implements OnInit, OnDestroy {
         currentRegion = line.replace(':', '')
       } else if(line != '') {
         if(currentRegion.includes("Sphere") || currentRegion.includes("Starting Items")) {
-          if(!spheresData[currentRegion]) {
-            spheresData[currentRegion] = [];
-          }
-          // Only write sphere items that are progression
+          if(!progressionSphereData[currentRegion])
+            progressionSphereData[currentRegion] = [];
+
+          if(!allItemsSphereData[currentRegion])
+          allItemsSphereData[currentRegion] = [];
+          
+          var regionName = line.split(')', 2)[0].replace('((', '').trim();
+          var locationName = line.split('):', 2)[0].replace(regionName, '').replace(':', '').replace('((', '').replace(')', '').trim();
+
+          var itemName = line.split('):')[1].replace('*', '').trim();
+          var cleanItemName = pascalToVerboseString(itemName);
+          
+          // Only write sphere items that are progression in progression log
           if(line.endsWith(progressionItemIndicator)) {
-            var regionName = line.split(')', 2)[0].replace('((', '').trim();
-            var locationName = line.split('):', 2)[0].replace(regionName, '').replace(':', '').replace('((', '').replace(')', '').trim();
-
-            var itemName = line.split('):')[1].replace('*', '').trim();
-            var cleanItemName = pascalToVerboseString(itemName);
-
-            spheresData[currentRegion].push({region: regionName, location: locationName, item: cleanItemName});
+            progressionSphereData[currentRegion].push({region: regionName, location: locationName, item: cleanItemName});
           }
+          // Write everything in the allItemsLog
+          allItemsSphereData[currentRegion].push({region: regionName, location: locationName, item: cleanItemName});
         }
         else {
           if(!spoilerLogData[currentRegion]) {
@@ -132,7 +139,8 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       }
     });
     this.spoilerLog = of(spoilerLogData); 
-    this.spheresLog = of(spheresData);
+    this.progressionSphereLog = of(progressionSphereData);
+    this.allItemsSphereLog = of(allItemsSphereData)
   }
 
   public ngOnDestroy(): void {

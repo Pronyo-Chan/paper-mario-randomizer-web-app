@@ -17,7 +17,12 @@
                     <mat-expansion-panel-header [ngClass]="{'expanded': isSpoilerLogExpanded, 'collapsed': !isSpoilerLogExpanded}">
                         <mat-panel-title class="settings-title">Spoiler Log</mat-panel-title>
                     </mat-expansion-panel-header>
-                    <app-spoiler-log *ngIf="spoilerLog | async" [spoilerLog]="spoilerLog | async" [spheres]="spheresLog | async" [chapterDifficulties]="chapterDifficulties"></app-spoiler-log>
+                    <app-spoiler-log *ngIf="spoilerLog | async" 
+                                    [spoilerLog]="spoilerLog | async"
+                                    [progressionSpheres]="progressionSphereLog | async"
+                                    [allItemSpheres]="allItemsSphereLog | async"
+                                    [chapterDifficulties]="chapterDifficulties">
+                    </app-spoiler-log>
                 </mat-expansion-panel>
             </mat-accordion>
             <mat-card class="settings-card">
