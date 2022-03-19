@@ -1,6 +1,7 @@
 import { SphereSpoilerLog } from './../../../../entities/sphereSpoilerLog';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
 import { Component, Input, OnInit } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-spoiler-log',
@@ -28,6 +29,7 @@ export class SpoilerLogComponent implements OnInit {
 
   public hideItemNames = true;
   public viewMode: number = 0;
+  public selectedIndex: number = 0;
 
   public constructor() { }
 
@@ -66,6 +68,10 @@ export class SpoilerLogComponent implements OnInit {
     } else if(this.filteredSearchItems.find(item => item == this.searchText)) {
       this.onItemSearchChange()
     }
+  }
+
+  public onTabChange(event: MatTabChangeEvent) {
+    this.selectedIndex = event.index;
   }
 
 }

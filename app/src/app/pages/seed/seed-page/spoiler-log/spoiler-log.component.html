@@ -51,7 +51,7 @@
     </mat-tab>
 </mat-tab-group>
 
-<mat-tab-group *ngIf="viewMode == 1" disablePagination="true" animationDuration="0">
+<mat-tab-group *ngIf="viewMode == 1" [(selectedIndex)]="selectedIndex" (selectedTabChange)="onTabChange($event)" disablePagination="true" animationDuration="0">
     <mat-tab *ngFor="let sphere of sphereNames; let index = index" [label]="sphere">
         <ng-template [ngTemplateOutlet]="searchContainer"></ng-template>
         <div class="right-container">
@@ -78,7 +78,7 @@
     </mat-tab>
 </mat-tab-group>
 
-<mat-tab-group *ngIf="viewMode == 2" disablePagination="true" animationDuration="0">
+<mat-tab-group *ngIf="viewMode == 2" [(selectedIndex)]="selectedIndex" (selectedTabChange)="onTabChange($event)" disablePagination="true" animationDuration="0">
     <mat-tab *ngFor="let sphere of sphereNames; let index = index" [label]="sphere">
         <ng-template [ngTemplateOutlet]="searchContainer"></ng-template>
         <div class="right-container">
