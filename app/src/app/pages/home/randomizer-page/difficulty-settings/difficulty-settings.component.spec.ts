@@ -30,7 +30,8 @@ describe('DifficultySettingsComponent', () => {
       damageMultiplier: new FormControl(1),
       oneHitKO: new FormControl(false),
       noSaveBlocks: new FormControl(false),
-      noHeartBlocks: new FormControl(false)      
+      noHeartBlocks: new FormControl(false),
+      noHealingItems: new FormControl(false),
     })
     fixture.detectChanges();
   });

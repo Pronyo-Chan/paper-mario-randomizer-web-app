@@ -36,6 +36,7 @@ export class SettingStringMappingService {
     { compressedString: "x", key: "noXP", type: "bool"},
     { compressedString: "k", key: "oneHitKO", type: "bool"},
     { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
+    { compressedString: "l", key: "noHealingItems", type: "bool"},
   ]
 
   public readonly gameplayMap: SettingModel [] = [

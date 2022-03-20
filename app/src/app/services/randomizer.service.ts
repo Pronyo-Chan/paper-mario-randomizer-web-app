@@ -160,6 +160,7 @@ export class RandomizerService {
       StarWaySpiritsNeeded: settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
       FoliageItemHints: settingsForm.get('qualityOfLife').get('foliageItemHints').value,
       RandomText: settingsForm.get('colorPalettes').get('randomText').value,
+      NoHealingItems: settingsForm.get('difficulty').get('noHealingItems').value,
 
       
     } as SettingsRequest;

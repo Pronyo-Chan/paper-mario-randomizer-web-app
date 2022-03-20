@@ -92,6 +92,7 @@ export interface SettingsRequest {
     StarWaySpiritsNeeded: number;
     FoliageItemHints: boolean;
     RandomText: boolean;
+    NoHealingItems: boolean;
 }
 
 export interface StartingPartners {

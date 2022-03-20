@@ -61,7 +61,8 @@
                 "noSaveBlocks": false,
                 "noHeartBlocks": false,
                 "itemScarcity": 0,
-                "starWaySpiritsNeeded": 7
+                "starWaySpiritsNeeded": 7,
+                "noHealingItems": false
             },
             "marioStats": {
                 "startingCoins": 50,
@@ -170,7 +171,8 @@
             "noSaveBlocks": false,
             "noHeartBlocks": false,
             "itemScarcity": 0,
-            "starWaySpiritsNeeded": 7
+            "starWaySpiritsNeeded": 7,
+            "noHealingItems": false
           },
           "marioStats": {
             "startingCoins": 50,
@@ -279,7 +281,8 @@
             "noSaveBlocks": false,
             "noHeartBlocks": false,
             "itemScarcity": 0,
-            "starWaySpiritsNeeded": 7
+            "starWaySpiritsNeeded": 7,
+            "noHealingItems": false
           },
           "marioStats": {
             "startingCoins": 50,
@@ -388,7 +391,8 @@
             "noSaveBlocks": false,
             "noHeartBlocks": false,
             "itemScarcity": 0,
-            "starWaySpiritsNeeded": 7
+            "starWaySpiritsNeeded": 7,
+            "noHealingItems": false
           },
           "marioStats": {
             "startingCoins": 50,
