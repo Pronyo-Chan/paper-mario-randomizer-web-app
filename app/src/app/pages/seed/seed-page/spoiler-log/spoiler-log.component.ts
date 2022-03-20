@@ -1,5 +1,7 @@
+import { SphereSpoilerLog } from './../../../../entities/sphereSpoilerLog';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
 import { Component, Input, OnInit } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-spoiler-log',
@@ -9,12 +11,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SpoilerLogComponent implements OnInit {
 
   @Input() public spoilerLog: SpoilerLog;
+  @Input() public progressionSpheres: SphereSpoilerLog;
+  @Input() public allItemSpheres: SphereSpoilerLog;
   @Input() public chapterDifficulties: string[]
 
   public readonly MIN_AMOUNT_OF_CHARS = 2;
 
   public areas: string[];
   public items: string[];
+  public sphereNames: string[];
 
   public searchText: string;
   public filteredSearchItems: string[] = []
@@ -23,10 +28,13 @@ export class SpoilerLogComponent implements OnInit {
   public areaSearchResults: string[] = []
 
   public hideItemNames = true;
+  public viewMode: number = 0;
+  public selectedIndex: number = 0;
 
   public constructor() { }
 
   public ngOnInit(): void {
+    this.sphereNames = Object.keys(this.progressionSpheres)
     this.areas = Object.keys(this.spoilerLog);
     this.items = Object.values(this.spoilerLog).flat().flatMap(itemLocation => itemLocation.item)
   }
@@ -60,6 +68,10 @@ export class SpoilerLogComponent implements OnInit {
     } else if(this.filteredSearchItems.find(item => item == this.searchText)) {
       this.onItemSearchChange()
     }
+  }
+
+  public onTabChange(event: MatTabChangeEvent) {
+    this.selectedIndex = event.index;
   }
 
 }
