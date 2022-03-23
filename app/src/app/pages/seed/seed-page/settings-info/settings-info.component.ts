@@ -57,7 +57,8 @@ export class SettingsInfoComponent implements OnInit {
           this.settingRows.push({name: cleanSettingName, value: StartingMap[this.seedInfo[key]]} as SettingRow)
           break;
         case String(key.match(/.*StartingItem.*/)):
-          this.settingRows.push({name: cleanSettingName, value: this.getStartingItemName(this.seedInfo[key])} as SettingRow)
+          if(this.seedInfo[key])
+            this.settingRows.push({name: cleanSettingName, value: this.getStartingItemName(this.seedInfo[key])} as SettingRow)
           break;
         case 'SeedID':
         case 'CreationDate': 

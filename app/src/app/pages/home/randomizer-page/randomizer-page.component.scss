@@ -85,6 +85,26 @@
               }
            }
         }
+
+        &.starting-items-tab-error {
+            background-color: variables.$red-card-error;
+           ::ng-deep .mat-tab-group {
+               .mat-tab-header {
+                  .mat-tab-label-container {
+                      .mat-tab-list {
+                          .mat-tab-labels {
+                              #mat-tab-label-0-2 {
+                                  -webkit-box-shadow:0 0 20px red; 
+                                  -moz-box-shadow: 0 0 20px red; 
+                                  box-shadow:0 0 6px  3px red;
+                                  transition: box-shadow 0.1s ease-in-out;
+                              }
+                          }
+                      }
+                  }
+              }
+           }
+        }
     }
 
     div.button-container {

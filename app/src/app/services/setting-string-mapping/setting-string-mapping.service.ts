@@ -64,6 +64,9 @@ export class SettingStringMappingService {
     { compressedString: "f", key: "startingMaxFP", type: "number"},
     { compressedString: "h", key: "startingMaxHP", type: "number"},
     { compressedString: "s", key: "startingStarPower", type: "number"},
+    { compressedString: "r", key: "startWithRandomItems", type: "bool"},
+    { compressedString: "n", key: "randomItemsMin", type: "number"},
+    { compressedString: "x", key: "randomItemsMax", type: "number"},
   ]
 
   public readonly openLocationsMap: SettingModel [] = [

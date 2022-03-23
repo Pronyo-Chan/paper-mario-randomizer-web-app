@@ -134,7 +134,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         startingMaxFP: new FormControl(5), 
         startingMaxBP: new FormControl(3),
         startingStarPower: new FormControl(0),
-        startingItems: new FormControl([]) 
+        startingItems: new FormControl([]),
+        startWithRandomItems: new FormControl(false),
+        randomItemsMin: new FormControl(0, [Validators.min(0), Validators.max(15)]),
+        randomItemsMax: new FormControl(15, [Validators.min(0), Validators.max(15), CustomValidators.greaterOrEqualTo('randomItemsMin')]),
       }),
       openLocations: new FormGroup({
         flowerGateOpen: new FormControl(false),

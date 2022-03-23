@@ -93,6 +93,9 @@ export interface SettingsRequest {
     FoliageItemHints: boolean;
     RandomText: boolean;
     NoHealingItems: boolean;
+    StartWithRandomItems: boolean;
+    RandomItemsMin: number;
+    RandomItemsMax: number;
 }
 
 export interface StartingPartners {
