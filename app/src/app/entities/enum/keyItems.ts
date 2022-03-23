@@ -2,7 +2,6 @@ export enum KeyItems {
 	HomewardShroom = 0x0008,
 	UltraStone = 0x000F,
 	PulseStone = 0x0012,
-	TubbaCastleKey   = 0x0013,
 	CrystalPalaceKey = 0x0014,
 	LunarStone = 0x0015,
 	PyramidStone = 0x0016,
