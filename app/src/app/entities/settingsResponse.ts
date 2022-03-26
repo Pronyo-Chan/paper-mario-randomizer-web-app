@@ -99,6 +99,7 @@ export interface SettingsResponse{
     StartWithRandomItems: boolean;
     RandomItemsMin: number;
     RandomItemsMax: number;
+    AddItemPouches: boolean;
 }
 
 export interface StartingPartners {

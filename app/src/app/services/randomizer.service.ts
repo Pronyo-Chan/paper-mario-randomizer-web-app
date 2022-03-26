@@ -165,6 +165,7 @@ export class RandomizerService {
       StartWithRandomItems: settingsForm.get('marioStats').get('startWithRandomItems').value,
       RandomItemsMin: settingsForm.get('marioStats').get('randomItemsMin').value,
       RandomItemsMax: settingsForm.get('marioStats').get('randomItemsMax').value,
+      AddItemPouches: settingsForm.get('items').get('itemPouches').value,
 
       
     } as SettingsRequest;

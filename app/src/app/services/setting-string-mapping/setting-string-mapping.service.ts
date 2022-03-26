@@ -54,7 +54,8 @@ export class SettingStringMappingService {
     { compressedString: "p", key: "includePanels", type: "bool"},
     { compressedString: "s", key: "includeShops", type: "bool"},
     { compressedString: "k", key: "keyitemsOutsideDungeon", type: "bool"},
-    { compressedString: "i", key: "shuffleItems", type: "bool"}
+    { compressedString: "i", key: "shuffleItems", type: "bool"},
+    { compressedString: "x", key: "itemPouches", type: "bool"}
   ]
 
   public readonly marioStatsMap: SettingModel [] = [
@@ -227,7 +228,7 @@ export class SettingStringMappingService {
       
         case "removed":
           break;
-          
+
         default:
           throw new Error("Unimplementent setting string mapping type: " + settingModel.type);
       }
