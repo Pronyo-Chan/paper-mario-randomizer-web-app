@@ -72,7 +72,7 @@ export class SettingStringMappingService {
   public readonly openLocationsMap: SettingModel [] = [
     { compressedString: "b", key: "blueHouseOpen", type: "bool"},
     { compressedString: "f", key: "flowerGateOpen", type: "bool"},
-    { compressedString: "h", key: "homewardShroom", type: "bool"},
+    { compressedString: "h", key: "homewardShroom", type: "removed"},
     { compressedString: "s", key: "startingMap", type: "number"},
     { compressedString: "t", key: "toyboxOpen", type: "bool"},
     { compressedString: "w", key: "whaleOpen", type: "bool"},
@@ -214,6 +214,7 @@ export class SettingStringMappingService {
 
           formGroup.controls[settingModel.key].setValue(this.decodeSprite(key, setting, texture));
           break;
+
         case "items":
           i++;
           var itemsSubstring = '';
@@ -224,6 +225,9 @@ export class SettingStringMappingService {
           formGroup.controls[settingModel.key].setValue(this.decodeItems(itemsSubstring))
           break;
       
+        case "removed":
+          break;
+          
         default:
           throw new Error("Unimplementent setting string mapping type: " + settingModel.type);
       }

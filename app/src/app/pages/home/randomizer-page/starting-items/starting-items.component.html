@@ -12,7 +12,7 @@
             <input matInput 
                     type="number" 
                     min="0" 
-                    max="15" 
+                    max="16" 
                     formControlName='randomItemsMin'
                     (blur)="onRandomItemsMinBlur()"
                     [ngClass]="{ 'error': marioStatsFormGroup.get('randomItemsMin').invalid || marioStatsFormGroup.get('randomItemsMax').hasError('greaterOrEqual')}">
@@ -22,7 +22,7 @@
             <input matInput
                     type="number" 
                     min="0" 
-                    max="15" 
+                    max="16" 
                     formControlName='randomItemsMax' 
                     (blur)="onRandomItemsMaxBlur()"
                     [ngClass]="{ 'error': marioStatsFormGroup.get('randomItemsMax').invalid}">
@@ -66,7 +66,7 @@
       
     
     <div class="bottom-note">
-      <p>*A maximum of 15 custom starting items is currently supported</p>
+      <p>*A maximum of 16 custom starting items is currently supported</p>
     </div>
   
       

@@ -32,7 +32,7 @@ export class StartingItemsComponent implements OnInit {
       }
     }
     for(var keyItemEnum in KeyItems) {
-      if(isNaN(Number(KeyItems[keyItemEnum])) && keyItemEnum != KeyItems.HomewardShroom.toString()) {
+      if(isNaN(Number(KeyItems[keyItemEnum]))) {
         this.availableKeyItems.push({name: pascalToVerboseString(KeyItems[keyItemEnum]), value: Number(keyItemEnum), itemType: 'Key Item'})
       }
         

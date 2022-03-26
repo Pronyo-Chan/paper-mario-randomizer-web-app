@@ -1,5 +1,4 @@
 export enum KeyItems {
-	HomewardShroom = 0x0008,
 	UltraStone = 0x000F,
 	PulseStone = 0x0012,
 	CrystalPalaceKey = 0x0014,

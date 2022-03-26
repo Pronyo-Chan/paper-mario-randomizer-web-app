@@ -77,8 +77,7 @@
                 "blueHouseOpen": false,
                 "toyboxOpen": false,
                 "whaleOpen": false,
-                "startingMap": 65796,
-                "homewardShroom": true
+                "startingMap": 65796
             },
             "colorPalettes": {
                 "menu": 0,
@@ -187,8 +186,7 @@
             "blueHouseOpen": true,
             "toyboxOpen": true,
             "whaleOpen": true,
-            "startingMap": 65796,
-            "homewardShroom": true
+            "startingMap": 65796
           },
           "colorPalettes": {
             "menu": 0,
@@ -297,8 +295,7 @@
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
-            "startingMap": 65796,
-            "homewardShroom": true
+            "startingMap": 65796
           },
           "colorPalettes": {
             "menu": 0,
@@ -407,8 +404,7 @@
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
-            "startingMap": 65796,
-            "homewardShroom": true
+            "startingMap": 65796
           },
           "colorPalettes": {
             "menu": 0,

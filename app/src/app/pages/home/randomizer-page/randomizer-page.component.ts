@@ -136,16 +136,15 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         startingStarPower: new FormControl(0),
         startingItems: new FormControl([]),
         startWithRandomItems: new FormControl(false),
-        randomItemsMin: new FormControl(0, [Validators.min(0), Validators.max(15)]),
-        randomItemsMax: new FormControl(15, [Validators.min(0), Validators.max(15), CustomValidators.greaterOrEqualTo('randomItemsMin')]),
+        randomItemsMin: new FormControl(0, [Validators.min(0), Validators.max(16)]),
+        randomItemsMax: new FormControl(16, [Validators.min(0), Validators.max(16), CustomValidators.greaterOrEqualTo('randomItemsMin')]),
       }),
       openLocations: new FormGroup({
         flowerGateOpen: new FormControl(false),
         blueHouseOpen : new FormControl(false),
         toyboxOpen: new FormControl(false),
         whaleOpen: new FormControl(false),
-        startingMap: new FormControl(0),
-        homewardShroom: new FormControl(true),
+        startingMap: new FormControl(0)
       }),
       colorPalettes: new FormGroup({
         menu: new FormControl(0),
