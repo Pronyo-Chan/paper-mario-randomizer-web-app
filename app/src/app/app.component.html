@@ -8,10 +8,10 @@
     </a>
     <button class="text-link" [matMenuTriggerFor]="menu">Help <span class="caret">▼</span></button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item [routerLink]="'../tips'">Useful Tips</button>
-            <button mat-menu-item [routerLink]="'../changelog'">Changelog</button>
-            <button mat-menu-item [routerLink]="'../settings'">Setting Details</button>
-            <button mat-menu-item [routerLink]="'../github'">Github</button>
+            <a mat-menu-item [routerLink]="'../tips'">Useful Tips</a>
+            <a mat-menu-item [routerLink]="'../changelog'">Changelog</a>
+            <a mat-menu-item [routerLink]="'../settings'">Setting Details</a>
+            <a mat-menu-item [routerLink]="'../github'">Github</a>
         </mat-menu>
 
     <a *ngIf="$latestSeedId | async" class="text-link" [routerLink]="'../seed'" [queryParams]="{id: ($latestSeedId | async)}">
