@@ -6,19 +6,16 @@
         <h2>Known Issues</h2>
         <ul>            
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
-            <li> When playing on vanilla difficulty, some enemies have stats that differ from the original game.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
-            <li> The "Include Koopa Koot Favors" and "Turn Off Music" settings  have been temporarily removed from the generator, as they need to be reworked.</li>
             <li> Berries sometimes do not respawn in replenishable locations such as trees.</li>
             <li> Under rare conditions, it might be possible to meet sushie in the jungle tree even if you started with her.</li>
-            <li> During the volcano escape, it is possible to go back in the boss room by riding Lakilester, softlocking the game.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
         </ul>
 
         <h2>Options</h2>
         <h3>Item Tracker (new)</h3>
         <ul>
-            <li> The item menu has a new tab, that gives a quick view of all the collected and missing key items so far.</li>
+            <li> The item menu has a new tab, which gives a quick view of all the collected and missing key items so far.</li>
         </ul>
 
         <h3>Extra Item Pouches (new)</h3>
@@ -27,6 +24,11 @@
             <li> They can be added as starting items in the Key Items section. They are named "Pouch A, Pouch B... Pouch E".</li>
             <li> Pouches that are not set as starting items will be shuffled randomly in the item pool.</li>
             <li> The game's item menu has been updated and displays the current inventory capacity.</li>
+        </ul>
+
+        <h3>No Healing Items (new)</h3>
+        <ul>
+            <li> Makes all HP/FP replenishing items useless. They can still be consumed but won't have any effect.</li>
         </ul>
 
         <h3>Foliage Item Hints (new)</h3>
@@ -46,7 +48,7 @@
 
         <h3>Starting Partners (change)</h3>
         <ul>
-            <li> Starting with a partner no longer affects that partner's "sidequest" progress. Partners can always be met and will give a reward, wether you started with them or not.</li>
+            <li> Starting with a partner no longer affects that partner's "sidequest" progress. Partners can always be met and will give a reward, whether you started with them or not.</li>
         </ul>
 
         <h3>Menu Color (change)</h3>
@@ -59,23 +61,52 @@
             <li> Added a Random Pick option in the starting location settings.</li>
         </ul>
 
-        <h2>Game Mod</h2>
+        <h3>Homeward Shroom (change)</h3>
+        <ul>
+            <li> The toggle for Homeward Shroom has been removed, it is now always part of the key item inventory.</li>
+        </ul>
+
+        <h3>Starting Items (change)</h3>
+        <ul>
+            <li> The maximum amount of starting items has been increased to 16.</li>
+            <li> It is now possible to start with a chosen number (or possible range) of random items.</li>
+        </ul>
+
+        <h2>Game Mod (Fixes)</h2>
         <ul>
             <li> Fixed a seemingly rare and random crash that was caused by an error with the sound engine.</li>
             <li> Fixed a crash that would happen when opening the pause menu right after walking away from a displayed shop item.</li>
             <li> Fixed the game softlocking when starting the Toad Town Bootler cutscene while using Watt or Lakilester's ability.</li>
             <li> Fixed a softlock in Bowser's Castle that would happen when using the Homeward Shroom with the water raised. The water level in the water puzzle room will now always be reset when entering through the double doors to prevent issues.</li>
+            <li> Fixed a softlock that could happen when boarding the train from Toad Town, where the partner would get stuck.</li>
+            <li> Fixed the third item in Dry Dry Outpost's shop not being priced properly.</li>
+            <li> Fixed an issue where Goombaria wouldn't take the Dolly if Mario had too many items in his key inventory.</li>
+            <li> Fixed an issue where the vanilla difficulty option was not entirely vanilla, having some enemies with modified stats.</li>
+            <li> Fixed partner menu and Homeward Shroom not being disabled during Epilogue, which would lead to crashes upon use.</li>
+            <li> Fixed a text error in the partner upgrade menu where Watt was refered as "He" instead of "She".</li>
+        </ul>
+
+        <h2>Game Mod (Changes)</h2>
+        <ul>
             <li> Battle: Icons in the Star Power menu now depict the proper star spirit that will cast the ability if used.</li>
             <li> Battle: Dojo bosses will now give experience points. XP from Buzzard and Kent have also been increased.</li>
-            <li> Battle: The amount of XP given by the Amazy Dayzee enemy is not affected by the optiom "Cap Enemy XP" anymore.</li>
+            <li> Battle: The amount of XP given by the Amazy Dayzee enemy is not affected by the option "Cap Enemy XP" anymore.</li>
+            <li> Pleasant Path: Kent C. Koopa now asks for 50 coins instead of 100.</li>
+            <li> Pleasant Path: Kent C. Koopa can now be fought after he has been paid by talking to him.</li>
             <li> Toad Town: The blue house lock will now be visible from the outside, to fit with the logic change that now assumes you can unlock it from outside.</li>
+            <li> Toad Town: The whale can now be opened with the Ultra Boots.</li>
+            <li> Mt. Lavalava: Removed the left loading zone in the room after the boss, to prevent a possible softlock when going back in the boss room with Lakilester after the lava has been raised.</li>
             <li> Title Screen: It is now possible to toggle the game's music by pressing the L button on the file selection screen.</li>
         </ul>
 
         <h2>Logic</h2>
         <ul>
-            <li> The generator now assumes you can get the item on tree stump behind kooper's house with Parakarry.</li>
-            <li> The generator now assumes you can unlock the Blue House from outside.</li>
+            <li> The generator now assumes the item on the tree stump behind kooper's house can be obtained with Parakarry.</li>
+            <li> The generator now assumes the Blue House can be unlocked from outside.</li>
+            <li> The generator now assumes the Toad Town whale can be triggered with Hammer, Super Boots, Ultra Boots or Bombette.</li>
+            <li> Rip Cheato's first 6 items are now the only ones that can be required in logic. The last 6 (starting from 16 coins) are now always optional.</li>
+            <li> Added a missing logic requirement in Dry Dry Outpost to obtain the "Melody" item.</li>
+            <li> Added missing logic requirements in Toy Box, in the red barricade room to obtain the item on the brick block.</li>
             <li> Fixed multiple location requirements that were assuming the player would always have the first hammer.</li>
             <li> Item spheres are now appended at the end of the spoiler log file.</li>
         </ul>
@@ -84,6 +115,8 @@
         <ul>
             <li> Spoiler Log: It is now possible the view the spoiler log sorted by Item Spheres, with only progression items or all items displayed.</li>
             <li> Adjusted and added multiple tips / setting details in the help pages.</li>
+            <li> Changed the navigation buttons in the "Help" menu to links, so they can be opened in a new tab.</li>
+            <li> Fixed an issue where an invalid Tubba's Castle Key could be selected as a starting item.</li>
         </ul>
     </mat-card>
 
