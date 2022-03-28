@@ -78,10 +78,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         itemPouches: new FormControl(false),
       }),
       gameplay: new FormGroup({
-        shuffleBadgesBP: new FormControl(false),
-        shuffleBadgesFP: new FormControl(false),
-        shufflePartnerFP: new FormControl(false),
-        shuffleStarpowerSP: new FormControl(false),
+        randomBadgesBP: new FormControl(0),
+        randomBadgesFP: new FormControl(0),
+        randomPartnerFP: new FormControl(0),
+        randomStarpowerSP: new FormControl(0),
         randomFormations: new FormControl(false),
       }),
       partners: new FormGroup({

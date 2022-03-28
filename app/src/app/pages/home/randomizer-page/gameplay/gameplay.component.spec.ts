@@ -23,10 +23,10 @@ describe('GameplayComponent', () => {
     fixture = TestBed.createComponent(GameplayComponent);
     component = fixture.componentInstance;
     component.gameplayFormGroup = new FormGroup({
-      shuffleBadgesBP: new FormControl(false),
-      shuffleBadgesFP: new FormControl(false),
-      shufflePartnerFP: new FormControl(false),
-      shuffleStarpowerSP: new FormControl(false),
+      randomBadgesBP: new FormControl(false),
+      randomBadgesFP: new FormControl(false),
+      randomPartnerFP: new FormControl(false),
+      randomStarpowerSP: new FormControl(false),
       randomFormations: new FormControl(false),
     })
     fixture.detectChanges();

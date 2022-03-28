@@ -41,10 +41,10 @@ export class SettingStringMappingService {
 
   public readonly gameplayMap: SettingModel [] = [
     { compressedString: "r", key: "randomFormations", type: "bool"},
-    { compressedString: "b", key: "shuffleBadgesBP", type: "bool"},
-    { compressedString: "f", key: "shuffleBadgesFP", type: "bool"},
-    { compressedString: "p", key: "shufflePartnerFP", type: "bool"},
-    { compressedString: "s", key: "shuffleStarpowerSP", type: "bool"},
+    { compressedString: "b", key: "randomBadgesBP", type: "number"},
+    { compressedString: "f", key: "randomBadgesFP", type: "number"},
+    { compressedString: "p", key: "randomPartnerFP", type: "number"},
+    { compressedString: "s", key: "randomStarpowerSP", type: "number"},
   ]
 
   public readonly itemsMap: SettingModel [] = [

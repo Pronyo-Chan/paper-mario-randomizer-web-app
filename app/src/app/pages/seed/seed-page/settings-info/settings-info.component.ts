@@ -1,3 +1,4 @@
+import { AbilityCostMode } from './../../../../entities/enum/abilityCostMode';
 import { CoinColor } from './../../../../entities/enum/coinColor';
 import { Badges } from './../../../../entities/enum/badges';
 import { KeyItems } from './../../../../entities/enum/keyItems';
@@ -46,6 +47,12 @@ export class SettingsInfoComponent implements OnInit {
           break;
         case 'HiddenBlockMode':
           this.settingRows.push({name: cleanSettingName, value: HiddenBlockMode[this.seedInfo[key]]})
+          break;
+        case 'RandomBadgesBP':
+        case 'RandomBadgesFP':
+        case 'RandomPartnerFP':
+        case 'RandomStarpowerSP':
+          this.settingRows.push({name: cleanSettingName, value: AbilityCostMode[this.seedInfo[key]]})
           break;
         case 'AllowPhysicsGlitches':
           this.settingRows.push({name: 'Prevent Physics Glitches', value: this.inverseStringBoolean(this.seedInfo[key])} as SettingRow)

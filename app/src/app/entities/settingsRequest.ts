@@ -34,10 +34,10 @@ export interface SettingsRequest {
     IncludeFavors: boolean;
     IncludeLetterChain: boolean;
     KeyitemsOutsideDungeon: boolean;
-    ShuffleBadgesBP: boolean;
-    ShuffleBadgesFP: boolean;
-    ShufflePartnerFP: boolean;
-    ShuffleStarpowerSP: boolean;
+    RandomBadgesBP: number;
+    RandomBadgesFP: number;
+    RandomPartnerFP: number;
+    RandomStarpowerSP: number;
     RandomQuiz: boolean;
     SkipQuiz: boolean;
     QuizmoAlwaysAppears: boolean;

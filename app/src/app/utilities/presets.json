@@ -13,10 +13,10 @@
                 "itemPouches": true
             },
             "gameplay": {
-                "shuffleBadgesBP": false,
-                "shuffleBadgesFP": false,
-                "shufflePartnerFP": false,
-                "shuffleStarpowerSP": false,
+                "randomBadgesBP": 0,
+                "randomBadgesFP": 0,
+                "randomPartnerFP": 0,
+                "randomStarpowerSP": 0,
                 "randomFormations": false
             },
             "partners": {
@@ -123,10 +123,10 @@
             "itemPouches": true
           },
           "gameplay": {
-            "shuffleBadgesBP": false,
-            "shuffleBadgesFP": false,
-            "shufflePartnerFP": false,
-            "shuffleStarpowerSP": false,
+            "randomBadgesBP": 0,
+            "randomBadgesFP": 0,
+            "randomPartnerFP": 0,
+            "randomStarpowerSP": 0,
             "randomFormations": false
           },
           "partners": {
@@ -233,10 +233,10 @@
             "itemPouches": true
           },
           "gameplay": {
-            "shuffleBadgesBP": false,
-            "shuffleBadgesFP": false,
-            "shufflePartnerFP": false,
-            "shuffleStarpowerSP": false,
+            "randomBadgesBP": 0,
+            "randomBadgesFP": 0,
+            "randomPartnerFP": 0,
+            "randomStarpowerSP": 0,
             "randomFormations": true
           },
           "partners": {
@@ -343,10 +343,10 @@
             "itemPouches": false
           },
           "gameplay": {
-            "shuffleBadgesBP": false,
-            "shuffleBadgesFP": false,
-            "shufflePartnerFP": false,
-            "shuffleStarpowerSP": false,
+            "randomBadgesBP": 0,
+            "randomBadgesFP": 0,
+            "randomPartnerFP": 0,
+            "randomStarpowerSP": 0,
             "randomFormations": true
           },
           "partners": {
