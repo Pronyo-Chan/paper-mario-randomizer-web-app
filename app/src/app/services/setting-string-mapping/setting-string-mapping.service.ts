@@ -45,6 +45,7 @@ export class SettingStringMappingService {
     { compressedString: "f", key: "randomBadgesFP", type: "number"},
     { compressedString: "p", key: "randomPartnerFP", type: "number"},
     { compressedString: "s", key: "randomStarpowerSP", type: "number"},
+    { compressedString: "m", key: "mysteryMode", type: "number"},
   ]
 
   public readonly itemsMap: SettingModel [] = [

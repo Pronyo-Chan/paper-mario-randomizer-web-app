@@ -68,6 +68,20 @@
             </select>
         </div>
 
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Mystery" 
+                                tooltipText="Vanilla: Item selection when using Mystery in battle will be the one from the original game.
+                                            
+                                Random Pick: Item selection for Mystery will be random, but always the same throughout the game.
+                                
+                                Random Use: Item selection for Mystery will be random and different on every use."></app-tooltip-span>
+            <select formControlName='mysteryMode'>
+                <option [ngValue]="0">Vanilla</option>
+                <option [ngValue]="1">Random Pick</option>
+                <option [ngValue]="2">Random On Every Use</option>
+            </select>
+        </div>
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='randomFormations'></mat-slide-toggle>
             <app-tooltip-span

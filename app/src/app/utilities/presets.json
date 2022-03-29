@@ -17,7 +17,8 @@
                 "randomBadgesFP": 0,
                 "randomPartnerFP": 0,
                 "randomStarpowerSP": 0,
-                "randomFormations": false
+                "randomFormations": false,
+                "mysteryMode": 0
             },
             "partners": {
                 "shufflePartners": false,
@@ -127,7 +128,8 @@
             "randomBadgesFP": 0,
             "randomPartnerFP": 0,
             "randomStarpowerSP": 0,
-            "randomFormations": false
+            "randomFormations": false,
+            "mysteryMode": 0
           },
           "partners": {
             "shufflePartners": false,
@@ -237,7 +239,8 @@
             "randomBadgesFP": 0,
             "randomPartnerFP": 0,
             "randomStarpowerSP": 0,
-            "randomFormations": true
+            "randomFormations": true,
+            "mysteryMode": 0
           },
           "partners": {
             "shufflePartners": true,
@@ -347,7 +350,8 @@
             "randomBadgesFP": 0,
             "randomPartnerFP": 0,
             "randomStarpowerSP": 0,
-            "randomFormations": true
+            "randomFormations": true,
+            "mysteryMode": 0
           },
           "partners": {
             "shufflePartners": true,

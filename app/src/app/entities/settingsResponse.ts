@@ -100,6 +100,8 @@ export interface SettingsResponse{
     RandomItemsMin: number;
     RandomItemsMax: number;
     AddItemPouches: boolean;
+    RandomChoice: boolean; // Mystery Random On Every Use
+    MysteryRandomPick: boolean; // Mystery Random Pick
 }
 
 export interface StartingPartners {

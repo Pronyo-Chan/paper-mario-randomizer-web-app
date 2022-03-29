@@ -15,6 +15,7 @@ import { parseBPSFile } from '../utilities/RomPatcher/bps';
 import { parseRandoPatchFile } from '../utilities/RomPatcher/randopatch';
 import { CharacterSpriteSetting } from '../entities/characterSpriteSetting';
 import { CoinColor } from '../entities/enum/coinColor';
+import { MysteryMode } from '../entities/enum/mysteryMode';
 
 
 @Injectable({
@@ -166,6 +167,8 @@ export class RandomizerService {
       RandomItemsMin: settingsForm.get('marioStats').get('randomItemsMin').value,
       RandomItemsMax: settingsForm.get('marioStats').get('randomItemsMax').value,
       AddItemPouches: settingsForm.get('items').get('itemPouches').value,
+      RandomChoice: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode.RandomOnEveryUse,
+      MysteryRandomPick: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode.RandomPick,
 
       
     } as SettingsRequest;

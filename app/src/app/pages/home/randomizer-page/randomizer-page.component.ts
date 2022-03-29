@@ -1,3 +1,4 @@
+import { MysteryMode } from './../../../entities/enum/mysteryMode';
 import { LocalStorageService } from './../../../services/localStorage/localStorage.service';
 
 import { SpriteSetting } from './../../../entities/enum/spriteSetting';
@@ -83,6 +84,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomPartnerFP: new FormControl(0),
         randomStarpowerSP: new FormControl(0),
         randomFormations: new FormControl(false),
+        mysteryMode: new FormControl(MysteryMode.Vanilla),
       }),
       partners: new FormGroup({
         shufflePartners: new FormControl(false),

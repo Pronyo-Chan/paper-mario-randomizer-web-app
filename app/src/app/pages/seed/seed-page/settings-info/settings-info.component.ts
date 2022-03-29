@@ -37,7 +37,8 @@ export class SettingsInfoComponent implements OnInit {
   }
 
   public initSettingRows() {
-    this.addColorSettings(); //Custom treatment for colors because there are 2settings in DB for one user setting
+    this.addColorSettings(); // Custom treatment for colors because there are 2settings in DB for one user setting
+    this.addMysterySetting();
     for (var key in this.seedInfo) {
       var cleanSettingName = pascalToVerboseString(key)
       switch(key){
@@ -80,6 +81,8 @@ export class SettingsInfoComponent implements OnInit {
         case 'IncludeLetterChain':
         case 'PeachCastleReturnPipe':
         case 'ChallengeMode':
+        case 'RandomChoice':
+        case 'MysteryRandomPick':
         case String(key.match(/.*Color.*/)):
         case String(key.match(/.*Sprite.*/)):
         case String(key.match(/.*Setting.*/)): //GoombarioSetting, KooperSetting, etc. Handle colors manually
@@ -118,6 +121,18 @@ export class SettingsInfoComponent implements OnInit {
     this.settingRows.push({name: 'Goombario Color', value: this.getSpriteSettingName('Goombario', this.seedInfo.GoombarioSetting, this.seedInfo.GoombarioSprite)} as SettingRow);
     this.settingRows.push({name: 'Kooper Color', value: this.getSpriteSettingName('Kooper', this.seedInfo.KooperSetting, this.seedInfo.KooperSprite)} as SettingRow);
     this.settingRows.push({name: 'Mario Color', value: this.getSpriteSettingName('Mario', this.seedInfo.MarioSetting, this.seedInfo.MarioSprite)} as SettingRow);
+  }
+
+  private addMysterySetting() {
+    var mysterySetting = "Vanilla"
+    if(this.seedInfo.RandomChoice) {
+      mysterySetting = "Random On Every Use"
+    }
+    else if(this.seedInfo.MysteryRandomPick) {
+      mysterySetting = "Random Pick"
+    }
+
+    this.settingRows.push({name: 'Mystery', value: pascalToVerboseString(mysterySetting)} as SettingRow);
   }
 
   private getSpriteSettingName(entityName: string, settingValue: SpriteSetting, pickedSpriteValue: number): string {
