@@ -200,7 +200,7 @@ export class SettingStringMappingService {
             i++;
             var numValue = ""
             while(!isNaN(Number(settingString[i]))) {
-              numValue += settingString[i]
+              numValue += settingString[i];
               i++;
             }
             formGroup.controls[settingModel.key].setValue(Number(numValue));
@@ -228,6 +228,7 @@ export class SettingStringMappingService {
           break;
       
         case "removed":
+          i++
           break;
 
         default:
