@@ -1,3 +1,4 @@
+import { LocalStorageService } from './localStorage/localStorage.service';
 import { SettingStringMappingService } from './setting-string-mapping/setting-string-mapping.service';
 import { KeyItems } from './../entities/enum/keyItems';
 import { Constants } from './../utilities/constants';
@@ -23,7 +24,7 @@ import { MysteryMode } from '../entities/enum/mysteryMode';
 })
 export class RandomizerService {
 
-  public constructor(private _randomizerRepo: RandomizerRepository, private _settingsStringService: SettingStringMappingService) 
+  public constructor(private _randomizerRepo: RandomizerRepository, private _settingsStringService: SettingStringMappingService, private _localStorage: LocalStorageService) 
   { 
   }
 
@@ -76,9 +77,12 @@ export class RandomizerService {
       menuColor = Math.floor(Math.random() * 7);
     } 
 
+    var settingsString = this._settingsStringService.compressFormGroup(settingsForm, this._settingsStringService.settingsMap);
+    this._localStorage.set('latestSettingsString', settingsString);
+
     var request =  {
       StarRodModVersion: environment.currentModVersion,
-      SettingsString: this._settingsStringService.compressFormGroup(settingsForm, this._settingsStringService.settingsMap),
+      SettingsString: settingsString,
       AlwaysSpeedySpin: settingsForm.get('qualityOfLife').get('alwaysSpeedySpin').value,
       AlwaysISpy: settingsForm.get('qualityOfLife').get('alwaysISpy').value,
       AlwaysPeekaboo: settingsForm.get('qualityOfLife').get('alwaysPeekaboo').value,

@@ -46,8 +46,20 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
       this.customPresets = []
     }
 
-    this.selectedPreset = this.customPresets?.length ? this.customPresets[0].name : this.premadePresets[0].name;
-    this.loadPreset();
+    var latestSettingsString = JSON.parse(localStorage.getItem("latestSettingsString"));
+    if(latestSettingsString) {
+      try {
+        this._mappingService.decompressFormGroup(latestSettingsString, this.formGroup, this._mappingService.settingsMap);
+        this.selectedPreset = this.CUSTOM_PRESET_NAME
+      } catch (error) {
+        this.selectedPreset = this.customPresets?.length ? this.customPresets[0].name : this.premadePresets[0].name;
+        this.loadPreset();
+      }
+    } else {
+      this.selectedPreset = this.customPresets?.length ? this.customPresets[0].name : this.premadePresets[0].name;
+      this.loadPreset();
+    }
+
     this.presetStatus = null;
   } 
 
