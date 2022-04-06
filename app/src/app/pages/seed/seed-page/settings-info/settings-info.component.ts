@@ -1,3 +1,4 @@
+import { ItemTrapMode } from './../../../../entities/enum/itemTrapMode';
 import { AbilityCostMode } from './../../../../entities/enum/abilityCostMode';
 import { CoinColor } from './../../../../entities/enum/coinColor';
 import { Badges } from './../../../../entities/enum/badges';
@@ -48,6 +49,9 @@ export class SettingsInfoComponent implements OnInit {
           break;
         case 'HiddenBlockMode':
           this.settingRows.push({name: cleanSettingName, value: HiddenBlockMode[this.seedInfo[key]]})
+          break;
+        case 'ItemTrapMode':
+          this.settingRows.push({name: cleanSettingName, value: ItemTrapMode[this.seedInfo[key]]})
           break;
         case 'RandomBadgesBP':
         case 'RandomBadgesFP':

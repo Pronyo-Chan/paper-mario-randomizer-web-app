@@ -1,3 +1,4 @@
+import { ItemTrapMode } from './enum/itemTrapMode';
 import { BowSprite } from "./enum/bowSprite";
 import { CoinColor } from "./enum/coinColor";
 import { GoombarioSprite } from "./enum/goombarioSprite";
@@ -102,6 +103,7 @@ export interface SettingsResponse{
     AddItemPouches: boolean;
     RandomChoice: boolean; // Mystery Random On Every Use
     MysteryRandomPick: boolean; // Mystery Random Pick
+    ItemTrapMode: ItemTrapMode
 }
 
 export interface StartingPartners {

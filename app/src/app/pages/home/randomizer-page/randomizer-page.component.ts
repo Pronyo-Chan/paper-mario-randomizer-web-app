@@ -1,3 +1,4 @@
+import { ItemTrapMode } from './../../../entities/enum/itemTrapMode';
 import { MysteryMode } from './../../../entities/enum/mysteryMode';
 import { LocalStorageService } from './../../../services/localStorage/localStorage.service';
 
@@ -129,7 +130,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         noHeartBlocks: new FormControl(false),
         itemScarcity: new FormControl(0),
         starWaySpiritsNeeded: new FormControl(7),
-        noHealingItems: new FormControl(false)
+        noHealingItems: new FormControl(false),
+        itemTrapMode: new FormControl(0)
       }),
       marioStats: new FormGroup({
         startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]), 
