@@ -26,6 +26,13 @@
             <li> The game's item menu has been updated and displays the current inventory capacity.</li>
         </ul>
 
+        <h3> Item Traps (new)</h3>
+        <ul>
+            <li> This new option replaces some consumable items with fake items that deal 1 damage upon touch.</li>
+            <li> Every item location in the game except shop items can be traps.</li>
+            <li> There are 4 different levels of traps available, ranging from 'No Traps' to 'Plenty'</li>
+        </ul>
+
         <h3>No Healing Items (new)</h3>
         <ul>
             <li> Makes all HP/FP replenishing items useless. They can still be consumed but won't have any effect.</li>
@@ -44,6 +51,12 @@
         <h3>Random Text (new)</h3>
         <ul>
             <li> Makes all the game's text completely random.</li>
+        </ul>
+
+        <h3>Shuffle Items (change)</h3>
+        <ul>
+            <li> Item turn-in rewards have been added to the general item pool. This means the reward for returning the Dolly to Goombaria,
+                 the Dictionary to Russ T, the Mailbag to the Postmaster and the Artifact to Kolorado are now shuffled.</li>
         </ul>
 
         <h3>Starting Partners (change)</h3>
@@ -72,6 +85,18 @@
             <li> It is now possible to start with a chosen number (or possible range) of random items.</li>
         </ul>
 
+        <h3>BP / FP / SP Shuffle (change)</h3>
+        <ul>
+            <li> These options now have 4 possible values: Vanilla, Balanced Random, Shuffled and Fully Random</li>
+            <li> Vanilla means the original values of the game. Balanced Random means values will mostly be +/- 2 from the original, with a 10% chance of being random between 1 and 7.
+                 Shuffled means values from the original game are shuffled together. Fully random is truly random within the possible range of values from the original game.</li>
+        </ul>
+
+        <h3>Progressive Scaling Difficulty (change)</h3>
+        <ul>
+            <li> The effectiveness rating for escape, status items and power bounce now scales with enemy levels.</li>
+        </ul>
+
         <h2>Game Mod (Fixes)</h2>
         <ul>
             <li> Fixed a seemingly rare and random crash that was caused by an error with the sound engine.</li>
@@ -83,6 +108,8 @@
             <li> Fixed an issue where Goombaria wouldn't take the Dolly if Mario had too many items in his key inventory.</li>
             <li> Fixed an issue where the vanilla difficulty option was not entirely vanilla, having some enemies with modified stats.</li>
             <li> Fixed partner menu and Homeward Shroom not being disabled during Epilogue, which would lead to crashes upon use.</li>
+            <li> Fixed an issue where Merle's item in Starborn Valley could be obtained twice by using the Homeward Shroom.</li>
+            <li> Fixed an issue in Jade Jungle where the piranha mini boss before Raphael would sometimes respawn.</li>
             <li> Fixed a text error in the partner upgrade menu where Watt was refered as "He" instead of "She".</li>
         </ul>
 
@@ -95,6 +122,9 @@
             <li> Pleasant Path: Kent C. Koopa can now be fought after he has been paid by talking to him.</li>
             <li> Toad Town: The blue house lock will now be visible from the outside, to fit with the logic change that now assumes you can unlock it from outside.</li>
             <li> Toad Town: The whale can now be opened with the Ultra Boots.</li>
+            <li> Toad Town: Rowf's inventory can now be updated by entering Rip Cheato's home in the sewers or by using the Homeward Shroom.</li>
+            <li> Koopa Village: Homeward Shroom is now disabled after receiving the Fuzzy minigame reward, until the fuzzy miniboss is defeated. This prevents obtaining a duplicate item from the minigame.</li>
+            <li> Gusty Gulch: Homeward Shroom is now disabled after defeating Tubba's Heart, until defeating Tubba Blubba. This prevents a possible softlock when using it in the spring room.</li>
             <li> Mt. Lavalava: Removed the left loading zone in the room after the boss, to prevent a possible softlock when going back in the boss room with Lakilester after the lava has been raised.</li>
             <li> Title Screen: It is now possible to toggle the game's music by pressing the L button on the file selection screen.</li>
         </ul>
@@ -106,14 +136,17 @@
             <li> The generator now assumes the Toad Town whale can be triggered with Hammer, Super Boots, Ultra Boots or Bombette.</li>
             <li> Rip Cheato's first 6 items are now the only ones that can be required in logic. The last 6 (starting from 16 coins) are now always optional.</li>
             <li> Added a missing logic requirement in Dry Dry Outpost to obtain the "Melody" item.</li>
+            <li> Added a missing logic requirement in Crystal Palace: Ultra Boots are now required in logic to get both items from elevated item blocks.</li>
             <li> Added missing logic requirements in Toy Box, in the red barricade room to obtain the item on the brick block.</li>
             <li> Fixed multiple location requirements that were assuming the player would always have the first hammer.</li>
+            <li> Fixed an issue with the Dry Dry Outpost warp pipe's logic requirement.</li>
             <li> Item spheres are now appended at the end of the spoiler log file.</li>
         </ul>
 
         <h2>Website</h2>
         <ul>
             <li> Spoiler Log: It is now possible the view the spoiler log sorted by Item Spheres, with only progression items or all items displayed.</li>
+            <li> The main generator page now always loads with the latest settings used to generate a seed.</li>
             <li> Adjusted and added multiple tips / setting details in the help pages.</li>
             <li> Changed the navigation buttons in the "Help" menu to links, so they can be opened in a new tab.</li>
             <li> Fixed an issue where an invalid Tubba's Castle Key could be selected as a starting item.</li>
