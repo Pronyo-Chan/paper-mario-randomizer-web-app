@@ -65,7 +65,7 @@ export class MarcFile {
     public save(): Blob{
         var blob;
         try{
-            blob=new Blob([this.u8Array],{type:this.fileType});
+            blob=new Blob([this.u8Array],{type:"application/octet-stream"});
         }catch(e){
 
             throw new Error('Incompatible Browser');
