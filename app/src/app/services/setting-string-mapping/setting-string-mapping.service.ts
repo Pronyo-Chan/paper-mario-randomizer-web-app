@@ -97,7 +97,7 @@ export class SettingStringMappingService {
     { compressedString: "x", key: "randomPartnersMax", type: "number"},
     { compressedString: "n", key: "randomPartnersMin", type: "number"},
     { compressedString: "s", key: "shufflePartners", type: "bool"},
-    { compressedString: "/p", key: "startWithPartners", type: "formGroup", map: this.startWithPartnersMap},
+    { compressedString: "(p", key: "startWithPartners", type: "formGroup", map: this.startWithPartnersMap},
     { compressedString: "r", key: "startWithRandomPartners", type: "bool"},
   ]
 
@@ -119,14 +119,14 @@ export class SettingStringMappingService {
   ]
 
   public readonly settingsMap: SettingModel[] = [
-    { compressedString: "/c", key: "colorPalettes", type: "formGroup", map: this.colorPalettesMap},
-    { compressedString: "/d", key: "difficulty", type: "formGroup", map: this.difficultyMap},
-    { compressedString: "/g", key: "gameplay", type: "formGroup", map: this.gameplayMap},
-    { compressedString: "/i", key: "items", type: "formGroup", map: this.itemsMap},
-    { compressedString: "/m", key: "marioStats", type: "formGroup", map: this.marioStatsMap},
-    { compressedString: "/o", key: "openLocations", type: "formGroup", map: this.openLocationsMap},
-    { compressedString: "/p", key: "partners", type: "formGroup", map: this.partnersMap},
-    { compressedString: "/q", key: "qualityOfLife", type: "formGroup", map: this.qualityOfLifeMap},
+    { compressedString: "(c", key: "colorPalettes", type: "formGroup", map: this.colorPalettesMap},
+    { compressedString: "(d", key: "difficulty", type: "formGroup", map: this.difficultyMap},
+    { compressedString: "(g", key: "gameplay", type: "formGroup", map: this.gameplayMap},
+    { compressedString: "(i", key: "items", type: "formGroup", map: this.itemsMap},
+    { compressedString: "(m", key: "marioStats", type: "formGroup", map: this.marioStatsMap},
+    { compressedString: "(o", key: "openLocations", type: "formGroup", map: this.openLocationsMap},
+    { compressedString: "(p", key: "partners", type: "formGroup", map: this.partnersMap},
+    { compressedString: "(q", key: "qualityOfLife", type: "formGroup", map: this.qualityOfLifeMap},
   ];
 
   constructor() { }
@@ -163,30 +163,31 @@ export class SettingStringMappingService {
         }
       }
     })
-    compressedString += "\\"
+    compressedString += ")"
     return compressedString
   }
 
   public decompressFormGroup(settingString: string, formGroup: FormGroup, settingsMap: SettingModel[]) {
+    settingString = settingString.split('/').join('(').split('\\').join(')') // To be backwards compatible with v0.8. To be removed eventually
     var i = 0
     while(i < settingString.length) {
       var isNestingKey = false;
-      if(settingString[i] == '\/') {
+      if(settingString[i] == '(') {
         isNestingKey = true;
         i++;
       }
-      else if(settingString[i] == '\\') {
+      else if(settingString[i] == ')') {
         i++;
         return;
       }
-      var currentSubstring = isNestingKey ? '\/' + settingString[i] : settingString[i];
+      var currentSubstring = isNestingKey ? '(' + settingString[i] : settingString[i];
       var settingModel = settingsMap.find(m => m.compressedString.toLowerCase() == currentSubstring.toLowerCase())
 
       switch (settingModel.type) {
         case "formGroup":
           i++;
           var nestingLevels = settingModel.map.filter(m => m.type == 'formGroup').length + 1;
-          var formGroupEndIndex = this.indexOfNthOccurence(settingString.substring(i), '\\', nestingLevels) + i;
+          var formGroupEndIndex = this.indexOfNthOccurence(settingString.substring(i), ')', nestingLevels) + i;
           var nestedGroupSubstring = settingString.substring(i, formGroupEndIndex + 1)
           i += nestedGroupSubstring.length;
           this.decompressFormGroup(nestedGroupSubstring, formGroup.controls[settingModel.key] as FormGroup, settingModel.map)
