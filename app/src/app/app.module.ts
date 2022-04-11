@@ -52,7 +52,19 @@ import { HttpCacheInterceptorModule } from '@ngneat/cashew';
 import { SavePresetDialogComponent } from './pages/home/randomizer-page/preset-settings/save-preset-dialog/save-preset-dialog.component';
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
 import { InfoDialogComponent } from './pages/home/randomizer-page/info-dialog/info-dialog.component';
+import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
 
+const dbConfig: DBConfig  = {
+  name: 'db',
+  version: 1,
+  objectStoresMeta: [{
+    store: 'userCache',
+    storeConfig: { keyPath: 'id', autoIncrement: true },
+    storeSchema: [
+      { name: 'rom', keypath: 'rom', options: { unique: false } }
+    ]
+  }]
+};
 
 @NgModule({
   declarations: [
@@ -110,7 +122,8 @@ import { InfoDialogComponent } from './pages/home/randomizer-page/info-dialog/in
     MatMenuModule,
     MatDialogModule,
     ClipboardModule,
-    HttpCacheInterceptorModule.forRoot()
+    HttpCacheInterceptorModule.forRoot(),
+    NgxIndexedDBModule.forRoot(dbConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
