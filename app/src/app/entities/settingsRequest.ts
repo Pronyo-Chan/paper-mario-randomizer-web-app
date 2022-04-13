@@ -100,7 +100,8 @@ export interface SettingsRequest {
     AddItemPouches: boolean;
     RandomChoice: boolean; // Mystery Random On Every Use
     MysteryRandomPick: boolean; // Mystery Random Pick
-    ItemTrapMode: ItemTrapMode
+    ItemTrapMode: ItemTrapMode;
+    AllowItemHints: boolean;
 }
 
 export interface StartingPartners {

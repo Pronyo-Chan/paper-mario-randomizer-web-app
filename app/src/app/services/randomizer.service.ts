@@ -173,7 +173,8 @@ export class RandomizerService {
       AddItemPouches: settingsForm.get('items').get('itemPouches').value,
       RandomChoice: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode.RandomOnEveryUse,
       MysteryRandomPick: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode.RandomPick,
-      ItemTrapMode: settingsForm.get('difficulty').get('itemTrapMode').value
+      ItemTrapMode: settingsForm.get('difficulty').get('itemTrapMode').value,
+      AllowItemHints: settingsForm.get('difficulty').get('allowItemHints').value,
 
       
     } as SettingsRequest;
