@@ -25,6 +25,18 @@
             </select> 
         </div>
         <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Watt" tooltipText="Watt's color palette"></app-tooltip-span>
+            <select formControlName='wattSprite'>
+                <option *ngFor="let wattOption of wattOptions" [ngValue]="wattOption">{{wattOption.optionDisplay}}</option>
+            </select> 
+        </div>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Sushie" tooltipText="Sushie's color palette"></app-tooltip-span>
+            <select formControlName='sushieSprite'>
+                <option *ngFor="let sushieOption of sushieOptions" [ngValue]="sushieOption">{{sushieOption.optionDisplay}}</option>
+            </select> 
+        </div>
+        <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Bosses" tooltipText="Color shuffle setting for bosses"></app-tooltip-span>
             <select formControlName='bossesSetting'>
                 <option [ngValue]="0">Default</option>

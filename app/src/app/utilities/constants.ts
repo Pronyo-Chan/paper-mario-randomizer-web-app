@@ -1,3 +1,5 @@
+import { SushieSprite } from './../entities/enum/sushieSprite';
+import { WattSprite } from './../entities/enum/wattSprite';
 import { CharacterSpriteSetting } from "../entities/characterSpriteSetting";
 import { BowSprite } from "../entities/enum/bowSprite";
 import { GoombarioSprite } from "../entities/enum/goombarioSprite";
@@ -57,6 +59,20 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: BowSprite.Grey, optionDisplay: 'Grey'},
         {setting: SpriteSetting.RandomPick, paletteSelection: BowSprite.Default, optionDisplay: 'Random Pick'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: BowSprite.Default, optionDisplay: 'Random On Every Load'}
+      ];
+
+      public static WATT_OPTIONS : CharacterSpriteSetting[] = [
+        {setting: SpriteSetting.DefaultPalette, paletteSelection: WattSprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: WattSprite.Blue, optionDisplay: 'Blue'},
+        {setting: SpriteSetting.RandomPick, paletteSelection: WattSprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: WattSprite.Default, optionDisplay: 'Random On Every Load'}
+      ];
+
+      public static SUSHIE_OPTIONS : CharacterSpriteSetting[] = [
+        {setting: SpriteSetting.DefaultPalette, paletteSelection: SushieSprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: SushieSprite.Red, optionDisplay: 'Red'},
+        {setting: SpriteSetting.RandomPick, paletteSelection: SushieSprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: SushieSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
 
 }

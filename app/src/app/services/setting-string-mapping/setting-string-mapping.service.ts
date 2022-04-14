@@ -24,6 +24,8 @@ export class SettingStringMappingService {
     { compressedString: "p", key: "marioSprite", type: "sprite"},
     { compressedString: "n", key: "npcSetting", type: "number"},
     { compressedString: "t", key: "randomText", type: "bool"},
+    { compressedString: "w", key: "wattSprite", type: "sprite"},
+    { compressedString: "s", key: "sushieSprite", type: "sprite"},
   ]
 
   public readonly difficultyMap: SettingModel [] = [
@@ -267,6 +269,10 @@ export class SettingStringMappingService {
         return Constants.KOOPER_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 'p':
         return Constants.MARIO_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'w':
+          return Constants.WATT_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 's':
+        return Constants.SUSHIE_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       default:
         throw Error('Unexpected key found while parsing sprite settings: ' + compressedKey)
     }

@@ -5,6 +5,8 @@ import { GoombarioSprite } from "./enum/goombarioSprite";
 import { KooperSprite } from "./enum/kooperSprite";
 import { MarioSprite } from "./enum/marioSprite";
 import { SpriteSetting } from "./enum/spriteSetting";
+import { WattSprite } from './enum/wattSprite';
+import { SushieSprite } from './enum/sushieSprite';
 
 export interface SettingsResponse{
     SeedID: string;
@@ -70,6 +72,10 @@ export interface SettingsResponse{
     KooperSprite: KooperSprite;
     BowSetting: SpriteSetting;
     BowSprite: BowSprite;
+    WattSetting: SpriteSetting;
+    WattSprite: WattSprite;
+    SushieSetting: SpriteSetting;
+    SushieSprite: SushieSprite;
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
     StartingMaxHP: number;

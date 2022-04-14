@@ -125,6 +125,8 @@ export class SettingsInfoComponent implements OnInit {
     this.settingRows.push({name: 'Goombario Color', value: this.getSpriteSettingName('Goombario', this.seedInfo.GoombarioSetting, this.seedInfo.GoombarioSprite)} as SettingRow);
     this.settingRows.push({name: 'Kooper Color', value: this.getSpriteSettingName('Kooper', this.seedInfo.KooperSetting, this.seedInfo.KooperSprite)} as SettingRow);
     this.settingRows.push({name: 'Mario Color', value: this.getSpriteSettingName('Mario', this.seedInfo.MarioSetting, this.seedInfo.MarioSprite)} as SettingRow);
+    this.settingRows.push({name: 'Watt Color', value: this.getSpriteSettingName('Watt', this.seedInfo.WattSetting, this.seedInfo.WattSprite)} as SettingRow);
+    this.settingRows.push({name: 'Sushie Color', value: this.getSpriteSettingName('Sushie', this.seedInfo.SushieSetting, this.seedInfo.SushieSprite)} as SettingRow);
   }
 
   private addMysterySetting() {
@@ -148,7 +150,11 @@ export class SettingsInfoComponent implements OnInit {
       case 'Kooper':
         return Constants.KOOPER_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;        
       case 'Mario':
-        return Constants.MARIO_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;                     
+        return Constants.MARIO_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;            
+      case 'Watt':
+        return Constants.WATT_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;
+      case 'Sushie':
+        return Constants.SUSHIE_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;         
       default:
         return '';
     }

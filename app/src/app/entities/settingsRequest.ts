@@ -5,6 +5,8 @@ import { ItemTrapMode } from './enum/itemTrapMode';
 import { KooperSprite } from './enum/kooperSprite';
 import { MarioSprite } from './enum/marioSprite';
 import { SpriteSetting } from './enum/spriteSetting';
+import { SushieSprite } from './enum/sushieSprite';
+import { WattSprite } from './enum/wattSprite';
 export interface SettingsRequest {
     StarRodModVersion: number;
     SettingsString: string;
@@ -67,6 +69,10 @@ export interface SettingsRequest {
     KooperSprite: KooperSprite;
     BowSetting: SpriteSetting;
     BowSprite: BowSprite;
+    WattSetting: SpriteSetting;
+    WattSprite: WattSprite;
+    SushieSetting: SpriteSetting;
+    SushieSprite: SushieSprite;
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
     StartingMaxHP: number;

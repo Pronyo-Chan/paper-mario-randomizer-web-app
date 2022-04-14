@@ -158,6 +158,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         goombarioSprite : new FormControl(),
         kooperSprite : new FormControl(),
         bowSprite : new FormControl(),
+        wattSprite: new FormControl(),
+        sushieSprite: new FormControl(),
         bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
         npcSetting: new FormControl(SpriteSetting.DefaultPalette),
         coinColor: new FormControl(CoinColor.Default),
