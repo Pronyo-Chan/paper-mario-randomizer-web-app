@@ -25,6 +25,18 @@
             </select> 
         </div>
         <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Watt" tooltipText="Watt's color palette"></app-tooltip-span>
+            <select formControlName='wattSprite'>
+                <option *ngFor="let wattOption of wattOptions" [ngValue]="wattOption">{{wattOption.optionDisplay}}</option>
+            </select> 
+        </div>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Sushie" tooltipText="Sushie's color palette"></app-tooltip-span>
+            <select formControlName='sushieSprite'>
+                <option *ngFor="let sushieOption of sushieOptions" [ngValue]="sushieOption">{{sushieOption.optionDisplay}}</option>
+            </select> 
+        </div>
+        <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Bosses" tooltipText="Color shuffle setting for bosses"></app-tooltip-span>
             <select formControlName='bossesSetting'>
                 <option [ngValue]="0">Default</option>
@@ -50,6 +62,7 @@
                 <option [ngValue]="4">Brown</option>
                 <option [ngValue]="5">Purple</option>
                 <option [ngValue]="6">Grey</option>
+                <option [ngValue]="7">Random Pick</option>
             </select> 
         </div> 
         <div class="setting-element dropdown-element">
@@ -60,8 +73,12 @@
                 <option [ngValue]="2">Blue</option>
                 <option [ngValue]="3">Purple</option>
                 <option [ngValue]="4">Silver</option>
-                <option [ngValue]="5">Random</option>
+                <option [ngValue]="5">Random Pick</option>
             </select> 
         </div> 
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='randomText'></mat-slide-toggle>
+            <app-tooltip-span spanText="Random Text" tooltipText="Makes all the game's text completely random."></app-tooltip-span>
+        </div>
     </mat-card-content>
 </form>

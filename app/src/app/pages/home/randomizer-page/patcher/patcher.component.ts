@@ -7,6 +7,7 @@ import {tap, take, catchError} from 'rxjs/operators';
 import { RandomizerService } from 'src/app/services/randomizer.service';
 import { getMarcFileFromSource } from 'src/app/utilities/RomPatcher/MarcFile';
 import { crc32 } from 'src/app/utilities/RomPatcher/crc32';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
 
   
 @Component({
@@ -34,10 +35,22 @@ export class PatcherComponent implements OnInit, OnDestroy {
 
   private _createSeedSubscription: Subscription;
   private _spoilerLogSubscription: Subscription;
+  private _marcFileSubscription: Subscription;
+  private _dbUpdateSubscription: Subscription;
+  private _dbGetSubscription: Subscription;
 
-  public constructor(private _randomizerService: RandomizerService, private _randomizerRepo: RandomizerRepository) { }
+  public constructor(private _randomizerService: RandomizerService, private _dbService: NgxIndexedDBService) { }
 
   public ngOnInit(): void {
+    this._dbGetSubscription = this._dbService.getByKey('userCache', 1).subscribe((userRom: any) => {
+      if(userRom) {
+        Object.defineProperty(userRom.rom, 'name', {
+          writable: true,
+          value: '< using cached ROM >'
+        });
+        this.processUserRom(userRom.rom)
+      }
+    });
   }
 
   public ngOnDestroy(): void {
@@ -47,6 +60,18 @@ export class PatcherComponent implements OnInit, OnDestroy {
 
     if(this._spoilerLogSubscription) {
       this._spoilerLogSubscription.unsubscribe();
+    }
+
+    if(this._marcFileSubscription) {
+      this._marcFileSubscription.unsubscribe();
+    }
+
+    if(this._dbGetSubscription) {
+      this._dbGetSubscription.unsubscribe();
+    }
+
+    if(this._dbUpdateSubscription) {
+      this._dbUpdateSubscription.unsubscribe();
     }
   }
 
@@ -95,20 +120,25 @@ export class PatcherComponent implements OnInit, OnDestroy {
     this.userRom = null;
     this.isRomValid = false;    
     this.isUserRomLoading = true;
-    getMarcFileFromSource(files[0]).pipe(
+    this.processUserRom(files[0]);
+  }
+
+  private processUserRom(file: File) {
+    this._marcFileSubscription = getMarcFileFromSource(file).pipe(
       tap(marcFile => {
-        this.userRom = marcFile
+        this.userRom = marcFile;
         var checksum = crc32(this.userRom, 0, false).toString();
         if (checksum == Constants.VALID_ROM_CRC) {
           this.isRomValid = true;
+          this._dbUpdateSubscription = this._dbService.update('userCache', {id: 1, rom: file }).subscribe();
         }
         this.isUserRomLoading = false;
       }),
       catchError(err => {
         this.isRomValid = false;
         this.isUserRomLoading = false;
-        return of(err)
-      }) 
+        return of(err);
+      })
     ).subscribe();
   }
 

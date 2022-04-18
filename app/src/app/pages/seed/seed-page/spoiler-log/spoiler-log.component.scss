@@ -50,6 +50,12 @@
                 float:right;                
                 width: 100%;
 
+                p {
+                    font-family: gluten;
+                    font-weight: 500;
+                    font-size: 15px;
+                }
+
                 .mat-table {
                     font-family: gluten;
                     background-color: inherit;
@@ -93,4 +99,14 @@
             }
         }
     }    
+}
+
+.input-label{
+    margin: 1rem 0;
+    .settings-label {
+        font-family: gluten;
+        margin-left: 4px;
+        font-size: 16px;
+        font-weight: 500;
+    }
 }

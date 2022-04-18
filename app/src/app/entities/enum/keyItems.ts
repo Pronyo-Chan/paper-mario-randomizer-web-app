@@ -1,8 +1,6 @@
 export enum KeyItems {
-	HomewardShroom = 0x0008,
 	UltraStone = 0x000F,
 	PulseStone = 0x0012,
-	TubbaCastleKey   = 0x0013,
 	CrystalPalaceKey = 0x0014,
 	LunarStone = 0x0015,
 	PyramidStone = 0x0016,
@@ -95,5 +93,10 @@ export enum KeyItems {
 	BowserCastleKeyD = 0x017B,
 	BowserCastleKeyE = 0x017C,
 	PrisonKeyA  = 0x017D,
-	PrisonKeyB  = 0x017E
+	PrisonKeyB  = 0x017E,
+	PouchA  = 0x01CC,
+	PouchB  = 0x01CD,
+	PouchC  = 0x01CE,
+	PouchD  = 0x01CF,
+	PouchE  = 0x01D0,
 }

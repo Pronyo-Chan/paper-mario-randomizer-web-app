@@ -1,7 +1,7 @@
 import { SettingStringMappingService } from './../../../../services/setting-string-mapping/setting-string-mapping.service';
 import { SavePresetDialogComponent } from './save-preset-dialog/save-preset-dialog.component';
 import { FormGroup, AbstractControl } from '@angular/forms';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import presetsJson from  '../../../../utilities/presets.json';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -10,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './preset-settings.component.html',
   styleUrls: ['./preset-settings.component.scss']
 })
-export class PresetSettingsComponent implements OnInit {
+export class PresetSettingsComponent implements OnInit, OnDestroy {
 
   public readonly CUSTOM_PRESET_NAME = "[New Preset]"
 
@@ -25,8 +25,15 @@ export class PresetSettingsComponent implements OnInit {
 
   public settingsString: string = null;
   public importStatus: string = null;
+  private _dialogSubscription: any;
 
   public constructor(private _dialog: MatDialog, private _mappingService: SettingStringMappingService) { }
+
+  ngOnDestroy(): void {
+    if(this._dialogSubscription) {
+      this._dialogSubscription.unsubscribe();
+    }
+  }
 
   public ngOnInit(): void {
     this.premadePresets = presetsJson;
@@ -39,8 +46,20 @@ export class PresetSettingsComponent implements OnInit {
       this.customPresets = []
     }
 
-    this.selectedPreset = this.customPresets?.length ? this.customPresets[0].name : this.premadePresets[0].name;
-    this.loadPreset();
+    var latestSettingsString = JSON.parse(localStorage.getItem("latestSettingsString"));
+    if(latestSettingsString) {
+      try {
+        this._mappingService.decompressFormGroup(latestSettingsString, this.formGroup, this._mappingService.settingsMap);
+        this.selectedPreset = this.CUSTOM_PRESET_NAME
+      } catch (error) {
+        this.selectedPreset = this.customPresets?.length ? this.customPresets[0].name : this.premadePresets[0].name;
+        this.loadPreset();
+      }
+    } else {
+      this.selectedPreset = this.customPresets?.length ? this.customPresets[0].name : this.premadePresets[0].name;
+      this.loadPreset();
+    }
+
     this.presetStatus = null;
   } 
 
@@ -63,7 +82,7 @@ export class PresetSettingsComponent implements OnInit {
         data: this.customPresets.map(p => p.name).concat(this.premadePresets.map(p => p.name))
       });
   
-      dialogRef.afterClosed().subscribe(newPresetName => {
+      this._dialogSubscription = dialogRef.afterClosed().subscribe(newPresetName => {
         if(!newPresetName) {
           return;
         }

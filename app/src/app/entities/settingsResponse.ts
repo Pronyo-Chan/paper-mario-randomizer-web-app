@@ -1,9 +1,12 @@
+import { ItemTrapMode } from './enum/itemTrapMode';
 import { BowSprite } from "./enum/bowSprite";
 import { CoinColor } from "./enum/coinColor";
 import { GoombarioSprite } from "./enum/goombarioSprite";
 import { KooperSprite } from "./enum/kooperSprite";
 import { MarioSprite } from "./enum/marioSprite";
 import { SpriteSetting } from "./enum/spriteSetting";
+import { WattSprite } from './enum/wattSprite';
+import { SushieSprite } from './enum/sushieSprite';
 
 export interface SettingsResponse{
     SeedID: string;
@@ -37,10 +40,10 @@ export interface SettingsResponse{
     IncludeFavors: boolean;
     IncludeLetterChain: boolean;
     KeyitemsOutsideDungeon: boolean;
-    ShuffleBadgesBP: boolean;
-    ShuffleBadgesFP: boolean;
-    ShufflePartnerFP: boolean;
-    ShuffleStarpowerSP: boolean;
+    RandomBadgesBP: number;
+    RandomBadgesFP: number;
+    RandomPartnerFP: number;
+    RandomStarpowerSP: number;
     RandomQuiz: boolean;
     SkipQuiz: boolean;
     QuizmoAlwaysAppears: boolean;
@@ -69,6 +72,10 @@ export interface SettingsResponse{
     KooperSprite: KooperSprite;
     BowSetting: SpriteSetting;
     BowSprite: BowSprite;
+    WattSetting: SpriteSetting;
+    WattSprite: WattSprite;
+    SushieSetting: SpriteSetting;
+    SushieSprite: SushieSprite;
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
     StartingMaxHP: number;
@@ -93,6 +100,17 @@ export interface SettingsResponse{
     StartingItemF: number;
     ItemScarcity: number;
     StarWaySpiritsNeeded: number;
+    FoliageItemHints: boolean;
+    RandomText: boolean;
+    NoHealingItems: boolean;
+    StartWithRandomItems: boolean;
+    RandomItemsMin: number;
+    RandomItemsMax: number;
+    AddItemPouches: boolean;
+    RandomChoice: boolean; // Mystery Random On Every Use
+    MysteryRandomPick: boolean; // Mystery Random Pick
+    ItemTrapMode: ItemTrapMode
+    AllowItemHints: boolean
 }
 
 export interface StartingPartners {

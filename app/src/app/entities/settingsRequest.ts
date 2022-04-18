@@ -1,9 +1,12 @@
 import { BowSprite } from './enum/bowSprite';
 import { CoinColor } from './enum/coinColor';
 import { GoombarioSprite } from './enum/goombarioSprite';
+import { ItemTrapMode } from './enum/itemTrapMode';
 import { KooperSprite } from './enum/kooperSprite';
 import { MarioSprite } from './enum/marioSprite';
 import { SpriteSetting } from './enum/spriteSetting';
+import { SushieSprite } from './enum/sushieSprite';
+import { WattSprite } from './enum/wattSprite';
 export interface SettingsRequest {
     StarRodModVersion: number;
     SettingsString: string;
@@ -34,10 +37,10 @@ export interface SettingsRequest {
     IncludeFavors: boolean;
     IncludeLetterChain: boolean;
     KeyitemsOutsideDungeon: boolean;
-    ShuffleBadgesBP: boolean;
-    ShuffleBadgesFP: boolean;
-    ShufflePartnerFP: boolean;
-    ShuffleStarpowerSP: boolean;
+    RandomBadgesBP: number;
+    RandomBadgesFP: number;
+    RandomPartnerFP: number;
+    RandomStarpowerSP: number;
     RandomQuiz: boolean;
     SkipQuiz: boolean;
     QuizmoAlwaysAppears: boolean;
@@ -66,6 +69,10 @@ export interface SettingsRequest {
     KooperSprite: KooperSprite;
     BowSetting: SpriteSetting;
     BowSprite: BowSprite;
+    WattSetting: SpriteSetting;
+    WattSprite: WattSprite;
+    SushieSetting: SpriteSetting;
+    SushieSprite: SushieSprite;
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
     StartingMaxHP: number;
@@ -90,6 +97,17 @@ export interface SettingsRequest {
     StartingItemF?: number;
     ItemScarcity: number;
     StarWaySpiritsNeeded: number;
+    FoliageItemHints: boolean;
+    RandomText: boolean;
+    NoHealingItems: boolean;
+    StartWithRandomItems: boolean;
+    RandomItemsMin: number;
+    RandomItemsMax: number;
+    AddItemPouches: boolean;
+    RandomChoice: boolean; // Mystery Random On Every Use
+    MysteryRandomPick: boolean; // Mystery Random Pick
+    ItemTrapMode: ItemTrapMode;
+    AllowItemHints: boolean;
 }
 
 export interface StartingPartners {

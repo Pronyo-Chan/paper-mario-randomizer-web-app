@@ -13,7 +13,7 @@ import { StartingItem } from 'src/app/entities/startingItem';
 export class ItemChiplistComponent implements OnInit, OnDestroy {
 
   public readonly MAX_CONSUMABLES_TOTAL = 10;
-  public readonly MAX_ITEMS_TOTAL = 15;
+  public readonly MAX_ITEMS_TOTAL = 16;
 
   @Input() public availableItems: StartingItem[];
   @Input() public startingItemsFormControl: FormControl;

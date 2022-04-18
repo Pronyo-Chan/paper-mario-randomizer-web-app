@@ -2,7 +2,7 @@
     <mat-card-content class=settings-card-content>
         <div class="setting-element">
             <mat-slide-toggle formControlName='shuffleItems'></mat-slide-toggle>
-            <app-tooltip-span spanText="Shuffle Items" tooltipText="Shuffle overworld items (free-standing, given by NPC, found in blocks, bushes and trees etc.)"></app-tooltip-span>
+            <app-tooltip-span spanText="Shuffle Items" tooltipText="Shuffle overworld items (free-standing, given by NPC, found in blocks, bushes and trees etc). Does not include rewards from letter deliveries, Koot's favors and Quizmo's quiz."></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeCoins'></mat-slide-toggle>
@@ -35,6 +35,10 @@
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeDojo'></mat-slide-toggle>
             <app-tooltip-span spanText="Include Dojo Rewards" tooltipText="Include Dojo fight rewards in the item pool. The logic can only expect you to do the 2nd fight with 2 star spirits saved, 3rd fight with 3 star spirits saved, and so on."></app-tooltip-span>
-        </div> 
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='itemPouches'></mat-slide-toggle>
+            <app-tooltip-span spanText="Add Item Pouches" tooltipText="Adds 5 item pouches into the item pool. Every pouch found increases Mario's inventory size by 2, for a maximum of 20."></app-tooltip-span>
+        </div>  
     </mat-card-content>
 </form>

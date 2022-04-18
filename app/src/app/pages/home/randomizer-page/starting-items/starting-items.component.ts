@@ -3,10 +3,9 @@ import { StartingItem } from './../../../../entities/startingItem';
 import { Badges } from './../../../../entities/enum/badges';
 import { KeyItems } from './../../../../entities/enum/keyItems';
 import { Items } from './../../../../entities/enum/items';
-import { FormControl } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
-import { MatChipInputEvent } from '@angular/material/chips';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-starting-items',
@@ -19,7 +18,9 @@ export class StartingItemsComponent implements OnInit {
   public availableBadges: StartingItem[] = [];
   public availableKeyItems: StartingItem[] = [];
 
-  @Input() public startingItemsFormControl: FormControl;
+  @Input() public marioStatsFormGroup: FormGroup;
+
+  private startWithRandomItemsSubscription: any;
 
   public constructor() { }
 
@@ -31,7 +32,7 @@ export class StartingItemsComponent implements OnInit {
       }
     }
     for(var keyItemEnum in KeyItems) {
-      if(isNaN(Number(KeyItems[keyItemEnum])) && keyItemEnum != KeyItems.HomewardShroom.toString()) {
+      if(isNaN(Number(KeyItems[keyItemEnum]))) {
         this.availableKeyItems.push({name: pascalToVerboseString(KeyItems[keyItemEnum]), value: Number(keyItemEnum), itemType: 'Key Item'})
       }
         
@@ -46,6 +47,43 @@ export class StartingItemsComponent implements OnInit {
     this.availableItems.sort((a, b) => a.name.localeCompare(b.name))
     this.availableKeyItems.sort((a, b) => a.name.localeCompare(b.name))
     this.availableBadges.sort((a, b) => a.name.localeCompare(b.name))
+
+    this.startWithRandomItemsSubscription = this.marioStatsFormGroup.get('startWithRandomItems').valueChanges.pipe(
+      tap(value => {
+        if (value == true) {
+          this.marioStatsFormGroup.get('randomItemsMin').enable();
+          this.marioStatsFormGroup.get('randomItemsMax').enable();
+          this.marioStatsFormGroup.get('startingItems').disable();
+
+        } else {
+          this.marioStatsFormGroup.get('randomItemsMin').disable();
+          this.marioStatsFormGroup.get('randomItemsMax').disable();
+          this.marioStatsFormGroup.get('startingItems').enable();
+        }
+        this.marioStatsFormGroup.updateValueAndValidity();
+      })
+    ).subscribe();
   }
 
+  public ngOnDestroy(): void {
+    if(this.startWithRandomItemsSubscription) {
+      this.startWithRandomItemsSubscription.unsubscribe();
+    }
+  }
+
+  public onRandomItemsMinBlur() {
+    if(!this.marioStatsFormGroup.get('randomItemsMin').value && this.marioStatsFormGroup.get('randomItemsMin').value != 0)
+      {
+        this.marioStatsFormGroup.get('randomItemsMin').setValue(0);
+      }
+    this.marioStatsFormGroup.updateValueAndValidity();
+  }
+
+  public onRandomItemsMaxBlur() {
+    if(!this.marioStatsFormGroup.get('randomItemsMax').value && this.marioStatsFormGroup.get('randomItemsMax').value != 0)
+      {
+        this.marioStatsFormGroup.get('randomItemsMax').setValue(0);
+      }
+    this.marioStatsFormGroup.updateValueAndValidity();
+  }
 }

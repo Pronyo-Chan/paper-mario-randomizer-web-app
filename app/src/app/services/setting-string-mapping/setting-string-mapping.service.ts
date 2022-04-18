@@ -23,6 +23,9 @@ export class SettingStringMappingService {
     { compressedString: "m", key: "menu", type: "number"},
     { compressedString: "p", key: "marioSprite", type: "sprite"},
     { compressedString: "n", key: "npcSetting", type: "number"},
+    { compressedString: "t", key: "randomText", type: "bool"},
+    { compressedString: "w", key: "wattSprite", type: "sprite"},
+    { compressedString: "s", key: "sushieSprite", type: "sprite"},
   ]
 
   public readonly difficultyMap: SettingModel [] = [
@@ -35,14 +38,18 @@ export class SettingStringMappingService {
     { compressedString: "x", key: "noXP", type: "bool"},
     { compressedString: "k", key: "oneHitKO", type: "bool"},
     { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
+    { compressedString: "l", key: "noHealingItems", type: "bool"},
+    { compressedString: "t", key: "itemTrapMode", type: "number"},
+    { compressedString: "y", key: "allowItemHints", type: "bool"},
   ]
 
   public readonly gameplayMap: SettingModel [] = [
     { compressedString: "r", key: "randomFormations", type: "bool"},
-    { compressedString: "b", key: "shuffleBadgesBP", type: "bool"},
-    { compressedString: "f", key: "shuffleBadgesFP", type: "bool"},
-    { compressedString: "p", key: "shufflePartnerFP", type: "bool"},
-    { compressedString: "s", key: "shuffleStarpowerSP", type: "bool"},
+    { compressedString: "b", key: "randomBadgesBP", type: "number"},
+    { compressedString: "f", key: "randomBadgesFP", type: "number"},
+    { compressedString: "p", key: "randomPartnerFP", type: "number"},
+    { compressedString: "s", key: "randomStarpowerSP", type: "number"},
+    { compressedString: "m", key: "mysteryMode", type: "number"},
   ]
 
   public readonly itemsMap: SettingModel [] = [
@@ -52,7 +59,8 @@ export class SettingStringMappingService {
     { compressedString: "p", key: "includePanels", type: "bool"},
     { compressedString: "s", key: "includeShops", type: "bool"},
     { compressedString: "k", key: "keyitemsOutsideDungeon", type: "bool"},
-    { compressedString: "i", key: "shuffleItems", type: "bool"}
+    { compressedString: "i", key: "shuffleItems", type: "bool"},
+    { compressedString: "x", key: "itemPouches", type: "bool"}
   ]
 
   public readonly marioStatsMap: SettingModel [] = [
@@ -62,12 +70,15 @@ export class SettingStringMappingService {
     { compressedString: "f", key: "startingMaxFP", type: "number"},
     { compressedString: "h", key: "startingMaxHP", type: "number"},
     { compressedString: "s", key: "startingStarPower", type: "number"},
+    { compressedString: "r", key: "startWithRandomItems", type: "bool"},
+    { compressedString: "n", key: "randomItemsMin", type: "number"},
+    { compressedString: "x", key: "randomItemsMax", type: "number"},
   ]
 
   public readonly openLocationsMap: SettingModel [] = [
     { compressedString: "b", key: "blueHouseOpen", type: "bool"},
     { compressedString: "f", key: "flowerGateOpen", type: "bool"},
-    { compressedString: "h", key: "homewardShroom", type: "bool"},
+    { compressedString: "h", key: "homewardShroom", type: "removed"},
     { compressedString: "s", key: "startingMap", type: "number"},
     { compressedString: "t", key: "toyboxOpen", type: "bool"},
     { compressedString: "w", key: "whaleOpen", type: "bool"},
@@ -89,7 +100,7 @@ export class SettingStringMappingService {
     { compressedString: "x", key: "randomPartnersMax", type: "number"},
     { compressedString: "n", key: "randomPartnersMin", type: "number"},
     { compressedString: "s", key: "shufflePartners", type: "bool"},
-    { compressedString: "/p", key: "startWithPartners", type: "formGroup", map: this.startWithPartnersMap},
+    { compressedString: "(p", key: "startWithPartners", type: "formGroup", map: this.startWithPartnersMap},
     { compressedString: "r", key: "startWithRandomPartners", type: "bool"},
   ]
 
@@ -107,17 +118,18 @@ export class SettingStringMappingService {
     { compressedString: "z", key: "skipQuiz", type: "bool"},
     { compressedString: "m", key: "turnOffMusic", type: "bool"},
     { compressedString: "l", key: "writeSpoilerLog", type: "bool"},
+    { compressedString: "f", key: "foliageItemHints", type: "bool"},
   ]
 
   public readonly settingsMap: SettingModel[] = [
-    { compressedString: "/c", key: "colorPalettes", type: "formGroup", map: this.colorPalettesMap},
-    { compressedString: "/d", key: "difficulty", type: "formGroup", map: this.difficultyMap},
-    { compressedString: "/g", key: "gameplay", type: "formGroup", map: this.gameplayMap},
-    { compressedString: "/i", key: "items", type: "formGroup", map: this.itemsMap},
-    { compressedString: "/m", key: "marioStats", type: "formGroup", map: this.marioStatsMap},
-    { compressedString: "/o", key: "openLocations", type: "formGroup", map: this.openLocationsMap},
-    { compressedString: "/p", key: "partners", type: "formGroup", map: this.partnersMap},
-    { compressedString: "/q", key: "qualityOfLife", type: "formGroup", map: this.qualityOfLifeMap},
+    { compressedString: "(c", key: "colorPalettes", type: "formGroup", map: this.colorPalettesMap},
+    { compressedString: "(d", key: "difficulty", type: "formGroup", map: this.difficultyMap},
+    { compressedString: "(g", key: "gameplay", type: "formGroup", map: this.gameplayMap},
+    { compressedString: "(i", key: "items", type: "formGroup", map: this.itemsMap},
+    { compressedString: "(m", key: "marioStats", type: "formGroup", map: this.marioStatsMap},
+    { compressedString: "(o", key: "openLocations", type: "formGroup", map: this.openLocationsMap},
+    { compressedString: "(p", key: "partners", type: "formGroup", map: this.partnersMap},
+    { compressedString: "(q", key: "qualityOfLife", type: "formGroup", map: this.qualityOfLifeMap},
   ];
 
   constructor() { }
@@ -149,35 +161,36 @@ export class SettingStringMappingService {
             break;
         
           default:
-            throw new Error("Unimplementent setting string mapping type: " + settingModel.type);
+            throw new Error("Unimplemented setting string mapping type: " + settingModel.type);
             break;
         }
       }
     })
-    compressedString += "\\"
+    compressedString += ")"
     return compressedString
   }
 
   public decompressFormGroup(settingString: string, formGroup: FormGroup, settingsMap: SettingModel[]) {
+    settingString = settingString.split('/').join('(').split('\\').join(')') // To be backwards compatible with v0.8. To be removed eventually
     var i = 0
     while(i < settingString.length) {
       var isNestingKey = false;
-      if(settingString[i] == '\/') {
+      if(settingString[i] == '(') {
         isNestingKey = true;
         i++;
       }
-      else if(settingString[i] == '\\') {
+      else if(settingString[i] == ')') {
         i++;
         return;
       }
-      var currentSubstring = isNestingKey ? '\/' + settingString[i] : settingString[i];
+      var currentSubstring = isNestingKey ? '(' + settingString[i] : settingString[i];
       var settingModel = settingsMap.find(m => m.compressedString.toLowerCase() == currentSubstring.toLowerCase())
 
       switch (settingModel.type) {
         case "formGroup":
           i++;
           var nestingLevels = settingModel.map.filter(m => m.type == 'formGroup').length + 1;
-          var formGroupEndIndex = this.indexOfNthOccurence(settingString.substring(i), '\\', nestingLevels) + i;
+          var formGroupEndIndex = this.indexOfNthOccurence(settingString.substring(i), ')', nestingLevels) + i;
           var nestedGroupSubstring = settingString.substring(i, formGroupEndIndex + 1)
           i += nestedGroupSubstring.length;
           this.decompressFormGroup(nestedGroupSubstring, formGroup.controls[settingModel.key] as FormGroup, settingModel.map)
@@ -192,7 +205,7 @@ export class SettingStringMappingService {
             i++;
             var numValue = ""
             while(!isNaN(Number(settingString[i]))) {
-              numValue += settingString[i]
+              numValue += settingString[i];
               i++;
             }
             formGroup.controls[settingModel.key].setValue(Number(numValue));
@@ -208,6 +221,7 @@ export class SettingStringMappingService {
 
           formGroup.controls[settingModel.key].setValue(this.decodeSprite(key, setting, texture));
           break;
+
         case "items":
           i++;
           var itemsSubstring = '';
@@ -218,6 +232,10 @@ export class SettingStringMappingService {
           formGroup.controls[settingModel.key].setValue(this.decodeItems(itemsSubstring))
           break;
       
+        case "removed":
+          i++
+          break;
+
         default:
           throw new Error("Unimplementent setting string mapping type: " + settingModel.type);
       }
@@ -251,6 +269,10 @@ export class SettingStringMappingService {
         return Constants.KOOPER_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 'p':
         return Constants.MARIO_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'w':
+          return Constants.WATT_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 's':
+        return Constants.SUSHIE_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       default:
         throw Error('Unexpected key found while parsing sprite settings: ' + compressedKey)
     }

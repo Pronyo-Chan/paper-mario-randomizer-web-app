@@ -18,3 +18,23 @@ div.bottom-note {
         font-weight: 500;
     }
 }
+
+div.error-list {
+    flex-basis: 100%;
+    ul {
+        list-style-type: none;
+        li {
+            color: red;
+            font-family: 'gluten';
+            font-weight: 600;
+        }
+        li:before {
+            content: "❌" !important; 
+            font-size: 14px !important;
+            font-weight: 600;
+        }
+        li:marker {
+            display: none;
+        }
+    }
+}

@@ -1,3 +1,5 @@
+import { ItemTrapMode } from './../../../../entities/enum/itemTrapMode';
+import { AbilityCostMode } from './../../../../entities/enum/abilityCostMode';
 import { CoinColor } from './../../../../entities/enum/coinColor';
 import { Badges } from './../../../../entities/enum/badges';
 import { KeyItems } from './../../../../entities/enum/keyItems';
@@ -36,7 +38,8 @@ export class SettingsInfoComponent implements OnInit {
   }
 
   public initSettingRows() {
-    this.addColorSettings(); //Custom treatment for colors because there are 2settings in DB for one user setting
+    this.addColorSettings(); // Custom treatment for colors because there are 2settings in DB for one user setting
+    this.addMysterySetting();
     for (var key in this.seedInfo) {
       var cleanSettingName = pascalToVerboseString(key)
       switch(key){
@@ -46,6 +49,15 @@ export class SettingsInfoComponent implements OnInit {
           break;
         case 'HiddenBlockMode':
           this.settingRows.push({name: cleanSettingName, value: HiddenBlockMode[this.seedInfo[key]]})
+          break;
+        case 'ItemTrapMode':
+          this.settingRows.push({name: cleanSettingName, value: ItemTrapMode[this.seedInfo[key]]})
+          break;
+        case 'RandomBadgesBP':
+        case 'RandomBadgesFP':
+        case 'RandomPartnerFP':
+        case 'RandomStarpowerSP':
+          this.settingRows.push({name: cleanSettingName, value: AbilityCostMode[this.seedInfo[key]]})
           break;
         case 'AllowPhysicsGlitches':
           this.settingRows.push({name: 'Prevent Physics Glitches', value: this.inverseStringBoolean(this.seedInfo[key])} as SettingRow)
@@ -57,7 +69,8 @@ export class SettingsInfoComponent implements OnInit {
           this.settingRows.push({name: cleanSettingName, value: StartingMap[this.seedInfo[key]]} as SettingRow)
           break;
         case String(key.match(/.*StartingItem.*/)):
-          this.settingRows.push({name: cleanSettingName, value: this.getStartingItemName(this.seedInfo[key])} as SettingRow)
+          if(this.seedInfo[key])
+            this.settingRows.push({name: cleanSettingName, value: this.getStartingItemName(this.seedInfo[key])} as SettingRow)
           break;
         case 'SeedID':
         case 'CreationDate': 
@@ -72,6 +85,8 @@ export class SettingsInfoComponent implements OnInit {
         case 'IncludeLetterChain':
         case 'PeachCastleReturnPipe':
         case 'ChallengeMode':
+        case 'RandomChoice':
+        case 'MysteryRandomPick':
         case String(key.match(/.*Color.*/)):
         case String(key.match(/.*Sprite.*/)):
         case String(key.match(/.*Setting.*/)): //GoombarioSetting, KooperSetting, etc. Handle colors manually
@@ -110,6 +125,20 @@ export class SettingsInfoComponent implements OnInit {
     this.settingRows.push({name: 'Goombario Color', value: this.getSpriteSettingName('Goombario', this.seedInfo.GoombarioSetting, this.seedInfo.GoombarioSprite)} as SettingRow);
     this.settingRows.push({name: 'Kooper Color', value: this.getSpriteSettingName('Kooper', this.seedInfo.KooperSetting, this.seedInfo.KooperSprite)} as SettingRow);
     this.settingRows.push({name: 'Mario Color', value: this.getSpriteSettingName('Mario', this.seedInfo.MarioSetting, this.seedInfo.MarioSprite)} as SettingRow);
+    this.settingRows.push({name: 'Watt Color', value: this.getSpriteSettingName('Watt', this.seedInfo.WattSetting, this.seedInfo.WattSprite)} as SettingRow);
+    this.settingRows.push({name: 'Sushie Color', value: this.getSpriteSettingName('Sushie', this.seedInfo.SushieSetting, this.seedInfo.SushieSprite)} as SettingRow);
+  }
+
+  private addMysterySetting() {
+    var mysterySetting = "Vanilla"
+    if(this.seedInfo.RandomChoice) {
+      mysterySetting = "Random On Every Use"
+    }
+    else if(this.seedInfo.MysteryRandomPick) {
+      mysterySetting = "Random Pick"
+    }
+
+    this.settingRows.push({name: 'Mystery', value: pascalToVerboseString(mysterySetting)} as SettingRow);
   }
 
   private getSpriteSettingName(entityName: string, settingValue: SpriteSetting, pickedSpriteValue: number): string {
@@ -121,7 +150,11 @@ export class SettingsInfoComponent implements OnInit {
       case 'Kooper':
         return Constants.KOOPER_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;        
       case 'Mario':
-        return Constants.MARIO_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;                     
+        return Constants.MARIO_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;            
+      case 'Watt':
+        return Constants.WATT_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;
+      case 'Sushie':
+        return Constants.SUSHIE_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;         
       default:
         return '';
     }

@@ -7,8 +7,8 @@
             <li>Includes all freestanding items on the overworld.</li>
             <li>Include all items, badges and key items located in ? blocks.</li>
             <li>Includes all items found in trees and bushes, except the ones part of Koopa Koot's quests.</li>
-            <li>Includes most rewards handed over / traded by NPCs. Currently excluded: Rewards for bringing the Dictionary to Russ T, post office Mailbag, all items related to Koopa Koot's favors and all items received for giving letters to NPCs.</li>
-            <li>Rip Cheato's trading items are randomized in this setting, as he is not considered a shop.</li>
+            <li>Includes most rewards handed over / traded by NPCs. Currently excluded: All items related to Koopa Koot's favors and all items received for giving letters to NPCs.</li>
+            <li>Rip Cheato's trading items are randomized in this setting, as he is not considered a shop. However, only his first 6 items can be required to beat the game. The last 6 (starting from 16 coins) are always optional.</li>
             <li>The Anti Guy chest in the Toy Box can contain a progression item. However, the logic doesn't expect Mario to beat him, as he can be bribed with a Lemon Candy.
                 This means the logic expects Mario to have access to the Cookbook, a Cake Mix and a Lemon before placing a progression item there.</li>
         </ul>
@@ -17,7 +17,7 @@
         <ul>
             <li>Merlow's badge shop has random items for sale. The first 3 ones cost 2 SP, the next 3 cost 3 SP ... and so on until the last 3 for 6 SP.</li>
             <li>The logic considers Mario to need 60 Star Pieces for any of Merlow's items to be in logic. This is to prevent being softlocked by buying all the non-required items from him.</li>
-            <li>Rowf's badge shop now sells random items, and he upgrades his inventory after each star spirit saved. He updates his inventory 5 times total.</li>
+            <li>Rowf's badge shop now sells random items, and he upgrades his inventory after each star spirit saved. He starts out with 4 available items, and adds 3 new ones for every star spirit saved until 4 total spirits are saved.</li>
             <li>Rowf's items are all unique. Items sold by regular shops can be bought infinitely if they are consumables. Badges and key items can only be bought once.</li>
         </ul>
 
@@ -36,7 +36,7 @@
 
         <h2>Keysanity</h2>
         <ul>
-            <li>Items affected by this setting: Fortress Key, Ruins Key, Pyramid Stone, Lunar Stone, Diamond Stone, Castle Key (Tubba's Castle), Toy Train, Cake, Dictionary, Mystery Note, Magical Bean, Fertile Soil, Miracle Water, Bubble Berry, Red Berry, Blue Berry, Yellow Berry, Blue Key, Red Key, Palace Key, Castle Key (Bowser's Castle).</li>
+            <li>Items affected by this setting: Fortress Key, Ruins Key, Pyramid Stone, Lunar Stone, Diamond Stone, Castle Key (Tubba's Castle), Toy Train, Cake, Dictionary, Mystery Note, Magical Bean, Fertile Soil, Miracle Water, Bubble Berry, Red Berry, Blue Berry, Yellow Berry, Crystal Berry, Water Stone, Blue Key, Red Key, Palace Key, Castle Key (Bowser's Castle).</li>
         </ul>
 
         <h2>Include Dojo Rewards</h2>
@@ -93,24 +93,16 @@
             <li>When setting item scarcity to the maximum level, every non-essential item will be replaced by a weaker one.</li>
         </ul>
 
+        <h2>Item Traps</h2>
+        <ul>
+            <li>Item traps cannot be in shops or underwater. Anywhere else is fair play.</li>
+            <li>The Ultra Stone is more likely to appear as a trap.</li>
+        </ul>
+
         <h2>Star Spirits Required</h2>
         <ul>
             <li>Determines how many star spirits are required to complete the game.</li>
             <li>The current number of star spirits left to save can be observed at Shooting Star Summit, by counting the unlit stars on the ground at the top.</li>
-        </ul>
-    </mat-card>
-
-    <mat-card class="settings-card">
-        <mat-card-title class="settings-title">Open World Settings Details</mat-card-title>
-        <h2>Starting Location</h2>
-        <ul>
-            <li>Choosing Dry Dry Outpost as a starting location forces the Homeward Shroom option ON. This is because it is possible to head to Toad Town from the desert, but impossible to come back without Parakarry.</li>
-        </ul>
-
-        <h2>Homeward Shroom</h2>
-        <ul>
-            <li>Permanent key item that warps Mario back to the starting location.</li>
-            <li>Cannot be used during the volcano escape and Tubba Blubba's Castle Escape.</li>
         </ul>
     </mat-card>
 

@@ -24,6 +24,7 @@
     "@ngneat/cashew": "^3.0.0",
     "follow-redirects": "^1.14.9",
     "js-yaml": "^4.1.0",
+    "ngx-indexed-db": "^10.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

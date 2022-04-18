@@ -9,14 +9,16 @@
                 "includePanels": false,
                 "includeFavors": false,
                 "keyitemsOutsideDungeon": false,
-                "includeDojo": false
+                "includeDojo": false,
+                "itemPouches": true
             },
             "gameplay": {
-                "shuffleBadgesBP": false,
-                "shuffleBadgesFP": false,
-                "shufflePartnerFP": false,
-                "shuffleStarpowerSP": false,
-                "randomFormations": false
+                "randomBadgesBP": 0,
+                "randomBadgesFP": 0,
+                "randomPartnerFP": 0,
+                "randomStarpowerSP": 0,
+                "randomFormations": false,
+                "mysteryMode": 0
             },
             "partners": {
                 "shufflePartners": false,
@@ -48,7 +50,8 @@
                 "writeSpoilerLog": true,
                 "turnOffMusic": false,
                 "quizmoAlwaysAppears": false,
-                "romanNumerals": false
+                "romanNumerals": false,                
+                "foliageItemHints": true
             },
             "difficulty": {
                 "difficultyMode": 2,
@@ -60,7 +63,10 @@
                 "noSaveBlocks": false,
                 "noHeartBlocks": false,
                 "itemScarcity": 0,
-                "starWaySpiritsNeeded": 7
+                "starWaySpiritsNeeded": 7,
+                "noHealingItems": false,
+                "itemTrapMode": 0,
+                "allowItemHints": true
             },
             "marioStats": {
                 "startingCoins": 50,
@@ -75,8 +81,7 @@
                 "blueHouseOpen": false,
                 "toyboxOpen": false,
                 "whaleOpen": false,
-                "startingMap": 65796,
-                "homewardShroom": true
+                "startingMap": 65796
             },
             "colorPalettes": {
                 "menu": 0,
@@ -100,9 +105,20 @@
                     "paletteSelection": 0,
                     "optionDisplay": "Default"
                 },
+                "wattSprite": {
+                  "setting": 0,
+                  "paletteSelection": 0,
+                  "optionDisplay": "Default"
+                },
+                "sushieSprite": {
+                  "setting": 0,
+                  "paletteSelection": 0,
+                  "optionDisplay": "Default"
+                },
                 "bossesSetting": 0,
                 "npcSetting": 0,
-                "coinColor": 0
+                "coinColor": 0,
+                "randomText": false
             }
         }
     },
@@ -116,14 +132,16 @@
             "includePanels": false,
             "includeFavors": false,
             "keyitemsOutsideDungeon": false,
-            "includeDojo": false
+            "includeDojo": false,
+            "itemPouches": true
           },
           "gameplay": {
-            "shuffleBadgesBP": false,
-            "shuffleBadgesFP": false,
-            "shufflePartnerFP": false,
-            "shuffleStarpowerSP": false,
-            "randomFormations": false
+            "randomBadgesBP": 0,
+            "randomBadgesFP": 0,
+            "randomPartnerFP": 0,
+            "randomStarpowerSP": 0,
+            "randomFormations": false,
+            "mysteryMode": 0
           },
           "partners": {
             "shufflePartners": false,
@@ -155,7 +173,8 @@
             "writeSpoilerLog": true,
             "turnOffMusic": false,
             "quizmoAlwaysAppears": false,
-            "romanNumerals": false
+            "romanNumerals": false,
+            "foliageItemHints": false
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -167,7 +186,10 @@
             "noSaveBlocks": false,
             "noHeartBlocks": false,
             "itemScarcity": 0,
-            "starWaySpiritsNeeded": 7
+            "starWaySpiritsNeeded": 7,
+            "noHealingItems": false,
+            "itemTrapMode": 0,
+            "allowItemHints": true
           },
           "marioStats": {
             "startingCoins": 50,
@@ -182,8 +204,7 @@
             "blueHouseOpen": true,
             "toyboxOpen": true,
             "whaleOpen": true,
-            "startingMap": 65796,
-            "homewardShroom": true
+            "startingMap": 65796
           },
           "colorPalettes": {
             "menu": 0,
@@ -207,9 +228,20 @@
               "paletteSelection": 0,
               "optionDisplay": "Default"
             },
+            "wattSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "sushieSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
             "bossesSetting": 0,
             "npcSetting": 0,
-            "coinColor": 0
+            "coinColor": 0,
+            "randomText": false
           }
         }
     },
@@ -223,14 +255,16 @@
             "includePanels": true,
             "includeFavors": false,
             "keyitemsOutsideDungeon": true,
-            "includeDojo": false
+            "includeDojo": false,
+            "itemPouches": true
           },
           "gameplay": {
-            "shuffleBadgesBP": false,
-            "shuffleBadgesFP": false,
-            "shufflePartnerFP": false,
-            "shuffleStarpowerSP": false,
-            "randomFormations": true
+            "randomBadgesBP": 0,
+            "randomBadgesFP": 0,
+            "randomPartnerFP": 0,
+            "randomStarpowerSP": 0,
+            "randomFormations": true,
+            "mysteryMode": 0
           },
           "partners": {
             "shufflePartners": true,
@@ -262,7 +296,8 @@
             "writeSpoilerLog": true,
             "turnOffMusic": false,
             "quizmoAlwaysAppears": false,
-            "romanNumerals": false
+            "romanNumerals": false,
+            "foliageItemHints": false
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -274,7 +309,10 @@
             "noSaveBlocks": false,
             "noHeartBlocks": false,
             "itemScarcity": 0,
-            "starWaySpiritsNeeded": 7
+            "starWaySpiritsNeeded": 7,
+            "noHealingItems": false,
+            "itemTrapMode": 1,
+            "allowItemHints": true
           },
           "marioStats": {
             "startingCoins": 50,
@@ -289,8 +327,7 @@
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
-            "startingMap": 65796,
-            "homewardShroom": true
+            "startingMap": 65796
           },
           "colorPalettes": {
             "menu": 0,
@@ -314,9 +351,20 @@
               "paletteSelection": 0,
               "optionDisplay": "Default"
             },
+            "wattSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "sushieSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
             "bossesSetting": 0,
             "npcSetting": 0,
-            "coinColor": 0
+            "coinColor": 0,
+            "randomText": false
           }
         }
     },
@@ -330,14 +378,16 @@
             "includePanels": true,
             "includeFavors": true,
             "keyitemsOutsideDungeon": true,
-            "includeDojo": true
+            "includeDojo": true,
+            "itemPouches": false
           },
           "gameplay": {
-            "shuffleBadgesBP": false,
-            "shuffleBadgesFP": false,
-            "shufflePartnerFP": false,
-            "shuffleStarpowerSP": false,
-            "randomFormations": true
+            "randomBadgesBP": 0,
+            "randomBadgesFP": 0,
+            "randomPartnerFP": 0,
+            "randomStarpowerSP": 0,
+            "randomFormations": true,
+            "mysteryMode": 0
           },
           "partners": {
             "shufflePartners": true,
@@ -369,7 +419,8 @@
             "writeSpoilerLog": true,
             "turnOffMusic": false,
             "quizmoAlwaysAppears": false,
-            "romanNumerals": false
+            "romanNumerals": false,            
+            "foliageItemHints": false
           },
           "difficulty": {
             "difficultyMode": 1,
@@ -381,7 +432,10 @@
             "noSaveBlocks": false,
             "noHeartBlocks": false,
             "itemScarcity": 0,
-            "starWaySpiritsNeeded": 7
+            "starWaySpiritsNeeded": 7,
+            "noHealingItems": false,
+            "itemTrapMode": 3,
+            "allowItemHints": false
           },
           "marioStats": {
             "startingCoins": 50,
@@ -396,8 +450,7 @@
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
-            "startingMap": 65796,
-            "homewardShroom": true
+            "startingMap": 65796
           },
           "colorPalettes": {
             "menu": 0,
@@ -421,9 +474,20 @@
               "paletteSelection": 0,
               "optionDisplay": "Default"
             },
+            "wattSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "sushieSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
             "bossesSetting": 0,
             "npcSetting": 0,
-            "coinColor": 0
+            "coinColor": 0,
+            "randomText": false
           }
         }
     },

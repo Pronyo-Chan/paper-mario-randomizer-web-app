@@ -1,3 +1,5 @@
+import { ItemTrapMode } from './../../../entities/enum/itemTrapMode';
+import { MysteryMode } from './../../../entities/enum/mysteryMode';
 import { LocalStorageService } from './../../../services/localStorage/localStorage.service';
 
 import { SpriteSetting } from './../../../entities/enum/spriteSetting';
@@ -74,14 +76,16 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includePanels: new FormControl(false),
         includeFavors: new FormControl(false),
         keyitemsOutsideDungeon: new FormControl(false),
-        includeDojo: new FormControl(false)
+        includeDojo: new FormControl(false),
+        itemPouches: new FormControl(false),
       }),
       gameplay: new FormGroup({
-        shuffleBadgesBP: new FormControl(false),
-        shuffleBadgesFP: new FormControl(false),
-        shufflePartnerFP: new FormControl(false),
-        shuffleStarpowerSP: new FormControl(false),
+        randomBadgesBP: new FormControl(0),
+        randomBadgesFP: new FormControl(0),
+        randomPartnerFP: new FormControl(0),
+        randomStarpowerSP: new FormControl(0),
         randomFormations: new FormControl(false),
+        mysteryMode: new FormControl(MysteryMode.Vanilla),
       }),
       partners: new FormGroup({
         shufflePartners: new FormControl(false),
@@ -114,6 +118,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         turnOffMusic: new FormControl(false),     
         quizmoAlwaysAppears: new FormControl(false),
         romanNumerals: new FormControl(false),        
+        foliageItemHints: new FormControl(false),        
       }),
       difficulty: new FormGroup({
         difficultyMode: new FormControl(DifficultySetting.Vanilla),
@@ -124,7 +129,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         noSaveBlocks: new FormControl(false),
         noHeartBlocks: new FormControl(false),
         itemScarcity: new FormControl(0),
-        starWaySpiritsNeeded: new FormControl(7)      
+        starWaySpiritsNeeded: new FormControl(7),
+        noHealingItems: new FormControl(false),
+        itemTrapMode: new FormControl(0),
+        allowItemHints: new FormControl(true)
       }),
       marioStats: new FormGroup({
         startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]), 
@@ -132,15 +140,17 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         startingMaxFP: new FormControl(5), 
         startingMaxBP: new FormControl(3),
         startingStarPower: new FormControl(0),
-        startingItems: new FormControl([]) 
+        startingItems: new FormControl([]),
+        startWithRandomItems: new FormControl(false),
+        randomItemsMin: new FormControl(0, [Validators.min(0), Validators.max(16)]),
+        randomItemsMax: new FormControl(16, [Validators.min(0), Validators.max(16), CustomValidators.greaterOrEqualTo('randomItemsMin')]),
       }),
       openLocations: new FormGroup({
         flowerGateOpen: new FormControl(false),
         blueHouseOpen : new FormControl(false),
         toyboxOpen: new FormControl(false),
         whaleOpen: new FormControl(false),
-        startingMap: new FormControl(0),
-        homewardShroom: new FormControl(true),
+        startingMap: new FormControl(0)
       }),
       colorPalettes: new FormGroup({
         menu: new FormControl(0),
@@ -148,9 +158,12 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         goombarioSprite : new FormControl(),
         kooperSprite : new FormControl(),
         bowSprite : new FormControl(),
+        wattSprite: new FormControl(),
+        sushieSprite: new FormControl(),
         bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
         npcSetting: new FormControl(SpriteSetting.DefaultPalette),
-        coinColor: new FormControl(CoinColor.Default)
+        coinColor: new FormControl(CoinColor.Default),
+        randomText: new FormControl(false),
       }),
     });
 

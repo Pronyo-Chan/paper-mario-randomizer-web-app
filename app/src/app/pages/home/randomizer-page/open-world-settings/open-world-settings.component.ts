@@ -15,6 +15,7 @@ export class OpenWorldSettingsComponent implements OnInit, OnDestroy {
     {name: "Goomba Village", value: StartingMaps.GoombaVillage},
     {name: "Dry Dry Outpost", value: StartingMaps.DryDryOutpost},
     {name: "Yoshi Village", value: StartingMaps.YoshiVillage},
+    {name: "Random Pick", value: StartingMaps.Random}
   ];
 
   @Input() public openLocationsFormGroup: FormGroup;
@@ -23,17 +24,6 @@ export class OpenWorldSettingsComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.openLocationsFormGroup.get('startingMap').setValue(StartingMaps.ToadTown)
-    
-    this._startingMapSubcription =  this.openLocationsFormGroup.get('startingMap').valueChanges.pipe(
-      tap(value => {
-        if(value == StartingMaps.DryDryOutpost) {
-          this.openLocationsFormGroup.get('homewardShroom').setValue(true);
-          this.openLocationsFormGroup.get('homewardShroom').disable();
-        } else {
-          this.openLocationsFormGroup.get('homewardShroom').enable();
-        }
-      })
-    ).subscribe();
   }
 
   public ngOnDestroy(): void {
