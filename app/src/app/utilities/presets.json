@@ -100,6 +100,11 @@
                     "paletteSelection": 0,
                     "optionDisplay": "Default"
                 },
+                "parakarrySprite": {
+                  "setting": 0,
+                  "paletteSelection": 0,
+                  "optionDisplay": "Default"
+                },
                 "bowSprite": {
                     "setting": 0,
                     "paletteSelection": 0,
@@ -219,6 +224,11 @@
               "optionDisplay": "Default"
             },
             "kooperSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "parakarrySprite": {
               "setting": 0,
               "paletteSelection": 0,
               "optionDisplay": "Default"
@@ -346,6 +356,11 @@
               "paletteSelection": 0,
               "optionDisplay": "Default"
             },
+            "parakarrySprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
             "bowSprite": {
               "setting": 0,
               "paletteSelection": 0,
@@ -465,6 +480,11 @@
               "optionDisplay": "Default"
             },
             "kooperSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "parakarrySprite": {
               "setting": 0,
               "paletteSelection": 0,
               "optionDisplay": "Default"

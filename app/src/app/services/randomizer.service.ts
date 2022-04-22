@@ -138,6 +138,8 @@ export class RandomizerService {
       GoombarioSprite: (settingsForm.get('colorPalettes').get('goombarioSprite').value as CharacterSpriteSetting).paletteSelection,
       KooperSetting: (settingsForm.get('colorPalettes').get('kooperSprite').value as CharacterSpriteSetting).setting,
       KooperSprite: (settingsForm.get('colorPalettes').get('kooperSprite').value as CharacterSpriteSetting).paletteSelection,
+      ParakarrySetting: (settingsForm.get('colorPalettes').get('parakarrySprite').value as CharacterSpriteSetting).setting,
+      ParakarrySprite: (settingsForm.get('colorPalettes').get('parakarrySprite').value as CharacterSpriteSetting).paletteSelection,
       BowSetting: (settingsForm.get('colorPalettes').get('bowSprite').value as CharacterSpriteSetting).setting,
       BowSprite: (settingsForm.get('colorPalettes').get('bowSprite').value as CharacterSpriteSetting).paletteSelection,
       WattSetting: (settingsForm.get('colorPalettes').get('wattSprite').value as CharacterSpriteSetting).setting,

@@ -127,6 +127,7 @@ export class SettingsInfoComponent implements OnInit {
     this.settingRows.push({name: 'Mario Color', value: this.getSpriteSettingName('Mario', this.seedInfo.MarioSetting, this.seedInfo.MarioSprite)} as SettingRow);
     this.settingRows.push({name: 'Watt Color', value: this.getSpriteSettingName('Watt', this.seedInfo.WattSetting, this.seedInfo.WattSprite)} as SettingRow);
     this.settingRows.push({name: 'Sushie Color', value: this.getSpriteSettingName('Sushie', this.seedInfo.SushieSetting, this.seedInfo.SushieSprite)} as SettingRow);
+    this.settingRows.push({name: 'Parakarry Color', value: this.getSpriteSettingName('Parakarry', this.seedInfo.ParakarrySetting, this.seedInfo.ParakarrySprite)} as SettingRow);
   }
 
   private addMysterySetting() {
@@ -154,7 +155,9 @@ export class SettingsInfoComponent implements OnInit {
       case 'Watt':
         return Constants.WATT_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;
       case 'Sushie':
-        return Constants.SUSHIE_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;         
+        return Constants.SUSHIE_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;     
+      case 'Parakarry':
+        return Constants.PARAKARRY_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;             
       default:
         return '';
     }
