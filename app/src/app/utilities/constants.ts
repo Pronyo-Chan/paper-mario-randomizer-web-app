@@ -56,6 +56,7 @@ export class Constants {
         {setting: SpriteSetting.DefaultPalette, paletteSelection: ParakarrySprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: ParakarrySprite.Green, optionDisplay: 'Green'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: ParakarrySprite.Red, optionDisplay: 'Red'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: ParakarrySprite.Purple, optionDisplay: 'Purple'},
         {setting: SpriteSetting.RandomPick, paletteSelection: ParakarrySprite.Default, optionDisplay: 'Random Pick'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: ParakarrySprite.Default, optionDisplay: 'Random On Every Load'}
       ];
