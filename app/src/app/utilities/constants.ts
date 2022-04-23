@@ -27,6 +27,8 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Luigi, optionDisplay: 'Luigi'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Wario, optionDisplay: 'Wario'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Waluigi, optionDisplay: 'Waluigi'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Fire, optionDisplay: 'Fire'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Maker, optionDisplay: 'Maker'},
         {setting: SpriteSetting.RandomPick, paletteSelection: MarioSprite.Default, optionDisplay: 'Random Pick'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: MarioSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
