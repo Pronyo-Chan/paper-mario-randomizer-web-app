@@ -1,5 +1,54 @@
 
 <div class="main-page">
+    <mat-card class="settings-card">
+        <mat-card-title class="settings-title">0.10.0 (beta) (2022-05-02)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>        
+            <li> Merluvlee giving a hint crashes the game on rare occasions, under currently unknown circumstances.</li>
+            <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
+            <li> When playing with Hidden Block Mode: "Watt Obtained", hidden blocks won't appear before Watt has been an active partner at least once.</li>
+            <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        </ul>
+
+        <h2> Game Mod fixes</h2>
+        <ul>
+            <li> Fixed an issue where the cursor in the items battle menu would sometimes default to the second position.</li>
+            <li> Fixed issues with item pouches: Anti-Guy not taking the lemon candy and Tayce T. not removing the right item from Mario's inventory.</li>
+            <li> Fixed an issue with Watt's alternative color where his sparks would sometimes be vanilla color.</li>
+            <li> Fixed an issue where refusing to "Take" Parakarry twice after giving the 3 letters would make it impossible to get his reward later on.</li>
+            <li> Fixed a vanilla issue where a Spike Top enemy in Mt. Lavalava was able to hit Mario on a higher platform.</li>
+            <li> Flowers in around the Flower Fields gate will now be planted from the start when playing with the setting "Open Flower Fields".</li>
+            <li> Fixed minor errors in the added partner dialogues in front of Boo's Mansion.</li>
+        </ul>
+
+        <h2>Website Fixes</h2>
+        <ul>
+            <li> Fixed an issue where setting some of the item pouches as starting items would give star pieces instead.</li>
+        </ul>
+
+        <h2>Logic / Seed Generator</h2>
+        <ul>
+            <li> The generator now uses a new assumed fill placement algorithm. In practice, this means items will be more evenly spread out throughout the world,
+                 instead of being more concentrated in easily accessed locations like before.</li>
+            <li> Turning in the artifact at the desert camp before completing chapter 2 is now in logic.</li>
+            <li> Fixed an issue where some replenishable items locations were not used during the placement of replenishable progression items.</li>
+            <li> Adjusted logic in Tubba Blubba's Castle: Bow is now required in logic to reach the first locked door, and it is now considered possible to get 
+                the spiked room chest with Lakilester</li>
+        </ul>
+
+        <h2>Options</h2>
+        <h3>Color Palettes (change)</h3>
+        <ul>
+            <li> Added new colors for partners: Sushie and Parakarry.</li>
+            <li> Added new colors for Mario: Fire and Maker.</li>
+            <li> Added new colors for NPCs: Merlon, Kammy and Yoshi Chief.</li>
+            <li> Added new colors for enemies: Bandit, Stone Chomp and Koopa Bros.</li>
+            <li> The color of the Tuff Puff enemies will now match Huff Puff's palette.</li>
+            <li> Adjusted the saturation of Pink Bow.</li>
+        </ul>
+    </mat-card>
 
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.9.1 (beta) (2022-04-19)</mat-card-title>
