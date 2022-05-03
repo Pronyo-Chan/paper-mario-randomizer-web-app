@@ -70,6 +70,8 @@ export interface SettingsResponse{
     GoombarioSprite: GoombarioSprite;
     KooperSetting: SpriteSetting;
     KooperSprite: KooperSprite;
+    ParakarrySetting: SpriteSetting;
+    ParakarrySprite: KooperSprite;
     BowSetting: SpriteSetting;
     BowSprite: BowSprite;
     WattSetting: SpriteSetting;

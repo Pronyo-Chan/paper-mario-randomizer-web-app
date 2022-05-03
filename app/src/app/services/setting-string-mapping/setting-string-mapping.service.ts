@@ -26,6 +26,7 @@ export class SettingStringMappingService {
     { compressedString: "t", key: "randomText", type: "bool"},
     { compressedString: "w", key: "wattSprite", type: "sprite"},
     { compressedString: "s", key: "sushieSprite", type: "sprite"},
+    { compressedString: "a", key: "parakarrySprite", type: "sprite"},
   ]
 
   public readonly difficultyMap: SettingModel [] = [
@@ -261,6 +262,8 @@ export class SettingStringMappingService {
 
   private decodeSprite(compressedKey: string, compressedSetting: string, compressedPalette: string): CharacterSpriteSetting{
     switch (compressedKey) {
+      case 'a':
+        return Constants.PARAKARRY_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 'b':
         return Constants.BOW_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 'g':

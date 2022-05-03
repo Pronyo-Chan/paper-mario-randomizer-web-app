@@ -19,6 +19,12 @@
             </select> 
         </div>
         <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Parakarry" tooltipText="Parakarry's color palette"></app-tooltip-span>
+            <select formControlName='parakarrySprite'>
+                <option *ngFor="let parakarryOption of parakarryOptions" [ngValue]="parakarryOption">{{parakarryOption.optionDisplay}}</option>
+            </select> 
+        </div>
+        <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Bow" tooltipText="Bow's color palette"></app-tooltip-span>
             <select formControlName='bowSprite'>
                 <option *ngFor="let bowOption of bowOptions" [ngValue]="bowOption">{{bowOption.optionDisplay}}</option>

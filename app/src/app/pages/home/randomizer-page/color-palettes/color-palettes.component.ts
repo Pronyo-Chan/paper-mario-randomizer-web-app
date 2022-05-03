@@ -18,6 +18,7 @@ export class ColorPalettesComponent implements OnInit, OnDestroy {
   public marioOptions = Constants.MARIO_OPTIONS;
   public goombarioOptions = Constants.GOOMBARIO_OPTIONS;
   public kooperOptions = Constants.KOOPER_OPTIONS;
+  public parakarryOptions = Constants.PARAKARRY_OPTIONS;
   public bowOptions = Constants.BOW_OPTIONS;
   public wattOptions = Constants.WATT_OPTIONS;
   public sushieOptions = Constants.SUSHIE_OPTIONS;
@@ -41,6 +42,7 @@ export class ColorPalettesComponent implements OnInit, OnDestroy {
     this.initSpriteFormControl('marioSprite', this.marioOptions);
     this.initSpriteFormControl('goombarioSprite', this.goombarioOptions);
     this.initSpriteFormControl('kooperSprite', this.kooperOptions);
+    this.initSpriteFormControl('parakarrySprite', this.parakarryOptions);
     this.initSpriteFormControl('bowSprite', this.bowOptions);
     this.initSpriteFormControl('wattSprite', this.wattOptions);
     this.initSpriteFormControl('sushieSprite', this.sushieOptions);
