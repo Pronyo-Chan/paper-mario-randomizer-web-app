@@ -512,6 +512,138 @@
         }
     },
     {
+      "name": "Standard Race",
+      "settings":{
+         "items":{
+            "shuffleItems":true,
+            "includeCoins":false,
+            "includeShops":true,
+            "includePanels":false,
+            "includeFavors":false,
+            "keyitemsOutsideDungeon":true,
+            "includeDojo":false,
+            "itemPouches":false
+         },
+         "gameplay":{
+            "randomBadgesBP":1,
+            "randomBadgesFP":1,
+            "randomPartnerFP":1,
+            "randomStarpowerSP":0,
+            "randomFormations":true,
+            "mysteryMode":0
+         },
+         "partners":{
+            "shufflePartners":true,
+            "partnersAlwaysUsable":false,
+            "startWithRandomPartners":true,
+            "randomPartnersMin":1,
+            "randomPartnersMax":1,
+            "startWithPartners":{
+               "goombario":true,
+               "kooper":false,
+               "bombette":false,
+               "parakarry":false,
+               "bow":false,
+               "watt":false,
+               "sushie":false,
+               "lakilester":false
+            }
+         },
+         "qualityOfLife":{
+            "hiddenBlockMode":2,
+            "alwaysSpeedySpin":true,
+            "alwaysISpy":false,
+            "alwaysPeekaboo":true,
+            "skipQuiz":true,
+            "preventPhysicsGlitches":false,
+            "shortenBowsersCastle":true,
+            "shortenCutscenes":true,
+            "skipEpilogue":true,
+            "writeSpoilerLog":false,
+            "turnOffMusic":false,
+            "quizmoAlwaysAppears":false,
+            "romanNumerals":false,
+            "foliageItemHints":true
+         },
+         "difficulty":{
+            "difficultyMode":1,
+            "capEnemyXP":false,
+            "noXP":false,
+            "damageMultiplier":1,
+            "oneHitKO":false,
+            "noSaveBlocks":false,
+            "noHeartBlocks":false,
+            "itemScarcity":0,
+            "starWaySpiritsNeeded":7,
+            "noHealingItems":false,
+            "itemTrapMode":0,
+            "allowItemHints":false
+         },
+         "marioStats":{
+            "startingCoins":100,
+            "startingMaxHP":10,
+            "startingMaxFP":5,
+            "startingMaxBP":3,
+            "startingStarPower":0,
+            "startingItems":[
+               
+            ],
+            "startWithRandomItems":false,
+            "randomItemsMin":0,
+            "randomItemsMax":16
+         },
+         "openLocations":{
+            "flowerGateOpen":false,
+            "blueHouseOpen":false,
+            "toyboxOpen":false,
+            "whaleOpen":false,
+            "startingMap":65796
+         },
+         "colorPalettes":{
+            "menu":7,
+            "marioSprite":{
+               "setting":2,
+               "paletteSelection":0,
+               "optionDisplay":"Random Pick"
+            },
+            "goombarioSprite":{
+               "setting":2,
+               "paletteSelection":0,
+               "optionDisplay":"Random Pick"
+            },
+            "kooperSprite":{
+               "setting":2,
+               "paletteSelection":0,
+               "optionDisplay":"Random Pick"
+            },
+            "parakarrySprite":{
+               "setting":0,
+               "paletteSelection":0,
+               "optionDisplay":"Default"
+            },
+            "bowSprite":{
+               "setting":2,
+               "paletteSelection":0,
+               "optionDisplay":"Random Pick"
+            },
+            "wattSprite":{
+               "setting":2,
+               "paletteSelection":0,
+               "optionDisplay":"Random Pick"
+            },
+            "sushieSprite":{
+               "setting":2,
+               "paletteSelection":0,
+               "optionDisplay":"Random Pick"
+            },
+            "bossesSetting":2,
+            "npcSetting":2,
+            "coinColor":5,
+            "randomText":false
+         }
+      }
+    },
+    {
         "name": "[New Preset]",
         "settings": {}
     }
