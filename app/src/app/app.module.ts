@@ -53,6 +53,8 @@ import { SavePresetDialogComponent } from './pages/home/randomizer-page/preset-s
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
 import { InfoDialogComponent } from './pages/home/randomizer-page/info-dialog/info-dialog.component';
 import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatTabScrollToCenterDirective } from './utilities/directives/scrolling.directive';
 
 const dbConfig: DBConfig  = {
   name: 'db',
@@ -94,7 +96,8 @@ const dbConfig: DBConfig  = {
     SavePresetDialogComponent,
     GithubPageComponent,
     DevPageComponent,
-    InfoDialogComponent
+    InfoDialogComponent,
+    MatTabScrollToCenterDirective
   ],
   imports: [
     BrowserModule,
@@ -106,6 +109,7 @@ const dbConfig: DBConfig  = {
     MatTabsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    ScrollingModule,
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,

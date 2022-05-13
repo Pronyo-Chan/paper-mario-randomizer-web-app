@@ -1,12 +1,19 @@
 @use './../../../../variables';
 :host {
-    
-
     .settings-card {
         ::ng-deep .mat-tab-group {
             .mat-tab-header {
+                .mat-tab-header-pagination {
+                    display: none !important; // <== disable pagination
+                  }
                 .mat-tab-label-container {
+                    left: 0px;
+                    width: 100%;
+
                     .mat-tab-list {
+                        overflow-x: auto !important; // <== set horisontal scroll bar imperatively
+                        // below rule prevents sliding of buttons' container - because it not sliding properly - to left it not slide as well
+                        transform: none !important;
 
                         .mat-ink-bar {
                             display: none;
