@@ -27,7 +27,9 @@ export class SettingsInfoComponent implements OnInit {
   @Input() public seedInfo: SettingsResponse
 
   public settingRows: SettingRow[] = [];
-  expirationDate: Date;
+  public expirationDate: Date;
+
+  public copiedToClipboard = false;
   
   public constructor() { }
 
