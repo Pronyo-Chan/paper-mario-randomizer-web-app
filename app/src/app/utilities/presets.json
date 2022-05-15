@@ -10,7 +10,8 @@
                 "includeFavors": false,
                 "keyitemsOutsideDungeon": false,
                 "includeDojo": false,
-                "itemPouches": true
+                "itemPouches": true,
+                "includeLetters": 0
             },
             "gameplay": {
                 "randomBadgesBP": 0,
@@ -138,7 +139,8 @@
             "includeFavors": false,
             "keyitemsOutsideDungeon": false,
             "includeDojo": false,
-            "itemPouches": true
+            "itemPouches": true,
+            "includeLetters": 0
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -266,7 +268,8 @@
             "includeFavors": false,
             "keyitemsOutsideDungeon": true,
             "includeDojo": false,
-            "itemPouches": true
+            "itemPouches": true,
+            "includeLetters": 1
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -394,7 +397,8 @@
             "includeFavors": true,
             "keyitemsOutsideDungeon": true,
             "includeDojo": true,
-            "itemPouches": false
+            "itemPouches": false,
+            "includeLetters": 3
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -522,7 +526,8 @@
             "includeFavors":false,
             "keyitemsOutsideDungeon":true,
             "includeDojo":false,
-            "itemPouches":false
+            "itemPouches":false,
+            "includeLetters": 0
          },
          "gameplay":{
             "randomBadgesBP":1,

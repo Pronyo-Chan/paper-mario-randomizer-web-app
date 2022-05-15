@@ -1,3 +1,4 @@
+import { LettersMode } from './enum/lettersMode';
 import { ItemTrapMode } from './enum/itemTrapMode';
 import { BowSprite } from "./enum/bowSprite";
 import { CoinColor } from "./enum/coinColor";
@@ -38,7 +39,7 @@ export interface SettingsResponse{
     IncludeShops: boolean;
     IncludePanels: boolean;
     IncludeFavors: boolean;
-    IncludeLetterChain: boolean;
+    IncludeLettersMode: LettersMode;
     KeyitemsOutsideDungeon: boolean;
     RandomBadgesBP: number;
     RandomBadgesFP: number;

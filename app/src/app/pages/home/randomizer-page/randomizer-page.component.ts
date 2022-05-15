@@ -78,6 +78,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         keyitemsOutsideDungeon: new FormControl(false),
         includeDojo: new FormControl(false),
         itemPouches: new FormControl(false),
+        includeLetters: new FormControl(0)
       }),
       gameplay: new FormGroup({
         randomBadgesBP: new FormControl(0),

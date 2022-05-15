@@ -109,7 +109,7 @@ export class RandomizerService {
       IncludeShops: settingsForm.get('items').get('includeShops').value,
       IncludePanels: settingsForm.get('items').get('includePanels').value,
       IncludeFavors: false,
-      IncludeLetterChain: false,
+      IncludeLettersMode: settingsForm.get('items').get('includeLetters').value,
       KeyitemsOutsideDungeon: settingsForm.get('items').get('keyitemsOutsideDungeon').value,
       RandomBadgesBP: settingsForm.get('gameplay').get('randomBadgesBP').value,
       RandomBadgesFP: settingsForm.get('gameplay').get('randomBadgesFP').value,

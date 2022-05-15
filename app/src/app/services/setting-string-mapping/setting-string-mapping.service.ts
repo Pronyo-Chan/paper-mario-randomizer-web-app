@@ -61,7 +61,8 @@ export class SettingStringMappingService {
     { compressedString: "s", key: "includeShops", type: "bool"},
     { compressedString: "k", key: "keyitemsOutsideDungeon", type: "bool"},
     { compressedString: "i", key: "shuffleItems", type: "bool"},
-    { compressedString: "x", key: "itemPouches", type: "bool"}
+    { compressedString: "x", key: "itemPouches", type: "bool"},
+    { compressedString: "l", key: "includeLetters", type: "number"}
   ]
 
   public readonly marioStatsMap: SettingModel [] = [

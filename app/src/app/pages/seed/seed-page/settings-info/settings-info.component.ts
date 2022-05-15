@@ -1,3 +1,4 @@
+import { LettersMode } from './../../../../entities/enum/lettersMode';
 import { ItemTrapMode } from './../../../../entities/enum/itemTrapMode';
 import { AbilityCostMode } from './../../../../entities/enum/abilityCostMode';
 import { CoinColor } from './../../../../entities/enum/coinColor';
@@ -55,6 +56,9 @@ export class SettingsInfoComponent implements OnInit {
         case 'ItemTrapMode':
           this.settingRows.push({name: cleanSettingName, value: ItemTrapMode[this.seedInfo[key]]})
           break;
+        case 'IncludeLettersMode':
+          this.settingRows.push({name: cleanSettingName, value: LettersMode[this.seedInfo[key]]})
+          break;
         case 'RandomBadgesBP':
         case 'RandomBadgesFP':
         case 'RandomPartnerFP':
@@ -84,7 +88,6 @@ export class SettingsInfoComponent implements OnInit {
         case 'PrettySpoilerlog':
         case 'RomanNumerals':
         case 'IncludeFavors':
-        case 'IncludeLetterChain':
         case 'PeachCastleReturnPipe':
         case 'ChallengeMode':
         case 'RandomChoice':
