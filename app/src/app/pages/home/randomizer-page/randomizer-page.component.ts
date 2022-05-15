@@ -56,7 +56,13 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         this.navigateToSeedPage(seedId);
       }),
       catchError(err => {
-        this.seedGenError = 'A server error has occured';
+        if(typeof err.error === 'string' && (err.error as string)?.includes("StarRodModVersion")) {
+          this.seedGenError = "Server version mismatch. Please refresh the page and try again."
+        }
+        else {
+          this.seedGenError = 'A server error has occured';
+        }
+        
         this.isRandomizing = false;
         return of(err)
       })
