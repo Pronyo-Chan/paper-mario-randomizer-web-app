@@ -1,3 +1,4 @@
+import { KootFavorsMode } from './../../../../entities/enum/kootFavorsMode';
 import { LettersMode } from './../../../../entities/enum/lettersMode';
 import { ItemTrapMode } from './../../../../entities/enum/itemTrapMode';
 import { AbilityCostMode } from './../../../../entities/enum/abilityCostMode';
@@ -59,6 +60,9 @@ export class SettingsInfoComponent implements OnInit {
         case 'IncludeLettersMode':
           this.settingRows.push({name: cleanSettingName, value: LettersMode[this.seedInfo[key]]})
           break;
+          case 'IncludeFavorsMode':
+            this.settingRows.push({name: cleanSettingName, value: KootFavorsMode[this.seedInfo[key]]})
+            break;
         case 'RandomBadgesBP':
         case 'RandomBadgesFP':
         case 'RandomPartnerFP':

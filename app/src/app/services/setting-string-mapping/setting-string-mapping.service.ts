@@ -56,7 +56,7 @@ export class SettingStringMappingService {
   public readonly itemsMap: SettingModel [] = [
     { compressedString: "c", key: "includeCoins", type: "bool"},
     { compressedString: "d", key: "includeDojo", type: "bool"},
-    { compressedString: "f", key: "includeFavors", type: "bool"},
+    { compressedString: "f", key: "includeFavors", type: "number"},
     { compressedString: "p", key: "includePanels", type: "bool"},
     { compressedString: "s", key: "includeShops", type: "bool"},
     { compressedString: "k", key: "keyitemsOutsideDungeon", type: "bool"},

@@ -1,3 +1,4 @@
+import { KootFavorsMode } from './enum/kootFavorsMode';
 import { LettersMode } from './enum/lettersMode';
 import { BowSprite } from './enum/bowSprite';
 import { CoinColor } from './enum/coinColor';
@@ -35,7 +36,7 @@ export interface SettingsRequest {
     IncludeCoins: boolean;
     IncludeShops: boolean;
     IncludePanels: boolean;
-    IncludeFavors: boolean;
+    IncludeFavorsMode: KootFavorsMode;
     IncludeLettersMode: LettersMode;
     KeyitemsOutsideDungeon: boolean;
     RandomBadgesBP: number;

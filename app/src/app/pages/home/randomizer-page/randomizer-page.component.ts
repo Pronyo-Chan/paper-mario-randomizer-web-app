@@ -1,3 +1,5 @@
+import { LettersMode } from './../../../entities/enum/lettersMode';
+import { KootFavorsMode } from './../../../entities/enum/kootFavorsMode';
 import { ItemTrapMode } from './../../../entities/enum/itemTrapMode';
 import { MysteryMode } from './../../../entities/enum/mysteryMode';
 import { LocalStorageService } from './../../../services/localStorage/localStorage.service';
@@ -80,11 +82,11 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includeCoins: new FormControl(false),
         includeShops: new FormControl(false),
         includePanels: new FormControl(false),
-        includeFavors: new FormControl(false),
+        includeFavors: new FormControl(KootFavorsMode.Vanilla),
         keyitemsOutsideDungeon: new FormControl(false),
         includeDojo: new FormControl(false),
         itemPouches: new FormControl(false),
-        includeLetters: new FormControl(0)
+        includeLetters: new FormControl(LettersMode.Vanilla)
       }),
       gameplay: new FormGroup({
         randomBadgesBP: new FormControl(0),
