@@ -9,6 +9,7 @@ import { MarioSprite } from "./enum/marioSprite";
 import { SpriteSetting } from "./enum/spriteSetting";
 import { WattSprite } from './enum/wattSprite';
 import { SushieSprite } from './enum/sushieSprite';
+import { BowsersCastleMode } from './enum/bowsersCastleMode';
 
 export interface SettingsResponse{
     SeedID: string;
@@ -59,7 +60,7 @@ export interface SettingsResponse{
     RomanNumerals: boolean;
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
-    ShortenBowsersCastle: boolean;
+    BowsersCastleMode: BowsersCastleMode;
     ShortenCutscenes: boolean;
     SkipEpilogue: boolean;
     Box5ColorA: number;

@@ -1,3 +1,4 @@
+import { BowsersCastleMode } from './../../../entities/enum/bowsersCastleMode';
 import { LettersMode } from './../../../entities/enum/lettersMode';
 import { KootFavorsMode } from './../../../entities/enum/kootFavorsMode';
 import { ItemTrapMode } from './../../../entities/enum/itemTrapMode';
@@ -120,7 +121,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         alwaysPeekaboo: new FormControl(false),        
         skipQuiz: new FormControl(false),      
         preventPhysicsGlitches: new FormControl(false), 
-        shortenBowsersCastle: new FormControl(false), 
+        bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla), 
         shortenCutscenes: new FormControl(false), 
         skipEpilogue: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),        

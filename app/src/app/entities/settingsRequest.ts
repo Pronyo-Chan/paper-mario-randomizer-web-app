@@ -56,7 +56,7 @@ export interface SettingsRequest {
     RomanNumerals: boolean;
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
-    ShortenBowsersCastle: boolean;
+    BowsersCastleMode: boolean;
     ShortenCutscenes: boolean;
     SkipEpilogue: boolean;
     Box5ColorA: number;

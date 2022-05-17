@@ -114,7 +114,7 @@ export class SettingStringMappingService {
     { compressedString: "g", key: "preventPhysicsGlitches", type: "bool"},
     { compressedString: "q", key: "quizmoAlwaysAppears", type: "bool"},
     { compressedString: "r", key: "romanNumerals", type: "bool"},
-    { compressedString: "b", key: "shortenBowsersCastle", type: "bool"},
+    { compressedString: "b", key: "bowsersCastleMode", type: "number"},
     { compressedString: "c", key: "shortenCutscenes", type: "bool"},
     { compressedString: "e", key: "skipEpilogue", type: "bool"},
     { compressedString: "z", key: "skipQuiz", type: "bool"},

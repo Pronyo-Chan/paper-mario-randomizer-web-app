@@ -125,7 +125,7 @@ export class RandomizerService {
       RomanNumerals: settingsForm.get('qualityOfLife').get('romanNumerals').value,
       TurnOffMusic: settingsForm.get('qualityOfLife').get('turnOffMusic').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
-      ShortenBowsersCastle: settingsForm.get('qualityOfLife').get('shortenBowsersCastle').value,
+      BowsersCastleMode: settingsForm.get('qualityOfLife').get('bowsersCastleMode').value,
       ShortenCutscenes: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,
       SkipEpilogue: settingsForm.get('qualityOfLife').get('skipEpilogue').value,
       Box5ColorA: Constants.MENU_COLORS[menuColor].colorA,
