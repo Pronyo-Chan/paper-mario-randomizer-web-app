@@ -127,7 +127,6 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         writeSpoilerLog: new FormControl(true),        
         turnOffMusic: new FormControl(false),     
         quizmoAlwaysAppears: new FormControl(false),
-        romanNumerals: new FormControl(false),        
         foliageItemHints: new FormControl(false),        
       }),
       difficulty: new FormGroup({
@@ -175,6 +174,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         npcSetting: new FormControl(SpriteSetting.DefaultPalette),
         coinColor: new FormControl(CoinColor.Default),
         randomText: new FormControl(false),
+        romanNumerals: new FormControl(false),
       }),
     });
 

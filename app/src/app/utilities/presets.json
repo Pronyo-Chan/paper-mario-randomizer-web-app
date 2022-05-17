@@ -51,7 +51,6 @@
                 "writeSpoilerLog": true,
                 "turnOffMusic": false,
                 "quizmoAlwaysAppears": false,
-                "romanNumerals": false,                
                 "foliageItemHints": true
             },
             "difficulty": {
@@ -124,7 +123,8 @@
                 "bossesSetting": 0,
                 "npcSetting": 0,
                 "coinColor": 0,
-                "randomText": false
+                "randomText": false,
+                "romanNumerals": false
             }
         }
     },
@@ -180,7 +180,6 @@
             "writeSpoilerLog": true,
             "turnOffMusic": false,
             "quizmoAlwaysAppears": false,
-            "romanNumerals": false,
             "foliageItemHints": false
           },
           "difficulty": {
@@ -253,7 +252,8 @@
             "bossesSetting": 0,
             "npcSetting": 0,
             "coinColor": 0,
-            "randomText": false
+            "randomText": false,
+            "romanNumerals": false
           }
         }
     },
@@ -309,7 +309,6 @@
             "writeSpoilerLog": true,
             "turnOffMusic": false,
             "quizmoAlwaysAppears": false,
-            "romanNumerals": false,
             "foliageItemHints": false
           },
           "difficulty": {
@@ -382,7 +381,8 @@
             "bossesSetting": 0,
             "npcSetting": 0,
             "coinColor": 0,
-            "randomText": false
+            "randomText": false,
+            "romanNumerals": false
           }
         }
     },
@@ -438,7 +438,6 @@
             "writeSpoilerLog": true,
             "turnOffMusic": false,
             "quizmoAlwaysAppears": false,
-            "romanNumerals": false,            
             "foliageItemHints": false
           },
           "difficulty": {
@@ -511,7 +510,8 @@
             "bossesSetting": 0,
             "npcSetting": 0,
             "coinColor": 0,
-            "randomText": false
+            "randomText": false,
+            "romanNumerals": false
           }
         }
     },
@@ -567,7 +567,6 @@
             "writeSpoilerLog":false,
             "turnOffMusic":false,
             "quizmoAlwaysAppears":false,
-            "romanNumerals":false,
             "foliageItemHints":true
          },
          "difficulty":{
@@ -644,7 +643,8 @@
             "bossesSetting":2,
             "npcSetting":2,
             "coinColor":5,
-            "randomText":false
+            "randomText":false,
+            "romanNumerals": false
          }
       }
     },
