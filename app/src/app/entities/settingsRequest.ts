@@ -1,3 +1,5 @@
+import { KootFavorsMode } from './enum/kootFavorsMode';
+import { LettersMode } from './enum/lettersMode';
 import { BowSprite } from './enum/bowSprite';
 import { CoinColor } from './enum/coinColor';
 import { GoombarioSprite } from './enum/goombarioSprite';
@@ -34,8 +36,8 @@ export interface SettingsRequest {
     IncludeCoins: boolean;
     IncludeShops: boolean;
     IncludePanels: boolean;
-    IncludeFavors: boolean;
-    IncludeLetterChain: boolean;
+    IncludeFavorsMode: KootFavorsMode;
+    IncludeLettersMode: LettersMode;
     KeyitemsOutsideDungeon: boolean;
     RandomBadgesBP: number;
     RandomBadgesFP: number;
@@ -54,7 +56,7 @@ export interface SettingsRequest {
     RomanNumerals: boolean;
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
-    ShortenBowsersCastle: boolean;
+    BowsersCastleMode: boolean;
     ShortenCutscenes: boolean;
     SkipEpilogue: boolean;
     Box5ColorA: number;

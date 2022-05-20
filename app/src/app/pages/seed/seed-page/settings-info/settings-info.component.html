@@ -1,12 +1,20 @@
 <div class="seed-info">
-    <p>Seed ID: <span>{{seedInfo.SeedID}}</span></p>
-    <p>Creation Date: <span>{{seedInfo.CreationDate | date}}</span></p>
-    <p>Expiration Date: <span>{{expirationDate | date}}</span> <span style="color: red;">*</span></p>
+    <p>Seed ID: <span class="seed-detail">{{seedInfo.SeedID}}</span></p>
+    <p>Creation Date: <span class="seed-detail">{{seedInfo.CreationDate | date}}</span></p>
+    <p>Expiration Date: <span class="seed-detail">{{expirationDate | date}}</span> <span style="color: red;">*</span></p>
     <div *ngIf="seedInfo.SettingsString" class="input-label">
         <p class="settings-label">Settings string
-             <mat-icon class="material-icons-outlined" [cdkCopyToClipboard]="seedInfo.SettingsString" [matTooltip]="'Copy To Clipboard'" [matTooltipPosition]="'right'"> content_copy</mat-icon>
-            </p>
-        <textarea matInput [disabled]="true" [(ngModel)]="seedInfo.SettingsString"> </textarea>
+             <mat-icon class="material-icons-outlined" 
+                       [cdkCopyToClipboard]="seedInfo.SettingsString"
+                       [matTooltip]="'Copy to clipboard'" 
+                       [matTooltipPosition]="'right'"
+                       (click)="copiedToClipboard = true"
+                       (mouseenter)="copiedToClipboard = false">
+            content_copy
+            </mat-icon>
+            <span class="copied-message" *ngIf="copiedToClipboard">✔️ Copied to clipboard!</span>
+        </p>
+        <textarea rows="3"matInput [disabled]="true" [(ngModel)]="seedInfo.SettingsString"> </textarea>
     </div>
     <span class="expiration-warning">*Generated seeds are stored for a period of 30 days and are automatically deleted after.
          Please make sure to download and keep your patch / spoiler log before then if you plan on needing them later.</span>

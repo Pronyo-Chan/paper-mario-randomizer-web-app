@@ -1,3 +1,6 @@
+import { BowsersCastleMode } from './../../../entities/enum/bowsersCastleMode';
+import { LettersMode } from './../../../entities/enum/lettersMode';
+import { KootFavorsMode } from './../../../entities/enum/kootFavorsMode';
 import { ItemTrapMode } from './../../../entities/enum/itemTrapMode';
 import { MysteryMode } from './../../../entities/enum/mysteryMode';
 import { LocalStorageService } from './../../../services/localStorage/localStorage.service';
@@ -56,7 +59,13 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         this.navigateToSeedPage(seedId);
       }),
       catchError(err => {
-        this.seedGenError = 'A server error has occured';
+        if(typeof err.error === 'string' && (err.error as string)?.includes("StarRodModVersion")) {
+          this.seedGenError = "Server version mismatch. Please refresh the page and try again."
+        }
+        else {
+          this.seedGenError = 'A server error has occured';
+        }
+        
         this.isRandomizing = false;
         return of(err)
       })
@@ -74,10 +83,11 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includeCoins: new FormControl(false),
         includeShops: new FormControl(false),
         includePanels: new FormControl(false),
-        includeFavors: new FormControl(false),
+        includeFavors: new FormControl(KootFavorsMode.Vanilla),
         keyitemsOutsideDungeon: new FormControl(false),
         includeDojo: new FormControl(false),
         itemPouches: new FormControl(false),
+        includeLetters: new FormControl(LettersMode.Vanilla)
       }),
       gameplay: new FormGroup({
         randomBadgesBP: new FormControl(0),
@@ -111,13 +121,12 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         alwaysPeekaboo: new FormControl(false),        
         skipQuiz: new FormControl(false),      
         preventPhysicsGlitches: new FormControl(false), 
-        shortenBowsersCastle: new FormControl(false), 
+        bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla), 
         shortenCutscenes: new FormControl(false), 
         skipEpilogue: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),        
         turnOffMusic: new FormControl(false),     
         quizmoAlwaysAppears: new FormControl(false),
-        romanNumerals: new FormControl(false),        
         foliageItemHints: new FormControl(false),        
       }),
       difficulty: new FormGroup({
@@ -165,6 +174,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         npcSetting: new FormControl(SpriteSetting.DefaultPalette),
         coinColor: new FormControl(CoinColor.Default),
         randomText: new FormControl(false),
+        romanNumerals: new FormControl(false),
       }),
     });
 

@@ -29,7 +29,7 @@ describe('QolSettingsComponent', () => {
       alwaysPeekaboo: new FormControl(false),        
       skipQuiz: new FormControl(false),      
       preventPhysicsGlitches: new FormControl(false), 
-      shortenBowsersCastle: new FormControl(false), 
+      bowsersCastleMode: new FormControl(false), 
       shortenCutscenes: new FormControl(false), 
       skipEpilogue: new FormControl(false), 
       writeSpoilerLog: new FormControl(true),        

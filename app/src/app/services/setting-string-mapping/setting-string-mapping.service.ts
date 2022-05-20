@@ -26,7 +26,8 @@ export class SettingStringMappingService {
     { compressedString: "t", key: "randomText", type: "bool"},
     { compressedString: "w", key: "wattSprite", type: "sprite"},
     { compressedString: "s", key: "sushieSprite", type: "sprite"},
-    { compressedString: "a", key: "parakarrySprite", type: "sprite"},
+    { compressedString: "a", key: "parakarrySprite", type: "sprite"},    
+    { compressedString: "r", key: "romanNumerals", type: "bool"}
   ]
 
   public readonly difficultyMap: SettingModel [] = [
@@ -56,12 +57,13 @@ export class SettingStringMappingService {
   public readonly itemsMap: SettingModel [] = [
     { compressedString: "c", key: "includeCoins", type: "bool"},
     { compressedString: "d", key: "includeDojo", type: "bool"},
-    { compressedString: "f", key: "includeFavors", type: "bool"},
+    { compressedString: "f", key: "includeFavors", type: "number"},
     { compressedString: "p", key: "includePanels", type: "bool"},
     { compressedString: "s", key: "includeShops", type: "bool"},
     { compressedString: "k", key: "keyitemsOutsideDungeon", type: "bool"},
     { compressedString: "i", key: "shuffleItems", type: "bool"},
-    { compressedString: "x", key: "itemPouches", type: "bool"}
+    { compressedString: "x", key: "itemPouches", type: "bool"},
+    { compressedString: "l", key: "includeLetters", type: "number"}
   ]
 
   public readonly marioStatsMap: SettingModel [] = [
@@ -112,8 +114,8 @@ export class SettingStringMappingService {
     { compressedString: "h", key: "hiddenBlockMode", type: "number"},
     { compressedString: "g", key: "preventPhysicsGlitches", type: "bool"},
     { compressedString: "q", key: "quizmoAlwaysAppears", type: "bool"},
-    { compressedString: "r", key: "romanNumerals", type: "bool"},
-    { compressedString: "b", key: "shortenBowsersCastle", type: "bool"},
+    { compressedString: "r", key: "romanNumerals", type: "removed"}, // Was moved to color palettes section
+    { compressedString: "b", key: "bowsersCastleMode", type: "number"},
     { compressedString: "c", key: "shortenCutscenes", type: "bool"},
     { compressedString: "e", key: "skipEpilogue", type: "bool"},
     { compressedString: "z", key: "skipQuiz", type: "bool"},

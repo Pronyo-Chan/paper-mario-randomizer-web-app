@@ -12,10 +12,15 @@
         p {
             font-family: gluten;
             font-weight: 500;
-            span {
+            span.seed-detail {
                 font-size: 18px;
-                font-style: italic;        
+                font-style: italic;
                 color: variables.$yellow-stat-text;        
+            }
+
+            span.copied-message {
+                font-size: 14px;
+                color: variables.$blue-item-main;        
             }
         }
         span.expiration-warning{

@@ -1,3 +1,5 @@
+import { KootFavorsMode } from './enum/kootFavorsMode';
+import { LettersMode } from './enum/lettersMode';
 import { ItemTrapMode } from './enum/itemTrapMode';
 import { BowSprite } from "./enum/bowSprite";
 import { CoinColor } from "./enum/coinColor";
@@ -7,6 +9,7 @@ import { MarioSprite } from "./enum/marioSprite";
 import { SpriteSetting } from "./enum/spriteSetting";
 import { WattSprite } from './enum/wattSprite';
 import { SushieSprite } from './enum/sushieSprite';
+import { BowsersCastleMode } from './enum/bowsersCastleMode';
 
 export interface SettingsResponse{
     SeedID: string;
@@ -37,8 +40,8 @@ export interface SettingsResponse{
     IncludeCoins: boolean;
     IncludeShops: boolean;
     IncludePanels: boolean;
-    IncludeFavors: boolean;
-    IncludeLetterChain: boolean;
+    IncludeFavorsMode: KootFavorsMode;
+    IncludeLettersMode: LettersMode;
     KeyitemsOutsideDungeon: boolean;
     RandomBadgesBP: number;
     RandomBadgesFP: number;
@@ -57,7 +60,7 @@ export interface SettingsResponse{
     RomanNumerals: boolean;
     TurnOffMusic: boolean;
     IncludeDojo: boolean;
-    ShortenBowsersCastle: boolean;
+    BowsersCastleMode: BowsersCastleMode;
     ShortenCutscenes: boolean;
     SkipEpilogue: boolean;
     Box5ColorA: number;

@@ -20,10 +20,6 @@
             <mat-slide-toggle formControlName='includePanels'></mat-slide-toggle>
             <app-tooltip-span spanText="Include Hidden Panels" tooltipText="Star Pieces hidden under hidden panels are included in the item pool"></app-tooltip-span>
         </div>
-        <!-- <div class="setting-element">
-            <mat-slide-toggle formControlName='includeFavors'></mat-slide-toggle>
-            <app-tooltip-span spanText="Include Koopa Koot Favors" tooltipText="Rewards given for completing Koopa Koot's quests are included in the item pool"></app-tooltip-span>
-        </div> -->
         <div class="setting-element">
             <mat-slide-toggle formControlName='keyitemsOutsideDungeon'></mat-slide-toggle>
             <app-tooltip-span spanText="Keysanity" 
@@ -35,6 +31,37 @@
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeDojo'></mat-slide-toggle>
             <app-tooltip-span spanText="Include Dojo Rewards" tooltipText="Include Dojo fight rewards in the item pool. The logic can only expect you to do the 2nd fight with 2 star spirits saved, 3rd fight with 3 star spirits saved, and so on."></app-tooltip-span>
+        </div>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Letter Delivery Rewards" 
+                              tooltipText="Vanilla: Every letter reward remains unshuffled.
+                                           
+                                           Vanilla Letter Chain: Shuffle letter delivery rewards, but don't shuffle anything that relates to the long letter chain.
+                                           
+                                           Final Letter Chain Reward: Shuffle letter delivery rewards and the final reward of the long letter chain.
+                                           
+                                           Full Shuffle: Every letter delivery reward is shuffled.">
+            </app-tooltip-span>
+            <select formControlName='includeLetters'>
+                <option [ngValue]="0">Vanilla</option>
+                <option [ngValue]="1">Vanilla Letter Chain</option>
+                <option [ngValue]="2">Final Letter Chain Reward</option>
+                <option [ngValue]="3">Full Shuffle</option>
+            </select> 
+        </div>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Koopa Koot Favors" 
+                              tooltipText="Vanilla: Every Koopa Koot reward and quest item remains unshuffled.
+                                           
+                                           Shuffle Rewards: Shuffle Koopa Koot favor rewards, but not the key items obtained for his quests.
+                                           
+                                           Full Shuffle: Every Koopa Koot reward and quest key item is shuffled.">
+            </app-tooltip-span>
+            <select formControlName='includeFavors'>
+                <option [ngValue]="0">Vanilla</option>
+                <option [ngValue]="1">Shuffle Rewards</option>
+                <option [ngValue]="2">Full Shuffle</option>
+            </select> 
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='itemPouches'></mat-slide-toggle>
