@@ -55,7 +55,6 @@
             },
             "difficulty": {
                 "difficultyMode": 2,
-                "startingCoins": 50,
                 "capEnemyXP": true,
                 "noXP": false,
                 "damageMultiplier": 1,
@@ -69,7 +68,7 @@
                 "allowItemHints": true
             },
             "marioStats": {
-                "startingCoins": 50,
+                "startingCoins": 100,
                 "startingMaxHP": 10,
                 "startingMaxFP": 5,
                 "startingMaxBP": 3,
@@ -184,7 +183,6 @@
           },
           "difficulty": {
             "difficultyMode": 2,
-            "startingCoins": 50,
             "capEnemyXP": true,
             "noXP": false,
             "damageMultiplier": 1,
@@ -198,7 +196,7 @@
             "allowItemHints": true
           },
           "marioStats": {
-            "startingCoins": 50,
+            "startingCoins": 100,
             "startingMaxHP": 10,
             "startingMaxFP": 5,
             "startingMaxBP": 3,
@@ -313,7 +311,6 @@
           },
           "difficulty": {
             "difficultyMode": 2,
-            "startingCoins": 50,
             "capEnemyXP": true,
             "noXP": false,
             "damageMultiplier": 1,
@@ -327,7 +324,7 @@
             "allowItemHints": true
           },
           "marioStats": {
-            "startingCoins": 50,
+            "startingCoins": 100,
             "startingMaxHP": 10,
             "startingMaxFP": 5,
             "startingMaxBP": 3,
@@ -401,10 +398,10 @@
             "includeLetters": 3
           },
           "gameplay": {
-            "randomBadgesBP": 0,
-            "randomBadgesFP": 0,
-            "randomPartnerFP": 0,
-            "randomStarpowerSP": 0,
+            "randomBadgesBP": 3,
+            "randomBadgesFP": 3,
+            "randomPartnerFP": 3,
+            "randomStarpowerSP": 3,
             "randomFormations": true,
             "mysteryMode": 0
           },
@@ -442,7 +439,6 @@
           },
           "difficulty": {
             "difficultyMode": 1,
-            "startingCoins": 50,
             "capEnemyXP": false,
             "noXP": false,
             "damageMultiplier": 1,
@@ -456,7 +452,7 @@
             "allowItemHints": false
           },
           "marioStats": {
-            "startingCoins": 50,
+            "startingCoins": 100,
             "startingMaxHP": 10,
             "startingMaxFP": 5,
             "startingMaxBP": 3,
@@ -623,7 +619,7 @@
             "parakarrySprite":{
                "setting":0,
                "paletteSelection":0,
-               "optionDisplay":"Default"
+               "optionDisplay":"Random Pick"
             },
             "bowSprite":{
                "setting":2,
