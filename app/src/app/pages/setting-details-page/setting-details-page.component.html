@@ -4,18 +4,16 @@
         <mat-card-title class="settings-title">Randomizer Settings Details</mat-card-title>
         <h2>Shuffle Items</h2>
         <ul>
-            <li>Includes all freestanding items on the overworld.</li>
-            <li>Include all items, badges and key items located in ? blocks.</li>
-            <li>Includes all items found in trees and bushes, except the ones part of Koopa Koot's quests.</li>
-            <li>Includes most rewards handed over / traded by NPCs. Currently excluded: All items related to Koopa Koot's favors and all items received for giving letters to NPCs.</li>
+            <li>Includes freestanding items on the overworld.</li>
+            <li>Include items, badges and key items located in ? blocks.</li>
+            <li>Includes items found in trees and bushes.</li>
+            <li>Includes rewards handed over / traded by NPCs.</li>
             <li>Rip Cheato's trading items are randomized in this setting, as he is not considered a shop. However, only his first 6 items can be required to beat the game. The last 6 (starting from 16 coins) are always optional.</li>
-            <li>The Anti Guy chest in the Toy Box can contain a progression item. However, the logic doesn't expect Mario to beat him, as he can be bribed with a Lemon Candy.
-                This means the logic expects Mario to have access to the Cookbook, a Cake Mix and a Lemon before placing a progression item there.</li>
         </ul>
 
         <h2>Shopsanity</h2>
         <ul>
-            <li>Merlow's badge shop has random items for sale. The first 3 ones cost 2 SP, the next 3 cost 3 SP ... and so on until the last 3 for 6 SP.</li>
+            <li>Merlow's badge shop has random items for sale. The first 3 cost 2 SP, the next 3 cost 3 SP ... and so on until the last 3 for 6 SP.</li>
             <li>The logic considers Mario to need 60 Star Pieces for any of Merlow's items to be in logic. This is to prevent being softlocked by buying all the non-required items from him.</li>
             <li>Rowf's badge shop now sells random items, and he upgrades his inventory after each star spirit saved. He starts out with 4 available items, and adds 3 new ones for every star spirit saved until 4 total spirits are saved.</li>
             <li>Rowf's items are all unique. Items sold by regular shops can be bought infinitely if they are consumables. Badges and key items can only be bought once.</li>
@@ -26,6 +24,7 @@
             <li>Includes all freestanding coins on the overworld.</li>
             <li>Includes all coins located in ?-blocks.</li>
             <li>Coins in bushes and trees are not included.</li>
+            <li>Koopa Koot coin rewards are shuffled when this setting is combined with shuffling Koopa Koot rewards.</li>
         </ul>
 
         <h2>Include Hidden Panels</h2>
@@ -39,16 +38,11 @@
             <li>Items affected by this setting: Fortress Key, Ruins Key, Pyramid Stone, Lunar Stone, Diamond Stone, Castle Key (Tubba's Castle), Toy Train, Cake, Dictionary, Mystery Note, Magical Bean, Fertile Soil, Miracle Water, Bubble Berry, Red Berry, Blue Berry, Yellow Berry, Crystal Berry, Water Stone, Blue Key, Red Key, Palace Key, Castle Key (Bowser's Castle).</li>
         </ul>
 
-        <h2>Include Dojo Rewards</h2>
+        <h2>Koopa Koot Favors</h2>
         <ul>
-            <li>The logic can only expect Mario to win the 2nd dojo fight with 2 star spirits saved, 3rd fight with 3 star spirits saved, and so on.</li>
-        </ul>
-
-        <h2>Shuffle Partners</h2>
-        <ul>
-            <li>Starting partners will already have their "sidequest" considered finished, and Mario won't be able to get an item from their vanilla unlock locations.</li>
-            <li>An important implication of this is that when starting with Bow, the mansion's shop and Gusty Gulch gate will be opened right away, as the vanilla requirement to open them is to get Bow at the top of the mansion.</li>
-            <li>Items that are part of a partner sidequest (Kooper's Shell, Boo's Portrait) will be removed from the item pool when starting with that partner.</li>
+            <li>Koot will have new favors after every completed chapter. The order of the favors follows the original game, no matter the order chapters are completed.</li>
+            <li>Coin rewards are only shuffled if "Coinsanity" is also active.</li>
+            <li>Quest items obtained or handed out as part of Koot's favors cannot be done before the related favor is started.</li>
         </ul>
 
         <h2>Start With Random Partners</h2>
@@ -60,7 +54,6 @@
 
         <h2>Shuffle BP, FP, and SP options</h2>
         <ul>
-            <li>The values are only shuffled among the vanilla values for the respective category. This means that badges with a high BP requirement are likely to have it lowered, for example.</li>
             <li>Badge descriptions are not updated, so the required amount of FP for badge abilities in the badge menu's description won't be accurate with Shuffle Badges FP.</li>
         </ul>
 
@@ -81,7 +74,7 @@
             <li>Partners give 3x more progress score than key items.</li>
             <li>If the number of chapters beaten is greater than the current difficulty level determined by the progress score, then the amount of chapters completed dictates the difficulty instead.
                  For example, if Mario has saved 3 star spirits, but he has a low progress score which would only compute as chapter 3 difficulty, chapter 4 difficulty is used.</li>
-            <li>Random Chapter Difficulty has no logic, so it might be possible that Mario is required to beat very hard fights early on.</li>
+            <li>When playing with "Shuffle Chapter Difficulties" and starting from a location other than Toad Town, the maximum difficulty for the starting chapter will be 3.</li>
             <li>The following battles are unaffected by this setting and will have vanilla stats: All enemies/bosses in Toad Town Tunnels, all enemies/bosses in chapter 8, Dojo Fights (Toad Town), Kent C. Koopa (Pleasant Path), Anti Guy (Toy Box).</li>
         </ul>
 
