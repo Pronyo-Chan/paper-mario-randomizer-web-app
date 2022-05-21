@@ -403,7 +403,7 @@
             "randomPartnerFP": 3,
             "randomStarpowerSP": 3,
             "randomFormations": true,
-            "mysteryMode": 0
+            "mysteryMode": 2
           },
           "partners": {
             "shufflePartners": true,
