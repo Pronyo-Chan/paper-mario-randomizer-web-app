@@ -70,6 +70,12 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
       preset = this.customPresets.find(p => p.name == this.selectedPreset);
     }
     this.formGroup.patchValue(preset['settings'])
+
+    // Fix for old presets that have invalid Koot value
+    if(this.formGroup.get('items').get('includeFavorsMode').value == 'false') {
+      this.formGroup.get('items').get('includeFavorsMode').setValue(0);
+    }
+
     this.presetStatus = "loaded";
   }
 
