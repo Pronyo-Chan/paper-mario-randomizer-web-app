@@ -60,9 +60,12 @@ export class SettingsInfoComponent implements OnInit {
         case 'IncludeLettersMode':
           this.settingRows.push({name: cleanSettingName, value: LettersMode[this.seedInfo[key]]})
           break;
-          case 'IncludeFavorsMode':
-            this.settingRows.push({name: cleanSettingName, value: KootFavorsMode[this.seedInfo[key]]})
-            break;
+        case 'IncludeFavorsMode':
+          this.settingRows.push({name: cleanSettingName, value: KootFavorsMode[this.seedInfo[key]]})
+          break;
+        case 'HiddenBlockMode':
+          this.settingRows.push({name: cleanSettingName, value: HiddenBlockMode[this.seedInfo[key]]})
+          break;
         case 'RandomBadgesBP':
         case 'RandomBadgesFP':
         case 'RandomPartnerFP':
