@@ -123,7 +123,6 @@ export class RandomizerService {
       StartWithRandomPartners: settingsForm.get('partners').get('startWithRandomPartners').value,
       WriteSpoilerLog: settingsForm.get('qualityOfLife').get('writeSpoilerLog').value,
       RomanNumerals: settingsForm.get('colorPalettes').get('romanNumerals').value,
-      TurnOffMusic: settingsForm.get('qualityOfLife').get('turnOffMusic').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
       BowsersCastleMode: settingsForm.get('qualityOfLife').get('bowsersCastleMode').value,
       ShortenCutscenes: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,

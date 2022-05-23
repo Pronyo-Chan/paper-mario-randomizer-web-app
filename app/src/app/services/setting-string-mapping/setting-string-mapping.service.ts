@@ -119,7 +119,7 @@ export class SettingStringMappingService {
     { compressedString: "c", key: "shortenCutscenes", type: "bool"},
     { compressedString: "e", key: "skipEpilogue", type: "bool"},
     { compressedString: "z", key: "skipQuiz", type: "bool"},
-    { compressedString: "m", key: "turnOffMusic", type: "bool"},
+    { compressedString: "m", key: "turnOffMusic", type: "removed"},
     { compressedString: "l", key: "writeSpoilerLog", type: "bool"},
     { compressedString: "f", key: "foliageItemHints", type: "bool"},
   ]

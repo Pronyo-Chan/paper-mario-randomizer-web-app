@@ -54,7 +54,6 @@ export interface SettingsRequest {
     StartWithPartners?: StartingPartners;
     WriteSpoilerLog : boolean;
     RomanNumerals: boolean;
-    TurnOffMusic: boolean;
     IncludeDojo: boolean;
     BowsersCastleMode: boolean;
     ShortenCutscenes: boolean;
