@@ -72,9 +72,7 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
     this.formGroup.patchValue(preset['settings'])
 
     // Fix for old presets that have invalid Koot value
-    if(this.formGroup.get('items').get('includeFavorsMode')?.value == 'false') {
-      this.formGroup.get('items').get('includeFavorsMode').setValue(0);
-    }
+    this.fixPresetBackwardsCompatibility();
 
     this.presetStatus = "loaded";
   }
@@ -149,6 +147,13 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
 
   public onSelectedPresetChange(): void {
     this.presetStatus = null;
+  }
+
+  private fixPresetBackwardsCompatibility() {
+    var kootFormControl = this.formGroup.get('items').get('includeFavors');
+    if (typeof kootFormControl.value == "boolean") {
+      kootFormControl.setValue(0);
+    }
   }
 
 }
