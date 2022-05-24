@@ -93,7 +93,8 @@ export class SettingsInfoComponent implements OnInit {
         case 'PlacementLogic':
         case 'PlacementAlgorithm':
         case 'PrettySpoilerlog':
-        case 'RomanNumerals':
+        case 'PaletteOffset':
+        case 'CosmeticsOffset':
         case 'IncludeFavors':
         case 'PeachCastleReturnPipe':
         case 'ChallengeMode':

@@ -42,7 +42,7 @@ import { LoadingComponent } from './common/loading/loading.component';
 import { ErrorComponent } from './common/error/error.component';
 import { TipsPageComponent } from './pages/tips-page/tips-page.component';
 import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.component';
-import { ColorPalettesComponent } from './pages/home/randomizer-page/color-palettes/color-palettes.component';
+import { CosmeticsComponent } from './pages/seed/seed-page/cosmetics/cosmetics.component';
 import { MarioSettingsComponent } from './pages/home/randomizer-page/mario-settings/mario-settings.component';
 import { StartingItemsComponent } from './pages/home/randomizer-page/starting-items/starting-items.component';
 import { ItemChiplistComponent } from './pages/home/randomizer-page/starting-items/item-chiplist/item-chiplist.component';
@@ -88,7 +88,7 @@ const dbConfig: DBConfig  = {
     ErrorComponent,
     TipsPageComponent,
     ChangelogPageComponent,
-    ColorPalettesComponent,
+    CosmeticsComponent,
     MarioSettingsComponent,
     StartingItemsComponent,
     ItemChiplistComponent,

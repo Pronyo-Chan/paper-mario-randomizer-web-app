@@ -7,6 +7,9 @@ import { RandomizerService } from 'src/app/services/randomizer.service';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
 import { environment } from 'src/environments/environment';
 import { SphereSpoilerLog } from 'src/app/entities/sphereSpoilerLog';
+import { FormControl, FormGroup } from '@angular/forms';
+import { SpriteSetting } from 'src/app/entities/enum/spriteSetting';
+import { CoinColor } from 'src/app/entities/enum/coinColor';
 
 @Component({
   selector: 'app-seed-page',
@@ -17,6 +20,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   
   public seedId: string;
   public seedInfo$: Observable<SettingsResponse>;
+  public cosmeticsFormGroup: FormGroup;
 
   public pageLoadingErrorCode: string;
   public spoilerLog: Observable<SpoilerLog>;
@@ -39,6 +43,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
     this.isPageLoading = true;
 
+    this.initCosmeticsFormGroup();
     this.seedInfo$ = this._activatedRoute.queryParams.pipe(
       switchMap(params => {
         this.seedId = params.id;
@@ -156,4 +161,22 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     return of(err)
   }
 
+  private initCosmeticsFormGroup() {
+    
+    this.cosmeticsFormGroup =  new FormGroup({
+      menu: new FormControl(0),
+      marioSprite : new FormControl(),
+      goombarioSprite : new FormControl(),
+      kooperSprite : new FormControl(),
+      parakarrySprite : new FormControl(),
+      bowSprite : new FormControl(),
+      wattSprite: new FormControl(),
+      sushieSprite: new FormControl(),
+      bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
+      npcSetting: new FormControl(SpriteSetting.DefaultPalette),
+      coinColor: new FormControl(CoinColor.Default),
+      randomText: new FormControl(false),
+      romanNumerals: new FormControl(false),
+    })
+  }
 }

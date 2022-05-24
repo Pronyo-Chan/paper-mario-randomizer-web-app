@@ -1,3 +1,4 @@
+import { FormGroup } from '@angular/forms';
 
 import { Constants } from './../../../../utilities/constants';
 import { RandomizerRepository } from '../../../../repositories/randomizer-repository/randomizer.repository';
@@ -20,6 +21,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
   @Input() public seedId: string;
   @Input() public hasSpoilerLog: boolean;
   @Input() public modVersion: number
+  @Input() public cosmeticsFormGroup: FormGroup
 
   public userRom: any = null;
   public patchFile: any = null;
@@ -29,6 +31,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
   public isUserRomLoading = false;
   public isPatching = false;
   public isDownloadingSpoilerLog = false;
+  public doOverrideCosmetics = false;
 
   public patchingError: string;
   public spoilerLogError: string;
@@ -79,8 +82,12 @@ export class PatcherComponent implements OnInit, OnDestroy {
     this.patchingError = null
     this.isPatching = true;
 
-    this._createSeedSubscription = this._randomizerService.downloadPatchedRom(this.userRom, this.seedId, this.modVersion)
-    .pipe(
+    this._createSeedSubscription = this._randomizerService.downloadPatchedRom(
+      this.userRom,
+      this.seedId,
+      this.modVersion,
+      this.doOverrideCosmetics ? this.cosmeticsFormGroup : null
+    ).pipe(
       take(1),
       tap(romResult => {
         this.isPatching = false;

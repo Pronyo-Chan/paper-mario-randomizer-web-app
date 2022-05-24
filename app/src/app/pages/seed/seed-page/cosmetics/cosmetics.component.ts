@@ -1,19 +1,19 @@
-import { Constants } from './../../../../utilities/constants';
-import { CharacterSpriteSetting } from './../../../../entities/characterSpriteSetting';
+import { Constants } from '../../../../utilities/constants';
+import { CharacterSpriteSetting } from '../../../../entities/characterSpriteSetting';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { tap } from 'rxjs';
 
 @Component({
-  selector: 'app-color-palettes',
-  templateUrl: './color-palettes.component.html',
-  styleUrls: ['./color-palettes.component.scss']
+  selector: 'app-cosmetics',
+  templateUrl: './cosmetics.component.html',
+  styleUrls: ['./cosmetics.component.scss']
 })
-export class ColorPalettesComponent implements OnInit, OnDestroy {
+export class CosmeticsComponent implements OnInit, OnDestroy {
 
-  @Input() public colorPalettesFormGroup: FormGroup;
+  @Input() public cosmeticsFormGroup: FormGroup;
 
-  private _colorPalettesSubscription: any;
+  private _cosmeticsSubscription: any;
 
   public marioOptions = Constants.MARIO_OPTIONS;
   public goombarioOptions = Constants.GOOMBARIO_OPTIONS;
@@ -28,14 +28,14 @@ export class ColorPalettesComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.initComplexFormControls();
-    this._colorPalettesSubscription = this.colorPalettesFormGroup.valueChanges.pipe(
+    this._cosmeticsSubscription = this.cosmeticsFormGroup.valueChanges.pipe(
       tap(() => this.initComplexFormControls())
     ).subscribe()
   }
 
   public ngOnDestroy(): void {
-    if(this._colorPalettesSubscription)
-      this._colorPalettesSubscription.unsubscribe();
+    if(this._cosmeticsSubscription)
+      this._cosmeticsSubscription.unsubscribe();
   }
 
   public initComplexFormControls() {
@@ -49,11 +49,11 @@ export class ColorPalettesComponent implements OnInit, OnDestroy {
   }
 
   public initSpriteFormControl(formControlName: string, spriteOptions: CharacterSpriteSetting[]) {
-    if(this.colorPalettesFormGroup.get(formControlName).value?.optionDisplay) {
-      this.colorPalettesFormGroup.get(formControlName).setValue(spriteOptions.find(o => o.optionDisplay == this.colorPalettesFormGroup.get(formControlName).value?.optionDisplay), { emitEvent: false });
+    if(this.cosmeticsFormGroup.get(formControlName).value?.optionDisplay) {
+      this.cosmeticsFormGroup.get(formControlName).setValue(spriteOptions.find(o => o.optionDisplay == this.cosmeticsFormGroup.get(formControlName).value?.optionDisplay), { emitEvent: false });
     }
     else {
-      this.colorPalettesFormGroup.get(formControlName).setValue(spriteOptions[0])
+      this.cosmeticsFormGroup.get(formControlName).setValue(spriteOptions[0])
     }
   }
 

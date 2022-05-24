@@ -1,3 +1,5 @@
+import { MarcFile } from './../utilities/RomPatcher/MarcFile';
+import { CosmeticsRequest } from './../entities/cosmeticsRequest';
 import { LocalStorageService } from './localStorage/localStorage.service';
 import { SettingStringMappingService } from './setting-string-mapping/setting-string-mapping.service';
 import { KeyItems } from './../entities/enum/keyItems';
@@ -13,7 +15,7 @@ import { DifficultySetting } from '../entities/enum/difficultySetting';
 import { getMarcFileFromSource } from '../utilities/RomPatcher/MarcFile';
 import { applyPatch } from '../utilities/RomPatcher/RomPatcher';
 import { parseBPSFile } from '../utilities/RomPatcher/bps';
-import { parseRandoPatchFile } from '../utilities/RomPatcher/randopatch';
+import { parseRandoPatchFile, RandoPatch } from '../utilities/RomPatcher/randopatch';
 import { CharacterSpriteSetting } from '../entities/characterSpriteSetting';
 import { CoinColor } from '../entities/enum/coinColor';
 import { MysteryMode } from '../entities/enum/mysteryMode';
@@ -33,7 +35,7 @@ export class RandomizerService {
     return this._randomizerRepo.getSeedInfo(seedId);
   }
 
-  public downloadPatchedRom(userRom: any, seedId: string, modVersion: number): Observable<Blob> 
+  public downloadPatchedRom(userRom: any, seedId: string, modVersion: number, cosmeticsFormGroup?: FormGroup): Observable<Blob> 
   {
     var starRodRom$ = this._randomizerRepo.getStarRodPatch(modVersion).pipe(
       switchMap(starRodPatchFile => getMarcFileFromSource(new File([starRodPatchFile], 'patch'))),
@@ -51,13 +53,38 @@ export class RandomizerService {
       })
     );
 
-    return forkJoin([starRodRom$, randoPatch$]).pipe(
-      map(results => {
-        //execute randopatch and change return
-        var finalRomMarcFile = applyPatch(results[1], results[0]);
-        return finalRomMarcFile.save();
-      })
-    ) 
+    var cosmeticsPatch$: Observable<RandoPatch>;
+
+    if(cosmeticsFormGroup) {
+      var request = this.prepareCosmeticsRequest(seedId, cosmeticsFormGroup);
+      cosmeticsPatch$ = this._randomizerRepo.getCosmeticsPatch(request).pipe(
+        switchMap(cosmeticsPatchFile => getMarcFileFromSource(new File([cosmeticsPatchFile], 'cosmeticsPatch'))),
+        map(cosmeticsPatchFile => {
+          var cosmeticsPatch = parseRandoPatchFile(cosmeticsPatchFile);
+          return cosmeticsPatch;  
+        })
+      );
+    }
+
+    if(cosmeticsPatch$) {
+      return forkJoin([starRodRom$, randoPatch$, cosmeticsPatch$]).pipe(
+        map(results => {
+          // If we did cosmetics patch, apply it first, then rando patch
+          
+          var randoPatchedFile = applyPatch(results[1], results[0]); // Apply rando patch
+          var cosmeticPatchedFile = applyPatch(results[2], randoPatchedFile) // Cosmetics patch on modded rom
+          return cosmeticPatchedFile.save();
+        })
+      ); 
+    } else {
+      return forkJoin([starRodRom$, randoPatch$]).pipe(
+        map(results => {
+          var finalRomMarcFile = applyPatch(results[1], results[0]); // Apply rando patch
+          return finalRomMarcFile.save();
+        })
+      ); 
+    }
+    
   }
 
   public downloadSpoilerLog(seedId: string): Observable<Blob> 
@@ -68,11 +95,45 @@ export class RandomizerService {
   public createSeedWithSettings(settingsForm: FormGroup): Observable<string> {
     var request = this.prepareRequestObject(settingsForm);
     return this._randomizerRepo.sendRandoSettings(request)
+  }
 
+  private prepareCosmeticsRequest(seedID: string, cosmeticsFormGroup: FormGroup): CosmeticsRequest {
+    var menuColor = cosmeticsFormGroup.get('menu').value
+    if(menuColor == 7) { // If random pick
+      menuColor = Math.floor(Math.random() * 7);
+    } 
+
+    var request = {
+      SeedID: seedID,
+      BossesSetting: cosmeticsFormGroup.get("bossesSetting").value,
+      BowSetting: (cosmeticsFormGroup.get('bowSprite').value as CharacterSpriteSetting).setting,
+      BowSprite: (cosmeticsFormGroup.get('bowSprite').value as CharacterSpriteSetting).paletteSelection,
+      Box5ColorA: Constants.MENU_COLORS[menuColor].colorA,
+      Box5ColorB: Constants.MENU_COLORS[menuColor].colorB,
+      CoinColor: cosmeticsFormGroup.get('coinColor').value != CoinColor.Random ? cosmeticsFormGroup.get('coinColor').value : 0, // Is ignored if random
+      GoombarioSetting: (cosmeticsFormGroup.get('goombarioSprite').value as CharacterSpriteSetting).setting,
+      GoombarioSprite: (cosmeticsFormGroup.get('goombarioSprite').value as CharacterSpriteSetting).paletteSelection,
+      KooperSetting: (cosmeticsFormGroup.get('kooperSprite').value as CharacterSpriteSetting).setting,
+      KooperSprite: (cosmeticsFormGroup.get('kooperSprite').value as CharacterSpriteSetting).paletteSelection,
+      MarioSetting: (cosmeticsFormGroup.get('marioSprite').value as CharacterSpriteSetting).setting,
+      MarioSprite: (cosmeticsFormGroup.get('marioSprite').value as CharacterSpriteSetting).paletteSelection,
+      NPCSetting: cosmeticsFormGroup.get("npcSetting").value,
+      ParakarrySetting: (cosmeticsFormGroup.get('parakarrySprite').value as CharacterSpriteSetting).setting,
+      ParakarrySprite: (cosmeticsFormGroup.get('parakarrySprite').value as CharacterSpriteSetting).paletteSelection,
+      RandomCoinColor: cosmeticsFormGroup.get('coinColor').value == CoinColor.Random,
+      RandomText: cosmeticsFormGroup.get("randomText").value,
+      RomanNumerals: cosmeticsFormGroup.get("romanNumerals").value,
+      SushieSetting: (cosmeticsFormGroup.get('sushieSprite').value as CharacterSpriteSetting).setting,
+      SushieSprite: (cosmeticsFormGroup.get('sushieSprite').value as CharacterSpriteSetting).paletteSelection,
+      WattSetting: (cosmeticsFormGroup.get('wattSprite').value as CharacterSpriteSetting).setting,
+      WattSprite: (cosmeticsFormGroup.get('wattSprite').value as CharacterSpriteSetting).paletteSelection,
+    } as CosmeticsRequest
+
+    return request;
   }
 
   private prepareRequestObject(settingsForm: FormGroup) {
-    var menuColor = settingsForm.get('colorPalettes').get('menu').value
+    var menuColor = settingsForm.get('cosmetics').get('menu').value
     if(menuColor == 7) { // If random pick
       menuColor = Math.floor(Math.random() * 7);
     } 
@@ -122,31 +183,31 @@ export class RandomizerService {
       PartnersAlwaysUsable: settingsForm.get('partners').get('partnersAlwaysUsable').value,
       StartWithRandomPartners: settingsForm.get('partners').get('startWithRandomPartners').value,
       WriteSpoilerLog: settingsForm.get('qualityOfLife').get('writeSpoilerLog').value,
-      RomanNumerals: settingsForm.get('colorPalettes').get('romanNumerals').value,
+      RomanNumerals: settingsForm.get('cosmetics').get('romanNumerals').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
       BowsersCastleMode: settingsForm.get('qualityOfLife').get('bowsersCastleMode').value,
       ShortenCutscenes: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,
       SkipEpilogue: settingsForm.get('qualityOfLife').get('skipEpilogue').value,
       Box5ColorA: Constants.MENU_COLORS[menuColor].colorA,
       Box5ColorB: Constants.MENU_COLORS[menuColor].colorB,
-      CoinColor: settingsForm.get('colorPalettes').get('coinColor').value != CoinColor.Random ? settingsForm.get('colorPalettes').get('coinColor').value : 0, // Is ignored if random
-      RandomCoinColor: settingsForm.get('colorPalettes').get('coinColor').value == CoinColor.Random,
-      MarioSetting: (settingsForm.get('colorPalettes').get('marioSprite').value as CharacterSpriteSetting).setting,
-      MarioSprite: (settingsForm.get('colorPalettes').get('marioSprite').value as CharacterSpriteSetting).paletteSelection,
-      GoombarioSetting: (settingsForm.get('colorPalettes').get('goombarioSprite').value as CharacterSpriteSetting).setting,
-      GoombarioSprite: (settingsForm.get('colorPalettes').get('goombarioSprite').value as CharacterSpriteSetting).paletteSelection,
-      KooperSetting: (settingsForm.get('colorPalettes').get('kooperSprite').value as CharacterSpriteSetting).setting,
-      KooperSprite: (settingsForm.get('colorPalettes').get('kooperSprite').value as CharacterSpriteSetting).paletteSelection,
-      ParakarrySetting: (settingsForm.get('colorPalettes').get('parakarrySprite').value as CharacterSpriteSetting).setting,
-      ParakarrySprite: (settingsForm.get('colorPalettes').get('parakarrySprite').value as CharacterSpriteSetting).paletteSelection,
-      BowSetting: (settingsForm.get('colorPalettes').get('bowSprite').value as CharacterSpriteSetting).setting,
-      BowSprite: (settingsForm.get('colorPalettes').get('bowSprite').value as CharacterSpriteSetting).paletteSelection,
-      WattSetting: (settingsForm.get('colorPalettes').get('wattSprite').value as CharacterSpriteSetting).setting,
-      WattSprite: (settingsForm.get('colorPalettes').get('wattSprite').value as CharacterSpriteSetting).paletteSelection,
-      SushieSetting: (settingsForm.get('colorPalettes').get('sushieSprite').value as CharacterSpriteSetting).setting,
-      SushieSprite: (settingsForm.get('colorPalettes').get('sushieSprite').value as CharacterSpriteSetting).paletteSelection,
-      BossesSetting: settingsForm.get('colorPalettes').get('bossesSetting').value,
-      NPCSetting: settingsForm.get('colorPalettes').get('npcSetting').value,
+      CoinColor: settingsForm.get('cosmetics').get('coinColor').value != CoinColor.Random ? settingsForm.get('cosmetics').get('coinColor').value : 0, // Is ignored if random
+      RandomCoinColor: settingsForm.get('cosmetics').get('coinColor').value == CoinColor.Random,
+      MarioSetting: (settingsForm.get('cosmetics').get('marioSprite').value as CharacterSpriteSetting).setting,
+      MarioSprite: (settingsForm.get('cosmetics').get('marioSprite').value as CharacterSpriteSetting).paletteSelection,
+      GoombarioSetting: (settingsForm.get('cosmetics').get('goombarioSprite').value as CharacterSpriteSetting).setting,
+      GoombarioSprite: (settingsForm.get('cosmetics').get('goombarioSprite').value as CharacterSpriteSetting).paletteSelection,
+      KooperSetting: (settingsForm.get('cosmetics').get('kooperSprite').value as CharacterSpriteSetting).setting,
+      KooperSprite: (settingsForm.get('cosmetics').get('kooperSprite').value as CharacterSpriteSetting).paletteSelection,
+      ParakarrySetting: (settingsForm.get('cosmetics').get('parakarrySprite').value as CharacterSpriteSetting).setting,
+      ParakarrySprite: (settingsForm.get('cosmetics').get('parakarrySprite').value as CharacterSpriteSetting).paletteSelection,
+      BowSetting: (settingsForm.get('cosmetics').get('bowSprite').value as CharacterSpriteSetting).setting,
+      BowSprite: (settingsForm.get('cosmetics').get('bowSprite').value as CharacterSpriteSetting).paletteSelection,
+      WattSetting: (settingsForm.get('cosmetics').get('wattSprite').value as CharacterSpriteSetting).setting,
+      WattSprite: (settingsForm.get('cosmetics').get('wattSprite').value as CharacterSpriteSetting).paletteSelection,
+      SushieSetting: (settingsForm.get('cosmetics').get('sushieSprite').value as CharacterSpriteSetting).setting,
+      SushieSprite: (settingsForm.get('cosmetics').get('sushieSprite').value as CharacterSpriteSetting).paletteSelection,
+      BossesSetting: settingsForm.get('cosmetics').get('bossesSetting').value,
+      NPCSetting: settingsForm.get('cosmetics').get('npcSetting').value,
       StartingMaxHP: settingsForm.get('marioStats').get('startingMaxHP').value,
       StartingMaxFP: settingsForm.get('marioStats').get('startingMaxFP').value,
       StartingMaxBP: settingsForm.get('marioStats').get('startingMaxBP').value,
@@ -170,7 +231,7 @@ export class RandomizerService {
       ItemScarcity: settingsForm.get('difficulty').get('itemScarcity').value,
       StarWaySpiritsNeeded: settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
       FoliageItemHints: settingsForm.get('qualityOfLife').get('foliageItemHints').value,
-      RandomText: settingsForm.get('colorPalettes').get('randomText').value,
+      RandomText: settingsForm.get('cosmetics').get('randomText').value,
       NoHealingItems: settingsForm.get('difficulty').get('noHealingItems').value,
       StartWithRandomItems: settingsForm.get('marioStats').get('startWithRandomItems').value,
       RandomItemsMin: settingsForm.get('marioStats').get('randomItemsMin').value,

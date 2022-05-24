@@ -9,6 +9,7 @@ import { MarioSprite } from './enum/marioSprite';
 import { SpriteSetting } from './enum/spriteSetting';
 import { SushieSprite } from './enum/sushieSprite';
 import { WattSprite } from './enum/wattSprite';
+
 export interface SettingsRequest {
     StarRodModVersion: number;
     SettingsString: string;

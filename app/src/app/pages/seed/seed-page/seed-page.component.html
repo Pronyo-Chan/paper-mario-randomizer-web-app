@@ -4,13 +4,21 @@
 
 <ng-container *ngIf="seedInfo$ | async as seedInfo">
     <div class="main-page" *ngIf="!isPageLoading">
-        
-        
-
         <ng-container *ngIf="!pageLoadingErrorCode">
             <mat-card class="settings-card">
                 <mat-card-title class="settings-title">Download</mat-card-title>
-                <app-patcher [seedId] = "seedId" [hasSpoilerLog]="seedInfo.WriteSpoilerLog" [modVersion]="seedInfo.StarRodModVersion"></app-patcher>
+                <mat-tab-group animationDuration="0" scrollToCenter>
+                    <mat-tab label="ROM Generation">
+                        <app-patcher [seedId] = "seedId"
+                                     [hasSpoilerLog]="seedInfo.WriteSpoilerLog"
+                                     [modVersion]="seedInfo.StarRodModVersion"
+                                     [cosmeticsFormGroup]="cosmeticsFormGroup"></app-patcher>
+                    </mat-tab>
+                    <mat-tab label="Cosmetics">
+                        <app-cosmetics [cosmeticsFormGroup]="cosmeticsFormGroup"></app-cosmetics>
+                    </mat-tab>
+                </mat-tab-group>
+                
             </mat-card>
             <mat-accordion *ngIf="seedInfo.WriteSpoilerLog">
                 <mat-expansion-panel class="settings-card" (opened)="isSpoilerLogExpanded = true" (closed)="isSpoilerLogExpanded = false" >
