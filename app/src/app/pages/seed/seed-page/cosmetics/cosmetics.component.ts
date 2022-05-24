@@ -1,3 +1,4 @@
+import { SettingStringMappingService } from './../../../../services/setting-string-mapping/setting-string-mapping.service';
 import { Constants } from '../../../../utilities/constants';
 import { CharacterSpriteSetting } from '../../../../entities/characterSpriteSetting';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
@@ -12,6 +13,7 @@ import { tap } from 'rxjs';
 export class CosmeticsComponent implements OnInit, OnDestroy {
 
   @Input() public cosmeticsFormGroup: FormGroup;
+  @Input() public doLoadLatestSettings: boolean
 
   private _cosmeticsSubscription: any;
 
@@ -23,7 +25,7 @@ export class CosmeticsComponent implements OnInit, OnDestroy {
   public wattOptions = Constants.WATT_OPTIONS;
   public sushieOptions = Constants.SUSHIE_OPTIONS;
 
-  public constructor() { }
+  public constructor(private _mappingService: SettingStringMappingService) { }
   
 
   public ngOnInit(): void {
@@ -31,6 +33,16 @@ export class CosmeticsComponent implements OnInit, OnDestroy {
     this._cosmeticsSubscription = this.cosmeticsFormGroup.valueChanges.pipe(
       tap(() => this.initComplexFormControls())
     ).subscribe()
+
+    if(this.doLoadLatestSettings) {
+      var cosmeticsSettings = JSON.parse(localStorage.getItem("cosmeticsSettings"));
+      if(cosmeticsSettings) {
+        try {
+          this._mappingService.decompressFormGroup(cosmeticsSettings, this.cosmeticsFormGroup, this._mappingService.cosmeticsMap);
+        } catch (error) {
+        }
+      }
+    }
   }
 
   public ngOnDestroy(): void {

@@ -56,6 +56,7 @@ export class RandomizerService {
     var cosmeticsPatch$: Observable<RandoPatch>;
 
     if(cosmeticsFormGroup) {
+      this.saveCosmeticsSettings(cosmeticsFormGroup)
       var request = this.prepareCosmeticsRequest(seedId, cosmeticsFormGroup);
       cosmeticsPatch$ = this._randomizerRepo.getCosmeticsPatch(request).pipe(
         switchMap(cosmeticsPatchFile => getMarcFileFromSource(new File([cosmeticsPatchFile], 'cosmeticsPatch'))),
@@ -95,6 +96,11 @@ export class RandomizerService {
   public createSeedWithSettings(settingsForm: FormGroup): Observable<string> {
     var request = this.prepareRequestObject(settingsForm);
     return this._randomizerRepo.sendRandoSettings(request)
+  }
+
+  private saveCosmeticsSettings(formGroup: FormGroup) {
+    const cosmeticsSettings = this._settingsStringService.compressFormGroup(formGroup, this._settingsStringService.cosmeticsMap)
+    this._localStorage.set('cosmeticsSettings', cosmeticsSettings);
   }
 
   private prepareCosmeticsRequest(seedID: string, cosmeticsFormGroup: FormGroup): CosmeticsRequest {
