@@ -20,6 +20,11 @@
         display: flex;
         flex-wrap: wrap;
 
+        .setting-element {
+            margin-bottom: 1rem;
+            flex-basis: 100%;
+        }
+
         .inputfile {
             width: 0.1px;
             height: 0.1px;
@@ -31,8 +36,8 @@
     
         label { //Sorry for disgusting code here, should throw in garbage someday
             text-align: center;
-            width: 14rem;
-            margin-right: 6%;
+            width: 15rem;
+            margin-right: 2rem;
             text-overflow: ellipsis;
             white-space: nowrap;
             cursor: pointer;
@@ -60,24 +65,18 @@
             }
         }  
     
-        div.patch-container {
-            flex-basis: 60%;
-            margin-top: 1rem;
+        div.generation-container {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            align-content: center;
+            align-items: flex-end;
+
+            div.patch-container {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: baseline;
+            }
         }
-    
-        div.spoiler-container {
-            flex-basis: 35%;
-            margin-top: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            align-content: center;
-        }
-    
+
         button:disabled {
             cursor: not-allowed;
             opacity: 30%;
