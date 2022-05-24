@@ -5,6 +5,11 @@
         <option [ngValue]="1">Item Spheres (Progression)</option>
         <option [ngValue]="2">Item Spheres (All)</option>
     </select>
+    <button class='yellow-button' (click)="downloadSpoilerLog()" [disabled]="isDownloadingSpoilerLog" >
+        <span>Download</span>
+    </button>
+    <app-loading *ngIf="isDownloadingSpoilerLog" [isLoading]="isDownloadingSpoilerLog" [loadingText]="'Loading'"></app-loading>
+    <app-error *ngIf="spoilerLogError" [errorText]="spoilerLogError"></app-error>
 </div>
         
 <mat-tab-group *ngIf="viewMode == 0" disablePagination="true" animationDuration="0">

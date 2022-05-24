@@ -58,9 +58,7 @@
                 text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
                 
             }
-        }
-    
-        
+        }  
     
         div.patch-container {
             flex-basis: 60%;
@@ -80,41 +78,10 @@
             align-content: center;
         }
     
-        button {
-            span {
-                
-                font-family: gluten ;
-                font-size: 16px;
-                color: white ;
-                text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
-    
-            }
-            
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            cursor: pointer;
-            display: inline-block;
-            overflow: hidden;
-            padding: 0.8rem 1rem;
-                    
-            border-radius: 28px;        
-            border: double;
-            border-width: 6px;
-    
-            background-color: variables.$purple-misc-main;
-            border-color: variables.$purple-misc-border;   
-    
-            width: 14rem;
-                    
-        }
-    
         button:disabled {
             cursor: not-allowed;
             opacity: 30%;
         }
     
     }
-
-    
-    
 }
