@@ -21,6 +21,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
   @Input() public seedId: string;
   @Input() public modVersion: number
   @Input() public cosmeticsFormGroup: FormGroup
+  @Input() public isCosmeticsAllowed: boolean
 
   public userRom: any = null;
   public patchFile: any = null;

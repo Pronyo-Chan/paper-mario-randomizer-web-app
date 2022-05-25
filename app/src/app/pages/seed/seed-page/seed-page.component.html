@@ -11,9 +11,11 @@
                     <mat-tab label="ROM Generation">
                         <app-patcher [seedId]="seedId"
                                      [modVersion]="seedInfo.StarRodModVersion"
-                                     [cosmeticsFormGroup]="cosmeticsFormGroup"></app-patcher>
+                                     [cosmeticsFormGroup]="cosmeticsFormGroup"
+                                     [isCosmeticsAllowed]="seedInfo.PaletteOffset"> <!-- Condition to ensure the seed was generated with palette offset -->
+                        </app-patcher>
                     </mat-tab>
-                    <mat-tab label="Cosmetics">
+                    <mat-tab *ngIf="seedInfo.PaletteOffset" label="Cosmetics"> <!-- Condition to ensure the seed was generated with palette offset -->
                         <app-cosmetics [cosmeticsFormGroup]="cosmeticsFormGroup" [doLoadLatestSettings]="true"></app-cosmetics>
                     </mat-tab>
                 </mat-tab-group>
