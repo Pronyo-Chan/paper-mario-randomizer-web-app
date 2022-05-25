@@ -81,7 +81,7 @@
                 "whaleOpen": false,
                 "startingMap": 65796
             },
-            "colorPalettes": {
+            "cosmetics": {
                 "menu": 0,
                 "marioSprite": {
                     "setting": 0,
@@ -208,7 +208,7 @@
             "whaleOpen": true,
             "startingMap": 65796
           },
-          "colorPalettes": {
+          "cosmetics": {
             "menu": 0,
             "marioSprite": {
               "setting": 0,
@@ -335,7 +335,7 @@
             "whaleOpen": false,
             "startingMap": 65796
           },
-          "colorPalettes": {
+          "cosmetics": {
             "menu": 0,
             "marioSprite": {
               "setting": 0,
@@ -462,7 +462,7 @@
             "whaleOpen": false,
             "startingMap": 65796
           },
-          "colorPalettes": {
+          "cosmetics": {
             "menu": 0,
             "marioSprite": {
               "setting": 0,
@@ -594,7 +594,7 @@
             "whaleOpen":false,
             "startingMap":65796
          },
-         "colorPalettes":{
+         "cosmetics":{
             "menu":7,
             "marioSprite":{
                "setting":2,

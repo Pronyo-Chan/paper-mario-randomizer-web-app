@@ -160,7 +160,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         whaleOpen: new FormControl(false),
         startingMap: new FormControl(0)
       }),
-      colorPalettes: new FormGroup({
+      cosmetics: new FormGroup({
         menu: new FormControl(0),
         marioSprite : new FormControl(),
         goombarioSprite : new FormControl(),

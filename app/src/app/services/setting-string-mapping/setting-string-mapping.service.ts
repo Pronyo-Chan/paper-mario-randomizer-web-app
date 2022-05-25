@@ -14,7 +14,7 @@ interface SettingModel {compressedString: string, key: string, type: string, map
 })
 export class SettingStringMappingService {
 
-  public readonly colorPalettesMap: SettingModel[] = [
+  public readonly cosmeticsMap: SettingModel[] = [
     { compressedString: "x", key: "bossesSetting", type: "number"},
     { compressedString: "b", key: "bowSprite", type: "sprite"},
     { compressedString: "c", key: "coinColor", type: "number"},
@@ -125,7 +125,7 @@ export class SettingStringMappingService {
   ]
 
   public readonly settingsMap: SettingModel[] = [
-    { compressedString: "(c", key: "colorPalettes", type: "formGroup", map: this.colorPalettesMap},
+    { compressedString: "(c", key: "cosmetics", type: "formGroup", map: this.cosmeticsMap},
     { compressedString: "(d", key: "difficulty", type: "formGroup", map: this.difficultyMap},
     { compressedString: "(g", key: "gameplay", type: "formGroup", map: this.gameplayMap},
     { compressedString: "(i", key: "items", type: "formGroup", map: this.itemsMap},

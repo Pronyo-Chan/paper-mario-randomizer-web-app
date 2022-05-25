@@ -16,8 +16,8 @@
                 <mat-tab label="Gameplay">
                     <app-gameplay [gameplayFormGroup]="formGroup.get('gameplay')"></app-gameplay>
                 </mat-tab>
-                <mat-tab label="Visuals">
-                    <app-color-palettes [colorPalettesFormGroup]="formGroup.get('colorPalettes')"></app-color-palettes>
+                <mat-tab label="Cosmetics">
+                    <app-cosmetics [cosmeticsFormGroup]="formGroup.get('cosmetics')" [doLoadLatestSettings]="false"></app-cosmetics>
                 </mat-tab>
             </mat-tab-group>
         </mat-card>
