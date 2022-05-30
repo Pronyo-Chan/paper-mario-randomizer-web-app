@@ -11,7 +11,8 @@
                 "keyitemsOutsideDungeon": false,
                 "includeDojo": false,
                 "itemPouches": true,
-                "includeLetters": 0
+                "includeLetters": 0,
+                "includeRadioTradeEvent": false
             },
             "gameplay": {
                 "randomBadgesBP": 0,
@@ -138,7 +139,8 @@
             "keyitemsOutsideDungeon": false,
             "includeDojo": false,
             "itemPouches": true,
-            "includeLetters": 0
+            "includeLetters": 0,
+            "includeRadioTradeEvent": false
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -265,7 +267,8 @@
             "keyitemsOutsideDungeon": true,
             "includeDojo": false,
             "itemPouches": true,
-            "includeLetters": 1
+            "includeLetters": 1,
+            "includeRadioTradeEvent": false
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -392,7 +395,8 @@
             "keyitemsOutsideDungeon": true,
             "includeDojo": true,
             "itemPouches": false,
-            "includeLetters": 3
+            "includeLetters": 3,
+            "includeRadioTradeEvent": true
           },
           "gameplay": {
             "randomBadgesBP": 3,
@@ -519,7 +523,8 @@
             "keyitemsOutsideDungeon":true,
             "includeDojo":false,
             "itemPouches":false,
-            "includeLetters": 0
+            "includeLetters": 0,
+            "includeRadioTradeEvent": false
          },
          "gameplay":{
             "randomBadgesBP":1,

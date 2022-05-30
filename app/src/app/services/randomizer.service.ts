@@ -247,6 +247,7 @@ export class RandomizerService {
       MysteryRandomPick: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode.RandomPick,
       ItemTrapMode: settingsForm.get('difficulty').get('itemTrapMode').value,
       AllowItemHints: settingsForm.get('difficulty').get('allowItemHints').value,
+      IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value
 
       
     } as SettingsRequest;

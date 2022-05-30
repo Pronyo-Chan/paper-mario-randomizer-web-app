@@ -114,7 +114,8 @@ export interface SettingsResponse{
     RandomChoice: boolean; // Mystery Random On Every Use
     MysteryRandomPick: boolean; // Mystery Random Pick
     ItemTrapMode: ItemTrapMode
-    AllowItemHints: boolean
+    AllowItemHints: boolean;
+    IncludeRadioTradeEvent: boolean;
 }
 
 export interface StartingPartners {
