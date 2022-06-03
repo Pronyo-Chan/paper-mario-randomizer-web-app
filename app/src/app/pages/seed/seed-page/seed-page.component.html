@@ -21,7 +21,7 @@
                 </mat-tab-group>
                 
             </mat-card>
-            <mat-accordion *ngIf="seedInfo.WriteSpoilerLog">
+            <mat-accordion *ngIf="displaySpoilerLog">
                 <mat-expansion-panel class="settings-card" (opened)="isSpoilerLogExpanded = true" (closed)="isSpoilerLogExpanded = false" >
                     <mat-expansion-panel-header [ngClass]="{'expanded': isSpoilerLogExpanded, 'collapsed': !isSpoilerLogExpanded}">
                         <mat-panel-title class="settings-title">Spoiler Log</mat-panel-title>

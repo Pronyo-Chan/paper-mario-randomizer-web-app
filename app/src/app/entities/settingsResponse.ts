@@ -57,6 +57,7 @@ export interface SettingsResponse{
     RandomPartnersMax: number;
     StartWithPartners: StartingPartners;
     WriteSpoilerLog : boolean;
+    RevealLogAtTime : string;
     RomanNumerals: boolean;
     IncludeDojo: boolean;
     BowsersCastleMode: BowsersCastleMode;

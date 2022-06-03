@@ -50,6 +50,7 @@
                 "shortenCutscenes": true,
                 "skipEpilogue": true,
                 "writeSpoilerLog": true,
+                "revealLogInHours": 0,
                 "quizmoAlwaysAppears": false,
                 "foliageItemHints": true
             },
@@ -178,6 +179,7 @@
             "shortenCutscenes": true,
             "skipEpilogue": true,
             "writeSpoilerLog": true,
+            "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false
           },
@@ -306,6 +308,7 @@
             "shortenCutscenes": true,
             "skipEpilogue": true,
             "writeSpoilerLog": true,
+            "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false
           },
@@ -434,6 +437,7 @@
             "shortenCutscenes": true,
             "skipEpilogue": true,
             "writeSpoilerLog": true,
+            "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false
           },
@@ -561,7 +565,8 @@
             "bowsersCastleMode":2,
             "shortenCutscenes":true,
             "skipEpilogue":true,
-            "writeSpoilerLog":false,
+            "writeSpoilerLog":true,
+            "revealLogInHours": 7,
             "quizmoAlwaysAppears":false,
             "foliageItemHints":true
          },

@@ -32,6 +32,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
   public isPageLoading: boolean;
 
+  public displaySpoilerLog: boolean = false;
   public isSpoilerLogExpanded: boolean = false;
   private _navigationSubscription: Subscription;
 
@@ -49,11 +50,15 @@ export class SeedPageComponent implements OnInit, OnDestroy {
         this.seedId = params.id;
         return this._randomizerService.getSeedInfo(this.seedId).pipe(
           tap(seedInfo => {
-            if(seedInfo.WriteSpoilerLog) {
+            let dateNow = (new Date()).getTime();
+            let revealDate = (new Date(seedInfo.RevealLogAtTime)).getTime()
+            if(seedInfo.WriteSpoilerLog && (dateNow > revealDate || !revealDate)) {
               this.initSpoilerLog();
+              this.displaySpoilerLog = true;
             }
             else {
               this.isPageLoading = false;
+              this.displaySpoilerLog = false;
             }
             if(seedInfo.ShuffleChapterDifficulty) {
               this.isDifficultyShuffled = true;
@@ -151,6 +156,10 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this._renderer.removeClass(document.body, 'purple-bg')
     this._renderer.removeClass(document.body, 'red-bg')
+
+    if(this._navigationSubscription) {
+      this._navigationSubscription.unsubscribe();
+    }
   }
 
   private handleError(err: any): Observable<any> {

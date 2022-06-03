@@ -55,6 +55,7 @@ import { InfoDialogComponent } from './pages/home/randomizer-page/info-dialog/in
 import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatTabScrollToCenterDirective } from './utilities/directives/scrolling.directive';
+import { SpoilerSettingsComponent } from './pages/home/randomizer-page/spoiler-settings/spoiler-settings.component';
 
 const dbConfig: DBConfig  = {
   name: 'db',
@@ -97,7 +98,8 @@ const dbConfig: DBConfig  = {
     GithubPageComponent,
     DevPageComponent,
     InfoDialogComponent,
-    MatTabScrollToCenterDirective
+    MatTabScrollToCenterDirective,
+    SpoilerSettingsComponent
   ],
   imports: [
     BrowserModule,

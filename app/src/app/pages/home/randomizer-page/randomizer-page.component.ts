@@ -126,6 +126,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         shortenCutscenes: new FormControl(false), 
         skipEpilogue: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),
+        revealLogInHours: new FormControl(0),
         quizmoAlwaysAppears: new FormControl(false),
         foliageItemHints: new FormControl(false),        
       }),

@@ -54,6 +54,7 @@ export interface SettingsRequest {
     RandomPartnersMax?: number;
     StartWithPartners?: StartingPartners;
     WriteSpoilerLog : boolean;
+    RevealLogInHours : boolean;
     RomanNumerals: boolean;
     IncludeDojo: boolean;
     BowsersCastleMode: boolean;

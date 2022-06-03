@@ -43,6 +43,10 @@
             <mat-card-title class="settings-title">Quality of Life Settings</mat-card-title>
             <app-qol-settings [qualityOfLifeFormGroup]="formGroup.get('qualityOfLife')"></app-qol-settings>
         </mat-card>
+        <mat-card class="settings-card">
+            <mat-card-title class="settings-title">Spoiler Settings</mat-card-title>
+            <app-spoiler-settings [formGroup]="formGroup"></app-spoiler-settings>
+        </mat-card>
         <mat-card class="settings-card small-card">     
         <div class="button-container">
 

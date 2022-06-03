@@ -123,6 +123,7 @@ export class SettingStringMappingService {
     { compressedString: "m", key: "turnOffMusic", type: "removed"},
     { compressedString: "l", key: "writeSpoilerLog", type: "bool"},
     { compressedString: "f", key: "foliageItemHints", type: "bool"},
+    { compressedString: "t", key: "revealLogInHours", type: "number"},
   ]
 
   public readonly settingsMap: SettingModel[] = [
