@@ -87,7 +87,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         keyitemsOutsideDungeon: new FormControl(false),
         includeDojo: new FormControl(false),
         itemPouches: new FormControl(false),
-        includeLetters: new FormControl(LettersMode.Vanilla)
+        includeLetters: new FormControl(LettersMode.Vanilla),
+        includeRadioTradeEvent: new FormControl(false)
       }),
       gameplay: new FormGroup({
         randomBadgesBP: new FormControl(0),
@@ -124,8 +125,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla), 
         shortenCutscenes: new FormControl(false), 
         skipEpilogue: new FormControl(false), 
-        writeSpoilerLog: new FormControl(true),        
-        turnOffMusic: new FormControl(false),     
+        writeSpoilerLog: new FormControl(true),
+        revealLogInHours: new FormControl(0),
         quizmoAlwaysAppears: new FormControl(false),
         foliageItemHints: new FormControl(false),        
       }),
@@ -161,7 +162,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         whaleOpen: new FormControl(false),
         startingMap: new FormControl(0)
       }),
-      colorPalettes: new FormGroup({
+      cosmetics: new FormGroup({
         menu: new FormControl(0),
         marioSprite : new FormControl(),
         goombarioSprite : new FormControl(),

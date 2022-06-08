@@ -32,8 +32,7 @@ describe('QolSettingsComponent', () => {
       bowsersCastleMode: new FormControl(false), 
       shortenCutscenes: new FormControl(false), 
       skipEpilogue: new FormControl(false), 
-      writeSpoilerLog: new FormControl(true),        
-      turnOffMusic: new FormControl(false),     
+      writeSpoilerLog: new FormControl(true),
       quizmoAlwaysAppears: new FormControl(false),
       romanNumerals: new FormControl(false),        
     })

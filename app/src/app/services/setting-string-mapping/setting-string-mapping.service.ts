@@ -14,7 +14,7 @@ interface SettingModel {compressedString: string, key: string, type: string, map
 })
 export class SettingStringMappingService {
 
-  public readonly colorPalettesMap: SettingModel[] = [
+  public readonly cosmeticsMap: SettingModel[] = [
     { compressedString: "x", key: "bossesSetting", type: "number"},
     { compressedString: "b", key: "bowSprite", type: "sprite"},
     { compressedString: "c", key: "coinColor", type: "number"},
@@ -63,7 +63,8 @@ export class SettingStringMappingService {
     { compressedString: "k", key: "keyitemsOutsideDungeon", type: "bool"},
     { compressedString: "i", key: "shuffleItems", type: "bool"},
     { compressedString: "x", key: "itemPouches", type: "bool"},
-    { compressedString: "l", key: "includeLetters", type: "number"}
+    { compressedString: "l", key: "includeLetters", type: "number"},
+    { compressedString: "r", key: "includeRadioTradeEvent", type: "bool"}
   ]
 
   public readonly marioStatsMap: SettingModel [] = [
@@ -119,13 +120,14 @@ export class SettingStringMappingService {
     { compressedString: "c", key: "shortenCutscenes", type: "bool"},
     { compressedString: "e", key: "skipEpilogue", type: "bool"},
     { compressedString: "z", key: "skipQuiz", type: "bool"},
-    { compressedString: "m", key: "turnOffMusic", type: "bool"},
+    { compressedString: "m", key: "turnOffMusic", type: "removed"},
     { compressedString: "l", key: "writeSpoilerLog", type: "bool"},
     { compressedString: "f", key: "foliageItemHints", type: "bool"},
+    { compressedString: "t", key: "revealLogInHours", type: "number"},
   ]
 
   public readonly settingsMap: SettingModel[] = [
-    { compressedString: "(c", key: "colorPalettes", type: "formGroup", map: this.colorPalettesMap},
+    { compressedString: "(c", key: "cosmetics", type: "formGroup", map: this.cosmeticsMap},
     { compressedString: "(d", key: "difficulty", type: "formGroup", map: this.difficultyMap},
     { compressedString: "(g", key: "gameplay", type: "formGroup", map: this.gameplayMap},
     { compressedString: "(i", key: "items", type: "formGroup", map: this.itemsMap},

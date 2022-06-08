@@ -57,8 +57,8 @@ export interface SettingsResponse{
     RandomPartnersMax: number;
     StartWithPartners: StartingPartners;
     WriteSpoilerLog : boolean;
+    RevealLogAtTime : string;
     RomanNumerals: boolean;
-    TurnOffMusic: boolean;
     IncludeDojo: boolean;
     BowsersCastleMode: BowsersCastleMode;
     ShortenCutscenes: boolean;
@@ -115,7 +115,8 @@ export interface SettingsResponse{
     RandomChoice: boolean; // Mystery Random On Every Use
     MysteryRandomPick: boolean; // Mystery Random Pick
     ItemTrapMode: ItemTrapMode
-    AllowItemHints: boolean
+    AllowItemHints: boolean;
+    IncludeRadioTradeEvent: boolean;
 }
 
 export interface StartingPartners {

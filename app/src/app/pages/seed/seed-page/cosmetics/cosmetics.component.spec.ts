@@ -1,4 +1,4 @@
-import { CoinColor } from './../../../../entities/enum/coinColor';
+import { CoinColor } from '../../../../entities/enum/coinColor';
 import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -6,15 +6,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpriteSetting } from 'src/app/entities/enum/spriteSetting';
 
-import { ColorPalettesComponent } from './color-palettes.component';
+import { CosmeticsComponent } from './cosmetics.component';
 
-describe('ColorPalettesComponent', () => {
-  let component: ColorPalettesComponent;
-  let fixture: ComponentFixture<ColorPalettesComponent>;
+describe('CosmeticsComponent', () => {
+  let component: CosmeticsComponent;
+  let fixture: ComponentFixture<CosmeticsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ColorPalettesComponent ],
+      declarations: [ CosmeticsComponent ],
       imports: [ MatSlideToggleModule, ReactiveFormsModule, FormsModule, MatCardModule ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
@@ -22,9 +22,9 @@ describe('ColorPalettesComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ColorPalettesComponent);
+    fixture = TestBed.createComponent(CosmeticsComponent);
     component = fixture.componentInstance;
-    component.colorPalettesFormGroup = new FormGroup({
+    component.cosmeticsFormGroup = new FormGroup({
       menu: new FormControl(0),
       marioSprite : new FormControl(),
       goombarioSprite : new FormControl(),

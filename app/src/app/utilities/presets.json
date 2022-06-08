@@ -11,7 +11,8 @@
                 "keyitemsOutsideDungeon": false,
                 "includeDojo": false,
                 "itemPouches": true,
-                "includeLetters": 0
+                "includeLetters": 0,
+                "includeRadioTradeEvent": false
             },
             "gameplay": {
                 "randomBadgesBP": 0,
@@ -49,7 +50,7 @@
                 "shortenCutscenes": true,
                 "skipEpilogue": true,
                 "writeSpoilerLog": true,
-                "turnOffMusic": false,
+                "revealLogInHours": 0,
                 "quizmoAlwaysAppears": false,
                 "foliageItemHints": true
             },
@@ -82,7 +83,7 @@
                 "whaleOpen": false,
                 "startingMap": 65796
             },
-            "colorPalettes": {
+            "cosmetics": {
                 "menu": 0,
                 "marioSprite": {
                     "setting": 0,
@@ -139,7 +140,8 @@
             "keyitemsOutsideDungeon": false,
             "includeDojo": false,
             "itemPouches": true,
-            "includeLetters": 0
+            "includeLetters": 0,
+            "includeRadioTradeEvent": false
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -177,7 +179,7 @@
             "shortenCutscenes": true,
             "skipEpilogue": true,
             "writeSpoilerLog": true,
-            "turnOffMusic": false,
+            "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false
           },
@@ -210,7 +212,7 @@
             "whaleOpen": true,
             "startingMap": 65796
           },
-          "colorPalettes": {
+          "cosmetics": {
             "menu": 0,
             "marioSprite": {
               "setting": 0,
@@ -267,7 +269,8 @@
             "keyitemsOutsideDungeon": true,
             "includeDojo": false,
             "itemPouches": true,
-            "includeLetters": 1
+            "includeLetters": 1,
+            "includeRadioTradeEvent": false
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -305,7 +308,7 @@
             "shortenCutscenes": true,
             "skipEpilogue": true,
             "writeSpoilerLog": true,
-            "turnOffMusic": false,
+            "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false
           },
@@ -338,7 +341,7 @@
             "whaleOpen": false,
             "startingMap": 65796
           },
-          "colorPalettes": {
+          "cosmetics": {
             "menu": 0,
             "marioSprite": {
               "setting": 0,
@@ -395,7 +398,8 @@
             "keyitemsOutsideDungeon": true,
             "includeDojo": true,
             "itemPouches": false,
-            "includeLetters": 3
+            "includeLetters": 3,
+            "includeRadioTradeEvent": true
           },
           "gameplay": {
             "randomBadgesBP": 3,
@@ -433,7 +437,7 @@
             "shortenCutscenes": true,
             "skipEpilogue": true,
             "writeSpoilerLog": true,
-            "turnOffMusic": false,
+            "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false
           },
@@ -466,7 +470,7 @@
             "whaleOpen": false,
             "startingMap": 65796
           },
-          "colorPalettes": {
+          "cosmetics": {
             "menu": 0,
             "marioSprite": {
               "setting": 0,
@@ -523,7 +527,8 @@
             "keyitemsOutsideDungeon":true,
             "includeDojo":false,
             "itemPouches":false,
-            "includeLetters": 0
+            "includeLetters": 0,
+            "includeRadioTradeEvent": false
          },
          "gameplay":{
             "randomBadgesBP":1,
@@ -560,8 +565,8 @@
             "bowsersCastleMode":2,
             "shortenCutscenes":true,
             "skipEpilogue":true,
-            "writeSpoilerLog":false,
-            "turnOffMusic":false,
+            "writeSpoilerLog":true,
+            "revealLogInHours": 7,
             "quizmoAlwaysAppears":false,
             "foliageItemHints":true
          },
@@ -599,7 +604,7 @@
             "whaleOpen":false,
             "startingMap":65796
          },
-         "colorPalettes":{
+         "cosmetics":{
             "menu":7,
             "marioSprite":{
                "setting":2,

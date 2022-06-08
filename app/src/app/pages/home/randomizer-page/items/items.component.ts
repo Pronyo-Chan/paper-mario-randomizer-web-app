@@ -22,7 +22,11 @@ export class ItemsComponent implements OnInit, OnDestroy {
       tap(() => {
         if(this.itemFormGroup.get("shuffleItems").value == false){
           Object.keys(this.itemFormGroup.controls).filter(formControl => formControl != "shuffleItems").forEach(formControl => {
+            if(typeof this.itemFormGroup.get(formControl).value === 'number') {
+              this.itemFormGroup.get(formControl).setValue(0);
+            } else {
               this.itemFormGroup.get(formControl).setValue(false);
+            }
               this.itemFormGroup.get(formControl).disable();
           })
         } else {

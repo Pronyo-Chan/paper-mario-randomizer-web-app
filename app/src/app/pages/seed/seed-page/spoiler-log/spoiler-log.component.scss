@@ -5,9 +5,9 @@
      .mat-tab-body-content {
         display: flex;
         flex-wrap: wrap;
-        margin-top:2rem;
     
         div.search-container {
+            margin-top: 2rem;
             flex-basis: 45%;
             flex-grow: 2;
             h2 {
@@ -43,6 +43,7 @@
             }
         }
         div.right-container {
+            margin-top:2rem;
             flex-basis: 55%;
             flex-grow: 2;
 
@@ -99,6 +100,10 @@
             }
         }
     }    
+}
+
+button {
+    margin-left: 1rem;
 }
 
 .input-label{

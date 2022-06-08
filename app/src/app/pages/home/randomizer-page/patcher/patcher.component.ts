@@ -1,3 +1,4 @@
+import { FormGroup } from '@angular/forms';
 
 import { Constants } from './../../../../utilities/constants';
 import { RandomizerRepository } from '../../../../repositories/randomizer-repository/randomizer.repository';
@@ -18,8 +19,9 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
 export class PatcherComponent implements OnInit, OnDestroy {
 
   @Input() public seedId: string;
-  @Input() public hasSpoilerLog: boolean;
   @Input() public modVersion: number
+  @Input() public cosmeticsFormGroup: FormGroup
+  @Input() public isCosmeticsAllowed: boolean
 
   public userRom: any = null;
   public patchFile: any = null;
@@ -28,13 +30,11 @@ export class PatcherComponent implements OnInit, OnDestroy {
   public isRomValid = false;
   public isUserRomLoading = false;
   public isPatching = false;
-  public isDownloadingSpoilerLog = false;
+  public doOverrideCosmetics = false;
 
   public patchingError: string;
-  public spoilerLogError: string;
 
   private _createSeedSubscription: Subscription;
-  private _spoilerLogSubscription: Subscription;
   private _marcFileSubscription: Subscription;
   private _dbUpdateSubscription: Subscription;
   private _dbGetSubscription: Subscription;
@@ -58,10 +58,6 @@ export class PatcherComponent implements OnInit, OnDestroy {
       this._createSeedSubscription.unsubscribe();
     }
 
-    if(this._spoilerLogSubscription) {
-      this._spoilerLogSubscription.unsubscribe();
-    }
-
     if(this._marcFileSubscription) {
       this._marcFileSubscription.unsubscribe();
     }
@@ -79,8 +75,12 @@ export class PatcherComponent implements OnInit, OnDestroy {
     this.patchingError = null
     this.isPatching = true;
 
-    this._createSeedSubscription = this._randomizerService.downloadPatchedRom(this.userRom, this.seedId, this.modVersion)
-    .pipe(
+    this._createSeedSubscription = this._randomizerService.downloadPatchedRom(
+      this.userRom,
+      this.seedId,
+      this.modVersion,
+      this.doOverrideCosmetics ? this.cosmeticsFormGroup : null
+    ).pipe(
       take(1),
       tap(romResult => {
         this.isPatching = false;
@@ -89,25 +89,6 @@ export class PatcherComponent implements OnInit, OnDestroy {
       catchError( err => {
         this.isPatching = false;
         this.patchingError = 'A server error has occured';
-        return of(err);
-      })
-    ).subscribe();
-  }
-
-  public downloadSpoilerLog() {
-
-    this.spoilerLogError = null;
-    this.isDownloadingSpoilerLog = true;
-    this._spoilerLogSubscription = this._randomizerService.downloadSpoilerLog(this.seedId)
-    .pipe(
-      take(1),
-      tap(spoilerLog => {
-        this.isDownloadingSpoilerLog = false;
-        this.serveDownload(spoilerLog, this.seedId+ '_spoiler.txt');     
-      }),
-      catchError( err => {
-        this.spoilerLogError = 'A server error has occured'
-        this.isDownloadingSpoilerLog = false;
         return of(err);
       })
     ).subscribe();

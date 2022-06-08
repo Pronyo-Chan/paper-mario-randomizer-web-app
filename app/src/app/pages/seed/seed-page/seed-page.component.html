@@ -4,20 +4,30 @@
 
 <ng-container *ngIf="seedInfo$ | async as seedInfo">
     <div class="main-page" *ngIf="!isPageLoading">
-        
-        
-
         <ng-container *ngIf="!pageLoadingErrorCode">
             <mat-card class="settings-card">
                 <mat-card-title class="settings-title">Download</mat-card-title>
-                <app-patcher [seedId] = "seedId" [hasSpoilerLog]="seedInfo.WriteSpoilerLog" [modVersion]="seedInfo.StarRodModVersion"></app-patcher>
+                <mat-tab-group animationDuration="0" scrollToCenter>
+                    <mat-tab label="ROM Generation">
+                        <app-patcher [seedId]="seedId"
+                                     [modVersion]="seedInfo.StarRodModVersion"
+                                     [cosmeticsFormGroup]="cosmeticsFormGroup"
+                                     [isCosmeticsAllowed]="seedInfo.PaletteOffset"> <!-- Condition to ensure the seed was generated with palette offset -->
+                        </app-patcher>
+                    </mat-tab>
+                    <mat-tab *ngIf="seedInfo.PaletteOffset" label="Cosmetics"> <!-- Condition to ensure the seed was generated with palette offset -->
+                        <app-cosmetics [cosmeticsFormGroup]="cosmeticsFormGroup" [doLoadLatestSettings]="true"></app-cosmetics>
+                    </mat-tab>
+                </mat-tab-group>
+                
             </mat-card>
-            <mat-accordion *ngIf="seedInfo.WriteSpoilerLog">
+            <mat-accordion *ngIf="displaySpoilerLog">
                 <mat-expansion-panel class="settings-card" (opened)="isSpoilerLogExpanded = true" (closed)="isSpoilerLogExpanded = false" >
                     <mat-expansion-panel-header [ngClass]="{'expanded': isSpoilerLogExpanded, 'collapsed': !isSpoilerLogExpanded}">
                         <mat-panel-title class="settings-title">Spoiler Log</mat-panel-title>
                     </mat-expansion-panel-header>
                     <app-spoiler-log *ngIf="spoilerLog | async" 
+                                    [seedId]="seedId"
                                     [spoilerLog]="spoilerLog | async"
                                     [progressionSpheres]="progressionSphereLog | async"
                                     [allItemSpheres]="allItemsSphereLog | async"

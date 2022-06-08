@@ -7,6 +7,9 @@ import { RandomizerService } from 'src/app/services/randomizer.service';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
 import { environment } from 'src/environments/environment';
 import { SphereSpoilerLog } from 'src/app/entities/sphereSpoilerLog';
+import { FormControl, FormGroup } from '@angular/forms';
+import { SpriteSetting } from 'src/app/entities/enum/spriteSetting';
+import { CoinColor } from 'src/app/entities/enum/coinColor';
 
 @Component({
   selector: 'app-seed-page',
@@ -17,6 +20,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   
   public seedId: string;
   public seedInfo$: Observable<SettingsResponse>;
+  public cosmeticsFormGroup: FormGroup;
 
   public pageLoadingErrorCode: string;
   public spoilerLog: Observable<SpoilerLog>;
@@ -28,6 +32,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
   public isPageLoading: boolean;
 
+  public displaySpoilerLog: boolean = false;
   public isSpoilerLogExpanded: boolean = false;
   private _navigationSubscription: Subscription;
 
@@ -39,16 +44,21 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
     this.isPageLoading = true;
 
+    this.initCosmeticsFormGroup();
     this.seedInfo$ = this._activatedRoute.queryParams.pipe(
       switchMap(params => {
         this.seedId = params.id;
         return this._randomizerService.getSeedInfo(this.seedId).pipe(
           tap(seedInfo => {
-            if(seedInfo.WriteSpoilerLog) {
+            let dateNow = (new Date()).getTime();
+            let revealDate = (new Date(seedInfo.RevealLogAtTime)).getTime()
+            if(seedInfo.WriteSpoilerLog && (dateNow > revealDate || !revealDate)) {
               this.initSpoilerLog();
+              this.displaySpoilerLog = true;
             }
             else {
               this.isPageLoading = false;
+              this.displaySpoilerLog = false;
             }
             if(seedInfo.ShuffleChapterDifficulty) {
               this.isDifficultyShuffled = true;
@@ -146,6 +156,10 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this._renderer.removeClass(document.body, 'purple-bg')
     this._renderer.removeClass(document.body, 'red-bg')
+
+    if(this._navigationSubscription) {
+      this._navigationSubscription.unsubscribe();
+    }
   }
 
   private handleError(err: any): Observable<any> {
@@ -156,4 +170,22 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     return of(err)
   }
 
+  private initCosmeticsFormGroup() {
+    
+    this.cosmeticsFormGroup =  new FormGroup({
+      menu: new FormControl(0),
+      marioSprite : new FormControl(),
+      goombarioSprite : new FormControl(),
+      kooperSprite : new FormControl(),
+      parakarrySprite : new FormControl(),
+      bowSprite : new FormControl(),
+      wattSprite: new FormControl(),
+      sushieSprite: new FormControl(),
+      bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
+      npcSetting: new FormControl(SpriteSetting.DefaultPalette),
+      coinColor: new FormControl(CoinColor.Default),
+      randomText: new FormControl(false),
+      romanNumerals: new FormControl(false),
+    })
+  }
 }

@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { timeout, map, take } from 'rxjs/operators';
 import { withCache } from '@ngneat/cashew';
+import { CosmeticsRequest } from 'src/app/entities/cosmeticsRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,10 @@ export class RandomizerRepository {
 
   public getRandoPatch(seedId: string): Observable<Blob> {
     return this._httpClient.get(`${environment.apiEndPoint}patch/${seedId}`, { responseType: 'blob', context: withCache() }).pipe(take(1), timeout(30000))
+  }
+
+  public getCosmeticsPatch(request: CosmeticsRequest): Observable<Blob> {
+    return this._httpClient.post(`${environment.apiEndPoint}cosmetics_patch`, request, { responseType: 'blob' }).pipe(take(1), timeout(30000))
   }
 
   public getSpoilerLog(seedId: string): Observable<Blob> {

@@ -9,6 +9,7 @@ import { MarioSprite } from './enum/marioSprite';
 import { SpriteSetting } from './enum/spriteSetting';
 import { SushieSprite } from './enum/sushieSprite';
 import { WattSprite } from './enum/wattSprite';
+
 export interface SettingsRequest {
     StarRodModVersion: number;
     SettingsString: string;
@@ -53,8 +54,8 @@ export interface SettingsRequest {
     RandomPartnersMax?: number;
     StartWithPartners?: StartingPartners;
     WriteSpoilerLog : boolean;
+    RevealLogInHours : boolean;
     RomanNumerals: boolean;
-    TurnOffMusic: boolean;
     IncludeDojo: boolean;
     BowsersCastleMode: boolean;
     ShortenCutscenes: boolean;
@@ -112,6 +113,7 @@ export interface SettingsRequest {
     MysteryRandomPick: boolean; // Mystery Random Pick
     ItemTrapMode: ItemTrapMode;
     AllowItemHints: boolean;
+    IncludeRadioTradeEvent: boolean;
 }
 
 export interface StartingPartners {

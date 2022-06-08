@@ -1,5 +1,65 @@
 
 <div class="main-page">
+    <mat-card class="settings-card">
+        <mat-card-title class="settings-title">0.12.0 (beta) (2022-06-08)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>
+            <li> When containing a unique item or badge, non-replenishable trees will keep dropping copies of the item when hit until the item is collected.</li>        
+            <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
+            <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        </ul>
+
+        <h2>Game Mod Adjustments</h2>
+        <ul>
+            <li> Fixed a bug where the Koopa Village radio would keep playing when exiting with the Homeward Shroom, later causing a crash when growing the beanstalk in Flower Fields.</li>
+            <li> Fixed a bug where replenishable items would only spawn once when sleeping at Shiver City's Toad House.</li>
+            <li> Fixed a vanilla softlock that could happen when blowing up the jail wall in Koopa Bros Fortress.</li>
+            <li> The trap block in Koopa Bros Fortress will now appear as long as Mario has not obtained the item from Bombette in the jail, to prevent that item from being missable.</li>
+            <li> The Homeward Shroom can now be used during Tubba's Heart escape in chapter 3. The specific softlock it adressed has been fixed instead.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li> The "Download Spoiler Log" button has been moved to the Spoiler Log section on the seed page, and is now simply named "Download".</li>
+            <li> The logic guide on the "Useful Tips" page now mentions that only the first 6 items sold by Rip Cheato are in logic.</li>
+            <li> Fixed a bug with the "Shuffle Items" toggle that made it impossible to generate seeds with it being turned off.</li>
+        </ul>
+
+        <h2>Seed Generator</h2>
+        <ul>
+            <li> Item pouches are now removed from the item pool when starting with them.</li>
+            <li> Logic: In the the room east of ToyBox Blue Station, the item block across the wide gap now requires Parakarry to be reached in logic.</li>
+            <li> Spoiler Log: The room "Windy Path (B3)" has been renamed to "Winding Path (Spiny Room)".</li>
+        </ul>
+
+        <h2>Options</h2>
+
+        <h3>Delayed Spoiler Log (new)</h3>
+        <ul>
+            <li> When creating a seed with a spoiler log on the web generator, it is now possible to delay the reveal of the log by a specified number of hours.</li>
+            <li> When creating a seed with the racetime bot, the log will automatically be revealed after the race status becomes 'canceled' or 'ended'.</li>
+        </ul>
+
+        <h3>Include Trading Event Rewards (new)</h3>
+        <ul>
+            <li> Adds the 3 rewards obtained from the Trading Event Toad with the radio sidequests in the general item pool.</li>
+            <li> These quests are started by examining the radio in Koopa Village. There are 3 of them and they respectively require 1,3 and 5 star spirits obtained to be initiated.</li>
+        </ul>
+
+        <h3>Post-Generation Cosmetic Changes (new)</h3>
+        <ul>
+            <li> It is now possible to overwrite cosmetic options after the seed has been generated, on the seed page.</li>
+            <li> To use this feature, simply pick your cosmetic options in the new tab on the seed page and make sure to activate the "Override Original Cosmetics" options before clicking the patch button.</li>
+            <li> Post-generation cosmetic settings will be saved in the browser's local storage when clicking "Patch", so on the next seed, previous settings will be loaded.</li>
+        </ul>
+
+        <h3>Shorten Cutscenes (change)</h3>
+        <ul>
+            <li> The cutscene where Mario meets Bow in the mansion is now shorter.</li>
+        </ul>
+    </mat-card>
 
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.11.0 (beta) (2022-05-20)</mat-card-title>
