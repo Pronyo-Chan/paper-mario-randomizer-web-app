@@ -1,3 +1,4 @@
+import { BowsersCastleMode } from './../../../../entities/enum/bowsersCastleMode';
 import { KootFavorsMode } from './../../../../entities/enum/kootFavorsMode';
 import { LettersMode } from './../../../../entities/enum/lettersMode';
 import { ItemTrapMode } from './../../../../entities/enum/itemTrapMode';
@@ -65,6 +66,9 @@ export class SettingsInfoComponent implements OnInit {
           break;
         case 'HiddenBlockMode':
           this.settingRows.push({name: cleanSettingName, value: HiddenBlockMode[this.seedInfo[key]]})
+          break;
+        case 'BowsersCastleMode':
+          this.settingRows.push({name: cleanSettingName, value: BowsersCastleMode[this.seedInfo[key]]})
           break;
         case 'RandomBadgesBP':
         case 'RandomBadgesFP':
