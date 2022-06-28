@@ -1,6 +1,40 @@
 
 <div class="main-page">
     <mat-card class="settings-card">
+        <mat-card-title class="settings-title">0.12.1 (beta) (2022-06-28)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>
+            <li> When containing a unique item or badge, non-replenishable trees will keep dropping copies of the item when hit until the item is collected.</li>        
+            <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
+            <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        </ul>
+
+        <h2>Game Mod Adjustments</h2>
+        <ul>
+            <li>
+                Partner abilities are now required for NPC interactions. This means you need Parakarry's field ability unlocked to deliver letters, and Bombette's field ability to calm the Bob-ombs during Koot's favor.
+                This change was made due to many players getting confused with being able to deliver letters without having Parakarry unlocked when playing without Partners Always Usable.
+            </li>
+            <li> Badge descriptions in the pause menu will now accurately describe how many FP they use when using options that modify FP costs.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li> The tips page has been updated in accordance to the latest changes.</li>
+            <li> On the seed page, the value for Bower's Castle Mode will now clearly display the chosen mode instead of a number.</li>
+        </ul>
+
+        <h2>Seed Generator</h2>
+        <ul>
+            <li> Fixed an issue with Bowser's Castle Mode: "Shortened" where attempting to backtrack through the star ship door would reload the same room again.</li>
+            <li> Fixed an issue where the palm tree in Yoshi Village, next to the Toad House, was not considered a possible replenishable location.</li>
+            <li> Adjusted logic to require Parakarry for letter deliveries and Bombette for Koot's Bob-omb ruckus favor.</li>
+        </ul>
+    </mat-card>
+
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.12.0 (beta) (2022-06-08)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>
