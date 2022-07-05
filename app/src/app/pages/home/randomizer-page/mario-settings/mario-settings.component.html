@@ -1,5 +1,24 @@
 <form [formGroup]="marioStatsFormGroup" autocomplete="nope">
     <mat-card-content class=settings-card-content>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Boots" tooltipText="Level of the boots Mario will start the game with."></app-tooltip-span>
+            <select formControlName='startingBoots'>
+                <option [ngValue]="0">Normal</option>
+                <option [ngValue]="1">Super</option>
+                <option [ngValue]="2">Ultra</option>
+            </select>
+        </div>
+
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Hammer" tooltipText="Level of the hammer Mario will start the game with."></app-tooltip-span>
+            <select formControlName='startingHammer'>
+                <!-- <option [ngValue]="-1">Hamerless</option> -->
+                <option [ngValue]="0">Normal</option>
+                <option [ngValue]="1">Super</option>
+                <option [ngValue]="2">Ultra</option>
+            </select>
+        </div>
+
         <div class="setting-element input-element">
             <app-tooltip-span spanText="Coins" tooltipText="Amount of coins Mario will start the game with"></app-tooltip-span>
             <input matInput type="number"

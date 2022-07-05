@@ -87,6 +87,8 @@ export interface SettingsResponse{
     StartingMaxFP: number;
     StartingMaxBP: number;
     StartingStarPower: number;
+    StartingBoots: number;
+    StartingHammer: number;
     StartingItem0: number;
     StartingItem1: number;
     StartingItem2: number;

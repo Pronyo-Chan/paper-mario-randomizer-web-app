@@ -1,3 +1,4 @@
+import { Hammer } from './../../../entities/enum/hammer';
 import { BowsersCastleMode } from './../../../entities/enum/bowsersCastleMode';
 import { LettersMode } from './../../../entities/enum/lettersMode';
 import { KootFavorsMode } from './../../../entities/enum/kootFavorsMode';
@@ -16,6 +17,7 @@ import { DifficultySetting } from 'src/app/entities/enum/difficultySetting';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { CoinColor } from 'src/app/entities/enum/coinColor';
+import { Boots } from 'src/app/entities/enum/boots';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -150,6 +152,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         startingMaxFP: new FormControl(5), 
         startingMaxBP: new FormControl(3),
         startingStarPower: new FormControl(0),
+        startingBoots: new FormControl(Boots.Default),
+        startingHammer: new FormControl(Hammer.Default),
         startingItems: new FormControl([]),
         startWithRandomItems: new FormControl(false),
         randomItemsMin: new FormControl(0, [Validators.min(0), Validators.max(16)]),

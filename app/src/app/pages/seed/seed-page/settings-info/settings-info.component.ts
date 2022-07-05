@@ -1,3 +1,4 @@
+import { Boots } from './../../../../entities/enum/boots';
 import { BowsersCastleMode } from './../../../../entities/enum/bowsersCastleMode';
 import { KootFavorsMode } from './../../../../entities/enum/kootFavorsMode';
 import { LettersMode } from './../../../../entities/enum/lettersMode';
@@ -14,6 +15,7 @@ import { HiddenBlockMode } from 'src/app/entities/enum/hiddenBlockMode';
 import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
 import { SpriteSetting } from 'src/app/entities/enum/spriteSetting';
 import { Constants } from 'src/app/utilities/constants';
+import { Hammer } from 'src/app/entities/enum/hammer';
 
 interface SettingRow {
   name: string;
@@ -69,6 +71,12 @@ export class SettingsInfoComponent implements OnInit {
           break;
         case 'BowsersCastleMode':
           this.settingRows.push({name: cleanSettingName, value: BowsersCastleMode[this.seedInfo[key]]})
+          break;
+        case 'StartingBoots':
+          this.settingRows.push({name: cleanSettingName, value: Boots[this.seedInfo[key]]})
+          break;
+        case 'StartingHammer':
+          this.settingRows.push({name: cleanSettingName, value: Hammer[this.seedInfo[key]]})
           break;
         case 'RandomBadgesBP':
         case 'RandomBadgesFP':

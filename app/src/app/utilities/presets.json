@@ -74,6 +74,8 @@
                 "startingMaxFP": 5,
                 "startingMaxBP": 3,
                 "startingStarPower": 0,
+                "startingBoots": 0,
+                "startingHammer": 0,
                 "startingItems": []
             },
             "openLocations": {
@@ -203,6 +205,8 @@
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingStarPower": 0,
+            "startingBoots": 0,
+            "startingHammer": 0,
             "startingItems": []
           },
           "openLocations": {
@@ -332,6 +336,8 @@
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingStarPower": 0,
+            "startingBoots": 0,
+            "startingHammer": 0,
             "startingItems": []
           },
           "openLocations": {
@@ -461,6 +467,8 @@
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingStarPower": 0,
+            "startingBoots": 0,
+            "startingHammer": 0,
             "startingItems": []
           },
           "openLocations": {
@@ -590,6 +598,8 @@
             "startingMaxFP":5,
             "startingMaxBP":3,
             "startingStarPower":0,
+            "startingBoots": 0,
+            "startingHammer": 0,
             "startingItems":[
                
             ],

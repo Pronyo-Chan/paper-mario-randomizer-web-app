@@ -219,6 +219,8 @@ export class RandomizerService {
       StartingMaxFP: settingsForm.get('marioStats').get('startingMaxFP').value,
       StartingMaxBP: settingsForm.get('marioStats').get('startingMaxBP').value,
       StartingStarPower: settingsForm.get('marioStats').get('startingStarPower').value,
+      StartingBoots: settingsForm.get('marioStats').get('startingBoots').value,
+      StartingHammer: settingsForm.get('marioStats').get('startingHammer').value,
       StartingItem0: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[0]?.value,
       StartingItem1: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[1]?.value,
       StartingItem2: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[2]?.value,
