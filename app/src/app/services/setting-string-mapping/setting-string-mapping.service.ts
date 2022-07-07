@@ -211,7 +211,7 @@ export class SettingStringMappingService {
         case "number":
             i++;
             var numValue = ""
-            while(!isNaN(Number(settingString[i]))) {
+            while(!isNaN(Number(settingString[i])) || settingString[i] == '-') {
               numValue += settingString[i];
               i++;
             }
