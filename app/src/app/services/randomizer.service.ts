@@ -1,3 +1,4 @@
+import { LogicGlitch } from './../entities/logicGlitch';
 import { MarcFile } from './../utilities/RomPatcher/MarcFile';
 import { CosmeticsRequest } from './../entities/cosmeticsRequest';
 import { LocalStorageService } from './localStorage/localStorage.service';
@@ -250,7 +251,10 @@ export class RandomizerService {
       MysteryRandomPick: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode.RandomPick,
       ItemTrapMode: settingsForm.get('difficulty').get('itemTrapMode').value,
       AllowItemHints: settingsForm.get('difficulty').get('allowItemHints').value,
-      IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value
+      IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value,
+
+      // Glitches and Tricks
+      OddKeyEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "OddKeyEarly")
 
       
     } as SettingsRequest;

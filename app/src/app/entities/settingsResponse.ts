@@ -12,6 +12,7 @@ import { SushieSprite } from './enum/sushieSprite';
 import { BowsersCastleMode } from './enum/bowsersCastleMode';
 
 export interface SettingsResponse{
+    EnabledGlitches: string[];
     SeedID: string;
     CreationDate: Date;
     StarRodModVersion: number;
@@ -119,6 +120,9 @@ export interface SettingsResponse{
     ItemTrapMode: ItemTrapMode
     AllowItemHints: boolean;
     IncludeRadioTradeEvent: boolean;
+
+    // Glitches and Tricks
+    OddKeyEarly: boolean;
 }
 
 export interface StartingPartners {

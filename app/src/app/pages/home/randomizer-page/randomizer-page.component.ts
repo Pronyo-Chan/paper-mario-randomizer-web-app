@@ -11,7 +11,7 @@ import { RandomizerService } from './../../../services/randomizer.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
 import {tap, catchError} from 'rxjs/operators'
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../utilities/custom.validators'
 import { DifficultySetting } from 'src/app/entities/enum/difficultySetting';
 import { Router } from '@angular/router';
@@ -181,6 +181,29 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomText: new FormControl(false),
         romanNumerals: new FormControl(false),
       }),
+      glitches: new FormControl([])
+      /*glitches: new FormGroup({
+        prologueGelEarly: new FormControl(false),
+        oddKeyEarly: new FormControl(false),
+        blueHouseSkip: new FormControl(false),
+        bowlessToyBox: new FormControl(false),
+        earlyStoreroomParakarry: new FormControl(false),
+        earlyStoreroomHammer: new FormControl(false),
+        whaleEarly: new FormControl(false),
+        sushielessToadTownStarPiece: new FormControl(false),
+        clippyBootsStoneBlockSkip: new FormControl(false),
+        clippyBootsMetalBlockSkip: new FormControl(false),
+        islandPipeBlooperSkip: new FormControl(false),
+        parakarrylessSewerStarPiece: new FormControl(false),
+        sewerBlocksWithoutUltraBoots: new FormControl(false),
+        kooperlessPleasantPathStarPiece: new FormControl(false),
+        invisibleBridgeClipLzs: new FormControl(false),
+        invisibleBridgeClipLaki: new FormControl(false),
+        kooperlessPleasantPathThunderBolt: new FormControl(false),
+        bombettelessKbfFpPlus: new FormControl(false),
+        lakiJailbreak: new FormControl(false),
+        waterStaircaseSkip: new FormControl(false),
+      })*/
     });
 
     this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(

@@ -1,0 +1,161 @@
+[
+  {
+    "name": "Early Prologue Repel Gel",
+    "settingName": "PrologueGelEarly",
+    "link": "https://www.youtube.com/watch?v=6Mt0qnNLEW4",
+    "description": "Hidden item block above a stone block in prologue. You can jump up on top of this block and either use Kooper or Bombette to get the item from the block.",
+    "location": "Goomba Region",
+    "id": "!"
+  },
+  {
+    "name": "Odd Key Early",
+    "settingName": "OddKeyEarly",
+    "link": "https://www.youtube.com/watch?v=nPFBwsC0w_g",
+    "description": "Obtain the item inside the blue house early. Just stand next to where the Odd Key is outside the blue house, face right, spin, hold left, and hammer.",
+    "location": "Toad Town",
+    "id": "#"
+  },
+  {
+    "name": "Blue House Skip",
+    "settingName": "BlueHouseSkip",
+    "link": "https://papermarioarchives.com/#/Blue_House_Skip",
+    "description": "Get access to the blue house sewer pipe early. There are various methods to do so without any items/partners (see link), but you can also do a regular laki clip on the bottom/right corner of the house.",
+    "location": "Toad Town",
+    "id": "$"
+  },
+  {
+    "name": "Enter ToyBox without Bow",
+    "settingName": "BowlessToyBox",
+    "link": "https://www.youtube.com/watch?v=JGAnjOt_yM4",
+    "description": "Enter ToyBox without Bow by using the blue Toad to go out of bounds and move in front of the box.",
+    "location": "Toad Town",
+    "id": "%"
+  },
+  {
+    "name": "Enter Storeroom without key (Parakarry)",
+    "settingName": "EarlyStoreroomParakarry",
+    "link": "https://www.youtube.com/watch?v=cHIw02L5tXE",
+    "description": "Get access to the storeroom by clipping in the shop wall with Parakarry.",
+    "location": "Toad Town",
+    "id": "&"
+  },
+  {
+    "name": "Enter Storeroom without key (Hammer)",
+    "settingName": "EarlyStoreroomHammer",
+    "link": "",
+    "description": "Get access to the storeroom by using the blue Toad to go out of bounds and move inside the storeroom, similar to 'Enter ToyBox Without Bow'.",
+    "location": "Toad Town",
+    "id": "'"
+  },
+  {
+    "name": "Whale Early (LZS)",
+    "settingName": "WhaleEarly",
+    "link": "https://www.youtube.com/watch?v=9QeYdUI04O0",
+    "description": "Enter the whale without hitting it through LZS. Only useful when starting hamerless.",
+    "location": "Toad Town",
+    "id": "*"
+  },
+  {
+    "name": "Sushie-less Toad Town Star Piece",
+    "settingName": "SushielessToadTownStarPiece",
+    "link": "https://www.youtube.com/watch?v=-cmNZSa5BPE",
+    "description": "After ch4 is completed, you can enter the house and NPC push a Toad toward the wall with Bombette until you can clip out with the hammer.",
+    "location": "Toad Town",
+    "id": "+"
+  },{
+    "name": "Clippy Boots Stone Block Skip",
+    "settingName": "ClippyBootsStoneBlockSkip",
+    "link": "https://www.youtube.com/watch?v=OZpLHGiyBoc",
+    "description": "In the path winding path leading to the Ultra Boots chest, the stone block can be bypassed by entering clippy state with Lakilester and jumping on the block, then on top of the door arch.",
+    "location": "Toad Town Tunnels",
+    "id": ","
+  },
+  {
+    "name": "Clippy Boots Metal Block Skip",
+    "settingName": "ClippyBootsMetalBlockSkip",
+    "link": "https://www.youtube.com/watch?v=nRV-FC8cQ0E",
+    "description": "In the room before the Ultra Boots chest, the metal block can be bypassed by entering clippy state with lakilester and jumping on the block, then on top of the door arch.",
+    "location": "Toad Town Tunnels",
+    "id": "-"
+  },
+  {
+    "name": "Island Pipe Blooper Skip",
+    "settingName": "IslandPipeBlooperSkip",
+    "link": "https://www.youtube.com/watch?v=8AtoIDq_n_c",
+    "description": "Reach and activate the pipe to Yoshi's Island without Sushie or east side sewer access by clipping out of bounds with lakilester.",
+    "location": "Toad Town Tunnels",
+    "id": "."
+  },
+  {
+    "name": "Parakarry-less Sewer Star Piece",
+    "settingName": "ParakarrylessSewerStarPiece",
+    "link": "https://www.youtube.com/watch?v=6kl7SytyE1w",
+    "description": "With Kooper and a precise jump, the star piece in Toad Town Tunnels can be grabbed without Parakarry.",
+    "location": "Toad Town Tunnels",
+    "id": "0"
+  },
+  {
+    "name": "Sewer Blocks without Ultra Boots",
+    "settingName": "SewerBlocksWithoutUltraBoots",
+    "link": "https://www.youtube.com/watch?v=8kDX_f28QUo",
+    "description": "By gaining height from jumping on a Dark Koopa, the highest blocks in the sewers can be reached with regular boots. This trick also works for the 3 blocks in the room before the Ultra Boots chest.",
+    "location": "Toad Town Tunnels",
+    "id": "1"
+  },
+  {
+    "name": "Kooper-less Pleasant Path Star Piece (clippy)",
+    "settingName": "KooperlessPleasantPathStarPiece",
+    "link": "https://www.youtube.com/watch?v=-u-viCdLmRs",
+    "description": "By entering clippy state with Lakilester, it is possible to go out of bounds and reach the island star piece without Kooper.",
+    "location": "Pleasant Path",
+    "id": "2"
+  },
+  {
+    "name": "Invisible Bridge Clip (NoLaki)",
+    "settingName": "InvisibleBridgeClipLzs",
+    "link": "https://www.youtube.com/watch?v=v_-zJJidXls",
+    "description": "The bridge before Koopa Bros Fortress can be passed without Kooper by going out of bounds with precise jumps and movement.",
+    "location": "Pleasant Path",
+    "id": "3"
+  },
+  {
+    "name": "Invisible Bridge Clip (Laki)",
+    "settingName": "InvisibleBridgeClipLaki",
+    "link": "https://papermarioarchives.com/#/Invisible_Bridge_Clip",
+    "description": "The bridge before Koopa Bros Fortress can be passed without Kooper by clipping through the fence with Lakilester.",
+    "location": "Pleasant Path",
+    "id": "4"
+  },
+  {
+    "name": "Kooper-less Pleasant Path Thunder Bolt",
+    "settingName": "KooperlessPleasantPathThunderBolt",
+    "link": "https://www.youtube.com/watch?v=jaAVQ75UPYM",
+    "description": "The Brick Block on Pleasant Path can be broken without Kooper by baiting a Spiked Goomba under the block and jumping on it.",
+    "location": "Pleasant Path",
+    "id": "5"
+  },
+  {
+    "name": "Bombette-less KBF FP Plus (LZS)",
+    "settingName": "BombettelessKbfFpPlus",
+    "link": "https://www.youtube.com/watch?v=aw_dfibiv7Y",
+    "description": "Using LZS, the FP Plus chest in front of Koopa Bros Fortress can be reached without bombing the wall and using the pipe.",
+    "location": "Koopa Bros Fortress",
+    "id": "6"
+  },
+  {
+    "name": "Laki Jailbreak",
+    "settingName": "LakiJailbreak",
+    "link": "https://papermarioarchives.com/#/Laki_Jailbreak",
+    "description": "Using Lakilester, it is possible to clip into the left jail cell and then use a Laki Jump to reach the upper left door.",
+    "location": "Koopa Bros Fortress",
+    "id": "7"
+  },
+  {
+    "name": "Water Staircase Skip",
+    "settingName": "WaterStaircaseSkip",
+    "link": "https://www.youtube.com/watch?v=6qLuSu1zOpc",
+    "description": "In the first interior room of Koopa Bros Fortress, you can get out of bounds with Lakilester and reach the ",
+    "location": "Pleasant Path",
+    "id": "8"
+  }
+]

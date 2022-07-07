@@ -116,6 +116,9 @@ export interface SettingsRequest {
     ItemTrapMode: ItemTrapMode;
     AllowItemHints: boolean;
     IncludeRadioTradeEvent: boolean;
+
+    // Glitches and Tricks
+    OddKeyEarly: boolean;
 }
 
 export interface StartingPartners {
