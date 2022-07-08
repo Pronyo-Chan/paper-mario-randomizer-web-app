@@ -139,6 +139,14 @@ input.mat-input-element:focus {
   display: block !important;
 }
 
+.mat-list {
+  .mat-list-item {
+    .mat-list-item-content {
+      display: block !important;
+    }
+  }
+}
+
 select {
   border: inset;
   border-radius: 4px;

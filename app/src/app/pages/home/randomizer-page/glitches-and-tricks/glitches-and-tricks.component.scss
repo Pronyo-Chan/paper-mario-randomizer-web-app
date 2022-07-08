@@ -5,14 +5,15 @@
     flex-wrap: wrap;
 
     .glitches-list {
-        margin: 1rem;
+        padding-right: 1rem;
+        max-height: 40rem;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 }
 mat-selection-list, mat-list {
-    display: block !important;
     .mat-list-item {
         
-        display: block !important;
         border: solid !important; 
         border-width: 2px 2px 0px 2px !important;    
         border-color: variables.$yellow-stat-border !important;
@@ -22,7 +23,7 @@ mat-selection-list, mat-list {
             position: relative;
             top: 7px;
             
-        }      
+        }
         
     }
 
