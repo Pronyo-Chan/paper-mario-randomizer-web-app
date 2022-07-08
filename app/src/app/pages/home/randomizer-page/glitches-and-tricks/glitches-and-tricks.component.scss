@@ -1,0 +1,32 @@
+@use '../../../../../variables';
+
+.table-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .glitches-list {
+        margin:1rem;
+    }
+}
+mat-selection-list, mat-list {
+    display: block !important;
+    .mat-list-item {
+        
+        display: block !important;
+        border: solid !important; 
+        border-width: 2px 2px 0px 2px !important;    
+        border-color: variables.$yellow-stat-border !important;
+
+        mat-icon {
+            font-size: 25px;
+            position: relative;
+            top: 7px;
+            
+        }      
+        
+    }
+
+    > :last-child {
+        border-width: 2px 2px 2px 2px !important;    
+    }
+}

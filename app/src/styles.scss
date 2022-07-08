@@ -135,6 +135,10 @@ input.mat-input-element:focus {
   overflow: hidden !important; /* Hide scrollbars */
 }
 
+.mat-list-text {
+  display: block !important;
+}
+
 select {
   border: inset;
   border-radius: 4px;
