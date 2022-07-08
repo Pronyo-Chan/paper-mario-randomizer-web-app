@@ -154,8 +154,131 @@
     "name": "Water Staircase Skip",
     "settingName": "WaterStaircaseSkip",
     "link": "https://www.youtube.com/watch?v=6qLuSu1zOpc",
-    "description": "In the first interior room of Koopa Bros Fortress, you can get out of bounds with Lakilester and reach the ",
+    "description": "In the first interior room of Koopa Bros Fortress, you can get out of bounds with Lakilester and reach the top floor.",
     "location": "Pleasant Path",
     "id": "8"
+  },
+  {
+    "name": "Mt. Rugged Quake Hammer + Letter with Laki",
+    "settingName": "MtRuggedQuakeHammerAndLetterWithLaki",
+    "link": "https://www.youtube.com/watch?v=vfmsVGbir38",
+    "description": "Using Lakilester, it is possible to clip into a corner and go out of bounds to get the Quake Hammer and Letter in Mt.Rugged that usually require Parakarry/Kooper.",
+    "location": "Mt. Rugged",
+    "id": "9"
+  },
+  {
+    "name": "Parakary-less Mt.Rugged seed",
+    "settingName": "ParakarrylessMtRuggedSeed",
+    "link": "https://www.youtube.com/watch?v=itO-PdEOgwg",
+    "description": "You can clip out of bounds by spinning against the wall above the Mt.Rugged Bub-ulb and reach it without Parakarry.",
+    "location": "Mt.Rugged",
+    "id": ":"
+  },
+  {
+    "name": "Buzzar Gap Skip (Clippy)",
+    "settingName": "BuzzarGakSkipClippy",
+    "link": "https://www.youtube.com/watch?v=urYFCIWXVSE",
+    "description": "By entering clippy state with Lakilester, you can go out of bounds and reach Buzzar without Parakarry.",
+    "location": "Mt. Rugged",
+    "id": ";"
+  },
+  {
+    "name": "Parakarry-less Mt.Rugged Star Piece",
+    "settingName": "ParakarrylessMtRuggedStarPieceClippy",
+    "link": "WAITING FOR JCOG",
+    "description": "By riding Lakilester on the upper ledge and falling from it holding left, the star piece ledge can be reached without Parakarry.",
+    "location": "Mt. Rugged",
+    "id": "<"
+  },
+  {
+    "name": "Desert brick block item with Parakarry",
+    "settingName": "DesertBrickBlockItemWithParakarry",
+    "link": "https://www.youtube.com/watch?v=Bdr6tOdBSKQ",
+    "description": "The item sitting on a brick block in the desert can be obtained without Kooper or Ultra Boots, by clipping with Parakarry.",
+    "location": "Dry Dry Desert",
+    "id": "="
+  },
+  {
+    "name": "Early Ruins (Laki Jump)",
+    "settingName": "EarlyRuinsLakiJump",
+    "link": "",
+    "description": "The ruins loading zone is always present, so it's possible to enter it without the pulse stone by performing a Laki Jump where the door would be.",
+    "location": "Dry Dry Desert",
+    "id": ">"
+  },
+  {
+    "name": "Early Ruins (Ultra Boots)",
+    "settingName": "EarlyRuinsUltraBoots",
+    "link": "",
+    "description": "The ruins loading zone is always present, so it's possible to enter it without the pulse stone by performing a Tornado Jump where the door would be.",
+    "location": "Dry Dry Desert",
+    "id": "?"
+  },
+  {
+    "name": "Artifact Jump with Laki",
+    "settingName": "ArtifactJump",
+    "link": "https://www.youtube.com/watch?v=z0lDfFuh_Fw",
+    "description": "The artefact item can be obtained without breaking the hammer block by performing a Laki Jump on the edge of the door's platform.",
+    "location": "Dry Dry Ruins",
+    "id": "@"
+  },
+  {
+    "name": "Ruins Key Laki Jump",
+    "settingName": "RuinsKeyLakiJump",
+    "link": "https://www.youtube.com/watch?v=qzmli1V9wBE&t=9231s",
+    "description": "The last Ruins Key can be obtained without breaking the hammer block by performing a Laki Jump under it",
+    "location": "Dry Dry Ruins",
+    "id": "A"
+  },
+  {
+    "name": "Parkarry-less second sand room (Ultra Boots)",
+    "settingName": "ParakarylessSecondSandRoomUltraBoots",
+    "link": "",
+    "description": "The gap to the bombable wall before the second sand room can be reached by performing a Tornado Jump under the platform's corner.",
+    "location": "Dry Dry Ruins",
+    "id": "B"
+  },
+  {
+    "name": "Parkarry-less second sand room (Super Boots)",
+    "settingName": "ParakarylessSecondSandRoomUltraBoots",
+    "link": "",
+    "description": "The gap to the bombable wall before the second sand room can be reached by performing a Spin jump under the platform's corner.",
+    "location": "Dry Dry Ruins",
+    "id": "C"
+  },
+  {
+    "name": "Parkarry-less second sand room (Normal Boots)",
+    "settingName": "ParakarylessSecondSandRoomNormalBoots",
+    "link": "https://discord.com/channels/958691533270433793/958818725891555328/964665298504548482",
+    "description": "The gap to the bombable wall before the second sand room can be reached by performing a precise jump under the stairs to the left.",
+    "location": "Dry Dry Ruins",
+    "id": "D"
+  },
+  {
+    "name": "Parkarry-less Super Hammer room (Ultra Boots)",
+    "settingName": "ParakarylessSuperHammerRoomUltraBoots",
+    "link": "https://papermarioarchives.com/#/Ruins_Clip",
+    "description": "The gap before the Super Hammer room can be reached by performing a Tornado Jump under the platform's corner.",
+    "location": "Dry Dry Ruins",
+    "id": "E"
+  },
+  {
+    "name": "Parkarry-less Super Hammer room (Normal Boots)",
+    "settingName": "ParakarylessSuperHammerRoomNormalBoots",
+    "link": "https://papermarioarchives.com/#/Ruins_Clip",
+    "description": "The gap before the Super Hammer room can be reached by jumping against the wall at a certain angle to get extra speed in the air.",
+    "location": "Dry Dry Ruins",
+    "id": "F"
+  },
+  {
+    "name": "Ruins Locks Skip (clippy)",
+    "settingName": "RuinsLocksSkipClippy",
+    "link": "https://www.youtube.com/watch?v=YRptoreBEwc",
+    "description": "Clippy can be used to skip the first three locks in pretty much identical ways to this video. Note that the third one is impossible once the 3 Pokies are defeated, therefore won't be in logic.",
+    "location": "Dry Dry Ruins",
+    "id": "G"
   }
+  
+  
+
 ]
