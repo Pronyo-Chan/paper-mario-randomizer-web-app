@@ -277,8 +277,110 @@
     "description": "Clippy can be used to skip the first three locks in pretty much identical ways to this video. Note that the third one is impossible once the 3 Pokies are defeated, therefore won't be in logic.",
     "location": "Dry Dry Ruins",
     "id": "G"
+  },
+  {
+    "name": "Record Skip (no Bombette push)",
+    "settingName": "RecordSkipNoBombettePush",
+    "link": "https://www.youtube.com/watch?v=h476QUnqgPA",
+    "description": "The chest in the record room can be opened by spinning and jumping in front of it and pressing A quickly to open it.",
+    "location": "Boo's Mansion",
+    "id": "H"
+  },
+  {
+    "name": "Record Skip (Bombette push)",
+    "settingName": "RecordSkipBombettePush",
+    "link": "https://www.youtube.com/watch?v=WXSh8diHbOA",
+    "description": "By performing NPC Bombette Push on the Boo guarding the chest enough times, it can be moved enough so the chest can be opened without the Record.",
+    "location": "Boo's Mansion",
+    "id": "I"
+  },
+  {
+    "name": "Boo's Portrait with Kooper",
+    "settingName": "BoosPortraitWithKooper",
+    "link": "",
+    "description": "By standing on the very edge of the platform, a shell toss can reach barely far enough to grab the portrait.",
+    "location": "Boo's Mansion",
+    "id": "J"
+  },
+  {
+    "name": "Boo's Portrait with Lakilester",
+    "settingName": "BoosPortraitWithLaki",
+    "link": "https://www.youtube.com/watch?v=1_YpkgRkKiM",
+    "description": "It is possible to perform a Laki Clip on the corner of a bookshelf and reach Boo's Portrait by going out of bounds.",
+    "location": "Boo's Mansion",
+    "id": "K"
+  },
+  {
+    "name": "Gusty Gulch Gate Skip (LZS)",
+    "settingName": "GustyGulchGateSkipLZS",
+    "link": "https://www.youtube.com/watch?v=m7egGLSQ2GU&t=2966s",
+    "description": "Using LZS, you can get out of bounds and skip the locked Gusty Gulch Gate",
+    "location": "Gusty Gulch",
+    "id": "L"
+  },
+  {
+    "name": "Kooper-less Gusty Gulch Dizzy Dial (Jump)",
+    "settingName": "KooperlessGustyGulchDizzyDialJump",
+    "link": "https://www.youtube.com/watch?v=Z6xTYD5noHc",
+    "description": "With tap jumps, the rock where the item stands can be climbed on.",
+    "location": "Gusty Gulch",
+    "id": "M"
+  },
+  {
+    "name": "Kooper-less Gusty Gulch Dizzy Dial (Laki)",
+    "settingName": "KooperlessGustyGulchDizzyDialLaki",
+    "link": "",
+    "description": "By entering clippy state with Laki, you can climb on the rock where the item stands.",
+    "location": "Gusty Gulch",
+    "id": "N"
+  },
+  {
+    "name": "Kooper-less Gusty Gulch Dizzy Dial (Parakarry)",
+    "settingName": "KooperlessGustyGulchDizzyDialParakarry",
+    "link": "https://clips.twitch.tv/CredulousBraveHorseradishCeilingCat-Q4g82ffPaojP8mAt",
+    "description": "Using Parakarry on the very edge, it is possible to barely reach the rock where the item stands.",
+    "location": "Gusty Gulch",
+    "id": "O"
+  },
+  {
+    "name": "Gusty Gulch Gap Skip",
+    "settingName": "GustyGulchGapSkip",
+    "link": "https://www.youtube.com/watch?v=L0ZFRrNEiME",
+    "description": "With tap jumps, the other side of the gab that usually requires Parakarry can be climbed on.",
+    "location": "Gusty Gulch",
+    "id": "P"
+  },
+  {
+    "name": "Bow-less Tubba's Castle",
+    "settingName": "BowlessTubbasCastle",
+    "link": "",
+    "description": "With Speedy Spin, Tubba and the sentinels can be bypassed without hiding with Bow.",
+    "location": "Tubba's Castle",
+    "id": "Q"
+  },
+  {
+    "name": "Tubba's Table Laki Jump",
+    "settingName": "TubbasTableLakiJump",
+    "link": "https://clips.twitch.tv/ElegantThankfulHerdMcaT-v40_6xz5hfXyZjN2",
+    "description": "Using a Laki Jump from under the table, you can reach the item on top of the table in Tubba's Castle without having access to the 2nd floor.",
+    "location": "Tubba's Castle",
+    "id": "R"
+  },
+  {
+    "name": "Tubba's Castle Super Boots Skip (clippy)",
+    "settingName": "TubbasCastleSuperBootsSkip",
+    "link": "https://www.youtube.com/watch?v=A1nvOIhxIXI",
+    "description": "By entering clippy state with Lakilester, you can get out of bounds and reach the loading zone under the patched floor.",
+    "location": "Tubba's Castle",
+    "id": "S"
+  },
+  {
+    "name": "Parakarry-less Mega Rush",
+    "settingName": "ParakarrylessMegaRush",
+    "link": "https://www.youtube.com/watch?v=iRAFQj8BRxU",
+    "description": "With tap jumps, you can get on the corner of the bed and reach Mega Rush without Parakarry. There is also a LZS variant.",
+    "location": "Tubba's Castle",
+    "id": "T"
   }
-  
-  
 
 ]
