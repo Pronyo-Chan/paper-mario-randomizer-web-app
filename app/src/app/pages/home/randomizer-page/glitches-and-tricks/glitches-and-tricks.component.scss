@@ -4,18 +4,24 @@
     display: flex;
     flex-wrap: wrap;
 
-    .glitches-list {
-        padding-right: 1rem;
-        max-height: 40rem;
-        overflow-y: auto;
-        overflow-x: hidden;
+    .tricks-section {
+        margin-left: 5rem;
+        .glitches-list {
+            padding-right: 1rem;
+            max-height: 40rem;
+            overflow-y: auto;
+            overflow-x: hidden;
+            width: 570px;
+        }
     }
+
+    
 }
 mat-selection-list, mat-list {
     .mat-list-item {
         
         border: solid !important; 
-        border-width: 2px 2px 0px 2px !important;    
+        border-width: 3px 3px 1px 3px !important;    
         border-color: variables.$yellow-stat-border !important;
 
         mat-icon {
@@ -26,8 +32,9 @@ mat-selection-list, mat-list {
         }
         
     }
+}
 
-    > :last-child {
-        border-width: 2px 2px 2px 2px !important;    
-    }
+h2 {
+    font-family: gluten;
+    text-align: center;
 }
