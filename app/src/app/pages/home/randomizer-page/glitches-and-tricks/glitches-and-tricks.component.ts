@@ -11,19 +11,28 @@ import { LogicGlitch } from 'src/app/entities/logicGlitch';
 export class GlitchesAndTricksComponent implements OnInit {
 
   public readonly MIN_AMOUNT_OF_CHARS = 2;
+  public readonly DEFAULT_LOCATION = "(all)";
 
   @Input() public formGroup: FormGroup
 
   public glitchesList: LogicGlitch[];
   public filteredGlitches: LogicGlitch[];
+  public locationsList: string[];
 
   public searchText: string;
+  public selectedLocation: string;
 
   public constructor() { }
 
   public ngOnInit(): void {
     this.glitchesList = glitchesJson;
     this.filteredGlitches = this.glitchesList;
+
+    this.selectedLocation = this.DEFAULT_LOCATION;
+    this.locationsList = [this.DEFAULT_LOCATION].concat(this.glitchesList.map(g => g.location));
+    this.locationsList= [...new Set(this.locationsList)] // Remove duplicates
+    this.locationsList.sort((a, b) => a.localeCompare(b)) // Sort alphabetically
+    
   }
 
   public filter() {
@@ -35,7 +44,7 @@ export class GlitchesAndTricksComponent implements OnInit {
   }
 
   public isGlitchInFilteredList(glitch: LogicGlitch) {
-    return this.filteredGlitches.some(g => g == glitch)
+    return this.filteredGlitches.some(g => g == glitch) && (glitch.location == this.selectedLocation || this.selectedLocation == this.DEFAULT_LOCATION);
   }
 
 }

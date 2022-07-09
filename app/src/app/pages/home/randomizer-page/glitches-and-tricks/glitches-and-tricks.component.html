@@ -12,6 +12,9 @@
                             (ngModelChange)="filter()"
                             matInput>
                 </div>
+                <select [(ngModel)]="selectedLocation" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let location of locationsList">{{location}}</option>
+                </select> 
             </div>
             <div class="tricks-section">
                 <h2>Available tricks</h2>
@@ -23,6 +26,7 @@
                         <app-tooltip-span [tooltipText]="glitch.description" [spanText]="glitch.name"></app-tooltip-span>
                         
                     </mat-list-option>
+                    <span class="no-results" *ngIf="!filteredGlitches.length">No Results</span>
                 </mat-selection-list>
             </div>
             <div class="tricks-section">

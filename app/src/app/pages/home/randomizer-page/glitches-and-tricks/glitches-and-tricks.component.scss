@@ -9,6 +9,7 @@
         .glitches-list {
             padding-right: 1rem;
             max-height: 40rem;
+            min-height: 15rem;
             overflow-y: auto;
             overflow-x: hidden;
             width: 570px;
@@ -37,4 +38,13 @@ mat-selection-list, mat-list {
 h2 {
     font-family: gluten;
     text-align: center;
+}
+
+span.no-results {
+    font-family: gluten;
+    font-size: 18px;
+    justify-content: center;
+    display: flex;
+    color:red;
+    margin-top: 1rem;
 }
