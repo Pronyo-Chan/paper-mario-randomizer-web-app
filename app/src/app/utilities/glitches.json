@@ -421,6 +421,56 @@
     "description": "The item can be obtained with Parakarry's ability, using it on the edge of the platform and jumping at the very end.",
     "location": "ToyBox",
     "id": "Y"
+  },
+  {
+    "name": "Raph Skip (English)",
+    "settingName": "RaphSkipEnglish",
+    "link": "https://www.youtube.com/watch?v=ogzj33iA9AI",
+    "description": "You climb a tree to the east of Yoshi Village with neutral jumps, then go out of bounds and reach the volcano's entrance without using Raphael's zipline.",
+    "location": "Jade Jungle",
+    "id": "Z"
+  },
+  {
+    "name": "Kooper-less Mt. Lavalava Pow Block",
+    "settingName": "KooperlessLavalavaPowBlock",
+    "link": "https://youtu.be/Bdr6tOdBSKQ?t=24",
+    "description": "The item can be obtained with Parakarry's ability, using it on the edge of the platform and jumping at the very end.",
+    "location": "Mt. Lavalava",
+    "id": "["
+  },
+  {
+    "name": "Ultra Hammer Skip",
+    "settingName": "UltraHammerSkip",
+    "link": "https://youtu.be/qzmli1V9wBE?t=10324",
+    "description": "With a precise jump from the upper platform of the central volcano room, you can clip into the wall and get out of bounds to skip the metal block.",
+    "location": "Mt. Lavalava",
+    "id": "]"
+  },
+  {
+    "name": "Flarakarry",
+    "settingName": "Flarakarry",
+    "link": "https://papermarioarchives.com/#/Flarakarry",
+    "description": "The spike ball puzzle can be skipped by clipping into the east loading zone with Parakarry's ability.",
+    "location": "Mt. Lavalava",
+    "id": "^"
+  },
+  {
+    "name": "Parakarry-less Flarakarry (Bombette NPC Push)",
+    "settingName": "ParakarryLessFlarakarryBombette",
+    "link": "https://www.youtube.com/watch?v=BpXqPM-_yAc",
+    "description": "Kolorado can be moved against the wall with Bombette NPC Pushes. He can then be used to squeeze into the loading zone and skip the spike bal puzzle.",
+    "location": "Mt. Lavalava",
+    "id": "_"
+  },
+  
+  {
+    "name": "Parakarry-less Flarakarry (Laki Teleport)",
+    "settingName": "ParakarryLessFlarakarryLaki",
+    "link": "",
+    "description": "A Laki teleport can be used to clip into the loading zone and skip the spike ball puzzle.",
+    "location": "Mt. Lavalava",
+    "id": "`"
   }
+  
 
 ]
