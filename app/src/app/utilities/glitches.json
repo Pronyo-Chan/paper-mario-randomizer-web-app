@@ -461,8 +461,7 @@
     "description": "Kolorado can be moved against the wall with Bombette NPC Pushes. He can then be used to squeeze into the loading zone and skip the spike bal puzzle.",
     "location": "Mt. Lavalava",
     "id": "_"
-  },
-  
+  },  
   {
     "name": "Parakarry-less Flarakarry (Laki Teleport)",
     "settingName": "ParakarryLessFlarakarryLaki",
@@ -470,6 +469,102 @@
     "description": "A Laki teleport can be used to clip into the loading zone and skip the spike ball puzzle.",
     "location": "Mt. Lavalava",
     "id": "`"
+  },
+  {
+    "name": "Early Lakilster (LZS / Tree Clip)",
+    "settingName": "EarlyLakiLZS",
+    "link": "https://papermarioarchives.com/#/Early_Lakilester",
+    "description": "With either the LZS or Tree Clip method, Mario can get out of bounds and cross the thorns without Lakilester or a Bubble Berry",
+    "location": "Flower Fields",
+    "id": "a"
+  },
+  {
+    "name": "Early Lakilster (NPC Bombette Push)",
+    "settingName": "EarlyLakiBombettePush",
+    "link": "https://papermarioarchives.com/#/Early_Lakilester",
+    "description": "The Bubble Plant can be pushed towards the wall with NPC Bombette pushes, and can then be used to clip out of bounds and cross the thorns without Lakilester or a Bubble Berry.",
+    "location": "Flower Fields",
+    "id": "b"
+  },
+  {
+    "name": "Bombette-less Mega Smash",
+    "settingName": "BombettelessMegaSmash",
+    "link": "https://www.youtube.com/watch?v=Xd5pmIqJ7kU",
+    "description": "The Mega Smash alcove can be reached by jumping from the stairs or from above instead of bombing the rock.",
+    "location": "Flower Fields",
+    "id": "c"
+  },
+  {
+    "name": "Sun Tower Skip (LZS)",
+    "settingName": "SunTowerSkip",
+    "link": "https://www.youtube.com/watch?v=lXa9LFyCdgA",
+    "description": "With precise jumps on the edge of the loading zone, you can go out of bounds and reach the sun without breaking the rock.",
+    "location": "Flower Fields",
+    "id": "d"
+  },
+  {
+    "name": "Yellow Berry Gate Skip (LZS)",
+    "settingName": "YellowBerryGateSkipLZS",
+    "link": "https://papermarioarchives.com/#/Yellow_Berry_Skip",
+    "description": "Using LZS, you can get out of bounds before the yellow berry gate and walk around it.",
+    "location": "Flower Fields",
+    "id": "e"
+  },
+  {
+    "name": "Yellow Berry Gate Skip (Laki)",
+    "settingName": "YellowBerryGateSkipLaki",
+    "link": "https://youtu.be/U7rYhGqJYXc?t=15",
+    "description": "While riding Laki, you can squeeze slightly behind the Yellow Plant and warp to the upper ledge / out of bounds by getting off at the right time.",
+    "location": "Flower Fields",
+    "id": "f"
+  },
+  {
+    "name": "Yellow Berry Gate Skip (NPC Bombette Push)",
+    "settingName": "YellowBerryGateSkipBombettePush",
+    "link": "",
+    "description": "The Yellow Plant can be pushed towards the wall with NPC Bombette pushes, and can then be used to clip out of bounds and walk around the gate.",
+    "location": "Flower Fields",
+    "id": "g"
+  },
+  {
+    "name": "Red Berry Gate Skip (NPC Bombette Push)",
+    "settingName": "RedBerryGateSkipBombettePush",
+    "link": "",
+    "description": "Clip through the gate by pushing the plant with NPC Bombette pushes (need better description and video).",
+    "location": "Flower Fields",
+    "id": "h"
+  },
+  {
+    "name": "Red Berry Gate Skip (Laki)",
+    "settingName": "RedBerryGateSkipLaki",
+    "link": "https://www.youtube.com/watch?v=U7rYhGqJYXc",
+    "description": "The gate can be clipped through by performing a Laki Teleport at the bottom of the gate.",
+    "location": "Flower Fields",
+    "id": "i"
+  },
+  {
+    "name": "Blue Berry Gate Skip (NPC Bombette Push)",
+    "settingName": "BlueBerryGateSkipBombettePush",
+    "link": "",
+    "description": "Clip through the gate by pushing the plant with NPC Bombette pushes (need better description and video).",
+    "location": "Flower Fields",
+    "id": "j"
+  },
+  {
+    "name": "Blue Berry Gate Skip (Laki)",
+    "settingName": "BlueBerryGateSkipLaki",
+    "link": "https://youtu.be/U7rYhGqJYXc?t=10",
+    "description": "The gate can be clipped through by performing a Laki Teleport at the bottom of the gate.",
+    "location": "Flower Fields",
+    "id": "k"
+  },
+  {
+    "name": "Bubble Berry Tree Laki Jump",
+    "settingName": "BubbleBerryTreeLakiJump",
+    "link": "https://clips.twitch.tv/AbnegatePrettiestDragonflyTheRinger-7FpRs6mvlVNT1LBI",
+    "description": "A Laki Jump can be performed below the Sushie deck to get on the tree's platform without raising the water.",
+    "location": "Flower Fields",
+    "id": "l"
   }
   
 
