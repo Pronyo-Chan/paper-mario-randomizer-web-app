@@ -381,6 +381,46 @@
     "description": "With tap jumps, you can get on the corner of the bed and reach Mega Rush without Parakarry. There is also a LZS variant.",
     "location": "Tubba's Castle",
     "id": "T"
+  },
+  {
+    "name": "Parakarry-less Blue Station Building Star Piece",
+    "settingName": "ParakarrylessBlueBuildingStarPiece",
+    "link": "https://www.youtube.com/watch?v=rJ6nLYb-thQ",
+    "description": "By using Laki's ability, you can clip on the corner of a building and go out of bounds below the item, then collect it with a Kooper Shell Jump.",
+    "location": "ToyBox",
+    "id": "U"
+  },
+  {
+    "name": "Gourmet Guy Skip (Jump)",
+    "settingName": "GourmetGuySkipJump",
+    "link": "https://www.youtube.com/watch?v=PNiilwoKwPQ&t=5218s",
+    "description": "With precise jumps, you can clip into the west door arch at Pink Station to get out of bounds and reach the pink switch directly.",
+    "location": "ToyBox",
+    "id": "V"
+  },
+  {
+    "name": "Gourmet Guy Skip (Laki)",
+    "settingName": "GourmetGuySkipLaki",
+    "link": "",
+    "description": "Using Laki's ability, you can clip into the west door arch at Pink Station to get out of bounds and reach the pink switch directly.",
+    "location": "ToyBox",
+    "id": "W"
+  },
+  {
+    "name": "Bow-less Green Station",
+    "settingName": "BowlessGreenStation",
+    "link": "https://www.youtube.com/watch?v=L2ydrifkDss",
+    "description": "Using Laki's ability, you can clip into the west wall to get out of bounds and walk inside the wall across the room.",
+    "location": "ToyBox",
+    "id": "X"
+  },
+  {
+    "name": "Kooper-less Red Station Shooting Star",
+    "settingName": "KooperlessRedStationShootingStar",
+    "link": "https://youtu.be/Bdr6tOdBSKQ?t=10",
+    "description": "The item can be obtained with Parakarry's ability, using it on the edge of the platform and jumping at the very end.",
+    "location": "ToyBox",
+    "id": "Y"
   }
 
 ]
