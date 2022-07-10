@@ -12,6 +12,7 @@
                             (ngModelChange)="filter()"
                             matInput>
                 </div>
+                <span>Location</span>
                 <select [(ngModel)]="selectedLocation" [ngModelOptions]="{standalone: true}">
                     <option *ngFor="let location of locationsList">{{location}}</option>
                 </select> 

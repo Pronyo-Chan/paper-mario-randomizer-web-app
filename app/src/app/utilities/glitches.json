@@ -3,7 +3,7 @@
     "name": "Early Prologue Repel Gel",
     "settingName": "PrologueGelEarly",
     "link": "https://www.youtube.com/watch?v=6Mt0qnNLEW4",
-    "description": "Hidden item block above a stone block in prologue. You can jump up on top of this block and either use Kooper or Bombette to get the item from the block.",
+    "description": "By jumping from the nearby brick block , you can get on top of the stone block and either use Kooper or Bombette to get the item from the hidden block.",
     "location": "Goomba Region",
     "id": "!"
   },
@@ -11,7 +11,7 @@
     "name": "Odd Key Early",
     "settingName": "OddKeyEarly",
     "link": "https://www.youtube.com/watch?v=nPFBwsC0w_g",
-    "description": "Obtain the item inside the blue house early. Just stand next to where the Odd Key is outside the blue house, face right, spin, hold left, and hammer.",
+    "description": "To obtain the item inside the blue house early, stand next to where the Odd Key is outside the blue house, face right, spin, hold left, and hammer.",
     "location": "Toad Town",
     "id": "#"
   },
@@ -24,7 +24,7 @@
     "id": "$"
   },
   {
-    "name": "Enter ToyBox without Bow",
+    "name": "Enter ToyBox Without Bow",
     "settingName": "BowlessToyBox",
     "link": "https://www.youtube.com/watch?v=JGAnjOt_yM4",
     "description": "Enter ToyBox without Bow by using the blue Toad to go out of bounds and move in front of the box.",
@@ -32,7 +32,7 @@
     "id": "%"
   },
   {
-    "name": "Enter Storeroom without key (Parakarry)",
+    "name": "Enter Storeroom Without Key (Parakarry)",
     "settingName": "EarlyStoreroomParakarry",
     "link": "https://www.youtube.com/watch?v=cHIw02L5tXE",
     "description": "Get access to the storeroom by clipping in the shop wall with Parakarry.",
@@ -40,7 +40,7 @@
     "id": "&"
   },
   {
-    "name": "Enter Storeroom without key (Hammer)",
+    "name": "Enter Storeroom Without Key (Hammer)",
     "settingName": "EarlyStoreroomHammer",
     "link": "",
     "description": "Get access to the storeroom by using the blue Toad to go out of bounds and move inside the storeroom, similar to 'Enter ToyBox Without Bow'.",
@@ -59,14 +59,14 @@
     "name": "Sushie-less Toad Town Star Piece",
     "settingName": "SushielessToadTownStarPiece",
     "link": "https://www.youtube.com/watch?v=-cmNZSa5BPE",
-    "description": "After ch4 is completed, you can enter the house and NPC push a Toad toward the wall with Bombette until you can clip out with the hammer.",
+    "description": "After ch4 is completed, you can enter the house and NPC push a Toad toward the wall with Bombette until you can clip outside with the hammer.",
     "location": "Toad Town",
     "id": "+"
   },{
     "name": "Clippy Boots Stone Block Skip",
     "settingName": "ClippyBootsStoneBlockSkip",
     "link": "https://www.youtube.com/watch?v=OZpLHGiyBoc",
-    "description": "In the path winding path leading to the Ultra Boots chest, the stone block can be bypassed by entering clippy state with Lakilester and jumping on the block, then on top of the door arch.",
+    "description": "In the winding path leading to the Ultra Boots chest, the stone block can be bypassed by entering clippy state with Lakilester and jumping on the block, then on top of the door arch.",
     "location": "Toad Town Tunnels",
     "id": ","
   },
@@ -82,7 +82,7 @@
     "name": "Island Pipe Blooper Skip",
     "settingName": "IslandPipeBlooperSkip",
     "link": "https://www.youtube.com/watch?v=8AtoIDq_n_c",
-    "description": "Reach and activate the pipe to Yoshi's Island without Sushie or east side sewer access by clipping out of bounds with lakilester.",
+    "description": "Reach and activate the pipe to Yoshi's Island without Sushie or east side sewer access by clipping out of bounds with Lakilester.",
     "location": "Toad Town Tunnels",
     "id": "."
   },
@@ -90,15 +90,15 @@
     "name": "Parakarry-less Sewer Star Piece",
     "settingName": "ParakarrylessSewerStarPiece",
     "link": "https://www.youtube.com/watch?v=6kl7SytyE1w",
-    "description": "With Kooper and a precise jump, the star piece in Toad Town Tunnels can be grabbed without Parakarry.",
+    "description": "By jumping from the moving platform near the top, the middle platform can be reached, from where you can obtain the item with Kooper.",
     "location": "Toad Town Tunnels",
     "id": "0"
   },
   {
-    "name": "Sewer Blocks without Ultra Boots",
+    "name": "Sewer Blocks Without Ultra Boots",
     "settingName": "SewerBlocksWithoutUltraBoots",
     "link": "https://www.youtube.com/watch?v=8kDX_f28QUo",
-    "description": "By gaining height from jumping on a Dark Koopa, the highest blocks in the sewers can be reached with regular boots. This trick also works for the 3 blocks in the room before the Ultra Boots chest.",
+    "description": "By gaining height from jumping on a Dark Koopa, the highest blocks in the sewers can be reached with regular boots. This trick also applies to the 3 blocks in the room before the Ultra Boots chest.",
     "location": "Toad Town Tunnels",
     "id": "1"
   },
@@ -111,10 +111,10 @@
     "id": "2"
   },
   {
-    "name": "Invisible Bridge Clip (NoLaki)",
+    "name": "Invisible Bridge Clip (LZS)",
     "settingName": "InvisibleBridgeClipLzs",
     "link": "https://www.youtube.com/watch?v=v_-zJJidXls",
-    "description": "The bridge before Koopa Bros Fortress can be passed without Kooper by going out of bounds with precise jumps and movement.",
+    "description": "The bridge before Koopa Bros Fortress can be passed without Kooper by going out of bounds around the west loading zone with precise jumps and movement.",
     "location": "Pleasant Path",
     "id": "3"
   },
@@ -183,7 +183,7 @@
     "id": ":"
   },
   {
-    "name": "Parakary-less Mt.Rugged seed",
+    "name": "Parakary-less Mt.Rugged Seed",
     "settingName": "ParakarrylessMtRuggedSeed",
     "link": "https://www.youtube.com/watch?v=itO-PdEOgwg",
     "description": "You can clip out of bounds by spinning against the wall above the Mt.Rugged Bub-ulb and reach it without Parakarry.",
@@ -201,13 +201,13 @@
   {
     "name": "Parakarry-less Mt.Rugged Star Piece",
     "settingName": "ParakarrylessMtRuggedStarPieceClippy",
-    "link": "WAITING FOR JCOG",
+    "link": "https://youtu.be/FACK2EnM4Hk",
     "description": "By riding Lakilester on the upper ledge and falling from it holding left, the star piece ledge can be reached without Parakarry.",
     "location": "Mt. Rugged",
     "id": "="
   },
   {
-    "name": "Desert brick block item with Parakarry",
+    "name": "Desert Brick Block Item With Parakarry",
     "settingName": "DesertBrickBlockItemWithParakarry",
     "link": "https://www.youtube.com/watch?v=Bdr6tOdBSKQ",
     "description": "The item sitting on a brick block in the desert can be obtained without Kooper or Ultra Boots, by clipping with Parakarry.",
@@ -231,10 +231,10 @@
     "id": "@"
   },
   {
-    "name": "Artifact Jump with Laki",
+    "name": "Artifact Jump With Laki",
     "settingName": "ArtifactJump",
     "link": "https://www.youtube.com/watch?v=z0lDfFuh_Fw",
-    "description": "The artefact item can be obtained without breaking the hammer block by performing a Laki Jump on the edge of the door's platform.",
+    "description": "The artifact item can be obtained without breaking the hammer block by performing a Laki Jump on the edge of the door's platform.",
     "location": "Dry Dry Ruins",
     "id": "A"
   },
@@ -247,7 +247,7 @@
     "id": "B"
   },
   {
-    "name": "Parkarry-less second sand room (Ultra Boots)",
+    "name": "Parkarry-less Second Sand Room (Ultra Boots)",
     "settingName": "ParakarylessSecondSandRoomUltraBoots",
     "link": "",
     "description": "The gap to the bombable wall before the second sand room can be reached by performing a Tornado Jump under the platform's corner.",
@@ -255,7 +255,7 @@
     "id": "C"
   },
   {
-    "name": "Parkarry-less second sand room (Super Boots)",
+    "name": "Parkarry-less Second Sand Room (Super Boots)",
     "settingName": "ParakarylessSecondSandRoomUltraBoots",
     "link": "",
     "description": "The gap to the bombable wall before the second sand room can be reached by performing a Spin jump under the platform's corner.",
@@ -263,7 +263,7 @@
     "id": "D"
   },
   {
-    "name": "Parkarry-less second sand room (Jump)",
+    "name": "Parkarry-less Second Sand Room (Jump)",
     "settingName": "ParakarylessSecondSandRoomNormalBoots",
     "link": "https://discord.com/channels/958691533270433793/958818725891555328/964665298504548482",
     "description": "The gap to the bombable wall before the second sand room can be reached by performing a precise jump under the stairs to the left.",
@@ -271,7 +271,7 @@
     "id": "E"
   },
   {
-    "name": "Parkarry-less Super Hammer room (Ultra Boots)",
+    "name": "Parkarry-less Super Hammer Room (Ultra Boots)",
     "settingName": "ParakarylessSuperHammerRoomUltraBoots",
     "link": "https://papermarioarchives.com/#/Ruins_Clip",
     "description": "The gap before the Super Hammer room can be reached by performing a Tornado Jump under the platform's corner.",
@@ -279,7 +279,7 @@
     "id": "F"
   },
   {
-    "name": "Parkarry-less Super Hammer room (Jump)",
+    "name": "Parkarry-less Super Hammer Room (Jump)",
     "settingName": "ParakarylessSuperHammerRoomNormalBoots",
     "link": "https://papermarioarchives.com/#/Ruins_Clip",
     "description": "The gap before the Super Hammer room can be reached by jumping against the wall at a certain angle to get extra speed in the air.",
@@ -287,7 +287,7 @@
     "id": "G"
   },
   {
-    "name": "Ruins Locks Skip (clippy)",
+    "name": "Ruins Locks Skip (Clippy)",
     "settingName": "RuinsLocksSkipClippy",
     "link": "https://www.youtube.com/watch?v=YRptoreBEwc",
     "description": "Clippy can be used to skip the first three locks in pretty much identical ways to this video. Note that the third one is impossible once the 3 Pokies are defeated, therefore won't be in logic.",
@@ -295,7 +295,7 @@
     "id": "H"
   },
   {
-    "name": "Record Skip (no Bombette push)",
+    "name": "Record Skip (No Bombette push)",
     "settingName": "RecordSkipNoBombettePush",
     "link": "https://www.youtube.com/watch?v=h476QUnqgPA",
     "description": "The chest in the record room can be opened by spinning and jumping in front of it and pressing A quickly to open it.",
@@ -311,7 +311,7 @@
     "id": "J"
   },
   {
-    "name": "Boo's Portrait with Kooper",
+    "name": "Boo's Portrait With Kooper",
     "settingName": "BoosPortraitWithKooper",
     "link": "",
     "description": "By standing on the very edge of the platform, a shell toss can reach barely far enough to grab the portrait.",
@@ -319,7 +319,7 @@
     "id": "K"
   },
   {
-    "name": "Boo's Portrait with Lakilester",
+    "name": "Boo's Portrait With Lakilester",
     "settingName": "BoosPortraitWithLaki",
     "link": "https://www.youtube.com/watch?v=1_YpkgRkKiM",
     "description": "It is possible to perform a Laki Clip on the corner of a bookshelf and reach Boo's Portrait by going out of bounds.",
@@ -471,7 +471,7 @@
     "id": "_"
   },
   {
-    "name": "Parakarry-less Flarakarry (Bombette NPC Push)",
+    "name": "Parakarry-less Flarakarry (Bombette Push)",
     "settingName": "ParakarryLessFlarakarryBombette",
     "link": "https://www.youtube.com/watch?v=BpXqPM-_yAc",
     "description": "Kolorado can be moved against the wall with Bombette NPC Pushes. He can then be used to squeeze into the loading zone and skip the spike bal puzzle.",
@@ -495,7 +495,7 @@
     "id": "b"
   },
   {
-    "name": "Early Lakilster (NPC Bombette Push)",
+    "name": "Early Lakilster (Bombette Push)",
     "settingName": "EarlyLakiBombettePush",
     "link": "https://papermarioarchives.com/#/Early_Lakilester",
     "description": "The Bubble Plant can be pushed towards the wall with NPC Bombette pushes, and can then be used to clip out of bounds and cross the thorns without Lakilester or a Bubble Berry.",
@@ -535,7 +535,7 @@
     "id": "g"
   },
   {
-    "name": "Yellow Berry Gate Skip (NPC Bombette Push)",
+    "name": "Yellow Berry Gate Skip (Bombette Push)",
     "settingName": "YellowBerryGateSkipBombettePush",
     "link": "",
     "description": "The Yellow Plant can be pushed towards the wall with NPC Bombette pushes, and can then be used to clip out of bounds and walk around the gate.",
@@ -543,7 +543,7 @@
     "id": "h"
   },
   {
-    "name": "Red Berry Gate Skip (NPC Bombette Push)",
+    "name": "Red Berry Gate Skip (Bombette Push)",
     "settingName": "RedBerryGateSkipBombettePush",
     "link": "",
     "description": "Clip through the gate by pushing the plant with NPC Bombette pushes (need better description and video).",
@@ -559,7 +559,7 @@
     "id": "j"
   },
   {
-    "name": "Blue Berry Gate Skip (NPC Bombette Push)",
+    "name": "Blue Berry Gate Skip (Bombette Push)",
     "settingName": "BlueBerryGateSkipBombettePush",
     "link": "",
     "description": "Clip through the gate by pushing the plant with NPC Bombette pushes (need better description and video).",
@@ -591,7 +591,7 @@
     "id": "n"
   },
   {
-    "name": "Murder Solved Early (Bombette NPC Push)",
+    "name": "Murder Solved Early (Bombette Push)",
     "settingName": "MurderSolvedEarlyBombettePush",
     "link": "",
     "description": "The murder mystery can be solved without the Warehouse Key by NPC pushing the penguin next to the house and using him to clip inside.",
