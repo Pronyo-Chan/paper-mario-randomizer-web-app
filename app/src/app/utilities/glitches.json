@@ -298,7 +298,7 @@
     "name": "Record Skip (No Bombette push)",
     "settingName": "RecordSkipNoBombettePush",
     "link": "https://www.youtube.com/watch?v=h476QUnqgPA",
-    "description": "The chest in the record room can be opened by spinning and jumping in front of it and pressing A quickly to open it.",
+    "description": "The chest in the record room can be opened by spinning and jumping in front of it, then pressing A quickly to open it.",
     "location": "Boo's Mansion",
     "id": "I"
   },
@@ -306,7 +306,7 @@
     "name": "Record Skip (Bombette push)",
     "settingName": "RecordSkipBombettePush",
     "link": "https://www.youtube.com/watch?v=WXSh8diHbOA",
-    "description": "By performing NPC Bombette Push on the Boo guarding the chest enough times, it can be moved enough so the chest can be opened without the Record.",
+    "description": "By performing NPC Bombette Push on the Boo guarding the chest, it can be moved enough so the chest can be opened without the Record.",
     "location": "Boo's Mansion",
     "id": "J"
   },
@@ -362,7 +362,7 @@
     "name": "Gusty Gulch Gap Skip",
     "settingName": "GustyGulchGapSkip",
     "link": "https://www.youtube.com/watch?v=L0ZFRrNEiME",
-    "description": "With tap jumps, the other side of the gab that usually requires Parakarry can be climbed on.",
+    "description": "With tap jumps, the other side of the gap that usually requires Parakarry can be climbed on.",
     "location": "Gusty Gulch",
     "id": "Q"
   },
@@ -383,7 +383,7 @@
     "id": "S"
   },
   {
-    "name": "Tubba's Castle Super Boots Skip (clippy)",
+    "name": "Tubba's Castle Super Boots Skip (Clippy)",
     "settingName": "TubbasCastleSuperBootsSkip",
     "link": "https://www.youtube.com/watch?v=A1nvOIhxIXI",
     "description": "By entering clippy state with Lakilester, you can get out of bounds and reach the loading zone under the patched floor.",
@@ -394,7 +394,7 @@
     "name": "Parakarry-less Mega Rush",
     "settingName": "ParakarrylessMegaRush",
     "link": "https://www.youtube.com/watch?v=iRAFQj8BRxU",
-    "description": "With tap jumps, you can get on the corner of the bed and reach Mega Rush without Parakarry. There is also a LZS variant.",
+    "description": "With tap jumps, you can get on the corner of the bed and reach Mega Rush without Parakarry. There is also a LZS variation.",
     "location": "Tubba's Castle",
     "id": "U"
   },
