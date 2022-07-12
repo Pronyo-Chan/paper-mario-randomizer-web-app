@@ -192,7 +192,7 @@
   },
   {
     "name": "Buzzar Gap Skip (Clippy)",
-    "settingName": "BuzzarGakSkipClippy",
+    "settingName": "BuzzarGapSkipClippy",
     "link": "https://www.youtube.com/watch?v=urYFCIWXVSE",
     "description": "By entering clippy state with Lakilester, you can go out of bounds and reach Buzzar without Parakarry.",
     "location": "Mt. Rugged",
@@ -217,7 +217,7 @@
   {
     "name": "Early Ruins (Laki Jump)",
     "settingName": "EarlyRuinsLakiJump",
-    "link": "",
+    "link": "https://youtu.be/9NilI5ZQya0?t=45",
     "description": "The ruins loading zone is always present, so it's possible to enter it without the pulse stone by performing a Laki Jump where the door would be.",
     "location": "Dry Dry Desert",
     "id": "?"
@@ -225,7 +225,7 @@
   {
     "name": "Early Ruins (Ultra Boots)",
     "settingName": "EarlyRuinsUltraBoots",
-    "link": "",
+    "link": "https://www.youtube.com/watch?v=9NilI5ZQya0",
     "description": "The ruins loading zone is always present, so it's possible to enter it without the pulse stone by performing a Tornado Jump where the door would be.",
     "location": "Dry Dry Desert",
     "id": "@"
@@ -256,7 +256,7 @@
   },
   {
     "name": "Parkarry-less Second Sand Room (Super Boots)",
-    "settingName": "ParakarylessSecondSandRoomUltraBoots",
+    "settingName": "ParakarylessSecondSandRoomSuperBoots",
     "link": "",
     "description": "The gap to the bombable wall before the second sand room can be reached by performing a Spin jump under the platform's corner.",
     "location": "Dry Dry Ruins",
@@ -313,7 +313,7 @@
   {
     "name": "Boo's Portrait With Kooper",
     "settingName": "BoosPortraitWithKooper",
-    "link": "",
+    "link": "https://www.youtube.com/watch?v=vBjio3LYbvQ",
     "description": "By standing on the very edge of the platform, a shell toss can reach barely far enough to grab the portrait.",
     "location": "Boo's Mansion",
     "id": "K"
@@ -369,7 +369,7 @@
   {
     "name": "Bow-less Tubba's Castle",
     "settingName": "BowlessTubbasCastle",
-    "link": "",
+    "link": "https://www.youtube.com/watch?v=CTp5rZrgoGY",
     "description": "With Speedy Spin, Tubba and the sentinels can be bypassed without hiding with Bow.",
     "location": "Tubba's Castle",
     "id": "R"
@@ -417,7 +417,7 @@
   {
     "name": "Gourmet Guy Skip (Laki)",
     "settingName": "GourmetGuySkipLaki",
-    "link": "",
+    "link": "https://www.youtube.com/watch?v=1gL-RAHt06E",
     "description": "Using Laki's ability, you can clip into the west door arch at Pink Station to get out of bounds and reach the pink switch directly.",
     "location": "ToyBox",
     "id": "X"
@@ -474,7 +474,7 @@
     "name": "Parakarry-less Flarakarry (Bombette Push)",
     "settingName": "ParakarryLessFlarakarryBombette",
     "link": "https://www.youtube.com/watch?v=BpXqPM-_yAc",
-    "description": "Kolorado can be moved against the wall with Bombette NPC Pushes. He can then be used to squeeze into the loading zone and skip the spike bal puzzle.",
+    "description": "Kolorado can be moved against the wall with Bombette NPC Pushes. He can then be used to squeeze into the loading zone and skip the spike ball puzzle.",
     "location": "Mt. Lavalava",
     "id": "`"
   },  
