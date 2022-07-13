@@ -154,7 +154,7 @@
     "name": "Laki Jailbreak",
     "settingName": "LakiJailbreak",
     "link": "https://papermarioarchives.com/#/Laki_Jailbreak",
-    "description": "Using Lakilester, it is possible to clip into the left jail cell and then use a Laki Jump to reach the upper left door.",
+    "description": "Using Lakilester, it is possible to laki teleport into the left jail cell to get the item, and then use a Laki Jump to reach the upper left door.",
     "location": "Koopa Bros Fortress",
     "id": "7"
   },
@@ -165,14 +165,6 @@
     "description": "Using Lakilester, it is possible to clip into the left jail cell and then use a Laki Jump to get out of bounds and reach the right jail cell.",
     "location": "Koopa Bros Fortress",
     "id": "8"
-  },
-  {
-    "name": "Water Staircase Skip",
-    "settingName": "WaterStaircaseSkip",
-    "link": "https://www.youtube.com/watch?v=6qLuSu1zOpc",
-    "description": "In the first interior room of Koopa Bros Fortress, you can get out of bounds with Lakilester and reach the top floor.",
-    "location": "Pleasant Path",
-    "id": "9"
   },
   {
     "name": "Mt. Rugged Quake Hammer + Letter with Laki",
