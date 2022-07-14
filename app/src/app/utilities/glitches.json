@@ -192,7 +192,7 @@
   },
   {
     "name": "Parakarry-less Mt.Rugged Star Piece",
-    "settingName": "ParakarrylessMtRuggedStarPieceClippy",
+    "settingName": "ParakarrylessMtRuggedStarPiece",
     "link": "https://youtu.be/FACK2EnM4Hk",
     "description": "By riding Lakilester on the upper ledge and falling from it holding left, the star piece ledge can be reached without Parakarry.",
     "location": "Mt. Rugged",
@@ -464,7 +464,7 @@
   },
   {
     "name": "Parakarry-less Flarakarry (Bombette Push)",
-    "settingName": "ParakarryLessFlarakarryBombette",
+    "settingName": "ParakarrylessFlarakarryBombette",
     "link": "https://www.youtube.com/watch?v=BpXqPM-_yAc",
     "description": "Kolorado can be moved against the wall with Bombette NPC Pushes. He can then be used to squeeze into the loading zone and skip the spike ball puzzle.",
     "location": "Mt. Lavalava",
@@ -472,7 +472,7 @@
   },  
   {
     "name": "Parakarry-less Flarakarry (Laki Teleport)",
-    "settingName": "ParakarryLessFlarakarryLaki",
+    "settingName": "ParakarrylessFlarakarryLaki",
     "link": "",
     "description": "A Laki teleport can be used to clip into the loading zone and skip the spike ball puzzle.",
     "location": "Mt. Lavalava",
@@ -631,12 +631,20 @@
     "id": "t"
   },
   {
-    "name": "Fast Flood Room",
-    "settingName": "FastFloodRoom",
-    "link": "https://papermarioarchives.com/#/Fast_Flood_Room",
-    "description": "Fast Flood Room is a series of Laki Clips and a Kooper Super Jump that allow the player to get the Castle Key without completing the entire water puzzle in Bowser's Castle.",
+    "name": "Fast Flood Room With Kooper",
+    "settingName": "FastFloodRoomKooper",
+    "link": "https://youtu.be/Q58qKzRaqEM?t=156",
+    "description": "Using Laki Clips and a Kooper Super Jump, the Castle Key can be obtained without completing the entire water puzzle in Bowser's Castle.",
     "location": "Bowser's Castle",
     "id": "u"
+  },
+  {
+    "name": "Fast Flood Room With Bombette and Ultra Boots",
+    "settingName": "FastFloodRoomBombetteUltraBoots",
+    "link": "https://www.youtube.com/watch?v=Q58qKzRaqEM",
+    "description": "Using Laki Clips and Bombette for the bombable wall, the Castle Key can be obtained without completing the entire water puzzle in Bowser's Castle.",
+    "location": "Bowser's Castle",
+    "id": "v"
   }
   
 

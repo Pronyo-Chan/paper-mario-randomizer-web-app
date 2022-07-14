@@ -9,6 +9,7 @@ import { LogicGlitch } from 'src/app/entities/logicGlitch';
   styleUrls: ['./glitches-and-tricks.component.scss']
 })
 export class GlitchesAndTricksComponent implements OnInit {
+  // TODO: There's a bug where ctrl+A will toggle all, even hidden
 
   public readonly MIN_AMOUNT_OF_CHARS = 2;
   public readonly DEFAULT_LOCATION = "(all)";
