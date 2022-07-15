@@ -299,7 +299,6 @@ export class RandomizerService {
       ArtifactJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ArtifactJump"),
       RuinsKeyLakiJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsKeyLakiJump"),
       ParakarylessSecondSandRoomUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarylessSecondSandRoomUltraBoots"),
-      ParakarylessSecondSandRoomSuperBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarylessSecondSandRoomSuperBoots"),
       ParakarylessSecondSandRoomNormalBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarylessSecondSandRoomNormalBoots"),
       ParakarylessSuperHammerRoomUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarylessSuperHammerRoomUltraBoots"),
       ParakarylessSuperHammerRoomNormalBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarylessSuperHammerRoomNormalBoots"),

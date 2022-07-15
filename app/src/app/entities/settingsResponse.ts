@@ -167,7 +167,6 @@ export interface SettingsResponse{
     ArtifactJump: boolean
     RuinsKeyLakiJump: boolean
     ParakarylessSecondSandRoomUltraBoots: boolean
-    ParakarylessSecondSandRoomSuperBoots: boolean
     ParakarylessSecondSandRoomNormalBoots: boolean
     ParakarylessSuperHammerRoomUltraBoots: boolean
     ParakarylessSuperHammerRoomNormalBoots: boolean

@@ -247,17 +247,9 @@
     "id": "C"
   },
   {
-    "name": "Parkarry-less Second Sand Room (Super Boots)",
-    "settingName": "ParakarylessSecondSandRoomSuperBoots",
-    "link": "",
-    "description": "The gap to the bombable wall before the second sand room can be reached by performing a Spin jump under the platform's corner.",
-    "location": "Dry Dry Ruins",
-    "id": "D"
-  },
-  {
     "name": "Parkarry-less Second Sand Room (Jump)",
     "settingName": "ParakarylessSecondSandRoomNormalBoots",
-    "link": "https://www.youtube.com/watch?v=xrBLEULMnnA",
+    "link": "https://www.youtube.com/watch?v=tnbl-YnkDjc",
     "description": "The gap to the bombable wall before the second sand room can be reached by performing a precise jump under the stairs to the left.",
     "location": "Dry Dry Ruins",
     "id": "E"
