@@ -232,6 +232,10 @@ export interface SettingsRequest {
     BowlessBowsersCastleBasement: boolean
     FastFloodRoomKooper: boolean
     FastFloodRoomBombetteUltraBoots: boolean
+
+    // Glitches: Global
+    BreakMetalBlocksWithUltraBoots: boolean
+    BreakYellowBlocksWithBombette: boolean
 }
 
 export interface StartingPartners {

@@ -361,7 +361,7 @@
   {
     "name": "Tubba's Table Laki Jump",
     "settingName": "TubbasTableLakiJump",
-    "link": "https://clips.twitch.tv/ElegantThankfulHerdMcaT-v40_6xz5hfXyZjN2",
+    "link": "https://www.youtube.com/watch?v=iS5ncvNTS9E",
     "description": "Using a Laki Jump from under the table, you can reach the item on top of the table in Tubba's Castle without having access to the 2nd floor.",
     "location": "Tubba's Castle",
     "id": "S"
@@ -561,7 +561,7 @@
   {
     "name": "Bubble Berry Tree Laki Jump",
     "settingName": "BubbleBerryTreeLakiJump",
-    "link": "https://clips.twitch.tv/AbnegatePrettiestDragonflyTheRinger-7FpRs6mvlVNT1LBI",
+    "link": "https://www.youtube.com/watch?v=HhqSyxFSI_U",
     "description": "A Laki Jump can be performed below the Sushie deck to get on the tree's platform without raising the water.",
     "location": "Flower Fields",
     "id": "m"
@@ -637,7 +637,21 @@
     "description": "Using Laki Clips and Bombette for the bombable wall, the Castle Key can be obtained without completing the entire water puzzle in Bowser's Castle.",
     "location": "Bowser's Castle",
     "id": "v"
+  },
+  {
+    "name": "Break Stone Blocks with Ultra Boots",
+    "settingName": "BreakMetalBlocksWithUltraBoots",
+    "link": "",
+    "description": "Tornado Jumps with the Ultra Boots can actually break stone blocks. This can be used to get the prologue repel gel early and access the first 3 warp pipes in the sewers without the Super Hammer.",
+    "location": "Global",
+    "id": "w"
+  },
+  {
+    "name": "Break Yellow Blocks with Bombette",
+    "settingName": "BreakYellowBlocksWithBombette",
+    "link": "https://twitter.com/MrCheeze_/status/1511910864282173441",
+    "description": "While Bombette can't directly break Yellow Blocks, her explosion still activates the flag for them, so leaving the room and re-entering after exploding on a block will make it dissapear.",
+    "location": "Global",
+    "id": "x"
   }
-  
-
 ]
