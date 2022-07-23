@@ -127,7 +127,8 @@
                 "npcSetting": 0,
                 "coinColor": 0,
                 "randomText": false,
-                "romanNumerals": false
+                "romanNumerals": false,
+                "randomPitch": false
             }
         }
     },
@@ -259,7 +260,8 @@
             "npcSetting": 0,
             "coinColor": 0,
             "randomText": false,
-            "romanNumerals": false
+            "romanNumerals": false,
+            "randomPitch": false
           }
         }
     },
@@ -391,7 +393,8 @@
             "npcSetting": 0,
             "coinColor": 0,
             "randomText": false,
-            "romanNumerals": false
+            "romanNumerals": false,
+            "randomPitch": false
           }
         }
     },
@@ -523,7 +526,8 @@
             "npcSetting": 0,
             "coinColor": 0,
             "randomText": false,
-            "romanNumerals": false
+            "romanNumerals": false,
+            "randomPitch": false
           }
         }
     },
@@ -660,7 +664,8 @@
             "npcSetting":2,
             "coinColor":5,
             "randomText":false,
-            "romanNumerals": false
+            "romanNumerals": false,
+            "randomPitch": false
          }
       }
     },

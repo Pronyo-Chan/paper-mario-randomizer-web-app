@@ -251,7 +251,8 @@ export class RandomizerService {
       ItemTrapMode: settingsForm.get('difficulty').get('itemTrapMode').value,
       AllowItemHints: settingsForm.get('difficulty').get('allowItemHints').value,
       IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value,
-      ShuffleBlocks: settingsForm.get('items').get('shuffleBlocks').value
+      ShuffleBlocks: settingsForm.get('items').get('shuffleBlocks').value,
+      RandomPitch: settingsForm.get('cosmetics').get('randomPitch').value
 
     } as SettingsRequest;
 

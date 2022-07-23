@@ -120,6 +120,7 @@ export interface SettingsResponse{
     AllowItemHints: boolean;
     IncludeRadioTradeEvent: boolean;
     ShuffleBlocks: boolean;
+    RandomPitch: boolean;
 }
 
 export interface StartingPartners {

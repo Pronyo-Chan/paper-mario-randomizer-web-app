@@ -27,7 +27,8 @@ export class SettingStringMappingService {
     { compressedString: "w", key: "wattSprite", type: "sprite"},
     { compressedString: "s", key: "sushieSprite", type: "sprite"},
     { compressedString: "a", key: "parakarrySprite", type: "sprite"},    
-    { compressedString: "r", key: "romanNumerals", type: "bool"}
+    { compressedString: "r", key: "romanNumerals", type: "bool"},
+    { compressedString: "h", key: "randomPitch", type: "bool"}
   ]
 
   public readonly difficultyMap: SettingModel [] = [
