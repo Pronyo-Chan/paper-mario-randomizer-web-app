@@ -79,7 +79,7 @@
                 "startingItems": []
             },
             "openLocations": {
-                "flowerGateOpen": false,
+                "magicalSeedsRequired": 4,
                 "blueHouseOpen": false,
                 "toyboxOpen": false,
                 "whaleOpen": false,
@@ -210,7 +210,7 @@
             "startingItems": []
           },
           "openLocations": {
-            "flowerGateOpen": true,
+            "magicalSeedsRequired": 0,
             "blueHouseOpen": true,
             "toyboxOpen": true,
             "whaleOpen": true,
@@ -341,7 +341,7 @@
             "startingItems": []
           },
           "openLocations": {
-            "flowerGateOpen": false,
+            "magicalSeedsRequired": 4,
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
@@ -472,7 +472,7 @@
             "startingItems": []
           },
           "openLocations": {
-            "flowerGateOpen": false,
+            "magicalSeedsRequired": 5,
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
@@ -608,7 +608,7 @@
             "randomItemsMax":16
          },
          "openLocations":{
-            "flowerGateOpen":false,
+            "magicalSeedsRequired":4,
             "blueHouseOpen":false,
             "toyboxOpen":false,
             "whaleOpen":false,

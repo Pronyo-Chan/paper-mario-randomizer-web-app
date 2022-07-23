@@ -83,11 +83,12 @@ export class SettingStringMappingService {
 
   public readonly openLocationsMap: SettingModel [] = [
     { compressedString: "b", key: "blueHouseOpen", type: "bool"},
-    { compressedString: "f", key: "flowerGateOpen", type: "bool"},
+    { compressedString: "f", key: "flowerGateOpen", type: "removed"},
     { compressedString: "h", key: "homewardShroom", type: "removed"},
     { compressedString: "s", key: "startingMap", type: "number"},
     { compressedString: "t", key: "toyboxOpen", type: "bool"},
     { compressedString: "w", key: "whaleOpen", type: "bool"},
+    { compressedString: "m", key: "magicalSeedsRequired", type: "number"},
   ]
 
   public readonly startWithPartnersMap: SettingModel [] = [

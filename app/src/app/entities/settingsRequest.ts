@@ -26,7 +26,7 @@ export interface SettingsRequest {
     OHKO: boolean;
     NoSaveBlocks: boolean;
     NoHeartBlocks: boolean;
-    FlowerGateOpen: boolean;
+    MagicalSeedsRequired: number;
     BlueHouseOpen: boolean;
     ToyboxOpen: boolean;
     WhaleOpen: boolean;

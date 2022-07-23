@@ -165,7 +165,7 @@ export class RandomizerService {
       NoHeartBlocks: settingsForm.get('difficulty').get('noHeartBlocks').value,
       BlueHouseOpen: settingsForm.get('openLocations').get('blueHouseOpen').value,
       ToyboxOpen: settingsForm.get('openLocations').get('toyboxOpen').value,
-      FlowerGateOpen: settingsForm.get('openLocations').get('flowerGateOpen').value,
+      MagicalSeedsRequired: settingsForm.get('openLocations').get('magicalSeedsRequired').value,
       WhaleOpen: settingsForm.get('openLocations').get('whaleOpen').value,
       StartingMap: settingsForm.get('openLocations').get('startingMap').value,
       ShuffleChapterDifficulty: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.RandomChapterDifficulty,

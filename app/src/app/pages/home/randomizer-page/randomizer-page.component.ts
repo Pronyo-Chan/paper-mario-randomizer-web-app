@@ -160,7 +160,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomItemsMax: new FormControl(16, [Validators.min(0), Validators.max(16), CustomValidators.greaterOrEqualTo('randomItemsMin')]),
       }),
       openLocations: new FormGroup({
-        flowerGateOpen: new FormControl(false),
+        magicalSeedsRequired: new FormControl(4),
         blueHouseOpen : new FormControl(false),
         toyboxOpen: new FormControl(false),
         whaleOpen: new FormControl(false),
