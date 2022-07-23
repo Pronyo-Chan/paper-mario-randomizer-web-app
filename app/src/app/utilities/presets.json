@@ -127,7 +127,8 @@
                 "coinColor": 0,
                 "randomText": false,
                 "romanNumerals": false
-            }
+            },
+            "glitches": []
         }
     },
     {
@@ -258,7 +259,8 @@
             "coinColor": 0,
             "randomText": false,
             "romanNumerals": false
-          }
+          },
+          "glitches": []
         }
     },
     {
@@ -389,7 +391,8 @@
             "coinColor": 0,
             "randomText": false,
             "romanNumerals": false
-          }
+          },
+          "glitches": []
         }
     },
     {
@@ -520,7 +523,8 @@
             "coinColor": 0,
             "randomText": false,
             "romanNumerals": false
-          }
+          },
+          "glitches": []
         }
     },
     {
@@ -656,7 +660,8 @@
             "coinColor":5,
             "randomText":false,
             "romanNumerals": false
-         }
+         },
+         "glitches": []
       }
     },
     {
