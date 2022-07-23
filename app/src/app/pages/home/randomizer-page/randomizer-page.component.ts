@@ -90,7 +90,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includeDojo: new FormControl(false),
         itemPouches: new FormControl(false),
         includeLetters: new FormControl(LettersMode.Vanilla),
-        includeRadioTradeEvent: new FormControl(false)
+        includeRadioTradeEvent: new FormControl(false),
+        shuffleBlocks: new FormControl(false)
       }),
       gameplay: new FormGroup({
         randomBadgesBP: new FormControl(0),

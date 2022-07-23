@@ -119,6 +119,7 @@ export interface SettingsResponse{
     ItemTrapMode: ItemTrapMode
     AllowItemHints: boolean;
     IncludeRadioTradeEvent: boolean;
+    ShuffleBlocks: boolean;
 }
 
 export interface StartingPartners {

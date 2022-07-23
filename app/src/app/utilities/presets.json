@@ -12,7 +12,8 @@
                 "includeDojo": false,
                 "itemPouches": true,
                 "includeLetters": 0,
-                "includeRadioTradeEvent": false
+                "includeRadioTradeEvent": false,
+                "shuffleBlocks": false
             },
             "gameplay": {
                 "randomBadgesBP": 0,
@@ -143,7 +144,8 @@
             "includeDojo": false,
             "itemPouches": true,
             "includeLetters": 0,
-            "includeRadioTradeEvent": false
+            "includeRadioTradeEvent": false,
+            "shuffleBlocks": false
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -274,7 +276,8 @@
             "includeDojo": false,
             "itemPouches": true,
             "includeLetters": 1,
-            "includeRadioTradeEvent": false
+            "includeRadioTradeEvent": false,
+            "shuffleBlocks": false
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -405,7 +408,8 @@
             "includeDojo": true,
             "itemPouches": false,
             "includeLetters": 3,
-            "includeRadioTradeEvent": true
+            "includeRadioTradeEvent": true,
+            "shuffleBlocks": false
           },
           "gameplay": {
             "randomBadgesBP": 3,
@@ -536,7 +540,8 @@
             "includeDojo":false,
             "itemPouches":false,
             "includeLetters": 0,
-            "includeRadioTradeEvent": false
+            "includeRadioTradeEvent": false,
+            "shuffleBlocks": false
          },
          "gameplay":{
             "randomBadgesBP":1,
