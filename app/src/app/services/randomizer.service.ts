@@ -253,6 +253,7 @@ export class RandomizerService {
       AllowItemHints: settingsForm.get('difficulty').get('allowItemHints').value,
       IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value,
       ShuffleBlocks: settingsForm.get('items').get('shuffleBlocks').value,
+      BigChestShuffle: settingsForm.get('items').get('bigChestShuffle').value,
       RandomPitch: settingsForm.get('cosmetics').get('randomPitch').value
 
     } as SettingsRequest;

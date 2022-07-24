@@ -121,6 +121,7 @@ export interface SettingsResponse{
     IncludeRadioTradeEvent: boolean;
     ShuffleBlocks: boolean;
     RandomPitch: boolean;
+    BigChestShuffle: boolean;
 }
 
 export interface StartingPartners {

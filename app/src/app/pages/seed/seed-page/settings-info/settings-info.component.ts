@@ -93,6 +93,10 @@ export class SettingsInfoComponent implements OnInit {
         case 'StartingMap':
           this.settingRows.push({name: cleanSettingName, value: StartingMap[this.seedInfo[key]]} as SettingRow)
           break;
+        case 'MagicalSeedsRequired':
+          const textValue = this.seedInfo[key] == 5 ? "Random" : this.seedInfo[key];
+          this.settingRows.push({name: cleanSettingName, value: textValue} as SettingRow)
+          break;
         case String(key.match(/.*StartingItem.*/)):
           if(this.seedInfo[key])
             this.settingRows.push({name: cleanSettingName, value: this.getStartingItemName(this.seedInfo[key])} as SettingRow)
