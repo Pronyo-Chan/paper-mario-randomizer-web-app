@@ -129,6 +129,7 @@ export class RandomizerService {
       RandomCoinColor: cosmeticsFormGroup.get('coinColor').value == CoinColor.Random,
       RandomText: cosmeticsFormGroup.get("randomText").value,
       RomanNumerals: cosmeticsFormGroup.get("romanNumerals").value,
+      RandomPitch: cosmeticsFormGroup.get("randomPitch").value,
       SushieSetting: (cosmeticsFormGroup.get('sushieSprite').value as CharacterSpriteSetting).setting,
       SushieSprite: (cosmeticsFormGroup.get('sushieSprite').value as CharacterSpriteSetting).paletteSelection,
       WattSetting: (cosmeticsFormGroup.get('wattSprite').value as CharacterSpriteSetting).setting,

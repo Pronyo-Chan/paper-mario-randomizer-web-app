@@ -186,6 +186,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       coinColor: new FormControl(CoinColor.Default),
       randomText: new FormControl(false),
       romanNumerals: new FormControl(false),
+      randomPitch: new FormControl(false),
     })
   }
 }

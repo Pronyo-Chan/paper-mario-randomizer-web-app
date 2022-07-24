@@ -34,4 +34,5 @@ export interface CosmeticsRequest {
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
     RandomText: boolean;
+    RandomPitch: boolean;
 }
