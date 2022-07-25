@@ -26,7 +26,7 @@ import { Boots } from 'src/app/entities/enum/boots';
   styleUrls: ['./randomizer-page.component.scss']
 })
 export class RandomizerPageComponent implements OnInit, OnDestroy {
-  public readonly GOOMBA_HAMMERLESS_START_ERROR = 'goombaHamMerlessStart';
+  public readonly GOOMBA_HAMMERLESS_START_ERROR = 'goombaHammerlessStart';
 
   public homepageLink;
   public formGroup: FormGroup
@@ -57,7 +57,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const errors = this.validateSettings();
     if(errors.length) {
       if (errors.some(e => e == this.GOOMBA_HAMMERLESS_START_ERROR)) {
-        this.seedGenError = "HamMerless Start in Goomba Village is impossible. Please change your settings and try again."
+        this.seedGenError = "Hammerless Start in Goomba Village is impossible. Please change your settings and try again."
         return;
       }
     }
