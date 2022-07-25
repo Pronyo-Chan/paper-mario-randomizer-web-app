@@ -1,3 +1,4 @@
+import { StartingMap } from './../../../entities/enum/startingMaps';
 import { Hammer } from './../../../entities/enum/hammer';
 import { BowsersCastleMode } from './../../../entities/enum/bowsersCastleMode';
 import { LettersMode } from './../../../entities/enum/lettersMode';
@@ -25,6 +26,7 @@ import { Boots } from 'src/app/entities/enum/boots';
   styleUrls: ['./randomizer-page.component.scss']
 })
 export class RandomizerPageComponent implements OnInit, OnDestroy {
+  public readonly GOOMBA_HAMERLESS_START_ERROR = 'goombaHamerlessStart';
 
   public homepageLink;
   public formGroup: FormGroup
@@ -52,6 +54,13 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit() {
+    const errors = this.validateSettings();
+    if(errors.length) {
+      if (errors.some(e => e == this.GOOMBA_HAMERLESS_START_ERROR)) {
+        this.seedGenError = "Hamerless Start in Goomba Village is impossible. Please change your settings and try again."
+        return;
+      }
+    }
     this.seedGenError = null;
     this.isRandomizing = true;
 
@@ -190,5 +199,17 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(
       tap(() => this.formGroup.get('partners').get('randomPartnersMax').updateValueAndValidity())
       ).subscribe();
+  }
+
+  private validateSettings(): string[] {
+    let errors = [];
+
+    const startingMap = this.formGroup.get('openLocations').get('startingMap').value;
+    const startingHammer = this.formGroup.get('marioStats').get('startingHammer').value;
+    if ( startingMap == StartingMap.GoombaVillage && startingHammer == Hammer.Hamerless) {
+      errors.push(this.GOOMBA_HAMERLESS_START_ERROR)
+    }
+
+    return errors;
   }
 }
