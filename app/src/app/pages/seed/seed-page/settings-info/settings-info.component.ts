@@ -147,6 +147,7 @@ export class SettingsInfoComponent implements OnInit {
   private addColorSettings() {
     this.settingRows.push({name: 'Boss Colors', value: pascalToVerboseString(SpriteSetting[this.seedInfo['BossesSetting']])} as SettingRow);
     this.settingRows.push({name: 'NPC Colors', value: pascalToVerboseString(SpriteSetting[this.seedInfo['NPCSetting']])} as SettingRow);
+    this.settingRows.push({name: 'Enemies Colors', value: pascalToVerboseString(SpriteSetting[this.seedInfo['EnemiesSetting']])} as SettingRow);
     this.settingRows.push({name: 'Coin Color', value: pascalToVerboseString(CoinColor[this.seedInfo['CoinColor']])} as SettingRow);
     this.settingRows.push({name: 'Status Menu Color', value: this.getBoxColorName(this.seedInfo.Box5ColorA, this.seedInfo.Box5ColorB)} as SettingRow);
 

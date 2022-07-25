@@ -33,6 +33,7 @@ export interface CosmeticsRequest {
     SushieSprite: SushieSprite;
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
+    EnemiesSetting: SpriteSetting;
     RandomText: boolean;
     RandomPitch: boolean;
 }

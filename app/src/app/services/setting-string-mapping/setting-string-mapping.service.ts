@@ -23,6 +23,7 @@ export class SettingStringMappingService {
     { compressedString: "m", key: "menu", type: "number"},
     { compressedString: "p", key: "marioSprite", type: "sprite"},
     { compressedString: "n", key: "npcSetting", type: "number"},
+    { compressedString: "e", key: "enemiesSetting", type: "number"},
     { compressedString: "t", key: "randomText", type: "bool"},
     { compressedString: "w", key: "wattSprite", type: "sprite"},
     { compressedString: "s", key: "sushieSprite", type: "sprite"},

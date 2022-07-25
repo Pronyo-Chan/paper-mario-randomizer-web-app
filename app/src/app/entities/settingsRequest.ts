@@ -80,6 +80,7 @@ export interface SettingsRequest {
     SushieSprite: SushieSprite;
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
+    EnemiesSetting: SpriteSetting;
     StartingMaxHP: number;
     StartingMaxFP: number;
     StartingMaxBP: number;

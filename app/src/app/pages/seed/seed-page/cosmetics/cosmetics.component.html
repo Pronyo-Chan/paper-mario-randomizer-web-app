@@ -51,13 +51,21 @@
             </select> 
         </div> 
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="NPC" tooltipText="Color shuffle setting for non playable characters other than bosses"></app-tooltip-span>
+            <app-tooltip-span spanText="NPC" tooltipText="Color shuffle setting for non playable characters that aren't enemies or bosses"></app-tooltip-span>
             <select formControlName='npcSetting'>
                 <option [ngValue]="0">Default</option>
                 <option [ngValue]="2">Random Pick</option>
                 <option [ngValue]="3">Random on every load</option>
             </select> 
-        </div> 
+        </div>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Enemies" tooltipText="Color shuffle setting for enemies other than bosses"></app-tooltip-span>
+            <select formControlName='enemiesSetting'>
+                <option [ngValue]="0">Default</option>
+                <option [ngValue]="2">Random Pick</option>
+                <option [ngValue]="3">Random on every load</option>
+            </select> 
+        </div>  
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Status Menu" tooltipText="Color of the status menu at the top of the screen"></app-tooltip-span>
             <select formControlName='menu'>
@@ -82,8 +90,6 @@
                 <option [ngValue]="5">Random Pick</option>
             </select> 
         </div> 
-        <div class="setting-element">
-        </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='randomText'></mat-slide-toggle>
             <app-tooltip-span spanText="Random Text" tooltipText="Makes all the game's text completely random."></app-tooltip-span>
