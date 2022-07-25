@@ -26,7 +26,7 @@ import { Boots } from 'src/app/entities/enum/boots';
   styleUrls: ['./randomizer-page.component.scss']
 })
 export class RandomizerPageComponent implements OnInit, OnDestroy {
-  public readonly GOOMBA_HAMERLESS_START_ERROR = 'goombaHamerlessStart';
+  public readonly GOOMBA_HAMMERLESS_START_ERROR = 'goombaHammerlessStart';
 
   public homepageLink;
   public formGroup: FormGroup
@@ -56,8 +56,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public onSubmit() {
     const errors = this.validateSettings();
     if(errors.length) {
-      if (errors.some(e => e == this.GOOMBA_HAMERLESS_START_ERROR)) {
-        this.seedGenError = "Hamerless Start in Goomba Village is impossible. Please change your settings and try again."
+      if (errors.some(e => e == this.GOOMBA_HAMMERLESS_START_ERROR)) {
+        this.seedGenError = "Hammerless Start in Goomba Village is impossible. Please change your settings and try again."
         return;
       }
     }
@@ -206,8 +206,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     const startingMap = this.formGroup.get('openLocations').get('startingMap').value;
     const startingHammer = this.formGroup.get('marioStats').get('startingHammer').value;
-    if ( startingMap == StartingMap.GoombaVillage && startingHammer == Hammer.Hamerless) {
-      errors.push(this.GOOMBA_HAMERLESS_START_ERROR)
+    if ( startingMap == StartingMap.GoombaVillage && startingHammer == Hammer.Hammerless) {
+      errors.push(this.GOOMBA_HAMMERLESS_START_ERROR)
     }
 
     return errors;
