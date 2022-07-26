@@ -23,7 +23,6 @@ export class OpenWorldSettingsComponent implements OnInit, OnDestroy {
   public constructor() { }
 
   public ngOnInit(): void {
-    this.openLocationsFormGroup.get('startingMap').setValue(StartingMaps.ToadTown)
   }
 
   public ngOnDestroy(): void {

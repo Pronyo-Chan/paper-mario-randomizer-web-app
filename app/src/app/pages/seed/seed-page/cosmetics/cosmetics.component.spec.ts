@@ -32,6 +32,7 @@ describe('CosmeticsComponent', () => {
       bowSprite : new FormControl(),
       bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
       npcSetting: new FormControl(SpriteSetting.DefaultPalette),
+      enemiesSetting: new FormControl(SpriteSetting.DefaultPalette),
       coinColor: new FormControl(CoinColor.Default)
     })
     fixture.detectChanges();

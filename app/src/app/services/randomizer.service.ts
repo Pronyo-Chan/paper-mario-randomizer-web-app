@@ -124,11 +124,13 @@ export class RandomizerService {
       MarioSetting: (cosmeticsFormGroup.get('marioSprite').value as CharacterSpriteSetting).setting,
       MarioSprite: (cosmeticsFormGroup.get('marioSprite').value as CharacterSpriteSetting).paletteSelection,
       NPCSetting: cosmeticsFormGroup.get("npcSetting").value,
+      EnemiesSetting: cosmeticsFormGroup.get("enemiesSetting").value,
       ParakarrySetting: (cosmeticsFormGroup.get('parakarrySprite').value as CharacterSpriteSetting).setting,
       ParakarrySprite: (cosmeticsFormGroup.get('parakarrySprite').value as CharacterSpriteSetting).paletteSelection,
       RandomCoinColor: cosmeticsFormGroup.get('coinColor').value == CoinColor.Random,
       RandomText: cosmeticsFormGroup.get("randomText").value,
       RomanNumerals: cosmeticsFormGroup.get("romanNumerals").value,
+      RandomPitch: cosmeticsFormGroup.get("randomPitch").value,
       SushieSetting: (cosmeticsFormGroup.get('sushieSprite').value as CharacterSpriteSetting).setting,
       SushieSprite: (cosmeticsFormGroup.get('sushieSprite').value as CharacterSpriteSetting).paletteSelection,
       WattSetting: (cosmeticsFormGroup.get('wattSprite').value as CharacterSpriteSetting).setting,
@@ -165,7 +167,7 @@ export class RandomizerService {
       NoHeartBlocks: settingsForm.get('difficulty').get('noHeartBlocks').value,
       BlueHouseOpen: settingsForm.get('openLocations').get('blueHouseOpen').value,
       ToyboxOpen: settingsForm.get('openLocations').get('toyboxOpen').value,
-      FlowerGateOpen: settingsForm.get('openLocations').get('flowerGateOpen').value,
+      MagicalSeedsRequired: settingsForm.get('openLocations').get('magicalSeedsRequired').value,
       WhaleOpen: settingsForm.get('openLocations').get('whaleOpen').value,
       StartingMap: settingsForm.get('openLocations').get('startingMap').value,
       ShuffleChapterDifficulty: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.RandomChapterDifficulty,
@@ -215,10 +217,13 @@ export class RandomizerService {
       SushieSprite: (settingsForm.get('cosmetics').get('sushieSprite').value as CharacterSpriteSetting).paletteSelection,
       BossesSetting: settingsForm.get('cosmetics').get('bossesSetting').value,
       NPCSetting: settingsForm.get('cosmetics').get('npcSetting').value,
+      EnemiesSetting: settingsForm.get('cosmetics').get('enemiesSetting').value,
       StartingMaxHP: settingsForm.get('marioStats').get('startingMaxHP').value,
       StartingMaxFP: settingsForm.get('marioStats').get('startingMaxFP').value,
       StartingMaxBP: settingsForm.get('marioStats').get('startingMaxBP').value,
       StartingStarPower: settingsForm.get('marioStats').get('startingStarPower').value,
+      StartingBoots: settingsForm.get('marioStats').get('startingBoots').value,
+      StartingHammer: settingsForm.get('marioStats').get('startingHammer').value,
       StartingItem0: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[0]?.value,
       StartingItem1: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[1]?.value,
       StartingItem2: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[2]?.value,
@@ -248,9 +253,11 @@ export class RandomizerService {
       MysteryRandomPick: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode.RandomPick,
       ItemTrapMode: settingsForm.get('difficulty').get('itemTrapMode').value,
       AllowItemHints: settingsForm.get('difficulty').get('allowItemHints').value,
-      IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value
+      IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value,
+      ShuffleBlocks: settingsForm.get('items').get('shuffleBlocks').value,
+      BigChestShuffle: settingsForm.get('items').get('bigChestShuffle').value,
+      RandomPitch: settingsForm.get('cosmetics').get('randomPitch').value
 
-      
     } as SettingsRequest;
 
     if(request.StartWithRandomPartners) {

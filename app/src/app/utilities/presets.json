@@ -12,7 +12,9 @@
                 "includeDojo": false,
                 "itemPouches": true,
                 "includeLetters": 0,
-                "includeRadioTradeEvent": false
+                "includeRadioTradeEvent": false,
+                "shuffleBlocks": false,
+                "bigChestShuffle": false
             },
             "gameplay": {
                 "randomBadgesBP": 0,
@@ -74,10 +76,12 @@
                 "startingMaxFP": 5,
                 "startingMaxBP": 3,
                 "startingStarPower": 0,
+                "startingBoots": 0,
+                "startingHammer": 0,
                 "startingItems": []
             },
             "openLocations": {
-                "flowerGateOpen": false,
+                "magicalSeedsRequired": 4,
                 "blueHouseOpen": false,
                 "toyboxOpen": false,
                 "whaleOpen": false,
@@ -122,9 +126,11 @@
                 },
                 "bossesSetting": 0,
                 "npcSetting": 0,
+                "enemiesSetting": 0,
                 "coinColor": 0,
                 "randomText": false,
-                "romanNumerals": false
+                "romanNumerals": false,
+                "randomPitch": false
             }
         }
     },
@@ -141,7 +147,9 @@
             "includeDojo": false,
             "itemPouches": true,
             "includeLetters": 0,
-            "includeRadioTradeEvent": false
+            "includeRadioTradeEvent": false,
+            "shuffleBlocks": false,
+            "bigChestShuffle": false
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -203,10 +211,12 @@
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingStarPower": 0,
+            "startingBoots": 0,
+            "startingHammer": 0,
             "startingItems": []
           },
           "openLocations": {
-            "flowerGateOpen": true,
+            "magicalSeedsRequired": 0,
             "blueHouseOpen": true,
             "toyboxOpen": true,
             "whaleOpen": true,
@@ -251,9 +261,11 @@
             },
             "bossesSetting": 0,
             "npcSetting": 0,
+            "enemiesSetting": 0,
             "coinColor": 0,
             "randomText": false,
-            "romanNumerals": false
+            "romanNumerals": false,
+            "randomPitch": false
           }
         }
     },
@@ -270,7 +282,9 @@
             "includeDojo": false,
             "itemPouches": true,
             "includeLetters": 1,
-            "includeRadioTradeEvent": false
+            "includeRadioTradeEvent": false,
+            "shuffleBlocks": false,
+            "bigChestShuffle": true
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -332,10 +346,12 @@
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingStarPower": 0,
+            "startingBoots": 0,
+            "startingHammer": 0,
             "startingItems": []
           },
           "openLocations": {
-            "flowerGateOpen": false,
+            "magicalSeedsRequired": 4,
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
@@ -380,9 +396,11 @@
             },
             "bossesSetting": 0,
             "npcSetting": 0,
+            "enemiesSetting": 0,
             "coinColor": 0,
             "randomText": false,
-            "romanNumerals": false
+            "romanNumerals": false,
+            "randomPitch": false
           }
         }
     },
@@ -399,7 +417,9 @@
             "includeDojo": true,
             "itemPouches": false,
             "includeLetters": 3,
-            "includeRadioTradeEvent": true
+            "includeRadioTradeEvent": true,
+            "shuffleBlocks": true,
+            "bigChestShuffle": true
           },
           "gameplay": {
             "randomBadgesBP": 3,
@@ -461,10 +481,12 @@
             "startingMaxFP": 5,
             "startingMaxBP": 3,
             "startingStarPower": 0,
+            "startingBoots": 0,
+            "startingHammer": 0,
             "startingItems": []
           },
           "openLocations": {
-            "flowerGateOpen": false,
+            "magicalSeedsRequired": 5,
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
@@ -509,9 +531,11 @@
             },
             "bossesSetting": 0,
             "npcSetting": 0,
+            "enemiesSetting": 0,
             "coinColor": 0,
             "randomText": false,
-            "romanNumerals": false
+            "romanNumerals": false,
+            "randomPitch": false
           }
         }
     },
@@ -528,7 +552,9 @@
             "includeDojo":false,
             "itemPouches":false,
             "includeLetters": 0,
-            "includeRadioTradeEvent": false
+            "includeRadioTradeEvent": false,
+            "shuffleBlocks": false,
+            "bigChestShuffle": false
          },
          "gameplay":{
             "randomBadgesBP":1,
@@ -590,6 +616,8 @@
             "startingMaxFP":5,
             "startingMaxBP":3,
             "startingStarPower":0,
+            "startingBoots": 0,
+            "startingHammer": 0,
             "startingItems":[
                
             ],
@@ -598,7 +626,7 @@
             "randomItemsMax":16
          },
          "openLocations":{
-            "flowerGateOpen":false,
+            "magicalSeedsRequired":4,
             "blueHouseOpen":false,
             "toyboxOpen":false,
             "whaleOpen":false,
@@ -643,9 +671,11 @@
             },
             "bossesSetting":2,
             "npcSetting":2,
+            "enemiesSetting": 2,
             "coinColor":5,
             "randomText":false,
-            "romanNumerals": false
+            "romanNumerals": false,
+            "randomPitch": false
          }
       }
     },

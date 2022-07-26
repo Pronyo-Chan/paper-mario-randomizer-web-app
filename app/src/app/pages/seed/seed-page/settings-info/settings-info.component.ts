@@ -1,3 +1,4 @@
+import { Boots } from './../../../../entities/enum/boots';
 import { BowsersCastleMode } from './../../../../entities/enum/bowsersCastleMode';
 import { KootFavorsMode } from './../../../../entities/enum/kootFavorsMode';
 import { LettersMode } from './../../../../entities/enum/lettersMode';
@@ -14,6 +15,7 @@ import { HiddenBlockMode } from 'src/app/entities/enum/hiddenBlockMode';
 import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
 import { SpriteSetting } from 'src/app/entities/enum/spriteSetting';
 import { Constants } from 'src/app/utilities/constants';
+import { Hammer } from 'src/app/entities/enum/hammer';
 
 interface SettingRow {
   name: string;
@@ -70,6 +72,12 @@ export class SettingsInfoComponent implements OnInit {
         case 'BowsersCastleMode':
           this.settingRows.push({name: cleanSettingName, value: BowsersCastleMode[this.seedInfo[key]]})
           break;
+        case 'StartingBoots':
+          this.settingRows.push({name: cleanSettingName, value: Boots[this.seedInfo[key]]})
+          break;
+        case 'StartingHammer':
+          this.settingRows.push({name: cleanSettingName, value: Hammer[this.seedInfo[key]]})
+          break;
         case 'RandomBadgesBP':
         case 'RandomBadgesFP':
         case 'RandomPartnerFP':
@@ -84,6 +92,10 @@ export class SettingsInfoComponent implements OnInit {
           break;
         case 'StartingMap':
           this.settingRows.push({name: cleanSettingName, value: StartingMap[this.seedInfo[key]]} as SettingRow)
+          break;
+        case 'MagicalSeedsRequired':
+          const textValue = this.seedInfo[key] == 5 ? "Random" : this.seedInfo[key];
+          this.settingRows.push({name: cleanSettingName, value: textValue} as SettingRow)
           break;
         case String(key.match(/.*StartingItem.*/)):
           if(this.seedInfo[key])
@@ -135,6 +147,7 @@ export class SettingsInfoComponent implements OnInit {
   private addColorSettings() {
     this.settingRows.push({name: 'Boss Colors', value: pascalToVerboseString(SpriteSetting[this.seedInfo['BossesSetting']])} as SettingRow);
     this.settingRows.push({name: 'NPC Colors', value: pascalToVerboseString(SpriteSetting[this.seedInfo['NPCSetting']])} as SettingRow);
+    this.settingRows.push({name: 'Enemies Colors', value: pascalToVerboseString(SpriteSetting[this.seedInfo['EnemiesSetting']])} as SettingRow);
     this.settingRows.push({name: 'Coin Color', value: pascalToVerboseString(CoinColor[this.seedInfo['CoinColor']])} as SettingRow);
     this.settingRows.push({name: 'Status Menu Color', value: this.getBoxColorName(this.seedInfo.Box5ColorA, this.seedInfo.Box5ColorB)} as SettingRow);
 

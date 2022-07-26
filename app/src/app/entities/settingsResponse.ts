@@ -29,7 +29,7 @@ export interface SettingsResponse{
     OHKO: boolean;
     NoSaveBlocks: boolean;
     NoHeartBlocks: boolean;
-    FlowerGateOpen: boolean;
+    MagicalSeedsRequired: number;
     BlueHouseOpen: boolean;
     ToyboxOpen: boolean;
     WhaleOpen: boolean;
@@ -83,10 +83,13 @@ export interface SettingsResponse{
     SushieSprite: SushieSprite;
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
+    EnemiesSetting: SpriteSetting;
     StartingMaxHP: number;
     StartingMaxFP: number;
     StartingMaxBP: number;
     StartingStarPower: number;
+    StartingBoots: number;
+    StartingHammer: number;
     StartingItem0: number;
     StartingItem1: number;
     StartingItem2: number;
@@ -117,6 +120,9 @@ export interface SettingsResponse{
     ItemTrapMode: ItemTrapMode
     AllowItemHints: boolean;
     IncludeRadioTradeEvent: boolean;
+    ShuffleBlocks: boolean;
+    RandomPitch: boolean;
+    BigChestShuffle: boolean;
 }
 
 export interface StartingPartners {
