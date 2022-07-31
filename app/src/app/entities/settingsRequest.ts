@@ -240,6 +240,7 @@ export interface SettingsRequest {
     // Glitches: Global
     BreakMetalBlocksWithUltraBoots: boolean
     BreakYellowBlocksWithBombette: boolean
+    BreakYellowBlocksWithSuperBoots: boolean
 }
 
 export interface StartingPartners {

@@ -244,6 +244,7 @@ export interface SettingsResponse{
     // Glitches: Global
     BreakMetalBlocksWithUltraBoots: boolean
     BreakYellowBlocksWithBombette: boolean
+    BreakYellowBlocksWithSuperBoots: boolean
 }
 
 export interface StartingPartners {

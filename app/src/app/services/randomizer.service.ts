@@ -377,7 +377,8 @@ export class RandomizerService {
 
       // Glitches: Global
       BreakMetalBlocksWithUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BreakMetalBlocksWithUltraBoots"),
-      BreakYellowBlocksWithBombette: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BreakYellowBlocksWithBombette")
+      BreakYellowBlocksWithSuperBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BreakYellowBlocksWithBombette"),
+      BreakYellowBlocksWithBombette: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BreakYellowBlocksWithSuperBoots")
     } as SettingsRequest;
 
     if(request.StartWithRandomPartners) {

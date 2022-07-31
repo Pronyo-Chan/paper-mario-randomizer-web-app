@@ -653,5 +653,13 @@
     "description": "While Bombette can't directly break Yellow Blocks, her explosion still activates the flag for them, so leaving the room and re-entering after exploding on a block will make it dissapear.",
     "location": "Global",
     "id": "x"
+  },
+  {
+    "name": "Break Yellow Blocks with Super Boots",
+    "settingName": "BreakYellowBlocksWithSuperBoots",
+    "link": "https://www.youtube.com/watch?v=eHyZx-WnXD0",
+    "description": "Spin Jumps with the Super Boots can actually break yellow blocks. In practice this is only useful for the prologue bottom of cliff block, as you can get on it with neutral jumps.",
+    "location": "Global",
+    "id": "y"
   }
 ]
