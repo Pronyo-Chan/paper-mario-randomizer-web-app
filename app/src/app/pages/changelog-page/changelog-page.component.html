@@ -1,6 +1,119 @@
 
 <div class="main-page">
     <mat-card class="settings-card">
+        <mat-card-title class="settings-title">0.13.1 (beta) (2022-07-29)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
+            <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li> Fixed an error in the validation message for random starting items.</li>
+            <li> Added info about ground-pounding the sewer blocks on the way to shiver city on the tips page.</li>
+        </ul>
+
+        <h2>Seed Generator / Logic</h2>
+        <ul>
+            <li> Fixed an issue where the random starting items were not reset properly in cases where generation needed a retry.</li>
+            <li> Added "Can Meet Moustafa" as a logic requirement for the 2 items on top of houses in Dry Dry Outpost.</li>
+        </ul>
+
+    </mat-card>
+    <mat-card class="settings-card">
+        <mat-card-title class="settings-title">0.13.0 (beta) (2022-07-26)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
+            <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        </ul>
+
+        <h2> Game Mod Adjustments</h2>
+        <ul>
+            <li> Fixed unique items spawning infinitely from certain trees.</li>
+            <li> Fixed breakfast check item in the Shiver City inn sometimes despawning after a few seconds.</li>
+            <li> Removed the water sound effect in the Bubble Berry Tree room when the water stone is delivered but Sushie is not available.</li>
+            <li> Fixed a vanilla bug where you could get softlocked by a collision with Merle in Starborn Valley.</li>
+            <li> Disabled riding the invisible zipline when exiting the volcano if the zipline has not been built (in preparation of entrance randomization) (subject to change).</li>
+            <li> When entering the map in front of Koopa Bros Fortress via the upper ledge, the Pleasant Path theme will now play instead of the fortress theme.</li>
+            <li> Allow backwards progression of Forever Forest by removing Oakley if arriving from the wrong side.</li>
+            <li> Removed knockback from traps during certain states to prevent issues (launch, conversation, sliding, on Sushie). This allows item traps to be placed underwater.</li>
+            <li> Fixed an issue with Tuff Puffs where their level wasn't scaled properly. This should fix issues with the Attack badges.</li>
+            <li> When entering the Pleasant Path map where you need Kooper to cross a bridge from the left, the added invisible wall on the right side of the bridge will be removed, so it doesn't interfere with the Laki Clip glitch.</li>
+            <li> Adjusted Lakilester's text when arriving at the mansion to have a jittering effect instead of a swirling effect.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li> The Starting Stats section has been renamed to "Stats & Gear" with the addition of hammer and boots options in that section.</li>
+            <li> The Setting Details page has been updated in accordance to the latest changes.</li>
+            <li> Fixed a bug where the starting location would always default to Toad Town when loading the latest used settings.</li>
+        </ul>
+
+        <h2>Seed Generator / Logic</h2>
+        <ul>
+            <li> Added missing logic requirements for 2 hidden blocks: On the way to Crystal Palace and in Bowser's Castle flood room.</li>
+            <li> Added the pebble location in Shiver Mountain as a replenishable location in logic.</li>
+            <li> Improved the names of some of the locations in the spoiler log.</li>
+            <li> When playing without shuffling items at all, the badge prices at Merlow's shop will now be vanilla instead of ridiculously expensive.</li>
+            <li> Added a missing logic requirement to flip the panel in the Bubble Berry Tree room.</li>
+            <li> Removed Shrink Smash from traps and from being given when starting with a random inventory, as it is an unused badge in vanilla.</li>
+        </ul>
+
+        <h2>Options</h2>
+
+        <h3>Custom Starting Equipment (new)</h3>
+        <ul>
+            <li> Mario's starting equipment can be selected with 2 new options in the "Stats & Gear" section.</li>
+            <li> Starting hammer has a "Hammerless" option which also provides a new experience in itself.</li>
+            <li> When playing with Hammerless start, the bush in Jr. Troopa's playground is considered a big chest and contains an upgrade as well.</li>
+        </ul>
+
+        <h3>Big Chest Shuffle (new)</h3>
+        <ul>
+            <li> Shuffles the content of the big chests so they can all contain a Boots or Hammer upgrade.</li>
+            <li> If Mario has an insufficient hammer after opening the chest in the ruins or volcano, the block obstacle will automatically break.</li>
+            <li> If Mario has insufficient boots after opening the chest in the mansion, the boared floor will automatically break and it will be possible to hit the big blue switch with a regular jump.</li>
+            <li> To allow a wider variety of playthroughs, this option removes the stone and metal blocks that usually prevent access to the Ultra Boots room in the sewers.</li>
+        </ul>
+
+        <h3>Block Shuffle (new)</h3>
+        <ul>
+            <li> Shuffles Multicoin Brick Blocks and Super Blocks together.</li>
+        </ul>
+
+        <h3>Random Pitch (new)</h3>
+        <ul>
+            <li> Randomizes the pitch of every sound and music note in the game.</li>
+            <li> This option is part of the "Cosmetics" section and can be enabled after seed generation as well.</li>
+        </ul>
+
+        <h3>Magical Seeds Required (new)</h3>
+        <ul>
+            <li> Determines how many seeds are required to open Flower Fields.</li>
+            <li> Only the exact number of seeds required will be part of the item pool.</li>
+            <li> A random option is available.</li>
+            <li> This option replaces the previous "Open Flower Fields" option.</li>
+        </ul>
+
+        <h3>Enemies Color Palettes (change)</h3>
+        <ul>
+            <li> Instead of being included in the "NPC" option, enemies now have their own separate color option.</li>
+        </ul>
+
+        <h3>Shorten Cutscenes (change)</h3>
+        <ul>
+            <li> The cutscene that plays when raising Dry Dry Ruins has been slightly shortened.</li>
+            <li> The interactions and dialogue with Raphael the Raven have been shortened.</li>
+        </ul>
+    </mat-card>
+
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.12.1 (beta) (2022-06-28)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>

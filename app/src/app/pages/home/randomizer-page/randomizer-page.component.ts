@@ -1,3 +1,4 @@
+import { StartingMap } from './../../../entities/enum/startingMaps';
 import { Hammer } from './../../../entities/enum/hammer';
 import { BowsersCastleMode } from './../../../entities/enum/bowsersCastleMode';
 import { LettersMode } from './../../../entities/enum/lettersMode';
@@ -25,6 +26,7 @@ import { Boots } from 'src/app/entities/enum/boots';
   styleUrls: ['./randomizer-page.component.scss']
 })
 export class RandomizerPageComponent implements OnInit, OnDestroy {
+  public readonly GOOMBA_HAMMERLESS_START_ERROR = 'goombaHammerlessStart';
 
   public homepageLink;
   public formGroup: FormGroup
@@ -52,6 +54,13 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit() {
+    const errors = this.validateSettings();
+    if(errors.length) {
+      if (errors.some(e => e == this.GOOMBA_HAMMERLESS_START_ERROR)) {
+        this.seedGenError = "Hammerless Start in Goomba Village is impossible. Please change your settings and try again."
+        return;
+      }
+    }
     this.seedGenError = null;
     this.isRandomizing = true;
 
@@ -90,7 +99,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includeDojo: new FormControl(false),
         itemPouches: new FormControl(false),
         includeLetters: new FormControl(LettersMode.Vanilla),
-        includeRadioTradeEvent: new FormControl(false)
+        includeRadioTradeEvent: new FormControl(false),
+        shuffleBlocks: new FormControl(false),
+        bigChestShuffle: new FormControl(false),
       }),
       gameplay: new FormGroup({
         randomBadgesBP: new FormControl(0),
@@ -160,11 +171,11 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomItemsMax: new FormControl(16, [Validators.min(0), Validators.max(16), CustomValidators.greaterOrEqualTo('randomItemsMin')]),
       }),
       openLocations: new FormGroup({
-        flowerGateOpen: new FormControl(false),
+        magicalSeedsRequired: new FormControl(4),
         blueHouseOpen : new FormControl(false),
         toyboxOpen: new FormControl(false),
         whaleOpen: new FormControl(false),
-        startingMap: new FormControl(0)
+        startingMap: new FormControl(StartingMap.ToadTown)
       }),
       cosmetics: new FormGroup({
         menu: new FormControl(0),
@@ -177,9 +188,11 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         sushieSprite: new FormControl(),
         bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
         npcSetting: new FormControl(SpriteSetting.DefaultPalette),
+        enemiesSetting: new FormControl(SpriteSetting.DefaultPalette),
         coinColor: new FormControl(CoinColor.Default),
         randomText: new FormControl(false),
         romanNumerals: new FormControl(false),
+        randomPitch: new FormControl(false),
       }),
       glitches: new FormControl([])
       /*glitches: new FormGroup({
@@ -209,5 +222,17 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(
       tap(() => this.formGroup.get('partners').get('randomPartnersMax').updateValueAndValidity())
       ).subscribe();
+  }
+
+  private validateSettings(): string[] {
+    let errors = [];
+
+    const startingMap = this.formGroup.get('openLocations').get('startingMap').value;
+    const startingHammer = this.formGroup.get('marioStats').get('startingHammer').value;
+    if ( startingMap == StartingMap.GoombaVillage && startingHammer == Hammer.Hammerless) {
+      errors.push(this.GOOMBA_HAMMERLESS_START_ERROR)
+    }
+
+    return errors;
   }
 }

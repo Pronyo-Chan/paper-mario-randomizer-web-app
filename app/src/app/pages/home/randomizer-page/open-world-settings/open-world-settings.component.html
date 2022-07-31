@@ -7,15 +7,16 @@
                 <option *ngFor="let location of startingMaps" [ngValue]="location.value">{{location.name}}</option>
             </select>
         </div>
-        
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='flowerGateOpen'></mat-slide-toggle>
-            <app-tooltip-span
-                 spanText="Open Flower Gate"
-                 tooltipText="Off: The 4 magical seeds are required to open the Flower Gate.
-
-                            On: The Flower Gate is opened from the start. Magical Seeds are removed from the item pool.">
-            </app-tooltip-span>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Magical Seeds Required" tooltipText="The amount of magical seeds required to open the gate to Flower Fields."></app-tooltip-span>
+            <select formControlName='magicalSeedsRequired'>
+                <option [ngValue]="0">0</option>
+                <option [ngValue]="1">1</option>
+                <option [ngValue]="2">2</option>
+                <option [ngValue]="3">3</option>
+                <option [ngValue]="4">4</option>
+                <option [ngValue]="5">Random</option>
+            </select>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='blueHouseOpen'></mat-slide-toggle>

@@ -26,7 +26,7 @@ export interface SettingsRequest {
     OHKO: boolean;
     NoSaveBlocks: boolean;
     NoHeartBlocks: boolean;
-    FlowerGateOpen: boolean;
+    MagicalSeedsRequired: number;
     BlueHouseOpen: boolean;
     ToyboxOpen: boolean;
     WhaleOpen: boolean;
@@ -80,6 +80,7 @@ export interface SettingsRequest {
     SushieSprite: SushieSprite;
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
+    EnemiesSetting: SpriteSetting;
     StartingMaxHP: number;
     StartingMaxFP: number;
     StartingMaxBP: number;
@@ -116,6 +117,9 @@ export interface SettingsRequest {
     ItemTrapMode: ItemTrapMode;
     AllowItemHints: boolean;
     IncludeRadioTradeEvent: boolean;
+    ShuffleBlocks: boolean;
+    RandomPitch: boolean;
+    BigChestShuffle: boolean;
 
     // Glitches: Goomba Region
     PrologueGelEarly: boolean

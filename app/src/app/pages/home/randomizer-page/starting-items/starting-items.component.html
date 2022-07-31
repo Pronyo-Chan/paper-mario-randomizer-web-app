@@ -50,13 +50,13 @@
             Minimum number of starting Items must be greater or equal to 1
         </li>
         <li *ngIf="marioStatsFormGroup.get('randomItemsMin').hasError('max')">
-            Minimum number of starting Items must be smaller or equal to 8
+            Minimum number of starting Items must be smaller or equal to 16
         </li>
         <li *ngIf="marioStatsFormGroup.get('randomItemsMax').hasError('min')">
             Maximum number of starting Items must be greater or equal to 1
         </li>
         <li *ngIf="marioStatsFormGroup.get('randomItemsMax').hasError('max')">
-            Maximum number of starting Items must be smaller or equal to 8
+            Maximum number of starting Items must be smaller or equal to 16
         </li>
         <li *ngIf="marioStatsFormGroup.get('randomItemsMax').hasError('greaterOrEqual')">
             Maximum number of starting Items must be greater or equal to minimum

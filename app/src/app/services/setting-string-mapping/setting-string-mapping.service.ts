@@ -25,11 +25,13 @@ export class SettingStringMappingService {
     { compressedString: "m", key: "menu", type: "number"},
     { compressedString: "p", key: "marioSprite", type: "sprite"},
     { compressedString: "n", key: "npcSetting", type: "number"},
+    { compressedString: "e", key: "enemiesSetting", type: "number"},
     { compressedString: "t", key: "randomText", type: "bool"},
     { compressedString: "w", key: "wattSprite", type: "sprite"},
     { compressedString: "s", key: "sushieSprite", type: "sprite"},
     { compressedString: "a", key: "parakarrySprite", type: "sprite"},    
-    { compressedString: "r", key: "romanNumerals", type: "bool"}
+    { compressedString: "r", key: "romanNumerals", type: "bool"},
+    { compressedString: "h", key: "randomPitch", type: "bool"}
   ]
 
   public readonly difficultyMap: SettingModel [] = [
@@ -66,7 +68,9 @@ export class SettingStringMappingService {
     { compressedString: "i", key: "shuffleItems", type: "bool"},
     { compressedString: "x", key: "itemPouches", type: "bool"},
     { compressedString: "l", key: "includeLetters", type: "number"},
-    { compressedString: "r", key: "includeRadioTradeEvent", type: "bool"}
+    { compressedString: "r", key: "includeRadioTradeEvent", type: "bool"},
+    { compressedString: "b", key: "shuffleBlocks", type: "bool"},
+    { compressedString: "h", key: "bigChestShuffle", type: "bool"}
   ]
 
   public readonly marioStatsMap: SettingModel [] = [
@@ -85,11 +89,12 @@ export class SettingStringMappingService {
 
   public readonly openLocationsMap: SettingModel [] = [
     { compressedString: "b", key: "blueHouseOpen", type: "bool"},
-    { compressedString: "f", key: "flowerGateOpen", type: "bool"},
+    { compressedString: "f", key: "flowerGateOpen", type: "removed"},
     { compressedString: "h", key: "homewardShroom", type: "removed"},
     { compressedString: "s", key: "startingMap", type: "number"},
     { compressedString: "t", key: "toyboxOpen", type: "bool"},
     { compressedString: "w", key: "whaleOpen", type: "bool"},
+    { compressedString: "m", key: "magicalSeedsRequired", type: "number"},
   ]
 
   public readonly startWithPartnersMap: SettingModel [] = [

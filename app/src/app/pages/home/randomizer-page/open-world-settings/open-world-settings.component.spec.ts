@@ -23,7 +23,7 @@ describe('OpenWorldSettingsComponent', () => {
     fixture = TestBed.createComponent(OpenWorldSettingsComponent);
     component = fixture.componentInstance;
     component.openLocationsFormGroup = new FormGroup({
-      flowerGateOpen: new FormControl(false),
+      magicalSeedsRequired: new FormControl(4),
       blueHouseOpen : new FormControl(false),
       toyboxOpen: new FormControl(false),
       whaleOpen: new FormControl(false)
