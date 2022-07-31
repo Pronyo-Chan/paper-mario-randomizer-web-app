@@ -199,6 +199,7 @@ export interface SettingsResponse{
     ParakarrylessBlueBuildingStarPiece: boolean
     GourmetGuySkipJump: boolean
     GourmetGuySkipLaki: boolean
+    GourmetGuySkipParakarry: boolean
     BowlessGreenStation: boolean
     KooperlessRedStationShootingStar: boolean
 

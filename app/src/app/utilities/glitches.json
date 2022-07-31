@@ -172,7 +172,7 @@
     "link": "https://www.youtube.com/watch?v=vfmsVGbir38",
     "description": "Using Lakilester, it is possible to clip into a corner and go out of bounds to get the Quake Hammer and Letter in Mt.Rugged that usually require Parakarry/Kooper.",
     "location": "Mt. Rugged",
-    "id": ":"
+    "id": "9"
   },
   {
     "name": "Parakary-less Mt.Rugged Seed",
@@ -405,6 +405,14 @@
     "description": "Using Laki's ability, you can clip into the west door arch at Pink Station to get out of bounds and reach the pink switch directly.",
     "location": "ToyBox",
     "id": "X"
+  },
+  {
+    "name": "Gourmet Guy Skip (Parakarry)",
+    "settingName": "GourmetGuySkipParakarry",
+    "link": "https://papermarioarchives.com/#/Gourmet_Guy_Skip",
+    "description": "Parakarry's ability can be used to have a consistent setup to reach the perfect location to spin and clip out of bounds and reach the pink switch.",
+    "location": "ToyBox",
+    "id": ":"
   },
   {
     "name": "Bow-less Green Station",
