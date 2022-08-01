@@ -246,6 +246,7 @@ export interface SettingsResponse{
     BreakMetalBlocksWithUltraBoots: boolean
     BreakYellowBlocksWithBombette: boolean
     BreakYellowBlocksWithSuperBoots: boolean
+    KnowsHiddenBlocks: boolean
 }
 
 export interface StartingPartners {

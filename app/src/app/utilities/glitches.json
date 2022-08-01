@@ -669,5 +669,13 @@
     "description": "Spin Jumps with the Super Boots can actually break yellow blocks. In practice this is only useful for the prologue bottom of cliff block, as you can get on it with neutral jumps.",
     "location": "Global",
     "id": "y"
+  },
+  {
+    "name": "Knows Hidden Blocks Locations",
+    "settingName": "KnowsHiddenBlocks",
+    "link": "",
+    "description": "Enabling this will put every hidden block in logic from the moment they are accessible, without regards to the player's ability to see hidden blocks.",
+    "location": "Global",
+    "id": "z"
   }
 ]
