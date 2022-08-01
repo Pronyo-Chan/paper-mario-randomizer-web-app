@@ -207,6 +207,7 @@ export interface SettingsResponse{
 
     // Glitches: Jade Jungle
     RaphSkipEnglish: boolean
+    Ch5SushieGlitch: boolean
 
     // Glitches: Mt. Lavalava
     KooperlessLavalavaPowBlock: boolean
