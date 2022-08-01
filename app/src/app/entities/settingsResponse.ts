@@ -246,7 +246,7 @@ export interface SettingsResponse{
 
     // Glitches: Global
     BreakMetalBlocksWithUltraBoots: boolean
-    BreakYellowBlocksWithBombette: boolean
+    KnowsPuzzleSolutions: boolean
     BreakYellowBlocksWithSuperBoots: boolean
     KnowsHiddenBlocks: boolean
 }
