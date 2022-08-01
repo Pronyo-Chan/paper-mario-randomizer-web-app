@@ -16,12 +16,28 @@
     "id": "#"
   },
   {
-    "name": "Blue House Skip",
+    "name": "Blue House Skip (Jump Only)",
     "settingName": "BlueHouseSkip",
     "link": "https://papermarioarchives.com/#/Blue_House_Skip",
-    "description": "Get access to the blue house sewer pipe early. There are various methods to do so without any items/partners (see link), but you can also do a regular laki clip on the bottom/right corner of the house.",
+    "description": "Get access to the blue house sewer pipe early. There are various methods to do so without any items/partners (see link).",
     "location": "Toad Town",
     "id": "$"
+  },
+  {
+    "name": "Blue House Skip (Laki Clip)",
+    "settingName": "BlueHouseSkipLaki",
+    "link": "",
+    "description": "Get access to the blue house sewer pipe early. A Laki Clip can be performed on the bottom right corner of the house to get inside it.",
+    "location": "Toad Town",
+    "id": "´"
+  },
+  {
+    "name": "Blue House Skip (Toad Lure)",
+    "settingName": "BlueHouseSkipToadLure",
+    "link": "https://papermarioarchives.com/#/Blue_House_Skip",
+    "description": "Get access to the blue house sewer pipe early. A Toad can be lured near the ledge and then be used to clip out of bounds, to get inside the house.",
+    "location": "Toad Town",
+    "id": "µ"
   },
   {
     "name": "Enter ToyBox Without Bow",

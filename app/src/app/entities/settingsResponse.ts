@@ -131,6 +131,8 @@ export interface SettingsResponse{
     // Glitches: Toad Town
     OddKeyEarly: boolean
     BlueHouseSkip: boolean
+    BlueHouseSkipLaki: boolean
+    BlueHouseSkipToadLure: boolean
     BowlessToyBox: boolean
     EarlyStoreroomParakarry: boolean
     EarlyStoreroomHammer: boolean

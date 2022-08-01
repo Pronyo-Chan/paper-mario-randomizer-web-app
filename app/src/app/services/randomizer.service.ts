@@ -265,6 +265,8 @@ export class RandomizerService {
       // Glitches: Toad Town
       OddKeyEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "OddKeyEarly"),
       BlueHouseSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueHouseSkip"),
+      BlueHouseSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueHouseSkipLaki"),
+      BlueHouseSkipToadLure: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueHouseSkipToadLure"),
       BowlessToyBox: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowlessToyBox"),
       EarlyStoreroomParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyStoreroomParakarry"),
       EarlyStoreroomHammer: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyStoreroomHammer"),
