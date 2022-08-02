@@ -52,9 +52,11 @@ export class GlitchesAndTricksComponent implements OnInit {
     let glitchesFormControl = this.formGroup.get('glitches')
     for (const filteredGlitch of this.filteredGlitches) {
       if(!glitchesFormControl.value.some(g => g == filteredGlitch)) {
-        glitchesFormControl.setValue([...this.filteredGlitches, filteredGlitch])
+        console.log(this.filteredGlitches)
+        glitchesFormControl.setValue([...glitchesFormControl.value, filteredGlitch])
       }
     }
+    console.log(this.filteredGlitches)
   }
 
   public disableAll() {
@@ -62,6 +64,13 @@ export class GlitchesAndTricksComponent implements OnInit {
     let newGlitchesArray = [...glitchesFormControl.value]
 
     newGlitchesArray = newGlitchesArray.filter(enabledGlitch => !this.filteredGlitches.some(filteredGlitch => filteredGlitch == enabledGlitch))
+    glitchesFormControl.setValue(newGlitchesArray)
+  }
+
+  public disableGlitch(glitch: LogicGlitch) {
+    let glitchesFormControl = this.formGroup.get('glitches')
+
+    let newGlitchesArray = glitchesFormControl.value.filter(enabledGlitch => enabledGlitch != glitch)
     glitchesFormControl.setValue(newGlitchesArray)
   }
 

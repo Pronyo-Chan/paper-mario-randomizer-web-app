@@ -1,9 +1,9 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" autocomplete="off">
     <mat-card-content class=settings-card-content>
         <div class="table-container">
             <div class="filter-section">
-                <div>
-                    <span>Filter</span>
+                <div class="setting-element input-element">
+                    <app-tooltip-span spanText="Filter"></app-tooltip-span>
                     <input type="text"
                             maxlength="30"
                             placeholder="Trick Name"
@@ -12,10 +12,13 @@
                             (ngModelChange)="filter()"
                             matInput>
                 </div>
-                <span>Location</span>
-                <select [(ngModel)]="selectedLocation" [ngModelOptions]="{standalone: true}">
-                    <option *ngFor="let location of locationsList">{{location}}</option>
-                </select>
+
+                <div class="setting-element dropdown-element">
+                    <app-tooltip-span spanText="Location"></app-tooltip-span>
+                    <select [(ngModel)]="selectedLocation" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let location of locationsList">{{location}}</option>
+                    </select>
+                </div>
                 <div>
                     <button class = 'yellow-button' (click)="enableAll()" [disabled]="!filteredGlitches.length" >
                         <span>Enable All</span>
@@ -30,8 +33,8 @@
                 <h2>Available tricks</h2>
                 <mat-selection-list  #glitches class="glitches-list" formControlName="glitches">
                     <mat-list-option *ngFor="let glitch of glitchesList" [value]="glitch" [ngStyle]="{ display : isGlitchInFilteredList(glitch) ? 'block' : 'none' }">
-                        <a class="image-link" [href]="glitch.link" target="_blank" rel="noopener noreferrer">
-                            <mat-icon  *ngIf="glitch.link" class="material-icons-outlined">smart_display</mat-icon>
+                        <a class="image-link" [ngClass]="{ 'disabled-link' : !glitch.link}" [href]="glitch.link" target="_blank" rel="noopener noreferrer">
+                            <mat-icon class="material-icons-outlined">smart_display</mat-icon>
                         </a>
                         <app-tooltip-span [tooltipText]="glitch.description" [spanText]="glitch.name"></app-tooltip-span>
                         
@@ -43,10 +46,13 @@
                 <h2> Enabled tricks</h2>
                 <mat-list class="glitches-list">
                     <mat-list-item *ngFor="let enabledGlitch of formGroup.get('glitches').value">
-                        <a class="image-link" [href]="enabledGlitch.link" target="_blank" rel="noopener noreferrer">
-                            <mat-icon  *ngIf="enabledGlitch.link" class="material-icons-outlined">smart_display</mat-icon>
+                        <a class="image-link" [ngClass]="{ 'disabled-link' : !enabledGlitch.link}" [href]="enabledGlitch.link" target="_blank" rel="noopener noreferrer">
+                            <mat-icon class="material-icons-outlined">smart_display</mat-icon>
                         </a>
                         <app-tooltip-span [tooltipText]="enabledGlitch.description" [spanText]="enabledGlitch.name"></app-tooltip-span>
+                        <button (click)="disableGlitch(enabledGlitch)" class="remove-button">
+                            <mat-icon class="material-icons-outlined">cancel</mat-icon>
+                        </button>
                     </mat-list-item>
                 </mat-list>
             </div>

@@ -52,3 +52,22 @@ span.no-results {
 .yellow-button {
     width: 120px;
 }
+
+.remove-button {
+    border: none;
+    background: none;
+    float: right;
+    cursor: pointer;
+    color: variables.$yellow-stat-main
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 30%;
+}
+
+a.disabled-link {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0;
+}
