@@ -67,7 +67,7 @@
     "name": "Whale Early (LZS)",
     "settingName": "WhaleEarly",
     "link": "https://www.youtube.com/watch?v=9QeYdUI04O0",
-    "description": "Enter the whale without hitting it through LZS. Only useful when starting hamerless.",
+    "description": "Enter the whale without hitting it through LZS. Only useful when starting hammerless.",
     "location": "Toad Town",
     "id": "*"
   },
@@ -90,7 +90,7 @@
     "name": "Clippy Boots Metal Block Skip",
     "settingName": "ClippyBootsMetalBlockSkip",
     "link": "https://www.youtube.com/watch?v=nRV-FC8cQ0E",
-    "description": "In the room before the Ultra Boots chest, the metal block can be bypassed by entering clippy state with lakilester and jumping on the block, then on top of the door arch.",
+    "description": "In the room before the Ultra Boots chest, the metal block can be bypassed by entering clippy state with Lakilester and jumping on the block, then on top of the door arch.",
     "location": "Toad Town Tunnels",
     "id": "-"
   },
@@ -170,7 +170,7 @@
     "name": "Laki Jailbreak",
     "settingName": "LakiJailbreak",
     "link": "https://papermarioarchives.com/#/Laki_Jailbreak",
-    "description": "Using Lakilester, it is possible to laki teleport into the left jail cell to get the item, and then use a Laki Jump to reach the upper left door.",
+    "description": "Using Lakilester, it is possible to Laki teleport into the left jail cell to get the item, and then use a Laki Jump to reach the upper left door.",
     "location": "Koopa Bros Fortress",
     "id": "7"
   },
