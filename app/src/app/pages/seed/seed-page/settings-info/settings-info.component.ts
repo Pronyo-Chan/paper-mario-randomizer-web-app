@@ -10,7 +10,7 @@ import { KeyItems } from './../../../../entities/enum/keyItems';
 import { Items } from './../../../../entities/enum/items';
 import { StartingMap } from './../../../../entities/enum/startingMaps';
 import { SettingsResponse } from './../../../../entities/settingsResponse';
-import { Component, Input, OnInit, enableProdMode } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HiddenBlockMode } from 'src/app/entities/enum/hiddenBlockMode';
 import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
 import { SpriteSetting } from 'src/app/entities/enum/spriteSetting';
