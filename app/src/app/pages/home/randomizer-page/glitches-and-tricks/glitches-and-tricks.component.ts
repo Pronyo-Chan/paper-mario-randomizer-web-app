@@ -48,4 +48,21 @@ export class GlitchesAndTricksComponent implements OnInit {
     return this.filteredGlitches.some(g => g == glitch) && (glitch.location == this.selectedLocation || this.selectedLocation == this.DEFAULT_LOCATION);
   }
 
+  public enableAll() {
+    let glitchesFormControl = this.formGroup.get('glitches')
+    for (const filteredGlitch of this.filteredGlitches) {
+      if(!glitchesFormControl.value.some(g => g == filteredGlitch)) {
+        glitchesFormControl.setValue([...this.filteredGlitches, filteredGlitch])
+      }
+    }
+  }
+
+  public disableAll() {
+    let glitchesFormControl = this.formGroup.get('glitches')
+    let newGlitchesArray = [...glitchesFormControl.value]
+
+    newGlitchesArray = newGlitchesArray.filter(enabledGlitch => !this.filteredGlitches.some(filteredGlitch => filteredGlitch == enabledGlitch))
+    glitchesFormControl.setValue(newGlitchesArray)
+  }
+
 }

@@ -15,7 +15,16 @@
                 <span>Location</span>
                 <select [(ngModel)]="selectedLocation" [ngModelOptions]="{standalone: true}">
                     <option *ngFor="let location of locationsList">{{location}}</option>
-                </select> 
+                </select>
+                <div>
+                    <button class = 'yellow-button' (click)="enableAll()" [disabled]="!filteredGlitches.length" >
+                        <span>Enable All</span>
+                    </button> 
+                    <button class = 'yellow-button' (click)="disableAll()" [disabled]="!filteredGlitches.length" >
+                        <span>Disable All</span>
+                    </button> 
+                </div>
+                
             </div>
             <div class="tricks-section">
                 <h2>Available tricks</h2>
