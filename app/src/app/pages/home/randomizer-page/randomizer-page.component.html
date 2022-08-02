@@ -21,7 +21,7 @@
                 </mat-tab>
                 <mat-tab label="Glitches & Tricks">
                     <app-glitches-and-tricks [formGroup]="formGroup"></app-glitches-and-tricks>
-                    </mat-tab>
+                </mat-tab>
             </mat-tab-group>
         </mat-card>
         <mat-card class="settings-card" [ngClass]="{ 'starting-items-tab-error': formGroup.get('marioStats').invalid}">
@@ -44,7 +44,7 @@
         </mat-card>
         <mat-card class="settings-card">
             <mat-card-title class="settings-title">Quality of Life Settings</mat-card-title>
-            <app-qol-settings [qualityOfLifeFormGroup]="formGroup.get('qualityOfLife')"></app-qol-settings>
+            <app-qol-settings [qualityOfLifeFormGroup]="formGroup.get('qualityOfLife')" [hasEnabledTricks]="formGroup.get('glitches').value.length > 0"></app-qol-settings>
         </mat-card>
         <mat-card class="settings-card">
             <mat-card-title class="settings-title">Spoiler Settings</mat-card-title>
