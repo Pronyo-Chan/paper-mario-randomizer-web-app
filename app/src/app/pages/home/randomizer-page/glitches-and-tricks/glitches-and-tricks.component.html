@@ -32,7 +32,7 @@
             <div class="tricks-section">
                 <h2>Available tricks</h2>
                 <mat-selection-list  #glitches class="glitches-list" formControlName="glitches">
-                    <mat-list-option *ngFor="let glitch of glitchesList" [value]="glitch" [ngStyle]="{ display : isGlitchInFilteredList(glitch) ? 'block' : 'none' }">
+                    <mat-list-option *ngFor="let glitch of glitchesList" [value]="glitch" [ngStyle]="{ display : isGlitchInFilteredList(glitch) ? 'block' : 'none' }" [disabled]="!isGlitchInFilteredList(glitch)" >
                         <a class="image-link" [ngClass]="{ 'disabled-link' : !glitch.link}" [href]="glitch.link" target="_blank" rel="noopener noreferrer">
                             <mat-icon class="material-icons-outlined">smart_display</mat-icon>
                         </a>
