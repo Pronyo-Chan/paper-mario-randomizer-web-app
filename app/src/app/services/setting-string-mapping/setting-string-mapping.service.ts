@@ -255,7 +255,6 @@ export class SettingStringMappingService {
           var glitchesSubstring = '';
           while((settingString[i]) != ')') {
             glitchesSubstring += settingString[i];
-            console.log(glitchesSubstring);
             i++;
           }
           formGroup.controls[settingModel.key].setValue(this.decodeGlitches(glitchesSubstring))

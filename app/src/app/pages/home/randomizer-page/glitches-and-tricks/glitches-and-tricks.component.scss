@@ -5,15 +5,28 @@
     flex-wrap: wrap;
 
     .tricks-section {
-        margin-left: 5rem;
+        margin-left: 3rem;
         .glitches-list {
             padding-right: 1rem;
             max-height: 40rem;
             min-height: 15rem;
             overflow-y: auto;
             overflow-x: hidden;
-            width: 570px;
+            width: 620px;
         }
+
+        .glitches-list::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+          }
+        .glitches-list::-webkit-scrollbar-track {
+            background-color: variables.$beige-background-secondary;
+            border-radius: 10px;
+          }
+        .glitches-list::-webkit-scrollbar-thumb {
+            background-color: variables.$yellow-stat-border;
+            border-radius: 10px;
+          }
     }
 
     
@@ -71,3 +84,4 @@ a.disabled-link {
     cursor: default;
     opacity: 0;
 }
+

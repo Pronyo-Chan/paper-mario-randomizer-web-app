@@ -1,5 +1,5 @@
 import { FormGroup } from '@angular/forms';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import glitchesJson from '../../../../utilities/glitches.json'
 import { LogicGlitch } from 'src/app/entities/logicGlitch';
 
@@ -52,11 +52,9 @@ export class GlitchesAndTricksComponent implements OnInit {
     let glitchesFormControl = this.formGroup.get('glitches')
     for (const filteredGlitch of this.filteredGlitches) {
       if(!glitchesFormControl.value.some(g => g == filteredGlitch)) {
-        console.log(this.filteredGlitches)
         glitchesFormControl.setValue([...glitchesFormControl.value, filteredGlitch])
       }
     }
-    console.log(this.filteredGlitches)
   }
 
   public disableAll() {
@@ -73,5 +71,4 @@ export class GlitchesAndTricksComponent implements OnInit {
     let newGlitchesArray = glitchesFormControl.value.filter(enabledGlitch => enabledGlitch != glitch)
     glitchesFormControl.setValue(newGlitchesArray)
   }
-
 }
