@@ -2,6 +2,7 @@
     <mat-card-content class=settings-card-content>
         <div class="table-container">
             <div class="filter-section">
+                
                 <div class="setting-element input-element">
                     <app-tooltip-span spanText="Filter"></app-tooltip-span>
                     <input type="text"
@@ -19,6 +20,7 @@
                         <option *ngFor="let location of locationsList">{{location}}</option>
                     </select>
                 </div>
+
                 <div>
                     <button class = 'yellow-button' (click)="enableAll()" [disabled]="!filteredGlitches.length" >
                         <span>Enable All</span>
@@ -29,6 +31,7 @@
                 </div>
                 
             </div>
+
             <div class="tricks-section">
                 <h2>Available tricks</h2>
                 <mat-selection-list  #glitches class="glitches-list" formControlName="glitches">
@@ -37,11 +40,11 @@
                             <mat-icon class="material-icons-outlined">smart_display</mat-icon>
                         </a>
                         <app-tooltip-span [tooltipText]="glitch.description" [spanText]="glitch.name"></app-tooltip-span>
-                        
                     </mat-list-option>
                     <span class="no-results" *ngIf="!filteredGlitches.length">No Results</span>
                 </mat-selection-list>
             </div>
+
             <div class="tricks-section">
                 <h2> Enabled tricks</h2>
                 <mat-list class="glitches-list">

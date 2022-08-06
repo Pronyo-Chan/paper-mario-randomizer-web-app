@@ -12,7 +12,6 @@ import { SushieSprite } from './enum/sushieSprite';
 import { BowsersCastleMode } from './enum/bowsersCastleMode';
 
 export interface SettingsResponse{
-    EnabledGlitches: string[];
     SeedID: string;
     CreationDate: Date;
     StarRodModVersion: number;

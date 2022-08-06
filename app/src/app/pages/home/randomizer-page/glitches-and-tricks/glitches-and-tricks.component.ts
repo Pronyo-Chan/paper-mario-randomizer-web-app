@@ -9,8 +9,6 @@ import { LogicGlitch } from 'src/app/entities/logicGlitch';
   styleUrls: ['./glitches-and-tricks.component.scss']
 })
 export class GlitchesAndTricksComponent implements OnInit {
-  // TODO: There's a bug where ctrl+A will toggle all, even hidden
-
   public readonly MIN_AMOUNT_OF_CHARS = 2;
   public readonly DEFAULT_LOCATION = "(all)";
 
@@ -33,7 +31,6 @@ export class GlitchesAndTricksComponent implements OnInit {
     this.locationsList = [this.DEFAULT_LOCATION].concat(this.glitchesList.map(g => g.location));
     this.locationsList= [...new Set(this.locationsList)] // Remove duplicates
     this.locationsList.sort((a, b) => a.localeCompare(b)) // Sort alphabetically
-    
   }
 
   public filter() {

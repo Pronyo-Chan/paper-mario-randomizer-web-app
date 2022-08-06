@@ -27,9 +27,7 @@
             background-color: variables.$yellow-stat-border;
             border-radius: 10px;
           }
-    }
-
-    
+    }    
 }
 mat-selection-list, mat-list {
     .mat-list-item {
@@ -42,9 +40,7 @@ mat-selection-list, mat-list {
             font-size: 25px;
             position: relative;
             top: 7px;
-            
         }
-        
     }
 }
 
@@ -84,4 +80,3 @@ a.disabled-link {
     cursor: default;
     opacity: 0;
 }
-

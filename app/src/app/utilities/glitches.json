@@ -370,7 +370,7 @@
     "name": "Bow-less Tubba's Castle",
     "settingName": "BowlessTubbasCastle",
     "link": "https://www.youtube.com/watch?v=CTp5rZrgoGY",
-    "description": "With Speedy Spin, Tubba and the sentinels can be bypassed without hiding with Bow.",
+    "description": "With proper movement, Tubba and the sentinels can be bypassed without hiding with Bow. Speedy Spin is only required for the Spike Trap room.",
     "location": "Tubba's Castle",
     "id": "R"
   },
@@ -426,7 +426,7 @@
     "name": "Gourmet Guy Skip (Parakarry)",
     "settingName": "GourmetGuySkipParakarry",
     "link": "https://papermarioarchives.com/#/Gourmet_Guy_Skip",
-    "description": "Parakarry's ability can be used to have a consistent setup to reach the perfect location to spin and clip out of bounds and reach the pink switch.",
+    "description": "Parakarry's ability can be used to have a consistent setup and reach the perfect location to spin and clip out of bounds, then reach the pink switch.",
     "location": "ToyBox",
     "id": ":"
   },
@@ -450,7 +450,7 @@
     "name": "Raph Skip (English)",
     "settingName": "RaphSkipEnglish",
     "link": "https://www.youtube.com/watch?v=ogzj33iA9AI",
-    "description": "You climb a tree to the east of Yoshi Village with neutral jumps, then go out of bounds and reach the volcano's entrance without using Raphael's zipline.",
+    "description": "You climb a tree to the east of Yoshi Village with neutral jumps, then go out of bounds and reach the volcano's entrance without using Raphael's zipline. The loading zone leading to the big tree can also be reached that way.",
     "location": "Jade Jungle",
     "id": "["
   },
@@ -674,7 +674,7 @@
     "name": "Break Stone Blocks with Ultra Boots",
     "settingName": "BreakMetalBlocksWithUltraBoots",
     "link": "",
-    "description": "Tornado Jumps with the Ultra Boots can actually break stone blocks. This can be used to get the prologue repel gel early and access the first 3 warp pipes in the sewers without the Super Hammer.",
+    "description": "Tornado Jumps with the Ultra Boots can break stone blocks. This can be used to get the prologue repel gel early and access the first 3 warp pipes in the sewers without the Super Hammer.",
     "location": "Global",
     "id": "w"
   },
@@ -690,7 +690,7 @@
     "name": "Break Yellow Blocks with Super Boots",
     "settingName": "BreakYellowBlocksWithSuperBoots",
     "link": "https://www.youtube.com/watch?v=eHyZx-WnXD0",
-    "description": "Spin Jumps with the Super Boots can actually break yellow blocks. In practice this is only useful for the prologue bottom of cliff block, as you can get on it with neutral jumps.",
+    "description": "Spin Jumps with the Super Boots can break yellow blocks. In practice this is only useful for the prologue bottom of cliff block, as you can get on it with neutral jumps.",
     "location": "Global",
     "id": "y"
   },
