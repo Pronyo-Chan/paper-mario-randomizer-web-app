@@ -16,6 +16,8 @@ import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
 import { SpriteSetting } from 'src/app/entities/enum/spriteSetting';
 import { Constants } from 'src/app/utilities/constants';
 import { Hammer } from 'src/app/entities/enum/hammer';
+import glitchesJson from '../../../../utilities/glitches.json'
+import { LogicGlitch } from 'src/app/entities/logicGlitch';
 
 interface SettingRow {
   name: string;
@@ -35,12 +37,19 @@ export class SettingsInfoComponent implements OnInit {
   public expirationDate: Date;
 
   public copiedToClipboard = false;
+
+  public glitchesList: LogicGlitch[];
+  public enabledGlitches: string[];
   
   public constructor() { }
 
   public ngOnInit(): void {
     this.expirationDate = new Date(this.seedInfo.CreationDate)
     this.expirationDate.setDate(this.expirationDate.getDate() + 30)
+
+    this.glitchesList = glitchesJson;
+    this.enabledGlitches = [];
+
     this.initSettingRows();
   }
 
@@ -48,6 +57,11 @@ export class SettingsInfoComponent implements OnInit {
     this.addColorSettings(); // Custom treatment for colors because there are 2settings in DB for one user setting
     this.addMysterySetting();
     for (var key in this.seedInfo) {
+      let enabledGlitch = this.glitchesList.find(g => g.settingName == key && this.seedInfo[key] == true)
+      if(enabledGlitch) {
+        this.enabledGlitches.push(enabledGlitch.name);
+        continue; // Skip glitches to treat them separately
+      }
       var cleanSettingName = pascalToVerboseString(key)
       switch(key){
         case 'StartWithPartners': 
@@ -127,6 +141,10 @@ export class SettingsInfoComponent implements OnInit {
       }
     }
     this.settingRows.sort((a, b) => a.name.localeCompare(b.name))
+
+    if(this.enabledGlitches.length) {
+      this.settingRows.push({name: 'Enabled Glitches / Tricks', value: this.enabledGlitches.join(',\n')} as SettingRow);
+    }
   }
 
   private inverseStringBoolean(value: boolean) {

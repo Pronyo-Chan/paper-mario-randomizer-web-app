@@ -1,0 +1,82 @@
+@use '../../../../../variables';
+
+.table-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .tricks-section {
+        margin-left: 3rem;
+        .glitches-list {
+            padding-right: 1rem;
+            max-height: 40rem;
+            min-height: 15rem;
+            overflow-y: auto;
+            overflow-x: hidden;
+            width: 620px;
+        }
+
+        .glitches-list::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+          }
+        .glitches-list::-webkit-scrollbar-track {
+            background-color: variables.$beige-background-secondary;
+            border-radius: 10px;
+          }
+        .glitches-list::-webkit-scrollbar-thumb {
+            background-color: variables.$yellow-stat-border;
+            border-radius: 10px;
+          }
+    }    
+}
+mat-selection-list, mat-list {
+    .mat-list-item {
+        
+        border: solid !important; 
+        border-width: 3px 3px 1px 3px !important;    
+        border-color: variables.$yellow-stat-border !important;
+
+        mat-icon {
+            font-size: 25px;
+            position: relative;
+            top: 7px;
+        }
+    }
+}
+
+h2 {
+    font-family: gluten;
+    text-align: center;
+}
+
+span.no-results {
+    font-family: gluten;
+    font-size: 18px;
+    justify-content: center;
+    display: flex;
+    color:red;
+    margin-top: 1rem;
+}
+
+.yellow-button {
+    width: 120px;
+}
+
+.remove-button {
+    border: none;
+    background: none;
+    float: right;
+    cursor: pointer;
+    color: variables.$yellow-stat-main
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 30%;
+}
+
+a.disabled-link {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0;
+}

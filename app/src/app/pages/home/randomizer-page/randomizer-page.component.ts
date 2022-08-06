@@ -12,7 +12,7 @@ import { RandomizerService } from './../../../services/randomizer.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
 import {tap, catchError} from 'rxjs/operators'
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../utilities/custom.validators'
 import { DifficultySetting } from 'src/app/entities/enum/difficultySetting';
 import { Router } from '@angular/router';
@@ -194,6 +194,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         romanNumerals: new FormControl(false),
         randomPitch: new FormControl(false),
       }),
+      glitches: new FormControl([])
     });
 
     this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(

@@ -1,3 +1,4 @@
+import { LogicGlitch } from 'src/app/entities/logicGlitch';
 import { Badges } from './../../entities/enum/badges';
 import { KeyItems } from './../../entities/enum/keyItems';
 import { Constants } from './../../utilities/constants';
@@ -6,6 +7,7 @@ import { CharacterSpriteSetting } from './../../entities/characterSpriteSetting'
 import { FormGroup, AbstractControl } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { Items } from 'src/app/entities/enum/items';
+import glitchesJson from '../../utilities/glitches.json'
 
 interface SettingModel {compressedString: string, key: string, type: string, map?: SettingModel[]};
 
@@ -142,6 +144,7 @@ export class SettingStringMappingService {
     { compressedString: "(o", key: "openLocations", type: "formGroup", map: this.openLocationsMap},
     { compressedString: "(p", key: "partners", type: "formGroup", map: this.partnersMap},
     { compressedString: "(q", key: "qualityOfLife", type: "formGroup", map: this.qualityOfLifeMap},
+    { compressedString: "g", key: "glitches", type: "glitches"},
   ];
 
   constructor() { }
@@ -170,6 +173,9 @@ export class SettingStringMappingService {
             break;
           case "items":
             compressedString += this.encodeItems(nestedFormElement.value, settingModel)
+            break;
+          case "glitches":
+            compressedString += this.encodeGlitches(nestedFormElement.value, settingModel)
             break;
         
           default:
@@ -243,6 +249,16 @@ export class SettingStringMappingService {
           }
           formGroup.controls[settingModel.key].setValue(this.decodeItems(itemsSubstring))
           break;
+        
+        case "glitches":
+          i++;
+          var glitchesSubstring = '';
+          while((settingString[i]) != ')') {
+            glitchesSubstring += settingString[i];
+            i++;
+          }
+          formGroup.controls[settingModel.key].setValue(this.decodeGlitches(glitchesSubstring))
+          break;
       
         case "removed":
           i++
@@ -305,6 +321,15 @@ export class SettingStringMappingService {
     return settingModel.compressedString + allItemsString;
   }
 
+  private encodeGlitches(enabledGlitches: LogicGlitch[], settingModel: SettingModel) {
+    var allGlitchesString = '';
+    for (const glitch of enabledGlitches) {
+      var glitchString = glitch.id;
+      allGlitchesString += glitchString;
+    }
+    return settingModel.compressedString + allGlitchesString;
+  }
+
   private decodeItems(itemValues: string): StartingItem[]{
     var i = 0;
     var items: StartingItem[] = [];
@@ -322,6 +347,18 @@ export class SettingStringMappingService {
       }
     }
     return items;
+  }
+
+  private decodeGlitches(glitchesValue: string): LogicGlitch[]{
+    const allGlitches: LogicGlitch[] = glitchesJson;
+    var i = 0;
+    var enabledGlitches: LogicGlitch[] = [];
+    while(i < glitchesValue.length) {
+      var glitch = allGlitches.find(g => g.id == glitchesValue[i])
+      i += 1;
+      enabledGlitches.push(glitch)
+    }
+    return enabledGlitches;
   }
 
   private indexOfNthOccurence(string, subString, n) {
