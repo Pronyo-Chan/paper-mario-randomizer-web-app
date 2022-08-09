@@ -132,7 +132,8 @@
                 "randomText": false,
                 "romanNumerals": false,
                 "randomPitch": false
-            }
+            },
+            "glitches": []
         }
     },
     {
@@ -191,7 +192,7 @@
             "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false,
-            "hiddenPanelVisibility": 0
+            "hiddenPanelVisibility": 1
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -268,7 +269,8 @@
             "randomText": false,
             "romanNumerals": false,
             "randomPitch": false
-          }
+          },
+          "glitches": []
         }
     },
     {
@@ -404,7 +406,8 @@
             "randomText": false,
             "romanNumerals": false,
             "randomPitch": false
-          }
+          },
+          "glitches": []
         }
     },
     {
@@ -540,7 +543,8 @@
             "randomText": false,
             "romanNumerals": false,
             "randomPitch": false
-          }
+          },
+          "glitches": []
         }
     },
     {
@@ -599,7 +603,7 @@
             "revealLogInHours": 7,
             "quizmoAlwaysAppears":false,
             "foliageItemHints":true,
-            "hiddenPanelVisibility": 0
+            "hiddenPanelVisibility": 1
          },
          "difficulty":{
             "difficultyMode":1,
@@ -681,7 +685,8 @@
             "randomText":false,
             "romanNumerals": false,
             "randomPitch": false
-         }
+         },
+         "glitches": []
       }
     },
     {
