@@ -256,8 +256,9 @@ export class RandomizerService {
       AllowItemHints: settingsForm.get('difficulty').get('allowItemHints').value,
       IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value,
       ShuffleBlocks: settingsForm.get('items').get('shuffleBlocks').value,
-      BigChestShuffle: settingsForm.get('items').get('bigChestShuffle').value,
       RandomPitch: settingsForm.get('cosmetics').get('randomPitch').value,
+      HiddenPanelVisibility: settingsForm.get('qualityOfLife').get('hiddenPanelVisibility').value ? 1 : 0,
+      GearShuffleMode: settingsForm.get('items').get('gearShuffleMode').value,
 
       // Glitches: Goomba Region
       PrologueGelEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "PrologueGelEarly"),

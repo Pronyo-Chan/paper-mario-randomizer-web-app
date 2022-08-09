@@ -122,7 +122,8 @@ export interface SettingsResponse{
     IncludeRadioTradeEvent: boolean;
     ShuffleBlocks: boolean;
     RandomPitch: boolean;
-    BigChestShuffle: boolean;
+    HiddenPanelVisibility: number;
+    GearShuffleMode: number;
 
     // Glitches: Goomba Region
     PrologueGelEarly: boolean

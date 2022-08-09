@@ -70,7 +70,8 @@ export class SettingStringMappingService {
     { compressedString: "l", key: "includeLetters", type: "number"},
     { compressedString: "r", key: "includeRadioTradeEvent", type: "bool"},
     { compressedString: "b", key: "shuffleBlocks", type: "bool"},
-    { compressedString: "h", key: "bigChestShuffle", type: "bool"}
+    { compressedString: "h", key: "bigChestShuffle", type: "removed"},
+    { compressedString: "g", key: "gearShuffleMode", type: "number"}
   ]
 
   public readonly marioStatsMap: SettingModel [] = [
@@ -133,6 +134,7 @@ export class SettingStringMappingService {
     { compressedString: "l", key: "writeSpoilerLog", type: "bool"},
     { compressedString: "f", key: "foliageItemHints", type: "bool"},
     { compressedString: "t", key: "revealLogInHours", type: "number"},
+    { compressedString: "v", key: "hiddenPanelVisibility", type: "bool"},
   ]
 
   public readonly settingsMap: SettingModel[] = [

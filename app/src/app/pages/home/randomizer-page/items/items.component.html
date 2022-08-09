@@ -44,9 +44,18 @@
             <mat-slide-toggle formControlName='shuffleBlocks'></mat-slide-toggle>
             <app-tooltip-span spanText="Shuffle Super/Multicoin Blocks" tooltipText="Shuffles the locations of the Super Blocks and Multicoin Brick Blocks together."></app-tooltip-span>
         </div>  
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='bigChestShuffle'></mat-slide-toggle>
-            <app-tooltip-span spanText="Big Chest Shuffle" tooltipText="Shuffles the hammer and boots upgrades between the big chests."></app-tooltip-span>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Gear Shuffle" tooltipText="Vanilla: Boots and Hammers are kept in their default locations.
+            
+                                                                   Gear Location Shuffle: Every big chest and the bush in Jr. Troopa's playground may contain hammer and boot upgrades.
+                                                                   
+                                                                   Full Shuffle: Boots and Hammer upgrades can be found anywhere in the game, and big chests / the bush may hold any item.">
+            </app-tooltip-span>
+            <select formControlName='gearShuffleMode'>
+                <option [ngValue]="0">Vanilla</option>
+                <option [ngValue]="1">Gear Location Shuffle</option>
+                <option [ngValue]="2">Full Shuffle</option>
+            </select> 
         </div>  
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Letter Delivery Rewards" 

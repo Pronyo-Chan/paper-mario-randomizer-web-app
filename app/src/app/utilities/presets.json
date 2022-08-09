@@ -14,7 +14,7 @@
                 "includeLetters": 0,
                 "includeRadioTradeEvent": false,
                 "shuffleBlocks": false,
-                "bigChestShuffle": false
+                "gearShuffleMode": 0
             },
             "gameplay": {
                 "randomBadgesBP": 0,
@@ -54,7 +54,8 @@
                 "writeSpoilerLog": true,
                 "revealLogInHours": 0,
                 "quizmoAlwaysAppears": false,
-                "foliageItemHints": true
+                "foliageItemHints": true,
+                "hiddenPanelVisibility": 1
             },
             "difficulty": {
                 "difficultyMode": 2,
@@ -149,7 +150,7 @@
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
-            "bigChestShuffle": false
+            "gearShuffleMode": 2
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -189,7 +190,8 @@
             "writeSpoilerLog": true,
             "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
-            "foliageItemHints": false
+            "foliageItemHints": false,
+            "hiddenPanelVisibility": 0
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -284,7 +286,7 @@
             "includeLetters": 1,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
-            "bigChestShuffle": true
+            "gearShuffleMode": 1
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -324,7 +326,8 @@
             "writeSpoilerLog": true,
             "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
-            "foliageItemHints": false
+            "foliageItemHints": false,
+            "hiddenPanelVisibility": 0
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -419,7 +422,7 @@
             "includeLetters": 3,
             "includeRadioTradeEvent": true,
             "shuffleBlocks": true,
-            "bigChestShuffle": true
+            "gearShuffleMode": 2
           },
           "gameplay": {
             "randomBadgesBP": 3,
@@ -459,7 +462,8 @@
             "writeSpoilerLog": true,
             "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
-            "foliageItemHints": false
+            "foliageItemHints": false,
+            "hiddenPanelVisibility": 0
           },
           "difficulty": {
             "difficultyMode": 1,
@@ -554,7 +558,7 @@
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
-            "bigChestShuffle": false
+            "gearShuffleMode": 0
          },
          "gameplay":{
             "randomBadgesBP":1,
@@ -594,7 +598,8 @@
             "writeSpoilerLog":true,
             "revealLogInHours": 7,
             "quizmoAlwaysAppears":false,
-            "foliageItemHints":true
+            "foliageItemHints":true,
+            "hiddenPanelVisibility": 0
          },
          "difficulty":{
             "difficultyMode":1,

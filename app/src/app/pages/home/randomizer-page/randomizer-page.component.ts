@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { CoinColor } from 'src/app/entities/enum/coinColor';
 import { Boots } from 'src/app/entities/enum/boots';
+import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -101,7 +102,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includeLetters: new FormControl(LettersMode.Vanilla),
         includeRadioTradeEvent: new FormControl(false),
         shuffleBlocks: new FormControl(false),
-        bigChestShuffle: new FormControl(false),
+        gearShuffleMode: new FormControl(GearShuffleMode.Vanilla),
       }),
       gameplay: new FormGroup({
         randomBadgesBP: new FormControl(0),
@@ -141,7 +142,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         writeSpoilerLog: new FormControl(true),
         revealLogInHours: new FormControl(0),
         quizmoAlwaysAppears: new FormControl(false),
-        foliageItemHints: new FormControl(false),        
+        foliageItemHints: new FormControl(false),
+        hiddenPanelVisibility: new FormControl(false),
       }),
       difficulty: new FormGroup({
         difficultyMode: new FormControl(DifficultySetting.Vanilla),

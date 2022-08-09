@@ -18,6 +18,8 @@ import { Constants } from 'src/app/utilities/constants';
 import { Hammer } from 'src/app/entities/enum/hammer';
 import glitchesJson from '../../../../utilities/glitches.json'
 import { LogicGlitch } from 'src/app/entities/logicGlitch';
+import { HiddenPanelVisibilityMode } from 'src/app/entities/enum/hiddenPanelVisibilityMode';
+import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
 
 interface SettingRow {
   name: string;
@@ -85,6 +87,12 @@ export class SettingsInfoComponent implements OnInit {
           break;
         case 'BowsersCastleMode':
           this.settingRows.push({name: cleanSettingName, value: BowsersCastleMode[this.seedInfo[key]]})
+          break;
+        case 'HiddenPanelVisibility':
+          this.settingRows.push({name: cleanSettingName, value: HiddenPanelVisibilityMode[this.seedInfo[key]]})
+          break;
+        case 'GearShuffleMode':
+          this.settingRows.push({name: cleanSettingName, value: GearShuffleMode[this.seedInfo[key]]})
           break;
         case 'StartingBoots':
           this.settingRows.push({name: cleanSettingName, value: Boots[this.seedInfo[key]]})

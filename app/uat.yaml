@@ -29,4 +29,4 @@ handlers:
   secure: always
   
 automatic_scaling:
-  max_instances: 2
+  max_instances: 1
