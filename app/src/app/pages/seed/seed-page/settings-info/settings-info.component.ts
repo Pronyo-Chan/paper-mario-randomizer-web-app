@@ -59,11 +59,14 @@ export class SettingsInfoComponent implements OnInit {
     this.addColorSettings(); // Custom treatment for colors because there are 2settings in DB for one user setting
     this.addMysterySetting();
     for (var key in this.seedInfo) {
-      let enabledGlitch = this.glitchesList.find(g => g.settingName == key && this.seedInfo[key] == true)
-      if(enabledGlitch) {
-        this.enabledGlitches.push(enabledGlitch.name);
+      if(this.glitchesList.find(g => g.settingName == key)) {
+        let enabledGlitch = this.glitchesList.find(g => g.settingName == key && this.seedInfo[key] == true)
+        if(enabledGlitch) {
+          this.enabledGlitches.push(enabledGlitch.name);
+        }
         continue; // Skip glitches to treat them separately
       }
+      
       var cleanSettingName = pascalToVerboseString(key)
       switch(key){
         case 'StartWithPartners': 
