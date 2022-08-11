@@ -29,6 +29,7 @@ describe('CosmeticsComponent', () => {
       marioSprite : new FormControl(),
       goombarioSprite : new FormControl(),
       kooperSprite : new FormControl(),
+      bombetteSprite : new FormControl(),
       bowSprite : new FormControl(),
       bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
       npcSetting: new FormControl(SpriteSetting.DefaultPalette),

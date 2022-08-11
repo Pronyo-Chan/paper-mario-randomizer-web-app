@@ -1,3 +1,4 @@
+import { BombetteSprite } from './../entities/enum/bombetteSprite';
 import { ParakarrySprite } from './../entities/enum/parakarrySprite';
 import { SushieSprite } from './../entities/enum/sushieSprite';
 import { WattSprite } from './../entities/enum/wattSprite';
@@ -52,6 +53,17 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: KooperSprite.Grey, optionDisplay: 'Grey'},
         {setting: SpriteSetting.RandomPick, paletteSelection: KooperSprite.Default, optionDisplay: 'Random Pick'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: KooperSprite.Default, optionDisplay: 'Random On Every Load'}
+      ];
+
+      public static BOMBETTE_OPTIONS : CharacterSpriteSetting[] = [
+        {setting: SpriteSetting.DefaultPalette, paletteSelection: BombetteSprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Orange, optionDisplay: 'Orange'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Purple, optionDisplay: 'Purple'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Green, optionDisplay: 'Green'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Yellow, optionDisplay: 'Yellow'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Blue, optionDisplay: 'Blue'},
+        {setting: SpriteSetting.RandomPick, paletteSelection: BombetteSprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: BombetteSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
 
       public static PARAKARRY_OPTIONS : CharacterSpriteSetting[] = [

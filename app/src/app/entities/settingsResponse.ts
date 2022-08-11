@@ -1,3 +1,4 @@
+import { ParakarrySprite } from './enum/parakarrySprite';
 import { KootFavorsMode } from './enum/kootFavorsMode';
 import { LettersMode } from './enum/lettersMode';
 import { ItemTrapMode } from './enum/itemTrapMode';
@@ -10,6 +11,7 @@ import { SpriteSetting } from "./enum/spriteSetting";
 import { WattSprite } from './enum/wattSprite';
 import { SushieSprite } from './enum/sushieSprite';
 import { BowsersCastleMode } from './enum/bowsersCastleMode';
+import { BombetteSprite } from './enum/bombetteSprite';
 
 export interface SettingsResponse{
     SeedID: string;
@@ -73,8 +75,10 @@ export interface SettingsResponse{
     GoombarioSprite: GoombarioSprite;
     KooperSetting: SpriteSetting;
     KooperSprite: KooperSprite;
+    BombetteSetting: SpriteSetting;
+    BombetteSprite: BombetteSprite;
     ParakarrySetting: SpriteSetting;
-    ParakarrySprite: KooperSprite;
+    ParakarrySprite: ParakarrySprite;
     BowSetting: SpriteSetting;
     BowSprite: BowSprite;
     WattSetting: SpriteSetting;

@@ -20,6 +20,7 @@ export class CosmeticsComponent implements OnInit, OnDestroy {
   public marioOptions = Constants.MARIO_OPTIONS;
   public goombarioOptions = Constants.GOOMBARIO_OPTIONS;
   public kooperOptions = Constants.KOOPER_OPTIONS;
+  public bombetteOptions = Constants.BOMBETTE_OPTIONS;
   public parakarryOptions = Constants.PARAKARRY_OPTIONS;
   public bowOptions = Constants.BOW_OPTIONS;
   public wattOptions = Constants.WATT_OPTIONS;
@@ -54,6 +55,7 @@ export class CosmeticsComponent implements OnInit, OnDestroy {
     this.initSpriteFormControl('marioSprite', this.marioOptions);
     this.initSpriteFormControl('goombarioSprite', this.goombarioOptions);
     this.initSpriteFormControl('kooperSprite', this.kooperOptions);
+    this.initSpriteFormControl('bombetteSprite', this.bombetteOptions);
     this.initSpriteFormControl('parakarrySprite', this.parakarryOptions);
     this.initSpriteFormControl('bowSprite', this.bowOptions);
     this.initSpriteFormControl('wattSprite', this.wattOptions);

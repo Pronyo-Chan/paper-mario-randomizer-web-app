@@ -177,6 +177,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       marioSprite : new FormControl(),
       goombarioSprite : new FormControl(),
       kooperSprite : new FormControl(),
+      bombetteSprite : new FormControl(),
       parakarrySprite : new FormControl(),
       bowSprite : new FormControl(),
       wattSprite: new FormControl(),

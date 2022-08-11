@@ -105,6 +105,11 @@
                     "paletteSelection": 0,
                     "optionDisplay": "Default"
                 },
+                "bombetteSprite": {
+                  "setting": 0,
+                  "paletteSelection": 0,
+                  "optionDisplay": "Default"
+                },
                 "parakarrySprite": {
                   "setting": 0,
                   "paletteSelection": 0,
@@ -238,6 +243,11 @@
               "optionDisplay": "Default"
             },
             "kooperSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "bombetteSprite": {
               "setting": 0,
               "paletteSelection": 0,
               "optionDisplay": "Default"
@@ -379,6 +389,11 @@
               "paletteSelection": 0,
               "optionDisplay": "Default"
             },
+            "bombetteSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
             "parakarrySprite": {
               "setting": 0,
               "paletteSelection": 0,
@@ -512,6 +527,11 @@
               "optionDisplay": "Default"
             },
             "kooperSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "bombetteSprite": {
               "setting": 0,
               "paletteSelection": 0,
               "optionDisplay": "Default"
@@ -657,6 +677,11 @@
                "setting":2,
                "paletteSelection":0,
                "optionDisplay":"Random Pick"
+            },
+            "bombetteSprite": {
+              "setting": 2,
+              "paletteSelection": 0,
+              "optionDisplay": "Random Pick"
             },
             "parakarrySprite":{
                "setting":0,

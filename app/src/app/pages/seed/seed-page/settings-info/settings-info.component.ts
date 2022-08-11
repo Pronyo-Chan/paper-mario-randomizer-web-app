@@ -183,6 +183,7 @@ export class SettingsInfoComponent implements OnInit {
     this.settingRows.push({name: 'Bow Color', value: this.getSpriteSettingName('Bow', this.seedInfo.BowSetting, this.seedInfo.BowSprite)} as SettingRow);
     this.settingRows.push({name: 'Goombario Color', value: this.getSpriteSettingName('Goombario', this.seedInfo.GoombarioSetting, this.seedInfo.GoombarioSprite)} as SettingRow);
     this.settingRows.push({name: 'Kooper Color', value: this.getSpriteSettingName('Kooper', this.seedInfo.KooperSetting, this.seedInfo.KooperSprite)} as SettingRow);
+    this.settingRows.push({name: 'Bombette Color', value: this.getSpriteSettingName('Bombette', this.seedInfo.BombetteSetting, this.seedInfo.BombetteSprite)} as SettingRow);
     this.settingRows.push({name: 'Mario Color', value: this.getSpriteSettingName('Mario', this.seedInfo.MarioSetting, this.seedInfo.MarioSprite)} as SettingRow);
     this.settingRows.push({name: 'Watt Color', value: this.getSpriteSettingName('Watt', this.seedInfo.WattSetting, this.seedInfo.WattSprite)} as SettingRow);
     this.settingRows.push({name: 'Sushie Color', value: this.getSpriteSettingName('Sushie', this.seedInfo.SushieSetting, this.seedInfo.SushieSprite)} as SettingRow);
