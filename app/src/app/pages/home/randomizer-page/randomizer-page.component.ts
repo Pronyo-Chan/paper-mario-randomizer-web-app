@@ -28,6 +28,7 @@ import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
 })
 export class RandomizerPageComponent implements OnInit, OnDestroy {
   public readonly GOOMBA_HAMMERLESS_START_ERROR = 'goombaHammerlessStart';
+  public readonly LACKING_SHUFFLE_HAMMERLESS_START_ERROR = 'toadTownHammerlessStart';
 
   public homepageLink;
   public formGroup: FormGroup
@@ -58,7 +59,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const errors = this.validateSettings();
     if(errors.length) {
       if (errors.some(e => e == this.GOOMBA_HAMMERLESS_START_ERROR)) {
-        this.seedGenError = "Hammerless Start in Goomba Village is impossible. Please change your settings and try again."
+        this.seedGenError = "Hammerless Start in Goomba Village is impossible with these settings."
+        return;
+      }else if (errors.some(e => e == this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)) {
+        this.seedGenError = "Hammerless Start is impossible without shuffled partners or full gear shuffle."
         return;
       }
     }
@@ -209,8 +213,27 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     const startingMap = this.formGroup.get('openLocations').get('startingMap').value;
     const startingHammer = this.formGroup.get('marioStats').get('startingHammer').value;
-    if ( startingMap == StartingMap.GoombaVillage && startingHammer == Hammer.Hammerless) {
+    const startingBoots = this.formGroup.get('marioStats').get('startingBoots').value;
+    const gearShuffleMode = this.formGroup.get('items').get('gearShuffleMode').value;
+    const isGeneralShuffleEnabled = this.formGroup.get('items').get('shuffleItems').value;
+    const isPartnerShuffleEnabled = this.formGroup.get('partners').get('shufflePartners').value;
+    const isBombetteStartingPartner = this.formGroup.get('partners').get('startWithPartners').get('bombette').value
+
+
+    const isBreakingYellowBlocksWithSuperBootsEnabled = this.formGroup.get('glitches').value
+      .some(enabledGlitch => enabledGlitch.settingName == "BreakYellowBlocksWithSuperBoots");
+
+    if ( startingMap == StartingMap.GoombaVillage &&
+         startingHammer == Hammer.Hammerless &&
+         !(startingBoots >= Boots.Super && isBreakingYellowBlocksWithSuperBootsEnabled) &&
+         gearShuffleMode != GearShuffleMode['Full Shuffle'] &&
+         (!isGeneralShuffleEnabled || (!isPartnerShuffleEnabled && !isBombetteStartingPartner))
+    ) {
       errors.push(this.GOOMBA_HAMMERLESS_START_ERROR)
+    }
+
+    if ( startingHammer == Hammer.Hammerless && (!isGeneralShuffleEnabled || (!isPartnerShuffleEnabled && gearShuffleMode != GearShuffleMode['Full Shuffle']))) {
+      errors.push(this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)
     }
 
     return errors;
