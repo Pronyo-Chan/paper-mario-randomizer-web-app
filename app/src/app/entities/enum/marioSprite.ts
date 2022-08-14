@@ -4,5 +4,7 @@ export enum MarioSprite {
     Wario = 2,
     Waluigi = 3,
     Fire = 4,
-    Maker = 5
+    Ice = 5,
+    Maker = 6,
+    Classic = 7
 }

@@ -29,7 +29,9 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Wario, optionDisplay: 'Wario'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Waluigi, optionDisplay: 'Waluigi'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Fire, optionDisplay: 'Fire'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Ice, optionDisplay: 'Ice'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Maker, optionDisplay: 'Maker'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Classic, optionDisplay: 'Classic'},
         {setting: SpriteSetting.RandomPick, paletteSelection: MarioSprite.Default, optionDisplay: 'Random Pick'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: MarioSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
@@ -88,6 +90,8 @@ export class Constants {
       public static WATT_OPTIONS : CharacterSpriteSetting[] = [
         {setting: SpriteSetting.DefaultPalette, paletteSelection: WattSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: WattSprite.Blue, optionDisplay: 'Blue'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: WattSprite.Pink, optionDisplay: 'Pink'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: WattSprite.Green, optionDisplay: 'Green'},
         {setting: SpriteSetting.RandomPick, paletteSelection: WattSprite.Default, optionDisplay: 'Random Pick'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: WattSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
