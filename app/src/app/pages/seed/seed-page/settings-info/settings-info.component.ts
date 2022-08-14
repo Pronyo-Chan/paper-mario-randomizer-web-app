@@ -136,6 +136,7 @@ export class SettingsInfoComponent implements OnInit {
         case 'PrettySpoilerlog':
         case 'PaletteOffset':
         case 'CosmeticsOffset':
+        case 'AudioOffset':
         case 'IncludeFavors':
         case 'PeachCastleReturnPipe':
         case 'ChallengeMode':
@@ -210,6 +211,8 @@ export class SettingsInfoComponent implements OnInit {
         return Constants.GOOMBARIO_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;  
       case 'Kooper':
         return Constants.KOOPER_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;        
+      case 'Bombette':
+        return Constants.BOMBETTE_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;        
       case 'Mario':
         return Constants.MARIO_OPTIONS.find(option => option.setting == settingValue && option.paletteSelection == pickedSpriteValue).optionDisplay;            
       case 'Watt':
