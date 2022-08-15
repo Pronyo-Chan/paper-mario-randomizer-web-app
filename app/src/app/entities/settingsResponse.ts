@@ -15,6 +15,7 @@ import { BombetteSprite } from './enum/bombetteSprite';
 
 export interface SettingsResponse{
     SeedID: string;
+    SeedHashItems: string[];
     CreationDate: Date;
     StarRodModVersion: number;
     SettingsString: string;

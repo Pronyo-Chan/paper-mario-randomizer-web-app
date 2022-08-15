@@ -1,5 +1,6 @@
 <div class="seed-info">
     <p>Seed ID: <span class="seed-detail">{{seedInfo.SeedID}}</span></p>
+    <p *ngIf="seedInfo.SeedHashItems">Seed Hash Items: <span class="seed-detail">{{seedInfo.SeedHashItems.join(", ")}}</span></p>
     <p>Creation Date: <span class="seed-detail">{{seedInfo.CreationDate | date}}</span></p>
     <p>Expiration Date: <span class="seed-detail">{{expirationDate | date}}</span> <span style="color: red;">*</span></p>
     <div *ngIf="seedInfo.SettingsString" class="input-label">
