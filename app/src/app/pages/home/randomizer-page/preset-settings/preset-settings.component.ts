@@ -4,6 +4,8 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import presetsJson from  '../../../../utilities/presets.json';
 import { MatDialog } from '@angular/material/dialog';
+import { LogicGlitch } from 'src/app/entities/logicGlitch';
+import glitchesJson from '../../../../utilities/glitches.json'
 
 @Component({
   selector: 'app-preset-settings',
@@ -70,6 +72,11 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
       preset = this.customPresets.find(p => p.name == this.selectedPreset);
     }
     this.formGroup.patchValue(preset['settings'])
+
+    // Special handling for glitches objects not loaded properly with patchValue
+    const allGlitches: LogicGlitch[] = glitchesJson;
+    let enabledGlitches = allGlitches.filter(g => preset['settings'].glitches.some(enabledGlitch => enabledGlitch.settingName == g.settingName))
+    this.formGroup.get('glitches').setValue(enabledGlitches)
 
     // Fix for old presets that have invalid Koot value
     this.fixPresetBackwardsCompatibility();
