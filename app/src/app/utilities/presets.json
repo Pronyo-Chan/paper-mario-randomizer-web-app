@@ -79,7 +79,10 @@
                 "startingStarPower": 0,
                 "startingBoots": 0,
                 "startingHammer": 0,
-                "startingItems": []
+                "startingItems": [],
+                "startWithRandomItems":false,
+                "randomItemsMin":0,
+                "randomItemsMax":16
             },
             "openLocations": {
                 "magicalSeedsRequired": 4,
@@ -221,7 +224,10 @@
             "startingStarPower": 0,
             "startingBoots": 0,
             "startingHammer": 0,
-            "startingItems": []
+            "startingItems": [],
+            "startWithRandomItems":false,
+            "randomItemsMin":0,
+            "randomItemsMax":16
           },
           "openLocations": {
             "magicalSeedsRequired": 0,
@@ -363,7 +369,10 @@
             "startingStarPower": 0,
             "startingBoots": 0,
             "startingHammer": 0,
-            "startingItems": []
+            "startingItems": [],
+            "startWithRandomItems":false,
+            "randomItemsMin":0,
+            "randomItemsMax":16
           },
           "openLocations": {
             "magicalSeedsRequired": 4,
@@ -505,7 +514,10 @@
             "startingStarPower": 0,
             "startingBoots": 0,
             "startingHammer": 0,
-            "startingItems": []
+            "startingItems": [],
+            "startWithRandomItems":false,
+            "randomItemsMin":0,
+            "randomItemsMax":16
           },
           "openLocations": {
             "magicalSeedsRequired": 5,
