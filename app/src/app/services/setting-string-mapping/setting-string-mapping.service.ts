@@ -306,6 +306,8 @@ export class SettingStringMappingService {
           return Constants.WATT_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 's':
         return Constants.SUSHIE_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'o':
+        return Constants.BOMBETTE_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       default:
         throw Error('Unexpected key found while parsing sprite settings: ' + compressedKey)
     }
