@@ -177,10 +177,10 @@ export interface SettingsResponse{
     // Glitches: Dry Dry Ruins
     ArtifactJump: boolean
     RuinsKeyLakiJump: boolean
-    ParakarylessSecondSandRoomUltraBoots: boolean
-    ParakarylessSecondSandRoomNormalBoots: boolean
-    ParakarylessSuperHammerRoomUltraBoots: boolean
-    ParakarylessSuperHammerRoomNormalBoots: boolean
+    ParakarrylessSecondSandRoomUltraBoots: boolean
+    ParakarrylessSecondSandRoomNormalBoots: boolean
+    ParakarrylessSuperHammerRoomUltraBoots: boolean
+    ParakarrylessSuperHammerRoomNormalBoots: boolean
     RuinsLocksSkipClippy: boolean
 
     // Glitches: Boo's Mansion

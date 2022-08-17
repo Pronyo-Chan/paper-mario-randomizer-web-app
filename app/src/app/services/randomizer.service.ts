@@ -311,10 +311,10 @@ export class RandomizerService {
       // Glitches: Dry Dry Ruins
       ArtifactJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ArtifactJump"),
       RuinsKeyLakiJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsKeyLakiJump"),
-      ParakarylessSecondSandRoomUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarylessSecondSandRoomUltraBoots"),
-      ParakarylessSecondSandRoomNormalBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarylessSecondSandRoomNormalBoots"),
-      ParakarylessSuperHammerRoomUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarylessSuperHammerRoomUltraBoots"),
-      ParakarylessSuperHammerRoomNormalBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarylessSuperHammerRoomNormalBoots"),
+      ParakarrylessSecondSandRoomUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSecondSandRoomUltraBoots"),
+      ParakarrylessSecondSandRoomNormalBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSecondSandRoomNormalBoots"),
+      ParakarrylessSuperHammerRoomUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSuperHammerRoomUltraBoots"),
+      ParakarrylessSuperHammerRoomNormalBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSuperHammerRoomNormalBoots"),
       RuinsLocksSkipClippy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsLocksSkipClippy"),
 
       // Glitches: Boo's Mansion
