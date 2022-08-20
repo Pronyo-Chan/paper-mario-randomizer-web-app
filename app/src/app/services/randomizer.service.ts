@@ -229,22 +229,22 @@ export class RandomizerService {
       StartingStarPower: settingsForm.get('marioStats').get('startingStarPower').value,
       StartingBoots: settingsForm.get('marioStats').get('startingBoots').value,
       StartingHammer: settingsForm.get('marioStats').get('startingHammer').value,
-      StartingItem0: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[0]?.value,
-      StartingItem1: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[1]?.value,
-      StartingItem2: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[2]?.value,
-      StartingItem3: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[3]?.value,
-      StartingItem4: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[4]?.value,
-      StartingItem5: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[5]?.value,
-      StartingItem6: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[6]?.value,
-      StartingItem7: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[7]?.value,
-      StartingItem8: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[8]?.value,
-      StartingItem9: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[9]?.value,
-      StartingItemA: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[10]?.value,
-      StartingItemB: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[11]?.value,
-      StartingItemC: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[12]?.value,
-      StartingItemD: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[13]?.value,
-      StartingItemE: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[14]?.value,
-      StartingItemF: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[15]?.value,
+      StartingItem0: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[0]?.value ?? 0),
+      StartingItem1: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[1]?.value ?? 0),
+      StartingItem2: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[2]?.value ?? 0),
+      StartingItem3: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[3]?.value ?? 0),
+      StartingItem4: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[4]?.value ?? 0),
+      StartingItem5: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[5]?.value ?? 0),
+      StartingItem6: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[6]?.value ?? 0),
+      StartingItem7: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[7]?.value ?? 0),
+      StartingItem8: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[8]?.value ?? 0),
+      StartingItem9: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[9]?.value ?? 0),
+      StartingItemA: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[10]?.value ?? 0),
+      StartingItemB: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[11]?.value ?? 0),
+      StartingItemC: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[12]?.value ?? 0),
+      StartingItemD: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[13]?.value ?? 0),
+      StartingItemE: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[14]?.value ?? 0),
+      StartingItemF: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[15]?.value ?? 0),
       ItemScarcity: settingsForm.get('difficulty').get('itemScarcity').value,
       StarWaySpiritsNeeded: settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
       FoliageItemHints: settingsForm.get('qualityOfLife').get('foliageItemHints').value,
@@ -395,8 +395,11 @@ export class RandomizerService {
     if(request.StartWithRandomPartners) {
       request.RandomPartnersMin = settingsForm.get('partners').get('randomPartnersMin').value;
       request.RandomPartnersMax = settingsForm.get('partners').get('randomPartnersMax').value;
+      request.StartWithPartners = {} as StartingPartners;
       
     }else {
+      request.RandomPartnersMin = 1
+      request.RandomPartnersMax = 1
       request.StartWithPartners = {
         Goombario: settingsForm.get('partners').get('startWithPartners').get('goombario').value,
         Kooper: settingsForm.get('partners').get('startWithPartners').get('kooper').value,
