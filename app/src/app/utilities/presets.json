@@ -55,6 +55,7 @@
                 "revealLogInHours": 0,
                 "quizmoAlwaysAppears": false,
                 "foliageItemHints": true,
+                "cookWithoutFryingPan": true,
                 "hiddenPanelVisibility": 1
             },
             "difficulty": {
@@ -200,6 +201,7 @@
             "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false,
+            "cookWithoutFryingPan": false,
             "hiddenPanelVisibility": 1
           },
           "difficulty": {
@@ -345,6 +347,7 @@
             "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false,
+            "cookWithoutFryingPan": false,
             "hiddenPanelVisibility": 0
           },
           "difficulty": {
@@ -490,6 +493,7 @@
             "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false,
+            "cookWithoutFryingPan": false,
             "hiddenPanelVisibility": 0
           },
           "difficulty": {
@@ -635,6 +639,7 @@
             "revealLogInHours": 7,
             "quizmoAlwaysAppears":false,
             "foliageItemHints":true,
+            "cookWithoutFryingPan": false,
             "hiddenPanelVisibility": 1
          },
          "difficulty":{

@@ -148,6 +148,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         quizmoAlwaysAppears: new FormControl(false),
         foliageItemHints: new FormControl(false),
         hiddenPanelVisibility: new FormControl(false),
+        cookWithoutFryingPan: new FormControl(false),
       }),
       difficulty: new FormGroup({
         difficultyMode: new FormControl(DifficultySetting.Vanilla),

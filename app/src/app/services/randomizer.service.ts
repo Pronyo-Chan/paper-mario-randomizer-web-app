@@ -262,6 +262,7 @@ export class RandomizerService {
       ShuffleBlocks: settingsForm.get('items').get('shuffleBlocks').value,
       RandomPitch: settingsForm.get('cosmetics').get('randomPitch').value,
       HiddenPanelVisibility: settingsForm.get('qualityOfLife').get('hiddenPanelVisibility').value ? 1 : 0,
+      CookWithoutFryingPan: settingsForm.get('qualityOfLife').get('cookWithoutFryingPan').value,
       GearShuffleMode: settingsForm.get('items').get('gearShuffleMode').value,
 
       // Glitches: Goomba Region

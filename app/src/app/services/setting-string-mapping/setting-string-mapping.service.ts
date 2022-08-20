@@ -136,6 +136,7 @@ export class SettingStringMappingService {
     { compressedString: "f", key: "foliageItemHints", type: "bool"},
     { compressedString: "t", key: "revealLogInHours", type: "number"},
     { compressedString: "v", key: "hiddenPanelVisibility", type: "bool"},
+    { compressedString: "o", key: "cookWithoutFryingPan", type: "bool"},
   ]
 
   public readonly settingsMap: SettingModel[] = [

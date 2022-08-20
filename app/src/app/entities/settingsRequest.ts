@@ -120,6 +120,7 @@ export interface SettingsRequest {
     ShuffleBlocks: boolean;
     RandomPitch: boolean;
     HiddenPanelVisibility: number;
+    CookWithoutFryingPan: boolean;
     GearShuffleMode: number;
 
     // Glitches: Goomba Region
