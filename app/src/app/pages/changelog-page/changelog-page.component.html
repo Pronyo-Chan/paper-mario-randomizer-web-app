@@ -26,7 +26,19 @@
             <li> Fixed the Star Piece counter in Mario's house being inaccurate.</li>
             <li> Fixed the vine crash that could still occur when using the homeward shroom in Koopa Village and closing the pause menu too soon.</li>
             <li> Fixed an issue that made it possible to spawn items infinitely from a bush in Koopa Village.</li>
+            <li> Fixed an issue where having 2 berries of the same type placed in the same map could cause spawning issues.</li>
             <li> Changed Yellow Yoshi's behavior back to vanilla; he can now only be given food after completing Ch5.</li>
+            <li> Buzzar's whirlwind attack will now have its damage scale properly.</li>
+            <li> The displayed damage values for Buzzar's whirlwind attack and Huff Puff's wind blow will now accurately depict the scaled values.</li>
+        </ul>
+
+        <h2>Major Mod Adjustment: Merlow Overhaul</h2>
+        <ul>
+            <li> The price of Merlow's items has been adjusted so that all of the game's star pieces must be spent to buy all of the shop's items.</li>
+            <li> Since all seeds must be guaranteed to be beatable, none of his sold goods can be key items or partners with the Shopsanity setting.</li>
+            <li> However, Merlow now has 6 new items in a bonus reward system. For every 10 star pieces spent, Merlow will give the player a reward, which can be required in logic with Shopsanity enabled.</li>
+            <li> Merlow's dialogue has been changed and the bonus rewards can be checked at any time.</li>
+            <li> Quizmo's amount of questions and rewards has been cut from a total of 64 to 16, as part of this rebalance.</li>
         </ul>
 
         <h2>Options</h2>
@@ -50,6 +62,12 @@
             <li> This option gives a distinct appearance to hidden panels, making them more easy to find.</li>
         </ul>
 
+        <h3>Cook Without Frying Pan (new)</h3>
+        <ul>
+            <li> By default, the randomizer will now require Mario to give Tayce T. her Frying Pan back to be able to cook.</li>
+            <li> Enabling this option brings back the previous behavior and allows cooking from the start.</li>
+        </ul>
+
         <h3>Shorten Cutscenes (change)</h3>
         <ul>
             <li> The cutscene that plays when talking to Muskular after Ch.4 has been shortened.</li>
@@ -70,13 +88,23 @@
             <li> Using recipes to obtain a Tasty Tonic, Sleepy Sheep and Life Shroom for Koot favors is now in logic.
                  As a consequence, it's possible that these items won't be found in a replenishable location before they are required.
             </li>
+            <li> Having a Cake in a replenishable location will now longer be guaranteed. Instead, the logic will always expect Mario to cook a Cake Mix to obtain one.</li>
             <li> Spoiler Log: The Yellow Yoshi trade item location has been renamed to "Yellow Yoshi Food Reward".</li>
+            <li> Spoiler Log: The sphere log now contains a section listing all the items that are considered forever out of logic.</li>
+            <li> Fixed an issue when running the generator locally where the script would crash if the debug folder wasn't manually created.</li>
+            <li> When running the generator locally, the spoiler log file will now be generated in the target rom folder by default.</li>
         </ul>
 
         <h2>Website</h2>
         <ul>
+            <li> On the seed page, a new info is now displayed: Seed Hash Items. These are the item names representing your seed, viewed ingame on the title screen.</li>
             <li> New validations were added to prevent trying to generate seeds with impossible Hammerless settings.</li>
             <li> The tips page has been updated with new information.</li>
+        </ul>
+
+        <h2>Racetime.gg Bot</h2>
+        <ul>
+            <li> When generating a seed using the bot in a racetime room, the Seed Hash Items will now be writtem in the room description.</li>
         </ul>
     </mat-card>
 
