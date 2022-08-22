@@ -1,5 +1,5 @@
 export enum GearShuffleMode {
     "Vanilla" = 0,
-    "Gear Loation Shuffle" = 1,
+    "Gear Location Shuffle" = 1,
     "Full Shuffle" = 2
 }
