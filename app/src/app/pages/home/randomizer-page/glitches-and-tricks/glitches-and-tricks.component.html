@@ -16,7 +16,7 @@
 
             <div class="setting-element dropdown-element">
                 <app-tooltip-span spanText="Location"></app-tooltip-span>
-                <select [(ngModel)]="selectedLocation" [ngModelOptions]="{standalone: true}">
+                <select [(ngModel)]="selectedLocation" [ngModelOptions]="{standalone: true}" (ngModelChange)="filter()">
                     <option *ngFor="let location of locationsList">{{location}}</option>
                 </select>
             </div>

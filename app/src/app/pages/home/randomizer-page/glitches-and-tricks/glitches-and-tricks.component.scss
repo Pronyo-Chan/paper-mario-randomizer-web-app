@@ -13,7 +13,8 @@
             max-height: 40rem;
             overflow-y: auto;
             overflow-x: hidden;
-            width: 100%;
+            min-width: 620px;
+            max-width: 100%;
         }
 
         .glitches-list::-webkit-scrollbar {
