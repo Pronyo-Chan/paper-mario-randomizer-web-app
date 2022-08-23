@@ -1,3 +1,5 @@
+import { ParakarrySprite } from './enum/parakarrySprite';
+import { BombetteSprite } from './enum/bombetteSprite';
 import { KootFavorsMode } from './enum/kootFavorsMode';
 import { LettersMode } from './enum/lettersMode';
 import { BowSprite } from './enum/bowSprite';
@@ -23,8 +25,10 @@ export interface CosmeticsRequest {
     GoombarioSprite: GoombarioSprite;
     KooperSetting: SpriteSetting;
     KooperSprite: KooperSprite;
+    BombetteSetting: SpriteSetting;
+    BombetteSprite: BombetteSprite;
     ParakarrySetting: SpriteSetting;
-    ParakarrySprite: KooperSprite;
+    ParakarrySprite: ParakarrySprite;
     BowSetting: SpriteSetting;
     BowSprite: BowSprite;
     WattSetting: SpriteSetting;

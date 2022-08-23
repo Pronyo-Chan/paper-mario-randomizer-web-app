@@ -1,0 +1,705 @@
+[
+  {
+    "name": "Early Prologue Repel Gel",
+    "settingName": "PrologueGelEarly",
+    "link": "https://www.youtube.com/watch?v=6Mt0qnNLEW4",
+    "description": "By jumping from the nearby brick block , you can get on top of the stone block and either use Kooper or Bombette to get the item from the hidden block.",
+    "location": "Goomba Region",
+    "id": "!"
+  },
+  {
+    "name": "Odd Key Early",
+    "settingName": "OddKeyEarly",
+    "link": "https://www.youtube.com/watch?v=nPFBwsC0w_g",
+    "description": "To obtain the item inside the blue house early, stand next to where the Odd Key is outside the blue house, face right, spin, hold left, and hammer.",
+    "location": "Toad Town",
+    "id": "#"
+  },
+  {
+    "name": "Blue House Skip (Jump Only)",
+    "settingName": "BlueHouseSkip",
+    "link": "https://papermarioarchives.com/#/Blue_House_Skip",
+    "description": "Get access to the blue house sewer pipe early. There are various methods to do so without any items/partners (see link).",
+    "location": "Toad Town",
+    "id": "$"
+  },
+  {
+    "name": "Blue House Skip (Laki Clip)",
+    "settingName": "BlueHouseSkipLaki",
+    "link": "https://www.youtube.com/watch?v=YWgSSh5leQA",
+    "description": "Get access to the blue house sewer pipe early. A Laki Clip can be performed on the bottom right corner of the house to get inside it.",
+    "location": "Toad Town",
+    "id": "´"
+  },
+  {
+    "name": "Blue House Skip (Toad Lure)",
+    "settingName": "BlueHouseSkipToadLure",
+    "link": "https://papermarioarchives.com/#/Blue_House_Skip",
+    "description": "Get access to the blue house sewer pipe early. A Toad can be lured near the ledge and then be used to clip out of bounds, to get inside the house.",
+    "location": "Toad Town",
+    "id": "µ"
+  },
+  {
+    "name": "Enter ToyBox Without Bow",
+    "settingName": "BowlessToyBox",
+    "link": "https://www.youtube.com/watch?v=JGAnjOt_yM4",
+    "description": "Enter ToyBox without Bow by using the blue Toad to go out of bounds and move in front of the box.",
+    "location": "Toad Town",
+    "id": "%"
+  },
+  {
+    "name": "Enter Storeroom Without Key (Parakarry)",
+    "settingName": "EarlyStoreroomParakarry",
+    "link": "https://www.youtube.com/watch?v=cHIw02L5tXE",
+    "description": "Get access to the storeroom by clipping in the shop wall with Parakarry.",
+    "location": "Toad Town",
+    "id": "&"
+  },
+  {
+    "name": "Enter Storeroom Without Key (Hammer)",
+    "settingName": "EarlyStoreroomHammer",
+    "link": "",
+    "description": "Get access to the storeroom by using the blue Toad to go out of bounds and move inside the storeroom, similar to 'Enter ToyBox Without Bow'.",
+    "location": "Toad Town",
+    "id": "'"
+  },
+  {
+    "name": "Whale Early (LZS)",
+    "settingName": "WhaleEarly",
+    "link": "https://www.youtube.com/watch?v=9QeYdUI04O0",
+    "description": "Enter the whale without hitting it through LZS. Only useful when starting hammerless.",
+    "location": "Toad Town",
+    "id": "*"
+  },
+  {
+    "name": "Sushie-less Toad Town Star Piece",
+    "settingName": "SushielessToadTownStarPiece",
+    "link": "https://www.youtube.com/watch?v=-cmNZSa5BPE",
+    "description": "After ch4 is completed, you can enter the house and NPC push a Toad toward the wall with Bombette until you can clip outside with the hammer.",
+    "location": "Toad Town",
+    "id": "+"
+  },{
+    "name": "Clippy Boots Stone Block Skip",
+    "settingName": "ClippyBootsStoneBlockSkip",
+    "link": "https://www.youtube.com/watch?v=OZpLHGiyBoc",
+    "description": "In the winding path leading to the Ultra Boots chest, the stone block can be bypassed by entering clippy state with Lakilester and jumping on the block, then on top of the door arch.",
+    "location": "Toad Town Tunnels",
+    "id": ","
+  },
+  {
+    "name": "Clippy Boots Metal Block Skip",
+    "settingName": "ClippyBootsMetalBlockSkip",
+    "link": "https://www.youtube.com/watch?v=nRV-FC8cQ0E",
+    "description": "In the room before the Ultra Boots chest, the metal block can be bypassed by entering clippy state with Lakilester and jumping on the block, then on top of the door arch.",
+    "location": "Toad Town Tunnels",
+    "id": "-"
+  },
+  {
+    "name": "Island Pipe Blooper Skip",
+    "settingName": "IslandPipeBlooperSkip",
+    "link": "https://www.youtube.com/watch?v=8AtoIDq_n_c",
+    "description": "Reach and activate the pipe to Yoshi's Island without Sushie or east side sewer access by clipping out of bounds with Lakilester.",
+    "location": "Toad Town Tunnels",
+    "id": "."
+  },
+  {
+    "name": "Parakarry-less Sewer Star Piece",
+    "settingName": "ParakarrylessSewerStarPiece",
+    "link": "https://www.youtube.com/watch?v=6kl7SytyE1w",
+    "description": "By jumping from the moving platform near the top, the middle platform can be reached, from where you can obtain the item with Kooper.",
+    "location": "Toad Town Tunnels",
+    "id": "0"
+  },
+  {
+    "name": "Sewer Blocks Without Ultra Boots",
+    "settingName": "SewerBlocksWithoutUltraBoots",
+    "link": "https://www.youtube.com/watch?v=8kDX_f28QUo",
+    "description": "By gaining height from jumping on a Dark Koopa, the highest blocks in the sewers can be reached with regular boots. This trick also applies to the 3 blocks in the room before the Ultra Boots chest.",
+    "location": "Toad Town Tunnels",
+    "id": "1"
+  },
+  {
+    "name": "Kooper-less Pleasant Path Star Piece (clippy)",
+    "settingName": "KooperlessPleasantPathStarPiece",
+    "link": "https://www.youtube.com/watch?v=-u-viCdLmRs",
+    "description": "By entering clippy state with Lakilester, it is possible to go out of bounds and reach the island star piece without Kooper.",
+    "location": "Pleasant Path",
+    "id": "2"
+  },
+  {
+    "name": "Invisible Bridge Clip (LZS)",
+    "settingName": "InvisibleBridgeClipLzs",
+    "link": "https://www.youtube.com/watch?v=v_-zJJidXls",
+    "description": "The bridge before Koopa Bros Fortress can be passed without Kooper by going out of bounds around the west loading zone with precise jumps and movement.",
+    "location": "Pleasant Path",
+    "id": "3"
+  },
+  {
+    "name": "Invisible Bridge Clip (Laki)",
+    "settingName": "InvisibleBridgeClipLaki",
+    "link": "https://papermarioarchives.com/#/Invisible_Bridge_Clip",
+    "description": "The bridge before Koopa Bros Fortress can be passed without Kooper by clipping through the fence with Lakilester.",
+    "location": "Pleasant Path",
+    "id": "4"
+  },
+  {
+    "name": "Kooper-less Pleasant Path Thunder Bolt",
+    "settingName": "KooperlessPleasantPathThunderBolt",
+    "link": "https://www.youtube.com/watch?v=jaAVQ75UPYM",
+    "description": "The Brick Block on Pleasant Path can be broken without Kooper by baiting a Spiked Goomba under the block and jumping on it.",
+    "location": "Pleasant Path",
+    "id": "5"
+  },
+  {
+    "name": "Bombette-less KBF FP Plus (LZS)",
+    "settingName": "BombettelessKbfFpPlusLZS",
+    "link": "https://www.youtube.com/watch?v=aw_dfibiv7Y",
+    "description": "Using LZS, the FP Plus chest in front of Koopa Bros Fortress can be reached without bombing the wall and using the pipe.",
+    "location": "Koopa Bros Fortress",
+    "id": "6"
+  },
+  {
+    "name": "Bombette-less KBF FP Plus (Laki)",
+    "settingName": "BombettelessKbfFpPlusLaki",
+    "link": "https://www.youtube.com/watch?v=m0gGvQ0jAIc",
+    "description": "Using a Laki Clip, the FP Plus chest in front of Koopa Bros Fortress can be reached without bombing the wall and using the pipe.",
+    "location": "Koopa Bros Fortress",
+    "id": "~"
+  },
+  {
+    "name": "Laki Jailbreak",
+    "settingName": "LakiJailbreak",
+    "link": "https://papermarioarchives.com/#/Laki_Jailbreak",
+    "description": "Using Lakilester, it is possible to Laki teleport into the left jail cell to get the item, and then use a Laki Jump to reach the upper left door.",
+    "location": "Koopa Bros Fortress",
+    "id": "7"
+  },
+  {
+    "name": "Bombette-less Right Fortress Jail Key",
+    "settingName": "BombettelessRightFortressJailKey",
+    "link": "https://youtu.be/Utra8y4qUe0",
+    "description": "Using Lakilester, it is possible to clip into the left jail cell and then use a Laki Jump to get out of bounds and reach the right jail cell.",
+    "location": "Koopa Bros Fortress",
+    "id": "8"
+  },
+  {
+    "name": "Mt. Rugged Quake Hammer + Letter with Laki",
+    "settingName": "MtRuggedQuakeHammerAndLetterWithLaki",
+    "link": "https://www.youtube.com/watch?v=vfmsVGbir38",
+    "description": "Using Lakilester, it is possible to clip into a corner and go out of bounds to get the Quake Hammer and Letter in Mt.Rugged that usually require Parakarry/Kooper.",
+    "location": "Mt. Rugged",
+    "id": "9"
+  },
+  {
+    "name": "Parakarry-less Mt.Rugged Seed",
+    "settingName": "ParakarrylessMtRuggedSeed",
+    "link": "https://www.youtube.com/watch?v=itO-PdEOgwg",
+    "description": "You can clip out of bounds by spinning against the wall above the Mt.Rugged Bub-ulb and reach it without Parakarry.",
+    "location": "Mt. Rugged",
+    "id": ";"
+  },
+  {
+    "name": "Buzzar Gap Skip (Clippy)",
+    "settingName": "BuzzarGapSkipClippy",
+    "link": "https://www.youtube.com/watch?v=urYFCIWXVSE",
+    "description": "By entering clippy state with Lakilester, you can go out of bounds and reach Buzzar without Parakarry.",
+    "location": "Mt. Rugged",
+    "id": "<"
+  },
+  {
+    "name": "Parakarry-less Mt.Rugged Star Piece",
+    "settingName": "ParakarrylessMtRuggedStarPiece",
+    "link": "https://youtu.be/FACK2EnM4Hk",
+    "description": "By riding Lakilester on the upper ledge and falling from it holding left, the star piece ledge can be reached without Parakarry.",
+    "location": "Mt. Rugged",
+    "id": "="
+  },
+  {
+    "name": "Desert Brick Block Item With Parakarry",
+    "settingName": "DesertBrickBlockItemWithParakarry",
+    "link": "https://www.youtube.com/watch?v=Bdr6tOdBSKQ",
+    "description": "The item sitting on a brick block in the desert can be obtained without Kooper or Ultra Boots, by clipping with Parakarry.",
+    "location": "Dry Dry Desert",
+    "id": ">"
+  },
+  {
+    "name": "Early Ruins (Laki Jump)",
+    "settingName": "EarlyRuinsLakiJump",
+    "link": "https://youtu.be/9NilI5ZQya0?t=45",
+    "description": "The ruins loading zone is always present, so it's possible to enter it without the pulse stone by performing a Laki Jump where the door would be.",
+    "location": "Dry Dry Desert",
+    "id": "?"
+  },
+  {
+    "name": "Early Ruins (Ultra Boots)",
+    "settingName": "EarlyRuinsUltraBoots",
+    "link": "https://www.youtube.com/watch?v=9NilI5ZQya0",
+    "description": "The ruins loading zone is always present, so it's possible to enter it without the pulse stone by performing a Tornado Jump where the door would be.",
+    "location": "Dry Dry Desert",
+    "id": "@"
+  },
+  {
+    "name": "Artifact Jump With Laki",
+    "settingName": "ArtifactJump",
+    "link": "https://www.youtube.com/watch?v=z0lDfFuh_Fw",
+    "description": "The artifact item can be obtained without breaking the hammer block by performing a Laki Jump on the edge of the door's platform.",
+    "location": "Dry Dry Ruins",
+    "id": "A"
+  },
+  {
+    "name": "Ruins Key Laki Jump",
+    "settingName": "RuinsKeyLakiJump",
+    "link": "https://www.youtube.com/watch?v=qzmli1V9wBE&t=9231s",
+    "description": "The last Ruins Key can be obtained without breaking the hammer block by performing a Laki Jump under it",
+    "location": "Dry Dry Ruins",
+    "id": "B"
+  },
+  {
+    "name": "Parkarry-less Second Sand Room (Ultra Boots)",
+    "settingName": "ParakarrylessSecondSandRoomUltraBoots",
+    "link": "https://www.youtube.com/watch?v=24w0WskOUto",
+    "description": "The gap to the bombable wall before the second sand room can be reached by performing a Tornado Jump under the platform's corner.",
+    "location": "Dry Dry Ruins",
+    "id": "C"
+  },
+  {
+    "name": "Parkarry-less Second Sand Room (Jump)",
+    "settingName": "ParakarrylessSecondSandRoomNormalBoots",
+    "link": "https://www.youtube.com/watch?v=tnbl-YnkDjc",
+    "description": "The gap to the bombable wall before the second sand room can be reached by performing a precise jump under the stairs to the left.",
+    "location": "Dry Dry Ruins",
+    "id": "E"
+  },
+  {
+    "name": "Parkarry-less Super Hammer Room (Ultra Boots)",
+    "settingName": "ParakarrylessSuperHammerRoomUltraBoots",
+    "link": "https://youtu.be/24w0WskOUto?t=14",
+    "description": "The gap before the Super Hammer room can be reached by performing a Tornado Jump under the platform's corner.",
+    "location": "Dry Dry Ruins",
+    "id": "F"
+  },
+  {
+    "name": "Parkarry-less Super Hammer Room (Jump)",
+    "settingName": "ParakarrylessSuperHammerRoomNormalBoots",
+    "link": "https://youtu.be/24w0WskOUto?t=26",
+    "description": "The gap before the Super Hammer room can be reached by jumping against the wall at a certain angle to get extra speed in the air.",
+    "location": "Dry Dry Ruins",
+    "id": "G"
+  },
+  {
+    "name": "Ruins Locks Skip (Clippy)",
+    "settingName": "RuinsLocksSkipClippy",
+    "link": "https://www.youtube.com/watch?v=YRptoreBEwc",
+    "description": "Clippy can be used to skip the first three locks in pretty much identical ways to this video. Note that the third one is impossible once the 3 Pokies are defeated, therefore won't be in logic.",
+    "location": "Dry Dry Ruins",
+    "id": "H"
+  },
+  {
+    "name": "Record Skip (No Bombette push)",
+    "settingName": "RecordSkipNoBombettePush",
+    "link": "https://www.youtube.com/watch?v=h476QUnqgPA",
+    "description": "The chest in the record room can be opened by spinning and jumping in front of it, then pressing A quickly to open it.",
+    "location": "Boo's Mansion",
+    "id": "I"
+  },
+  {
+    "name": "Record Skip (Bombette push)",
+    "settingName": "RecordSkipBombettePush",
+    "link": "https://www.youtube.com/watch?v=WXSh8diHbOA",
+    "description": "By performing NPC Bombette Push on the Boo guarding the chest, it can be moved enough so the chest can be opened without the Record.",
+    "location": "Boo's Mansion",
+    "id": "J"
+  },
+  {
+    "name": "Boo's Portrait With Kooper",
+    "settingName": "BoosPortraitWithKooper",
+    "link": "https://www.youtube.com/watch?v=vBjio3LYbvQ",
+    "description": "By standing on the very edge of the platform, a shell toss can reach barely far enough to grab the portrait.",
+    "location": "Boo's Mansion",
+    "id": "K"
+  },
+  {
+    "name": "Boo's Portrait With Lakilester",
+    "settingName": "BoosPortraitWithLaki",
+    "link": "https://www.youtube.com/watch?v=1_YpkgRkKiM",
+    "description": "It is possible to perform a Laki Clip on the corner of a bookshelf and reach Boo's Portrait by going out of bounds.",
+    "location": "Boo's Mansion",
+    "id": "L"
+  },
+  {
+    "name": "Gusty Gulch Gate Skip (LZS)",
+    "settingName": "GustyGulchGateSkipLZS",
+    "link": "https://www.youtube.com/watch?v=m7egGLSQ2GU&t=2966s",
+    "description": "Using LZS, you can get out of bounds and skip the locked Gusty Gulch Gate",
+    "location": "Gusty Gulch",
+    "id": "M"
+  },
+  {
+    "name": "Kooper-less Gusty Gulch Dizzy Dial (Jump)",
+    "settingName": "KooperlessGustyGulchDizzyDialJump",
+    "link": "https://www.youtube.com/watch?v=Z6xTYD5noHc",
+    "description": "With tap jumps, the rock where the item stands can be climbed on.",
+    "location": "Gusty Gulch",
+    "id": "N"
+  },
+  {
+    "name": "Kooper-less Gusty Gulch Dizzy Dial (Laki)",
+    "settingName": "KooperlessGustyGulchDizzyDialLaki",
+    "link": "",
+    "description": "By entering clippy state with Laki, you can climb on the rock where the item stands.",
+    "location": "Gusty Gulch",
+    "id": "O"
+  },
+  {
+    "name": "Kooper-less Gusty Gulch Dizzy Dial (Parakarry)",
+    "settingName": "KooperlessGustyGulchDizzyDialParakarry",
+    "link": "https://clips.twitch.tv/CredulousBraveHorseradishCeilingCat-Q4g82ffPaojP8mAt",
+    "description": "Using Parakarry on the very edge, it is possible to barely reach the rock where the item stands.",
+    "location": "Gusty Gulch",
+    "id": "P"
+  },
+  {
+    "name": "Gusty Gulch Gap Skip",
+    "settingName": "GustyGulchGapSkip",
+    "link": "https://www.youtube.com/watch?v=L0ZFRrNEiME",
+    "description": "With tap jumps, the other side of the gap that usually requires Parakarry can be climbed on.",
+    "location": "Gusty Gulch",
+    "id": "Q"
+  },
+  {
+    "name": "Bow-less Tubba's Castle",
+    "settingName": "BowlessTubbasCastle",
+    "link": "https://www.youtube.com/watch?v=CTp5rZrgoGY",
+    "description": "With proper movement, Tubba and the sentinels can be bypassed without hiding with Bow. Speedy Spin is only required for the Spike Trap room.",
+    "location": "Tubba's Castle",
+    "id": "R"
+  },
+  {
+    "name": "Tubba's Table Laki Jump",
+    "settingName": "TubbasTableLakiJump",
+    "link": "https://www.youtube.com/watch?v=iS5ncvNTS9E",
+    "description": "Using a Laki Jump from under the table, you can reach the item on top of the table in Tubba's Castle without having access to the 2nd floor.",
+    "location": "Tubba's Castle",
+    "id": "S"
+  },
+  {
+    "name": "Tubba's Castle Super Boots Skip (Clippy)",
+    "settingName": "TubbasCastleSuperBootsSkip",
+    "link": "https://www.youtube.com/watch?v=A1nvOIhxIXI",
+    "description": "By entering clippy state with Lakilester, you can get out of bounds and reach the loading zone under the patched floor.",
+    "location": "Tubba's Castle",
+    "id": "T"
+  },
+  {
+    "name": "Parakarry-less Mega Rush",
+    "settingName": "ParakarrylessMegaRush",
+    "link": "https://www.youtube.com/watch?v=iRAFQj8BRxU",
+    "description": "With tap jumps, you can get on the corner of the bed and reach Mega Rush without Parakarry. There is also a LZS variation.",
+    "location": "Tubba's Castle",
+    "id": "U"
+  },
+  {
+    "name": "Parakarry-less Blue Station Building Star Piece",
+    "settingName": "ParakarrylessBlueBuildingStarPiece",
+    "link": "https://www.youtube.com/watch?v=rJ6nLYb-thQ",
+    "description": "By using Laki's ability, you can clip on the corner of a building and go out of bounds below the item, then collect it with a Kooper Shell Jump.",
+    "location": "ToyBox",
+    "id": "V"
+  },
+  {
+    "name": "Gourmet Guy Skip (Jump)",
+    "settingName": "GourmetGuySkipJump",
+    "link": "https://www.youtube.com/watch?v=PNiilwoKwPQ&t=5218s",
+    "description": "With precise jumps, you can clip into the west door arch at Pink Station to get out of bounds and reach the pink switch directly.",
+    "location": "ToyBox",
+    "id": "W"
+  },
+  {
+    "name": "Gourmet Guy Skip (Laki)",
+    "settingName": "GourmetGuySkipLaki",
+    "link": "https://www.youtube.com/watch?v=1gL-RAHt06E",
+    "description": "Using Laki's ability, you can clip into the west door arch at Pink Station to get out of bounds and reach the pink switch directly.",
+    "location": "ToyBox",
+    "id": "X"
+  },
+  {
+    "name": "Gourmet Guy Skip (Parakarry)",
+    "settingName": "GourmetGuySkipParakarry",
+    "link": "https://papermarioarchives.com/#/Gourmet_Guy_Skip",
+    "description": "Parakarry's ability can be used to have a consistent setup and reach the perfect location to spin and clip out of bounds, then reach the pink switch.",
+    "location": "ToyBox",
+    "id": ":"
+  },
+  {
+    "name": "Bow-less Green Station",
+    "settingName": "BowlessGreenStation",
+    "link": "https://www.youtube.com/watch?v=L2ydrifkDss",
+    "description": "Using Laki's ability, you can clip into the west wall to get out of bounds and walk inside the wall across the room.",
+    "location": "ToyBox",
+    "id": "Y"
+  },
+  {
+    "name": "Kooper-less Red Station Shooting Star",
+    "settingName": "KooperlessRedStationShootingStar",
+    "link": "https://youtu.be/Bdr6tOdBSKQ?t=10",
+    "description": "The item can be obtained with Parakarry's ability, using it on the edge of the platform and jumping at the very end.",
+    "location": "ToyBox",
+    "id": "Z"
+  },
+  {
+    "name": "Raph Skip (English)",
+    "settingName": "RaphSkipEnglish",
+    "link": "https://www.youtube.com/watch?v=ogzj33iA9AI",
+    "description": "You climb a tree to the east of Yoshi Village with neutral jumps, then go out of bounds and reach the volcano's entrance without using Raphael's zipline. The loading zone leading to the big tree can also be reached that way.",
+    "location": "Jade Jungle",
+    "id": "["
+  },
+  {
+    "name": "Chapter 5 Sushie Glitch",
+    "settingName": "Ch5SushieGlitch",
+    "link": "https://www.youtube.com/watch?v=xvxSUbCH55Q",
+    "description": "In the room with the Jade Raven statue, it's possible to bait the fuzzy enemy on the water. You can then get into a fight while riding Sushie, and run away to walk on water. From there you can skip past the statue, and changing maps puts you in a Sushie Glitch state, in which you can skip every Metal Block in the volcano.",
+    "location": "Jade Jungle",
+    "id": "¶"
+  },
+  {
+    "name": "Kooper-less Mt. Lavalava Pow Block",
+    "settingName": "KooperlessLavalavaPowBlock",
+    "link": "https://youtu.be/Bdr6tOdBSKQ?t=24",
+    "description": "The item can be obtained with Parakarry's ability, using it on the edge of the platform and jumping at the very end.",
+    "location": "Mt. Lavalava",
+    "id": "]"
+  },
+  {
+    "name": "Ultra Hammer Skip",
+    "settingName": "UltraHammerSkip",
+    "link": "https://youtu.be/qzmli1V9wBE?t=10324",
+    "description": "With a precise jump from the upper platform of the central volcano room, you can clip into the wall and get out of bounds to skip the metal block.",
+    "location": "Mt. Lavalava",
+    "id": "^"
+  },
+  {
+    "name": "Flarakarry",
+    "settingName": "Flarakarry",
+    "link": "https://papermarioarchives.com/#/Flarakarry",
+    "description": "The spike ball puzzle can be skipped by clipping into the east loading zone with Parakarry's ability.",
+    "location": "Mt. Lavalava",
+    "id": "_"
+  },
+  {
+    "name": "Parakarry-less Flarakarry (Bombette Push)",
+    "settingName": "ParakarrylessFlarakarryBombette",
+    "link": "https://www.youtube.com/watch?v=BpXqPM-_yAc",
+    "description": "Kolorado can be moved against the wall with Bombette NPC Pushes. He can then be used to squeeze into the loading zone and skip the spike ball puzzle.",
+    "location": "Mt. Lavalava",
+    "id": "`"
+  },  
+  {
+    "name": "Parakarry-less Flarakarry (Laki Teleport)",
+    "settingName": "ParakarrylessFlarakarryLaki",
+    "link": "https://clips.twitch.tv/SingleBadArugulaStoneLightning-EWUyXKBQg5HfcW8s",
+    "description": "A Laki teleport can be used to clip into the loading zone and skip the spike ball puzzle.",
+    "location": "Mt. Lavalava",
+    "id": "a"
+  },
+  {
+    "name": "Early Lakilster (LZS / Tree Clip)",
+    "settingName": "EarlyLakiLZS",
+    "link": "https://papermarioarchives.com/#/Early_Lakilester",
+    "description": "With either the LZS or Tree Clip method, Mario can get out of bounds and cross the thorns without Lakilester or a Bubble Berry",
+    "location": "Flower Fields",
+    "id": "b"
+  },
+  {
+    "name": "Early Lakilster (Bombette Push)",
+    "settingName": "EarlyLakiBombettePush",
+    "link": "https://papermarioarchives.com/#/Early_Lakilester",
+    "description": "The Bubble Plant can be pushed towards the wall with NPC Bombette pushes, and can then be used to clip out of bounds and cross the thorns without Lakilester or a Bubble Berry.",
+    "location": "Flower Fields",
+    "id": "c"
+  },
+  {
+    "name": "Bombette-less Mega Smash",
+    "settingName": "BombettelessMegaSmash",
+    "link": "https://www.youtube.com/watch?v=Xd5pmIqJ7kU",
+    "description": "The Mega Smash alcove can be reached by jumping from the stairs or from above instead of bombing the rock.",
+    "location": "Flower Fields",
+    "id": "d"
+  },
+  {
+    "name": "Sun Tower Skip (LZS)",
+    "settingName": "SunTowerSkip",
+    "link": "https://www.youtube.com/watch?v=lXa9LFyCdgA",
+    "description": "With precise jumps on the edge of the loading zone, you can go out of bounds and reach the sun without breaking the rock.",
+    "location": "Flower Fields",
+    "id": "e"
+  },
+  {
+    "name": "Yellow Berry Gate Skip (LZS)",
+    "settingName": "YellowBerryGateSkipLZS",
+    "link": "https://papermarioarchives.com/#/Yellow_Berry_Skip",
+    "description": "Using LZS, you can get out of bounds before the yellow berry gate and walk around it.",
+    "location": "Flower Fields",
+    "id": "f"
+  },
+  {
+    "name": "Yellow Berry Gate Skip (Laki)",
+    "settingName": "YellowBerryGateSkipLaki",
+    "link": "https://youtu.be/U7rYhGqJYXc?t=15",
+    "description": "While riding Laki, you can squeeze slightly behind the Yellow Plant and warp to the upper ledge / out of bounds by getting off at the right time.",
+    "location": "Flower Fields",
+    "id": "g"
+  },
+  {
+    "name": "Yellow Berry Gate Skip (Bombette Push)",
+    "settingName": "YellowBerryGateSkipBombettePush",
+    "link": "",
+    "description": "The Yellow Plant can be pushed towards the wall with NPC Bombette pushes, and can then be used to clip out of bounds and walk around the gate.",
+    "location": "Flower Fields",
+    "id": "h"
+  },
+  {
+    "name": "Red Berry Gate Skip (Bombette Push)",
+    "settingName": "RedBerryGateSkipBombettePush",
+    "link": "",
+    "description": "Clip through the gate by pushing the plant with NPC Bombette pushes (need better description and video).",
+    "location": "Flower Fields",
+    "id": "i"
+  },
+  {
+    "name": "Red Berry Gate Skip (Laki)",
+    "settingName": "RedBerryGateSkipLaki",
+    "link": "https://www.youtube.com/watch?v=U7rYhGqJYXc",
+    "description": "The gate can be clipped through by performing a Laki Teleport at the bottom of the gate.",
+    "location": "Flower Fields",
+    "id": "j"
+  },
+  {
+    "name": "Blue Berry Gate Skip (Bombette Push)",
+    "settingName": "BlueBerryGateSkipBombettePush",
+    "link": "",
+    "description": "Clip through the gate by pushing the plant with NPC Bombette pushes (need better description and video).",
+    "location": "Flower Fields",
+    "id": "k"
+  },
+  {
+    "name": "Blue Berry Gate Skip (Laki)",
+    "settingName": "BlueBerryGateSkipLaki",
+    "link": "https://youtu.be/U7rYhGqJYXc?t=10",
+    "description": "The gate can be clipped through by performing a Laki Teleport at the bottom of the gate.",
+    "location": "Flower Fields",
+    "id": "l"
+  },
+  {
+    "name": "Bubble Berry Tree Laki Jump",
+    "settingName": "BubbleBerryTreeLakiJump",
+    "link": "https://www.youtube.com/watch?v=HhqSyxFSI_U",
+    "description": "A Laki Jump can be performed below the Sushie deck to get on the tree's platform without raising the water.",
+    "location": "Flower Fields",
+    "id": "m"
+  },
+  {
+    "name": "Murder Solved Early (Laki)",
+    "settingName": "MurderSolvedEarlyLaki",
+    "link": "https://papermarioarchives.com/#/Murder_Solved_Early",
+    "description": "The murder mystery can be solved without the Warehouse Key by clipping into the locked house with a Laki Clip.",
+    "location": "Shiver Region",
+    "id": "n"
+  },
+  {
+    "name": "Murder Solved Early (Bombette Push)",
+    "settingName": "MurderSolvedEarlyBombettePush",
+    "link": "",
+    "description": "The murder mystery can be solved without the Warehouse Key by NPC pushing the penguin next to the house and using him to clip inside.",
+    "location": "Shiver Region",
+    "id": "o"
+  },
+  {
+    "name": "Chapter 7 Sushie Glitch",
+    "settingName": "Ch7SushieGlitch",
+    "link": "https://papermarioarchives.com/#/Chapter_7_Sushie_Glitch",
+    "description": "A sushie glitch can be performed on the deck to ride Sushie over the ground and clip through walls, allowing to skip Bucket/Scarf and the Kooper Duplighosts fight.",
+    "location": "Shiver Region",
+    "id": "p"
+  },
+  {
+    "name": "Shiver Mountain Hidden Block Without Ultra Boots (Laki)",
+    "settingName": "ShiverMountainHiddenBlockWithoutUltraBootsLaki",
+    "link": "https://www.youtube.com/watch?v=5sjIfda6YB4",
+    "description": "An item can be tossed on the brick block while getting off Laki. You can then clip out of bounds and perform a Kooper Shell Jump under the the block to get on it, then fall to hit the block on the way down.",
+    "location": "Shiver Region",
+    "id": "q"
+  },
+  {
+    "name": "Shiver Mountain Hidden Block Without Ultra Boots (No Laki)",
+    "settingName": "ShiverMountainHiddenBlockWithoutUltraBootsNoLaki",
+    "link": "",
+    "description": "It is possible, but very hard, to throw an item on the brick block even without the extra Laki height. You can then clip out of bounds and perform a Kooper Shell Jump under the the block to get on it, then fall to hit the block on the way down.",
+    "location": "Shiver Region",
+    "id": "r"
+  },
+  {
+    "name": "Mirror Clip",
+    "settingName": "MirrorClip",
+    "link": "https://papermarioarchives.com/#/Mirror_Clip",
+    "description": "A Laki Teleport can be performed to get behind the mirror in the first room without needing a blue or red key.",
+    "location": "Crystal Palace",
+    "id": "s"
+  },
+  {
+    "name": "Bow-less Bowser's Castle Basement",
+    "settingName": "BowlessBowsersCastleBasement",
+    "link": "https://www.youtube.com/watch?v=luISszEQ3-s",
+    "description": "The moving platform on the lava can be used to clip out of bounds while riding Laki and skip the part where Bow would be required.",
+    "location": "Bowser's Castle",
+    "id": "t"
+  },
+  {
+    "name": "Fast Flood Room With Kooper",
+    "settingName": "FastFloodRoomKooper",
+    "link": "https://youtu.be/Q58qKzRaqEM?t=156",
+    "description": "Using Laki Clips and a Kooper Super Jump, the Castle Key can be obtained without completing the entire water puzzle in Bowser's Castle.",
+    "location": "Bowser's Castle",
+    "id": "u"
+  },
+  {
+    "name": "Fast Flood Room With Bombette and Ultra Boots",
+    "settingName": "FastFloodRoomBombetteUltraBoots",
+    "link": "https://www.youtube.com/watch?v=Q58qKzRaqEM",
+    "description": "Using Laki Clips and Bombette for the bombable wall, the Castle Key can be obtained without completing the entire water puzzle in Bowser's Castle.",
+    "location": "Bowser's Castle",
+    "id": "v"
+  },
+  {
+    "name": "Break Stone Blocks with Ultra Boots",
+    "settingName": "BreakMetalBlocksWithUltraBoots",
+    "link": "",
+    "description": "Tornado Jumps with the Ultra Boots can break stone blocks. This can be used to get the prologue repel gel early and access the first 3 warp pipes in the sewers without the Super Hammer.",
+    "location": "Global",
+    "id": "w"
+  },
+  {
+    "name": "Knows Puzzle Solutions",
+    "settingName": "KnowsPuzzleSolutions",
+    "link": "",
+    "description": "Enabling this will make the logic assume you can solve puzzles without seeing the ingame solutions. The affected puzzles are: The 2 secret codes in Dry Dry Outpost's shop, the ruins stone puzzle and the Toy Box color puzzle.",
+    "location": "Global",
+    "id": "x"
+  },
+  {
+    "name": "Break Yellow Blocks with Super Boots",
+    "settingName": "BreakYellowBlocksWithSuperBoots",
+    "link": "https://www.youtube.com/watch?v=eHyZx-WnXD0",
+    "description": "Spin Jumps with the Super Boots can break yellow blocks. In practice this is only useful for the prologue bottom of cliff block, as you can get on it with neutral jumps.",
+    "location": "Global",
+    "id": "y"
+  },
+  {
+    "name": "Knows Hidden Blocks Locations",
+    "settingName": "KnowsHiddenBlocks",
+    "link": "",
+    "description": "Enabling this will put every hidden block in logic from the moment they are accessible, without regards to the player's ability to see hidden blocks.",
+    "location": "Global",
+    "id": "z"
+  }
+]

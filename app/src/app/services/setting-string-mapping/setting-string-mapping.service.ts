@@ -1,3 +1,4 @@
+import { LogicGlitch } from 'src/app/entities/logicGlitch';
 import { Badges } from './../../entities/enum/badges';
 import { KeyItems } from './../../entities/enum/keyItems';
 import { Constants } from './../../utilities/constants';
@@ -6,6 +7,7 @@ import { CharacterSpriteSetting } from './../../entities/characterSpriteSetting'
 import { FormGroup, AbstractControl } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { Items } from 'src/app/entities/enum/items';
+import glitchesJson from '../../utilities/glitches.json'
 
 interface SettingModel {compressedString: string, key: string, type: string, map?: SettingModel[]};
 
@@ -20,6 +22,7 @@ export class SettingStringMappingService {
     { compressedString: "c", key: "coinColor", type: "number"},
     { compressedString: "g", key: "goombarioSprite", type: "sprite"},
     { compressedString: "k", key: "kooperSprite", type: "sprite"},
+    { compressedString: "o", key: "bombetteSprite", type: "sprite"},
     { compressedString: "m", key: "menu", type: "number"},
     { compressedString: "p", key: "marioSprite", type: "sprite"},
     { compressedString: "n", key: "npcSetting", type: "number"},
@@ -68,7 +71,8 @@ export class SettingStringMappingService {
     { compressedString: "l", key: "includeLetters", type: "number"},
     { compressedString: "r", key: "includeRadioTradeEvent", type: "bool"},
     { compressedString: "b", key: "shuffleBlocks", type: "bool"},
-    { compressedString: "h", key: "bigChestShuffle", type: "bool"}
+    { compressedString: "h", key: "bigChestShuffle", type: "removed"},
+    { compressedString: "g", key: "gearShuffleMode", type: "number"}
   ]
 
   public readonly marioStatsMap: SettingModel [] = [
@@ -131,6 +135,8 @@ export class SettingStringMappingService {
     { compressedString: "l", key: "writeSpoilerLog", type: "bool"},
     { compressedString: "f", key: "foliageItemHints", type: "bool"},
     { compressedString: "t", key: "revealLogInHours", type: "number"},
+    { compressedString: "v", key: "hiddenPanelVisibility", type: "bool"},
+    { compressedString: "o", key: "cookWithoutFryingPan", type: "bool"},
   ]
 
   public readonly settingsMap: SettingModel[] = [
@@ -142,6 +148,7 @@ export class SettingStringMappingService {
     { compressedString: "(o", key: "openLocations", type: "formGroup", map: this.openLocationsMap},
     { compressedString: "(p", key: "partners", type: "formGroup", map: this.partnersMap},
     { compressedString: "(q", key: "qualityOfLife", type: "formGroup", map: this.qualityOfLifeMap},
+    { compressedString: "g", key: "glitches", type: "glitches"},
   ];
 
   constructor() { }
@@ -170,6 +177,9 @@ export class SettingStringMappingService {
             break;
           case "items":
             compressedString += this.encodeItems(nestedFormElement.value, settingModel)
+            break;
+          case "glitches":
+            compressedString += this.encodeGlitches(nestedFormElement.value, settingModel)
             break;
         
           default:
@@ -243,6 +253,16 @@ export class SettingStringMappingService {
           }
           formGroup.controls[settingModel.key].setValue(this.decodeItems(itemsSubstring))
           break;
+        
+        case "glitches":
+          i++;
+          var glitchesSubstring = '';
+          while((settingString[i]) != ')') {
+            glitchesSubstring += settingString[i];
+            i++;
+          }
+          formGroup.controls[settingModel.key].setValue(this.decodeGlitches(glitchesSubstring))
+          break;
       
         case "removed":
           i++
@@ -287,6 +307,8 @@ export class SettingStringMappingService {
           return Constants.WATT_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 's':
         return Constants.SUSHIE_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'o':
+        return Constants.BOMBETTE_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       default:
         throw Error('Unexpected key found while parsing sprite settings: ' + compressedKey)
     }
@@ -303,6 +325,15 @@ export class SettingStringMappingService {
       allItemsString += itemString;
     }
     return settingModel.compressedString + allItemsString;
+  }
+
+  private encodeGlitches(enabledGlitches: LogicGlitch[], settingModel: SettingModel) {
+    var allGlitchesString = '';
+    for (const glitch of enabledGlitches) {
+      var glitchString = glitch.id;
+      allGlitchesString += glitchString;
+    }
+    return settingModel.compressedString + allGlitchesString;
   }
 
   private decodeItems(itemValues: string): StartingItem[]{
@@ -322,6 +353,18 @@ export class SettingStringMappingService {
       }
     }
     return items;
+  }
+
+  private decodeGlitches(glitchesValue: string): LogicGlitch[]{
+    const allGlitches: LogicGlitch[] = glitchesJson;
+    var i = 0;
+    var enabledGlitches: LogicGlitch[] = [];
+    while(i < glitchesValue.length) {
+      var glitch = allGlitches.find(g => g.id == glitchesValue[i])
+      i += 1;
+      enabledGlitches.push(glitch)
+    }
+    return enabledGlitches;
   }
 
   private indexOfNthOccurence(string, subString, n) {

@@ -1,5 +1,114 @@
 
 <div class="main-page">
+
+    <mat-card class="settings-card">
+        <mat-card-title class="settings-title">0.14.0 (beta) (2022-08-23)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
+            <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins and Crystal Palace may look like they are hanging on an invisible ceiling in certain rooms.</li>
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        </ul>
+
+        <h2>Game Mod Features</h2>
+        <ul>
+            <li> Badges can now be favorited with C-Right in the badge menu. Favorite badges will always be listed at the top of the list.</li>
+            <li> The unused Hustle Drink item now has a proper name and description. It was also patched to be able to combine it with other status effects.</li>
+            <li> Hidden panels can now be flipped even if a partner is standing on them.</li>
+            <li> Although Bombette could already break yellow hammer blocks in vanilla, you would have to reload the map to make the block dissapear.
+                 This behavior was modified for the randomizer: Bombing blocks will now make them explode immediately.
+            </li>
+        </ul>
+
+        <h2>Game Mod Fixes</h2>
+        <ul>
+            <li> Fixed the Star Piece counter in Mario's house being inaccurate.</li>
+            <li> Fixed the vine crash that could still occur when using the Homeward Shroom in Koopa Village and closing the pause menu too soon.</li>
+            <li> Fixed an issue that made it possible to spawn items infinitely from a bush in Koopa Village.</li>
+            <li> Fixed an issue where having 2 berries of the same type placed in the same map could cause spawning issues.</li>
+            <li> Changed Yellow Yoshi's behavior back to vanilla: He can now only be given food after completing Ch.5.</li>
+            <li> Buzzar's whirlwind attack will now have its damage scale properly.</li>
+            <li> The displayed damage values for Buzzar's whirlwind attack and Huff N. Puff's wind blow will now accurately depict the scaled values.</li>
+        </ul>
+
+        <h2>Major Mod Adjustment: Merlow Overhaul</h2>
+        <ul>
+            <li> The price of Merlow's items has been adjusted so that all of the game's star pieces must be spent to buy all of the shop's items.</li>
+            <li> Since all seeds must be guaranteed to be beatable, none of his sold goods can be key items or required partners with the Shopsanity setting enabled.</li>
+            <li> However, Merlow now has 6 new items in a bonus reward system. For every 10 star pieces spent, Merlow will give the player a reward, which can be required in logic with Shopsanity enabled.</li>
+            <li> Merlow's dialogue has been changed and the bonus rewards can be checked at any time by talking to him.</li>
+            <li> Quizmo's amount of questions and rewards has been cut from a total of 64 to 16, as part of this rebalance. He will also only give one Star Piece when Skip Quiz is turned on, instead of four.</li>
+        </ul>
+
+        <h2>Options</h2>
+
+        <h3>Glitches & Tricks (new)</h3>
+        <ul>
+            <li> This new section in the randomizer settings allows toggling which tricks will be considered in logic.</li>
+            <li> Every entry has a proper name, description and link to an explanatory video.</li>
+            <li> A few videos are still missing, please contact us if you'd like to submit some.</li>
+        </ul>
+
+        <h3>Gear Shuffle (new)</h3>
+        <ul>
+            <li> Replaces the previous "Big Chest Shuffle" option to add a third mode.</li>
+            <li> "Full Shuffle" shuffles the boots and hammer upgrades into the general item pool, with any item allowed to be in big chests and the bush.</li>
+            <li> "Gear Location Shuffle" is the equivalent of the former "Big Chest Shuffle" setting turned on.</li>
+            <li> As with Gear Location Shuffle, Full Shuffle will always turn the hammer blocks in the ruins to stone, and the blocks in the volcano to metal.</li>
+        </ul>
+
+        <h3>Visible Hidden Panels (new)</h3>
+        <ul>
+            <li> This option gives a distinct appearance to hidden panels, making them easier to spot.</li>
+        </ul>
+
+        <h3>Cook Without Frying Pan (new)</h3>
+        <ul>
+            <li> By default, the randomizer will now require Mario to give Tayce T. her Frying Pan back to be able to cook.</li>
+            <li> Enabling this option brings back the previous behavior and allows cooking from the start.</li>
+        </ul>
+
+        <h3>Shorten Cutscenes (change)</h3>
+        <ul>
+            <li> The cutscene that plays when talking to Muskular after Ch.4 has been shortened.</li>
+        </ul>
+
+        <h3>Color Palettes (change)</h3>
+        <ul>
+            <li> Colors options are now available for Bombette.</li>
+            <li> A new color option is available for Mario (Ice).</li>
+            <li> New color options are available for Watt.</li>
+            <li> New color palettes were added for the following enemies: Pokey Mummy, Buzzy Beetle, Swooper.</li>
+        </ul>
+
+        <h2>Seed Generator / Logic</h2>
+        <ul>
+            <li> Breaking yellow blocks with Bombette is now considered in logic with all settings (only relevant during Hammerless start).</li>
+            <li> To match the mod adjustments, the Yellow Yoshi trade reward is now only in logic after beating Ch.5.</li>
+            <li> Using recipes to obtain a Tasty Tonic, Sleepy Sheep and Life Shroom for Koot favors is now in logic.
+                 As a consequence, it's possible that these items won't be found in a replenishable location before they are required.
+            </li>
+            <li> Having a Cake in a replenishable location is no longer guaranteed. Instead, the logic will always expect Mario to bake a Cake Mix to obtain one.</li>
+            <li> Spoiler Log: The Yellow Yoshi trade item location has been renamed to "Yellow Yoshi Food Reward".</li>
+            <li> Spoiler Log: The sphere log now contains a section listing all the items that are considered forever out of logic.</li>
+            <li> Fixed an issue when running the generator locally where the script would crash if the debug folder wasn't manually created.</li>
+            <li> When running the generator locally, the spoiler log file will now be generated in the target rom folder by default.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li> On the seed page, a new info is now displayed: Seed Hash Items. These are the item names representing your seed, viewed ingame on the title screen.</li>
+            <li> New validations were added to prevent trying to generate seeds with impossible Hammerless settings.</li>
+            <li> The tips page has been updated with new information.</li>
+        </ul>
+
+        <h2>Racetime.gg Bot</h2>
+        <ul>
+            <li> When generating a seed using the bot in a racetime room, the Seed Hash Items will now be writtem into the room description.</li>
+        </ul>
+    </mat-card>
+
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.13.2 (beta) (2022-07-31)</mat-card-title>
         <h2>Known Issues</h2>

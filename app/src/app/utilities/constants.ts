@@ -1,3 +1,4 @@
+import { BombetteSprite } from './../entities/enum/bombetteSprite';
 import { ParakarrySprite } from './../entities/enum/parakarrySprite';
 import { SushieSprite } from './../entities/enum/sushieSprite';
 import { WattSprite } from './../entities/enum/wattSprite';
@@ -28,7 +29,9 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Wario, optionDisplay: 'Wario'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Waluigi, optionDisplay: 'Waluigi'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Fire, optionDisplay: 'Fire'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Ice, optionDisplay: 'Ice'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Maker, optionDisplay: 'Maker'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Classic, optionDisplay: 'Classic'},
         {setting: SpriteSetting.RandomPick, paletteSelection: MarioSprite.Default, optionDisplay: 'Random Pick'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: MarioSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
@@ -54,6 +57,17 @@ export class Constants {
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: KooperSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
 
+      public static BOMBETTE_OPTIONS : CharacterSpriteSetting[] = [
+        {setting: SpriteSetting.DefaultPalette, paletteSelection: BombetteSprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Orange, optionDisplay: 'Orange'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Purple, optionDisplay: 'Purple'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Green, optionDisplay: 'Green'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Yellow, optionDisplay: 'Yellow'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Blue, optionDisplay: 'Blue'},
+        {setting: SpriteSetting.RandomPick, paletteSelection: BombetteSprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: BombetteSprite.Default, optionDisplay: 'Random On Every Load'}
+      ];
+
       public static PARAKARRY_OPTIONS : CharacterSpriteSetting[] = [
         {setting: SpriteSetting.DefaultPalette, paletteSelection: ParakarrySprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: ParakarrySprite.Green, optionDisplay: 'Green'},
@@ -76,6 +90,8 @@ export class Constants {
       public static WATT_OPTIONS : CharacterSpriteSetting[] = [
         {setting: SpriteSetting.DefaultPalette, paletteSelection: WattSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: WattSprite.Blue, optionDisplay: 'Blue'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: WattSprite.Pink, optionDisplay: 'Pink'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: WattSprite.Green, optionDisplay: 'Green'},
         {setting: SpriteSetting.RandomPick, paletteSelection: WattSprite.Default, optionDisplay: 'Random Pick'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: WattSprite.Default, optionDisplay: 'Random On Every Load'}
       ];

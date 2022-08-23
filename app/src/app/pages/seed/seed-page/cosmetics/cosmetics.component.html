@@ -19,6 +19,12 @@
             </select> 
         </div>
         <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Bombette" tooltipText="Bombette's color palette"></app-tooltip-span>
+            <select formControlName='bombetteSprite'>
+                <option *ngFor="let bombetteOption of bombetteOptions" [ngValue]="bombetteOption">{{bombetteOption.optionDisplay}}</option>
+            </select> 
+        </div>
+        <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Parakarry" tooltipText="Parakarry's color palette"></app-tooltip-span>
             <select formControlName='parakarrySprite'>
                 <option *ngFor="let parakarryOption of parakarryOptions" [ngValue]="parakarryOption">{{parakarryOption.optionDisplay}}</option>

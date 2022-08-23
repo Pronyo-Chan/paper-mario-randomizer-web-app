@@ -1,3 +1,4 @@
+import { ParakarrySprite } from './enum/parakarrySprite';
 import { KootFavorsMode } from './enum/kootFavorsMode';
 import { LettersMode } from './enum/lettersMode';
 import { ItemTrapMode } from './enum/itemTrapMode';
@@ -10,9 +11,11 @@ import { SpriteSetting } from "./enum/spriteSetting";
 import { WattSprite } from './enum/wattSprite';
 import { SushieSprite } from './enum/sushieSprite';
 import { BowsersCastleMode } from './enum/bowsersCastleMode';
+import { BombetteSprite } from './enum/bombetteSprite';
 
 export interface SettingsResponse{
     SeedID: string;
+    SeedHashItems: string[];
     CreationDate: Date;
     StarRodModVersion: number;
     SettingsString: string;
@@ -73,8 +76,10 @@ export interface SettingsResponse{
     GoombarioSprite: GoombarioSprite;
     KooperSetting: SpriteSetting;
     KooperSprite: KooperSprite;
+    BombetteSetting: SpriteSetting;
+    BombetteSprite: BombetteSprite;
     ParakarrySetting: SpriteSetting;
-    ParakarrySprite: KooperSprite;
+    ParakarrySprite: ParakarrySprite;
     BowSetting: SpriteSetting;
     BowSprite: BowSprite;
     WattSetting: SpriteSetting;
@@ -122,7 +127,135 @@ export interface SettingsResponse{
     IncludeRadioTradeEvent: boolean;
     ShuffleBlocks: boolean;
     RandomPitch: boolean;
-    BigChestShuffle: boolean;
+    HiddenPanelVisibility: number;
+    CookWithoutFryingPan: boolean;
+    GearShuffleMode: number;
+
+    // Glitches: Goomba Region
+    PrologueGelEarly: boolean
+
+    // Glitches: Toad Town
+    OddKeyEarly: boolean
+    BlueHouseSkip: boolean
+    BlueHouseSkipLaki: boolean
+    BlueHouseSkipToadLure: boolean
+    BowlessToyBox: boolean
+    EarlyStoreroomParakarry: boolean
+    EarlyStoreroomHammer: boolean
+    WhaleEarly: boolean
+    SushielessToadTownStarPiece: boolean
+
+    // Glitches: Toad Town Tunnels
+    ClippyBootsStoneBlockSkip: boolean
+    ClippyBootsMetalBlockSkip: boolean
+    IslandPipeBlooperSkip: boolean
+    ParakarrylessSewerStarPiece: boolean
+    SewerBlocksWithoutUltraBoots: boolean
+
+    // Glitches: Plesant Path
+    KooperlessPleasantPathStarPiece: boolean
+    InvisibleBridgeClipLzs: boolean
+    InvisibleBridgeClipLaki: boolean
+    KooperlessPleasantPathThunderBolt: boolean
+
+    // Glitches: Koopa Bros Fortress
+    BombettelessKbfFpPlusLZS: boolean
+    BombettelessKbfFpPlusLaki: boolean
+    LakiJailbreak: boolean
+    BombettelessRightFortressJailKey: boolean
+
+    // Glitches: Mt. Rugged
+    MtRuggedQuakeHammerAndLetterWithLaki: boolean
+    ParakarrylessMtRuggedSeed: boolean
+    BuzzarGapSkipClippy: boolean
+    ParakarrylessMtRuggedStarPiece: boolean
+
+    // Glitches: Dry Dry Desert
+    DesertBrickBlockItemWithParakarry: boolean
+    EarlyRuinsLakiJump: boolean
+    EarlyRuinsUltraBoots: boolean
+
+    // Glitches: Dry Dry Ruins
+    ArtifactJump: boolean
+    RuinsKeyLakiJump: boolean
+    ParakarrylessSecondSandRoomUltraBoots: boolean
+    ParakarrylessSecondSandRoomNormalBoots: boolean
+    ParakarrylessSuperHammerRoomUltraBoots: boolean
+    ParakarrylessSuperHammerRoomNormalBoots: boolean
+    RuinsLocksSkipClippy: boolean
+
+    // Glitches: Boo's Mansion
+    RecordSkipNoBombettePush: boolean
+    RecordSkipBombettePush: boolean
+    BoosPortraitWithKooper: boolean
+    BoosPortraitWithLaki: boolean
+
+    // Glitches: Gusty Gulch
+    GustyGulchGateSkipLZS: boolean
+    KooperlessGustyGulchDizzyDialJump: boolean
+    KooperlessGustyGulchDizzyDialLaki: boolean
+    KooperlessGustyGulchDizzyDialParakarry: boolean
+    GustyGulchGapSkip: boolean
+
+    // Glitches: Tubba's Castle
+    BowlessTubbasCastle: boolean
+    TubbasTableLakiJump: boolean
+    TubbasCastleSuperBootsSkip: boolean
+    ParakarrylessMegaRush: boolean
+
+    // Glitches: Toy Box
+    ParakarrylessBlueBuildingStarPiece: boolean
+    GourmetGuySkipJump: boolean
+    GourmetGuySkipLaki: boolean
+    GourmetGuySkipParakarry: boolean
+    BowlessGreenStation: boolean
+    KooperlessRedStationShootingStar: boolean
+
+    // Glitches: Jade Jungle
+    RaphSkipEnglish: boolean
+    Ch5SushieGlitch: boolean
+
+    // Glitches: Mt. Lavalava
+    KooperlessLavalavaPowBlock: boolean
+    UltraHammerSkip: boolean
+    Flarakarry: boolean
+    ParakarrylessFlarakarryBombette: boolean
+    ParakarrylessFlarakarryLaki: boolean
+
+    // Glitches: Flower Fields
+    EarlyLakiLZS: boolean
+    EarlyLakiBombettePush: boolean
+    BombettelessMegaSmash: boolean
+    SunTowerSkip: boolean
+    YellowBerryGateSkipLZS: boolean
+    YellowBerryGateSkipLaki: boolean
+    YellowBerryGateSkipBombettePush: boolean
+    RedBerryGateSkipBombettePush: boolean
+    RedBerryGateSkipLaki: boolean
+    BlueBerryGateSkipBombettePush: boolean
+    BlueBerryGateSkipLaki: boolean
+    BubbleBerryTreeLakiJump: boolean
+
+    // Glitches: Shiver Region
+    MurderSolvedEarlyLaki: boolean
+    MurderSolvedEarlyBombettePush: boolean
+    Ch7SushieGlitch: boolean
+    ShiverMountainHiddenBlockWithoutUltraBootsLaki: boolean
+    ShiverMountainHiddenBlockWithoutUltraBootsNoLaki: boolean
+
+    // Glitches: Crystal Palace
+    MirrorClip: boolean
+
+    // Glitches: Bowser's Castle
+    BowlessBowsersCastleBasement: boolean
+    FastFloodRoomKooper: boolean
+    FastFloodRoomBombetteUltraBoots: boolean
+
+    // Glitches: Global
+    BreakMetalBlocksWithUltraBoots: boolean
+    KnowsPuzzleSolutions: boolean
+    BreakYellowBlocksWithSuperBoots: boolean
+    KnowsHiddenBlocks: boolean
 }
 
 export interface StartingPartners {

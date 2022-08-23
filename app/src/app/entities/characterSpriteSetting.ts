@@ -1,3 +1,4 @@
+import { BombetteSprite } from './enum/bombetteSprite';
 import { ParakarrySprite } from './enum/parakarrySprite';
 import { SushieSprite } from './enum/sushieSprite';
 import { WattSprite } from './enum/wattSprite';
@@ -9,6 +10,6 @@ import { BowSprite } from './enum/bowSprite';
 
 export interface CharacterSpriteSetting {
     setting: SpriteSetting;
-    paletteSelection: MarioSprite | GoombarioSprite | KooperSprite | BowSprite | WattSprite | SushieSprite | ParakarrySprite;
+    paletteSelection: MarioSprite | GoombarioSprite | KooperSprite | BombetteSprite | BowSprite | WattSprite | SushieSprite | ParakarrySprite;
     optionDisplay: string;
 }

@@ -1,3 +1,4 @@
+import { LogicGlitch } from './../entities/logicGlitch';
 import { MarcFile } from './../utilities/RomPatcher/MarcFile';
 import { CosmeticsRequest } from './../entities/cosmeticsRequest';
 import { LocalStorageService } from './localStorage/localStorage.service';
@@ -121,6 +122,8 @@ export class RandomizerService {
       GoombarioSprite: (cosmeticsFormGroup.get('goombarioSprite').value as CharacterSpriteSetting).paletteSelection,
       KooperSetting: (cosmeticsFormGroup.get('kooperSprite').value as CharacterSpriteSetting).setting,
       KooperSprite: (cosmeticsFormGroup.get('kooperSprite').value as CharacterSpriteSetting).paletteSelection,
+      BombetteSetting: (cosmeticsFormGroup.get('bombetteSprite').value as CharacterSpriteSetting).setting,
+      BombetteSprite: (cosmeticsFormGroup.get('bombetteSprite').value as CharacterSpriteSetting).paletteSelection,
       MarioSetting: (cosmeticsFormGroup.get('marioSprite').value as CharacterSpriteSetting).setting,
       MarioSprite: (cosmeticsFormGroup.get('marioSprite').value as CharacterSpriteSetting).paletteSelection,
       NPCSetting: cosmeticsFormGroup.get("npcSetting").value,
@@ -207,6 +210,8 @@ export class RandomizerService {
       GoombarioSprite: (settingsForm.get('cosmetics').get('goombarioSprite').value as CharacterSpriteSetting).paletteSelection,
       KooperSetting: (settingsForm.get('cosmetics').get('kooperSprite').value as CharacterSpriteSetting).setting,
       KooperSprite: (settingsForm.get('cosmetics').get('kooperSprite').value as CharacterSpriteSetting).paletteSelection,
+      BombetteSetting: (settingsForm.get('cosmetics').get('bombetteSprite').value as CharacterSpriteSetting).setting,
+      BombetteSprite: (settingsForm.get('cosmetics').get('bombetteSprite').value as CharacterSpriteSetting).paletteSelection,
       ParakarrySetting: (settingsForm.get('cosmetics').get('parakarrySprite').value as CharacterSpriteSetting).setting,
       ParakarrySprite: (settingsForm.get('cosmetics').get('parakarrySprite').value as CharacterSpriteSetting).paletteSelection,
       BowSetting: (settingsForm.get('cosmetics').get('bowSprite').value as CharacterSpriteSetting).setting,
@@ -224,22 +229,22 @@ export class RandomizerService {
       StartingStarPower: settingsForm.get('marioStats').get('startingStarPower').value,
       StartingBoots: settingsForm.get('marioStats').get('startingBoots').value,
       StartingHammer: settingsForm.get('marioStats').get('startingHammer').value,
-      StartingItem0: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[0]?.value,
-      StartingItem1: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[1]?.value,
-      StartingItem2: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[2]?.value,
-      StartingItem3: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[3]?.value,
-      StartingItem4: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[4]?.value,
-      StartingItem5: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[5]?.value,
-      StartingItem6: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[6]?.value,
-      StartingItem7: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[7]?.value,
-      StartingItem8: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[8]?.value,
-      StartingItem9: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[9]?.value,
-      StartingItemA: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[10]?.value,
-      StartingItemB: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[11]?.value,
-      StartingItemC: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[12]?.value,
-      StartingItemD: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[13]?.value,
-      StartingItemE: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[14]?.value,
-      StartingItemF: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: settingsForm.get('marioStats').get('startingItems').value[15]?.value,
+      StartingItem0: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[0]?.value ?? 0),
+      StartingItem1: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[1]?.value ?? 0),
+      StartingItem2: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[2]?.value ?? 0),
+      StartingItem3: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[3]?.value ?? 0),
+      StartingItem4: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[4]?.value ?? 0),
+      StartingItem5: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[5]?.value ?? 0),
+      StartingItem6: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[6]?.value ?? 0),
+      StartingItem7: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[7]?.value ?? 0),
+      StartingItem8: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[8]?.value ?? 0),
+      StartingItem9: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[9]?.value ?? 0),
+      StartingItemA: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[10]?.value ?? 0),
+      StartingItemB: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[11]?.value ?? 0),
+      StartingItemC: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[12]?.value ?? 0),
+      StartingItemD: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[13]?.value ?? 0),
+      StartingItemE: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[14]?.value ?? 0),
+      StartingItemF: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[15]?.value ?? 0),
       ItemScarcity: settingsForm.get('difficulty').get('itemScarcity').value,
       StarWaySpiritsNeeded: settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
       FoliageItemHints: settingsForm.get('qualityOfLife').get('foliageItemHints').value,
@@ -255,16 +260,146 @@ export class RandomizerService {
       AllowItemHints: settingsForm.get('difficulty').get('allowItemHints').value,
       IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value,
       ShuffleBlocks: settingsForm.get('items').get('shuffleBlocks').value,
-      BigChestShuffle: settingsForm.get('items').get('bigChestShuffle').value,
-      RandomPitch: settingsForm.get('cosmetics').get('randomPitch').value
+      RandomPitch: settingsForm.get('cosmetics').get('randomPitch').value,
+      HiddenPanelVisibility: settingsForm.get('qualityOfLife').get('hiddenPanelVisibility').value ? 1 : 0,
+      CookWithoutFryingPan: settingsForm.get('qualityOfLife').get('cookWithoutFryingPan').value,
+      GearShuffleMode: settingsForm.get('items').get('gearShuffleMode').value,
 
+      // Glitches: Goomba Region
+      PrologueGelEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "PrologueGelEarly"),
+
+      // Glitches: Toad Town
+      OddKeyEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "OddKeyEarly"),
+      BlueHouseSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueHouseSkip"),
+      BlueHouseSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueHouseSkipLaki"),
+      BlueHouseSkipToadLure: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueHouseSkipToadLure"),
+      BowlessToyBox: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowlessToyBox"),
+      EarlyStoreroomParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyStoreroomParakarry"),
+      EarlyStoreroomHammer: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyStoreroomHammer"),
+      WhaleEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "WhaleEarly"),
+      SushielessToadTownStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SushielessToadTownStarPiece"),
+
+      // Glitches: Toad Town Tunnels
+      ClippyBootsStoneBlockSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ClippyBootsStoneBlockSkip"),
+      ClippyBootsMetalBlockSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ClippyBootsMetalBlockSkip"),
+      IslandPipeBlooperSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "IslandPipeBlooperSkip"),
+      ParakarrylessSewerStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSewerStarPiece"),
+      SewerBlocksWithoutUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SewerBlocksWithoutUltraBoots"),
+
+      // Glitches: Plesant Path
+      KooperlessPleasantPathStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessPleasantPathStarPiece"),
+      InvisibleBridgeClipLzs: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "InvisibleBridgeClipLzs"),
+      InvisibleBridgeClipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "InvisibleBridgeClipLaki"),
+      KooperlessPleasantPathThunderBolt: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessPleasantPathThunderBolt"),
+
+      // Glitches: Koopa Bros Fortress
+      BombettelessKbfFpPlusLZS: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BombettelessKbfFpPlusLZS"),
+      BombettelessKbfFpPlusLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BombettelessKbfFpPlusLaki"),
+      LakiJailbreak: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "LakiJailbreak"),
+      BombettelessRightFortressJailKey: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BombettelessRightFortressJailKey"),
+
+      // Glitches: Mt. Rugged
+      MtRuggedQuakeHammerAndLetterWithLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MtRuggedQuakeHammerAndLetterWithLaki"),
+      ParakarrylessMtRuggedSeed: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMtRuggedSeed"),
+      BuzzarGapSkipClippy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BuzzarGapSkipClippy"),
+      ParakarrylessMtRuggedStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMtRuggedStarPiece"),
+
+      // Glitches: Dry Dry Desert
+      DesertBrickBlockItemWithParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "DesertBrickBlockItemWithParakarry"),
+      EarlyRuinsLakiJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyRuinsLakiJump"),
+      EarlyRuinsUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyRuinsUltraBoots"),
+
+      // Glitches: Dry Dry Ruins
+      ArtifactJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ArtifactJump"),
+      RuinsKeyLakiJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsKeyLakiJump"),
+      ParakarrylessSecondSandRoomUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSecondSandRoomUltraBoots"),
+      ParakarrylessSecondSandRoomNormalBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSecondSandRoomNormalBoots"),
+      ParakarrylessSuperHammerRoomUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSuperHammerRoomUltraBoots"),
+      ParakarrylessSuperHammerRoomNormalBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSuperHammerRoomNormalBoots"),
+      RuinsLocksSkipClippy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsLocksSkipClippy"),
+
+      // Glitches: Boo's Mansion
+      RecordSkipNoBombettePush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RecordSkipNoBombettePush"),
+      RecordSkipBombettePush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RecordSkipBombettePush"),
+      BoosPortraitWithKooper: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BoosPortraitWithKooper"),
+      BoosPortraitWithLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BoosPortraitWithLaki"),
+
+      // Glitches: Gusty Gulch
+      GustyGulchGateSkipLZS: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GustyGulchGateSkipLZS"),
+      KooperlessGustyGulchDizzyDialJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessGustyGulchDizzyDialJump"),
+      KooperlessGustyGulchDizzyDialLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessGustyGulchDizzyDialLaki"),
+      KooperlessGustyGulchDizzyDialParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessGustyGulchDizzyDialParakarry"),
+      GustyGulchGapSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GustyGulchGapSkip"),
+
+      // Glitches: Tubba's Castle
+      BowlessTubbasCastle: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowlessTubbasCastle"),
+      TubbasTableLakiJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasTableLakiJump"),
+      TubbasCastleSuperBootsSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasCastleSuperBootsSkip"),
+      ParakarrylessMegaRush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMegaRush"),
+
+      // Glitches: Toy Box
+      ParakarrylessBlueBuildingStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessBlueBuildingStarPiece"),
+      GourmetGuySkipJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GourmetGuySkipJump"),
+      GourmetGuySkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GourmetGuySkipLaki"),
+      GourmetGuySkipParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GourmetGuySkipParakarry"),
+      BowlessGreenStation: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowlessGreenStation"),
+      KooperlessRedStationShootingStar: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessRedStationShootingStar"),
+
+      // Glitches: Jade Jungle
+      RaphSkipEnglish: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RaphSkipEnglish"),
+      Ch5SushieGlitch: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Ch5SushieGlitch"),
+
+      // Glitches: Mt. Lavalava
+      KooperlessLavalavaPowBlock: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessLavalavaPowBlock"),
+      UltraHammerSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "UltraHammerSkip"),
+      Flarakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Flarakarry"),
+      ParakarrylessFlarakarryBombette: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessFlarakarryBombette"),
+      ParakarrylessFlarakarryLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessFlarakarryLaki"),
+
+      // Glitches: Flower Fields
+      EarlyLakiLZS: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyLakiLZS"),
+      EarlyLakiBombettePush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyLakiBombettePush"),
+      BombettelessMegaSmash: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BombettelessMegaSmash"),
+      SunTowerSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SunTowerSkip"),
+      YellowBerryGateSkipLZS: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "YellowBerryGateSkipLZS"),
+      YellowBerryGateSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "YellowBerryGateSkipLaki"),
+      YellowBerryGateSkipBombettePush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "YellowBerryGateSkipBombettePush"),
+      RedBerryGateSkipBombettePush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RedBerryGateSkipBombettePush"),
+      RedBerryGateSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RedBerryGateSkipLaki"),
+      BlueBerryGateSkipBombettePush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueBerryGateSkipBombettePush"),
+      BlueBerryGateSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueBerryGateSkipLaki"),
+      BubbleBerryTreeLakiJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BubbleBerryTreeLakiJump"),
+
+      // Glitches: Shiver Region
+      MurderSolvedEarlyLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MurderSolvedEarlyLaki"),
+      MurderSolvedEarlyBombettePush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MurderSolvedEarlyBombettePush"),
+      Ch7SushieGlitch: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Ch7SushieGlitch"),
+      ShiverMountainHiddenBlockWithoutUltraBootsLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ShiverMountainHiddenBlockWithoutUltraBootsLaki"),
+      ShiverMountainHiddenBlockWithoutUltraBootsNoLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ShiverMountainHiddenBlockWithoutUltraBootsNoLaki"),
+
+      // Glitches: Crystal Palace
+      MirrorClip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MirrorClip"),
+
+      // Glitches: Bowser's Castle
+      BowlessBowsersCastleBasement: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowlessBowsersCastleBasement"),
+      FastFloodRoomKooper: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "FastFloodRoomKooper"),
+      FastFloodRoomBombetteUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "FastFloodRoomBombetteUltraBoots"),
+
+      // Glitches: Global
+      BreakMetalBlocksWithUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BreakMetalBlocksWithUltraBoots"),
+      BreakYellowBlocksWithSuperBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BreakYellowBlocksWithSuperBoots"),
+      KnowsPuzzleSolutions: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KnowsPuzzleSolutions"),
+      KnowsHiddenBlocks: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KnowsHiddenBlocks")
     } as SettingsRequest;
 
     if(request.StartWithRandomPartners) {
       request.RandomPartnersMin = settingsForm.get('partners').get('randomPartnersMin').value;
       request.RandomPartnersMax = settingsForm.get('partners').get('randomPartnersMax').value;
+      request.StartWithPartners = {} as StartingPartners;
       
     }else {
+      request.RandomPartnersMin = 1
+      request.RandomPartnersMax = 1
       request.StartWithPartners = {
         Goombario: settingsForm.get('partners').get('startWithPartners').get('goombario').value,
         Kooper: settingsForm.get('partners').get('startWithPartners').get('kooper').value,

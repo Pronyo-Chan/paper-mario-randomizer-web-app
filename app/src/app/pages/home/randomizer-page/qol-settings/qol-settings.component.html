@@ -45,7 +45,7 @@
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='preventPhysicsGlitches'></mat-slide-toggle>
-            <app-tooltip-span spanText="Prevent Physics Glitches" tooltipText="Patches out of bound exploits present in the original game"></app-tooltip-span>
+            <app-tooltip-span spanText="Prevent Physics Glitches" tooltipText="Patches out of bound exploits present in the original game. Forced off if any glitch/trick is enabled."></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='alwaysPeekaboo'></mat-slide-toggle>
@@ -77,8 +77,18 @@
         </div>
 
         <div class="setting-element">
+            <mat-slide-toggle formControlName='hiddenPanelVisibility'></mat-slide-toggle>
+            <app-tooltip-span spanText="Visible Hidden Panels" tooltipText="Hidden Panels will have a distinct appearance to identify them easily."></app-tooltip-span>
+        </div>
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='cookWithoutFryingPan'></mat-slide-toggle>
+            <app-tooltip-span spanText="Cook Without Frying Pan" tooltipText="Makes cooking items with Tayce T. possible without the frying pan."></app-tooltip-span>
+        </div>
+
+        <div class="setting-element">
             <mat-slide-toggle formControlName='shortenCutscenes'></mat-slide-toggle>
-            <app-tooltip-span spanText="Shorten Cutscenes" tooltipText="Multiple cutscenes will have less text or be entirely removed when turned on"></app-tooltip-span>
+            <app-tooltip-span spanText="Shorten Cutscenes" tooltipText="Multiple cutscenes will have less text or be entirely removed when turned on."></app-tooltip-span>
         </div>
 
         <div class="setting-element">

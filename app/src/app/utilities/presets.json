@@ -14,7 +14,7 @@
                 "includeLetters": 0,
                 "includeRadioTradeEvent": false,
                 "shuffleBlocks": false,
-                "bigChestShuffle": false
+                "gearShuffleMode": 0
             },
             "gameplay": {
                 "randomBadgesBP": 0,
@@ -54,7 +54,9 @@
                 "writeSpoilerLog": true,
                 "revealLogInHours": 0,
                 "quizmoAlwaysAppears": false,
-                "foliageItemHints": true
+                "foliageItemHints": true,
+                "cookWithoutFryingPan": true,
+                "hiddenPanelVisibility": 1
             },
             "difficulty": {
                 "difficultyMode": 2,
@@ -78,7 +80,10 @@
                 "startingStarPower": 0,
                 "startingBoots": 0,
                 "startingHammer": 0,
-                "startingItems": []
+                "startingItems": [],
+                "startWithRandomItems":false,
+                "randomItemsMin":0,
+                "randomItemsMax":16
             },
             "openLocations": {
                 "magicalSeedsRequired": 4,
@@ -103,6 +108,11 @@
                     "setting": 0,
                     "paletteSelection": 0,
                     "optionDisplay": "Default"
+                },
+                "bombetteSprite": {
+                  "setting": 0,
+                  "paletteSelection": 0,
+                  "optionDisplay": "Default"
                 },
                 "parakarrySprite": {
                   "setting": 0,
@@ -131,7 +141,8 @@
                 "randomText": false,
                 "romanNumerals": false,
                 "randomPitch": false
-            }
+            },
+            "glitches": []
         }
     },
     {
@@ -149,7 +160,7 @@
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
-            "bigChestShuffle": false
+            "gearShuffleMode": 2
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -189,7 +200,9 @@
             "writeSpoilerLog": true,
             "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
-            "foliageItemHints": false
+            "foliageItemHints": false,
+            "cookWithoutFryingPan": false,
+            "hiddenPanelVisibility": 1
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -213,7 +226,10 @@
             "startingStarPower": 0,
             "startingBoots": 0,
             "startingHammer": 0,
-            "startingItems": []
+            "startingItems": [],
+            "startWithRandomItems":false,
+            "randomItemsMin":0,
+            "randomItemsMax":16
           },
           "openLocations": {
             "magicalSeedsRequired": 0,
@@ -235,6 +251,11 @@
               "optionDisplay": "Default"
             },
             "kooperSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "bombetteSprite": {
               "setting": 0,
               "paletteSelection": 0,
               "optionDisplay": "Default"
@@ -266,7 +287,8 @@
             "randomText": false,
             "romanNumerals": false,
             "randomPitch": false
-          }
+          },
+          "glitches": []
         }
     },
     {
@@ -284,7 +306,7 @@
             "includeLetters": 1,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
-            "bigChestShuffle": true
+            "gearShuffleMode": 1
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -324,7 +346,9 @@
             "writeSpoilerLog": true,
             "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
-            "foliageItemHints": false
+            "foliageItemHints": false,
+            "cookWithoutFryingPan": false,
+            "hiddenPanelVisibility": 0
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -348,7 +372,10 @@
             "startingStarPower": 0,
             "startingBoots": 0,
             "startingHammer": 0,
-            "startingItems": []
+            "startingItems": [],
+            "startWithRandomItems":false,
+            "randomItemsMin":0,
+            "randomItemsMax":16
           },
           "openLocations": {
             "magicalSeedsRequired": 4,
@@ -370,6 +397,11 @@
               "optionDisplay": "Default"
             },
             "kooperSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "bombetteSprite": {
               "setting": 0,
               "paletteSelection": 0,
               "optionDisplay": "Default"
@@ -401,7 +433,8 @@
             "randomText": false,
             "romanNumerals": false,
             "randomPitch": false
-          }
+          },
+          "glitches": []
         }
     },
     {
@@ -419,7 +452,7 @@
             "includeLetters": 3,
             "includeRadioTradeEvent": true,
             "shuffleBlocks": true,
-            "bigChestShuffle": true
+            "gearShuffleMode": 2
           },
           "gameplay": {
             "randomBadgesBP": 3,
@@ -459,7 +492,9 @@
             "writeSpoilerLog": true,
             "revealLogInHours": 0,
             "quizmoAlwaysAppears": false,
-            "foliageItemHints": false
+            "foliageItemHints": false,
+            "cookWithoutFryingPan": false,
+            "hiddenPanelVisibility": 0
           },
           "difficulty": {
             "difficultyMode": 1,
@@ -483,7 +518,10 @@
             "startingStarPower": 0,
             "startingBoots": 0,
             "startingHammer": 0,
-            "startingItems": []
+            "startingItems": [],
+            "startWithRandomItems":false,
+            "randomItemsMin":0,
+            "randomItemsMax":16
           },
           "openLocations": {
             "magicalSeedsRequired": 5,
@@ -505,6 +543,11 @@
               "optionDisplay": "Default"
             },
             "kooperSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "bombetteSprite": {
               "setting": 0,
               "paletteSelection": 0,
               "optionDisplay": "Default"
@@ -536,7 +579,8 @@
             "randomText": false,
             "romanNumerals": false,
             "randomPitch": false
-          }
+          },
+          "glitches": []
         }
     },
     {
@@ -554,7 +598,7 @@
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
-            "bigChestShuffle": false
+            "gearShuffleMode": 0
          },
          "gameplay":{
             "randomBadgesBP":1,
@@ -594,7 +638,9 @@
             "writeSpoilerLog":true,
             "revealLogInHours": 7,
             "quizmoAlwaysAppears":false,
-            "foliageItemHints":true
+            "foliageItemHints":true,
+            "cookWithoutFryingPan": false,
+            "hiddenPanelVisibility": 1
          },
          "difficulty":{
             "difficultyMode":1,
@@ -649,6 +695,11 @@
                "paletteSelection":0,
                "optionDisplay":"Random Pick"
             },
+            "bombetteSprite": {
+              "setting": 2,
+              "paletteSelection": 0,
+              "optionDisplay": "Random Pick"
+            },
             "parakarrySprite":{
                "setting":0,
                "paletteSelection":0,
@@ -676,7 +727,8 @@
             "randomText":false,
             "romanNumerals": false,
             "randomPitch": false
-         }
+         },
+         "glitches": []
       }
     },
     {

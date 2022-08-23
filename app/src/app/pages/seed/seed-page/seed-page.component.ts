@@ -112,7 +112,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       } else if(line[0] != ' ') { // Region group name, first char not empty
         currentRegion = line.replace(':', '')
       } else if(line != '') {
-        if(currentRegion.includes("Sphere") || currentRegion.includes("Starting Items")) {
+        if(currentRegion.includes("Sphere") || currentRegion.includes("Starting Items") || currentRegion.includes("Unreachable")) {
           if(!progressionSphereData[currentRegion])
             progressionSphereData[currentRegion] = [];
 
@@ -177,6 +177,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       marioSprite : new FormControl(),
       goombarioSprite : new FormControl(),
       kooperSprite : new FormControl(),
+      bombetteSprite : new FormControl(),
       parakarrySprite : new FormControl(),
       bowSprite : new FormControl(),
       wattSprite: new FormControl(),

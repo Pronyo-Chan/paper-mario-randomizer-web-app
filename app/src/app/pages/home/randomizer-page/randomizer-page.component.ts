@@ -12,13 +12,14 @@ import { RandomizerService } from './../../../services/randomizer.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
 import {tap, catchError} from 'rxjs/operators'
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../utilities/custom.validators'
 import { DifficultySetting } from 'src/app/entities/enum/difficultySetting';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { CoinColor } from 'src/app/entities/enum/coinColor';
 import { Boots } from 'src/app/entities/enum/boots';
+import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -27,6 +28,7 @@ import { Boots } from 'src/app/entities/enum/boots';
 })
 export class RandomizerPageComponent implements OnInit, OnDestroy {
   public readonly GOOMBA_HAMMERLESS_START_ERROR = 'goombaHammerlessStart';
+  public readonly LACKING_SHUFFLE_HAMMERLESS_START_ERROR = 'toadTownHammerlessStart';
 
   public homepageLink;
   public formGroup: FormGroup
@@ -57,7 +59,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const errors = this.validateSettings();
     if(errors.length) {
       if (errors.some(e => e == this.GOOMBA_HAMMERLESS_START_ERROR)) {
-        this.seedGenError = "Hammerless Start in Goomba Village is impossible. Please change your settings and try again."
+        this.seedGenError = "Hammerless Start in Goomba Village is impossible with these settings."
+        return;
+      }else if (errors.some(e => e == this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)) {
+        this.seedGenError = "Hammerless Start is impossible without shuffled partners or full gear shuffle."
         return;
       }
     }
@@ -101,7 +106,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includeLetters: new FormControl(LettersMode.Vanilla),
         includeRadioTradeEvent: new FormControl(false),
         shuffleBlocks: new FormControl(false),
-        bigChestShuffle: new FormControl(false),
+        gearShuffleMode: new FormControl(GearShuffleMode.Vanilla),
       }),
       gameplay: new FormGroup({
         randomBadgesBP: new FormControl(0),
@@ -141,7 +146,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         writeSpoilerLog: new FormControl(true),
         revealLogInHours: new FormControl(0),
         quizmoAlwaysAppears: new FormControl(false),
-        foliageItemHints: new FormControl(false),        
+        foliageItemHints: new FormControl(false),
+        hiddenPanelVisibility: new FormControl(false),
+        cookWithoutFryingPan: new FormControl(false),
       }),
       difficulty: new FormGroup({
         difficultyMode: new FormControl(DifficultySetting.Vanilla),
@@ -182,6 +189,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         marioSprite : new FormControl(),
         goombarioSprite : new FormControl(),
         kooperSprite : new FormControl(),
+        bombetteSprite : new FormControl(),
         parakarrySprite : new FormControl(),
         bowSprite : new FormControl(),
         wattSprite: new FormControl(),
@@ -194,6 +202,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         romanNumerals: new FormControl(false),
         randomPitch: new FormControl(false),
       }),
+      glitches: new FormControl([])
     });
 
     this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(
@@ -206,8 +215,27 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     const startingMap = this.formGroup.get('openLocations').get('startingMap').value;
     const startingHammer = this.formGroup.get('marioStats').get('startingHammer').value;
-    if ( startingMap == StartingMap.GoombaVillage && startingHammer == Hammer.Hammerless) {
+    const startingBoots = this.formGroup.get('marioStats').get('startingBoots').value;
+    const gearShuffleMode = this.formGroup.get('items').get('gearShuffleMode').value;
+    const isGeneralShuffleEnabled = this.formGroup.get('items').get('shuffleItems').value;
+    const isPartnerShuffleEnabled = this.formGroup.get('partners').get('shufflePartners').value;
+    const isBombetteStartingPartner = this.formGroup.get('partners').get('startWithPartners').get('bombette').value
+
+
+    const isBreakingYellowBlocksWithSuperBootsEnabled = this.formGroup.get('glitches').value
+      .some(enabledGlitch => enabledGlitch.settingName == "BreakYellowBlocksWithSuperBoots");
+
+    if ( startingMap == StartingMap.GoombaVillage &&
+         startingHammer == Hammer.Hammerless &&
+         !(startingBoots >= Boots.Super && isBreakingYellowBlocksWithSuperBootsEnabled) &&
+         gearShuffleMode != GearShuffleMode['Full Shuffle'] &&
+         (!isGeneralShuffleEnabled || (!isPartnerShuffleEnabled && !isBombetteStartingPartner))
+    ) {
       errors.push(this.GOOMBA_HAMMERLESS_START_ERROR)
+    }
+
+    if ( startingHammer == Hammer.Hammerless && (!isGeneralShuffleEnabled || (!isPartnerShuffleEnabled && gearShuffleMode != GearShuffleMode['Full Shuffle']))) {
+      errors.push(this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)
     }
 
     return errors;
