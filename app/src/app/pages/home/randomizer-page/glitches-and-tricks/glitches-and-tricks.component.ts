@@ -38,11 +38,14 @@ export class GlitchesAndTricksComponent implements OnInit {
       this.filteredGlitches = this.glitchesList;
       return;
     }
-    this.filteredGlitches = this.glitchesList.filter(g => g.name.toLowerCase().includes(this.searchText.toLowerCase()))
+    this.filteredGlitches = this.glitchesList.filter(
+      g => g.name.toLowerCase().includes(this.searchText.toLowerCase()) && 
+      (g.location == this.selectedLocation || this.selectedLocation == this.DEFAULT_LOCATION)
+    )
   }
 
   public isGlitchInFilteredList(glitch: LogicGlitch) {
-    return this.filteredGlitches.some(g => g == glitch) && (glitch.location == this.selectedLocation || this.selectedLocation == this.DEFAULT_LOCATION);
+    return this.filteredGlitches.some(g => g == glitch);
   }
 
   public enableAll() {
