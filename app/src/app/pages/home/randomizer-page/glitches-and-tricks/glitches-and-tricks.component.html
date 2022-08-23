@@ -1,37 +1,36 @@
 <form [formGroup]="formGroup" autocomplete="off">
     <mat-card-content class=settings-card-content>
-        <div class="table-container">
-            <div class="filter-section">
-                
-                <div class="setting-element input-element">
-                    <app-tooltip-span spanText="Filter"></app-tooltip-span>
-                    <input type="text"
-                            maxlength="30"
-                            placeholder="Trick Name"
-                            [(ngModel)]="searchText"
-                            [ngModelOptions]="{standalone: true}"
-                            (ngModelChange)="filter()"
-                            matInput>
-                </div>
-
-                <div class="setting-element dropdown-element">
-                    <app-tooltip-span spanText="Location"></app-tooltip-span>
-                    <select [(ngModel)]="selectedLocation" [ngModelOptions]="{standalone: true}">
-                        <option *ngFor="let location of locationsList">{{location}}</option>
-                    </select>
-                </div>
-
-                <div>
-                    <button class = 'yellow-button' (click)="enableAll()" [disabled]="!filteredGlitches.length" >
-                        <span>Enable All</span>
-                    </button> 
-                    <button class = 'yellow-button' (click)="disableAll()" [disabled]="!filteredGlitches.length" >
-                        <span>Disable All</span>
-                    </button> 
-                </div>
-                
+        
+        <div class="filter-section">
+            
+            <div class="setting-element input-element">
+                <app-tooltip-span spanText="Filter"></app-tooltip-span>
+                <input type="text"
+                        maxlength="30"
+                        placeholder="Trick Name"
+                        [(ngModel)]="searchText"
+                        [ngModelOptions]="{standalone: true}"
+                        (ngModelChange)="filter()"
+                        matInput>
             </div>
 
+            <div class="setting-element dropdown-element">
+                <app-tooltip-span spanText="Location"></app-tooltip-span>
+                <select [(ngModel)]="selectedLocation" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let location of locationsList">{{location}}</option>
+                </select>
+            </div>
+
+            <div>
+                <button class = 'yellow-button' (click)="enableAll()" [disabled]="!filteredGlitches.length" >
+                    <span>Enable All</span>
+                </button> 
+                <button class = 'yellow-button' (click)="disableAll()" [disabled]="!filteredGlitches.length" >
+                    <span>Disable All</span>
+                </button> 
+            </div>
+        </div>
+        <div class="table-container">
             <div class="tricks-section">
                 <h2>Available tricks</h2>
                 <mat-selection-list  #glitches class="glitches-list" formControlName="glitches">

@@ -141,10 +141,17 @@ input.mat-input-element:focus {
 
 .mat-list {
   .mat-list-item {
+    
     .mat-list-item-content {
       display: block !important;
     }
   }
+}
+
+.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+    min-height: 48px;
+    max-height: 100%;
+    height: inherit !important;
 }
 
 select {
