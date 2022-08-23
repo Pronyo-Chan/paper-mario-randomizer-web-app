@@ -3,6 +3,7 @@
 .table-container {
     display: flex;
     flex-wrap: wrap;
+    min-height: 15rem;
 
     .tricks-section {
         margin-left: 3rem;
@@ -10,7 +11,6 @@
         .glitches-list {
             padding-right: 1rem;
             max-height: 40rem;
-            min-height: 15rem;
             overflow-y: auto;
             overflow-x: hidden;
             width: 100%;
