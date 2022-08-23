@@ -6,13 +6,14 @@
 
     .tricks-section {
         margin-left: 3rem;
+        margin-bottom: 2rem;
         .glitches-list {
             padding-right: 1rem;
             max-height: 40rem;
             min-height: 15rem;
             overflow-y: auto;
             overflow-x: hidden;
-            width: 620px;
+            width: 100%;
         }
 
         .glitches-list::-webkit-scrollbar {
@@ -29,6 +30,11 @@
           }
     }    
 }
+
+.filter-section {
+    margin-bottom: 2rem;
+}
+
 mat-selection-list, mat-list {
     .mat-list-item {
         
@@ -36,11 +42,17 @@ mat-selection-list, mat-list {
         border-width: 3px 3px 1px 3px !important;    
         border-color: variables.$yellow-stat-border !important;
 
-        mat-icon {
-            font-size: 25px;
-            position: relative;
+        button {
+            position: absolute;
             top: 7px;
+            right: 0;
+            padding-right: 2px;
+
+            mat-icon {
+                font-size: 25px;
+            }
         }
+        
     }
 }
 
