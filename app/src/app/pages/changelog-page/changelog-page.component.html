@@ -1,5 +1,36 @@
 
 <div class="main-page">
+    <mat-card class="settings-card">
+        <mat-card-title class="settings-title">0.14.1 (beta) (2022-08-27)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
+            <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins and Crystal Palace may look like they are hanging on an invisible ceiling in certain rooms.</li>
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> Merlow won't hand out bonus rewards when playing on Project 64 with the Recompiler mode. Please use another emulator or set Project 64 to use Interpreter mode instead.</li>
+            <li> Merlee might not give out the Crystal Ball item after the related Koot Favor has been completed.</li>
+            <li> Using Shell Shot on the Goomnut Tree during the Goomba King fight will crash the game on console.</li>
+            <li> Saving and reloading in Jr Troopa's playground, after checking the hammer bush and before fighting him, will prevent the fight from starting.</li>
+        </ul>
+
+        <h2> Game Mod Fixes</h2>
+        <ul>
+            <li> Fixed an issue with the hammer bush in Jr Troopa's playground where checking it would upgrade the hammer block levels in dungeons, even when it didn't contain a hammer.</li>
+            <li> Fixed an issue where starting hammerless and playing without gear shuffle would turn all the hammer blocks into metal blocks from the start.</li>
+        </ul>
+
+        <h2> Seed Generator</h2>
+        <ul>
+            <li> Fixed an issue where an insufficient amount of gear upgrades would be placed in Gear Location Shuffle.</li>
+            <li> Fixed an issue where big chests and the hammer bush could contain progression items in Gear Location Shuffle.</li>
+            <li> Fixed an issue where the hammer bush wouldn't have a hammer upgrade when starting Hammerless.</li>
+            <li> Fixed an issue where the cake mix wouldn't be guaranteed to be in Toy Box when playing without Keysanity.</li>
+            <li> Changed spear guys in random formations so the first one always has its spear pointing forward.</li>
+            <li> Magical seeds in starting items will now be removed from Mario's inventory when playing on a setting that removes them from the item pool.</li>
+        </ul>
+
+    </mat-card>
 
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.14.0 (beta) (2022-08-23)</mat-card-title>
