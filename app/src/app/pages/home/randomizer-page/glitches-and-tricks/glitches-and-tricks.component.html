@@ -1,6 +1,6 @@
 <form [formGroup]="formGroup" autocomplete="off">
     <mat-card-content class=settings-card-content>
-        
+        <p class="disclaimer">*Enabling tricks will make them part of the logic, which means you might be required to use them to beat the game. Leaving tricks disabled won't prevent using them if you still wish to do so.</p>
         <div class="filter-section">
             
             <div class="setting-element input-element">
@@ -32,6 +32,7 @@
         </div>
         <div class="table-container">
             <div class="tricks-section">
+
                 <h2>Available tricks</h2>
                 <mat-selection-list  #glitches class="glitches-list" formControlName="glitches">
                     <mat-list-option *ngFor="let glitch of glitchesList" [value]="glitch" [ngStyle]="{ display : isGlitchInFilteredList(glitch) ? 'block' : 'none' }" [disabled]="!isGlitchInFilteredList(glitch)" >
