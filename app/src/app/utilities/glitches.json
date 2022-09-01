@@ -8,6 +8,54 @@
     "id": "!"
   },
   {
+    "name": "Reverse Goomba King Bridge",
+    "settingName": "ReverseGoombaKingBridge",
+    "link": "https://www.youtube.com/watch?v=6Mt0qnNLEW4",
+    "description": "On the Goomba King map, it is possible to get out of bounds on the east side. From there, you can reach the invisible bridge and use it to cross and enter the Goomba region.",
+    "location": "Goomba Region",
+    "id": "Á"
+  },
+  {
+    "name": "Goomba Village Entry Fence Clip",
+    "settingName": "GoombaVillageEntryFenceClip",
+    "link": "https://www.youtube.com/watch?v=gClrnYAbF0Q",
+    "description": "When entering Goomba Village from the right side, the yellow block can be skipped by clipping through the fence.",
+    "location": "Goomba Region",
+    "id": "Â"
+  },
+  {
+    "name": "Goomba Village Exit (NPC Lure)",
+    "settingName": "GoombaVillageNpcLureExit",
+    "link": "https://www.youtube.com/watch?v=waXAqviq4ps",
+    "description": "When attempting to exit Goomba Village through the right side, the yellow block can be skipped by luring Goompapa near the edge. Talking to him at the right angle while being squeezed between him and the edge will push Mario out of bounds and allow him to reach the loading zone.",
+    "location": "Goomba Region",
+    "id": "Ã"
+  },
+  {
+    "name": "Goomba Village Exit (Laki Teleport)",
+    "settingName": "GoombaVillageLakiExit",
+    "link": "https://youtu.be/DPXLjSEEnBk?t=8",
+    "description": "When attempting to exit Goomba Village through the right side, the yellow block can be skipped by clipping through the fence with a Laki Teleport.",
+    "location": "Goomba Region",
+    "id": "Å"
+  },
+  {
+    "name": "Hammerless Jr. Playground (Laki Teleport)",
+    "settingName": "HammerlessJrPlaygroundLaki",
+    "link": "https://www.youtube.com/watch?v=DPXLjSEEnBk",
+    "description": "A laki teleport can be used to clip through the fence before Jr. Troopa's playground, allowing Mario to enter from the right without a hammer.",
+    "location": "Goomba Region",
+    "id": "Ä"
+  },
+  {
+    "name": "Prologue Sushie Glitch",
+    "settingName": "PrologueSushieGlitch",
+    "link": "https://papermarioarchives.com/#/Retrigger_Prologue",
+    "description": "After doing the glitch to retrigger prologue (using item throw instead of collecting 32 key items), menu storage can be obtained on the save block, which can be used to activate the sushie glitch. This state allows to skip all obstacles on the overworld, aside from doors to dungeons. (Needs better video)",
+    "location": "Goomba Region",
+    "id": "Æ"
+  },
+  {
     "name": "Odd Key Early",
     "settingName": "OddKeyEarly",
     "link": "https://www.youtube.com/watch?v=nPFBwsC0w_g",
