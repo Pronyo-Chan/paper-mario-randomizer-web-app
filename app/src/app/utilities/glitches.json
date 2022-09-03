@@ -320,6 +320,14 @@
     "id": "="
   },
   {
+    "name": "Mt.Rugged Coins with Kooper",
+    "settingName": "MtRuggedCoinsWithKooper",
+    "link": "",
+    "description": "The 3 nearest coins in the coin ring surrounding the star piece normally reachable with Parakarry can be obtained with Kooper Shell Shots.",
+    "location": "Mt. Rugged",
+    "id": "Î"
+  },
+  {
     "name": "Desert Brick Block Item With Parakarry",
     "settingName": "DesertBrickBlockItemWithParakarry",
     "link": "https://www.youtube.com/watch?v=Bdr6tOdBSKQ",
@@ -345,11 +353,19 @@
   },
   {
     "name": "Artifact Jump With Laki",
-    "settingName": "ArtifactJump",
+    "settingName": "ArtifactJumpLaki",
     "link": "https://www.youtube.com/watch?v=z0lDfFuh_Fw",
     "description": "The artifact item can be obtained without breaking the hammer block by performing a Laki Jump on the edge of the door's platform.",
     "location": "Dry Dry Ruins",
     "id": "A"
+  },
+  {
+    "name": "Artifact Jump With Ultra Boots",
+    "settingName": "ArtifactJumpLaki",
+    "link": "https://www.youtube.com/watch?v=z0lDfFuh_Fw",
+    "description": "With a precise Tornado Jump from the door step, it's possible to clip through the artifact's platform.",
+    "location": "Dry Dry Ruins",
+    "id": "Ï"
   },
   {
     "name": "Ruins Key Laki Jump",
@@ -435,9 +451,17 @@
     "name": "Gusty Gulch Gate Skip (LZS)",
     "settingName": "GustyGulchGateSkipLZS",
     "link": "https://www.youtube.com/watch?v=m7egGLSQ2GU&t=2966s",
-    "description": "Using LZS, you can get out of bounds and skip the locked Gusty Gulch Gate",
+    "description": "Using LZS, you can get out of bounds and skip the locked Gusty Gulch gate.",
     "location": "Gusty Gulch",
     "id": "M"
+  },
+  {
+    "name": "Gusty Gulch Gate Skip (Laki Teleport)",
+    "settingName": "GustyGulchGateSkipLaki",
+    "link": "https://youtu.be/DPXLjSEEnBk?t=58",
+    "description": "Using a laki teleport, it's possible to clip through the locked Gusty Gulch gate.",
+    "location": "Gusty Gulch",
+    "id": "Ð"
   },
   {
     "name": "Kooper-less Gusty Gulch Dizzy Dial (Jump)",
@@ -480,12 +504,20 @@
     "id": "R"
   },
   {
-    "name": "Tubba's Table Laki Jump",
+    "name": "Tubba's Table Jump (Laki)",
     "settingName": "TubbasTableLakiJump",
     "link": "https://www.youtube.com/watch?v=iS5ncvNTS9E",
     "description": "Using a Laki Jump from under the table, you can reach the item on top of the table in Tubba's Castle without having access to the 2nd floor.",
     "location": "Tubba's Castle",
     "id": "S"
+  },
+  {
+    "name": "Tubba's Table Jump (Ultra Boots)",
+    "settingName": "TubbasTableUltraBoots",
+    "link": "",
+    "description": "With a precise tornado jump under a table corner, you can reach the item on top of the table in Tubba's Castle without having access to the 2nd floor.",
+    "location": "Tubba's Castle",
+    "id": "Ñ"
   },
   {
     "name": "Tubba's Castle Super Boots Skip (Clippy)",
