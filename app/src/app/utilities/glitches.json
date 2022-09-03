@@ -584,6 +584,54 @@
     "id": "Z"
   },
   {
+    "name": "Parakarry-less Blue Block City Gap",
+    "settingName": "ParakarrylessBlueBlockCityGap",
+    "link": "",
+    "description": "The item block across a large gap that usually requires Parakarry can just barely be reached with a regular jump.",
+    "location": "ToyBox",
+    "id": "Ñ"
+  },
+  {
+    "name": "Blue Switch Skip (Laki)",
+    "settingName": "BlueSwitchSkipLaki",
+    "link": "https://www.youtube.com/watch?v=gEIUMaTrey0",
+    "description": "A laki clip can be used to go out of bounds at the blue station and reach the switch, allowing to activating it before visiting other stations.",
+    "location": "ToyBox",
+    "id": "Ò"
+  },
+  {
+    "name": "Blue Switch Skip (Ultra Boots)",
+    "settingName": "BlueSwitchSkipUltraBoots",
+    "link": "",
+    "description": "The hidden item block can be climbed on with a precise Tornado Jump. From there, you can jump out of bounds and reach the blue switch before visiting other stations.",
+    "location": "ToyBox",
+    "id": "Ó"
+  },
+  {
+    "name": "Red Barricade Skip (Laki Teleport)",
+    "settingName": "RedBarricadeSkip",
+    "link": "",
+    "description": "A laki teleport can be used to pass the red barricade without Bombette. Warning: The camera won't follow Mario around beyond the barricade and enabling this assumes you know how to collect the items beyond it without seeing.",
+    "location": "ToyBox",
+    "id": "Ô"
+  },
+  {
+    "name": "Hammerless Blue Station (Clippy)",
+    "settingName": "HammerlessBlueStationLaki",
+    "link": "",
+    "description": "By using Lakilester to enter clippy state, it's possible to jump above the first wall in Blue Block City without bouncing from the box with a Hammer or Super Boots.",
+    "location": "ToyBox",
+    "id": "Õ"
+  },
+  {
+    "name": "Hammerless Pink Station (Clippy)",
+    "settingName": "HammerlessPinkStationLaki",
+    "link": "",
+    "description": "By using Lakilester to enter clippy state, it's possible to jump above the first wall in Pink Playhouse without bouncing from the box with a Hammer or Super Boots. The chest on the upper ledge can also be reached by going out of bounds while in clippy state.",
+    "location": "ToyBox",
+    "id": "Ö"
+  },
+  {
     "name": "Raph Skip (English)",
     "settingName": "RaphSkipEnglish",
     "link": "https://www.youtube.com/watch?v=ogzj33iA9AI",
@@ -614,6 +662,22 @@
     "description": "With a precise jump from the upper platform of the central volcano room, you can clip into the wall and get out of bounds to skip the metal block.",
     "location": "Mt. Lavalava",
     "id": "^"
+  },
+  {
+    "name": "Ultra Hammer Skip (Laki)",
+    "settingName": "UltraHammerSkipLaki",
+    "link": "https://www.youtube.com/watch?v=qOW92BsI42E",
+    "description": "A laki clip can be performed on the edge of the upper-right loading zone in the central volcano room to go out of bounds and fall on the loading zone behind the metal block.",
+    "location": "Mt. Lavalava",
+    "id": "×"
+  },
+  {
+    "name": "Volcano Sushie Glitch",
+    "settingName": "VolcanoSushieGlitch",
+    "link": "",
+    "description": "The sushie glitch can be obtained in the central volcano room by obtaining menu storage, from ground pounding the save block after jumping on the nearest trampoline. This state allows to skip metal blocks and the lava gap leading to the Ultra Hammer chest.",
+    "location": "Mt. Lavalava",
+    "id": "Ø"
   },
   {
     "name": "Flarakarry",
