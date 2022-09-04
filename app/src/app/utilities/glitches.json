@@ -824,6 +824,14 @@
     "id": "p"
   },
   {
+    "name": "Star Stone with Ch.7 Sushie Glitch",
+    "settingName": "StarStoneWithCh7SushieGlitch",
+    "link": "https://www.youtube.com/watch?v=U14UQwu3yrc",
+    "description": "Encountering an enemy twice during Sushie glitch, and swapping partners the second time, gives you 'clippy' so that you can clip out in the corner to the Star Stone.",
+    "location": "Shiver Region",
+    "id": "Ù"
+  },
+  {
     "name": "Shiver Mountain Hidden Block Without Ultra Boots (Laki)",
     "settingName": "ShiverMountainHiddenBlockWithoutUltraBootsLaki",
     "link": "https://www.youtube.com/watch?v=5sjIfda6YB4",
@@ -840,6 +848,30 @@
     "id": "r"
   },
   {
+    "name": "Snowmen Skip (Laki)",
+    "settingName": "SnowmenSkipLaki",
+    "link": "https://www.youtube.com/watch?v=QIqoLQywNT0",
+    "description": "By mounting Laki behind the tree that's against the wall with the snowmen, you can get above the tree and clip out of bounds, then reach the loading zone behind the wall.",
+    "location": "Shiver Region",
+    "id": "Ú"
+  },
+  {
+    "name": "Shiver Mountain Switch Skip",
+    "settingName": "ShiverMountainSwitchSkip",
+    "link": "",
+    "description": "A laki clip can be used to go out of bounds and bypass the ground switch on the way to crystal palace without needing super boots.",
+    "location": "Shiver Region",
+    "id": "Û"
+  },
+  {
+    "name": "Sushie-less Warehouse Key (Bombette Push)",
+    "settingName": "SushielessWarehouseKey",
+    "link": "",
+    "description": "By pushing one of the 3 Toad sisters near the edge, you can squeeze out of bounds and reach the bottom of the pond without Sushie. Kooper, Parakarry or Super Boots are needed to jump high enough and obtain the item.",
+    "location": "Shiver Region",
+    "id": "Ü"
+  },
+  {
     "name": "Mirror Clip",
     "settingName": "MirrorClip",
     "link": "https://papermarioarchives.com/#/Mirror_Clip",
@@ -854,6 +886,14 @@
     "description": "The moving platform on the lava can be used to clip out of bounds while riding Laki and skip the part where Bow would be required.",
     "location": "Bowser's Castle",
     "id": "t"
+  },
+  {
+    "name": "Bombette-less Bowsers Castle Basement",
+    "settingName": "BombettelessBowsersCastleBasement",
+    "link": "https://www.youtube.com/watch?v=7lDq0kGzoIQ",
+    "description": "A laki clip can be used in front of Bowser's Castle to clip out of bounds and reach the badge block early. From there you can ride on the lava with laki and reach the basement.",
+    "location": "Bowser's Castle",
+    "id": "Ý"
   },
   {
     "name": "Fast Flood Room With Kooper",
@@ -880,12 +920,12 @@
     "id": "w"
   },
   {
-    "name": "Knows Puzzle Solutions",
-    "settingName": "KnowsPuzzleSolutions",
+    "name": "Reach High Blocks With Super Boots",
+    "settingName": "ReachHighBlocksWithSuperBoots",
     "link": "",
-    "description": "Enabling this will make the logic assume you can solve puzzles without seeing the ingame solutions. The affected puzzles are: The 2 secret codes in Dry Dry Outpost's shop, the ruins stone puzzle and the Toy Box color puzzle.",
+    "description": "The two high item blocks in crystal palace  and the desert brick block that requires Kooper can be reached with a well timed ground pound from below.",
     "location": "Global",
-    "id": "x"
+    "id": "Þ"
   },
   {
     "name": "Break Yellow Blocks with Super Boots",
@@ -894,6 +934,14 @@
     "description": "Spin Jumps with the Super Boots can break yellow blocks. In practice this is only useful for the prologue bottom of cliff block, as you can get on it with neutral jumps.",
     "location": "Global",
     "id": "y"
+  },
+  {
+    "name": "Knows Puzzle Solutions",
+    "settingName": "KnowsPuzzleSolutions",
+    "link": "",
+    "description": "Enabling this will make the logic assume you can solve puzzles without seeing the ingame solutions. The affected puzzles are: The 2 secret codes in Dry Dry Outpost's shop, the ruins stone puzzle and the Toy Box color puzzle.",
+    "location": "Global",
+    "id": "x"
   },
   {
     "name": "Knows Hidden Blocks Locations",
