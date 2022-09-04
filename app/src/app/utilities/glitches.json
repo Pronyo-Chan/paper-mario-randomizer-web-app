@@ -361,7 +361,7 @@
   },
   {
     "name": "Artifact Jump With Ultra Boots",
-    "settingName": "ArtifactJumpLaki",
+    "settingName": "ArtifactJumpUltraBoots",
     "link": "https://www.youtube.com/watch?v=z0lDfFuh_Fw",
     "description": "With a precise Tornado Jump from the door step, it's possible to clip through the artifact's platform.",
     "location": "Dry Dry Ruins",
@@ -589,7 +589,7 @@
     "link": "",
     "description": "The item block across a large gap that usually requires Parakarry can just barely be reached with a regular jump.",
     "location": "ToyBox",
-    "id": "Ñ"
+    "id": "ß"
   },
   {
     "name": "Blue Switch Skip (Laki)",
