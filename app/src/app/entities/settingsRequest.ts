@@ -274,7 +274,7 @@ export interface SettingsRequest {
     BombettelessBowsersCastleBasement: boolean
 
     // Glitches: Global
-    BreakMetalBlocksWithUltraBoots: boolean
+    BreakStoneBlocksWithUltraBoots: boolean
     KnowsPuzzleSolutions: boolean
     BreakYellowBlocksWithSuperBoots: boolean
     KnowsHiddenBlocks: boolean

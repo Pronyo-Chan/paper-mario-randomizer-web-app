@@ -138,7 +138,7 @@
   {
     "name": "Sushie-less Toad Town Star Piece",
     "settingName": "SushielessToadTownStarPiece",
-    "link": "https://www.youtube.com/watch?v=-cmNZSa5BPE",
+    "link": "https://youtu.be/waXAqviq4ps?t=125",
     "description": "After ch4 is completed, you can enter the house and NPC push a Toad toward the wall with Bombette until you can clip outside with the hammer.",
     "location": "Toad Town",
     "id": "+"
@@ -474,7 +474,7 @@
   {
     "name": "Kooper-less Gusty Gulch Dizzy Dial (Laki)",
     "settingName": "KooperlessGustyGulchDizzyDialLaki",
-    "link": "",
+    "link": "https://www.youtube.com/watch?v=jYpNpvkVXM8",
     "description": "By entering clippy state with Laki, you can climb on the rock where the item stands.",
     "location": "Gusty Gulch",
     "id": "O"
@@ -714,7 +714,7 @@
   {
     "name": "Early Lakilster (Bombette Push)",
     "settingName": "EarlyLakiBombettePush",
-    "link": "https://papermarioarchives.com/#/Early_Lakilester",
+    "link": "https://youtu.be/waXAqviq4ps?t=703",
     "description": "The Bubble Plant can be pushed towards the wall with NPC Bombette pushes, and can then be used to clip out of bounds and cross the thorns without Lakilester or a Bubble Berry.",
     "location": "Flower Fields",
     "id": "c"
@@ -754,7 +754,7 @@
   {
     "name": "Yellow Berry Gate Skip (Bombette Push)",
     "settingName": "YellowBerryGateSkipBombettePush",
-    "link": "",
+    "link": "https://youtu.be/waXAqviq4ps?t=588",
     "description": "The Yellow Plant can be pushed towards the wall with NPC Bombette pushes, and can then be used to clip out of bounds and walk around the gate.",
     "location": "Flower Fields",
     "id": "h"
@@ -762,7 +762,7 @@
   {
     "name": "Red Berry Gate Skip (Bombette Push)",
     "settingName": "RedBerryGateSkipBombettePush",
-    "link": "",
+    "link": "https://youtu.be/waXAqviq4ps?t=641",
     "description": "Clip through the gate by pushing the plant with NPC Bombette pushes (need better description and video).",
     "location": "Flower Fields",
     "id": "i"
@@ -778,7 +778,7 @@
   {
     "name": "Blue Berry Gate Skip (Bombette Push)",
     "settingName": "BlueBerryGateSkipBombettePush",
-    "link": "",
+    "link": "https://youtu.be/waXAqviq4ps?t=760",
     "description": "Clip through the gate by pushing the plant with NPC Bombette pushes (need better description and video).",
     "location": "Flower Fields",
     "id": "k"
@@ -810,7 +810,7 @@
   {
     "name": "Murder Solved Early (Bombette Push)",
     "settingName": "MurderSolvedEarlyBombettePush",
-    "link": "",
+    "link": "https://youtu.be/waXAqviq4ps?t=817",
     "description": "The murder mystery can be solved without the Warehouse Key by NPC pushing the penguin next to the house and using him to clip inside.",
     "location": "Shiver Region",
     "id": "o"
@@ -913,8 +913,8 @@
   },
   {
     "name": "Break Stone Blocks with Ultra Boots",
-    "settingName": "BreakMetalBlocksWithUltraBoots",
-    "link": "",
+    "settingName": "BreakStoneBlocksWithUltraBoots",
+    "link": "https://www.youtube.com/watch?v=opNOjSm142c",
     "description": "Tornado Jumps with the Ultra Boots can break stone blocks. This can be used to get the prologue repel gel early and access the first 3 warp pipes in the sewers without the Super Hammer.",
     "location": "Global",
     "id": "w"
