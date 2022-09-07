@@ -125,17 +125,26 @@ export interface SettingsRequest {
 
     // Glitches: Goomba Region
     PrologueGelEarly: boolean
+    ReverseGoombaKingBridge: boolean
+    GoombaVillageEntryFenceClip: boolean
+    GoombaVillageNpcLureExit: boolean
+    HammerlessJrPlaygroundLaki: boolean
+    GoombaVillageLakiExit: boolean
+    PrologueSushieGlitch: boolean
 
     // Glitches: Toad Town
     OddKeyEarly: boolean
     BlueHouseSkip: boolean
     BlueHouseSkipLaki: boolean
     BlueHouseSkipToadLure: boolean
-    BowlessToyBox: boolean
+    BowlessToyBoxHammer: boolean
+    BowlessToyBoxHammerlessLure: boolean
     EarlyStoreroomParakarry: boolean
     EarlyStoreroomHammer: boolean
+    EarlyStoreroomHammerlessLure: boolean
     WhaleEarly: boolean
     SushielessToadTownStarPiece: boolean
+    ToadTownSushieGlitch: boolean
 
     // Glitches: Toad Town Tunnels
     ClippyBootsStoneBlockSkip: boolean
@@ -143,6 +152,9 @@ export interface SettingsRequest {
     IslandPipeBlooperSkip: boolean
     ParakarrylessSewerStarPiece: boolean
     SewerBlocksWithoutUltraBoots: boolean
+    FirstBlockToShiverCityWithoutSuperBoots: boolean
+    BlocksToShiverCityWithKooperShellItemThrow: boolean
+    SewerYellowBlockWithUltraBoots: boolean
 
     // Glitches: Plesant Path
     KooperlessPleasantPathStarPiece: boolean
@@ -155,12 +167,14 @@ export interface SettingsRequest {
     BombettelessKbfFpPlusLaki: boolean
     LakiJailbreak: boolean
     BombettelessRightFortressJailKey: boolean
+    WaterStaircaseSkip: boolean
 
     // Glitches: Mt. Rugged
     MtRuggedQuakeHammerAndLetterWithLaki: boolean
     ParakarrylessMtRuggedSeed: boolean
     BuzzarGapSkipClippy: boolean
     ParakarrylessMtRuggedStarPiece: boolean
+    MtRuggedCoinsWithKooper: boolean
 
     // Glitches: Dry Dry Desert
     DesertBrickBlockItemWithParakarry: boolean
@@ -168,7 +182,8 @@ export interface SettingsRequest {
     EarlyRuinsUltraBoots: boolean
 
     // Glitches: Dry Dry Ruins
-    ArtifactJump: boolean
+    ArtifactJumpLaki: boolean
+    ArtifactJumpUltraBoots: boolean
     RuinsKeyLakiJump: boolean
     ParakarrylessSecondSandRoomUltraBoots: boolean
     ParakarrylessSecondSandRoomNormalBoots: boolean
@@ -184,6 +199,7 @@ export interface SettingsRequest {
 
     // Glitches: Gusty Gulch
     GustyGulchGateSkipLZS: boolean
+    GustyGulchGateSkipLaki: boolean
     KooperlessGustyGulchDizzyDialJump: boolean
     KooperlessGustyGulchDizzyDialLaki: boolean
     KooperlessGustyGulchDizzyDialParakarry: boolean
@@ -192,6 +208,7 @@ export interface SettingsRequest {
     // Glitches: Tubba's Castle
     BowlessTubbasCastle: boolean
     TubbasTableLakiJump: boolean
+    TubbasTableUltraBoots: boolean
     TubbasCastleSuperBootsSkip: boolean
     ParakarrylessMegaRush: boolean
 
@@ -202,6 +219,12 @@ export interface SettingsRequest {
     GourmetGuySkipParakarry: boolean
     BowlessGreenStation: boolean
     KooperlessRedStationShootingStar: boolean
+    ParakarrylessBlueBlockCityGap: boolean
+    BlueSwitchSkipLaki: boolean
+    BlueSwitchSkipUltraBoots: boolean
+    RedBarricadeSkip: boolean
+    HammerlessBlueStationLaki: boolean
+    HammerlessPinkStationLaki: boolean
 
     // Glitches: Jade Jungle
     RaphSkipEnglish: boolean
@@ -210,9 +233,11 @@ export interface SettingsRequest {
     // Glitches: Mt. Lavalava
     KooperlessLavalavaPowBlock: boolean
     UltraHammerSkip: boolean
+    UltraHammerSkipLaki: boolean
     Flarakarry: boolean
     ParakarrylessFlarakarryBombette: boolean
     ParakarrylessFlarakarryLaki: boolean
+    VolcanoSushieGlitch: boolean
 
     // Glitches: Flower Fields
     EarlyLakiLZS: boolean
@@ -232,8 +257,12 @@ export interface SettingsRequest {
     MurderSolvedEarlyLaki: boolean
     MurderSolvedEarlyBombettePush: boolean
     Ch7SushieGlitch: boolean
+    StarStoneWithCh7SushieGlitch: boolean
     ShiverMountainHiddenBlockWithoutUltraBootsLaki: boolean
     ShiverMountainHiddenBlockWithoutUltraBootsNoLaki: boolean
+    SnowmenSkipLaki: boolean
+    ShiverMountainSwitchSkip: boolean
+    SushielessWarehouseKey: boolean
 
     // Glitches: Crystal Palace
     MirrorClip: boolean
@@ -242,12 +271,14 @@ export interface SettingsRequest {
     BowlessBowsersCastleBasement: boolean
     FastFloodRoomKooper: boolean
     FastFloodRoomBombetteUltraBoots: boolean
+    BombettelessBowsersCastleBasement: boolean
 
     // Glitches: Global
-    BreakMetalBlocksWithUltraBoots: boolean
+    BreakStoneBlocksWithUltraBoots: boolean
     KnowsPuzzleSolutions: boolean
     BreakYellowBlocksWithSuperBoots: boolean
     KnowsHiddenBlocks: boolean
+    ReachHighBlocksWithSuperBoots: boolean
 }
 
 export interface StartingPartners {
