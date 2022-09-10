@@ -4,17 +4,22 @@
     display: flex;
     flex-wrap: wrap;
     min-height: 15rem;
+    flex-basis: 85%;
+    flex-grow: 1;
 
     .tricks-section {
         margin-left: 3rem;
         margin-bottom: 2rem;
+
+        flex-basis: 45%;
+        width: 45%;
+        flex-grow: 1;
+
         .glitches-list {
             padding-right: 1rem;
             max-height: 40rem;
             overflow-y: auto;
             overflow-x: hidden;
-            min-width: 620px;
-            max-width: 100%;
         }
 
         .glitches-list::-webkit-scrollbar {
@@ -34,6 +39,7 @@
 
 .filter-section {
     margin-bottom: 2rem;
+    flex-basis: 15%;
 }
 
 mat-selection-list, mat-list {
