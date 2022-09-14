@@ -1,3 +1,4 @@
+import { RandomConsumableMode } from './../../../../entities/enum/randomConsumableMode';
 import { Boots } from './../../../../entities/enum/boots';
 import { BowsersCastleMode } from './../../../../entities/enum/bowsersCastleMode';
 import { KootFavorsMode } from './../../../../entities/enum/kootFavorsMode';
@@ -96,6 +97,9 @@ export class SettingsInfoComponent implements OnInit {
           break;
         case 'GearShuffleMode':
           this.settingRows.push({name: cleanSettingName, value: GearShuffleMode[this.seedInfo[key]]})
+          break;
+        case 'RandomConsumableMode':
+          this.settingRows.push({name: cleanSettingName, value: RandomConsumableMode[this.seedInfo[key]]})
           break;
         case 'StartingBoots':
           this.settingRows.push({name: cleanSettingName, value: Boots[this.seedInfo[key]]})

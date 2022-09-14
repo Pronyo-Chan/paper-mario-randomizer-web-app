@@ -20,6 +20,7 @@ import { environment } from 'src/environments/environment';
 import { CoinColor } from 'src/app/entities/enum/coinColor';
 import { Boots } from 'src/app/entities/enum/boots';
 import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
+import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -158,7 +159,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         oneHitKO: new FormControl(false),
         noSaveBlocks: new FormControl(false),
         noHeartBlocks: new FormControl(false),
-        itemScarcity: new FormControl(0),
+        itemScarcity: new FormControl(100),
+        randomConsumableMode: new FormControl(RandomConsumableMode.Vanilla),
         starWaySpiritsNeeded: new FormControl(7),
         noHealingItems: new FormControl(false),
         itemTrapMode: new FormControl(0),

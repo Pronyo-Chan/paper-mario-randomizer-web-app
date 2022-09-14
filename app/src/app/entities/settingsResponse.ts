@@ -112,6 +112,7 @@ export interface SettingsResponse{
     StartingItemE: number;
     StartingItemF: number;
     ItemScarcity: number;
+    RandomConsumableMode: number;
     StarWaySpiritsNeeded: number;
     FoliageItemHints: boolean;
     RandomText: boolean;
