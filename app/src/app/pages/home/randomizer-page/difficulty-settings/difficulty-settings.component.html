@@ -81,7 +81,7 @@
             </select>
         </div>
         <div class="setting-element slider-element" *ngIf="difficultyFormGroup.get('randomConsumableMode').value == 2">
-            <app-tooltip-span [spanText]="'Item Scarcity: ' + difficultyFormGroup.get('itemScarcity').value + '%' + (difficultyFormGroup.get('itemScarcity').value == 100 ? ' (Vanilla)' : '')"
+            <app-tooltip-span [spanText]="'Item Quality: ' + difficultyFormGroup.get('itemScarcity').value + '%' + (difficultyFormGroup.get('itemScarcity').value == 100 ? ' (Vanilla)' : '')"
                              tooltipText="Sets how powerful consumable items should be on average, where a higher number means better items. 100 is the strength of the vanilla item pool."></app-tooltip-span>
             <mat-slider formControlName="itemScarcity" (input)="difficultyFormGroup.get('itemScarcity').setValue($event.value)" min=50 max= 125 step="5" tickInterval="1"></mat-slider>
         </div>    
