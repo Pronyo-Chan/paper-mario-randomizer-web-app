@@ -85,8 +85,19 @@ export class DevPageComponent implements OnInit {
     this.userYaml.PrettySpoilerlog = undefined;
     this.userYaml.PlacementAlgorithm = undefined;
     this.userYaml.PlacementLogic = undefined;
+    this.userYaml.ItemChoiceA = undefined;
+    this.userYaml.ItemChoiceB = undefined;
+    this.userYaml.ItemChoiceC = undefined;
+    this.userYaml.ItemChoiceD = undefined;
+    this.userYaml.ItemChoiceE = undefined;
+    this.userYaml.ItemChoiceF = undefined;
+    this.userYaml.ItemChoiceG = undefined;
     
     this.userYaml.StartingLevel = undefined;
+
+    // Required settings for the server that the seed generator yaml doesn't have
+    this.userYaml.RevealLogInHours = 0
+    this.userYaml.SettingsString = ""
 
     // WIP settings
     this.userYaml.PeachCastleReturnPipe = undefined;
