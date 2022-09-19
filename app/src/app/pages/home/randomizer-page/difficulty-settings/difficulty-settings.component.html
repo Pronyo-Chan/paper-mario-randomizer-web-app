@@ -67,6 +67,19 @@
                 <option [ngValue]="3">Plenty</option>
             </select>
         </div>
+
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Merlow Rewards Pricing" tooltipText="Sets the amount of spent star pieces required to obtain Merlow Rewards.
+            
+                                                                            Cheap: Rewards will be obtained from 5 to 30 star pieces spent.
+                                                                            
+                                                                            Normal: Rewards will be obtained from 10 to 60 star pieces spent.">
+            </app-tooltip-span>
+            <select formControlName='merlowRewardPricing'>
+                <option [ngValue]="0">Cheap</option>
+                <option [ngValue]="1">Normal</option>
+            </select>
+        </div>
         
     </mat-card-content>
 </form>

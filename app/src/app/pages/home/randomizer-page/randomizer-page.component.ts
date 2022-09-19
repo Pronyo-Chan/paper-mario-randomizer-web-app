@@ -1,3 +1,4 @@
+import { MerlowRewardPricing } from './../../../entities/enum/merlowRewardPricing';
 import { StartingMap } from './../../../entities/enum/startingMaps';
 import { Hammer } from './../../../entities/enum/hammer';
 import { BowsersCastleMode } from './../../../entities/enum/bowsersCastleMode';
@@ -163,7 +164,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         starWaySpiritsNeeded: new FormControl(7),
         noHealingItems: new FormControl(false),
         itemTrapMode: new FormControl(0),
-        allowItemHints: new FormControl(true)
+        allowItemHints: new FormControl(true),
+        merlowRewardPricing: new FormControl(MerlowRewardPricing.Normal),
       }),
       marioStats: new FormGroup({
         startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]), 

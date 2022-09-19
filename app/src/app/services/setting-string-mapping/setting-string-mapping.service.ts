@@ -48,6 +48,7 @@ export class SettingStringMappingService {
     { compressedString: "l", key: "noHealingItems", type: "bool"},
     { compressedString: "t", key: "itemTrapMode", type: "number"},
     { compressedString: "y", key: "allowItemHints", type: "bool"},
+    { compressedString: "r", key: "merlowRewardPricing", type: "number"},
   ]
 
   public readonly gameplayMap: SettingModel [] = [

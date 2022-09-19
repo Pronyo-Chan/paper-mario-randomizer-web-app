@@ -1,3 +1,4 @@
+import { MerlowRewardPricing } from './../../../../entities/enum/merlowRewardPricing';
 import { Boots } from './../../../../entities/enum/boots';
 import { BowsersCastleMode } from './../../../../entities/enum/bowsersCastleMode';
 import { KootFavorsMode } from './../../../../entities/enum/kootFavorsMode';
@@ -102,6 +103,9 @@ export class SettingsInfoComponent implements OnInit {
           break;
         case 'StartingHammer':
           this.settingRows.push({name: cleanSettingName, value: Hammer[this.seedInfo[key]]})
+          break;
+        case 'MerlowRewardPricing':
+          this.settingRows.push({name: cleanSettingName, value: MerlowRewardPricing[this.seedInfo[key]]})
           break;
         case 'RandomBadgesBP':
         case 'RandomBadgesFP':

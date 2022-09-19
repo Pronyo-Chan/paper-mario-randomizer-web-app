@@ -265,6 +265,7 @@ export class RandomizerService {
       CookWithoutFryingPan: settingsForm.get('qualityOfLife').get('cookWithoutFryingPan').value,
       GearShuffleMode: settingsForm.get('items').get('gearShuffleMode').value,
       RipCheatoItemsInLogic: settingsForm.get('items').get('ripCheatoItemsInLogic').value,
+      MerlowRewardPricing: settingsForm.get('difficulty').get('merlowRewardPricing').value,
 
       // Glitches: Goomba Region
       PrologueGelEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "PrologueGelEarly"),

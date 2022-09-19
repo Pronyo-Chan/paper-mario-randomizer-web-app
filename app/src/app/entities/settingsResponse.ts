@@ -131,6 +131,7 @@ export interface SettingsResponse{
     CookWithoutFryingPan: boolean;
     GearShuffleMode: number;
     RipCheatoItemsInLogic: number;
+    MerlowRewardPricing: number;
 
     // Glitches: Goomba Region
     PrologueGelEarly: boolean
