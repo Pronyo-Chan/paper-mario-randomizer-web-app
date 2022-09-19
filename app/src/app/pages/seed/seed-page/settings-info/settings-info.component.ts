@@ -21,6 +21,7 @@ import glitchesJson from '../../../../utilities/glitches.json'
 import { LogicGlitch } from 'src/app/entities/logicGlitch';
 import { HiddenPanelVisibilityMode } from 'src/app/entities/enum/hiddenPanelVisibilityMode';
 import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
+import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode';
 
 interface SettingRow {
   name: string;
@@ -97,6 +98,9 @@ export class SettingsInfoComponent implements OnInit {
           break;
         case 'GearShuffleMode':
           this.settingRows.push({name: cleanSettingName, value: GearShuffleMode[this.seedInfo[key]]})
+          break;
+        case 'RandomConsumableMode':
+          this.settingRows.push({name: cleanSettingName, value: RandomConsumableMode[this.seedInfo[key]]})
           break;
         case 'StartingBoots':
           this.settingRows.push({name: cleanSettingName, value: Boots[this.seedInfo[key]]})

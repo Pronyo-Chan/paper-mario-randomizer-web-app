@@ -39,7 +39,8 @@ export class SettingStringMappingService {
     { compressedString: "c", key: "capEnemyXP", type: "bool"},
     { compressedString: "m", key: "damageMultiplier", type: "number"},
     { compressedString: "d", key: "difficultyMode", type: "number"},
-    { compressedString: "i", key: "itemScarcity", type: "number"},
+    { compressedString: "i", key: "itemScarcity", type: "removed"},
+    { compressedString: "q", key: "itemQuality", type: "number"},
     { compressedString: "h", key: "noHeartBlocks", type: "bool"},
     { compressedString: "s", key: "noSaveBlocks", type: "bool"},
     { compressedString: "x", key: "noXP", type: "bool"},
@@ -48,7 +49,8 @@ export class SettingStringMappingService {
     { compressedString: "l", key: "noHealingItems", type: "bool"},
     { compressedString: "t", key: "itemTrapMode", type: "number"},
     { compressedString: "y", key: "allowItemHints", type: "bool"},
-    { compressedString: "r", key: "merlowRewardPricing", type: "number"},
+    { compressedString: "p", key: "merlowRewardPricing", type: "number"},
+    { compressedString: "r", key: "randomConsumableMode", type: "number"},
   ]
 
   public readonly gameplayMap: SettingModel [] = [
