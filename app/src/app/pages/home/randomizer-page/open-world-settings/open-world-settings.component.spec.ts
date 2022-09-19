@@ -26,7 +26,8 @@ describe('OpenWorldSettingsComponent', () => {
       magicalSeedsRequired: new FormControl(4),
       blueHouseOpen : new FormControl(false),
       toyboxOpen: new FormControl(false),
-      whaleOpen: new FormControl(false)
+      whaleOpen: new FormControl(false),
+      prologueOpen: new FormControl(false),
     })
     fixture.detectChanges();
   });

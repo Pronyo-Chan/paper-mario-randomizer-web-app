@@ -98,6 +98,7 @@ export class SettingStringMappingService {
     { compressedString: "s", key: "startingMap", type: "number"},
     { compressedString: "t", key: "toyboxOpen", type: "bool"},
     { compressedString: "w", key: "whaleOpen", type: "bool"},
+    { compressedString: "p", key: "prologueOpen", type: "bool"},
     { compressedString: "m", key: "magicalSeedsRequired", type: "number"},
   ]
 

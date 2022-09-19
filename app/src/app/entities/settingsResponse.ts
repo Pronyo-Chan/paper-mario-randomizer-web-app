@@ -36,6 +36,7 @@ export interface SettingsResponse{
     BlueHouseOpen: boolean;
     ToyboxOpen: boolean;
     WhaleOpen: boolean;
+    PrologueOpen: boolean;
     ShuffleChapterDifficulty: boolean;
     ProgressiveScaling: boolean;
     RandomFormations: boolean;

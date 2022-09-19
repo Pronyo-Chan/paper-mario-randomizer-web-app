@@ -92,6 +92,7 @@
                 "blueHouseOpen": false,
                 "toyboxOpen": false,
                 "whaleOpen": false,
+                "prologueOpen": false,
                 "startingMap": 65796
             },
             "cosmetics": {
@@ -240,6 +241,7 @@
             "blueHouseOpen": true,
             "toyboxOpen": true,
             "whaleOpen": true,
+            "prologueOpen": true,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -388,6 +390,7 @@
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
+            "prologueOpen": false,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -536,6 +539,7 @@
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
+            "prologueOpen": false,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -686,6 +690,7 @@
             "blueHouseOpen":false,
             "toyboxOpen":false,
             "whaleOpen":false,
+            "prologueOpen": false,
             "startingMap":65796
          },
          "cosmetics":{
