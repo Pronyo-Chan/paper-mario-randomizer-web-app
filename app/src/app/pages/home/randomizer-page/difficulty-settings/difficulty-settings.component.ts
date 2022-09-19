@@ -12,7 +12,6 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
 
   @Input() public difficultyFormGroup: FormGroup;
   private _enemyDifficultySubscription: Subscription;
-  private scarcitySubscription: Subscription;
 
   public constructor() { }
   
@@ -25,20 +24,11 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
         this.forceXpCapWhenProgressiveScaling(value)
       })
     ).subscribe();
-
-    // Ensure scarcity is 50 at minimum. This is because older presets will have a value between 0 and 7.
-    this.setMinimumScarcityValue();
-    this.scarcitySubscription = this.difficultyFormGroup.get('itemScarcity').valueChanges.pipe(
-      tap(() => this.setMinimumScarcityValue())
-    ).subscribe();
   }
 
   public ngOnDestroy(): void {
     if(this._enemyDifficultySubscription) {
       this._enemyDifficultySubscription.unsubscribe();
-    }
-    if(this.scarcitySubscription) {
-      this.scarcitySubscription.unsubscribe();
     }
   }
 
@@ -50,12 +40,4 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
       this.difficultyFormGroup.get('capEnemyXP').enable();
     }
   }
-
-  private setMinimumScarcityValue(): void {
-    let scarcityControl = this.difficultyFormGroup.get('itemScarcity')
-    if(scarcityControl.value < 10) {
-      scarcityControl.setValue(100);
-    }
-  }
-
 }

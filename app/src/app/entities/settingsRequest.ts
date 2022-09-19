@@ -103,7 +103,7 @@ export interface SettingsRequest {
     StartingItemD: number;
     StartingItemE: number;
     StartingItemF?: number;
-    ItemScarcity: number;
+    ItemQuality: number;
     RandomConsumableMode: number;
     StarWaySpiritsNeeded: number;
     FoliageItemHints: boolean;
