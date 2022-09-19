@@ -122,6 +122,7 @@ export interface SettingsRequest {
     HiddenPanelVisibility: number;
     CookWithoutFryingPan: boolean;
     GearShuffleMode: number;
+    RipCheatoItemsInLogic: number;
 
     // Glitches: Goomba Region
     PrologueGelEarly: boolean

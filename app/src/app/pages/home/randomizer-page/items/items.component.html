@@ -88,5 +88,11 @@
                 <option [ngValue]="2">Full Shuffle</option>
             </select> 
         </div>
+
+        <div class="setting-element slider-element" >
+            <app-tooltip-span [spanText]="'Rip Cheato Items In Logic: ' + itemFormGroup.get('ripCheatoItemsInLogic').value"
+                             tooltipText="Number of items sold by Rip Cheato that can be required in logic. Items in logic will always be sold by him before the out of logic ones."></app-tooltip-span>
+            <mat-slider formControlName="ripCheatoItemsInLogic" (input)="itemFormGroup.get('ripCheatoItemsInLogic').setValue($event.value)" min=0 max= 11 step="1" tickInterval="1" ></mat-slider>
+        </div> 
     </mat-card-content>
 </form>

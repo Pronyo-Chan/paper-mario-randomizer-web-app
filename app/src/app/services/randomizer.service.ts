@@ -264,6 +264,7 @@ export class RandomizerService {
       HiddenPanelVisibility: settingsForm.get('qualityOfLife').get('hiddenPanelVisibility').value ? 1 : 0,
       CookWithoutFryingPan: settingsForm.get('qualityOfLife').get('cookWithoutFryingPan').value,
       GearShuffleMode: settingsForm.get('items').get('gearShuffleMode').value,
+      RipCheatoItemsInLogic: settingsForm.get('items').get('ripCheatoItemsInLogic').value,
 
       // Glitches: Goomba Region
       PrologueGelEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "PrologueGelEarly"),

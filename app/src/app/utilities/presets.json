@@ -14,7 +14,8 @@
                 "includeLetters": 0,
                 "includeRadioTradeEvent": false,
                 "shuffleBlocks": false,
-                "gearShuffleMode": 0
+                "gearShuffleMode": 0,
+                "ripCheatoItemsInLogic": 6
             },
             "gameplay": {
                 "randomBadgesBP": 0,
@@ -160,7 +161,8 @@
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
-            "gearShuffleMode": 2
+            "gearShuffleMode": 2,
+            "ripCheatoItemsInLogic": 6
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -306,7 +308,8 @@
             "includeLetters": 1,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
-            "gearShuffleMode": 1
+            "gearShuffleMode": 1,
+            "ripCheatoItemsInLogic": 6
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -452,7 +455,8 @@
             "includeLetters": 3,
             "includeRadioTradeEvent": true,
             "shuffleBlocks": true,
-            "gearShuffleMode": 2
+            "gearShuffleMode": 2,
+            "ripCheatoItemsInLogic": 11
           },
           "gameplay": {
             "randomBadgesBP": 3,
@@ -598,7 +602,8 @@
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
-            "gearShuffleMode": 0
+            "gearShuffleMode": 0,
+            "ripCheatoItemsInLogic": 6
          },
          "gameplay":{
             "randomBadgesBP":1,
