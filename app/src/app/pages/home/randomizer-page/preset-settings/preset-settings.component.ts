@@ -75,7 +75,7 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
 
     // Special handling for glitches objects not loaded properly with patchValue
     const allGlitches: LogicGlitch[] = glitchesJson;
-    let enabledGlitches = allGlitches.filter(g => preset['settings'].glitches.some(enabledGlitch => enabledGlitch.settingName == g.settingName))
+    let enabledGlitches = allGlitches.filter(g => preset['settings'].glitches?.some(enabledGlitch => enabledGlitch.settingName == g.settingName))
     this.formGroup.get('glitches').setValue(enabledGlitches)
 
     // Fix for old presets that have invalid Koot value
