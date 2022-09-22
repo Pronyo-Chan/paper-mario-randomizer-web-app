@@ -1,3 +1,4 @@
+import { MerlowRewardPricing } from './../../../entities/enum/merlowRewardPricing';
 import { StartingMap } from './../../../entities/enum/startingMaps';
 import { Hammer } from './../../../entities/enum/hammer';
 import { BowsersCastleMode } from './../../../entities/enum/bowsersCastleMode';
@@ -20,6 +21,7 @@ import { environment } from 'src/environments/environment';
 import { CoinColor } from 'src/app/entities/enum/coinColor';
 import { Boots } from 'src/app/entities/enum/boots';
 import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
+import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -107,6 +109,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includeRadioTradeEvent: new FormControl(false),
         shuffleBlocks: new FormControl(false),
         gearShuffleMode: new FormControl(GearShuffleMode.Vanilla),
+        ripCheatoItemsInLogic: new FormControl(6),
       }),
       gameplay: new FormGroup({
         randomBadgesBP: new FormControl(0),
@@ -158,11 +161,13 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         oneHitKO: new FormControl(false),
         noSaveBlocks: new FormControl(false),
         noHeartBlocks: new FormControl(false),
-        itemScarcity: new FormControl(0),
+        itemQuality: new FormControl(100),
+        randomConsumableMode: new FormControl(RandomConsumableMode.Vanilla),
         starWaySpiritsNeeded: new FormControl(7),
         noHealingItems: new FormControl(false),
         itemTrapMode: new FormControl(0),
-        allowItemHints: new FormControl(true)
+        allowItemHints: new FormControl(true),
+        merlowRewardPricing: new FormControl(MerlowRewardPricing.Normal),
       }),
       marioStats: new FormGroup({
         startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]), 
@@ -182,6 +187,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         blueHouseOpen : new FormControl(false),
         toyboxOpen: new FormControl(false),
         whaleOpen: new FormControl(false),
+        prologueOpen: new FormControl(false),
         startingMap: new FormControl(StartingMap.ToadTown)
       }),
       cosmetics: new FormGroup({

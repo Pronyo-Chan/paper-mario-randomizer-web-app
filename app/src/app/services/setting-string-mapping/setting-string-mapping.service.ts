@@ -39,7 +39,8 @@ export class SettingStringMappingService {
     { compressedString: "c", key: "capEnemyXP", type: "bool"},
     { compressedString: "m", key: "damageMultiplier", type: "number"},
     { compressedString: "d", key: "difficultyMode", type: "number"},
-    { compressedString: "i", key: "itemScarcity", type: "number"},
+    { compressedString: "i", key: "itemScarcity", type: "removed"},
+    { compressedString: "q", key: "itemQuality", type: "number"},
     { compressedString: "h", key: "noHeartBlocks", type: "bool"},
     { compressedString: "s", key: "noSaveBlocks", type: "bool"},
     { compressedString: "x", key: "noXP", type: "bool"},
@@ -48,6 +49,8 @@ export class SettingStringMappingService {
     { compressedString: "l", key: "noHealingItems", type: "bool"},
     { compressedString: "t", key: "itemTrapMode", type: "number"},
     { compressedString: "y", key: "allowItemHints", type: "bool"},
+    { compressedString: "p", key: "merlowRewardPricing", type: "number"},
+    { compressedString: "r", key: "randomConsumableMode", type: "number"},
   ]
 
   public readonly gameplayMap: SettingModel [] = [
@@ -72,7 +75,8 @@ export class SettingStringMappingService {
     { compressedString: "r", key: "includeRadioTradeEvent", type: "bool"},
     { compressedString: "b", key: "shuffleBlocks", type: "bool"},
     { compressedString: "h", key: "bigChestShuffle", type: "removed"},
-    { compressedString: "g", key: "gearShuffleMode", type: "number"}
+    { compressedString: "g", key: "gearShuffleMode", type: "number"},
+    { compressedString: "a", key: "ripCheatoItemsInLogic", type: "number"}
   ]
 
   public readonly marioStatsMap: SettingModel [] = [
@@ -96,6 +100,7 @@ export class SettingStringMappingService {
     { compressedString: "s", key: "startingMap", type: "number"},
     { compressedString: "t", key: "toyboxOpen", type: "bool"},
     { compressedString: "w", key: "whaleOpen", type: "bool"},
+    { compressedString: "p", key: "prologueOpen", type: "bool"},
     { compressedString: "m", key: "magicalSeedsRequired", type: "number"},
   ]
 

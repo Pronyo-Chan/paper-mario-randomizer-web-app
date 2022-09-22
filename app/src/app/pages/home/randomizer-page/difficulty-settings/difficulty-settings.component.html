@@ -20,17 +20,29 @@
                 <option [value]="2">Double Pain</option>
                 <option [value]="4">Quadruple Pain</option>
             </select>
-        </div>    
-        <div class="setting-element slider-element" >
-            <app-tooltip-span [spanText]="'Item Scarcity: ' + difficultyFormGroup.get('itemScarcity').value"
-                             tooltipText="Randomly replaces consumable items in the item pool with weaker ones. A higher scarcity value means items have a higher chance of being replaced by weaker ones, 0 means they won't ever be replaced"></app-tooltip-span>
-            <mat-slider formControlName="itemScarcity" (input)="difficultyFormGroup.get('itemScarcity').setValue($event.value)" min=0 max= 5 step="1" tickInterval="1"></mat-slider>
-        </div>    
-        <div class="setting-element slider-element" >
-            <app-tooltip-span [spanText]="'Star Spirits Required: ' + difficultyFormGroup.get('starWaySpiritsNeeded').value"
-                             tooltipText="Number of star spirits saved required to open the way to Ch.8"></app-tooltip-span>
-            <mat-slider formControlName="starWaySpiritsNeeded" (input)="difficultyFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=0 max= 7 step="1" tickInterval="1" ></mat-slider>
-        </div>  
+        </div> 
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Item Traps" tooltipText="Replaces some items with fakes that deal 2 damage upon contact."></app-tooltip-span>
+            <select formControlName='itemTrapMode'>
+                <option [ngValue]="0">No Traps</option>
+                <option [ngValue]="1">Sparse</option>
+                <option [ngValue]="2">Moderate</option>
+                <option [ngValue]="3">Plenty</option>
+            </select>
+        </div> 
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Merlow Rewards Pricing" tooltipText="Sets the amount of spent star pieces required to obtain Merlow Rewards.
+            
+                                                                            Cheap: Rewards will be obtained from 5 to 30 star pieces spent.
+                                                                            
+                                                                            Normal: Rewards will be obtained from 10 to 60 star pieces spent.">
+            </app-tooltip-span>
+            <select formControlName='merlowRewardPricing'>
+                <option [ngValue]="0">Cheap</option>
+                <option [ngValue]="1">Normal</option>
+            </select>
+        </div>   
+        
         <div class="setting-element">
             <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>            
             <app-tooltip-span spanText="Cap Enemy XP" tooltipText="Limits the amount of XP obtainable per defeated enemy to 5 XP.
@@ -57,16 +69,37 @@
         <div class="setting-element">
             <mat-slide-toggle formControlName='noHealingItems'></mat-slide-toggle>
             <app-tooltip-span spanText="No Healing Items" tooltipText="HP/FP healing items will have no effect when used if turned on."></app-tooltip-span>
-        </div>
+        </div> 
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="Item Traps" tooltipText="Replaces some items with fakes that deal 2 damage upon contact."></app-tooltip-span>
-            <select formControlName='itemTrapMode'>
-                <option [ngValue]="0">No Traps</option>
-                <option [ngValue]="1">Sparse</option>
-                <option [ngValue]="2">Moderate</option>
-                <option [ngValue]="3">Plenty</option>
+            <app-tooltip-span spanText="Consumable Item Pool"
+                               tooltipText="Replaces the consumable items with randomized ones.
+            
+                                            Vanilla: The original item pool is preserved.
+                                            
+                                            Fully Random: Items are replaced with completely random ones.
+                                            
+                                            Balanced Random: The average strength of items is balanced to be similar to Vanilla. A quality factor can be set to make it weaker / stronger.
+                                            
+                                            Mystery Only: All consumable items are replaced by Mystery"></app-tooltip-span>
+            <select formControlName='randomConsumableMode'>
+                <option [ngValue]="0">Vanilla</option>
+                <option [ngValue]="1">Fully Random</option>
+                <option [ngValue]="2">Balanced Random</option>
+                <option [ngValue]="3">Mystery Only</option>
             </select>
         </div>
+
+        <div class="setting-element slider-element" >
+            <app-tooltip-span [spanText]="'Star Spirits Required: ' + difficultyFormGroup.get('starWaySpiritsNeeded').value"
+                             tooltipText="Number of star spirits saved required to open the way to Ch.8"></app-tooltip-span>
+            <mat-slider formControlName="starWaySpiritsNeeded" (input)="difficultyFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=0 max= 7 step="1" tickInterval="1" ></mat-slider>
+        </div>  
+
+        <div class="setting-element slider-element" *ngIf="difficultyFormGroup.get('randomConsumableMode').value == 2">
+            <app-tooltip-span [spanText]="'Item Quality: ' + difficultyFormGroup.get('itemQuality').value + '%' + (difficultyFormGroup.get('itemQuality').value == 100 ? ' (Vanilla)' : '')"
+                             tooltipText="Sets how powerful consumable items should be on average, where a higher number means better items. 100 is the strength of the vanilla item pool."></app-tooltip-span>
+            <mat-slider formControlName="itemQuality" (input)="difficultyFormGroup.get('itemQuality').setValue($event.value)" min=25 max= 125 step="25" tickInterval="1"></mat-slider>
+        </div>    
         
     </mat-card-content>
 </form>

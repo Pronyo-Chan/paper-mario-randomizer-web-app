@@ -1,6 +1,95 @@
 
 <div class="main-page">
     <mat-card class="settings-card">
+        <mat-card-title class="settings-title">0.15.0 (beta) (2022-09-22)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
+            <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins and Crystal Palace may look like they are hanging on an invisible ceiling in certain rooms.</li>
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> Merlow won't hand out bonus rewards when playing on Project 64 with the Recompiler mode. Please use another emulator or set Project 64 to use Interpreter mode instead.</li>
+            <li> Using Shell Shot on the Goomnut Tree during the Goomba King fight will crash the game on console.</li>
+        </ul>
+
+        <h2>Game Mod Fixes</h2>
+        <ul>
+            <li> Fixed an issue with prologue Jr. Troopa where the fight could be skipped by resetting.</li>
+            <li> Fixed an issue where Merlee would not give the Crystal Ball item if the associated favor was completed and the next favor wasn't started yet.</li>
+            <li> Fixed an issue with the apple crates in Boo's Mansion where progressive gear would respawn if placed in them.</li>
+            <li> Fixed an issue with Block Shuffle where the two blocks in Crystal Palace would always be the same type, making it possible to end up with one missing or extra Super Block.</li>
+        </ul>
+
+        <h2>Seed Generator</h2>
+        <ul>
+            <li> The shop price for gear upgrades will now be random between 10 and 30, just like key items, badges and partners.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li> Fixed an issue where setting item pouches as starting items would add the wrong items in Mario's inventory.</li>
+            <li> Improved the visibility and usability of the Glitches & Tricks section on mobile and vertical resolutions.</li>
+        </ul>
+
+        <h2>Options</h2>
+
+        <h3>Open Prologue (new)</h3>
+        <ul>
+            <li> Enabling this will set the Prologue in a completed state: Goomba King is defeated and the bridge is lowered.</li>
+            <li> It allows accessing Goomba Village from Toad Town, without using the sewer pipe.</li>
+            <li> This new option can be found in the Open World Settings.</li>
+        </ul>
+
+        <h3>Merlow Rewards Pricing (new)</h3>
+        <ul>
+            <li> This difficulty setting allows modifying the required amount of star pieces spent to get Merlow's rewards.</li>
+            <li> 'Normal' corresponds to the previous pricing, going from 10 to 60. 'Cheap' cuts prices in half.</li>
+            <li> When using 'Cheap', logic still considers pricing to be 'Normal', effectively making it easier to get enough star pieces for rewards.</li>
+        </ul>
+
+        <h3>Rip Cheato Items In Logic (new)</h3>
+        <ul>
+            <li> Sets the number of items sold by Rip Cheato that are considered in logic.</li>
+            <li> Items in logic will always be the first ones sold by him.</li>
+            <li> For example, setting it to '3' means the first 3 items sold are in logic and the following ones are not.</li>
+        </ul>
+
+        <h3>Consumable Item Pool and Item Quality (new)</h3>
+        <ul>
+            <li> The consumable item pool can now be modified in various ways with this new difficulty setting.</li>
+            <li> 'Fully Random' replaces every consumable with a random one, without any concern for balance.</li>
+            <li> 'Mystery Only' replaces every item with a mystery.</li>
+            <li> 'Balanced Random' makes another new setting visible: Item Quality.</li>
+            <li> When using 'Balanced Random', the item pool will be replaced with one that can be similar to vanilla, weaker or stronger, depending on the item quality setting.</li>
+            <li> Item Quality can be set to 25, 50, 75, 100 or 125%. Higher values mean stronger items on average.</li>
+            <li> This new system replaces the previous Item Scarcity setting.</li>
+            <li> 🎉This feature was developed by <span class="bolder-text">boingboingsplat</span>, with help from <span class="bolder-text">MrCheeze</span> to finetune the balance. Shoutouts to them! 🎉  </li>
+        </ul>
+
+        <h3>Glitches & Tricks (change)</h3>
+        <ul class="indented-text">            
+            <li> Some missing video links have been added.</li>
+            <li>New glitches and tricks have been added:</li>
+            <li><span class="bolder-text">Goomba Region:</span> Reverse Goomba King Bridge, Goomba Village Fence Clip, Goomba Village Exit (NPC Lure), Goomba Village Exit (Laki),
+                Hammerless Jr. Playground (Laki), Prologue Sushie Glitch</li>
+            <li><span class="bolder-text">Toad Town:</span> Enter ToyBox Without Bow (Hammerless), Enter Storeroom Without Key (Hammerless), Toad Town Sushie Glitch</li>
+            <li><span class="bolder-text">Toad Town Sewers:</span> First Block To Shiver City Without Super Boots, Blocks To Shiver City With Kooper Shell Item Throw, Sewer Yellow Block With Ultra Boots</li>
+            <li><span class="bolder-text">Koopa Bros Fortress:</span> Water Staircase Skip</li>
+            <li><span class="bolder-text">Mt.Rugged:</span> Mt.Rugged Coins with Kooper</li>
+            <li><span class="bolder-text">Dry Dry Ruins:</span> Artifact Jump With Ultra Boots</li>
+            <li><span class="bolder-text">Gusty Gulch:</span> Gusty Gulch Gate Skip (Laki Teleport)</li>
+            <li><span class="bolder-text">Tubba's Castle:</span> Tubba's Table Jump (Ultra Boots)</li>
+            <li><span class="bolder-text">Toy Box:</span> Parakarry-less Blue Block City Gap, Blue Switch Skip (Laki), Blue Switch Skip (Ultra Boots), Red Barricade Skip (Laki Teleport), Hammerless Blue Station, Hammerless Pink Station</li>
+            <li><span class="bolder-text">Mt. Lavalava:</span> Ultra Hammer Skip (Laki), Volcano Sushie Glitch</li>
+            <li><span class="bolder-text">Shiver Region:</span> Star Stone with Ch.7 Sushie Glitch, Snowmen Skip (Laki), Shiver Mountain Switch Skip, Sushie-less Warehouse Key (Bombette Push)</li>
+            <li><span class="bolder-text">Bowser's Castle:</span> Bombette-less Bowser's Castle Basement</li>
+            <li><span class="bolder-text">Global:</span> Reach High Blocks With Super Boots</li>
+            <li> 🎉Shoutouts to <span class="bolder-text">MrCheeze</span> and <span class="bolder-text">NaterTater</span> for their hard work on glitch hunting to discover these new glitches! 🎉</li>
+        </ul>
+
+    </mat-card>
+
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.14.1 (beta) (2022-08-27)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     

@@ -8,6 +8,54 @@
     "id": "!"
   },
   {
+    "name": "Reverse Goomba King Bridge",
+    "settingName": "ReverseGoombaKingBridge",
+    "link": "https://www.youtube.com/watch?v=6Mt0qnNLEW4",
+    "description": "On the Goomba King map, it is possible to get out of bounds on the east side. From there, you can reach the invisible bridge and use it to cross and enter the Goomba region.",
+    "location": "Goomba Region",
+    "id": "Á"
+  },
+  {
+    "name": "Goomba Village Entry Fence Clip",
+    "settingName": "GoombaVillageEntryFenceClip",
+    "link": "https://www.youtube.com/watch?v=gClrnYAbF0Q",
+    "description": "When entering Goomba Village from the right side, the yellow block can be skipped by clipping through the fence.",
+    "location": "Goomba Region",
+    "id": "Â"
+  },
+  {
+    "name": "Goomba Village Exit (NPC Lure)",
+    "settingName": "GoombaVillageNpcLureExit",
+    "link": "https://www.youtube.com/watch?v=waXAqviq4ps",
+    "description": "When attempting to exit Goomba Village through the right side, the yellow block can be skipped by luring Goompapa near the edge. Talking to him at the right angle while being squeezed between him and the edge will push Mario out of bounds and allow him to reach the loading zone.",
+    "location": "Goomba Region",
+    "id": "Ã"
+  },
+  {
+    "name": "Goomba Village Exit (Laki Teleport)",
+    "settingName": "GoombaVillageLakiExit",
+    "link": "https://youtu.be/DPXLjSEEnBk?t=8",
+    "description": "When attempting to exit Goomba Village through the right side, the yellow block can be skipped by clipping through the fence with a Laki Teleport.",
+    "location": "Goomba Region",
+    "id": "Å"
+  },
+  {
+    "name": "Hammerless Jr. Playground (Laki Teleport)",
+    "settingName": "HammerlessJrPlaygroundLaki",
+    "link": "https://www.youtube.com/watch?v=DPXLjSEEnBk",
+    "description": "A laki teleport can be used to clip through the fence before Jr. Troopa's playground, allowing Mario to enter from the right without a hammer.",
+    "location": "Goomba Region",
+    "id": "Ä"
+  },
+  {
+    "name": "Prologue Sushie Glitch",
+    "settingName": "PrologueSushieGlitch",
+    "link": "https://papermarioarchives.com/#/Retrigger_Prologue",
+    "description": "After doing the glitch to retrigger prologue (using item throw instead of collecting 32 key items), menu storage can be obtained on the save block, which can be used to activate the sushie glitch. This state allows to skip most obstacles on the overworld, aside from doors to dungeons. (Needs better video)",
+    "location": "Goomba Region",
+    "id": "Æ"
+  },
+  {
     "name": "Odd Key Early",
     "settingName": "OddKeyEarly",
     "link": "https://www.youtube.com/watch?v=nPFBwsC0w_g",
@@ -40,12 +88,20 @@
     "id": "µ"
   },
   {
-    "name": "Enter ToyBox Without Bow",
-    "settingName": "BowlessToyBox",
+    "name": "Enter ToyBox Without Bow (Hammer)",
+    "settingName": "BowlessToyBoxHammer",
     "link": "https://www.youtube.com/watch?v=JGAnjOt_yM4",
     "description": "Enter ToyBox without Bow by using the blue Toad to go out of bounds and move in front of the box.",
     "location": "Toad Town",
     "id": "%"
+  },
+  {
+    "name": "Enter ToyBox Without Bow (Hammerless)",
+    "settingName": "BowlessToyBoxHammerlessLure",
+    "link": "https://youtu.be/waXAqviq4ps?t=338",
+    "description": "Enter ToyBox without Bow by using the blue Toad to go out of bounds and move in front of the box. You must talk to the toad while directly between him and the ledge to get a push backwards out of bounds.",
+    "location": "Toad Town",
+    "id": "Ç"
   },
   {
     "name": "Enter Storeroom Without Key (Parakarry)",
@@ -64,6 +120,14 @@
     "id": "'"
   },
   {
+    "name": "Enter Storeroom Without Key (Hammerless)",
+    "settingName": "EarlyStoreroomHammerlessLure",
+    "link": "https://youtu.be/waXAqviq4ps?t=384",
+    "description": "Get access to the storeroom by using the blue Toad to go out of bounds and move inside the storeroom, similar to 'Enter ToyBox Without Bow (Hammerless)'.",
+    "location": "Toad Town",
+    "id": "È"
+  },
+  {
     "name": "Whale Early (LZS)",
     "settingName": "WhaleEarly",
     "link": "https://www.youtube.com/watch?v=9QeYdUI04O0",
@@ -74,11 +138,20 @@
   {
     "name": "Sushie-less Toad Town Star Piece",
     "settingName": "SushielessToadTownStarPiece",
-    "link": "https://www.youtube.com/watch?v=-cmNZSa5BPE",
+    "link": "https://youtu.be/waXAqviq4ps?t=125",
     "description": "After ch4 is completed, you can enter the house and NPC push a Toad toward the wall with Bombette until you can clip outside with the hammer.",
     "location": "Toad Town",
     "id": "+"
-  },{
+  },
+  {
+    "name": "Toad Town Sushie Glitch",
+    "settingName": "ToadTownSushieGlitch",
+    "link": "https://www.youtube.com/watch?v=sL_bXF4XWCc&t=24s",
+    "description": "By pressing C-down at a precise location on the deck while having Mario face down-left, it is possible to ride Sushie out of bounds. This state allows to skip most obstacles on the overworld, aside from doors to dungeons.",
+    "location": "Toad Town",
+    "id": "É"
+  },
+  {
     "name": "Clippy Boots Stone Block Skip",
     "settingName": "ClippyBootsStoneBlockSkip",
     "link": "https://www.youtube.com/watch?v=OZpLHGiyBoc",
@@ -117,6 +190,30 @@
     "description": "By gaining height from jumping on a Dark Koopa, the highest blocks in the sewers can be reached with regular boots. This trick also applies to the 3 blocks in the room before the Ultra Boots chest.",
     "location": "Toad Town Tunnels",
     "id": "1"
+  },
+  {
+    "name": "First Block To Shiver City Without Super Boots",
+    "settingName": "FirstBlockToShiverCityWithoutSuperBoots",
+    "link": "https://youtu.be/3kFNVPAUijc",
+    "description": "A regular jump from the staircase can get you just far enough to reach the first block from under, in the room with the blocks that lead to Shiver City.",
+    "location": "Toad Town Tunnels",
+    "id": "Ê"
+  },
+  {
+    "name": "Blocks To Shiver City With Kooper Shell Item Throw",
+    "settingName": "BlocksToShiverCityWithKooperShellItemThrow",
+    "link": "https://youtu.be/3kFNVPAUijc?t=5",
+    "description": "By throwing an item on a block and performing a Kooper Super Jump under it, the coins/items in the room that leads to Shiver City can be hit without Super Boots.",
+    "location": "Toad Town Tunnels",
+    "id": "Ë"
+  },
+  {
+    "name": "Sewer Yellow Block With Ultra Boots",
+    "settingName": "SewerYellowBlockWithUltraBoots",
+    "link": "https://youtu.be/4wBh6NePj5Y?t=47",
+    "description": "It is possible to climb on the save block in the first sewer room with a Tornado Jump. From there, you can jump on the yellow block and break it with a Tornado Jump.",
+    "location": "Toad Town Tunnels",
+    "id": "Ì"
   },
   {
     "name": "Kooper-less Pleasant Path Star Piece (clippy)",
@@ -183,6 +280,14 @@
     "id": "8"
   },
   {
+    "name": "Water Staircase Skip",
+    "settingName": "WaterStaircaseSkip",
+    "link": "https://www.youtube.com/watch?v=6qLuSu1zOpc",
+    "description": "A laki teleport can be used in the first room inside the fortress to get out of bounds and climb to the top floor, skipping the vast majority of the dungeon. Warning: raising the staircase with the switch will make the trick impossible to perform afterwards.",
+    "location": "Koopa Bros Fortress",
+    "id": "Í"
+  },
+  {
     "name": "Mt. Rugged Quake Hammer + Letter with Laki",
     "settingName": "MtRuggedQuakeHammerAndLetterWithLaki",
     "link": "https://www.youtube.com/watch?v=vfmsVGbir38",
@@ -215,6 +320,14 @@
     "id": "="
   },
   {
+    "name": "Mt.Rugged Coins with Kooper",
+    "settingName": "MtRuggedCoinsWithKooper",
+    "link": "",
+    "description": "The 3 nearest coins in the coin ring surrounding the star piece normally reachable with Parakarry can be obtained with Kooper Shell Shots.",
+    "location": "Mt. Rugged",
+    "id": "Î"
+  },
+  {
     "name": "Desert Brick Block Item With Parakarry",
     "settingName": "DesertBrickBlockItemWithParakarry",
     "link": "https://www.youtube.com/watch?v=Bdr6tOdBSKQ",
@@ -240,11 +353,19 @@
   },
   {
     "name": "Artifact Jump With Laki",
-    "settingName": "ArtifactJump",
+    "settingName": "ArtifactJumpLaki",
     "link": "https://www.youtube.com/watch?v=z0lDfFuh_Fw",
     "description": "The artifact item can be obtained without breaking the hammer block by performing a Laki Jump on the edge of the door's platform.",
     "location": "Dry Dry Ruins",
     "id": "A"
+  },
+  {
+    "name": "Artifact Jump With Ultra Boots",
+    "settingName": "ArtifactJumpUltraBoots",
+    "link": "https://www.youtube.com/watch?v=z0lDfFuh_Fw",
+    "description": "With a precise Tornado Jump from the door step, it's possible to clip through the artifact's platform.",
+    "location": "Dry Dry Ruins",
+    "id": "Ï"
   },
   {
     "name": "Ruins Key Laki Jump",
@@ -330,9 +451,17 @@
     "name": "Gusty Gulch Gate Skip (LZS)",
     "settingName": "GustyGulchGateSkipLZS",
     "link": "https://www.youtube.com/watch?v=m7egGLSQ2GU&t=2966s",
-    "description": "Using LZS, you can get out of bounds and skip the locked Gusty Gulch Gate",
+    "description": "Using LZS, you can get out of bounds and skip the locked Gusty Gulch gate.",
     "location": "Gusty Gulch",
     "id": "M"
+  },
+  {
+    "name": "Gusty Gulch Gate Skip (Laki Teleport)",
+    "settingName": "GustyGulchGateSkipLaki",
+    "link": "https://youtu.be/DPXLjSEEnBk?t=58",
+    "description": "Using a laki teleport, it's possible to clip through the locked Gusty Gulch gate.",
+    "location": "Gusty Gulch",
+    "id": "Ð"
   },
   {
     "name": "Kooper-less Gusty Gulch Dizzy Dial (Jump)",
@@ -345,7 +474,7 @@
   {
     "name": "Kooper-less Gusty Gulch Dizzy Dial (Laki)",
     "settingName": "KooperlessGustyGulchDizzyDialLaki",
-    "link": "",
+    "link": "https://www.youtube.com/watch?v=jYpNpvkVXM8",
     "description": "By entering clippy state with Laki, you can climb on the rock where the item stands.",
     "location": "Gusty Gulch",
     "id": "O"
@@ -375,12 +504,20 @@
     "id": "R"
   },
   {
-    "name": "Tubba's Table Laki Jump",
+    "name": "Tubba's Table Jump (Laki)",
     "settingName": "TubbasTableLakiJump",
     "link": "https://www.youtube.com/watch?v=iS5ncvNTS9E",
     "description": "Using a Laki Jump from under the table, you can reach the item on top of the table in Tubba's Castle without having access to the 2nd floor.",
     "location": "Tubba's Castle",
     "id": "S"
+  },
+  {
+    "name": "Tubba's Table Jump (Ultra Boots)",
+    "settingName": "TubbasTableUltraBoots",
+    "link": "https://youtu.be/4wBh6NePj5Y?t=230",
+    "description": "With a precise tornado jump under a table corner, you can reach the item on top of the table in Tubba's Castle without having access to the 2nd floor.",
+    "location": "Tubba's Castle",
+    "id": "Ñ"
   },
   {
     "name": "Tubba's Castle Super Boots Skip (Clippy)",
@@ -447,6 +584,54 @@
     "id": "Z"
   },
   {
+    "name": "Parakarry-less Blue Block City Gap",
+    "settingName": "ParakarrylessBlueBlockCityGap",
+    "link": "",
+    "description": "The item block across a large gap that usually requires Parakarry can just barely be reached with a regular jump.",
+    "location": "ToyBox",
+    "id": "ß"
+  },
+  {
+    "name": "Blue Switch Skip (Laki)",
+    "settingName": "BlueSwitchSkipLaki",
+    "link": "https://www.youtube.com/watch?v=gEIUMaTrey0",
+    "description": "A laki clip can be used to go out of bounds at the blue station and reach the switch, allowing to activating it before visiting other stations.",
+    "location": "ToyBox",
+    "id": "Ò"
+  },
+  {
+    "name": "Blue Switch Skip (Ultra Boots)",
+    "settingName": "BlueSwitchSkipUltraBoots",
+    "link": "https://youtu.be/4wBh6NePj5Y?t=238",
+    "description": "The hidden item block can be climbed on with a precise Tornado Jump. From there, you can jump out of bounds and reach the blue switch before visiting other stations.",
+    "location": "ToyBox",
+    "id": "Ó"
+  },
+  {
+    "name": "Red Barricade Skip (Laki Teleport)",
+    "settingName": "RedBarricadeSkip",
+    "link": "",
+    "description": "A laki teleport can be used to pass the red barricade without Bombette. Warning: The camera won't follow Mario around beyond the barricade and enabling this assumes you know how to collect the items beyond it without seeing.",
+    "location": "ToyBox",
+    "id": "Ô"
+  },
+  {
+    "name": "Hammerless Blue Station (Clippy)",
+    "settingName": "HammerlessBlueStationLaki",
+    "link": "",
+    "description": "By using Lakilester to enter clippy state, it's possible to jump above the first wall in Blue Block City without bouncing from the box with a Hammer or Super Boots.",
+    "location": "ToyBox",
+    "id": "Õ"
+  },
+  {
+    "name": "Hammerless Pink Station (Clippy)",
+    "settingName": "HammerlessPinkStationLaki",
+    "link": "",
+    "description": "By using Lakilester to enter clippy state, it's possible to jump above the first wall in Pink Playhouse without bouncing from the box with a Hammer or Super Boots. The chest on the upper ledge can also be reached by going out of bounds while in clippy state.",
+    "location": "ToyBox",
+    "id": "Ö"
+  },
+  {
     "name": "Raph Skip (English)",
     "settingName": "RaphSkipEnglish",
     "link": "https://www.youtube.com/watch?v=ogzj33iA9AI",
@@ -477,6 +662,22 @@
     "description": "With a precise jump from the upper platform of the central volcano room, you can clip into the wall and get out of bounds to skip the metal block.",
     "location": "Mt. Lavalava",
     "id": "^"
+  },
+  {
+    "name": "Ultra Hammer Skip (Laki)",
+    "settingName": "UltraHammerSkipLaki",
+    "link": "https://www.youtube.com/watch?v=qOW92BsI42E",
+    "description": "A laki clip can be performed on the edge of the upper-right loading zone in the central volcano room to go out of bounds and fall on the loading zone behind the metal block.",
+    "location": "Mt. Lavalava",
+    "id": "×"
+  },
+  {
+    "name": "Volcano Sushie Glitch",
+    "settingName": "VolcanoSushieGlitch",
+    "link": "",
+    "description": "The sushie glitch can be obtained in the central volcano room by obtaining menu storage, from ground pounding the save block after jumping on the nearest trampoline. This state allows to skip metal blocks and the lava gap leading to the Ultra Hammer chest.",
+    "location": "Mt. Lavalava",
+    "id": "Ø"
   },
   {
     "name": "Flarakarry",
@@ -513,7 +714,7 @@
   {
     "name": "Early Lakilster (Bombette Push)",
     "settingName": "EarlyLakiBombettePush",
-    "link": "https://papermarioarchives.com/#/Early_Lakilester",
+    "link": "https://youtu.be/waXAqviq4ps?t=703",
     "description": "The Bubble Plant can be pushed towards the wall with NPC Bombette pushes, and can then be used to clip out of bounds and cross the thorns without Lakilester or a Bubble Berry.",
     "location": "Flower Fields",
     "id": "c"
@@ -553,7 +754,7 @@
   {
     "name": "Yellow Berry Gate Skip (Bombette Push)",
     "settingName": "YellowBerryGateSkipBombettePush",
-    "link": "",
+    "link": "https://youtu.be/waXAqviq4ps?t=588",
     "description": "The Yellow Plant can be pushed towards the wall with NPC Bombette pushes, and can then be used to clip out of bounds and walk around the gate.",
     "location": "Flower Fields",
     "id": "h"
@@ -561,7 +762,7 @@
   {
     "name": "Red Berry Gate Skip (Bombette Push)",
     "settingName": "RedBerryGateSkipBombettePush",
-    "link": "",
+    "link": "https://youtu.be/waXAqviq4ps?t=641",
     "description": "Clip through the gate by pushing the plant with NPC Bombette pushes (need better description and video).",
     "location": "Flower Fields",
     "id": "i"
@@ -577,7 +778,7 @@
   {
     "name": "Blue Berry Gate Skip (Bombette Push)",
     "settingName": "BlueBerryGateSkipBombettePush",
-    "link": "",
+    "link": "https://youtu.be/waXAqviq4ps?t=760",
     "description": "Clip through the gate by pushing the plant with NPC Bombette pushes (need better description and video).",
     "location": "Flower Fields",
     "id": "k"
@@ -609,7 +810,7 @@
   {
     "name": "Murder Solved Early (Bombette Push)",
     "settingName": "MurderSolvedEarlyBombettePush",
-    "link": "",
+    "link": "https://youtu.be/waXAqviq4ps?t=817",
     "description": "The murder mystery can be solved without the Warehouse Key by NPC pushing the penguin next to the house and using him to clip inside.",
     "location": "Shiver Region",
     "id": "o"
@@ -621,6 +822,14 @@
     "description": "A sushie glitch can be performed on the deck to ride Sushie over the ground and clip through walls, allowing to skip Bucket/Scarf and the Kooper Duplighosts fight.",
     "location": "Shiver Region",
     "id": "p"
+  },
+  {
+    "name": "Star Stone with Ch.7 Sushie Glitch",
+    "settingName": "StarStoneWithCh7SushieGlitch",
+    "link": "https://www.youtube.com/watch?v=U14UQwu3yrc",
+    "description": "Encountering an enemy twice during Sushie glitch, and swapping partners the second time, gives you 'clippy' so that you can clip out in the corner to the Star Stone.",
+    "location": "Shiver Region",
+    "id": "Ù"
   },
   {
     "name": "Shiver Mountain Hidden Block Without Ultra Boots (Laki)",
@@ -639,6 +848,30 @@
     "id": "r"
   },
   {
+    "name": "Snowmen Skip (Laki)",
+    "settingName": "SnowmenSkipLaki",
+    "link": "https://www.youtube.com/watch?v=QIqoLQywNT0",
+    "description": "By mounting Laki behind the tree that's against the wall with the snowmen, you can get above the tree and clip out of bounds, then reach the loading zone behind the wall.",
+    "location": "Shiver Region",
+    "id": "Ú"
+  },
+  {
+    "name": "Shiver Mountain Switch Skip",
+    "settingName": "ShiverMountainSwitchSkip",
+    "link": "",
+    "description": "A laki clip can be used to go out of bounds and bypass the ground switch on the way to crystal palace without needing super boots.",
+    "location": "Shiver Region",
+    "id": "Û"
+  },
+  {
+    "name": "Sushie-less Warehouse Key (Bombette Push)",
+    "settingName": "SushielessWarehouseKey",
+    "link": "",
+    "description": "By pushing one of the 3 Toad sisters near the edge, you can squeeze out of bounds and reach the bottom of the pond without Sushie. Kooper, Parakarry or Super Boots are needed to jump high enough and obtain the item.",
+    "location": "Shiver Region",
+    "id": "Ü"
+  },
+  {
     "name": "Mirror Clip",
     "settingName": "MirrorClip",
     "link": "https://papermarioarchives.com/#/Mirror_Clip",
@@ -653,6 +886,14 @@
     "description": "The moving platform on the lava can be used to clip out of bounds while riding Laki and skip the part where Bow would be required.",
     "location": "Bowser's Castle",
     "id": "t"
+  },
+  {
+    "name": "Bombette-less Bowsers Castle Basement",
+    "settingName": "BombettelessBowsersCastleBasement",
+    "link": "https://www.youtube.com/watch?v=7lDq0kGzoIQ",
+    "description": "A laki clip can be used in front of Bowser's Castle to clip out of bounds and reach the badge block early. From there you can ride on the lava with laki and reach the basement.",
+    "location": "Bowser's Castle",
+    "id": "Ý"
   },
   {
     "name": "Fast Flood Room With Kooper",
@@ -672,19 +913,19 @@
   },
   {
     "name": "Break Stone Blocks with Ultra Boots",
-    "settingName": "BreakMetalBlocksWithUltraBoots",
-    "link": "",
+    "settingName": "BreakStoneBlocksWithUltraBoots",
+    "link": "https://www.youtube.com/watch?v=opNOjSm142c",
     "description": "Tornado Jumps with the Ultra Boots can break stone blocks. This can be used to get the prologue repel gel early and access the first 3 warp pipes in the sewers without the Super Hammer.",
     "location": "Global",
     "id": "w"
   },
   {
-    "name": "Knows Puzzle Solutions",
-    "settingName": "KnowsPuzzleSolutions",
+    "name": "Reach High Blocks With Super Boots",
+    "settingName": "ReachHighBlocksWithSuperBoots",
     "link": "",
-    "description": "Enabling this will make the logic assume you can solve puzzles without seeing the ingame solutions. The affected puzzles are: The 2 secret codes in Dry Dry Outpost's shop, the ruins stone puzzle and the Toy Box color puzzle.",
+    "description": "The two high item blocks in crystal palace  and the desert brick block that requires Kooper can be reached with a well timed ground pound from below.",
     "location": "Global",
-    "id": "x"
+    "id": "Þ"
   },
   {
     "name": "Break Yellow Blocks with Super Boots",
@@ -693,6 +934,14 @@
     "description": "Spin Jumps with the Super Boots can break yellow blocks. In practice this is only useful for the prologue bottom of cliff block, as you can get on it with neutral jumps.",
     "location": "Global",
     "id": "y"
+  },
+  {
+    "name": "Knows Puzzle Solutions",
+    "settingName": "KnowsPuzzleSolutions",
+    "link": "",
+    "description": "Enabling this will make the logic assume you can solve puzzles without seeing the ingame solutions. The affected puzzles are: The 2 secret codes in Dry Dry Outpost's shop, the ruins stone puzzle and the Toy Box color puzzle.",
+    "location": "Global",
+    "id": "x"
   },
   {
     "name": "Knows Hidden Blocks Locations",

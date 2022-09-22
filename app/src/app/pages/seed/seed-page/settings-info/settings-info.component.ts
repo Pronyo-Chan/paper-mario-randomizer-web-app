@@ -1,3 +1,4 @@
+import { MerlowRewardPricing } from './../../../../entities/enum/merlowRewardPricing';
 import { Boots } from './../../../../entities/enum/boots';
 import { BowsersCastleMode } from './../../../../entities/enum/bowsersCastleMode';
 import { KootFavorsMode } from './../../../../entities/enum/kootFavorsMode';
@@ -20,6 +21,7 @@ import glitchesJson from '../../../../utilities/glitches.json'
 import { LogicGlitch } from 'src/app/entities/logicGlitch';
 import { HiddenPanelVisibilityMode } from 'src/app/entities/enum/hiddenPanelVisibilityMode';
 import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
+import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode';
 
 interface SettingRow {
   name: string;
@@ -97,11 +99,17 @@ export class SettingsInfoComponent implements OnInit {
         case 'GearShuffleMode':
           this.settingRows.push({name: cleanSettingName, value: GearShuffleMode[this.seedInfo[key]]})
           break;
+        case 'RandomConsumableMode':
+          this.settingRows.push({name: cleanSettingName, value: RandomConsumableMode[this.seedInfo[key]]})
+          break;
         case 'StartingBoots':
           this.settingRows.push({name: cleanSettingName, value: Boots[this.seedInfo[key]]})
           break;
         case 'StartingHammer':
           this.settingRows.push({name: cleanSettingName, value: Hammer[this.seedInfo[key]]})
+          break;
+        case 'MerlowRewardPricing':
+          this.settingRows.push({name: cleanSettingName, value: MerlowRewardPricing[this.seedInfo[key]]})
           break;
         case 'RandomBadgesBP':
         case 'RandomBadgesFP':

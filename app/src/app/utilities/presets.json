@@ -14,7 +14,8 @@
                 "includeLetters": 0,
                 "includeRadioTradeEvent": false,
                 "shuffleBlocks": false,
-                "gearShuffleMode": 0
+                "gearShuffleMode": 0,
+                "ripCheatoItemsInLogic": 6
             },
             "gameplay": {
                 "randomBadgesBP": 0,
@@ -66,11 +67,13 @@
                 "oneHitKO": false,
                 "noSaveBlocks": false,
                 "noHeartBlocks": false,
-                "itemScarcity": 0,
+                "itemQuality": 125,
+                "randomConsumableMode": 2,
                 "starWaySpiritsNeeded": 7,
                 "noHealingItems": false,
                 "itemTrapMode": 0,
-                "allowItemHints": true
+                "allowItemHints": true,
+                "merlowRewardPricing": 0
             },
             "marioStats": {
                 "startingCoins": 100,
@@ -90,6 +93,7 @@
                 "blueHouseOpen": false,
                 "toyboxOpen": false,
                 "whaleOpen": false,
+                "prologueOpen": false,
                 "startingMap": 65796
             },
             "cosmetics": {
@@ -160,7 +164,8 @@
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
-            "gearShuffleMode": 2
+            "gearShuffleMode": 2,
+            "ripCheatoItemsInLogic": 6
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -212,11 +217,13 @@
             "oneHitKO": false,
             "noSaveBlocks": false,
             "noHeartBlocks": false,
-            "itemScarcity": 0,
+            "itemQuality": 100,
+            "randomConsumableMode": 0,
             "starWaySpiritsNeeded": 7,
             "noHealingItems": false,
             "itemTrapMode": 0,
-            "allowItemHints": true
+            "allowItemHints": true,
+            "merlowRewardPricing": 1
           },
           "marioStats": {
             "startingCoins": 100,
@@ -236,6 +243,7 @@
             "blueHouseOpen": true,
             "toyboxOpen": true,
             "whaleOpen": true,
+            "prologueOpen": true,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -306,7 +314,8 @@
             "includeLetters": 1,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
-            "gearShuffleMode": 1
+            "gearShuffleMode": 1,
+            "ripCheatoItemsInLogic": 6
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -358,11 +367,13 @@
             "oneHitKO": false,
             "noSaveBlocks": false,
             "noHeartBlocks": false,
-            "itemScarcity": 0,
+            "itemQuality": 100,
+            "randomConsumableMode": 0,
             "starWaySpiritsNeeded": 7,
             "noHealingItems": false,
             "itemTrapMode": 1,
-            "allowItemHints": true
+            "allowItemHints": true,
+            "merlowRewardPricing": 1
           },
           "marioStats": {
             "startingCoins": 100,
@@ -382,6 +393,7 @@
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
+            "prologueOpen": false,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -452,7 +464,8 @@
             "includeLetters": 3,
             "includeRadioTradeEvent": true,
             "shuffleBlocks": true,
-            "gearShuffleMode": 2
+            "gearShuffleMode": 2,
+            "ripCheatoItemsInLogic": 11
           },
           "gameplay": {
             "randomBadgesBP": 3,
@@ -504,11 +517,13 @@
             "oneHitKO": false,
             "noSaveBlocks": false,
             "noHeartBlocks": false,
-            "itemScarcity": 0,
+            "itemQuality": 100,
+            "randomConsumableMode": 1,
             "starWaySpiritsNeeded": 7,
             "noHealingItems": false,
             "itemTrapMode": 3,
-            "allowItemHints": false
+            "allowItemHints": false,
+            "merlowRewardPricing": 1
           },
           "marioStats": {
             "startingCoins": 100,
@@ -528,6 +543,7 @@
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
+            "prologueOpen": false,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -598,7 +614,8 @@
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
-            "gearShuffleMode": 0
+            "gearShuffleMode": 0,
+            "ripCheatoItemsInLogic": 6
          },
          "gameplay":{
             "randomBadgesBP":1,
@@ -650,11 +667,13 @@
             "oneHitKO":false,
             "noSaveBlocks":false,
             "noHeartBlocks":false,
-            "itemScarcity":0,
+            "itemQuality":100,
+            "randomConsumableMode": 0,
             "starWaySpiritsNeeded":7,
             "noHealingItems":false,
             "itemTrapMode":0,
-            "allowItemHints":false
+            "allowItemHints":false,
+            "merlowRewardPricing": 1
          },
          "marioStats":{
             "startingCoins":100,
@@ -676,6 +695,7 @@
             "blueHouseOpen":false,
             "toyboxOpen":false,
             "whaleOpen":false,
+            "prologueOpen": false,
             "startingMap":65796
          },
          "cosmetics":{

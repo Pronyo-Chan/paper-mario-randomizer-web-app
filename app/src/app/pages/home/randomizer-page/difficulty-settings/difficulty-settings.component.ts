@@ -40,7 +40,4 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
       this.difficultyFormGroup.get('capEnemyXP').enable();
     }
   }
-
-  
-
 }
