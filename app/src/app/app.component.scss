@@ -9,11 +9,11 @@
   }
  
 span.caret {
-    font-size: 0.5vw;
+    font-size: 0.5vmax;
     padding: 0 !important;
     position: relative;
-    top: 0.1vw;
-    left: 0.1vw;
+    top: 0.1vmax;
+    left: 0.1vmax;
 }
 
 .mat-toolbar {
@@ -21,11 +21,11 @@ span.caret {
     top: 0; /* Sets the sticky toolbar to be on top */
     z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
     background-color: variables.$beige-background-card;
-    height: 2.6vw;
-    line-height: 2.6vw !important;
+    height: 2.6vmax;
+    line-height: 2.6vmax !important;
     font-family: gluten !important;
     font-weight: 600 !important;
-    padding: 0 1vw !important;
+    padding: 0 1vmax !important;
     box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
 
     .text-link{
@@ -38,13 +38,13 @@ span.caret {
         cursor: pointer;
 
         text-decoration: none;
-        font-size: 1.0vw;
+        font-size: 1.0vmax;
         display: flex;
         align-items: center;
         border: none;
         span {
             color: black;
-            padding: 0 0.8vw 0 0.8vw;
+            padding: 0 0.8vmax 0 0.8vmax;
         }
     }
 
