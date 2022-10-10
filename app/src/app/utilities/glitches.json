@@ -50,7 +50,7 @@
   {
     "name": "Prologue Sushie Glitch",
     "settingName": "PrologueSushieGlitch",
-    "link": "https://papermarioarchives.com/#/Retrigger_Prologue",
+    "link": "https://papermarioarchives.com/Retrigger_Prologue",
     "description": "After doing the glitch to retrigger prologue (using item throw instead of collecting 32 key items), menu storage can be obtained on the save block, which can be used to activate the sushie glitch. This state allows to skip most obstacles on the overworld, aside from doors to dungeons. (Needs better video)",
     "location": "Goomba Region",
     "id": "Æ"
@@ -66,7 +66,7 @@
   {
     "name": "Blue House Skip (Jump Only)",
     "settingName": "BlueHouseSkip",
-    "link": "https://papermarioarchives.com/#/Blue_House_Skip",
+    "link": "https://papermarioarchives.com/Blue_House_Skip",
     "description": "Get access to the blue house sewer pipe early. There are various methods to do so without any items/partners (see link).",
     "location": "Toad Town",
     "id": "$"
@@ -82,7 +82,7 @@
   {
     "name": "Blue House Skip (Toad Lure)",
     "settingName": "BlueHouseSkipToadLure",
-    "link": "https://papermarioarchives.com/#/Blue_House_Skip",
+    "link": "https://papermarioarchives.com/Blue_House_Skip",
     "description": "Get access to the blue house sewer pipe early. A Toad can be lured near the ledge and then be used to clip out of bounds, to get inside the house.",
     "location": "Toad Town",
     "id": "µ"
@@ -234,7 +234,7 @@
   {
     "name": "Invisible Bridge Clip (Laki)",
     "settingName": "InvisibleBridgeClipLaki",
-    "link": "https://papermarioarchives.com/#/Invisible_Bridge_Clip",
+    "link": "https://papermarioarchives.com/Invisible_Bridge_Clip",
     "description": "The bridge before Koopa Bros Fortress can be passed without Kooper by clipping through the fence with Lakilester.",
     "location": "Pleasant Path",
     "id": "4"
@@ -266,7 +266,7 @@
   {
     "name": "Laki Jailbreak",
     "settingName": "LakiJailbreak",
-    "link": "https://papermarioarchives.com/#/Laki_Jailbreak",
+    "link": "https://papermarioarchives.com/Laki_Jailbreak",
     "description": "Using Lakilester, it is possible to Laki teleport into the left jail cell to get the item, and then use a Laki Jump to reach the upper left door.",
     "location": "Koopa Bros Fortress",
     "id": "7"
@@ -562,7 +562,7 @@
   {
     "name": "Gourmet Guy Skip (Parakarry)",
     "settingName": "GourmetGuySkipParakarry",
-    "link": "https://papermarioarchives.com/#/Gourmet_Guy_Skip",
+    "link": "https://papermarioarchives.com/Gourmet_Guy_Skip",
     "description": "Parakarry's ability can be used to have a consistent setup and reach the perfect location to spin and clip out of bounds, then reach the pink switch.",
     "location": "ToyBox",
     "id": ":"
@@ -682,7 +682,7 @@
   {
     "name": "Flarakarry",
     "settingName": "Flarakarry",
-    "link": "https://papermarioarchives.com/#/Flarakarry",
+    "link": "https://papermarioarchives.com/Flarakarry",
     "description": "The spike ball puzzle can be skipped by clipping into the east loading zone with Parakarry's ability.",
     "location": "Mt. Lavalava",
     "id": "_"
@@ -706,7 +706,7 @@
   {
     "name": "Early Lakilster (LZS / Tree Clip)",
     "settingName": "EarlyLakiLZS",
-    "link": "https://papermarioarchives.com/#/Early_Lakilester",
+    "link": "https://papermarioarchives.com/Early_Lakilester",
     "description": "With either the LZS or Tree Clip method, Mario can get out of bounds and cross the thorns without Lakilester or a Bubble Berry",
     "location": "Flower Fields",
     "id": "b"
@@ -738,7 +738,7 @@
   {
     "name": "Yellow Berry Gate Skip (LZS)",
     "settingName": "YellowBerryGateSkipLZS",
-    "link": "https://papermarioarchives.com/#/Yellow_Berry_Skip",
+    "link": "https://papermarioarchives.com/Yellow_Berry_Skip",
     "description": "Using LZS, you can get out of bounds before the yellow berry gate and walk around it.",
     "location": "Flower Fields",
     "id": "f"
@@ -802,7 +802,7 @@
   {
     "name": "Murder Solved Early (Laki)",
     "settingName": "MurderSolvedEarlyLaki",
-    "link": "https://papermarioarchives.com/#/Murder_Solved_Early",
+    "link": "https://papermarioarchives.com/Murder_Solved_Early",
     "description": "The murder mystery can be solved without the Warehouse Key by clipping into the locked house with a Laki Clip.",
     "location": "Shiver Region",
     "id": "n"
@@ -818,7 +818,7 @@
   {
     "name": "Chapter 7 Sushie Glitch",
     "settingName": "Ch7SushieGlitch",
-    "link": "https://papermarioarchives.com/#/Chapter_7_Sushie_Glitch",
+    "link": "https://papermarioarchives.com/Chapter_7_Sushie_Glitch",
     "description": "A sushie glitch can be performed on the deck to ride Sushie over the ground and clip through walls, allowing to skip Bucket/Scarf and the Kooper Duplighosts fight.",
     "location": "Shiver Region",
     "id": "p"
@@ -874,7 +874,7 @@
   {
     "name": "Mirror Clip",
     "settingName": "MirrorClip",
-    "link": "https://papermarioarchives.com/#/Mirror_Clip",
+    "link": "https://papermarioarchives.com/Mirror_Clip",
     "description": "A Laki Teleport can be performed to get behind the mirror in the first room without needing a blue or red key.",
     "location": "Crystal Palace",
     "id": "s"
