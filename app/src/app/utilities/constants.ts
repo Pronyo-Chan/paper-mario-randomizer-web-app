@@ -33,6 +33,7 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Maker, optionDisplay: 'Maker'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Classic, optionDisplay: 'Classic'},
         {setting: SpriteSetting.RandomPick, paletteSelection: MarioSprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: MarioSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: MarioSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
       
@@ -44,6 +45,7 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: GoombarioSprite.Blue, optionDisplay: 'Blue'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: GoombarioSprite.Grey, optionDisplay: 'Grey'},
         {setting: SpriteSetting.RandomPick, paletteSelection: GoombarioSprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: GoombarioSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: GoombarioSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
     
@@ -54,6 +56,7 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: KooperSprite.Purple, optionDisplay: 'Purple'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: KooperSprite.Grey, optionDisplay: 'Grey'},
         {setting: SpriteSetting.RandomPick, paletteSelection: KooperSprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: KooperSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: KooperSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
 
@@ -65,6 +68,7 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Yellow, optionDisplay: 'Yellow'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Blue, optionDisplay: 'Blue'},
         {setting: SpriteSetting.RandomPick, paletteSelection: BombetteSprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: BombetteSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: BombetteSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
 
@@ -74,6 +78,7 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: ParakarrySprite.Red, optionDisplay: 'Red'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: ParakarrySprite.Purple, optionDisplay: 'Purple'},
         {setting: SpriteSetting.RandomPick, paletteSelection: ParakarrySprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: ParakarrySprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: ParakarrySprite.Default, optionDisplay: 'Random On Every Load'}
       ];
     
@@ -84,6 +89,7 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: BowSprite.Blue, optionDisplay: 'Blue'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BowSprite.Grey, optionDisplay: 'Grey'},
         {setting: SpriteSetting.RandomPick, paletteSelection: BowSprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: BowSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: BowSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
 
@@ -93,6 +99,7 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: WattSprite.Pink, optionDisplay: 'Pink'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: WattSprite.Green, optionDisplay: 'Green'},
         {setting: SpriteSetting.RandomPick, paletteSelection: WattSprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: WattSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: WattSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
 
@@ -102,6 +109,7 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: SushieSprite.Yellow, optionDisplay: 'Yellow'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: SushieSprite.Green, optionDisplay: 'Green'},
         {setting: SpriteSetting.RandomPick, paletteSelection: SushieSprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: SushieSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: SushieSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
 
