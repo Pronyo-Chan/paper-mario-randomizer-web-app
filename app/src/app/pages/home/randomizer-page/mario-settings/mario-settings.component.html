@@ -3,6 +3,7 @@
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Boots" tooltipText="Level of the boots Mario will start the game with."></app-tooltip-span>
             <select formControlName='startingBoots'>
+                <option [ngValue]="-1">Jumpless</option>
                 <option [ngValue]="0">Normal</option>
                 <option [ngValue]="1">Super</option>
                 <option [ngValue]="2">Ultra</option>
@@ -75,6 +76,12 @@
         <div class="setting-element">
             <span>Starting Level: {{this.startingLevel}}</span>
         </div>
-        
+
+        <div class="bottom-note" *ngIf="marioStatsFormGroup.get('startingBoots').value == -1">
+            <p>
+                * Jumpless will prevent Mario from jumping in battles and on the overworld until boots are found as a random item.
+                Some unintuitive actions might be required, like using Parakarry to climb stairs/ledges or using Kooper to gain height and hit floating blocks.
+            </p>
+        </div>
     </mat-card-content>
 </form>
