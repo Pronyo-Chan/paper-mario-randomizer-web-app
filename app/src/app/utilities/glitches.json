@@ -504,20 +504,28 @@
     "id": "R"
   },
   {
-    "name": "Tubba's Table Jump (Laki)",
-    "settingName": "TubbasTableLakiJump",
+    "name": "Tubba's Table Laki Jump (Clock Room)",
+    "settingName": "TubbasTableLakiJumpClock",
     "link": "https://www.youtube.com/watch?v=iS5ncvNTS9E",
-    "description": "Using a Laki Jump from under the table, you can reach the item on top of the table in Tubba's Castle without having access to the 2nd floor.",
+    "description": "Using a Laki Jump from under the table, you can reach the item on top of the table in Tubba's Castle Clock Room without having access to the 2nd floor.",
     "location": "Tubba's Castle",
     "id": "S"
   },
   {
-    "name": "Tubba's Table Jump (Ultra Boots)",
+    "name": "Tubba's Table Tornado Jump (Clock Room)",
     "settingName": "TubbasTableUltraBoots",
     "link": "https://youtu.be/4wBh6NePj5Y?t=230",
     "description": "With a precise tornado jump under a table corner, you can reach the item on top of the table in Tubba's Castle without having access to the 2nd floor.",
     "location": "Tubba's Castle",
     "id": "Ñ"
+  },
+  {
+    "name": "Tubba's Table Laki Jump (Study Room)",
+    "settingName": "TubbasTableLakiJumpStudy",
+    "link": "",
+    "description": "Using a Laki Jump from under the table, you can reach the item on top of the table in Tubba's Castle Study Room without the ability to jump.",
+    "location": "Tubba's Castle",
+    "id": "÷"
   },
   {
     "name": "Tubba's Castle Super Boots Skip (Clippy)",

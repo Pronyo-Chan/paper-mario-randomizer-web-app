@@ -219,7 +219,7 @@ export interface SettingsResponse{
 
     // Glitches: Tubba's Castle
     BowlessTubbasCastle: boolean
-    TubbasTableLakiJump: boolean
+    TubbasTableLakiJumpClock: boolean
     TubbasTableUltraBoots: boolean
     TubbasCastleSuperBootsSkip: boolean
     ParakarrylessMegaRush: boolean
