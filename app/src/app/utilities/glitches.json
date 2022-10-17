@@ -10,7 +10,7 @@
   {
     "name": "Reverse Goomba King Bridge",
     "settingName": "ReverseGoombaKingBridge",
-    "link": "https://www.youtube.com/watch?v=6Mt0qnNLEW4",
+    "link": "",
     "description": "On the Goomba King map, it is possible to get out of bounds on the east side. From there, you can reach the invisible bridge and use it to cross and enter the Goomba region.",
     "location": "Goomba Region",
     "id": "Á"
@@ -50,7 +50,7 @@
   {
     "name": "Prologue Sushie Glitch",
     "settingName": "PrologueSushieGlitch",
-    "link": "https://papermarioarchives.com/#/Retrigger_Prologue",
+    "link": "https://papermarioarchives.com/Retrigger_Prologue",
     "description": "After doing the glitch to retrigger prologue (using item throw instead of collecting 32 key items), menu storage can be obtained on the save block, which can be used to activate the sushie glitch. This state allows to skip most obstacles on the overworld, aside from doors to dungeons. (Needs better video)",
     "location": "Goomba Region",
     "id": "Æ"
@@ -66,7 +66,7 @@
   {
     "name": "Blue House Skip (Jump Only)",
     "settingName": "BlueHouseSkip",
-    "link": "https://papermarioarchives.com/#/Blue_House_Skip",
+    "link": "https://papermarioarchives.com/Blue_House_Skip",
     "description": "Get access to the blue house sewer pipe early. There are various methods to do so without any items/partners (see link).",
     "location": "Toad Town",
     "id": "$"
@@ -82,7 +82,7 @@
   {
     "name": "Blue House Skip (Toad Lure)",
     "settingName": "BlueHouseSkipToadLure",
-    "link": "https://papermarioarchives.com/#/Blue_House_Skip",
+    "link": "https://papermarioarchives.com/Blue_House_Skip",
     "description": "Get access to the blue house sewer pipe early. A Toad can be lured near the ledge and then be used to clip out of bounds, to get inside the house.",
     "location": "Toad Town",
     "id": "µ"
@@ -90,7 +90,7 @@
   {
     "name": "Enter ToyBox Without Bow (Hammer)",
     "settingName": "BowlessToyBoxHammer",
-    "link": "https://www.youtube.com/watch?v=JGAnjOt_yM4",
+    "link": "",
     "description": "Enter ToyBox without Bow by using the blue Toad to go out of bounds and move in front of the box.",
     "location": "Toad Town",
     "id": "%"
@@ -234,7 +234,7 @@
   {
     "name": "Invisible Bridge Clip (Laki)",
     "settingName": "InvisibleBridgeClipLaki",
-    "link": "https://papermarioarchives.com/#/Invisible_Bridge_Clip",
+    "link": "https://papermarioarchives.com/Invisible_Bridge_Clip",
     "description": "The bridge before Koopa Bros Fortress can be passed without Kooper by clipping through the fence with Lakilester.",
     "location": "Pleasant Path",
     "id": "4"
@@ -266,7 +266,7 @@
   {
     "name": "Laki Jailbreak",
     "settingName": "LakiJailbreak",
-    "link": "https://papermarioarchives.com/#/Laki_Jailbreak",
+    "link": "https://papermarioarchives.com/Laki_Jailbreak",
     "description": "Using Lakilester, it is possible to Laki teleport into the left jail cell to get the item, and then use a Laki Jump to reach the upper left door.",
     "location": "Koopa Bros Fortress",
     "id": "7"
@@ -504,20 +504,28 @@
     "id": "R"
   },
   {
-    "name": "Tubba's Table Jump (Laki)",
-    "settingName": "TubbasTableLakiJump",
+    "name": "Tubba's Table Laki Jump (Clock Room)",
+    "settingName": "TubbasTableLakiJumpClock",
     "link": "https://www.youtube.com/watch?v=iS5ncvNTS9E",
-    "description": "Using a Laki Jump from under the table, you can reach the item on top of the table in Tubba's Castle without having access to the 2nd floor.",
+    "description": "Using a Laki Jump from under the table, you can reach the item on top of the table in Tubba's Castle Clock Room without having access to the 2nd floor.",
     "location": "Tubba's Castle",
     "id": "S"
   },
   {
-    "name": "Tubba's Table Jump (Ultra Boots)",
+    "name": "Tubba's Table Tornado Jump (Clock Room)",
     "settingName": "TubbasTableUltraBoots",
     "link": "https://youtu.be/4wBh6NePj5Y?t=230",
     "description": "With a precise tornado jump under a table corner, you can reach the item on top of the table in Tubba's Castle without having access to the 2nd floor.",
     "location": "Tubba's Castle",
     "id": "Ñ"
+  },
+  {
+    "name": "Tubba's Table Laki Jump (Study Room)",
+    "settingName": "TubbasTableLakiJumpStudy",
+    "link": "",
+    "description": "Using a Laki Jump from under the table, you can reach the item on top of the table in Tubba's Castle Study Room without the ability to jump.",
+    "location": "Tubba's Castle",
+    "id": "÷"
   },
   {
     "name": "Tubba's Castle Super Boots Skip (Clippy)",
@@ -562,7 +570,7 @@
   {
     "name": "Gourmet Guy Skip (Parakarry)",
     "settingName": "GourmetGuySkipParakarry",
-    "link": "https://papermarioarchives.com/#/Gourmet_Guy_Skip",
+    "link": "https://papermarioarchives.com/Gourmet_Guy_Skip",
     "description": "Parakarry's ability can be used to have a consistent setup and reach the perfect location to spin and clip out of bounds, then reach the pink switch.",
     "location": "ToyBox",
     "id": ":"
@@ -618,7 +626,7 @@
   {
     "name": "Hammerless Blue Station (Clippy)",
     "settingName": "HammerlessBlueStationLaki",
-    "link": "",
+    "link": "https://www.youtube.com/watch?v=QX0E-9pwj6U",
     "description": "By using Lakilester to enter clippy state, it's possible to jump above the first wall in Blue Block City without bouncing from the box with a Hammer or Super Boots.",
     "location": "ToyBox",
     "id": "Õ"
@@ -626,7 +634,7 @@
   {
     "name": "Hammerless Pink Station (Clippy)",
     "settingName": "HammerlessPinkStationLaki",
-    "link": "",
+    "link": "https://www.youtube.com/watch?v=XaOH9_SmyiE",
     "description": "By using Lakilester to enter clippy state, it's possible to jump above the first wall in Pink Playhouse without bouncing from the box with a Hammer or Super Boots. The chest on the upper ledge can also be reached by going out of bounds while in clippy state.",
     "location": "ToyBox",
     "id": "Ö"
@@ -674,7 +682,7 @@
   {
     "name": "Volcano Sushie Glitch",
     "settingName": "VolcanoSushieGlitch",
-    "link": "",
+    "link": "https://www.youtube.com/watch?v=3kwZo90plzY",
     "description": "The sushie glitch can be obtained in the central volcano room by obtaining menu storage, from ground pounding the save block after jumping on the nearest trampoline. This state allows to skip metal blocks and the lava gap leading to the Ultra Hammer chest.",
     "location": "Mt. Lavalava",
     "id": "Ø"
@@ -682,7 +690,7 @@
   {
     "name": "Flarakarry",
     "settingName": "Flarakarry",
-    "link": "https://papermarioarchives.com/#/Flarakarry",
+    "link": "https://papermarioarchives.com/Flarakarry",
     "description": "The spike ball puzzle can be skipped by clipping into the east loading zone with Parakarry's ability.",
     "location": "Mt. Lavalava",
     "id": "_"
@@ -706,7 +714,7 @@
   {
     "name": "Early Lakilster (LZS / Tree Clip)",
     "settingName": "EarlyLakiLZS",
-    "link": "https://papermarioarchives.com/#/Early_Lakilester",
+    "link": "https://papermarioarchives.com/Early_Lakilester",
     "description": "With either the LZS or Tree Clip method, Mario can get out of bounds and cross the thorns without Lakilester or a Bubble Berry",
     "location": "Flower Fields",
     "id": "b"
@@ -738,7 +746,7 @@
   {
     "name": "Yellow Berry Gate Skip (LZS)",
     "settingName": "YellowBerryGateSkipLZS",
-    "link": "https://papermarioarchives.com/#/Yellow_Berry_Skip",
+    "link": "https://papermarioarchives.com/Yellow_Berry_Skip",
     "description": "Using LZS, you can get out of bounds before the yellow berry gate and walk around it.",
     "location": "Flower Fields",
     "id": "f"
@@ -802,7 +810,7 @@
   {
     "name": "Murder Solved Early (Laki)",
     "settingName": "MurderSolvedEarlyLaki",
-    "link": "https://papermarioarchives.com/#/Murder_Solved_Early",
+    "link": "https://papermarioarchives.com/Murder_Solved_Early",
     "description": "The murder mystery can be solved without the Warehouse Key by clipping into the locked house with a Laki Clip.",
     "location": "Shiver Region",
     "id": "n"
@@ -818,7 +826,7 @@
   {
     "name": "Chapter 7 Sushie Glitch",
     "settingName": "Ch7SushieGlitch",
-    "link": "https://papermarioarchives.com/#/Chapter_7_Sushie_Glitch",
+    "link": "https://papermarioarchives.com/Chapter_7_Sushie_Glitch",
     "description": "A sushie glitch can be performed on the deck to ride Sushie over the ground and clip through walls, allowing to skip Bucket/Scarf and the Kooper Duplighosts fight.",
     "location": "Shiver Region",
     "id": "p"
@@ -874,7 +882,7 @@
   {
     "name": "Mirror Clip",
     "settingName": "MirrorClip",
-    "link": "https://papermarioarchives.com/#/Mirror_Clip",
+    "link": "https://papermarioarchives.com/Mirror_Clip",
     "description": "A Laki Teleport can be performed to get behind the mirror in the first room without needing a blue or red key.",
     "location": "Crystal Palace",
     "id": "s"

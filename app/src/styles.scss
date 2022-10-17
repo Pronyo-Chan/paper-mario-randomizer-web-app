@@ -119,7 +119,7 @@ input, textarea {
   .mat-menu-item {
     font-family: 'gluten';
     font-weight: 500;
-    font-size: 0.9vw;
+    font-size: 0.9vmax;
   }
 
   .mat-menu-item:hover {
@@ -162,4 +162,4 @@ select {
 }
 
 html, body { height: 100%; }
-body { margin: 3vw 0 0 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 3vmax 0 0 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

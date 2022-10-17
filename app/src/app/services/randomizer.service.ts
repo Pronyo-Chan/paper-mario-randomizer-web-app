@@ -353,7 +353,8 @@ export class RandomizerService {
 
       // Glitches: Tubba's Castle
       BowlessTubbasCastle: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowlessTubbasCastle"),
-      TubbasTableLakiJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasTableLakiJump"),
+      TubbasTableLakiJumpClock: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasTableLakiJumpClock"),
+      TubbasTableLakiJumpStudy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasTableLakiJumpStudy"),
       TubbasTableUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasTableUltraBoots"),
       TubbasCastleSuperBootsSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasCastleSuperBootsSkip"),
       ParakarrylessMegaRush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMegaRush"),

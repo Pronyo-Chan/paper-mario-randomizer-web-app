@@ -55,7 +55,7 @@ export enum Items {
 	ShroomCake  = 0x00B7,
 	ShroomSteak = 0x00B8,
 	HotShroom = 0x00B9,
-	SweetShroom = 0x00B,
+	SweetShroom = 0x00BA,
 	YummyMeal = 0x00BB,
 	HealthyJuice = 0x00BC,
 	BlandMeal = 0x00BD,

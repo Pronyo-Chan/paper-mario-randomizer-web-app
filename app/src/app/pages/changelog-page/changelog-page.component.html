@@ -1,6 +1,62 @@
 
 <div class="main-page">
     <mat-card class="settings-card">
+        <mat-card-title class="settings-title">0.16.0 (beta) (2022-10-17)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> Merlow won't hand out bonus rewards when playing on Project 64 with the Recompiler mode. Please use another emulator or set Project 64 to use Interpreter mode instead.</li>
+        </ul>
+
+        <h2>Game Mod Fixes</h2>
+        <ul>
+            <li> Fixed a softlock that could occur when collecting an item while starting to push a blue block.🎉Thank you Rain for providing the fix 🎉!!!</li>
+            <li> The Goomnut tree in Goomba King's fight can now be hit with Parakarry's Shell Shot, fixing the crash that previously occured on console when doing so.</li>
+            <li> Fixed a crash in Merlow's shop if the player stays in it for too long and too many dialogues are triggered without interruption.</li>
+        </ul>
+
+        <h2>Seed Generator</h2>
+        <ul>
+            <li> In Dry Dry Ruins, Swooper enemies will no longer appear during Stone Chomps fights, since they were hanging on invisible ceilings.</li>
+            <li> Fighting Lee in the Dojo is now considered possible after saving 1 star spirit instead of 2 in logic. The Master fights after it are unaffected and still require 3,4 and 5 star spirits.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li> Fixed an issue with starting items where starting with a Sweet Shroom would give a Degree Card instead.</li>
+            <li> Improved the visibility of the top navigation bar on mobile/vertical resolutions.</li>
+        </ul>
+
+        <h2>Options</h2>
+
+        <h3>Jumpless Start(new)</h3>
+        <ul>
+            <li> This option can be found in the Stats & Gear section, as the starting boots for Mario.</li>
+            <li> Enabling it will make Mario start without any boots. The first set of boots will be found in a random item location.</li>
+            <li> Until Mario finds boots, he will be unable to jump, both in battles and on the overworld.</li>
+            <li> Some unintuitive actions might be required, like using Parakarry to climb stairs/ledges or using Kooper to gain height and hit floating blocks.</li>
+        </ul>
+
+        <h3>Color Palettes (change)</h3>
+        <ul>
+            <li> A new option is available for character sprite settings: Random Pick (No Vanilla).</li>
+            <li> Just like the regular Random Pick, this option will select a random color for sprites. The only difference is, it cannot pick their original color palette.</li>
+            <li> For previously existing custom presets and settings strings that used "Random On Every Load", this new option will be selected when loaded. Please double check your settings after loading a preset and update them accordingly.</li>
+            <li> 🎉This feature was developed by <span class="bolder-text">Phantom</span>. Thank you!!!!! 🎉  </li>
+        </ul>
+
+        <h3>Glitches & Tricks (change)</h3>
+        <ul class="indented-text">            
+            <li> When clicking on a video link in the glitches/tricks list, the click will no longer enable/disable the glitch/trick simultaneously.</li>
+            <li> A new trick specific to Jumpless Start has been added: Tubba's Table Laki Jump (Study Room). The previously existing Tubba's Table Jump tricks have been renamed so the distinction is clearer.</li>
+            <li> Removed some broken video links.</li>
+            <li> Fixed links to Paper Mario Archives that didn't redirect to the proper glitch page.</li>
+            <li> Added video links for Hammerless Blue Station (Clippy) and Volcano Sushie Glitch.</li>
+        </ul>
+
+    </mat-card>
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.15.0 (beta) (2022-09-22)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
