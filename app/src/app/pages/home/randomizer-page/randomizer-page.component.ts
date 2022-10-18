@@ -31,6 +31,7 @@ import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode
 export class RandomizerPageComponent implements OnInit, OnDestroy {
   public readonly GOOMBA_HAMMERLESS_START_ERROR = 'goombaHammerlessStart';
   public readonly LACKING_SHUFFLE_HAMMERLESS_START_ERROR = 'toadTownHammerlessStart';
+  public readonly LACKING_SHUFFLE_JUMPLESS_START_ERROR = 'jumplessStartNoShuffle';
 
   public homepageLink;
   public formGroup: FormGroup
@@ -63,8 +64,11 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       if (errors.some(e => e == this.GOOMBA_HAMMERLESS_START_ERROR)) {
         this.seedGenError = "Hammerless Start in Goomba Village is impossible with these settings."
         return;
-      }else if (errors.some(e => e == this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)) {
+      } else if (errors.some(e => e == this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)) {
         this.seedGenError = "Hammerless Start is impossible without shuffled partners or full gear shuffle."
+        return;
+      } else if (errors.some(e => e == this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)) {
+        this.seedGenError = "Jumpless Start is impossible without Item Shuffle enabled."
         return;
       }
     }
@@ -242,6 +246,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     if ( startingHammer == Hammer.Hammerless && (!isGeneralShuffleEnabled || (!isPartnerShuffleEnabled && gearShuffleMode != GearShuffleMode['Full Shuffle']))) {
       errors.push(this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)
+    }
+
+    if ( startingBoots == Boots.Jumpless && !isGeneralShuffleEnabled) {
+      errors.push(this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)
     }
 
     return errors;
