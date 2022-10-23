@@ -248,7 +248,7 @@ export class RandomizerService {
       StartingItemF: settingsForm.get('marioStats').get('startWithRandomItems').value ? 0: (settingsForm.get('marioStats').get('startingItems').value[15]?.value ?? 0),
       ItemQuality: settingsForm.get('difficulty').get('itemQuality').value,
       RandomConsumableMode: settingsForm.get('difficulty').get('randomConsumableMode').value,
-      StarWaySpiritsNeeded: settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
+      StarWaySpiritsNeeded: settingsForm.get('difficulty').get('randomNumberOfStarSpirits').value ? -1 : settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
       FoliageItemHints: settingsForm.get('qualityOfLife').get('foliageItemHints').value,
       RandomText: settingsForm.get('cosmetics').get('randomText').value,
       NoHealingItems: settingsForm.get('difficulty').get('noHealingItems').value,

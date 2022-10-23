@@ -89,17 +89,24 @@
             </select>
         </div>
 
-        <div class="setting-element slider-element" >
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='randomNumberOfStarSpirits'></mat-slide-toggle>
+            <app-tooltip-span spanText="Random Number of Required Star Spirits" tooltipText="The amount of star spirits saved required to open the way to ch.8 will be random."></app-tooltip-span>
+        </div>
+
+        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': difficultyFormGroup.get('randomConsumableMode').value != 2}">
+            <app-tooltip-span [spanText]="'Item Quality: ' + difficultyFormGroup.get('itemQuality').value + '%' + (difficultyFormGroup.get('itemQuality').value == 100 ? ' (Vanilla)' : '')"
+                             tooltipText="Sets how powerful consumable items should be on average, where a higher number means better items. 100 is the strength of the vanilla item pool."></app-tooltip-span>
+            <mat-slider formControlName="itemQuality" (input)="difficultyFormGroup.get('itemQuality').setValue($event.value)" min=25 max= 125 step="25" tickInterval="1"></mat-slider>
+        </div>  
+
+        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': difficultyFormGroup.get('randomNumberOfStarSpirits').value}">
             <app-tooltip-span [spanText]="'Star Spirits Required: ' + difficultyFormGroup.get('starWaySpiritsNeeded').value"
                              tooltipText="Number of star spirits saved required to open the way to Ch.8"></app-tooltip-span>
             <mat-slider formControlName="starWaySpiritsNeeded" (input)="difficultyFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=0 max= 7 step="1" tickInterval="1" ></mat-slider>
         </div>  
 
-        <div class="setting-element slider-element" *ngIf="difficultyFormGroup.get('randomConsumableMode').value == 2">
-            <app-tooltip-span [spanText]="'Item Quality: ' + difficultyFormGroup.get('itemQuality').value + '%' + (difficultyFormGroup.get('itemQuality').value == 100 ? ' (Vanilla)' : '')"
-                             tooltipText="Sets how powerful consumable items should be on average, where a higher number means better items. 100 is the strength of the vanilla item pool."></app-tooltip-span>
-            <mat-slider formControlName="itemQuality" (input)="difficultyFormGroup.get('itemQuality').setValue($event.value)" min=25 max= 125 step="25" tickInterval="1"></mat-slider>
-        </div>    
+          
         
     </mat-card-content>
 </form>

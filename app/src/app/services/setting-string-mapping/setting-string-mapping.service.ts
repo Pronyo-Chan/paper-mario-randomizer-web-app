@@ -46,6 +46,7 @@ export class SettingStringMappingService {
     { compressedString: "x", key: "noXP", type: "bool"},
     { compressedString: "k", key: "oneHitKO", type: "bool"},
     { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
+    { compressedString: "z", key: "randomNumberOfStarSpirits", type: "bool"},
     { compressedString: "l", key: "noHealingItems", type: "bool"},
     { compressedString: "t", key: "itemTrapMode", type: "number"},
     { compressedString: "y", key: "allowItemHints", type: "bool"},
