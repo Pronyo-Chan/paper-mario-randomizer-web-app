@@ -673,7 +673,7 @@
             "noHealingItems":false,
             "itemTrapMode":0,
             "allowItemHints":false,
-            "merlowRewardPricing": 1
+            "merlowRewardPricing": 0
          },
          "marioStats":{
             "startingCoins":100,
