@@ -135,6 +135,7 @@ export interface SettingsRequest {
     HammerlessJrPlaygroundLaki: boolean
     GoombaVillageLakiExit: boolean
     PrologueSushieGlitchKsj: boolean
+    PrologueSushieGlitchUltraBootsLaki: boolean
 
     // Glitches: Toad Town
     OddKeyEarly: boolean
