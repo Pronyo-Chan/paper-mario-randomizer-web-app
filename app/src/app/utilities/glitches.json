@@ -656,7 +656,7 @@
     "id": "¶"
   },
   {
-    "name": "Kooper-less Mt. Lavalava Pow Block",
+    "name": "Kooper-less Mt. Lavalava Pow Block (Parakarry)",
     "settingName": "KooperlessLavalavaPowBlockParakarry",
     "link": "https://youtu.be/Bdr6tOdBSKQ?t=24",
     "description": "The item can be obtained with Parakarry's ability, using it on the edge of the platform and jumping at the very end.",
@@ -873,7 +873,7 @@
   },
   {
     "name": "Sushie-less Warehouse Key (Bombette Push)",
-    "settingName": "SushielessWarehouseKey",
+    "settingName": "SushielessWarehouseKeyBombette",
     "link": "",
     "description": "By pushing one of the 3 Toad sisters near the edge, you can squeeze out of bounds and reach the bottom of the pond without Sushie. Kooper, Parakarry or Super Boots are needed to jump high enough and obtain the item.",
     "location": "Shiver Region",

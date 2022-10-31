@@ -274,7 +274,7 @@ export interface SettingsResponse{
     ShiverMountainHiddenBlockWithoutUltraBootsNoLaki: boolean
     SnowmenSkipLaki: boolean
     ShiverMountainSwitchSkip: boolean
-    SushielessWarehouseKey: boolean
+    SushielessWarehouseKeyBombette: boolean
 
     // Glitches: Crystal Palace
     MirrorClip: boolean

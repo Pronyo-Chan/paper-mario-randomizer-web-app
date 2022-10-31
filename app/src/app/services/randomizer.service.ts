@@ -409,7 +409,7 @@ export class RandomizerService {
       ShiverMountainHiddenBlockWithoutUltraBootsNoLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ShiverMountainHiddenBlockWithoutUltraBootsNoLaki"),
       SnowmenSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SnowmenSkipLaki"),
       ShiverMountainSwitchSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ShiverMountainSwitchSkip"),
-      SushielessWarehouseKey: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SushielessWarehouseKey"),
+      SushielessWarehouseKeyBombette: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SushielessWarehouseKeyBombette"),
 
       // Glitches: Crystal Palace
       MirrorClip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MirrorClip"),
