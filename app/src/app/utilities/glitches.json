@@ -48,8 +48,8 @@
     "id": "Ä"
   },
   {
-    "name": "Prologue Sushie Glitch",
-    "settingName": "PrologueSushieGlitch",
+    "name": "Prologue Sushie Glitch (KSJ)",
+    "settingName": "PrologueSushieGlitchKsj",
     "link": "https://papermarioarchives.com/Retrigger_Prologue",
     "description": "After doing the glitch to retrigger prologue (using item throw instead of collecting 32 key items), menu storage can be obtained on the save block, which can be used to activate the sushie glitch. This state allows to skip most obstacles on the overworld, aside from doors to dungeons. (Needs better video)",
     "location": "Goomba Region",

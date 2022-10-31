@@ -142,7 +142,7 @@ export interface SettingsResponse{
     GoombaVillageNpcLureExit: boolean
     HammerlessJrPlaygroundLaki: boolean
     GoombaVillageLakiExit: boolean
-    PrologueSushieGlitch: boolean
+    PrologueSushieGlitchKsj: boolean
 
     // Glitches: Toad Town
     OddKeyEarly: boolean

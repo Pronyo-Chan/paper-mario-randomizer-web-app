@@ -276,7 +276,7 @@ export class RandomizerService {
       GoombaVillageNpcLureExit: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GoombaVillageNpcLureExit"),
       HammerlessJrPlaygroundLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "HammerlessJrPlaygroundLaki"),
       GoombaVillageLakiExit: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GoombaVillageLakiExit"),
-      PrologueSushieGlitch: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "PrologueSushieGlitch"),
+      PrologueSushieGlitchKsj: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "PrologueSushieGlitchKsj"),
 
       // Glitches: Toad Town
       OddKeyEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "OddKeyEarly"),
