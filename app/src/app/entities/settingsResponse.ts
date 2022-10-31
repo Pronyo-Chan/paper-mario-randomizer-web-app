@@ -171,6 +171,7 @@ export interface SettingsResponse{
 
     // Glitches: Plesant Path
     KooperlessPleasantPathStarPiece: boolean
+    HammerlessPleasantPathBridgeUltraBootsParakarry: boolean
     InvisibleBridgeClipLzs: boolean
     InvisibleBridgeClipLaki: boolean
     KooperlessPleasantPathThunderBolt: boolean

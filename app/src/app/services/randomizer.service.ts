@@ -305,6 +305,7 @@ export class RandomizerService {
 
       // Glitches: Plesant Path
       KooperlessPleasantPathStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessPleasantPathStarPiece"),
+      HammerlessPleasantPathBridgeUltraBootsParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "HammerlessPleasantPathBridgeUltraBootsParakarry"),
       InvisibleBridgeClipLzs: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "InvisibleBridgeClipLzs"),
       InvisibleBridgeClipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "InvisibleBridgeClipLaki"),
       KooperlessPleasantPathThunderBolt: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessPleasantPathThunderBolt"),
