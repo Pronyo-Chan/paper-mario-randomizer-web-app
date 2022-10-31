@@ -378,7 +378,7 @@ export class RandomizerService {
       Ch5SushieGlitch: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Ch5SushieGlitch"),
 
       // Glitches: Mt. Lavalava
-      KooperlessLavalavaPowBlock: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessLavalavaPowBlock"),
+      KooperlessLavalavaPowBlockParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessLavalavaPowBlockParakarry"),
       UltraHammerSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "UltraHammerSkip"),
       UltraHammerSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "UltraHammerSkipLaki"),
       Flarakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Flarakarry"),

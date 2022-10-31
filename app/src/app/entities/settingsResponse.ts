@@ -243,7 +243,7 @@ export interface SettingsResponse{
     Ch5SushieGlitch: boolean
 
     // Glitches: Mt. Lavalava
-    KooperlessLavalavaPowBlock: boolean
+    KooperlessLavalavaPowBlockParakarry: boolean
     UltraHammerSkip: boolean
     UltraHammerSkipLaki: boolean
     Flarakarry: boolean
