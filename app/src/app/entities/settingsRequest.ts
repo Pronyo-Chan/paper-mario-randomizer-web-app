@@ -268,6 +268,7 @@ export interface SettingsRequest {
     BlueBerryGateSkipBombettePush: boolean
     BlueBerryGateSkipLaki: boolean
     BubbleBerryTreeLakiJump: boolean
+    BubbleBerryTreeUltraBoots: boolean
 
     // Glitches: Shiver Region
     MurderSolvedEarlyLaki: boolean
@@ -279,6 +280,7 @@ export interface SettingsRequest {
     SnowmenSkipLaki: boolean
     ShiverMountainSwitchSkip: boolean
     SushielessWarehouseKeyBombette: boolean
+    SushielessWarehouseKeyKooper: boolean
 
     // Glitches: Crystal Palace
     MirrorClip: boolean

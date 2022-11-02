@@ -411,6 +411,7 @@ export class RandomizerService {
       BlueBerryGateSkipBombettePush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueBerryGateSkipBombettePush"),
       BlueBerryGateSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueBerryGateSkipLaki"),
       BubbleBerryTreeLakiJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BubbleBerryTreeLakiJump"),
+      BubbleBerryTreeUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BubbleBerryTreeUltraBoots"),
 
       // Glitches: Shiver Region
       MurderSolvedEarlyLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MurderSolvedEarlyLaki"),
@@ -422,6 +423,7 @@ export class RandomizerService {
       SnowmenSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SnowmenSkipLaki"),
       ShiverMountainSwitchSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ShiverMountainSwitchSkip"),
       SushielessWarehouseKeyBombette: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SushielessWarehouseKeyBombette"),
+      SushielessWarehouseKeyKooper: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SushielessWarehouseKeyKooper"),
 
       // Glitches: Crystal Palace
       MirrorClip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MirrorClip"),

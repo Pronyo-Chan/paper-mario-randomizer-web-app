@@ -896,12 +896,20 @@
     "id": "l"
   },
   {
-    "name": "Bubble Berry Tree Laki Jump",
+    "name": "Bubble Berry Tree Early (Laki Jump)",
     "settingName": "BubbleBerryTreeLakiJump",
     "link": "https://www.youtube.com/watch?v=HhqSyxFSI_U",
     "description": "A Laki Jump can be performed below the Sushie deck to get on the tree's platform without raising the water.",
     "location": "Flower Fields",
     "id": "m"
+  },
+  {
+    "name": "Bubble Berry Tree Early (Tornado Jump)",
+    "settingName": "BubbleBerryTreeUltraBoots",
+    "link": "https://www.youtube.com/watch?v=H2asTC0Vl-U",
+    "description": "With a precise tornado jump under the deck, you can reach the Bubble Berry Tree without raising the water.",
+    "location": "Flower Fields",
+    "id": "ì"
   },
   {
     "name": "Murder Solved Early (Laki)",
@@ -974,6 +982,14 @@
     "description": "By pushing one of the 3 Toad sisters near the edge, you can squeeze out of bounds and reach the bottom of the pond without Sushie. Kooper, Parakarry or Super Boots are needed to jump high enough and obtain the item.",
     "location": "Shiver Region",
     "id": "Ü"
+  },
+  {
+    "name": "Sushie-less Warehouse Key (KSJ)",
+    "settingName": "SushielessWarehouseKeyKooper",
+    "link": "",
+    "description": "You can get out of bounds by performing a LZS and use it to store a Kooper Super Jump. Perform the KSJ over the frozen pond to get the item under the ice. If you already broke the ice, it's possible to warp Mario under the ice by combining a KSJ with an item throw from the deck.",
+    "location": "Shiver Region",
+    "id": "í"
   },
   {
     "name": "Mirror Clip",
