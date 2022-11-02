@@ -249,6 +249,7 @@ export interface SettingsRequest {
     JumplessLavalavaPowBlock: boolean
     UltraHammerSkip: boolean
     UltraHammerSkipLaki: boolean
+    UltraHammerSkipSushie: boolean
     Flarakarry: boolean
     ParakarrylessFlarakarryBombette: boolean
     ParakarrylessFlarakarryLaki: boolean

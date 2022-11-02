@@ -392,6 +392,7 @@ export class RandomizerService {
       JumplessLavalavaPowBlock: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessLavalavaPowBlock"),
       UltraHammerSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "UltraHammerSkip"),
       UltraHammerSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "UltraHammerSkipLaki"),
+      UltraHammerSkipSushie: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "UltraHammerSkipSushie"),
       Flarakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Flarakarry"),
       ParakarrylessFlarakarryBombette: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessFlarakarryBombette"),
       ParakarrylessFlarakarryLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessFlarakarryLaki"),
