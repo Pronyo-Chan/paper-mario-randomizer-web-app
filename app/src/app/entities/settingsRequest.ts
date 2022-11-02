@@ -230,6 +230,7 @@ export interface SettingsRequest {
     GourmetGuySkipParakarry: boolean
     BowlessGreenStation: boolean
     KooperlessRedStationShootingStar: boolean
+    GearlessRedStationShootingStar: boolean
     ParakarrylessBlueBlockCityGap: boolean
     BlueSwitchSkipLaki: boolean
     BlueSwitchSkipUltraBoots: boolean

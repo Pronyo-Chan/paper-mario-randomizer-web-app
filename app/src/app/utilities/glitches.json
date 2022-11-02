@@ -648,6 +648,14 @@
     "id": "Z"
   },
   {
+    "name": "Gear-less Red Station Shooting Star",
+    "settingName": "GearlessRedStationShootingStar",
+    "link": "https://www.youtube.com/watch?v=tCE7VlaxNiQ",
+    "description": "When getting hit by a first strike while using Kooper's ability, Mario will jump higher the next time Kooper's ability is used. This boost can be used to break the brick block from below, with only Kooper.",
+    "location": "ToyBox",
+    "id": "ç"
+  },
+  {
     "name": "Parakarry-less Blue Block City Gap",
     "settingName": "ParakarrylessBlueBlockCityGap",
     "link": "",
