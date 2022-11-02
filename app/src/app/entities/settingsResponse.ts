@@ -210,6 +210,7 @@ export interface SettingsResponse{
     RuinsLocksSkipClippy: boolean
 
     // Glitches: Boo's Mansion
+    JumplessMansionEntry: boolean
     RecordSkipNoBombettePush: boolean
     RecordSkipBombettePush: boolean
     BoosPortraitWithKooper: boolean

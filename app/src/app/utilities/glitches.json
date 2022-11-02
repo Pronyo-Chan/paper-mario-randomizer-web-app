@@ -464,6 +464,14 @@
     "id": "H"
   },
   {
+    "name": "Jumpless Mansion Entry (Parakarry)",
+    "settingName": "JumplessMansionEntry",
+    "link": "",
+    "description": "Parakarry's ability can be used at the bottom of the stairs to climb the highest step from the ground, skipping the need for boots.",
+    "location": "Boo's Mansion",
+    "id": "æ"
+  },
+  {
     "name": "Record Skip (No Bombette push)",
     "settingName": "RecordSkipNoBombettePush",
     "link": "https://www.youtube.com/watch?v=h476QUnqgPA",
