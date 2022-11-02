@@ -323,6 +323,10 @@ export class RandomizerService {
       BuzzarGapSkipClippy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BuzzarGapSkipClippy"),
       ParakarrylessMtRuggedStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMtRuggedStarPiece"),
       MtRuggedCoinsWithKooper: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MtRuggedCoinsWithKooper"),
+      MtRuggedStationJumplessClimbBombette: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MtRuggedStationJumplessClimbBombette"),
+      MtRuggedStationJumplessClimbLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MtRuggedStationJumplessClimbLaki"),
+      MtRuggedSlideJumplessClimbLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MtRuggedSlideJumplessClimbLaki"),
+      JumplessMtRuggedTrainPlatformParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessMtRuggedTrainPlatformParakarry"),
 
       // Glitches: Dry Dry Desert
       DesertBrickBlockItemWithParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "DesertBrickBlockItemWithParakarry"),

@@ -181,6 +181,10 @@ export interface SettingsRequest {
     BuzzarGapSkipClippy: boolean
     ParakarrylessMtRuggedStarPiece: boolean
     MtRuggedCoinsWithKooper: boolean
+    MtRuggedStationJumplessClimbBombette: boolean
+    MtRuggedStationJumplessClimbLaki: boolean
+    MtRuggedSlideJumplessClimbLaki: boolean
+    JumplessMtRuggedTrainPlatformParakarry: boolean
 
     // Glitches: Dry Dry Desert
     DesertBrickBlockItemWithParakarry: boolean

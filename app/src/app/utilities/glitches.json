@@ -344,6 +344,38 @@
     "id": "Î"
   },
   {
+    "name": "Mt.Rugged Station Jumpless Climb (Bombette Push)",
+    "settingName": "MtRuggedStationJumplessClimbBombette",
+    "link": "",
+    "description": "The green Toadette left of the train platform can be pushed near the edge with Bombette, and used to get out of bounds. From there you can reach the Super Block and squeeze through the stone block with speedy spins.",
+    "location": "Mt. Rugged",
+    "id": "â"
+  },
+  {
+    "name": "Mt.Rugged Station Jumpless Climb (Laki Teleport)",
+    "settingName": "MtRuggedStationJumplessClimbLaki",
+    "link": "",
+    "description": "A Laki teleport can be used to clip on the train track and reach the Super Block above by going out of bounds. From there you can squeeze through the stone block with speedy spins.",
+    "location": "Mt. Rugged",
+    "id": "ã"
+  },
+  {
+    "name": "Mt.Rugged Slide Jumpless Climb (Laki)",
+    "settingName": "MtRuggedSlideJumplessClimbLaki",
+    "link": "",
+    "description": "Using Laki's ability, you can climb the first Mt.Rugged slide almost all the way to the top and drop to the top of the staircase.",
+    "location": "Mt. Rugged",
+    "id": "ä"
+  },
+  {
+    "name": "Mt.Rugged Jumpless Train Platform (Parakarry)",
+    "settingName": "JumplessMtRuggedTrainPlatformParakarry",
+    "link": "",
+    "description": "By using Parakarry's ability on the very bottom of the train platform, it's possible to cross over to the middle section and ride the train without boots.",
+    "location": "Mt. Rugged",
+    "id": "å"
+  },
+  {
     "name": "Desert Brick Block Item With Parakarry",
     "settingName": "DesertBrickBlockItemWithParakarry",
     "link": "https://www.youtube.com/watch?v=Bdr6tOdBSKQ",
