@@ -744,6 +744,14 @@
     "id": "é"
   },
   {
+    "name": "Jumpless Mt. Lavalava Pow Block",
+    "settingName": "JumplessLavalavaPowBlock",
+    "link": "",
+    "description": "When getting hit by a first strike while using Kooper's ability, Mario will jump higher the next time Kooper's ability is used. This boost can be used to break the brick block from below, with only Kooper.",
+    "location": "Mt. Lavalava",
+    "id": "ê"
+  },
+  {
     "name": "Ultra Hammer Skip",
     "settingName": "UltraHammerSkip",
     "link": "https://youtu.be/qzmli1V9wBE?t=10324",

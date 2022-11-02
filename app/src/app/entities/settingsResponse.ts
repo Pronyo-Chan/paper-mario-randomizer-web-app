@@ -254,6 +254,7 @@ export interface SettingsResponse{
     // Glitches: Mt. Lavalava
     KooperlessLavalavaPowBlockParakarry: boolean
     KooperlessLavalavaPowBlockSuperBoots: boolean
+    JumplessLavalavaPowBlock: boolean
     UltraHammerSkip: boolean
     UltraHammerSkipLaki: boolean
     Flarakarry: boolean
