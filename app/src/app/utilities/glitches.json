@@ -720,12 +720,28 @@
     "id": "¶"
   },
   {
+    "name": "Sushieless Jungle Starpiece And Letter (LZS)",
+    "settingName": "SushielessJungleStarpieceAndLetter",
+    "link": "",
+    "description": "Using LZS, you can get out of bounds and walk on the edge of the map until you reach the island with the starpiece and letter.",
+    "location": "Jade Jungle",
+    "id": "è"
+  },
+  {
     "name": "Kooper-less Mt. Lavalava Pow Block (Parakarry)",
     "settingName": "KooperlessLavalavaPowBlockParakarry",
     "link": "https://youtu.be/Bdr6tOdBSKQ?t=24",
     "description": "The item can be obtained with Parakarry's ability, using it on the edge of the platform and jumping at the very end.",
     "location": "Mt. Lavalava",
     "id": "]"
+  },
+  {
+    "name": "Kooper-less Mt. Lavalava Pow Block (Super Boots)",
+    "settingName": "KooperlessLavalavaPowBlockSuperBoots",
+    "link": "https://www.youtube.com/watch?v=slXBRBlNeDQ",
+    "description": "By doing the first steps of the volcano sushie glitch (jump on the trampoline near the metal block, ground pound under the save block), you can then jump on the trampoline under the top-left exit and hold that bounce until you close the save prompt, using it to reach the top of the brick block.",
+    "location": "Mt. Lavalava",
+    "id": "é"
   },
   {
     "name": "Ultra Hammer Skip",
