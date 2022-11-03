@@ -368,7 +368,11 @@ export class SettingStringMappingService {
     while(i < glitchesValue.length) {
       var glitch = allGlitches.find(g => g.id == glitchesValue[i])
       i += 1;
-      enabledGlitches.push(glitch)
+      
+      if(glitch) {
+        enabledGlitches.push(glitch)
+      }
+      
     }
     return enabledGlitches;
   }
