@@ -250,6 +250,7 @@ export interface SettingsResponse{
     RaphSkipEnglish: boolean
     Ch5SushieGlitch: boolean
     SushielessJungleStarpieceAndLetter: boolean
+    JumplessDeepJungleLaki: boolean
 
     // Glitches: Mt. Lavalava
     KooperlessLavalavaPowBlockParakarry: boolean
