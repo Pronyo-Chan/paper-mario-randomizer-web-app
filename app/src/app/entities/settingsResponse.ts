@@ -168,6 +168,7 @@ export interface SettingsResponse{
     FirstBlockToShiverCityWithoutSuperBoots: boolean
     BlocksToShiverCityWithKooperShellItemThrow: boolean
     SewerYellowBlockWithUltraBoots: boolean
+    JumplessSewerShootingStar: boolean
 
     // Glitches: Plesant Path
     KooperlessPleasantPathStarPiece: boolean

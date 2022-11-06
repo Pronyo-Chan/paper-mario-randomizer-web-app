@@ -302,6 +302,7 @@ export class RandomizerService {
       FirstBlockToShiverCityWithoutSuperBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "FirstBlockToShiverCityWithoutSuperBoots"),
       BlocksToShiverCityWithKooperShellItemThrow: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlocksToShiverCityWithKooperShellItemThrow"),
       SewerYellowBlockWithUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SewerYellowBlockWithUltraBoots"),
+      JumplessSewerShootingStar: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessSewerShootingStar"),
 
       // Glitches: Plesant Path
       KooperlessPleasantPathStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessPleasantPathStarPiece"),

@@ -224,6 +224,14 @@
     "id": "Ì"
   },
   {
+    "name": "Jumpless Sewer Shooting Star (Kooper)",
+    "settingName": "JumplessSewerShootingStar",
+    "link": "https://www.youtube.com/watch?v=2mTY6H6Wrlw",
+    "description": "When getting hit by a first strike while using Kooper's ability, Mario will jump higher the next time Kooper's ability is used. This boost can be used to reach the high block in the room with spikes, with only Kooper.",
+    "location": "Toad Town Tunnels",
+    "id": "ï"
+  },
+  {
     "name": "Kooper-less Pleasant Path Star Piece (clippy)",
     "settingName": "KooperlessPleasantPathStarPiece",
     "link": "https://www.youtube.com/watch?v=-u-viCdLmRs",
