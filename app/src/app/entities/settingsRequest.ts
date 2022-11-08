@@ -184,7 +184,6 @@ export interface SettingsRequest {
     MtRuggedCoinsWithKooper: boolean
     MtRuggedStationJumplessClimbBombette: boolean
     MtRuggedStationJumplessClimbLaki: boolean
-    MtRuggedSlideJumplessClimbLaki: boolean
     JumplessMtRuggedTrainPlatformParakarry: boolean
 
     // Glitches: Dry Dry Desert
