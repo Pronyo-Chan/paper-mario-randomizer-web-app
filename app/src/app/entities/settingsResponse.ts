@@ -142,7 +142,8 @@ export interface SettingsResponse{
     GoombaVillageNpcLureExit: boolean
     HammerlessJrPlaygroundLaki: boolean
     GoombaVillageLakiExit: boolean
-    PrologueSushieGlitch: boolean
+    PrologueSushieGlitchKsj: boolean
+    PrologueSushieGlitchUltraBootsLaki: boolean
 
     // Glitches: Toad Town
     OddKeyEarly: boolean
@@ -167,9 +168,11 @@ export interface SettingsResponse{
     FirstBlockToShiverCityWithoutSuperBoots: boolean
     BlocksToShiverCityWithKooperShellItemThrow: boolean
     SewerYellowBlockWithUltraBoots: boolean
+    JumplessSewerShootingStar: boolean
 
     // Glitches: Plesant Path
     KooperlessPleasantPathStarPiece: boolean
+    HammerlessPleasantPathBridgeUltraBootsParakarry: boolean
     InvisibleBridgeClipLzs: boolean
     InvisibleBridgeClipLaki: boolean
     KooperlessPleasantPathThunderBolt: boolean
@@ -187,6 +190,9 @@ export interface SettingsResponse{
     BuzzarGapSkipClippy: boolean
     ParakarrylessMtRuggedStarPiece: boolean
     MtRuggedCoinsWithKooper: boolean
+    MtRuggedStationJumplessClimbBombette: boolean
+    MtRuggedStationJumplessClimbLaki: boolean
+    JumplessMtRuggedTrainPlatformParakarry: boolean
 
     // Glitches: Dry Dry Desert
     DesertBrickBlockItemWithParakarry: boolean
@@ -204,6 +210,7 @@ export interface SettingsResponse{
     RuinsLocksSkipClippy: boolean
 
     // Glitches: Boo's Mansion
+    JumplessMansionEntry: boolean
     RecordSkipNoBombettePush: boolean
     RecordSkipBombettePush: boolean
     BoosPortraitWithKooper: boolean
@@ -231,6 +238,7 @@ export interface SettingsResponse{
     GourmetGuySkipParakarry: boolean
     BowlessGreenStation: boolean
     KooperlessRedStationShootingStar: boolean
+    GearlessRedStationShootingStar: boolean
     ParakarrylessBlueBlockCityGap: boolean
     BlueSwitchSkipLaki: boolean
     BlueSwitchSkipUltraBoots: boolean
@@ -241,11 +249,16 @@ export interface SettingsResponse{
     // Glitches: Jade Jungle
     RaphSkipEnglish: boolean
     Ch5SushieGlitch: boolean
+    SushielessJungleStarpieceAndLetter: boolean
+    JumplessDeepJungleLaki: boolean
 
     // Glitches: Mt. Lavalava
-    KooperlessLavalavaPowBlock: boolean
+    KooperlessLavalavaPowBlockParakarry: boolean
+    KooperlessLavalavaPowBlockSuperBoots: boolean
+    JumplessLavalavaPowBlock: boolean
     UltraHammerSkip: boolean
     UltraHammerSkipLaki: boolean
+    UltraHammerSkipSushie: boolean
     Flarakarry: boolean
     ParakarrylessFlarakarryBombette: boolean
     ParakarrylessFlarakarryLaki: boolean
@@ -264,6 +277,7 @@ export interface SettingsResponse{
     BlueBerryGateSkipBombettePush: boolean
     BlueBerryGateSkipLaki: boolean
     BubbleBerryTreeLakiJump: boolean
+    BubbleBerryTreeUltraBoots: boolean
 
     // Glitches: Shiver Region
     MurderSolvedEarlyLaki: boolean
@@ -274,7 +288,8 @@ export interface SettingsResponse{
     ShiverMountainHiddenBlockWithoutUltraBootsNoLaki: boolean
     SnowmenSkipLaki: boolean
     ShiverMountainSwitchSkip: boolean
-    SushielessWarehouseKey: boolean
+    SushielessWarehouseKeyBombette: boolean
+    SushielessWarehouseKeyKooper: boolean
 
     // Glitches: Crystal Palace
     MirrorClip: boolean

@@ -77,11 +77,10 @@
             <span>Starting Level: {{this.startingLevel}}</span>
         </div>
 
-        <div class="bottom-note" *ngIf="marioStatsFormGroup.get('startingBoots').value == -1">
-            <p>
-                * Jumpless will prevent Mario from jumping in battles and on the overworld until boots are found as a random item.
-                Some unintuitive actions might be required, like using Parakarry to climb stairs/ledges or using Kooper to gain height and hit floating blocks.
-            </p>
-        </div>
+
+        <p class="bottom-note" *ngIf="marioStatsFormGroup.get('startingBoots').value == -1">
+            * Jumpless will prevent Mario from jumping in battles and on the overworld until boots are found as a random item.
+            Some unintuitive actions might be required, like using Parakarry to climb stairs/ledges or using Kooper to gain height and hit floating blocks.
+        </p>
     </mat-card-content>
 </form>

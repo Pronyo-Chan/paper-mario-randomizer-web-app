@@ -46,6 +46,7 @@ export class SettingStringMappingService {
     { compressedString: "x", key: "noXP", type: "bool"},
     { compressedString: "k", key: "oneHitKO", type: "bool"},
     { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
+    { compressedString: "z", key: "randomNumberOfStarSpirits", type: "bool"},
     { compressedString: "l", key: "noHealingItems", type: "bool"},
     { compressedString: "t", key: "itemTrapMode", type: "number"},
     { compressedString: "y", key: "allowItemHints", type: "bool"},
@@ -367,7 +368,11 @@ export class SettingStringMappingService {
     while(i < glitchesValue.length) {
       var glitch = allGlitches.find(g => g.id == glitchesValue[i])
       i += 1;
-      enabledGlitches.push(glitch)
+      
+      if(glitch) {
+        enabledGlitches.push(glitch)
+      }
+      
     }
     return enabledGlitches;
   }

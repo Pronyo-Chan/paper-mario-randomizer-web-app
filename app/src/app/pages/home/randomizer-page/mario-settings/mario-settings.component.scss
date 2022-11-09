@@ -9,12 +9,10 @@ input {
     width: 4rem;
 }
 
-div.bottom-note {
-    margin-top: 2rem;
-    p {
-        font-family: gluten;
-        margin:2px;
-        font-weight: 500;
-        line-height: 16px;
-    }
+
+p.bottom-note  {
+    font-family: gluten;
+    margin: 32px 2px 2px 2px;
+    font-weight: 500;
+    line-height: 16px;
 }

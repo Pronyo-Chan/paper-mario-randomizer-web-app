@@ -1,6 +1,84 @@
 
 <div class="main-page">
     <mat-card class="settings-card">
+        <mat-card-title class="settings-title">0.17.0 (beta) (2022-11-XX)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> Merlow won't hand out bonus rewards when playing on Project 64 with the Recompiler mode. Please use another emulator or set Project 64 to use Interpreter mode instead.</li>
+            <li> When playing Jumpless, Mario can only save with Kooper and cannot use heart blocks at all.</li>
+            <li> When picking up a previously tossed item while the menu for placing an item into a Shiver Mountain socket is opened, the game crashes.</li>
+            <li> When an NPC attempts to give Mario a consumable item while his inventory is full, the tossed item may be picked up again immediately, causing the "inventory full" menu and NPC interaction to overlap.</li>
+            <li> The prologue battle against Jr. Troopa is quite buggy. This can cause him to not immediately be defeated when reduced to zero HP, or make him stand or float in places where he is not supposed to.</li>
+            <li> When handing in the calculator to Rowf, while having a full inventory and Rowf attempts to reward Mario with a consumable item, the "inventory full item toss" may cause the item to land out of bounds, becoming unobtainable.</li>
+            <li> Under certain chapter progress conditions, Mrs. Kolorado in Koopa Village can appear to be invisible or move around oddly when asked for the Koopa Legends book.</li>
+        </ul>
+
+        <h2>Game Mod Fixes</h2>
+        <ul>
+            <li> Fixed an issue where the HP of Lava Buds during the Ch.5 boss fight would not scale.</li>
+            <li> Fixed an issue with the fuzzy minigame reward where the item would vanish for a few frames.</li>
+            <li> Fixed a crash that would occur when using the return zipline in front of the volcano, if used right after building the zipline.</li>
+            <li> Fixed an issue with Boo's Mansion apple crates, where Blue Berries would only spawn once inside them.</li>
+            <li> Fixed an issue with replenishable items as the potato Shiver City inn reward, where you would need to reload the map to spawn the item again.</li>
+            <li> Fixed an issue where using Double Dip with Flower Saver when Mario has 0 FP could lead to having negative FP.</li>
+            <li> Fixed an issue during Goomba King and meeting Kooper cutscenes where partners other than Goombario would use the wrong animations.</li>
+            <li> A fence was added at the top of the Koopa Bros Fortress water staircase room, to prevent falling in the water when the staircase isn't raised (entrance rando preparation).</li>
+            <li> In Koopa Bros Fortress, in the room with 2 locked doors, the upper locked door can now be opened first (entrance rando preparation).</li>
+            <li> The Star Stone can now be removed from its socket immediately after putting it in. Doing so will reload the map with the staircase gone.</li>
+        </ul>
+
+        <h2>Seed Generator</h2>
+        <ul>
+            <li> Jumpless logic: Using the weight and Parakarry to get to the 2nd floor of Boo's Mansion is now in logic.</li>
+            <li> Jumpless logic: Triggering the higher vine in Flower Fields (NE) with Lakilester is now in logic.</li>
+            <li> Jumpless logic: Climbing the Mt. Rugged slide with Lakilester is now in logic. Without other glitches this changes nothing however, as you cannot reach the slide in the first place without Boots.</li>
+            <li> Jumpless logic: Fixed an issue in the Flower Fields west path where logic wrongly assumed you could get the upper hidden block with Parakarry.</li>
+            <li> There are now logic requirements to beat Chan in the Dojo. Boots, Goombario, Watt or Sushie is required in logic to beat him.</li>
+            <li> There are now logic requirements to beat the Koopa Bros. Hammer, Bombette or Watt is required in logic to beat them.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li> Updated the tooltip text for "Include Dojo Rewards" to reflect the right amount of star spirits required.</li>
+            <li> Fixed an issue on the seed page where "Jumpless" starting boots would be displayed as "-1".</li>
+            <li> Added an error message when attempting to generate a non-shuffled Jumpless seed, which is not possible.</li>
+        </ul>
+
+        <h2>Options</h2>
+
+        <h3>Random Number of Required Star Spirits (new)</h3>
+        <ul>
+            <li> Enabling this setting will make the game require a random amount of star spirits to open the starway.</li>
+            <li> The number of required star spirits can be figured out ingame by checking the unlit stars at the top of Shooting Star Summit.</li>
+        </ul>
+
+        <h3>Cap Enemy XP (change)</h3>
+        <ul>
+            <li> Using progressive scaling difficulty will no longer force this setting enabled.</li>
+        </ul>
+
+        <h3>Glitches & Tricks (change)</h3>
+        <ul class="indented-text">            
+            <li>The following tricks have been internally renamed and will need to be added to your presets again if they were enabled: Prologue Sushie Glitch, Kooperless Lavalava PowBlock, Sushieless Warehouse Key (Bombette Push).</li>
+            <li>Some missing video links have been added.</li>
+            <li>New glitches and tricks have been added:</li>
+            <li><span class="bolder-text">Goomba Region:</span> Prologue Sushie Glitch (Ultra Boots + Laki)</li>
+            <li><span class="bolder-text">Pleasant Path:</span> Hammerless Pleasant Path Bridge Skip (UltraBoots + Parakarry)</li>
+            <li><span class="bolder-text">Mt.Rugged:</span> Mt.Rugged Station Jumpless Climb (Bombette), Mt.Rugged Station Jumpless Climb (Laki), Mt.Rugged Slide Jumpless Climb (Laki), Jumpless Mt.Rugged Train Platform (Parakarry)</li>
+            <li><span class="bolder-text">Boo's Mansion:</span> Jumpless Mansion Entry</li>
+            <li><span class="bolder-text">Toy Box:</span> Gear-less Red Station Shooting Star</li>
+            <li><span class="bolder-text">Jade Jungle:</span> Sushie-less Jungle Starpiece and Letter, Jumpless Deep Jungle (Laki Teleport)</li>
+            <li><span class="bolder-text">Mt. Lavalava:</span> Kooperless Lavalava PowBlock (Super Boots), Jumpless Lavalava Pow Block, Ultra Hammer Skip (Sushie)</li>
+            <li><span class="bolder-text">Flower Fields:</span> Bubble Berry Tree Early (Tornado Jump)</li>
+            <li><span class="bolder-text">Shiver Region:</span> Sushie-less Warehouse Key (KSJ)</li>
+            <li> 🎉Shoutouts to <span class="bolder-text">JCog</span>, <span class="bolder-text">MrCheeze</span> and <span class="bolder-text">NaterTater</span> for their hard work on glitch hunting to discover these new glitches! 🎉</li>
+        </ul>
+
+    </mat-card>
+
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.16.0 (beta) (2022-10-17)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
