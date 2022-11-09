@@ -48,12 +48,20 @@
     "id": "Ä"
   },
   {
-    "name": "Prologue Sushie Glitch",
-    "settingName": "PrologueSushieGlitch",
+    "name": "Prologue Sushie Glitch (KSJ)",
+    "settingName": "PrologueSushieGlitchKsj",
     "link": "https://papermarioarchives.com/Retrigger_Prologue",
     "description": "After doing the glitch to retrigger prologue (using item throw instead of collecting 32 key items), menu storage can be obtained on the save block, which can be used to activate the sushie glitch. This state allows to skip most obstacles on the overworld, aside from doors to dungeons. (Needs better video)",
     "location": "Goomba Region",
     "id": "Æ"
+  },
+  {
+    "name": "Prologue Sushie Glitch (Ultra Boots + Laki)",
+    "settingName": "PrologueSushieGlitchUltraBootsLaki",
+    "link": "https://youtu.be/4wBh6NePj5Y?t=412",
+    "description": "You can perform a precise Tornado Jump to get on the left-most brick block in Jr's playground. From there, jump out of bounds, walk on the edge to the north of the room, and drop while riding laki to aim for Jr Troopa under the map. After the fight, the sushie glitch can be triggered with a tornado jump on the save block and then using Goombario/Kooper/Bombette's ability before changing to sushie and exiting the room.",
+    "location": "Goomba Region",
+    "id": "à"
   },
   {
     "name": "Odd Key Early",
@@ -216,12 +224,28 @@
     "id": "Ì"
   },
   {
+    "name": "Jumpless Sewer Shooting Star (Kooper)",
+    "settingName": "JumplessSewerShootingStar",
+    "link": "https://www.youtube.com/watch?v=2mTY6H6Wrlw",
+    "description": "When getting hit by a first strike while using Kooper's ability, Mario will jump higher the next time Kooper's ability is used. This boost can be used to reach the high block in the room with spikes, with only Kooper.",
+    "location": "Toad Town Tunnels",
+    "id": "ï"
+  },
+  {
     "name": "Kooper-less Pleasant Path Star Piece (clippy)",
     "settingName": "KooperlessPleasantPathStarPiece",
     "link": "https://www.youtube.com/watch?v=-u-viCdLmRs",
     "description": "By entering clippy state with Lakilester, it is possible to go out of bounds and reach the island star piece without Kooper.",
     "location": "Pleasant Path",
     "id": "2"
+  },
+  {
+    "name": "Hammerless Pleasant Path Bridge (Ultra Boots + Parakarry)",
+    "settingName": "HammerlessPleasantPathBridgeUltraBootsParakarry",
+    "link": "https://youtu.be/4wBh6NePj5Y?t=65",
+    "description": "By performing a precise Tornado Jump, you can get on the item block near the tree and then fly out of bounds with Parakarry. From there you can obtain the item on the island and cross to the right side of the map without a bridge.",
+    "location": "Pleasant Path",
+    "id": "á"
   },
   {
     "name": "Invisible Bridge Clip (LZS)",
@@ -328,6 +352,30 @@
     "id": "Î"
   },
   {
+    "name": "Mt.Rugged Station Jumpless Climb (Bombette Push)",
+    "settingName": "MtRuggedStationJumplessClimbBombette",
+    "link": "",
+    "description": "The green Toadette left of the train platform can be pushed near the edge with Bombette, and used to get out of bounds. From there you can reach the Super Block and squeeze through the stone block with speedy spins.",
+    "location": "Mt. Rugged",
+    "id": "â"
+  },
+  {
+    "name": "Mt.Rugged Station Jumpless Climb (Laki Teleport)",
+    "settingName": "MtRuggedStationJumplessClimbLaki",
+    "link": "",
+    "description": "A Laki teleport can be used to clip on the train track and reach the Super Block above by going out of bounds. From there you can squeeze through the stone block with speedy spins.",
+    "location": "Mt. Rugged",
+    "id": "ã"
+  },
+  {
+    "name": "Mt.Rugged Jumpless Train Platform (Parakarry)",
+    "settingName": "JumplessMtRuggedTrainPlatformParakarry",
+    "link": "",
+    "description": "By using Parakarry's ability on the very bottom of the train platform, it's possible to cross over to the middle section and ride the train without boots.",
+    "location": "Mt. Rugged",
+    "id": "å"
+  },
+  {
     "name": "Desert Brick Block Item With Parakarry",
     "settingName": "DesertBrickBlockItemWithParakarry",
     "link": "https://www.youtube.com/watch?v=Bdr6tOdBSKQ",
@@ -414,6 +462,14 @@
     "description": "Clippy can be used to skip the first three locks in pretty much identical ways to this video. Note that the third one is impossible once the 3 Pokies are defeated, therefore won't be in logic.",
     "location": "Dry Dry Ruins",
     "id": "H"
+  },
+  {
+    "name": "Jumpless Mansion Entry (Parakarry)",
+    "settingName": "JumplessMansionEntry",
+    "link": "",
+    "description": "Parakarry's ability can be used at the bottom of the stairs to climb the highest step from the ground, skipping the need for boots.",
+    "location": "Boo's Mansion",
+    "id": "æ"
   },
   {
     "name": "Record Skip (No Bombette push)",
@@ -592,6 +648,14 @@
     "id": "Z"
   },
   {
+    "name": "Gear-less Red Station Shooting Star",
+    "settingName": "GearlessRedStationShootingStar",
+    "link": "https://www.youtube.com/watch?v=tCE7VlaxNiQ",
+    "description": "When getting hit by a first strike while using Kooper's ability, Mario will jump higher the next time Kooper's ability is used. This boost can be used to break the brick block from below, with only Kooper.",
+    "location": "ToyBox",
+    "id": "ç"
+  },
+  {
     "name": "Parakarry-less Blue Block City Gap",
     "settingName": "ParakarrylessBlueBlockCityGap",
     "link": "",
@@ -656,12 +720,44 @@
     "id": "¶"
   },
   {
-    "name": "Kooper-less Mt. Lavalava Pow Block",
-    "settingName": "KooperlessLavalavaPowBlock",
+    "name": "Sushieless Jungle Starpiece And Letter (LZS)",
+    "settingName": "SushielessJungleStarpieceAndLetter",
+    "link": "",
+    "description": "Using LZS, you can get out of bounds and walk on the edge of the map until you reach the island with the starpiece and letter.",
+    "location": "Jade Jungle",
+    "id": "è"
+  },
+  {
+    "name": "Jumpless Deep Jungle (Laki Teleport)",
+    "settingName": "JumplessDeepJungleLaki",
+    "link": "",
+    "description": "In the screen where you need to jump on a vine to open the bushes path, you can do a laki teleport to clip through the bushes without boots.",
+    "location": "Jade Jungle",
+    "id": "î"
+  },
+  {
+    "name": "Kooper-less Mt. Lavalava Pow Block (Parakarry)",
+    "settingName": "KooperlessLavalavaPowBlockParakarry",
     "link": "https://youtu.be/Bdr6tOdBSKQ?t=24",
     "description": "The item can be obtained with Parakarry's ability, using it on the edge of the platform and jumping at the very end.",
     "location": "Mt. Lavalava",
     "id": "]"
+  },
+  {
+    "name": "Kooper-less Mt. Lavalava Pow Block (Super Boots)",
+    "settingName": "KooperlessLavalavaPowBlockSuperBoots",
+    "link": "https://www.youtube.com/watch?v=slXBRBlNeDQ",
+    "description": "By doing the first steps of the volcano sushie glitch (jump on the trampoline near the metal block, ground pound under the save block), you can then jump on the trampoline under the top-left exit and hold that bounce until you close the save prompt, using it to reach the top of the brick block.",
+    "location": "Mt. Lavalava",
+    "id": "é"
+  },
+  {
+    "name": "Jumpless Mt. Lavalava Pow Block",
+    "settingName": "JumplessLavalavaPowBlock",
+    "link": "",
+    "description": "When getting hit by a first strike while using Kooper's ability, Mario will jump higher the next time Kooper's ability is used. This boost can be used to break the brick block from below, with only Kooper.",
+    "location": "Mt. Lavalava",
+    "id": "ê"
   },
   {
     "name": "Ultra Hammer Skip",
@@ -678,6 +774,14 @@
     "description": "A laki clip can be performed on the edge of the upper-right loading zone in the central volcano room to go out of bounds and fall on the loading zone behind the metal block.",
     "location": "Mt. Lavalava",
     "id": "×"
+  },
+  {
+    "name": "Ultra Hammer Skip (Sushie)",
+    "settingName": "UltraHammerSkipSushie",
+    "link": "https://www.youtube.com/watch?v=HrFdldAMs6w",
+    "description": "The metal block can be skipped by performing the sushie glitch, using menu storage by ground pounding the save block after jumping on the nearest trampoline and then storing the upper loading zone before triggering it near the metal block.",
+    "location": "Mt. Lavalava",
+    "id": "ë"
   },
   {
     "name": "Volcano Sushie Glitch",
@@ -800,12 +904,20 @@
     "id": "l"
   },
   {
-    "name": "Bubble Berry Tree Laki Jump",
+    "name": "Bubble Berry Tree Early (Laki Jump)",
     "settingName": "BubbleBerryTreeLakiJump",
     "link": "https://www.youtube.com/watch?v=HhqSyxFSI_U",
     "description": "A Laki Jump can be performed below the Sushie deck to get on the tree's platform without raising the water.",
     "location": "Flower Fields",
     "id": "m"
+  },
+  {
+    "name": "Bubble Berry Tree Early (Tornado Jump)",
+    "settingName": "BubbleBerryTreeUltraBoots",
+    "link": "https://www.youtube.com/watch?v=H2asTC0Vl-U",
+    "description": "With a precise tornado jump under the deck, you can reach the Bubble Berry Tree without raising the water.",
+    "location": "Flower Fields",
+    "id": "ì"
   },
   {
     "name": "Murder Solved Early (Laki)",
@@ -873,11 +985,19 @@
   },
   {
     "name": "Sushie-less Warehouse Key (Bombette Push)",
-    "settingName": "SushielessWarehouseKey",
+    "settingName": "SushielessWarehouseKeyBombette",
     "link": "",
     "description": "By pushing one of the 3 Toad sisters near the edge, you can squeeze out of bounds and reach the bottom of the pond without Sushie. Kooper, Parakarry or Super Boots are needed to jump high enough and obtain the item.",
     "location": "Shiver Region",
     "id": "Ü"
+  },
+  {
+    "name": "Sushie-less Warehouse Key (KSJ)",
+    "settingName": "SushielessWarehouseKeyKooper",
+    "link": "",
+    "description": "You can get out of bounds by performing a LZS and use it to store a Kooper Super Jump. Perform the KSJ over the frozen pond to get the item under the ice. If you already broke the ice, it's possible to warp Mario under the ice by combining a KSJ with an item throw from the deck.",
+    "location": "Shiver Region",
+    "id": "í"
   },
   {
     "name": "Mirror Clip",
