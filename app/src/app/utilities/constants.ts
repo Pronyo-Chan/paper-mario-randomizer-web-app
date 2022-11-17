@@ -113,4 +113,31 @@ export class Constants {
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: SushieSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
 
+      public static VERBOSE_LETTER_NAMES: { [id: string] : string } = {
+        "Letter01": "Letter (To Merlon)",
+        "Letter02": "Letter (To Goompa)",
+        "Letter03": "Letter (To Mort T.)",
+        "Letter04": "Letter (To Russ T.)",
+        "Letter05": "Letter (To Mayor Penguin)",
+        "Letter06": "Letter (To Merlow)",
+        "Letter07": "Letter (To Fice T.)",
+        "Letter08": "Letter (To Nomadimouse)",
+        "Letter09": "Letter (To Minh T.)",
+        "Letter10": "Letter (To Goompapa)",
+        "Letter11": "Letter (To Igor)",
+        "Letter12": "Letter (To Franky)",
+        "Letter13": "Letter (To Muss T.)",
+        "Letter14": "Letter (To Koover)",
+        "Letter15": "Letter (To Fishmael)",
+        "Letter16": "Letter (To Koover)",
+        "Letter17": "Letter (To Mr. E.)",
+        "Letter18": "Letter (To Miss T.)",
+        "Letter19": "Letter (To Little Mouser)",
+        "Letter20": "Letter (To Dane T.)",
+        "Letter21": "Letter (To Red Yoshi Kid)",
+        "Letter22": "Letter (To Dane T.)",
+        "Letter23": "Letter (To Frost T.)",
+        "Letter24": "Letter (To Goompapa)",
+        "Letter25": "Letter (To Kolorado)",
+      }
 }
