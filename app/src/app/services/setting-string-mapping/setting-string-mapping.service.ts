@@ -8,6 +8,7 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { Items } from 'src/app/entities/enum/items';
 import glitchesJson from '../../utilities/glitches.json'
+import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
 
 interface SettingModel {compressedString: string, key: string, type: string, map?: SettingModel[]};
 
@@ -346,16 +347,16 @@ export class SettingStringMappingService {
     var i = 0;
     var items: StartingItem[] = [];
     while(i < itemValues.length) {
-      var itemValue = Number(itemValues.substring(i, i+4))
+      const itemValue = Number(itemValues.substring(i, i+4))
       i += 4;
       if (Object.values(Items).includes(itemValue)) {
-        items.push({name: Items[itemValue], value: itemValue, itemType: "Item"} as StartingItem)
+        items.push({name: pascalToVerboseString(Items[itemValue]), value: itemValue, itemType: "Item"} as StartingItem)
       }
       else if (Object.values(KeyItems).includes(itemValue)) {
-        items.push({name: KeyItems[itemValue], value: itemValue, itemType: "Key Item"} as StartingItem)
+        items.push({name: pascalToVerboseString(KeyItems[itemValue]), value: itemValue, itemType: "Key Item"} as StartingItem)
       }
       else if (Object.values(Badges).includes(itemValue)) {
-        items.push({name: Badges[itemValue], value: itemValue, itemType: "Badge"} as StartingItem)
+        items.push({name: pascalToVerboseString(Badges[itemValue]), value: itemValue, itemType: "Badge"} as StartingItem)
       }
     }
     return items;
