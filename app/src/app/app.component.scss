@@ -188,11 +188,16 @@ body.red-bg {
          }
 
          .setting-element {
-             flex-basis: 50%;
              margin-top: 8px;
-             flex-grow: 2;
              display: flex;         
-             align-items: center;       
+             align-items: center;
+             flex-basis: 100%;
+             flex-grow: 1;
+
+             @include medium {
+                flex-basis: 50%;
+                flex-grow: 2;
+             }
          }
 
          .slider-element {
