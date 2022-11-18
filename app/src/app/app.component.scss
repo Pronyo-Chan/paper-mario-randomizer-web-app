@@ -30,6 +30,9 @@ span.caret {
     height: 2rem;
     line-height: 2rem !important;
 
+    overflow-x: auto;
+    overflow-y: hidden;
+
     @include medium {
         height: 2.5rem;
         line-height: 2.5rem !important;
