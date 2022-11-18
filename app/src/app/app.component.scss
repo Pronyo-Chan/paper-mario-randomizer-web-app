@@ -22,12 +22,23 @@ span.caret {
     top: 0; /* Sets the sticky toolbar to be on top */
     z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
     background-color: $beige-background-card;
-    height: 2.6vmax;
-    line-height: 2.6vmax !important;
     font-family: gluten !important;
     font-weight: 600 !important;
     padding: 0 1vmax !important;
     box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
+
+    height: 2rem;
+    line-height: 2rem !important;
+
+    @include medium {
+        height: 2.5rem;
+        line-height: 2.5rem !important;
+    }
+  
+    @include large {
+        height: 3rem;
+        line-height: 3.0rem !important;
+    }
 
     .text-link{
         // Need a bunch of inherits for when this class is applied to button
@@ -39,10 +50,20 @@ span.caret {
         cursor: pointer;
 
         text-decoration: none;
-        font-size: 1.0vmax;
         display: flex;
         align-items: center;
         border: none;
+
+        font-size: 12px;
+
+        @include medium {
+            font-size: 15px;
+          }
+      
+        @include large {
+        font-size: 18px;
+        }
+
         span {
             color: black;
             padding: 0 0.8vmax 0 0.8vmax;

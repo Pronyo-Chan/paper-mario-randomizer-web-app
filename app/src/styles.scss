@@ -1,4 +1,5 @@
 @import './variables';
+@import './mixins';
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 
@@ -119,7 +120,19 @@ input, textarea {
   .mat-menu-item {
     font-family: 'gluten';
     font-weight: 500;
-    font-size: 0.9vmax;
+    font-size: 12px;
+
+    @include medium {
+      font-size: 14px;
+    }
+
+    @include large {
+      font-size: 16px;
+    }
+
+    @include extra-large {
+      font-size: 18px;
+    }
   }
 
   .mat-menu-item:hover {
