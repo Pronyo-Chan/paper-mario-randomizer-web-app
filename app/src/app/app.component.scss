@@ -1,4 +1,5 @@
 @use './../variables';
+@use './../mixins';
 
 .logo-wrapper {
     margin: 0 33% 0 33%; //prevents clicking outside of image
@@ -123,10 +124,20 @@ body.red-bg {
 }
 
  .settings-card {
-     margin: 0 5% 2% 5%;
-     background-color: variables.$beige-background-card;
+    background-color: variables.$beige-background-card;
+    margin: 0 .5rem 1rem .5rem;
 
-     
+    @include mixins.medium {
+        margin: 0 3rem 2rem 3rem;
+    }
+
+    @include mixins.large {
+        margin: 0 4rem 2rem 4rem;
+    }
+
+    @include mixins.large {
+        margin: 0 5rem 2rem 5rem;
+    }
 
      .settings-title {
         background-color: variables.$yellow-stat-main;
