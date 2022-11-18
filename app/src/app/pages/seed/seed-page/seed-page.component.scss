@@ -1,4 +1,5 @@
 @import './../../../../variables';
+@import './../../../../mixins';
 
 ::ng-deep app-loading.page-loading {
     div {
@@ -61,7 +62,19 @@
 }
 
 .mat-expansion-panel {
-    margin: 0 5% 2% 5% !important;
+    margin: 0 .5rem 1rem .5rem !important;
+
+    @include medium {
+        margin: 0 3rem 2rem 3rem !important;
+    }
+
+    @include large {
+        margin: 0 4rem 2rem 4rem !important;
+    }
+
+    @include extra-large {
+        margin: 0 5rem 2rem 5rem !important;
+    }
     padding:16px 7px 16px 16px; //hack because the collapse button takes 9px
 
     ::ng-deep .mat-expansion-panel-header {
