@@ -60,6 +60,19 @@
             overflow: auto;
             float:right;
             width: 100%;
+
+            &::-webkit-scrollbar {
+                width: 8px;
+                height: 8px;
+              }
+            &::-webkit-scrollbar-track {
+                background-color: variables.$purple-background-secondary;
+                border-radius: 10px;
+              }
+            &::-webkit-scrollbar-thumb {
+                background-color: variables.$yellow-stat-border;
+                border-radius: 10px;
+              }
             
             mat-table {
                 font-family: gluten;
