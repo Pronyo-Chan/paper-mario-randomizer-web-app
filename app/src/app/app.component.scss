@@ -181,9 +181,10 @@ body.red-bg {
 
          .settings-label {
             font-family: gluten;
-            margin-left: 4px;
+            margin: 0px 4px;
             font-size: 16px;
             font-weight: 500;
+            display: inline-block;
          }
 
          .setting-element {
