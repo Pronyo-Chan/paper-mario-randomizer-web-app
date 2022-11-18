@@ -1,4 +1,4 @@
-@use '../../../../../variables';
+@import '../../../../../variables';
 
 .table-container {
     display: flex;
@@ -27,11 +27,11 @@
             height: 8px;
           }
         .glitches-list::-webkit-scrollbar-track {
-            background-color: variables.$beige-background-secondary;
+            background-color: $beige-background-secondary;
             border-radius: 10px;
           }
         .glitches-list::-webkit-scrollbar-thumb {
-            background-color: variables.$yellow-stat-border;
+            background-color: $yellow-stat-border;
             border-radius: 10px;
           }
     }    
@@ -47,7 +47,7 @@ mat-selection-list, mat-list {
         
         border: solid !important; 
         border-width: 3px 3px 1px 3px !important;    
-        border-color: variables.$yellow-stat-border !important;
+        border-color: $yellow-stat-border !important;
 
         button {
             position: absolute;
@@ -91,7 +91,7 @@ span.no-results {
     background: none;
     float: right;
     cursor: pointer;
-    color: variables.$yellow-stat-main
+    color: $yellow-stat-main
 }
 
 button:disabled {

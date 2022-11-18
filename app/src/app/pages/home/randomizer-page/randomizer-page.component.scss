@@ -1,4 +1,4 @@
-@use './../../../../variables';
+@import './../../../../variables';
 :host {
     .settings-card {
         ::ng-deep .mat-tab-group {
@@ -44,28 +44,28 @@
                               
 
                             > :first-child {
-                              background-color: variables.$blue-item-main !important;        
-                              border-color: variables.$blue-item-border !important;
+                              background-color: $blue-item-main !important;        
+                              border-color: $blue-item-border !important;
                             }
                           
                             > :nth-child(2) {
-                              background-color: variables.$turquoise-partner-main !important;
-                              border-color: variables.$turquoise-partner-border !important;
+                              background-color: $turquoise-partner-main !important;
+                              border-color: $turquoise-partner-border !important;
                             }
                             
                             > :nth-child(3) {
-                              background-color: variables.$orange-badge-main!important;
-                              border-color: variables.$orange-badge-border !important;
+                              background-color: $orange-badge-main!important;
+                              border-color: $orange-badge-border !important;
                             }
                             
                             > :nth-child(4) {
-                              background-color: variables.$purple-misc-main !important;
-                              border-color: variables.$purple-misc-border !important; 
+                              background-color: $purple-misc-main !important;
+                              border-color: $purple-misc-border !important; 
                             }
 
                             > :nth-child(5) {
-                                background-color: variables.$green-spirit-main !important;
-                                border-color: variables.$green-spirit-border !important; 
+                                background-color: $green-spirit-main !important;
+                                border-color: $green-spirit-border !important; 
                               }
                           }
                     }
@@ -74,7 +74,7 @@
         }
 
         &.partners-tab-error{
-            background-color: variables.$red-card-error;
+            background-color: $red-card-error;
            ::ng-deep .mat-tab-group {
                .mat-tab-header {
                   .mat-tab-label-container {
@@ -94,7 +94,7 @@
         }
 
         &.starting-items-tab-error {
-            background-color: variables.$red-card-error;
+            background-color: $red-card-error;
            ::ng-deep .mat-tab-group {
                .mat-tab-header {
                   .mat-tab-label-container {
@@ -129,11 +129,11 @@
             }
             cursor: pointer;
             padding: 1rem 2rem;
-            background-color: variables.$yellow-stat-main;     
+            background-color: $yellow-stat-main;     
             border-radius: 28px;        
             border: double;
             border-width: 6px;
-            border-color: variables.$yellow-stat-border;   
+            border-color: $yellow-stat-border;   
         }
         button:disabled {
             cursor: not-allowed;

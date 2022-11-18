@@ -1,7 +1,7 @@
-@use './../../../variables';
+@import './../../../variables';
 
 .settings-card {
-    background-color: variables.$blue-background-card;
+    background-color: $blue-background-card;
 }
 h2, h3 {
     font-family: 'gluten';
@@ -20,17 +20,17 @@ ul {
         line-height: 18px;
 
         span.item-name{
-            color: variables.$blue-item-main;
+            color: $blue-item-main;
             font-weight: 700;
         }
 
         span.location-name{
-            color: variables.$yellow-stat-text;
+            color: $yellow-stat-text;
             font-weight: 700;
         }
 
         span.area-name{
-            color: variables.$purple-text;
+            color: $purple-text;
             font-weight: 700;
         }
     }

@@ -1,4 +1,4 @@
-@use './../../../../variables';
+@import './../../../../variables';
 
 ::ng-deep app-loading.page-loading {
     div {
@@ -13,11 +13,11 @@
 .loading-card {
     padding: 5rem !important;
     margin: 0 30%;
-    background-color: variables.$purple-background-card;
+    background-color: $purple-background-card;
 }
 
 .settings-card {
-    background-color: variables.$purple-background-card;
+    background-color: $purple-background-card;
 
     ::ng-deep .mat-tab-group {
         .mat-tab-header {
@@ -38,8 +38,8 @@
                             border-radius: 28px;
                             margin: 8px 0 8px 4px;
                             filter: brightness(.6);
-                            background-color: variables.$purple-misc-main !important;
-                            border-color: variables.$purple-misc-border !important; 
+                            background-color: $purple-misc-main !important;
+                            border-color: $purple-misc-border !important; 
                             padding: 0 5px;
 
                             &.mat-tab-label-active {      

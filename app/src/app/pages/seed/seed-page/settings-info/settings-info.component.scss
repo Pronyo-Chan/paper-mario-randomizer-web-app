@@ -1,4 +1,4 @@
-@use './../../../../../variables';
+@import './../../../../../variables';
 :host {
     display: flex;
     flex-wrap: wrap;
@@ -15,12 +15,12 @@
             span.seed-detail {
                 font-size: 18px;
                 font-style: italic;
-                color: variables.$yellow-stat-text;        
+                color: $yellow-stat-text;        
             }
 
             span.copied-message {
                 font-size: 14px;
-                color: variables.$blue-item-main;        
+                color: $blue-item-main;        
             }
         }
         span.expiration-warning{
@@ -66,11 +66,11 @@
                 height: 8px;
               }
             &::-webkit-scrollbar-track {
-                background-color: variables.$purple-background-secondary;
+                background-color: $purple-background-secondary;
                 border-radius: 10px;
               }
             &::-webkit-scrollbar-thumb {
-                background-color: variables.$yellow-stat-border;
+                background-color: $yellow-stat-border;
                 border-radius: 10px;
               }
             

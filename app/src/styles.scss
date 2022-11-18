@@ -1,4 +1,4 @@
-@use './variables';
+@import './variables';
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 
@@ -90,21 +90,21 @@
 }
 
 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
-  background-color: variables.$yellow-stat-border;
+  background-color: $yellow-stat-border;
 }
 
 .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
-  background-color: variables.$yellow-stat-main;
+  background-color: $yellow-stat-main;
 }
 
 .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-  background-color: variables.$yellow-stat-main;
+  background-color: $yellow-stat-main;
 }
 
 input, textarea {
   border: inset;
   border-radius: 4px;
-  border-color: variables.$yellow-stat-border;
+  border-color: $yellow-stat-border;
   border-width: 3px;
 
   &.error {
@@ -113,7 +113,7 @@ input, textarea {
 }
 
 .mat-menu-content {
-  background-color: variables.$beige-background-card;
+  background-color: $beige-background-card;
   padding: 0 !important;
 
   .mat-menu-item {
@@ -123,7 +123,7 @@ input, textarea {
   }
 
   .mat-menu-item:hover {
-      background-color: variables.$yellow-stat-border;
+      background-color: $yellow-stat-border;
   }
 }
 
@@ -157,7 +157,7 @@ input.mat-input-element:focus {
 select {
   border: inset;
   border-radius: 4px;
-  border-color: variables.$yellow-stat-border;
+  border-color: $yellow-stat-border;
   border-width: 3px;
 }
 

@@ -1,4 +1,4 @@
-@use './../../../../../variables';
+@import './../../../../../variables';
 :host {
     ul {
         list-style-type: none;
@@ -43,12 +43,12 @@
             cursor: pointer;
             overflow: hidden;
             padding: 0.7rem 1rem;
-            background-color: variables.$red-file-main;        
+            background-color: $red-file-main;        
             color: white;
             border-radius: 28px;        
             border: double;
             border-width: 6px;
-            border-color: variables.$red-file-border;
+            border-color: $red-file-border;
             float: left;
     
             svg {
