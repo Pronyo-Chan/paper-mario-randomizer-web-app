@@ -76,8 +76,15 @@ span.caret {
     .image-link {
         height: 100%;
 
-        img.logo {
+        img.logo, img.discord-icon {
             height:100%;
+        }
+
+        img.logo {
+            display: none;
+            @include medium {
+                display: block;
+            }
         }
     } 
 

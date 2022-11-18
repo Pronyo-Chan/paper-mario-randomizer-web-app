@@ -46,7 +46,6 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
   }
 
   private disableItemQualityWhenNotBalancedRandom(randomConsumableMode: RandomConsumableMode) {
-    console.log(randomConsumableMode)
     if(randomConsumableMode != RandomConsumableMode['Balanced Random']) {
       this.difficultyFormGroup.get('itemQuality').disable();
     } else {
