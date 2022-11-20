@@ -1,41 +1,68 @@
 @import './../../../variables';
 
-.settings-card {
-    background-color: $blue-background-card;
-}
-h2, h3 {
-    font-family: 'gluten';
-    padding: 2rem 0 0 1rem;
-}
-
-p {
-    font-family: gluten;
-}
-
-span.bolder-text {
-    font-weight: 800;
-}
-ul {
-    font-family: gluten;
-    font-size: 16px;
-    font-weight: 500;
-    li {
-        padding: 0.8rem;
-        line-height: 18px;
-
-        span.item-name{
-            color: $blue-item-main;
-            font-weight: 700;
-        }
-
-        span.location-name{
-            color: $yellow-stat-text;
-            font-weight: 700;
-        }
-
-        span.area-name{
-            color: $purple-text;
-            font-weight: 700;
+.main-page {
+    &.show-all-logs {
+        .settings-card {
+            display: block;
+            opacity: 1;
         }
     }
+
+    .settings-card {
+        background-color: $blue-background-card;
+        display: none;
+    
+        &.latest-changelog {
+            display: block;
+        }
+    }
+    h2, h3 {
+        font-family: 'gluten';
+        padding: 2rem 0 0 1rem;
+    }
+    
+    p {
+        font-family: gluten;
+    }
+    
+    span.bolder-text {
+        font-weight: 800;
+    }
+    ul {
+        font-family: gluten;
+        font-size: 16px;
+        font-weight: 500;
+        li {
+            padding: 0.8rem;
+            line-height: 18px;
+    
+            span.item-name{
+                color: $blue-item-main;
+                font-weight: 700;
+            }
+    
+            span.location-name{
+                color: $yellow-stat-text;
+                font-weight: 700;
+            }
+    
+            span.area-name{
+                color: $purple-text;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+
+        .yellow-button {
+            width: 8rem;
+            height: 3rem;
+            align-items: center;
+        }
+    }
+
+    
 }

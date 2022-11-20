@@ -1,6 +1,6 @@
 
-<div class="main-page">
-    <mat-card class="settings-card">
+<div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
+    <mat-card class="settings-card latest-changelog">
         <mat-card-title class="settings-title">0.17.0 (beta) (2022-11-09)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
@@ -1457,4 +1457,7 @@
                    The animations for this are programmed in the vanilla game, but were called incorrectly.</li>
         </ul>
     </mat-card>
+    <div class="button-container">
+        <button class="yellow-button" *ngIf="!showAllLogs" (click)="showAllLogs = true;"><span>Load More</span></button>
+    </div>
 </div>
