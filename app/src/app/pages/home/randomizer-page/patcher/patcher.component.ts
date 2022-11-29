@@ -19,9 +19,8 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
 export class PatcherComponent implements OnInit, OnDestroy {
 
   @Input() public seedId: string;
-  @Input() public modVersion: number
-  @Input() public cosmeticsFormGroup: FormGroup
-  @Input() public isCosmeticsAllowed: boolean
+  @Input() public modVersion: number;
+  @Input() public cosmeticsFormGroup: FormGroup;
 
   public userRom: any = null;
   public patchFile: any = null;

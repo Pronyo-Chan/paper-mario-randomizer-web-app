@@ -1,12 +1,10 @@
-import { LogicGlitch } from './../entities/logicGlitch';
-import { MarcFile } from './../utilities/RomPatcher/MarcFile';
+import { SeedViewModel } from './../entities/seed-view-model/seedViewModel';
+
 import { CosmeticsRequest } from './../entities/cosmeticsRequest';
 import { LocalStorageService } from './localStorage/localStorage.service';
 import { SettingStringMappingService } from './setting-string-mapping/setting-string-mapping.service';
-import { KeyItems } from './../entities/enum/keyItems';
 import { Constants } from './../utilities/constants';
 import { environment } from 'src/environments/environment';
-import { SettingsResponse } from './../entities/settingsResponse';
 import { forkJoin, map, Observable, switchMap } from 'rxjs';
 import { RandomizerRepository } from './../repositories/randomizer-repository/randomizer.repository';
 import { FormGroup } from '@angular/forms';
@@ -31,7 +29,7 @@ export class RandomizerService {
   { 
   }
 
-  public getSeedInfo(seedId: string): Observable<SettingsResponse> 
+  public getSeedInfo(seedId: string): Observable<SeedViewModel> 
   {
     return this._randomizerRepo.getSeedInfo(seedId);
   }

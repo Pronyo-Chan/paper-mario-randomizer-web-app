@@ -1,7 +1,7 @@
 <div class="download-section">
     <mat-card-content class=settings-card-content>
         <div class="generation-container">
-            <div *ngIf="isCosmeticsAllowed" class="setting-element"> <!-- Condition to ensure the seed was generated with palette offset -->
+            <div class="setting-element">
                 <mat-slide-toggle [(ngModel)]="doOverrideCosmetics"></mat-slide-toggle>
                 <app-tooltip-span spanText="Override Original Cosmetics" tooltipText="Overrides the cosmetic settings chosen during generation with the ones selected on this page."></app-tooltip-span>
             </div>

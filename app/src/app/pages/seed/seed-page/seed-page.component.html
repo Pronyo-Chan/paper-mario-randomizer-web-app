@@ -2,7 +2,7 @@
     <app-loading class="page-loading" [isLoading]="isPageLoading" [loadingText]="'Loading Seed Data'"></app-loading>
 </mat-card>
 
-<ng-container *ngIf="seedInfo$ | async as seedInfo">
+<ng-container *ngIf="seedViewModel$ | async as seedModel">
     <div class="main-page" *ngIf="!isPageLoading">
         <ng-container *ngIf="!pageLoadingErrorCode">
             <mat-card class="settings-card">
@@ -10,12 +10,11 @@
                 <mat-tab-group animationDuration="0" scrollToCenter>
                     <mat-tab label="ROM Generation">
                         <app-patcher [seedId]="seedId"
-                                     [modVersion]="seedInfo.StarRodModVersion"
-                                     [cosmeticsFormGroup]="cosmeticsFormGroup"
-                                     [isCosmeticsAllowed]="seedInfo.PaletteOffset"> <!-- Condition to ensure the seed was generated with palette offset -->
+                                     [modVersion]="seedModel.SeedInfo.StarRodModVersion"
+                                     [cosmeticsFormGroup]="cosmeticsFormGroup">
                         </app-patcher>
                     </mat-tab>
-                    <mat-tab *ngIf="seedInfo.PaletteOffset" label="Cosmetics"> <!-- Condition to ensure the seed was generated with palette offset -->
+                    <mat-tab label="Cosmetics">
                         <app-cosmetics [cosmeticsFormGroup]="cosmeticsFormGroup" [doLoadLatestSettings]="true"></app-cosmetics>
                     </mat-tab>
                 </mat-tab-group>
@@ -37,7 +36,7 @@
             </mat-accordion>
             <mat-card class="settings-card">
                 <mat-card-title class="settings-title">Generated Seed Info</mat-card-title>
-                <app-settings-info [seedInfo]="seedInfo"></app-settings-info>
+                <app-settings-info [seedModel]="seedModel"></app-settings-info>
             </mat-card>  
         </ng-container>
 

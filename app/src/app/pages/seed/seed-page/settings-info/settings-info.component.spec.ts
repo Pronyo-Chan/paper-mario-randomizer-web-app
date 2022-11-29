@@ -19,7 +19,7 @@ describe('SettingsInfoComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SettingsInfoComponent);
     component = fixture.componentInstance;
-    component.seedInfo = {CreationDate: new Date(2022, 3, 15)} as SettingsResponse
+    component.seedModel = {CreationDate: new Date(2022, 3, 15)} as SettingsResponse
     fixture.detectChanges();
   });
 
