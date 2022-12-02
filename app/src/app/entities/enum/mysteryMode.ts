@@ -1,5 +1,5 @@
 export enum MysteryMode {
-    Vanilla = 0,
-    RandomPick = 1,
-    RandomOnEveryUse = 2
+    "Vanilla" = 0,
+    "Random Pick" = 1,
+    "Random On Every Use" = 2
 }
