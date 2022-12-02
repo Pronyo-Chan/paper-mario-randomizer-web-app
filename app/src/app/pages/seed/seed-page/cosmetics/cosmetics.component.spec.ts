@@ -31,9 +31,9 @@ describe('CosmeticsComponent', () => {
       kooperSprite : new FormControl(),
       bombetteSprite : new FormControl(),
       bowSprite : new FormControl(),
-      bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
-      npcSetting: new FormControl(SpriteSetting.DefaultPalette),
-      enemiesSetting: new FormControl(SpriteSetting.DefaultPalette),
+      bossesSetting: new FormControl(SpriteSetting.Default),
+      npcSetting: new FormControl(SpriteSetting.Default),
+      enemiesSetting: new FormControl(SpriteSetting.Default),
       coinColor: new FormControl(CoinColor.Default)
     })
     fixture.detectChanges();

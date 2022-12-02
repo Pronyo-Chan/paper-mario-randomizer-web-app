@@ -1,6 +1,7 @@
 export interface Cosmetics {
     Mario: string;
     Goombario: string;
+    Kooper: string;
     Bombette: string;
     Parakarry: string;
     Bow: string;
