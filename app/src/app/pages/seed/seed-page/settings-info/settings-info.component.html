@@ -23,7 +23,7 @@
 </div>
 <div class="right-container">
     <div class="table-container">
-        <mat-table [dataSource]="settingRows">
+        <mat-table [dataSource]="displayedRows">
             <ng-container matColumnDef="name" >
                 <th mat-header-cell *matHeaderCellDef stic>Name</th>
                 <td mat-cell *matCellDef="let setting">{{setting.name}}</td>
