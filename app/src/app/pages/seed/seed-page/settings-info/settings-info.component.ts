@@ -40,23 +40,28 @@ export class SettingsInfoComponent implements OnInit {
   @Input() public seedModel: SeedViewModel
 
   public displayedRows: SettingRow[] = [];
+  public selectedCategory: {name: string, rows: SettingRow[]};
+
   public itemRows: SettingRow[] = [];
   public partnerRows: SettingRow[] = [];
   public gameplayRows: SettingRow[] = [];
   public cosmeticsRows: SettingRow[] = [];
-  public glitchesRows: SettingRow[] = [];
   public difficultyRows: SettingRow[] = [];
   public statsAndGearRows: SettingRow[] = [];
   public openWorldRows: SettingRow[] = [];
   public qolRows: SettingRow[] = [];
   public spoilerRows: SettingRow[] = [];
+  public enabledGlitchesRows: SettingRow[];
+  public allRows: SettingRow[] = [];
+  
+  public glitchesList: LogicGlitch[];
 
   public expirationDate: Date;
 
   public copiedToClipboard = false;
 
-  public glitchesList: LogicGlitch[];
-  public enabledGlitches: string[];
+
+  public settingCategories = []
   
   public constructor() { }
 
@@ -65,10 +70,17 @@ export class SettingsInfoComponent implements OnInit {
     this.expirationDate.setDate(this.expirationDate.getDate() + 30)
 
     this.glitchesList = glitchesJson;
-    this.enabledGlitches = this.seedModel.Glitches.map(enabledGlitchSetting => this.glitchesList.find(g => g.settingName == enabledGlitchSetting).name)
+    this.enabledGlitchesRows = [{
+       name: "Enabled Glitches / Tricks",
+       value: this.seedModel.Glitches.map(enabledGlitchSetting => this.glitchesList.find(g => g.settingName == enabledGlitchSetting).name)?.join(",\n")
+    }]
 
     this.initRows();
+  }
 
+  public updateDisplayedRows() {
+    this.displayedRows = this.selectedCategory.rows;
+    this.displayedRows = this.displayedRows.filter(sr => sr.value != null)
   }
 
   private initRows(): void {
@@ -83,7 +95,7 @@ export class SettingsInfoComponent implements OnInit {
     this.initSpoilerRows();
 
     const emptyRow = {name: "", value: ""}
-    this.displayedRows = [
+    this.allRows = [
       ...this.itemRows, emptyRow,
       ...this.partnerRows, emptyRow,
       ...this.gameplayRows, emptyRow,
@@ -92,11 +104,29 @@ export class SettingsInfoComponent implements OnInit {
       ...this.statsAndGearRows, emptyRow,
       ...this.openWorldRows, emptyRow,
       ...this.qolRows, emptyRow,
-      ...this.spoilerRows, emptyRow,
-      { name: "Enabled Glitches / Tricks", value: this.enabledGlitches?.join(",\n")}
+      ...this.spoilerRows, emptyRow
     ];
 
-    this.displayedRows = this.displayedRows.filter(sr => sr.value != null)
+    this.settingCategories = [
+      {name: "All", rows: this.allRows},
+      {name: "Items", rows: this.itemRows},
+      {name: "Partners", rows: this.partnerRows},
+      {name: "Gameplay", rows: this.gameplayRows},
+      {name: "Cosmetics", rows: this.cosmeticsRows},
+      {name: "Difficulty", rows: this.difficultyRows},
+      {name: "Stats & Gear", rows: this.statsAndGearRows},
+      {name: "Open World", rows: this.openWorldRows},
+      {name: "Quality Of Life", rows: this.qolRows},
+      {name: "Spoiler", rows: this.spoilerRows}
+    ]
+
+    if(this.enabledGlitchesRows[0].value != "") {
+      this.allRows.push(...this.enabledGlitchesRows)
+      this.settingCategories.push({name: "Glitches & Tricks", rows: this.enabledGlitchesRows})
+    }
+
+    this.selectedCategory = this.settingCategories[0];
+    this.updateDisplayedRows();
   }
 
   private initItemRows(): void {
