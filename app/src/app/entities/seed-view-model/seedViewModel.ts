@@ -1,3 +1,4 @@
+import { QualityOfLife } from './qualityOfLife';
 import { StatsAndGear } from './statsAndGear';
 import { Spoiler } from './spoiler';
 import { Partners } from './partners';
@@ -12,9 +13,11 @@ export interface SeedViewModel {
     Cosmetics: Cosmetics;
     Gameplay: Gameplay;
     GeneralDifficulty: GeneralDifficulty;
+    Glitches: string[];
     Items: ItemSettings;
     OpenWorld: OpenWorld;
     Partners: Partners;
+    QualityOfLife: QualityOfLife;
     SeedInfo: SeedInfo;
     Spoiler: Spoiler;
     StatsAndGear: StatsAndGear;

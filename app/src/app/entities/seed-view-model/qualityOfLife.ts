@@ -1,5 +1,6 @@
 import { HiddenBlockMode } from './../enum/hiddenBlockMode';
 import { BowsersCastleMode } from './../enum/bowsersCastleMode';
+
 export interface QualityOfLife {
     AlwaysISpy: boolean;
     AlwaysPeekaboo: boolean;
