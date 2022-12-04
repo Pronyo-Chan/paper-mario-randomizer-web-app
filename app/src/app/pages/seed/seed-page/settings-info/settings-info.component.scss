@@ -83,6 +83,9 @@
             float:right;
             width: 100%;
 
+            scrollbar-width: thin !important;
+            scrollbar-color: $yellow-stat-border $purple-background-secondary  !important;
+
             &::-webkit-scrollbar {
                 width: 8px;
                 height: 8px;
