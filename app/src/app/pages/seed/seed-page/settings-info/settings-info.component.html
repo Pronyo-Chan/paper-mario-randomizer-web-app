@@ -23,13 +23,15 @@
 </div>
 <div class="right-container">
     <div class="setting-element dropdown-element">
-        <app-tooltip-span spanText="Setting Category"></app-tooltip-span>
+        <span class="settings-label">Setting Category</span>
         <select [(ngModel)]="selectedCategory" [ngModelOptions]="{standalone: true}" (ngModelChange)="updateDisplayedRows()">
             <option *ngFor="let category of settingCategories" [ngValue]="category">{{category.name}}</option>
         </select>
     </div>
 
+
     <div class="table-container">
+        <mat-divider></mat-divider>
         <mat-table [dataSource]="displayedRows">
             <ng-container matColumnDef="name" >
                 <th mat-header-cell *matHeaderCellDef stic>Name</th>
@@ -40,7 +42,6 @@
                 <th mat-header-cell *matHeaderCellDef>Value</th>
                 <td mat-cell *matCellDef="let setting">{{setting.value}}</td>
             </ng-container>
-            <tr mat-header-row *matHeaderRowDef="['name', 'value'];"></tr>
             <tr mat-row *matRowDef="let row; columns: ['name', 'value'];"></tr>
         </mat-table>
     </div>

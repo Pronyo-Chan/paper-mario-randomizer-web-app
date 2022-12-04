@@ -1,4 +1,6 @@
 @import './../../../../../variables';
+@import './../../../../../mixins';
+
 :host {
     display: flex;
     flex-wrap: wrap;
@@ -6,8 +8,10 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        flex-grow: 2;
-        flex-basis: 45%;
+
+        @include medium {
+            flex-basis: 45%;
+        }
         
         p {
             font-family: gluten;
@@ -53,8 +57,26 @@
         }
     }
     div.right-container {
-        flex-basis: 55%;
-        flex-grow: 2;
+
+        @include medium {
+            flex-basis: 55%;
+        }
+
+        .dropdown-element {
+            margin: 2rem;
+            .settings-label {
+                font-family: gluten;
+                margin: 0px 4px;
+                font-size: 16px;
+                font-weight: 500;
+                display: inline-block;
+             }
+        }
+
+        .mat-divider {
+            margin: 0 !important;
+            width: 100% !important;
+        }
         div.table-container {
             height: 35rem;
             overflow: auto;
