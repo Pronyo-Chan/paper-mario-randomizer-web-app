@@ -12,4 +12,7 @@ export interface Cosmetics {
     Enemies: string;
     StatusMenu: string;
     CoinColor: string;
+    RomanNumerals: boolean;
+    RandomPitch: boolean;
+    RandomText: boolean
 }

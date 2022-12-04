@@ -133,15 +133,15 @@ export class SettingsInfoComponent implements OnInit {
     this.itemRows =  [
       {name: "Shuffle Items", value: this.seedModel.Items.ShuffleItems},
       {name: "Coinsanity", value: this.seedModel.Items.Coinsanity},
+      {name: "Shopsanity", value: this.seedModel.Items.Shopsanity},
+      {name: "Keysanity", value: this.seedModel.Items.Keysanity},
+      {name: "Gear Shuffle", value: GearShuffleMode[this.seedModel.Items.GearShuffle]},
       {name: "Include Dojo Rewards", value: this.seedModel.Items.IncludeDojoRewards},
       {name: "Include Hidden Panels", value: this.seedModel.Items.IncludeHiddenPanels},
       {name: "Include Trading Event Rewards", value: this.seedModel.Items.IncludeTradingEventRewards},
-      {name: "Keysanity", value: this.seedModel.Items.Keysanity},
       {name: "Koopa Koot Favors", value: KootFavorsMode[this.seedModel.Items.KoopaKootFavors]},
       {name: "Letter Delivery Rewards", value: LettersMode[this.seedModel.Items.LetterDeliveryRewards]},
       {name: "Rip Cheato Items In Logic", value: this.seedModel.Items.RipCheatoItemsInLogic},
-      {name: "Shopsanity", value: this.seedModel.Items.Shopsanity},
-      {name: "Gear Shuffle", value: GearShuffleMode[this.seedModel.Items.GearShuffle]},
       {name: "Shuffle Super/Multicoin Blocks", value: this.seedModel.Items.ShuffleSuperAndMulticoinBlocks},
       {name: "Add Item Pouches", value: this.seedModel.Items.AddItemPouches},
     ] as SettingRow[];
@@ -184,6 +184,9 @@ export class SettingsInfoComponent implements OnInit {
       {name: "NPC", value: pascalToVerboseString(SpriteSetting[this.seedModel.Cosmetics.NPC])},
       {name: "Coin Color", value: this.seedModel.Cosmetics.CoinColor},
       {name: "Status Menu", value: this.seedModel.Cosmetics.StatusMenu},
+      {name: "Roman Numerals", value: this.seedModel.Cosmetics.RomanNumerals},
+      {name: "Random Text", value: this.seedModel.Cosmetics.RandomText},
+      {name: "Random Pitch", value: this.seedModel.Cosmetics.RandomPitch},
     ] as SettingRow[]
   }
 
@@ -254,9 +257,12 @@ export class SettingsInfoComponent implements OnInit {
   private initSpoilerRows(): void {
     this.spoilerRows = [
       {name: "Merluvlee Item Hints", value: this.seedModel.Spoiler.MerluvleeItemHints},
-      {name: "Include Spoiler Log", value: this.seedModel.Spoiler.IncludeSpoilerLog},
-      {name: "Reveal Log At Time", value: new Date(this.seedModel.Spoiler.RevealLogAtTime)},
+      {name: "Include Spoiler Log", value: this.seedModel.Spoiler.IncludeSpoilerLog}
     ] as SettingRow[]
+
+    if (this.seedModel.Spoiler.IncludeSpoilerLog) {
+      this.spoilerRows.push({name: "Reveal Log At Time", value: new Date(this.seedModel.Spoiler.RevealLogAtTime).toString()})
+    }
   }
 
   private getStartingItemName(itemNumber: string) {
