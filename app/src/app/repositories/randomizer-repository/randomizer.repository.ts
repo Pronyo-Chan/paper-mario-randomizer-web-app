@@ -1,4 +1,3 @@
-import { SettingsResponse } from './../../entities/settingsResponse';
 import { SettingsRequest } from './../../entities/settingsRequest';
 import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -7,6 +6,7 @@ import { Observable } from 'rxjs';
 import { timeout, map, take } from 'rxjs/operators';
 import { withCache } from '@ngneat/cashew';
 import { CosmeticsRequest } from 'src/app/entities/cosmeticsRequest';
+import { SeedViewModel } from 'src/app/entities/seed-view-model/seedViewModel';
 
 @Injectable({
   providedIn: 'root'
@@ -31,11 +31,11 @@ export class RandomizerRepository {
     return this._httpClient.post(`${environment.apiEndPoint}randomizer_settings`, request, {responseType: 'text'}).pipe(take(1));
   }
 
-  public getSeedInfo(seedId: string): Observable<SettingsResponse> {
-    return this._httpClient.get(`${environment.apiEndPoint}randomizer_settings/${seedId}`, { responseType: 'json', context: withCache() }).pipe(
+  public getSeedInfo(seedId: string): Observable<SeedViewModel> {
+    return this._httpClient.get(`${environment.apiEndPoint}randomizer_settings_v2/${seedId}`, { responseType: 'json', context: withCache() }).pipe(
       take(1),
       timeout(30000),
-      map(response => response as SettingsResponse)
+      map(response => response as SeedViewModel)
     )
   }
 

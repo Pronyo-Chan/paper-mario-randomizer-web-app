@@ -1,12 +1,10 @@
-import { LogicGlitch } from './../entities/logicGlitch';
-import { MarcFile } from './../utilities/RomPatcher/MarcFile';
+import { SeedViewModel } from './../entities/seed-view-model/seedViewModel';
+
 import { CosmeticsRequest } from './../entities/cosmeticsRequest';
 import { LocalStorageService } from './localStorage/localStorage.service';
 import { SettingStringMappingService } from './setting-string-mapping/setting-string-mapping.service';
-import { KeyItems } from './../entities/enum/keyItems';
 import { Constants } from './../utilities/constants';
 import { environment } from 'src/environments/environment';
-import { SettingsResponse } from './../entities/settingsResponse';
 import { forkJoin, map, Observable, switchMap } from 'rxjs';
 import { RandomizerRepository } from './../repositories/randomizer-repository/randomizer.repository';
 import { FormGroup } from '@angular/forms';
@@ -31,7 +29,7 @@ export class RandomizerService {
   { 
   }
 
-  public getSeedInfo(seedId: string): Observable<SettingsResponse> 
+  public getSeedInfo(seedId: string): Observable<SeedViewModel> 
   {
     return this._randomizerRepo.getSeedInfo(seedId);
   }
@@ -256,8 +254,8 @@ export class RandomizerService {
       RandomItemsMin: settingsForm.get('marioStats').get('startWithRandomItems').value ? settingsForm.get('marioStats').get('randomItemsMin').value : 0,
       RandomItemsMax: settingsForm.get('marioStats').get('startWithRandomItems').value ? settingsForm.get('marioStats').get('randomItemsMax').value: 0,
       AddItemPouches: settingsForm.get('items').get('itemPouches').value,
-      RandomChoice: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode.RandomOnEveryUse,
-      MysteryRandomPick: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode.RandomPick,
+      RandomChoice: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode['Random On Every Use'],
+      MysteryRandomPick: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode['Random Pick'],
       ItemTrapMode: settingsForm.get('difficulty').get('itemTrapMode').value,
       AllowItemHints: settingsForm.get('difficulty').get('allowItemHints').value,
       IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value,

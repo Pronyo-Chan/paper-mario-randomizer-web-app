@@ -24,7 +24,7 @@ export class Constants {
     ]
 
     public static MARIO_OPTIONS : CharacterSpriteSetting[] = [
-        {setting: SpriteSetting.DefaultPalette, paletteSelection: MarioSprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.Default, paletteSelection: MarioSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Luigi, optionDisplay: 'Luigi'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Wario, optionDisplay: 'Wario'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: MarioSprite.Waluigi, optionDisplay: 'Waluigi'},
@@ -38,7 +38,7 @@ export class Constants {
       ];
       
       public static GOOMBARIO_OPTIONS : CharacterSpriteSetting[] = [
-        {setting: SpriteSetting.DefaultPalette, paletteSelection: GoombarioSprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.Default, paletteSelection: GoombarioSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: GoombarioSprite.Green, optionDisplay: 'Green'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: GoombarioSprite.Red, optionDisplay: 'Red'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: GoombarioSprite.Yellow, optionDisplay: 'Yellow'},
@@ -50,7 +50,7 @@ export class Constants {
       ];
     
       public static KOOPER_OPTIONS : CharacterSpriteSetting[] = [
-        {setting: SpriteSetting.DefaultPalette, paletteSelection: KooperSprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.Default, paletteSelection: KooperSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: KooperSprite.Green, optionDisplay: 'Green'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: KooperSprite.Red, optionDisplay: 'Red'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: KooperSprite.Purple, optionDisplay: 'Purple'},
@@ -61,7 +61,7 @@ export class Constants {
       ];
 
       public static BOMBETTE_OPTIONS : CharacterSpriteSetting[] = [
-        {setting: SpriteSetting.DefaultPalette, paletteSelection: BombetteSprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.Default, paletteSelection: BombetteSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Orange, optionDisplay: 'Orange'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Purple, optionDisplay: 'Purple'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Green, optionDisplay: 'Green'},
@@ -73,7 +73,7 @@ export class Constants {
       ];
 
       public static PARAKARRY_OPTIONS : CharacterSpriteSetting[] = [
-        {setting: SpriteSetting.DefaultPalette, paletteSelection: ParakarrySprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.Default, paletteSelection: ParakarrySprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: ParakarrySprite.Green, optionDisplay: 'Green'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: ParakarrySprite.Red, optionDisplay: 'Red'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: ParakarrySprite.Purple, optionDisplay: 'Purple'},
@@ -83,7 +83,7 @@ export class Constants {
       ];
     
       public static BOW_OPTIONS : CharacterSpriteSetting[] = [
-        {setting: SpriteSetting.DefaultPalette, paletteSelection: BowSprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.Default, paletteSelection: BowSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BowSprite.Red, optionDisplay: 'Red'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BowSprite.Pink, optionDisplay: 'Pink'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BowSprite.Blue, optionDisplay: 'Blue'},
@@ -94,7 +94,7 @@ export class Constants {
       ];
 
       public static WATT_OPTIONS : CharacterSpriteSetting[] = [
-        {setting: SpriteSetting.DefaultPalette, paletteSelection: WattSprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.Default, paletteSelection: WattSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: WattSprite.Blue, optionDisplay: 'Blue'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: WattSprite.Pink, optionDisplay: 'Pink'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: WattSprite.Green, optionDisplay: 'Green'},
@@ -104,7 +104,7 @@ export class Constants {
       ];
 
       public static SUSHIE_OPTIONS : CharacterSpriteSetting[] = [
-        {setting: SpriteSetting.DefaultPalette, paletteSelection: SushieSprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.Default, paletteSelection: SushieSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: SushieSprite.Red, optionDisplay: 'Red'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: SushieSprite.Yellow, optionDisplay: 'Yellow'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: SushieSprite.Green, optionDisplay: 'Green'},

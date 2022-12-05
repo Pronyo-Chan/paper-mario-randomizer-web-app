@@ -1,11 +1,10 @@
+import { SeedViewModel } from './../../../entities/seed-view-model/seedViewModel';
 import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
-import { SettingsResponse } from './../../../entities/settingsResponse';
 import { Subscription, tap, switchMap, Observable, take, catchError, of } from 'rxjs';
 import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { RandomizerService } from 'src/app/services/randomizer.service';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
-import { environment } from 'src/environments/environment';
 import { SphereSpoilerLog } from 'src/app/entities/sphereSpoilerLog';
 import { FormControl, FormGroup } from '@angular/forms';
 import { SpriteSetting } from 'src/app/entities/enum/spriteSetting';
@@ -19,7 +18,7 @@ import { CoinColor } from 'src/app/entities/enum/coinColor';
 export class SeedPageComponent implements OnInit, OnDestroy {
   
   public seedId: string;
-  public seedInfo$: Observable<SettingsResponse>;
+  public seedViewModel$: Observable<SeedViewModel>;
   public cosmeticsFormGroup: FormGroup;
 
   public pageLoadingErrorCode: string;
@@ -45,14 +44,14 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     this.isPageLoading = true;
 
     this.initCosmeticsFormGroup();
-    this.seedInfo$ = this._activatedRoute.queryParams.pipe(
+    this.seedViewModel$ = this._activatedRoute.queryParams.pipe(
       switchMap(params => {
         this.seedId = params.id;
         return this._randomizerService.getSeedInfo(this.seedId).pipe(
-          tap(seedInfo => {
+          tap(seedModel => {
             let dateNow = (new Date()).getTime();
-            let revealDate = (new Date(seedInfo.RevealLogAtTime)).getTime()
-            if(seedInfo.WriteSpoilerLog && (dateNow > revealDate || !revealDate)) {
+            let revealDate = (new Date(seedModel.Spoiler.RevealLogAtTime)).getTime()
+            if(seedModel.Spoiler.IncludeSpoilerLog && (dateNow > revealDate || !revealDate)) {
               this.initSpoilerLog();
               this.displaySpoilerLog = true;
             }
@@ -60,7 +59,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
               this.isPageLoading = false;
               this.displaySpoilerLog = false;
             }
-            if(seedInfo.ShuffleChapterDifficulty) {
+            if(seedModel.GeneralDifficulty.EnemyDifficulty == "Shuffle Chapter Difficulty") {
               this.isDifficultyShuffled = true;
             }
           }),
@@ -182,9 +181,9 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       bowSprite : new FormControl(),
       wattSprite: new FormControl(),
       sushieSprite: new FormControl(),
-      bossesSetting: new FormControl(SpriteSetting.DefaultPalette),
-      npcSetting: new FormControl(SpriteSetting.DefaultPalette),
-      enemiesSetting: new FormControl(SpriteSetting.DefaultPalette),
+      bossesSetting: new FormControl(SpriteSetting.Default),
+      npcSetting: new FormControl(SpriteSetting.Default),
+      enemiesSetting: new FormControl(SpriteSetting.Default),
       coinColor: new FormControl(CoinColor.Default),
       randomText: new FormControl(false),
       romanNumerals: new FormControl(false),
