@@ -255,7 +255,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Include Spoiler Log", value: this.seedModel.Spoiler.IncludeSpoilerLog}
     ] as SettingRow[]
 
-    if (this.seedModel.Spoiler.IncludeSpoilerLog) {
+    if (this.seedModel.Spoiler.IncludeSpoilerLog && this.seedModel.Spoiler.RevealLogAtTime) {
       this.spoilerRows.push({name: "Reveal Log At Time", value: new Date(this.seedModel.Spoiler.RevealLogAtTime).toString()})
     }
   }
