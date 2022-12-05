@@ -4,7 +4,7 @@ import { Hammer } from './../enum/hammer';
 export interface StatsAndGear {
     BP: number;
     Boots: Boots;
-    Coins: 100;
+    Coins: number;
     FP: number;
     HP: number;
     Hammer: Hammer;
