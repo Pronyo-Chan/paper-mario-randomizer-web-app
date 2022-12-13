@@ -1,6 +1,46 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
     <mat-card class="settings-card latest-changelog">
+        <mat-card-title class="settings-title">0.18.0 (beta) (2022-12-XX)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> Merlow won't hand out bonus rewards when playing on Project 64 with the Recompiler mode. Please use another emulator or set Project 64 to use Interpreter mode instead.</li>
+            <li> When playing Jumpless, Mario can only save with Kooper and cannot use heart blocks at all.</li>
+            <li> When picking up a previously tossed item while the menu for placing an item into a Shiver Mountain socket is opened, the game crashes.</li>
+            <li> When an NPC attempts to give Mario a consumable item while his inventory is full, the tossed item may be picked up again immediately, causing the "inventory full" menu and NPC interaction to overlap.</li>
+            <li> The prologue battle against Jr. Troopa is quite buggy. This can cause him to not immediately be defeated when reduced to zero HP, or make him stand or float in places where he is not supposed to.</li>
+            <li> When handing in the calculator to Rowf, while having a full inventory and Rowf attempts to reward Mario with a consumable item, the "inventory full item toss" may cause the item to land out of bounds, becoming unobtainable.</li>
+            <li> Under certain chapter progress conditions, Mrs. Kolorado in Koopa Village can appear to be invisible or move around oddly when asked for the Koopa Legends book.</li>
+        </ul>
+
+        <h2>Game Mod Changes</h2>
+        <ul>
+            <li> The Homeward Shroom can now be used to warp to a dungeon's entrance. When inside a dungeon, using the Homeward Shroom menu will prompt the following options: "To Entrance", "To Home" and "Cancel".</li>
+            <li> The silver and gold credit now lead to 1 pipe each, instead of having the gold credit open both mini-games at once.</li>
+            <li> Fixed an issue where using the Pulse Stone in the desert, with "Shorten Cutscenes" disabled, would warp Mario to Kolorado's camp during the cutscene.</li>
+            <li> Fixed an issue where opening the big chest in the volcano would reset chapter 5's progress, allowing to complete it a second time.</li>
+            <li> When obtaining an item with a full inventory from the prologue bush, mansion big chest or volcano big chest, the tossed item will now be thrown from a higher heigth.</li>
+        </ul>
+
+        <h2>Seed Generator</h2>
+        <ul>
+            <li> Many optimizations have been made to reduce seed generation time.</li>
+            <li> When starting with a random number of partners, there will now be an equal chance to obtain any number of partners in the specified range.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li> The seed info on the post-generation page has been overhauled. The setting names and values will now always represent the chosen settings with their website names. They are now grouped by website section, and a dropdown allows to view each group separately.</li>
+            <li> The changelog page will now only display the latest changelog by default. A "Load More" button at the bottom of the page will load all the previous changelogs when clicked.</li>
+            <li> When selecting starting items, the letters will now have verbose names instead of numbers.</li>
+            <li> Fixed a bug with starting items, where loading a setting string wouldn't load their verbose names properly and allow adding duplicate key items.</li>
+            <li> The UI has been adjusted to scale better on small/mobile resolutions.</li>
+        </ul>
+    </mat-card>
+
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.17.0 (beta) (2022-11-09)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
