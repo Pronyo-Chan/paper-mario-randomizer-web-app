@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   apiEndPoint: "http://127.0.0.1:5000/",
   homepage:"http://localhost:4200",
-  currentModVersion: 11
+  currentModVersion: 12
 };
 
 /*
