@@ -184,6 +184,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       bossesSetting: new FormControl(SpriteSetting.Default),
       npcSetting: new FormControl(SpriteSetting.Default),
       enemiesSetting: new FormControl(SpriteSetting.Default),
+      hammerSetting: new FormControl(SpriteSetting.Default),
       coinColor: new FormControl(CoinColor.Default),
       randomText: new FormControl(false),
       romanNumerals: new FormControl(false),

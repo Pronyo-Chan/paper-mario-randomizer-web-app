@@ -76,6 +76,15 @@
             </select> 
         </div>  
         <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Hammer" tooltipText="Color shuffle setting for hammers"></app-tooltip-span>
+            <select formControlName='hammerSetting'>
+                <option [ngValue]="0">Default</option>
+                <option [ngValue]="2">Random Pick</option>
+                <option [ngValue]="3">Random Pick (No Vanilla)</option>
+                <option [ngValue]="4">Random on every load</option>
+            </select> 
+        </div>  
+        <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Status Menu" tooltipText="Color of the status menu at the top of the screen"></app-tooltip-span>
             <select formControlName='menu'>
                 <option [ngValue]="0">Default</option>

@@ -82,6 +82,7 @@ export interface SettingsRequest {
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
     EnemiesSetting: SpriteSetting;
+    HammerSetting: SpriteSetting;
     StartingMaxHP: number;
     StartingMaxFP: number;
     StartingMaxBP: number;

@@ -176,6 +176,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Sushie", value: this.seedModel.Cosmetics.Sushie},
       {name: "Bosses", value: pascalToVerboseString(SpriteSetting[this.seedModel.Cosmetics.Bosses])},
       {name: "Enemies", value: pascalToVerboseString(SpriteSetting[this.seedModel.Cosmetics.Enemies])},
+      {name: "Hammer", value: pascalToVerboseString(SpriteSetting[this.seedModel.Cosmetics.Hammer])},
       {name: "NPC", value: pascalToVerboseString(SpriteSetting[this.seedModel.Cosmetics.NPC])},
       {name: "Coin Color", value: this.seedModel.Cosmetics.CoinColor},
       {name: "Status Menu", value: this.seedModel.Cosmetics.StatusMenu},

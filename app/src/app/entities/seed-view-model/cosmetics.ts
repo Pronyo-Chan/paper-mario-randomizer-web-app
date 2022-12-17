@@ -10,6 +10,7 @@ export interface Cosmetics {
     Bosses: string;
     NPC: string;
     Enemies: string;
+    Hammer: string;
     StatusMenu: string;
     CoinColor: string;
     RomanNumerals: boolean;
