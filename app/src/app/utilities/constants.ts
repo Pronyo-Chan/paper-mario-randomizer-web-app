@@ -64,10 +64,11 @@ export class Constants {
       public static BOMBETTE_OPTIONS : CharacterSpriteSetting[] = [
         {setting: SpriteSetting.Default, paletteSelection: BombetteSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Orange, optionDisplay: 'Orange'},
-        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Purple, optionDisplay: 'Purple'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Green, optionDisplay: 'Green'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Yellow, optionDisplay: 'Yellow'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Blue, optionDisplay: 'Blue'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Red, optionDisplay: 'Red'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: BombetteSprite.Purple, optionDisplay: 'Purple'},
         {setting: SpriteSetting.RandomPick, paletteSelection: BombetteSprite.Default, optionDisplay: 'Random Pick'},
         {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: BombetteSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: BombetteSprite.Default, optionDisplay: 'Random On Every Load'}
@@ -109,6 +110,7 @@ export class Constants {
         {setting: SpriteSetting.SelectPalette, paletteSelection: SushieSprite.Red, optionDisplay: 'Red'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: SushieSprite.Yellow, optionDisplay: 'Yellow'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: SushieSprite.Green, optionDisplay: 'Green'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: SushieSprite.Blue, optionDisplay: 'Blue'},
         {setting: SpriteSetting.RandomPick, paletteSelection: SushieSprite.Default, optionDisplay: 'Random Pick'},
         {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: SushieSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: SushieSprite.Default, optionDisplay: 'Random On Every Load'}
