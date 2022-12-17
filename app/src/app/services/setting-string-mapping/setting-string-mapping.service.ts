@@ -32,6 +32,7 @@ export class SettingStringMappingService {
     { compressedString: "t", key: "randomText", type: "bool"},
     { compressedString: "w", key: "wattSprite", type: "sprite"},
     { compressedString: "s", key: "sushieSprite", type: "sprite"},
+    { compressedString: "l", key: "lakilesterSprite", type: "sprite"},
     { compressedString: "a", key: "parakarrySprite", type: "sprite"},    
     { compressedString: "r", key: "romanNumerals", type: "bool"},
     { compressedString: "h", key: "randomPitch", type: "bool"}
@@ -301,22 +302,24 @@ export class SettingStringMappingService {
 
   private decodeSprite(compressedKey: string, compressedSetting: string, compressedPalette: string): CharacterSpriteSetting{
     switch (compressedKey) {
-      case 'a':
-        return Constants.PARAKARRY_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
-      case 'b':
-        return Constants.BOW_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'p':
+        return Constants.MARIO_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 'g':
         return Constants.GOOMBARIO_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 'k':
         return Constants.KOOPER_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
-      case 'p':
-        return Constants.MARIO_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'o':
+        return Constants.BOMBETTE_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'a':
+        return Constants.PARAKARRY_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'b':
+        return Constants.BOW_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 'w':
           return Constants.WATT_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 's':
         return Constants.SUSHIE_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
-      case 'o':
-        return Constants.BOMBETTE_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'l':
+        return Constants.LAKILESTER_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       default:
         throw Error('Unexpected key found while parsing sprite settings: ' + compressedKey)
     }

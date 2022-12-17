@@ -49,6 +49,12 @@
             </select> 
         </div>
         <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Lakilester" tooltipText="Lakilester's color palette"></app-tooltip-span>
+            <select formControlName='lakilesterSprite'>
+                <option *ngFor="let lakilesterOption of lakilesterOptions" [ngValue]="lakilesterOption">{{lakilesterOption.optionDisplay}}</option>
+            </select> 
+        </div>
+        <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Bosses" tooltipText="Color shuffle setting for bosses"></app-tooltip-span>
             <select formControlName='bossesSetting'>
                 <option [ngValue]="0">Default</option>

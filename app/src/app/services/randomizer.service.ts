@@ -1,3 +1,4 @@
+import { LakilesterSprite } from './../entities/enum/lakilesterSprite';
 import { SeedViewModel } from './../entities/seed-view-model/seedViewModel';
 
 import { CosmeticsRequest } from './../entities/cosmeticsRequest';
@@ -137,6 +138,8 @@ export class RandomizerService {
       SushieSprite: (cosmeticsFormGroup.get('sushieSprite').value as CharacterSpriteSetting).paletteSelection,
       WattSetting: (cosmeticsFormGroup.get('wattSprite').value as CharacterSpriteSetting).setting,
       WattSprite: (cosmeticsFormGroup.get('wattSprite').value as CharacterSpriteSetting).paletteSelection,
+      LakilesterSetting: (cosmeticsFormGroup.get('lakilesterSprite').value as CharacterSpriteSetting).setting,
+      LakilesterSprite: (cosmeticsFormGroup.get('lakilesterSprite').value as CharacterSpriteSetting).paletteSelection,
     } as CosmeticsRequest
 
     return request;
@@ -220,6 +223,8 @@ export class RandomizerService {
       WattSprite: (settingsForm.get('cosmetics').get('wattSprite').value as CharacterSpriteSetting).paletteSelection,
       SushieSetting: (settingsForm.get('cosmetics').get('sushieSprite').value as CharacterSpriteSetting).setting,
       SushieSprite: (settingsForm.get('cosmetics').get('sushieSprite').value as CharacterSpriteSetting).paletteSelection,
+      LakilesterSetting: (settingsForm.get('cosmetics').get('lakilesterSprite').value as CharacterSpriteSetting).setting,
+      LakilesterSprite: (settingsForm.get('cosmetics').get('lakilesterSprite').value as CharacterSpriteSetting).paletteSelection,
       BossesSetting: settingsForm.get('cosmetics').get('bossesSetting').value,
       NPCSetting: settingsForm.get('cosmetics').get('npcSetting').value,
       EnemiesSetting: settingsForm.get('cosmetics').get('enemiesSetting').value,

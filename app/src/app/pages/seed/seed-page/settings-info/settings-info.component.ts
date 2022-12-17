@@ -1,3 +1,4 @@
+import { LakilesterSprite } from './../../../../entities/enum/lakilesterSprite';
 import { MerlowRewardPricing } from './../../../../entities/enum/merlowRewardPricing';
 import { Boots } from './../../../../entities/enum/boots';
 import { BowsersCastleMode } from './../../../../entities/enum/bowsersCastleMode';
@@ -174,6 +175,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Bow", value: this.seedModel.Cosmetics.Bow},
       {name: "Watt", value: this.seedModel.Cosmetics.Watt},
       {name: "Sushie", value: this.seedModel.Cosmetics.Sushie},
+      {name: "Lakilester", value: this.seedModel.Cosmetics.Lakilester},
       {name: "Bosses", value: pascalToVerboseString(SpriteSetting[this.seedModel.Cosmetics.Bosses])},
       {name: "Enemies", value: pascalToVerboseString(SpriteSetting[this.seedModel.Cosmetics.Enemies])},
       {name: "Hammer", value: pascalToVerboseString(SpriteSetting[this.seedModel.Cosmetics.Hammer])},

@@ -139,6 +139,11 @@
                   "paletteSelection": 0,
                   "optionDisplay": "Default"
                 },
+                "lakilesterSprite": {
+                  "setting": 0,
+                  "paletteSelection": 0,
+                  "optionDisplay": "Default"
+                },
                 "bossesSetting": 0,
                 "npcSetting": 0,
                 "enemiesSetting": 0,
@@ -286,6 +291,11 @@
               "optionDisplay": "Default"
             },
             "sushieSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "lakilesterSprite": {
               "setting": 0,
               "paletteSelection": 0,
               "optionDisplay": "Default"
@@ -441,6 +451,11 @@
               "paletteSelection": 0,
               "optionDisplay": "Default"
             },
+            "lakilesterSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
             "bossesSetting": 0,
             "npcSetting": 0,
             "enemiesSetting": 0,
@@ -588,6 +603,11 @@
               "optionDisplay": "Default"
             },
             "sushieSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
+            "lakilesterSprite": {
               "setting": 0,
               "paletteSelection": 0,
               "optionDisplay": "Default"
@@ -744,6 +764,11 @@
                "setting":2,
                "paletteSelection":0,
                "optionDisplay":"Random Pick"
+            },
+            "lakilesterSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Random Pick"
             },
             "bossesSetting":2,
             "npcSetting":2,

@@ -205,6 +205,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         bowSprite : new FormControl(),
         wattSprite: new FormControl(),
         sushieSprite: new FormControl(),
+        lakilesterSprite: new FormControl(),
         bossesSetting: new FormControl(SpriteSetting.Default),
         npcSetting: new FormControl(SpriteSetting.Default),
         enemiesSetting: new FormControl(SpriteSetting.Default),

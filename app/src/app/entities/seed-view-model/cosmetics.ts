@@ -7,6 +7,7 @@ export interface Cosmetics {
     Bow: string;
     Watt: string;
     Sushie: string;
+    Lakilester: string;
     Bosses: string;
     NPC: string;
     Enemies: string;

@@ -1,3 +1,4 @@
+import { LakilesterSprite } from './../entities/enum/lakilesterSprite';
 import { BombetteSprite } from './../entities/enum/bombetteSprite';
 import { ParakarrySprite } from './../entities/enum/parakarrySprite';
 import { SushieSprite } from './../entities/enum/sushieSprite';
@@ -111,6 +112,15 @@ export class Constants {
         {setting: SpriteSetting.RandomPick, paletteSelection: SushieSprite.Default, optionDisplay: 'Random Pick'},
         {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: SushieSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: SushieSprite.Default, optionDisplay: 'Random On Every Load'}
+      ];
+
+      public static LAKILESTER_OPTIONS : CharacterSpriteSetting[] = [
+        {setting: SpriteSetting.Default, paletteSelection: LakilesterSprite.Default, optionDisplay: 'Default'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: LakilesterSprite.Blue, optionDisplay: 'Blue'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: LakilesterSprite.Dark, optionDisplay: 'Dark'},
+        {setting: SpriteSetting.RandomPick, paletteSelection: LakilesterSprite.Default, optionDisplay: 'Random Pick'},
+        {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: LakilesterSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
+        {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: LakilesterSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
 
       public static VERBOSE_LETTER_NAMES: { [id: string] : string } = {
