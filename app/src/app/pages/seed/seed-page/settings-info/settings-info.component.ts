@@ -71,6 +71,10 @@ export class SettingsInfoComponent implements OnInit {
        value: this.seedModel.Glitches.map(enabledGlitchSetting => this.glitchesList.find(g => g.settingName == enabledGlitchSetting).name)?.join(",\n")
     }]
 
+    if(this.enabledGlitchesRows[0].value == "") {
+      this.enabledGlitchesRows[0].value = "None"
+    }
+
     this.initRows();
   }
 
@@ -113,14 +117,10 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Stats & Gear", rows: this.statsAndGearRows},
       {name: "Open World", rows: this.openWorldRows},
       {name: "Quality Of Life", rows: this.qolRows},
-      {name: "Spoiler", rows: this.spoilerRows}
+      {name: "Spoiler", rows: this.spoilerRows},
+      {name: "Glitches & Tricks", rows: this.enabledGlitchesRows},
     ]
-
-    if(this.enabledGlitchesRows[0].value != "") {
-      this.allRows.push(...this.enabledGlitchesRows)
-      this.settingCategories.push({name: "Glitches & Tricks", rows: this.enabledGlitchesRows})
-    }
-
+    
     this.selectedCategory = this.settingCategories[0];
     this.updateDisplayedRows();
   }
@@ -208,7 +208,11 @@ export class SettingsInfoComponent implements OnInit {
   }
 
   private initStatsRows(): void {
-    const startingItems = this.seedModel.StatsAndGear.StartingItems.map(i => this.getStartingItemName(i))
+    let startingItems = this.seedModel.StatsAndGear.StartingItems.map(i => this.getStartingItemName(i))
+    if(!startingItems.length) {
+      startingItems = ["None"];
+    }
+
     this.statsAndGearRows = [
       {name: "HP", value: this.seedModel.StatsAndGear.HP},
       {name: "FP", value: this.seedModel.StatsAndGear.FP},
