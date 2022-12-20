@@ -23,7 +23,7 @@
 </div>
 <div class="right-container">
     <div class="setting-element dropdown-element">
-        <span class="settings-label">Setting Category</span>
+        <span class="settings-label">Setting Category:</span>
         <select [(ngModel)]="selectedCategory" [ngModelOptions]="{standalone: true}" (ngModelChange)="updateDisplayedRows()">
             <option *ngFor="let category of settingCategories" [ngValue]="category">{{category.name}}</option>
         </select>
