@@ -1,4 +1,4 @@
-@use './../../../variables';
+@import './../../../variables';
 :host {
     div.download-section {
         display: flex;
@@ -22,12 +22,12 @@
             cursor: pointer;
             overflow: hidden;
             padding: 0.7rem 1rem;
-            background-color: variables.$red-file-main;        
+            background-color: $red-file-main;        
             color: white;
             border-radius: 28px;        
             border: double;
             border-width: 6px;
-            border-color: variables.$red-file-border;
+            border-color: $red-file-border;
             float: left;
     
             svg {
@@ -76,8 +76,8 @@
             border: double;
             border-width: 6px;
     
-            background-color: variables.$purple-misc-main;
-            border-color: variables.$purple-misc-border;   
+            background-color: $purple-misc-main;
+            border-color: $purple-misc-border;   
     
             width: 14rem;
                     

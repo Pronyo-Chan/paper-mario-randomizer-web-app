@@ -1,12 +1,11 @@
-import { LogicGlitch } from './../entities/logicGlitch';
-import { MarcFile } from './../utilities/RomPatcher/MarcFile';
+import { LakilesterSprite } from './../entities/enum/lakilesterSprite';
+import { SeedViewModel } from './../entities/seed-view-model/seedViewModel';
+
 import { CosmeticsRequest } from './../entities/cosmeticsRequest';
 import { LocalStorageService } from './localStorage/localStorage.service';
 import { SettingStringMappingService } from './setting-string-mapping/setting-string-mapping.service';
-import { KeyItems } from './../entities/enum/keyItems';
 import { Constants } from './../utilities/constants';
 import { environment } from 'src/environments/environment';
-import { SettingsResponse } from './../entities/settingsResponse';
 import { forkJoin, map, Observable, switchMap } from 'rxjs';
 import { RandomizerRepository } from './../repositories/randomizer-repository/randomizer.repository';
 import { FormGroup } from '@angular/forms';
@@ -31,7 +30,7 @@ export class RandomizerService {
   { 
   }
 
-  public getSeedInfo(seedId: string): Observable<SettingsResponse> 
+  public getSeedInfo(seedId: string): Observable<SeedViewModel> 
   {
     return this._randomizerRepo.getSeedInfo(seedId);
   }
@@ -128,6 +127,7 @@ export class RandomizerService {
       MarioSprite: (cosmeticsFormGroup.get('marioSprite').value as CharacterSpriteSetting).paletteSelection,
       NPCSetting: cosmeticsFormGroup.get("npcSetting").value,
       EnemiesSetting: cosmeticsFormGroup.get("enemiesSetting").value,
+      HammerSetting: cosmeticsFormGroup.get("hammerSetting").value,
       ParakarrySetting: (cosmeticsFormGroup.get('parakarrySprite').value as CharacterSpriteSetting).setting,
       ParakarrySprite: (cosmeticsFormGroup.get('parakarrySprite').value as CharacterSpriteSetting).paletteSelection,
       RandomCoinColor: cosmeticsFormGroup.get('coinColor').value == CoinColor.Random,
@@ -138,6 +138,8 @@ export class RandomizerService {
       SushieSprite: (cosmeticsFormGroup.get('sushieSprite').value as CharacterSpriteSetting).paletteSelection,
       WattSetting: (cosmeticsFormGroup.get('wattSprite').value as CharacterSpriteSetting).setting,
       WattSprite: (cosmeticsFormGroup.get('wattSprite').value as CharacterSpriteSetting).paletteSelection,
+      LakilesterSetting: (cosmeticsFormGroup.get('lakilesterSprite').value as CharacterSpriteSetting).setting,
+      LakilesterSprite: (cosmeticsFormGroup.get('lakilesterSprite').value as CharacterSpriteSetting).paletteSelection,
     } as CosmeticsRequest
 
     return request;
@@ -221,9 +223,12 @@ export class RandomizerService {
       WattSprite: (settingsForm.get('cosmetics').get('wattSprite').value as CharacterSpriteSetting).paletteSelection,
       SushieSetting: (settingsForm.get('cosmetics').get('sushieSprite').value as CharacterSpriteSetting).setting,
       SushieSprite: (settingsForm.get('cosmetics').get('sushieSprite').value as CharacterSpriteSetting).paletteSelection,
+      LakilesterSetting: (settingsForm.get('cosmetics').get('lakilesterSprite').value as CharacterSpriteSetting).setting,
+      LakilesterSprite: (settingsForm.get('cosmetics').get('lakilesterSprite').value as CharacterSpriteSetting).paletteSelection,
       BossesSetting: settingsForm.get('cosmetics').get('bossesSetting').value,
       NPCSetting: settingsForm.get('cosmetics').get('npcSetting').value,
       EnemiesSetting: settingsForm.get('cosmetics').get('enemiesSetting').value,
+      HammerSetting: settingsForm.get('cosmetics').get('hammerSetting').value,
       StartingMaxHP: settingsForm.get('marioStats').get('startingMaxHP').value,
       StartingMaxFP: settingsForm.get('marioStats').get('startingMaxFP').value,
       StartingMaxBP: settingsForm.get('marioStats').get('startingMaxBP').value,
@@ -256,8 +261,8 @@ export class RandomizerService {
       RandomItemsMin: settingsForm.get('marioStats').get('startWithRandomItems').value ? settingsForm.get('marioStats').get('randomItemsMin').value : 0,
       RandomItemsMax: settingsForm.get('marioStats').get('startWithRandomItems').value ? settingsForm.get('marioStats').get('randomItemsMax').value: 0,
       AddItemPouches: settingsForm.get('items').get('itemPouches').value,
-      RandomChoice: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode.RandomOnEveryUse,
-      MysteryRandomPick: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode.RandomPick,
+      RandomChoice: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode['Random On Every Use'],
+      MysteryRandomPick: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode['Random Pick'],
       ItemTrapMode: settingsForm.get('difficulty').get('itemTrapMode').value,
       AllowItemHints: settingsForm.get('difficulty').get('allowItemHints').value,
       IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value,

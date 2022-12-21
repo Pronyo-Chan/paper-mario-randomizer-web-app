@@ -1,7 +1,14 @@
+import { Constants } from "./constants";
+
 export function pascalToVerboseString(text: string): string {
     if(!text){
         return null;
     }
+
+    if(text.includes("Letter") && text.length == 8) {
+        return Constants.VERBOSE_LETTER_NAMES[text];
+    }
+
     var cleanText = text.replace(/([A-Z0-9])/g, " $1");
     cleanText = cleanText.charAt(0).toUpperCase() + cleanText.slice(1); 
     cleanText = cleanText.replace("H P", "HP")

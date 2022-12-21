@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ChangelogPageComponent implements OnInit, OnDestroy {
   
+  public showAllLogs: boolean = false;
 
   public constructor(private _renderer: Renderer2) { }
 

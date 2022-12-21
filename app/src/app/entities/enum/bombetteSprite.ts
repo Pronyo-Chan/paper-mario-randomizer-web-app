@@ -1,8 +1,9 @@
 export enum BombetteSprite {
     Default = 0,
     Orange = 1,
-    Purple = 2,
-    Green = 3,
-    Yellow = 4,
-    Blue = 5
+    Green = 2,
+    Yellow = 3,
+    Blue = 4,
+    Red = 5,
+    Purple = 6
 }

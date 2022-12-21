@@ -1,16 +1,14 @@
 import { ParakarrySprite } from './enum/parakarrySprite';
 import { BombetteSprite } from './enum/bombetteSprite';
-import { KootFavorsMode } from './enum/kootFavorsMode';
-import { LettersMode } from './enum/lettersMode';
 import { BowSprite } from './enum/bowSprite';
 import { CoinColor } from './enum/coinColor';
 import { GoombarioSprite } from './enum/goombarioSprite';
-import { ItemTrapMode } from './enum/itemTrapMode';
 import { KooperSprite } from './enum/kooperSprite';
 import { MarioSprite } from './enum/marioSprite';
 import { SpriteSetting } from './enum/spriteSetting';
 import { SushieSprite } from './enum/sushieSprite';
 import { WattSprite } from './enum/wattSprite';
+import { LakilesterSprite } from './enum/lakilesterSprite';
 
 export interface CosmeticsRequest {
     SeedID: string
@@ -35,6 +33,8 @@ export interface CosmeticsRequest {
     WattSprite: WattSprite;
     SushieSetting: SpriteSetting;
     SushieSprite: SushieSprite;
+    LakilesterSetting: SpriteSetting;
+    LakilesterSprite: LakilesterSprite;
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
     EnemiesSetting: SpriteSetting;

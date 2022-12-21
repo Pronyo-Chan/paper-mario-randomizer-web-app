@@ -52,35 +52,35 @@ describe('SeedPageComponent', () => {
     it('should call RandomizerService getSeedInfo with seedId from queryParams', async () => {
       spyOn((TestBed.get(RandomizerService) as RandomizerService), 'getSeedInfo');
       await component.ngOnInit()
-      await component.seedInfo$.subscribe(seedInfo =>  expect((TestBed.get(RandomizerService) as RandomizerService).getSeedInfo).toHaveBeenCalledWith('mockSeedId'))
+      await component.seedViewModel.subscribe(seedInfo =>  expect((TestBed.get(RandomizerService) as RandomizerService).getSeedInfo).toHaveBeenCalledWith('mockSeedId'))
     });
 
     it('should call initSpoilerLog if WriteSpoilerLog is true in received seedInfo', async () => {
       spyOn((TestBed.get(RandomizerService) as RandomizerService), 'getSeedInfo').and.callFake((seedId: string) => of({WriteSpoilerLog: true} as SettingsResponse));
       component.initSpoilerLog = spyOn(component, 'initSpoilerLog').and.callFake(() => {});
       await component.ngOnInit();
-      await component.seedInfo$.subscribe(seedInfo => expect((component.initSpoilerLog)).toHaveBeenCalled());
+      await component.seedViewModel.subscribe(seedInfo => expect((component.initSpoilerLog)).toHaveBeenCalled());
     });
 
     it('should not call initSpoilerLog if WriteSpoilerLog is false in received seedInfo', async () => {
       spyOn((TestBed.get(RandomizerService) as RandomizerService), 'getSeedInfo').and.callFake((seedId: string) => of({WriteSpoilerLog: false} as SettingsResponse));
       component.initSpoilerLog = spyOn(component, 'initSpoilerLog').and.callFake(() => {});
       await component.ngOnInit();
-      await component.seedInfo$.subscribe(seedInfo => expect((component.initSpoilerLog)).not.toHaveBeenCalled());
+      await component.seedViewModel.subscribe(seedInfo => expect((component.initSpoilerLog)).not.toHaveBeenCalled());
     });
 
     it('should set isDifficultyShuffled to true if ShuffleChapterDifficulty is true in seedInfo', async () => {
       spyOn((TestBed.get(RandomizerService) as RandomizerService), 'getSeedInfo').and.callFake((seedId: string) => of({ShuffleChapterDifficulty: true} as SettingsResponse));
       component.initSpoilerLog = spyOn(component, 'initSpoilerLog').and.callFake(() => {});
       await component.ngOnInit();
-      await component.seedInfo$.subscribe(seedInfo => expect((component.isDifficultyShuffled)).toBeTrue());
+      await component.seedViewModel.subscribe(seedInfo => expect((component.isDifficultyShuffled)).toBeTrue());
     });
 
     it('should not set isDifficultyShuffled to true if ShuffleChapterDifficulty is false in seedInfo', async () => {
       spyOn((TestBed.get(RandomizerService) as RandomizerService), 'getSeedInfo').and.callFake((seedId: string) => of({ShuffleChapterDifficulty: false} as SettingsResponse));
       component.initSpoilerLog = spyOn(component, 'initSpoilerLog').and.callFake(() => {});
       await component.ngOnInit();
-      await component.seedInfo$.subscribe(seedInfo => expect((component.isDifficultyShuffled)).toBeFalse());
+      await component.seedViewModel.subscribe(seedInfo => expect((component.isDifficultyShuffled)).toBeFalse());
     });
   });
 

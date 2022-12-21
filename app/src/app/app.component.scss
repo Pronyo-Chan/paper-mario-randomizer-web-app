@@ -1,4 +1,5 @@
-@use './../variables';
+@import './../variables';
+@import './../mixins';
 
 .logo-wrapper {
     margin: 0 33% 0 33%; //prevents clicking outside of image
@@ -20,13 +21,27 @@ span.caret {
     position: fixed !important;
     top: 0; /* Sets the sticky toolbar to be on top */
     z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
-    background-color: variables.$beige-background-card;
-    height: 2.6vmax;
-    line-height: 2.6vmax !important;
+    background-color: $beige-background-card;
     font-family: gluten !important;
     font-weight: 600 !important;
     padding: 0 1vmax !important;
     box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
+
+    height: 2rem;
+    line-height: 2rem !important;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    @include medium {
+        height: 2.5rem;
+        line-height: 2.5rem !important;
+    }
+  
+    @include large {
+        height: 3rem;
+        line-height: 3.0rem !important;
+    }
 
     .text-link{
         // Need a bunch of inherits for when this class is applied to button
@@ -38,10 +53,20 @@ span.caret {
         cursor: pointer;
 
         text-decoration: none;
-        font-size: 1.0vmax;
         display: flex;
         align-items: center;
         border: none;
+
+        font-size: 12px;
+
+        @include medium {
+            font-size: 15px;
+          }
+      
+        @include large {
+        font-size: 18px;
+        }
+
         span {
             color: black;
             padding: 0 0.8vmax 0 0.8vmax;
@@ -51,8 +76,15 @@ span.caret {
     .image-link {
         height: 100%;
 
-        img.logo {
+        img.logo, img.discord-icon {
             height:100%;
+        }
+
+        img.logo {
+            display: none;
+            @include medium {
+                display: block;
+            }
         }
     } 
 
@@ -61,61 +93,61 @@ span.caret {
       }
 
     .text-link:hover {
-        background-color: variables.$yellow-stat-border;
+        background-color: $yellow-stat-border;
     }
 }
 
 .mat-toolbar-purple {
-    background-color: variables.$purple-background-card;
+    background-color: $purple-background-card;
 }
 body {
-    background-color: variables.$beige-background-main;
+    background-color: $beige-background-main;
     background-size: 49px 49px;
     background-position: 0 0, 25px 25px;
-    background-image: linear-gradient(45deg, variables.$beige-background-secondary 25%, transparent 25%, transparent 75%,
-                        variables.$beige-background-secondary 75%, variables.$beige-background-secondary),
-                        linear-gradient(45deg, variables.$beige-background-secondary 25%, transparent 25%, transparent 75%,
-                         variables.$beige-background-secondary 75%, variables.$beige-background-secondary);
+    background-image: linear-gradient(45deg, $beige-background-secondary 25%, transparent 25%, transparent 75%,
+                        $beige-background-secondary 75%, $beige-background-secondary),
+                        linear-gradient(45deg, $beige-background-secondary 25%, transparent 25%, transparent 75%,
+                         $beige-background-secondary 75%, $beige-background-secondary);
 }
 
 body.blue-bg {
-    background-color: variables.$blue-background-main;
+    background-color: $blue-background-main;
     background-size: 49px 49px;
     background-position: 0 0, 25px 25px;
-    background-image: linear-gradient(45deg, variables.$blue-background-secondary 25%, transparent 25%, transparent 75%,
-                        variables.$blue-background-secondary 75%, variables.$blue-background-secondary),
-                        linear-gradient(45deg, variables.$blue-background-secondary 25%, transparent 25%, transparent 75%,
-                         variables.$blue-background-secondary 75%, variables.$blue-background-secondary);
+    background-image: linear-gradient(45deg, $blue-background-secondary 25%, transparent 25%, transparent 75%,
+                        $blue-background-secondary 75%, $blue-background-secondary),
+                        linear-gradient(45deg, $blue-background-secondary 25%, transparent 25%, transparent 75%,
+                         $blue-background-secondary 75%, $blue-background-secondary);
 }
 
 body.purple-bg {
-    background-color: variables.$purple-background-main;
+    background-color: $purple-background-main;
     background-size: 49px 49px;
     background-position: 0 0, 25px 25px;
-    background-image: linear-gradient(45deg, variables.$purple-background-secondary 25%, transparent 25%, transparent 75%,
-                        variables.$purple-background-secondary 75%, variables.$purple-background-secondary),
-                        linear-gradient(45deg, variables.$purple-background-secondary 25%, transparent 25%, transparent 75%,
-                         variables.$purple-background-secondary 75%, variables.$purple-background-secondary);
+    background-image: linear-gradient(45deg, $purple-background-secondary 25%, transparent 25%, transparent 75%,
+                        $purple-background-secondary 75%, $purple-background-secondary),
+                        linear-gradient(45deg, $purple-background-secondary 25%, transparent 25%, transparent 75%,
+                         $purple-background-secondary 75%, $purple-background-secondary);
 }
 
 body.turquoise-bg {
-    background-color: variables.$turquoise-background-main;
+    background-color: $turquoise-background-main;
     background-size: 49px 49px;
     background-position: 0 0, 25px 25px;
-    background-image: linear-gradient(45deg, variables.$turquoise-background-secondary 25%, transparent 25%, transparent 75%,
-                        variables.$turquoise-background-secondary 75%, variables.$turquoise-background-secondary),
-                        linear-gradient(45deg, variables.$turquoise-background-secondary 25%, transparent 25%, transparent 75%,
-                         variables.$turquoise-background-secondary 75%, variables.$turquoise-background-secondary);
+    background-image: linear-gradient(45deg, $turquoise-background-secondary 25%, transparent 25%, transparent 75%,
+                        $turquoise-background-secondary 75%, $turquoise-background-secondary),
+                        linear-gradient(45deg, $turquoise-background-secondary 25%, transparent 25%, transparent 75%,
+                         $turquoise-background-secondary 75%, $turquoise-background-secondary);
 }
 
 body.red-bg {
-    background-color: variables.$red-background-main;
+    background-color: $red-background-main;
     background-size: 49px 49px;
     background-position: 0 0, 25px 25px;
-    background-image: linear-gradient(45deg, variables.$red-background-secondary 25%, transparent 25%, transparent 75%,
-                        variables.$red-background-secondary 75%, variables.$red-background-secondary),
-                        linear-gradient(45deg, variables.$red-background-secondary 25%, transparent 25%, transparent 75%,
-                         variables.$red-background-secondary 75%, variables.$red-background-secondary);
+    background-image: linear-gradient(45deg, $red-background-secondary 25%, transparent 25%, transparent 75%,
+                        $red-background-secondary 75%, $red-background-secondary),
+                        linear-gradient(45deg, $red-background-secondary 25%, transparent 25%, transparent 75%,
+                         $red-background-secondary 75%, $red-background-secondary);
 }
 
 .main-page {
@@ -123,20 +155,30 @@ body.red-bg {
 }
 
  .settings-card {
-     margin: 0 5% 2% 5%;
-     background-color: variables.$beige-background-card;
+    background-color: $beige-background-card;
+    margin: 0 .5rem 1rem .5rem;
 
-     
+    @include medium {
+        margin: 0 3rem 2rem 3rem;
+    }
+
+    @include large {
+        margin: 0 4rem 2rem 4rem;
+    }
+
+    @include extra-large {
+        margin: 0 5rem 2rem 5rem;
+    }
 
      .settings-title {
-        background-color: variables.$yellow-stat-main;
+        background-color: $yellow-stat-main;
         font-family: SuperMario;
         font-size: 2rem;
         text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
         color: rgb(255, 255, 255);
         padding: 1rem;
         border: outset;
-        border-color: variables.$yellow-stat-border;
+        border-color: $yellow-stat-border;
         border-width: 3px;
         border-radius: 4px;
         margin-bottom: 2px;
@@ -149,17 +191,23 @@ body.red-bg {
 
          .settings-label {
             font-family: gluten;
-            margin-left: 4px;
+            margin: 0px 4px;
             font-size: 16px;
             font-weight: 500;
+            display: inline-block;
          }
 
          .setting-element {
-             flex-basis: 50%;
              margin-top: 8px;
-             flex-grow: 2;
              display: flex;         
-             align-items: center;       
+             align-items: center;
+             flex-basis: 100%;
+             flex-grow: 1;
+
+             @include medium {
+                flex-basis: 50%;
+                flex-grow: 2;
+             }
          }
 
          .slider-element {
@@ -206,7 +254,7 @@ body.red-bg {
     margin: 1rem 1rem 0 0;
     cursor: pointer;
     padding: 0.6rem 1rem;
-    background-color: variables.$yellow-stat-main;         
+    background-color: $yellow-stat-main;         
     border: none;
     border-radius: 28px;
  }

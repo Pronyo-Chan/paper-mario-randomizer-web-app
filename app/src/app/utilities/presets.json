@@ -139,9 +139,15 @@
                   "paletteSelection": 0,
                   "optionDisplay": "Default"
                 },
+                "lakilesterSprite": {
+                  "setting": 0,
+                  "paletteSelection": 0,
+                  "optionDisplay": "Default"
+                },
                 "bossesSetting": 0,
                 "npcSetting": 0,
                 "enemiesSetting": 0,
+                "hammerSetting": 0,
                 "coinColor": 0,
                 "randomText": false,
                 "romanNumerals": false,
@@ -290,9 +296,15 @@
               "paletteSelection": 0,
               "optionDisplay": "Default"
             },
+            "lakilesterSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
             "bossesSetting": 0,
             "npcSetting": 0,
             "enemiesSetting": 0,
+            "hammerSetting": 0,
             "coinColor": 0,
             "randomText": false,
             "romanNumerals": false,
@@ -441,9 +453,15 @@
               "paletteSelection": 0,
               "optionDisplay": "Default"
             },
+            "lakilesterSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
             "bossesSetting": 0,
             "npcSetting": 0,
             "enemiesSetting": 0,
+            "hammerSetting": 0,
             "coinColor": 0,
             "randomText": false,
             "romanNumerals": false,
@@ -592,9 +610,15 @@
               "paletteSelection": 0,
               "optionDisplay": "Default"
             },
+            "lakilesterSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Default"
+            },
             "bossesSetting": 0,
             "npcSetting": 0,
             "enemiesSetting": 0,
+            "hammerSetting": 0,
             "coinColor": 0,
             "randomText": false,
             "romanNumerals": false,
@@ -745,9 +769,15 @@
                "paletteSelection":0,
                "optionDisplay":"Random Pick"
             },
+            "lakilesterSprite": {
+              "setting": 0,
+              "paletteSelection": 0,
+              "optionDisplay": "Random Pick"
+            },
             "bossesSetting":2,
             "npcSetting":2,
             "enemiesSetting": 2,
+            "hammerSetting": 2,
             "coinColor":5,
             "randomText":false,
             "romanNumerals": false,

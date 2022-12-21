@@ -1,0 +1,23 @@
+$medium: 768px;
+
+$large: 992px;
+
+$extra-large: 1200px;
+
+@mixin medium {
+    @media (min-width: $medium) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media (min-width: $large) {
+        @content;
+    }
+}
+
+@mixin extra-large {
+    @media (min-width: $extra-large) {
+        @content;
+    }
+}

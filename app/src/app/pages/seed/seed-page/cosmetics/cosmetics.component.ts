@@ -25,6 +25,7 @@ export class CosmeticsComponent implements OnInit, OnDestroy {
   public bowOptions = Constants.BOW_OPTIONS;
   public wattOptions = Constants.WATT_OPTIONS;
   public sushieOptions = Constants.SUSHIE_OPTIONS;
+  public lakilesterOptions = Constants.LAKILESTER_OPTIONS;
 
   public constructor(private _mappingService: SettingStringMappingService) { }
   
@@ -60,6 +61,7 @@ export class CosmeticsComponent implements OnInit, OnDestroy {
     this.initSpriteFormControl('bowSprite', this.bowOptions);
     this.initSpriteFormControl('wattSprite', this.wattOptions);
     this.initSpriteFormControl('sushieSprite', this.sushieOptions);
+    this.initSpriteFormControl('lakilesterSprite', this.lakilesterOptions);
   }
 
   public initSpriteFormControl(formControlName: string, spriteOptions: CharacterSpriteSetting[]) {

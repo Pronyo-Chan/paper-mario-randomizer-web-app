@@ -1,4 +1,4 @@
-@use './../../../../../variables';
+@import './../../../../../variables';
 ::ng-deep .mat-tab-body {
     overflow-y: hidden !important;
 
@@ -26,17 +26,17 @@
                     font-style: italic;                  
 
                     &.item-name{
-                        color: variables.$blue-item-main;
+                        color: $blue-item-main;
                         font-weight: 700;
                     }
 
                     &.location-name{
-                        color: variables.$yellow-stat-text;
+                        color: $yellow-stat-text;
                         font-weight: 700;
                     }
 
                     &.area-name{
-                        color: variables.$purple-text;
+                        color: $purple-text;
                         font-weight: 700;
                     }
                 }

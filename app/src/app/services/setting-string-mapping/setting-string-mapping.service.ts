@@ -8,6 +8,7 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { Items } from 'src/app/entities/enum/items';
 import glitchesJson from '../../utilities/glitches.json'
+import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
 
 interface SettingModel {compressedString: string, key: string, type: string, map?: SettingModel[]};
 
@@ -27,9 +28,11 @@ export class SettingStringMappingService {
     { compressedString: "p", key: "marioSprite", type: "sprite"},
     { compressedString: "n", key: "npcSetting", type: "number"},
     { compressedString: "e", key: "enemiesSetting", type: "number"},
+    { compressedString: "y", key: "hammerSetting", type: "number"},
     { compressedString: "t", key: "randomText", type: "bool"},
     { compressedString: "w", key: "wattSprite", type: "sprite"},
     { compressedString: "s", key: "sushieSprite", type: "sprite"},
+    { compressedString: "l", key: "lakilesterSprite", type: "sprite"},
     { compressedString: "a", key: "parakarrySprite", type: "sprite"},    
     { compressedString: "r", key: "romanNumerals", type: "bool"},
     { compressedString: "h", key: "randomPitch", type: "bool"}
@@ -299,22 +302,24 @@ export class SettingStringMappingService {
 
   private decodeSprite(compressedKey: string, compressedSetting: string, compressedPalette: string): CharacterSpriteSetting{
     switch (compressedKey) {
-      case 'a':
-        return Constants.PARAKARRY_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
-      case 'b':
-        return Constants.BOW_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'p':
+        return Constants.MARIO_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 'g':
         return Constants.GOOMBARIO_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 'k':
         return Constants.KOOPER_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
-      case 'p':
-        return Constants.MARIO_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'o':
+        return Constants.BOMBETTE_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'a':
+        return Constants.PARAKARRY_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'b':
+        return Constants.BOW_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 'w':
           return Constants.WATT_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       case 's':
         return Constants.SUSHIE_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
-      case 'o':
-        return Constants.BOMBETTE_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
+      case 'l':
+        return Constants.LAKILESTER_OPTIONS.find(o => o.setting == Number(compressedSetting) && o.paletteSelection == Number(compressedPalette))
       default:
         throw Error('Unexpected key found while parsing sprite settings: ' + compressedKey)
     }
@@ -346,16 +351,16 @@ export class SettingStringMappingService {
     var i = 0;
     var items: StartingItem[] = [];
     while(i < itemValues.length) {
-      var itemValue = Number(itemValues.substring(i, i+4))
+      const itemValue = Number(itemValues.substring(i, i+4))
       i += 4;
       if (Object.values(Items).includes(itemValue)) {
-        items.push({name: Items[itemValue], value: itemValue, itemType: "Item"} as StartingItem)
+        items.push({name: pascalToVerboseString(Items[itemValue]), value: itemValue, itemType: "Item"} as StartingItem)
       }
       else if (Object.values(KeyItems).includes(itemValue)) {
-        items.push({name: KeyItems[itemValue], value: itemValue, itemType: "Key Item"} as StartingItem)
+        items.push({name: pascalToVerboseString(KeyItems[itemValue]), value: itemValue, itemType: "Key Item"} as StartingItem)
       }
       else if (Object.values(Badges).includes(itemValue)) {
-        items.push({name: Badges[itemValue], value: itemValue, itemType: "Badge"} as StartingItem)
+        items.push({name: pascalToVerboseString(Badges[itemValue]), value: itemValue, itemType: "Badge"} as StartingItem)
       }
     }
     return items;

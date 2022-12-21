@@ -1,7 +1,7 @@
-@use './../../../../../../variables';
+@import './../../../../../../variables';
 
 :host {
-    background-color: variables.$blue-background-card !important;
+    background-color: $blue-background-card !important;
     margin-bottom: 2rem;
 }
 h2, span {
@@ -21,7 +21,7 @@ button {
     margin: 1rem 1rem 0 0;
     cursor: pointer;
     padding: 0.6rem 1rem;
-    background-color: variables.$yellow-stat-main;         
+    background-color: $yellow-stat-main;         
     border: none;
     border-radius: 28px;
 }

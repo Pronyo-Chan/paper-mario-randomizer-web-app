@@ -1,4 +1,5 @@
-@use './../../../../variables';
+@import './../../../../variables';
+@import './../../../../mixins';
 
 ::ng-deep app-loading.page-loading {
     div {
@@ -13,11 +14,11 @@
 .loading-card {
     padding: 5rem !important;
     margin: 0 30%;
-    background-color: variables.$purple-background-card;
+    background-color: $purple-background-card;
 }
 
 .settings-card {
-    background-color: variables.$purple-background-card;
+    background-color: $purple-background-card;
 
     ::ng-deep .mat-tab-group {
         .mat-tab-header {
@@ -38,8 +39,8 @@
                             border-radius: 28px;
                             margin: 8px 0 8px 4px;
                             filter: brightness(.6);
-                            background-color: variables.$purple-misc-main !important;
-                            border-color: variables.$purple-misc-border !important; 
+                            background-color: $purple-misc-main !important;
+                            border-color: $purple-misc-border !important; 
                             padding: 0 5px;
 
                             &.mat-tab-label-active {      
@@ -61,7 +62,19 @@
 }
 
 .mat-expansion-panel {
-    margin: 0 5% 2% 5% !important;
+    margin: 0 .5rem 1rem .5rem !important;
+
+    @include medium {
+        margin: 0 3rem 2rem 3rem !important;
+    }
+
+    @include large {
+        margin: 0 4rem 2rem 4rem !important;
+    }
+
+    @include extra-large {
+        margin: 0 5rem 2rem 5rem !important;
+    }
     padding:16px 7px 16px 16px; //hack because the collapse button takes 9px
 
     ::ng-deep .mat-expansion-panel-header {
@@ -106,7 +119,7 @@
     }
 
     p{
-        margin: 2rem 5rem 2rem 5rem;
+        text-align: center;
 
         span {
             color:red;

@@ -9,6 +9,7 @@ import { MarioSprite } from './enum/marioSprite';
 import { SpriteSetting } from './enum/spriteSetting';
 import { SushieSprite } from './enum/sushieSprite';
 import { WattSprite } from './enum/wattSprite';
+import { LakilesterSprite } from './enum/lakilesterSprite';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -79,9 +80,12 @@ export interface SettingsRequest {
     WattSprite: WattSprite;
     SushieSetting: SpriteSetting;
     SushieSprite: SushieSprite;
+    LakilesterSetting: SpriteSetting;
+    LakilesterSprite: LakilesterSprite;
     BossesSetting: SpriteSetting;
     NPCSetting: SpriteSetting;
     EnemiesSetting: SpriteSetting;
+    HammerSetting: SpriteSetting;
     StartingMaxHP: number;
     StartingMaxFP: number;
     StartingMaxBP: number;
