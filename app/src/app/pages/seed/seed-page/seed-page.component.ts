@@ -1,3 +1,5 @@
+import { SphereItemLocation } from './../../../entities/sphereItemLocation';
+import { ItemLocation } from './../../../entities/itemLocation';
 import { SeedViewModel } from './../../../entities/seed-view-model/seedViewModel';
 import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
 import { Subscription, tap, switchMap, Observable, take, catchError, of } from 'rxjs';
@@ -88,7 +90,8 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       take(1),
       tap(spoilerLog => {
         spoilerLog.text().then(spoilerFile =>{
-          this.convertSpoilerFileToDict(spoilerFile)
+          const spoilerLogJson = JSON.parse(spoilerFile);
+          this.convertSpoilerFileToDict(spoilerLogJson)
           this.isPageLoading = false;
         })
       }),
@@ -96,58 +99,50 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     ).subscribe();
   }
 
-  public convertSpoilerFileToDict(spoilerFile: string) {
-    const progressionItemIndicator = '*';
-    var fileLines = spoilerFile.split('\n');
-    var spoilerLogData: SpoilerLog = {}; 
+  public convertSpoilerFileToDict(spoilerLogJson: any) {
     var progressionSphereData: SphereSpoilerLog = {}; 
     var allItemsSphereData: SphereSpoilerLog = {}; 
+    var spoilerLogRegions: SpoilerLog = {}
 
-    var currentRegion = '';
-    fileLines.forEach(line => {
-
-      if(line.includes("-> Chapter") && this.isDifficultyShuffled) { // Parse shuffled chapter difficulties
-        this.chapterDifficulties.push(line.charAt(line.length-1))
-      } else if(line[0] != ' ') { // Region group name, first char not empty
-        currentRegion = line.replace(':', '')
-      } else if(line != '') {
-        if(currentRegion.includes("Sphere") || currentRegion.includes("Starting Items") || currentRegion.includes("Unreachable")) {
-          if(!progressionSphereData[currentRegion])
-            progressionSphereData[currentRegion] = [];
-
-          if(!allItemsSphereData[currentRegion])
-          allItemsSphereData[currentRegion] = [];
-          
-          var regionName = line.split(')', 2)[0].replace('((', '').trim();
-          var locationName = line.split('):', 2)[0].replace(regionName, '').replace(':', '').replace('((', '').replace(')', '').trim();
-
-          var itemName = line.split('):')[1].replace('*', '').trim();
-          var cleanItemName = pascalToVerboseString(itemName);
-          
-          // Only write sphere items that are progression in progression log
-          if(line.endsWith(progressionItemIndicator)) {
-            progressionSphereData[currentRegion].push({region: regionName, location: locationName, item: cleanItemName});
-          }
-          // Write everything in the allItemsLog
-          allItemsSphereData[currentRegion].push({region: regionName, location: locationName, item: cleanItemName});
-        }
-        else {
-          if(!spoilerLogData[currentRegion]) {
-            spoilerLogData[currentRegion] = [];
-          }
-            var splitLine = line.split('):'); // Split the location and item
-  
-            var locationName = splitLine[0].trimLeft().substring(1);        
-            var itemName = splitLine[1];
-            
-            var cleanItemName = pascalToVerboseString(itemName);
-  
-            spoilerLogData[currentRegion].push({location: locationName, item: cleanItemName}) //trimleft removes whitespace, substring(1) removes the first (
-        }
-        
+    const spoilerLogData = Object.fromEntries(Object.entries(spoilerLogJson).filter(([key]) => key!= "difficulty" && key != "sphere_log"))
+    for (const region in spoilerLogData) {
+      spoilerLogRegions[region] = [];
+      for (const location in spoilerLogData[region] as any) {
+        const cleanItemName = pascalToVerboseString(spoilerLogData[region][location]);
+        spoilerLogRegions[region].push({location: location, item: cleanItemName} as ItemLocation)
       }
-    });
-    this.spoilerLog = of(spoilerLogData); 
+    }
+    this.spoilerLog = of(spoilerLogRegions); 
+
+    const sphereLogData = spoilerLogJson["sphere_log"];
+    var sphereCount = 0;
+    for (const sphere in sphereLogData) {
+      if(sphere == "starting_items") {
+        const startingItems = sphereLogData[sphere].map(startingItem => {
+          return {region: "Start", location: "Mario's inventory", item: pascalToVerboseString(startingItem)} as SphereItemLocation;
+        });
+        allItemsSphereData["Starting Items"] = startingItems;
+        progressionSphereData["Starting Items"] = startingItems;
+        continue;
+      }
+      
+      const sphereName = sphere == "unreachable_in_logic" ? "Unreachable in Logic" : `Sphere ${sphereCount}`
+      allItemsSphereData[sphereName] = [];
+      progressionSphereData[sphereName] = [];
+      for (const region in sphereLogData[sphere] as any) {
+        for (const location in sphereLogData[sphere][region] as any) {
+          const itemname = sphereLogData[sphere][region][location] as string;
+          const cleanItemName = pascalToVerboseString(itemname);
+          allItemsSphereData[sphereName].push({location: location, item: cleanItemName, region: region} as SphereItemLocation)
+          if(itemname.includes("*")) {
+            progressionSphereData[sphereName].push({location: location, item: cleanItemName, region: region} as SphereItemLocation)
+          }
+        }
+      }
+      sphereCount++;
+    }
+
+    this.chapterDifficulties = Object.values(spoilerLogJson["difficulty"])
     this.progressionSphereLog = of(progressionSphereData);
     this.allItemsSphereLog = of(allItemsSphereData)
   }

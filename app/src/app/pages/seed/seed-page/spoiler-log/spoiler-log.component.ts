@@ -41,7 +41,7 @@ export class SpoilerLogComponent implements OnInit, OnDestroy {
   public constructor(private _randomizerService: RandomizerService) { }
 
   public ngOnInit(): void {
-    this.sphereNames = Object.keys(this.progressionSpheres)
+    this.sphereNames = Object.keys(this.allItemSpheres)
     this.areas = Object.keys(this.spoilerLog);
     this.items = Object.values(this.spoilerLog).flat().flatMap(itemLocation => itemLocation.item)
   }
