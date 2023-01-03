@@ -120,6 +120,8 @@ export class Constants {
         {setting: SpriteSetting.Default, paletteSelection: LakilesterSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: LakilesterSprite.Blue, optionDisplay: 'Blue'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: LakilesterSprite.Dark, optionDisplay: 'Dark'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: LakilesterSprite.Red, optionDisplay: 'Red'},
+        {setting: SpriteSetting.SelectPalette, paletteSelection: LakilesterSprite.Green, optionDisplay: 'Green'},
         {setting: SpriteSetting.RandomPick, paletteSelection: LakilesterSprite.Default, optionDisplay: 'Random Pick'},
         {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: LakilesterSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: LakilesterSprite.Default, optionDisplay: 'Random On Every Load'}
