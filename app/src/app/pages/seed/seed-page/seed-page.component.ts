@@ -1,3 +1,7 @@
+import { StarPowerCost } from './../../../entities/starPowerCost';
+import { PartnerCost } from './../../../entities/partnerCost';
+import { BadgeCost } from './../../../entities/badgeCost';
+import { SettingsSpoilerLog } from './../../../entities/settingsSpoilerLog';
 import { SphereItemLocation } from './../../../entities/sphereItemLocation';
 import { ItemLocation } from './../../../entities/itemLocation';
 import { SeedViewModel } from './../../../entities/seed-view-model/seedViewModel';
@@ -102,9 +106,18 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   public convertSpoilerFileToDict(spoilerLogJson: any) {
     var progressionSphereData: SphereSpoilerLog = {}; 
     var allItemsSphereData: SphereSpoilerLog = {}; 
-    var spoilerLogRegions: SpoilerLog = {}
+    var spoilerLogRegions: SpoilerLog = {};
 
-    const spoilerLogData = Object.fromEntries(Object.entries(spoilerLogJson).filter(([key]) => key!= "difficulty" && key != "sphere_log"))
+    var settingsSpoilerLog: SettingsSpoilerLog = {
+      badgeCosts: [],
+      partnerCosts: [],
+      starPowerCosts: [],
+      superBlocks: []
+    }
+
+    const spoilerLogData = Object.fromEntries(Object.entries(spoilerLogJson).filter(
+      ([key]) => key!= "difficulty" && key != "sphere_log" && key != "move_costs" && key != "superblocks"))
+
     for (const region in spoilerLogData) {
       spoilerLogRegions[region] = [];
       for (const location in spoilerLogData[region] as any) {
@@ -142,9 +155,37 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       sphereCount++;
     }
 
+    const moveCostsData = spoilerLogJson["move_costs"];
+    for (const badgeName in moveCostsData["badge"]) {
+      const badgeData = moveCostsData["badge"][badgeName];
+      settingsSpoilerLog.badgeCosts.push({name: badgeName, BP: badgeData["BP"], FP: badgeData["FP"]} as BadgeCost);
+    }
+
+    for (const partnerName in moveCostsData["partner"]) {
+      const partnerData = moveCostsData["partner"][partnerName];
+      for (const abilityName in partnerData) {
+        settingsSpoilerLog.partnerCosts.push({name: `${partnerName} - ${abilityName}`, FP: partnerData[abilityName]} as PartnerCost);
+      }
+    }
+
+    for (const abilityName in moveCostsData["starpower"]) {
+      const starPowerData = moveCostsData["starpower"][abilityName];
+      settingsSpoilerLog.starPowerCosts.push({name: abilityName, SP: starPowerData["SP"]} as StarPowerCost);
+    }
+
+    const superBlocksData = spoilerLogJson["superblocks"]
+    for (const areaName in superBlocksData) {
+      for (const superBlockLocation in superBlocksData[areaName]) {
+        settingsSpoilerLog.superBlocks.push(`${areaName} - ${superBlocksData[areaName][superBlockLocation]}`);
+      }
+    }
+
     this.chapterDifficulties = Object.values(spoilerLogJson["difficulty"])
     this.progressionSphereLog = of(progressionSphereData);
     this.allItemsSphereLog = of(allItemsSphereData)
+
+    
+    console.log(settingsSpoilerLog)
   }
 
   public ngOnDestroy(): void {
