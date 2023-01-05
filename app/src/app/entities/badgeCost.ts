@@ -1,5 +1,5 @@
 export interface BadgeCost {
     name: string;
-    FP: number;
-    BP: number;
+    FP: string;
+    BP: string;
 }

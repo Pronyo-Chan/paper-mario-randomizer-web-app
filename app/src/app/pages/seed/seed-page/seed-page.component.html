@@ -32,6 +32,7 @@
                                     [allItemSpheres]="allItemsSphereLog | async"
                                     [settingsSpoilerLog]="settingsSpoilerLog | async">
                     </app-spoiler-log>
+                    <app-emergency-spoiler-log *ngIf="!(spoilerLog | async)" [seedId]="seedId">Due to the recent spoiler log overhaul</app-emergency-spoiler-log>
                 </mat-expansion-panel>
             </mat-accordion>
             <mat-card class="settings-card">

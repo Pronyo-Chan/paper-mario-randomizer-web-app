@@ -90,7 +90,13 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       take(1),
       tap(spoilerLog => {
         spoilerLog.text().then(spoilerFile =>{
-          const spoilerLogJson = JSON.parse(spoilerFile);
+          var spoilerLogJson;
+          try {
+            spoilerLogJson = JSON.parse(spoilerFile);
+          } catch (error) {
+            this.isPageLoading = false;
+            return;
+          }
           this.convertSpoilerFileToDict(spoilerLogJson)
           this.isPageLoading = false;
         })
