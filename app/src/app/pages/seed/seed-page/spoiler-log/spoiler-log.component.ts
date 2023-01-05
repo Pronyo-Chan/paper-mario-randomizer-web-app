@@ -1,3 +1,4 @@
+import { SettingsSpoilerLog } from './../../../../entities/settingsSpoilerLog';
 import { SphereSpoilerLog } from './../../../../entities/sphereSpoilerLog';
 import { SpoilerLog } from 'src/app/entities/spoilerLog';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
@@ -16,7 +17,7 @@ export class SpoilerLogComponent implements OnInit, OnDestroy {
   @Input() public spoilerLog: SpoilerLog;
   @Input() public progressionSpheres: SphereSpoilerLog;
   @Input() public allItemSpheres: SphereSpoilerLog;
-  @Input() public chapterDifficulties: string[]
+  @Input() public settingsSpoilerLog: SettingsSpoilerLog;
 
   public readonly MIN_AMOUNT_OF_CHARS = 2;
 

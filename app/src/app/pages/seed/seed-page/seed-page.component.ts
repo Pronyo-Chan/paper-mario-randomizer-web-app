@@ -32,8 +32,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   public progressionSphereLog: Observable<SphereSpoilerLog>;
   public allItemsSphereLog: Observable<SphereSpoilerLog>;
 
-  public chapterDifficulties: string[] = [];
-  public isDifficultyShuffled: boolean = false;
+  public settingsSpoilerLog: Observable<SettingsSpoilerLog>;
 
   public isPageLoading: boolean;
 
@@ -64,9 +63,6 @@ export class SeedPageComponent implements OnInit, OnDestroy {
             else {
               this.isPageLoading = false;
               this.displaySpoilerLog = false;
-            }
-            if(seedModel.GeneralDifficulty.EnemyDifficulty == "Shuffle Chapter Difficulty") {
-              this.isDifficultyShuffled = true;
             }
           }),
           catchError(err => this.handleError(err))
@@ -112,7 +108,8 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       badgeCosts: [],
       partnerCosts: [],
       starPowerCosts: [],
-      superBlocks: []
+      superBlocks: [],
+      chapterDifficulties:[]
     }
 
     const spoilerLogData = Object.fromEntries(Object.entries(spoilerLogJson).filter(
@@ -180,12 +177,11 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       }
     }
 
-    this.chapterDifficulties = Object.values(spoilerLogJson["difficulty"])
-    this.progressionSphereLog = of(progressionSphereData);
-    this.allItemsSphereLog = of(allItemsSphereData)
+    settingsSpoilerLog.chapterDifficulties = Object.values(spoilerLogJson["difficulty"])
 
-    
-    console.log(settingsSpoilerLog)
+    this.progressionSphereLog = of(progressionSphereData);
+    this.allItemsSphereLog = of(allItemsSphereData);
+    this.settingsSpoilerLog = of(settingsSpoilerLog);
   }
 
   public ngOnDestroy(): void {
