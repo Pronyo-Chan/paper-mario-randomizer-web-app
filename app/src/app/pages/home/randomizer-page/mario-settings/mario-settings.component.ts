@@ -18,6 +18,7 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
   
 
   public ngOnInit(): void {
+    this.updateStartingLevel();
     this._formGroupSubscription = this.marioStatsFormGroup.valueChanges.pipe(
       tap(() => this.updateStartingLevel())
     ).subscribe();
