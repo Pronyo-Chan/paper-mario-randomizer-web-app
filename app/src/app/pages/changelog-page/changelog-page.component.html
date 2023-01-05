@@ -1,6 +1,56 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
     <mat-card class="settings-card latest-changelog">
+        <mat-card-title class="settings-title">0.18.1 (beta) (2023-01-XX)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> Merlow won't hand out bonus rewards when playing on Project 64 with the Recompiler mode. Please use another emulator or set Project 64 to use Interpreter mode instead.</li>
+            <li> When playing Jumpless, Mario cannot use heart blocks.</li>
+            <li> When picking up a previously tossed item while the menu for placing an item into a Shiver Mountain socket is opened, the game crashes.</li>
+            <li> When an NPC attempts to give Mario a consumable item while his inventory is full, the tossed item may be picked up again immediately, causing the "inventory full" menu and NPC interaction to overlap.</li>
+        </ul>
+
+        <h2>Options</h2>
+
+        <h3>Color Palettes (change)</h3>
+        <ul>
+            <li> Added two new palette choices for Lakilester: Green and Red.</li>
+            <li> Added random color palettes for Lakilulu.</li>
+        </ul>
+
+        <h3>Starting HP (change)</h3>
+        <ul>
+            <li> It is now possible to start the game with only 5 HP.</li>
+            <li> This also allows starting the game at Level 0.</li>
+        </ul>
+
+        <h2>Game Mod Changes</h2>
+        <ul>
+            <li> It is now possible to save without boots. Pressing the A button while under a save block will now trigger the save prompt.</li>
+            <li> Fixed an issue where throwing an item after receiving Rowf's calculator reward would send it out of bounds.</li>
+            <li> Fixed Kolorado's wife turning invisible when talking to her for the Koot Legends check after Kent is beaten.</li>
+            <li> Fixed various bugs with the prologue Jr. Troopa fight.</li>
+            <li> Fixed an issue with Vanilla difficulty where Grey Magikoopas would have 17hp instead of 11.</li>
+        </ul>
+
+        <h2>Seed Generator</h2>
+        <ul>
+            <li> Fixed an issue with Merluvlee's hint about the item laying on the roof in Dry Dry Outpost, where she would say it's given by a NPC.</li>
+            <li> The format of the spoiler log has been changed to json.</li>
+            <li> More information is now available in the spoiler log: Badge/Partners/Starpower costs, super block locations and shop prices.</li>
+            <li> The 3x Bullet Bill fight in Koopa Bros Fortress is excluded from random formations for now, since having a Paratroopa in the back prevents jumping on the canons.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li> The spoiler log dropdown now has a "Settings" option. You can select it to find shuffled chapter difficulties, Badge/Partners/Starpower costs and super block locations.</li>
+            <li> Due to the spoiler log overhaul, the website will be unable to display logs for seeds created before the update. You can still use the button to download the .txt file, however.</li>
+        </ul>
+    </mat-card>
+
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.18.0 (beta) (2022-12-21)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
