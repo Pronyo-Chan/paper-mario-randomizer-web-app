@@ -39,6 +39,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   public displaySpoilerLog: boolean = false;
   public isSpoilerLogExpanded: boolean = false;
   private _navigationSubscription: Subscription;
+  private isDifficultyShuffled: boolean;
 
   constructor(private _renderer: Renderer2, private _activatedRoute: ActivatedRoute, private _router: Router, private _randomizerService: RandomizerService) { }
   
@@ -63,6 +64,9 @@ export class SeedPageComponent implements OnInit, OnDestroy {
             else {
               this.isPageLoading = false;
               this.displaySpoilerLog = false;
+            }
+            if(seedModel.GeneralDifficulty.EnemyDifficulty == "Shuffle Chapter Difficulty") {
+              this.isDifficultyShuffled = true;
             }
           }),
           catchError(err => this.handleError(err))
@@ -161,19 +165,21 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     const moveCostsData = spoilerLogJson["move_costs"];
     for (const badgeName in moveCostsData["badge"]) {
       const badgeData = moveCostsData["badge"][badgeName];
-      settingsSpoilerLog.badgeCosts.push({name: badgeName, BP: badgeData["BP"], FP: badgeData["FP"]} as BadgeCost);
+      settingsSpoilerLog.badgeCosts.push({name: pascalToVerboseString(badgeName), BP: badgeData["BP"], FP: badgeData["FP"]} as BadgeCost);
     }
 
     for (const partnerName in moveCostsData["partner"]) {
       const partnerData = moveCostsData["partner"][partnerName];
       for (const abilityName in partnerData) {
-        settingsSpoilerLog.partnerCosts.push({name: `${partnerName} - ${abilityName}`, FP: partnerData[abilityName]} as PartnerCost);
+        settingsSpoilerLog.partnerCosts.push({
+          name: `${pascalToVerboseString(partnerName)} - ${pascalToVerboseString(abilityName)}`,
+          FP: partnerData[abilityName]} as PartnerCost);
       }
     }
 
     for (const abilityName in moveCostsData["starpower"]) {
       const starPowerData = moveCostsData["starpower"][abilityName];
-      settingsSpoilerLog.starPowerCosts.push({name: abilityName, SP: starPowerData["SP"]} as StarPowerCost);
+      settingsSpoilerLog.starPowerCosts.push({name: pascalToVerboseString(abilityName), SP: starPowerData["SP"]} as StarPowerCost);
     }
 
     const superBlocksData = spoilerLogJson["superblocks"]
@@ -183,7 +189,9 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       }
     }
 
-    settingsSpoilerLog.chapterDifficulties = Object.values(spoilerLogJson["difficulty"])
+    if(this.isDifficultyShuffled) {
+      settingsSpoilerLog.chapterDifficulties = Object.values(spoilerLogJson["difficulty"]);
+    }
 
     this.progressionSphereLog = of(progressionSphereData);
     this.allItemsSphereLog = of(allItemsSphereData);
