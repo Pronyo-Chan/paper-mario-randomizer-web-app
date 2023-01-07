@@ -38,4 +38,21 @@ export namespace CustomValidators {
             }
         };
     }
+
+    export function levelGreaterOrEqualZero() {
+        return (formGroup: FormGroup): { [key: string]: boolean } | null => {
+
+            const startingLevel = ((formGroup.get("startingMaxHP").value - 5) / 5) +
+            ((formGroup.get("startingMaxFP").value  - 5) / 5) +
+              ((formGroup.get("startingMaxBP").value  - 3) / 3);
+
+            if (startingLevel >= 0) {
+                return null;
+            }
+
+            return {
+                'levelGreaterOrEqualZero': true
+            }
+        };
+    }
 }

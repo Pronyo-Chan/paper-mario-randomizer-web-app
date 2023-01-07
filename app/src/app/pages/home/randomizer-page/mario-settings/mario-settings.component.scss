@@ -16,3 +16,20 @@ p.bottom-note  {
     font-weight: 500;
     line-height: 16px;
 }
+
+ul {
+    list-style-type: none;
+    li {
+        color: red;
+        font-family: 'gluten';
+        font-weight: 600;
+    }
+    li:before {
+        content: "❌" !important; 
+        font-size: 14px !important;
+        font-weight: 600;
+    }
+    li:marker {
+        display: none;
+    }
+}

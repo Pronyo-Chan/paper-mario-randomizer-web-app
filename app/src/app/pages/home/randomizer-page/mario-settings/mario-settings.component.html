@@ -32,7 +32,7 @@
         <div class="setting-element input-element">
             <app-tooltip-span spanText="Max HP" tooltipText="Amount of Heart Points Mario will start the game with"></app-tooltip-span>
             <input matInput type="number"
-                 min="10" 
+                 min="5" 
                  max="50" 
                  step="5"
                  formControlName='startingMaxHP' 
@@ -43,7 +43,7 @@
         <div class="setting-element input-element">
             <app-tooltip-span spanText="Max BP" tooltipText="Amount of Badge Points Mario will start the game with"></app-tooltip-span>
             <input matInput type="number"
-                 min="3" 
+                 min="0" 
                  max="30" 
                  step="3"
                  formControlName='startingMaxBP' 
@@ -54,7 +54,7 @@
         <div class="setting-element input-element">
             <app-tooltip-span spanText="Max FP" tooltipText="Amount of Flower Points Mario will start the game with"></app-tooltip-span>
             <input matInput type="number"
-                 min="5" 
+                 min="0" 
                  max="50"
                  step="5" 
                  formControlName='startingMaxFP' 
@@ -82,5 +82,12 @@
             * Jumpless will prevent Mario from jumping in battles and on the overworld until boots are found as a random item.
             Some unintuitive actions might be required, like using Parakarry to climb stairs/ledges or using Kooper to gain height and hit floating blocks.
         </p>
+
+        <ul *ngIf="marioStatsFormGroup.invalid">
+            <mat-divider></mat-divider>
+            <li *ngIf="marioStatsFormGroup.hasError('levelGreaterOrEqualZero')">
+                Mario's starting level must be greater or equal 0
+            </li>
+        </ul>
     </mat-card-content>
 </form>

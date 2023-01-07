@@ -1,0 +1,15 @@
+@import './../../../../../variables';
+
+button {
+    margin-left: 1rem;
+}
+
+.input-label{
+    margin: 1rem 0;
+    .settings-label {
+        font-family: gluten;
+        margin-left: 4px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+}

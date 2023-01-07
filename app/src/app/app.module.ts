@@ -1,3 +1,4 @@
+import { EmergencySpoilerLogComponent } from './pages/seed/seed-page/emergency-spoiler-log/emergency-spoiler-log.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RandomizerPageComponent } from './pages/home/randomizer-page/randomizer-page.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -87,6 +88,7 @@ const dbConfig: DBConfig  = {
     SeedPageComponent,
     SettingsInfoComponent,
     SpoilerLogComponent,
+    EmergencySpoilerLogComponent,
     LoadingComponent,
     ErrorComponent,
     TipsPageComponent,

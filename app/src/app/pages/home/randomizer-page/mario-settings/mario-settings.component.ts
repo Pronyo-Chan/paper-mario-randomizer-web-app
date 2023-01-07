@@ -18,6 +18,7 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
   
 
   public ngOnInit(): void {
+    this.updateStartingLevel();
     this._formGroupSubscription = this.marioStatsFormGroup.valueChanges.pipe(
       tap(() => this.updateStartingLevel())
     ).subscribe();
@@ -29,12 +30,9 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
   }
 
   public updateStartingLevel(): void {
-    this.startingLevel = 1 +
-     ((this.getAdjustedHPValue() - 10) / 5) +
+    this.startingLevel = ((this.getAdjustedHPValue() - 5) / 5) +
       ((this.getAdjustedFPValue() - 5) / 5) +
         ((this.getAdjustedBPValue() - 3) / 3);
-      
-    this.startingLevel = Math.round(Math.min(27, Math.max(1, this.startingLevel)))
   }
 
   public onStartingCoinsBlur() {
@@ -67,9 +65,9 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
     var startingHPControl = this.marioStatsFormGroup.get('startingMaxHP')
     var adjustedValue = startingHPControl.value
 
-    if(startingHPControl.value < 10)
+    if(startingHPControl.value < 5)
     {
-      adjustedValue = 10;
+      adjustedValue = 5;
     }
     else if(startingHPControl.value > 50)
     {
@@ -93,9 +91,9 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
     var startingFPControl = this.marioStatsFormGroup.get('startingMaxFP')
     var adjustedValue = startingFPControl.value;
 
-    if(startingFPControl.value < 5)
+    if(startingFPControl.value < 0)
     {
-      adjustedValue = 5;
+      adjustedValue = 0;
     }
     else if(startingFPControl.value > 50)
     {
@@ -118,9 +116,9 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
   public getAdjustedBPValue(): number {
     var startingBPControl = this.marioStatsFormGroup.get('startingMaxBP')
     var adjustedValue = startingBPControl.value;
-    if(startingBPControl.value < 3)
+    if(startingBPControl.value < 0)
     {
-      adjustedValue = 3;
+      adjustedValue = 0;
     }
     else if(startingBPControl.value > 30)
     {

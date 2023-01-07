@@ -1,0 +1,8 @@
+<div class="input-label">
+    <app-error errorText="Due to the recent spoiler log overhaul, the website cannot display logs of seeds created before the 0.18.1 release. However, you can still download the .txt file: "></app-error>
+    <button class='yellow-button' (click)="downloadSpoilerLog()" [disabled]="isDownloadingSpoilerLog" >
+        <span>Download</span>
+    </button>
+    <app-loading *ngIf="isDownloadingSpoilerLog" [isLoading]="isDownloadingSpoilerLog" [loadingText]="'Loading'"></app-loading>
+    <app-error *ngIf="spoilerLogError" [errorText]="spoilerLogError"></app-error>
+</div>
