@@ -123,7 +123,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     }
 
     const spoilerLogData = Object.fromEntries(Object.entries(spoilerLogJson).filter(
-      ([key]) => key!= "difficulty" && key != "sphere_log" && key != "move_costs" && key != "superblocks"))
+      ([key]) => key!= "difficulty" && key != "sphere_log" && key != "move_costs" && key != "superblocks" && key != "SeedHashItems"))
 
     for (const region in spoilerLogData) {
       spoilerLogRegions[region] = [];
