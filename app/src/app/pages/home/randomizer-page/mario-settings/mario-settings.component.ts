@@ -91,9 +91,9 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
     var startingFPControl = this.marioStatsFormGroup.get('startingMaxFP')
     var adjustedValue = startingFPControl.value;
 
-    if(startingFPControl.value < 5)
+    if(startingFPControl.value < 0)
     {
-      adjustedValue = 5;
+      adjustedValue = 0;
     }
     else if(startingFPControl.value > 50)
     {
@@ -116,9 +116,9 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
   public getAdjustedBPValue(): number {
     var startingBPControl = this.marioStatsFormGroup.get('startingMaxBP')
     var adjustedValue = startingBPControl.value;
-    if(startingBPControl.value < 3)
+    if(startingBPControl.value < 0)
     {
-      adjustedValue = 3;
+      adjustedValue = 0;
     }
     else if(startingBPControl.value > 30)
     {
