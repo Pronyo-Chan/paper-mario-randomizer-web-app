@@ -1,6 +1,30 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
     <mat-card class="settings-card latest-changelog">
+        <mat-card-title class="settings-title">0.18.2 (beta) (2023-01-11)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> When playing Jumpless, Mario cannot use heart blocks.</li>
+            <li> When picking up a previously tossed item while the menu for placing an item into a Shiver Mountain socket is opened, the game crashes.</li>
+            <li> When an NPC attempts to give Mario a consumable item while his inventory is full, the tossed item may be picked up again immediately, causing the "inventory full" menu and NPC interaction to overlap.</li>
+        </ul>
+
+        <h2>Game Mod Fixes</h2>
+        <ul>
+            <li> Fixed an issue with Open Prologue where the opened fence collider would be active, even though there is no fence visible.</li>
+            <li> Fixed Merlow not giving out rewards when playing with Project 64's recompiler.</li>
+        </ul>
+
+        <h2>Seed Generator</h2>
+        <ul>
+            <li> Fixed an issue with Rowf's entries in the spoiler log, where only one item per set would be in the log.</li>
+            <li> Fixed the json file indent so it looks properly formatted.</li>
+        </ul>
+    </mat-card>
+
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.18.1 (beta) (2023-01-07)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
