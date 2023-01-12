@@ -12,6 +12,8 @@ export interface ItemSettings {
     Keysanity: boolean;
     KoopaKootFavors: KootFavorsMode;
     LetterDeliveryRewards: LettersMode;
+    ProgressionOnRowf: boolean;
+    ProgressionOnMerlow: boolean;
     RipCheatoItemsInLogic: number;
     Shopsanity: boolean;
     ShuffleItems: boolean;

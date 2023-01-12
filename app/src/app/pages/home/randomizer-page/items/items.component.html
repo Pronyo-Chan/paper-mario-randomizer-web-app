@@ -8,14 +8,7 @@
             <mat-slide-toggle formControlName='includeCoins'></mat-slide-toggle>
             <app-tooltip-span spanText="Coinsanity" tooltipText="Overworld coins and single coin blocks are included in the item pool (does not include coins from bushes and trees)"></app-tooltip-span>
         </div>
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='includeShops'></mat-slide-toggle>
-            <app-tooltip-span spanText="Shopsanity" 
-                                tooltipText="Shop Items are included in the item pool.
-                                            
-                                            Includes regular item shops, Rowf's badge shop and Merlow's star piece trade">
-            </app-tooltip-span>
-        </div>
+        
         <div class="setting-element">
             <mat-slide-toggle formControlName='includePanels'></mat-slide-toggle>
             <app-tooltip-span spanText="Include Hidden Panels" tooltipText="Star Pieces hidden under hidden panels are included in the item pool"></app-tooltip-span>
@@ -94,5 +87,31 @@
                              tooltipText="Number of items sold by Rip Cheato that can be required in logic. Items in logic will always be sold by him before the out of logic ones."></app-tooltip-span>
             <mat-slider formControlName="ripCheatoItemsInLogic" (input)="itemFormGroup.get('ripCheatoItemsInLogic').setValue($event.value)" min=0 max= 11 step="1" tickInterval="1" ></mat-slider>
         </div> 
+        
+        <mat-divider></mat-divider>
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='includeShops'></mat-slide-toggle>
+            <app-tooltip-span spanText="Shopsanity" 
+                                tooltipText="Shop Items are included in the item pool.
+                                            
+                                            Includes regular item shops, Rowf's badge shop and Merlow's star piece trade">
+            </app-tooltip-span>
+        </div>
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='progressionOnRowf'></mat-slide-toggle>
+            <app-tooltip-span spanText="Rowf Items in Logic " 
+                                tooltipText="Determines whether items sold by Rowf can be required for progression or not.">
+            </app-tooltip-span>
+        </div>
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='progressionOnMerlow'></mat-slide-toggle>
+            <app-tooltip-span spanText="Merlow Items in Logic " 
+                                tooltipText="Determines whether Merlow rewards can be required for progression or not.">
+            </app-tooltip-span>
+        </div>
+
     </mat-card-content>
 </form>

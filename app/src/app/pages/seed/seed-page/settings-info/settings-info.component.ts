@@ -129,7 +129,6 @@ export class SettingsInfoComponent implements OnInit {
     this.itemRows =  [
       {name: "Shuffle Items", value: this.seedModel.Items.ShuffleItems},
       {name: "Coinsanity", value: this.seedModel.Items.Coinsanity},
-      {name: "Shopsanity", value: this.seedModel.Items.Shopsanity},
       {name: "Keysanity", value: this.seedModel.Items.Keysanity},
       {name: "Gear Shuffle", value: GearShuffleMode[this.seedModel.Items.GearShuffle]},
       {name: "Include Dojo Rewards", value: this.seedModel.Items.IncludeDojoRewards},
@@ -140,6 +139,9 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Rip Cheato Items In Logic", value: this.seedModel.Items.RipCheatoItemsInLogic},
       {name: "Shuffle Super/Multicoin Blocks", value: this.seedModel.Items.ShuffleSuperAndMulticoinBlocks},
       {name: "Add Item Pouches", value: this.seedModel.Items.AddItemPouches},
+      {name: "Shopsanity", value: this.seedModel.Items.Shopsanity},
+      {name: "Rowf Items in Logic", value: this.seedModel.Items.ProgressionOnRowf},
+      {name: "Merlow Items in Logic", value: this.seedModel.Items.ProgressionOnMerlow},
     ] as SettingRow[];
   }
 
