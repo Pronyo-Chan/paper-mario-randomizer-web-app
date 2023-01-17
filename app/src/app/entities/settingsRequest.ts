@@ -130,6 +130,8 @@ export interface SettingsRequest {
     GearShuffleMode: number;
     RipCheatoItemsInLogic: number;
     MerlowRewardPricing: number;
+    ProgressionOnRowf: boolean;
+    ProgressionOnMerlow: boolean;
 
     // Glitches: Goomba Region
     PrologueGelEarly: boolean

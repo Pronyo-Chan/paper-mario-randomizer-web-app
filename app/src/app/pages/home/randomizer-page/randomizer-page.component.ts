@@ -114,6 +114,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         shuffleBlocks: new FormControl(false),
         gearShuffleMode: new FormControl(GearShuffleMode.Vanilla),
         ripCheatoItemsInLogic: new FormControl(6),
+        progressionOnRowf: new FormControl(false),
+        progressionOnMerlow: new FormControl(false),
       }),
       gameplay: new FormGroup({
         randomBadgesBP: new FormControl(0),

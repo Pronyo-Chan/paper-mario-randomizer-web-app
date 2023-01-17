@@ -44,7 +44,7 @@ export class SpoilerLogComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.sphereNames = Object.keys(this.allItemSpheres)
     this.areas = Object.keys(this.spoilerLog);
-    this.items = Object.values(this.spoilerLog).flat().flatMap(itemLocation => itemLocation.item)
+    this.items = Object.values(this.spoilerLog).flat().flatMap(itemLocation => this.removePriceFromItemName(itemLocation.item))
   }
 
   public ngOnDestroy(): void {
@@ -55,7 +55,7 @@ export class SpoilerLogComponent implements OnInit, OnDestroy {
 
   public onItemSearchChange() {
     this.itemSearchresult = this.searchText
-    var itemLocations = Object.values(this.spoilerLog).flat().filter(itemLocation => itemLocation.item == this.itemSearchresult);
+    var itemLocations = Object.values(this.spoilerLog).flat().filter(itemLocation => this.removePriceFromItemName(itemLocation.item) == this.itemSearchresult);
     this.locationSearchResults = itemLocations.map(itemLocation => itemLocation.location);
 
     this.areaSearchResults = [];
@@ -114,6 +114,28 @@ export class SpoilerLogComponent implements OnInit, OnDestroy {
     link.href = data;
     link.download = filename;
     link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+  }
+
+  private removePriceFromItemName(itemName: string) {
+    const openingParenthesesIndexes = [];
+    const closingarenthesesIndexes = [];
+
+    for (let i = 0; i < itemName.length; i++) {
+      if (itemName[i] === "(") {
+        openingParenthesesIndexes.push(i)
+      }
+      else if (itemName[i] === ")") {
+        closingarenthesesIndexes.push(i)
+      }
+    }
+
+    for (let i = 0; i < openingParenthesesIndexes.length; i++) {
+      const paranthesisContent = itemName.substring(openingParenthesesIndexes[i], closingarenthesesIndexes[i] + 1)
+      if (paranthesisContent.includes("coins") || paranthesisContent.includes("sp")) {
+        return itemName.replace(paranthesisContent, "").trimEnd();
+      }
+    }
+    return itemName;
   }
 
 }

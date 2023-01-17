@@ -1,6 +1,43 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
     <mat-card class="settings-card latest-changelog">
+        <mat-card-title class="settings-title">0.18.3 (beta) (2023-01-17)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> When playing Jumpless, Mario cannot use heart blocks.</li>
+            <li> When picking up a previously tossed item while the menu for placing an item into a Shiver Mountain socket is opened, the game crashes.</li>
+            <li> When an NPC attempts to give Mario a consumable item while his inventory is full, the tossed item may be picked up again immediately, causing the "inventory full" menu and NPC interaction to overlap.</li>
+        </ul>
+
+        <h2>Options</h2>
+
+        <h3>Merlow Items in Logic (new)</h3>
+        <ul>
+            <li> Determines whether items sold by Merlow can be required for progression or not.</li>
+        </ul>
+
+        <h3>Rowf Items in Logic (new)</h3>
+        <ul>
+            <li> Determines whether items sold by Rowf can be required for progression or not.</li>
+        </ul>
+
+        <h2>Seed Generator</h2>
+        <ul>
+            <li> Added a missing logic requirement for the west stone block in the first sewers warp pipe room. This missing requirement caused some seeds to be unbeatable when activating the "Break Stone Blocks with Ultra Boots" trick.</li>
+            <li> Added a missing logic requirement that Quizmo only appears in Koopa Village (East) after the fuzzy invasion is defeated.</li>
+            <li> Improved spoiler log: Some areas and maps have been renamed and reordered to make more sense.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li> Fixed the formatting of shop prices in the spoiler log.</li>
+            <li> Removed shop prices from the spoiler log search so all instances of an item are regrouped properly.</li>
+        </ul>
+    </mat-card>
+
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.18.2 (beta) (2023-01-11)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     

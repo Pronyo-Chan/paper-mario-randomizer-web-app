@@ -9,7 +9,11 @@ export function pascalToVerboseString(text: string): string {
         return Constants.VERBOSE_LETTER_NAMES[text];
     }
 
-    var cleanText = text.replace(/([A-Z0-9])/g, " $1");
+    if(text.includes("Seed") && text.length == 12) {
+        return text.replace(/([A-Z0-9])/g, " $1");
+    }
+
+    var cleanText = text.replace(/([A-Z])/g, " $1");
     cleanText = cleanText.charAt(0).toUpperCase() + cleanText.slice(1); 
     cleanText = cleanText.replace("H P", "HP")
         .replace("B P", "BP")

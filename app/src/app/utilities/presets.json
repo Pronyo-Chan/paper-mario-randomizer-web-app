@@ -15,7 +15,9 @@
                 "includeRadioTradeEvent": false,
                 "shuffleBlocks": false,
                 "gearShuffleMode": 0,
-                "ripCheatoItemsInLogic": 6
+                "ripCheatoItemsInLogic": 6,
+                "progressionOnRowf": false,
+                "progressionOnMerlow": false
             },
             "gameplay": {
                 "randomBadgesBP": 0,
@@ -172,7 +174,9 @@
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 2,
-            "ripCheatoItemsInLogic": 6
+            "ripCheatoItemsInLogic": 6,
+            "progressionOnRowf": false,
+            "progressionOnMerlow": false
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -329,7 +333,9 @@
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 1,
-            "ripCheatoItemsInLogic": 6
+            "ripCheatoItemsInLogic": 6,
+            "progressionOnRowf": true,
+            "progressionOnMerlow": true
           },
           "gameplay": {
             "randomBadgesBP": 0,
@@ -486,7 +492,9 @@
             "includeRadioTradeEvent": true,
             "shuffleBlocks": true,
             "gearShuffleMode": 2,
-            "ripCheatoItemsInLogic": 11
+            "ripCheatoItemsInLogic": 11,
+            "progressionOnRowf": true,
+            "progressionOnMerlow": true
           },
           "gameplay": {
             "randomBadgesBP": 3,
@@ -643,7 +651,9 @@
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 0,
-            "ripCheatoItemsInLogic": 6
+            "ripCheatoItemsInLogic": 6,
+            "progressionOnRowf": true,
+            "progressionOnMerlow": true
          },
          "gameplay":{
             "randomBadgesBP":1,
