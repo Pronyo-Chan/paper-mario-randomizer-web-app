@@ -1,7 +1,5 @@
-import { KeyItems } from './../../../../../entities/enum/keyItems';
-import { Items } from './../../../../../entities/enum/items';
 import { tap } from 'rxjs';
-import { ChangeDetectorRef, Component, Input, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { StartingItem } from 'src/app/entities/startingItem';
 
@@ -30,7 +28,6 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
   private _startingItemsControlSubscription: any;
 
   public constructor() { }
-  
 
   public ngOnInit(): void {
     this.filteredSearchItems = this.availableItems.map(item => item.name);
@@ -43,15 +40,14 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
 
     this._startingItemsControlSubscription = this.startingItemsFormControl.valueChanges.pipe(
       tap(startingItems => {
-        this.selectedItems =  startingItems.filter(i => i.itemType == this.itemType)
-        if(this.itemType == 'Item' && this.selectedItems.length >= this.MAX_CONSUMABLES_TOTAL || startingItems.length >= this.MAX_ITEMS_TOTAL) {
-          this.searchText.disable()
-        } 
-        else {
-          this.searchText.enable()
-        }
+        this.startingItemsValueChanged(startingItems);
       })
     ).subscribe();
+
+    setTimeout(() => { // Hack to fix the input not disabled properly on init
+      this.startingItemsValueChanged(this.startingItemsFormControl.value);
+      this.filter();
+    });
   }
 
   public ngOnDestroy(): void {
@@ -96,4 +92,13 @@ export class ItemChiplistComponent implements OnInit, OnDestroy {
     }
   }
 
+  private startingItemsValueChanged(startingItems: any) {
+    this.selectedItems = startingItems.filter(i => i.itemType == this.itemType);
+    if (this.itemType == 'Item' && this.selectedItems.length >= this.MAX_CONSUMABLES_TOTAL || startingItems.length >= this.MAX_ITEMS_TOTAL) {
+      this.searchText.disable();
+    }
+    else {
+      this.searchText.enable();
+    }
+  }
 }
