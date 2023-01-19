@@ -21,7 +21,7 @@ export interface SettingsRequest {
     AllowPhysicsGlitches: boolean;
     StartingCoins: number;
     CapEnemyXP: boolean;
-    NoXP: boolean;
+    XPMultiplier: number;
     DoubleDamage: boolean;
     QuadrupleDamage: boolean;
     OHKO: boolean;

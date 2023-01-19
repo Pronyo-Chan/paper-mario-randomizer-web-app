@@ -64,7 +64,7 @@
             "difficulty": {
                 "difficultyMode": 2,
                 "capEnemyXP": true,
-                "noXP": false,
+                "xpMultiplier": 1,
                 "damageMultiplier": 1,
                 "oneHitKO": false,
                 "noSaveBlocks": false,
@@ -223,7 +223,7 @@
           "difficulty": {
             "difficultyMode": 2,
             "capEnemyXP": true,
-            "noXP": false,
+            "xpMultiplier": 1,
             "damageMultiplier": 1,
             "oneHitKO": false,
             "noSaveBlocks": false,
@@ -382,7 +382,7 @@
           "difficulty": {
             "difficultyMode": 2,
             "capEnemyXP": true,
-            "noXP": false,
+            "xpMultiplier": 1,
             "damageMultiplier": 1,
             "oneHitKO": false,
             "noSaveBlocks": false,
@@ -541,7 +541,7 @@
           "difficulty": {
             "difficultyMode": 1,
             "capEnemyXP": false,
-            "noXP": false,
+            "xpMultiplier": 1,
             "damageMultiplier": 1,
             "oneHitKO": false,
             "noSaveBlocks": false,

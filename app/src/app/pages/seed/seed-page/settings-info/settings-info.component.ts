@@ -193,6 +193,7 @@ export class SettingsInfoComponent implements OnInit {
   private initDifficultyRows(): void {
     this.difficultyRows = [
       {name: "Enemy Difficulty", value: this.seedModel.GeneralDifficulty.EnemyDifficulty},
+      {name: "XP Multiplier", value: this.seedModel.GeneralDifficulty.XPMultiplier + "x"},
       {name: "Cap Enemy XP", value: this.seedModel.GeneralDifficulty.CapEnemyXP},
       {name: "Enemy Damage", value: this.seedModel.GeneralDifficulty.EnemyDamage},
       {name: "Consumable Item Pool", value: RandomConsumableMode[this.seedModel.GeneralDifficulty.ConsumableItemPool]},
@@ -204,7 +205,6 @@ export class SettingsInfoComponent implements OnInit {
       {name: "No Healing Items", value: this.seedModel.GeneralDifficulty.NoHealingItems},
       {name: "No Heart Blocks", value: this.seedModel.GeneralDifficulty.NoHeartBlocks},
       {name: "No Save Blocks", value: this.seedModel.GeneralDifficulty.NoSaveBlocks},
-      {name: "No XP", value: this.seedModel.GeneralDifficulty.NoXP},
       {name: "One Hit KO", value: this.seedModel.GeneralDifficulty.OneHitKO}
     ] as SettingRow[]
   }

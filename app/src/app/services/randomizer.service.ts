@@ -164,7 +164,7 @@ export class RandomizerService {
       AllowPhysicsGlitches: !settingsForm.get('qualityOfLife').get('preventPhysicsGlitches').value,
       StartingCoins: settingsForm.get('marioStats').get('startingCoins').value,
       CapEnemyXP: settingsForm.get('difficulty').get('capEnemyXP').value,
-      NoXP: settingsForm.get('difficulty').get('noXP').value,
+      XPMultiplier: settingsForm.get('difficulty').get('xpMultiplier').value,
       DoubleDamage: settingsForm.get('difficulty').get('damageMultiplier').value == 2,
       QuadrupleDamage: settingsForm.get('difficulty').get('damageMultiplier').value == 4,
       OHKO: settingsForm.get('difficulty').get('oneHitKO').value,

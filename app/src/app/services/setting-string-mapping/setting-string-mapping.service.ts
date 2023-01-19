@@ -46,7 +46,8 @@ export class SettingStringMappingService {
     { compressedString: "q", key: "itemQuality", type: "number"},
     { compressedString: "h", key: "noHeartBlocks", type: "bool"},
     { compressedString: "s", key: "noSaveBlocks", type: "bool"},
-    { compressedString: "x", key: "noXP", type: "bool"},
+    { compressedString: "x", key: "noXP", type: "removed"},
+    { compressedString: "a", key: "xpMultiplier", type: "number"},
     { compressedString: "k", key: "oneHitKO", type: "bool"},
     { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
     { compressedString: "z", key: "randomNumberOfStarSpirits", type: "bool"},
@@ -237,7 +238,7 @@ export class SettingStringMappingService {
         case "number":
             i++;
             var numValue = ""
-            while(!isNaN(Number(settingString[i])) || settingString[i] == '-') {
+            while(!isNaN(Number(settingString[i])) || settingString[i] == '-' || settingString[i] == '.') {
               numValue += settingString[i];
               i++;
             }
