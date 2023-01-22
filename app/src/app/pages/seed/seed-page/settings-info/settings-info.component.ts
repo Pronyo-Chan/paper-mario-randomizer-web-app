@@ -233,10 +233,11 @@ export class SettingsInfoComponent implements OnInit {
     this.openWorldRows = [
       {name: "Starting Location", value: this.seedModel.OpenWorld.StartingLocation},
       {name: "Magical Seeds Required", value: this.seedModel.OpenWorld.MagicalSeedsRequired},
-      {name: "Open Blue House", value: this.seedModel.OpenWorld.OpenBlueHouse},
       {name: "Open Prologue", value: this.seedModel.OpenWorld.OpenPrologue},
+      {name: "Open Mt.Rugged", value: this.seedModel.OpenWorld.OpenMtRugged},      
       {name: "Open Toy Box", value: this.seedModel.OpenWorld.OpenToyBox},
       {name: "Open Whale", value: this.seedModel.OpenWorld.OpenWhale},
+      {name: "Open Blue House", value: this.seedModel.OpenWorld.OpenBlueHouse},
     ] as SettingRow[]
   }
 

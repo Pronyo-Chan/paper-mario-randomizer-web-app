@@ -19,12 +19,21 @@
             </select>
         </div>
         <div class="setting-element">
-            <mat-slide-toggle formControlName='blueHouseOpen'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='prologueOpen'></mat-slide-toggle>
             <app-tooltip-span
-                 spanText="Open Blue House"
-                 tooltipText="Off: Mario must obtain the Odd Key to open the Blue House door.
+                 spanText="Open Prologue"
+                 tooltipText="Off: When starting from a location other than Goomba Village, Mario must reach Goomba Village via the sewers, since the bridge is missing.
 
-                            On: The Blue House door is unlocked from the start. The Odd Key is removed from the item pool">
+                            On: Goomba King starts off already defeated and the bridge to reach Goomba Village is present from the start.">
+            </app-tooltip-span>
+        </div>
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='mtRuggedOpen'></mat-slide-toggle>
+            <app-tooltip-span
+                 spanText="Open Mt. Rugged"
+                 tooltipText="Off: A boulder blocks the train to Mt.Rugged (Vanilla).
+
+                            On: The boulder is gone from the start.">
             </app-tooltip-span>
         </div>
         <div class="setting-element">
@@ -46,12 +55,12 @@
             </app-tooltip-span>
         </div>
         <div class="setting-element">
-            <mat-slide-toggle formControlName='prologueOpen'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='blueHouseOpen'></mat-slide-toggle>
             <app-tooltip-span
-                 spanText="Open Prologue"
-                 tooltipText="Off: When starting from a location other than Goomba Village, Mario must reach Goomba Village via the sewers, since the bridge is missing.
+                 spanText="Open Blue House"
+                 tooltipText="Off: Mario must obtain the Odd Key to open the Blue House door.
 
-                            On: Goomba King starts off already defeated and the bridge to reach Goomba Village is present from the start.">
+                            On: The Blue House door is unlocked from the start. The Odd Key is removed from the item pool">
             </app-tooltip-span>
         </div>
     </mat-card-content>

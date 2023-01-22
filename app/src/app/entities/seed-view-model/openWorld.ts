@@ -4,5 +4,6 @@ export interface OpenWorld {
     OpenPrologue: boolean;
     OpenToyBox: boolean;
     StartingLocation: string;
-    OpenWhale: boolean
+    OpenWhale: boolean;
+    OpenMtRugged: boolean;
 }

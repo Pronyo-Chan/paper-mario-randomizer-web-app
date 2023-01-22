@@ -27,6 +27,7 @@ describe('OpenWorldSettingsComponent', () => {
       blueHouseOpen : new FormControl(false),
       toyboxOpen: new FormControl(false),
       whaleOpen: new FormControl(false),
+      mtRuggedOpen: new FormControl(false),
       prologueOpen: new FormControl(false),
     })
     fixture.detectChanges();

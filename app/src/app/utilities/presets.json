@@ -96,6 +96,7 @@
                 "blueHouseOpen": false,
                 "toyboxOpen": false,
                 "whaleOpen": false,
+                "mtRuggedOpen": false,
                 "prologueOpen": false,
                 "startingMap": 65796
             },
@@ -255,6 +256,7 @@
             "blueHouseOpen": true,
             "toyboxOpen": true,
             "whaleOpen": true,
+            "mtRuggedOpen": true,
             "prologueOpen": true,
             "startingMap": 65796
           },
@@ -414,6 +416,7 @@
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
+            "mtRuggedOpen": false,
             "prologueOpen": false,
             "startingMap": 65796
           },
@@ -573,6 +576,7 @@
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
+            "mtRuggedOpen": false,
             "prologueOpen": false,
             "startingMap": 65796
           },
@@ -734,6 +738,7 @@
             "blueHouseOpen":false,
             "toyboxOpen":false,
             "whaleOpen":false,
+            "mtRuggedOpen": false,
             "prologueOpen": false,
             "startingMap":65796
          },
