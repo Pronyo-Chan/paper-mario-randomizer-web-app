@@ -6,4 +6,5 @@ export interface OpenWorld {
     StartingLocation: string;
     OpenWhale: boolean;
     OpenMtRugged: boolean;
+    Ch7BridgeVisible: boolean;
 }

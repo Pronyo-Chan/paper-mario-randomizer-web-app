@@ -238,6 +238,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Open Toy Box", value: this.seedModel.OpenWorld.OpenToyBox},
       {name: "Open Whale", value: this.seedModel.OpenWorld.OpenWhale},
       {name: "Open Blue House", value: this.seedModel.OpenWorld.OpenBlueHouse},
+      {name: "Ch.7 Bridge Visible", value: this.seedModel.OpenWorld.Ch7BridgeVisible},
     ] as SettingRow[]
   }
 

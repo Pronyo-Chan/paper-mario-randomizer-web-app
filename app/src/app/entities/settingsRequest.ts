@@ -31,6 +31,7 @@ export interface SettingsRequest {
     BlueHouseOpen: boolean;
     ToyboxOpen: boolean;
     WhaleOpen: boolean;
+    Ch7BridgeVisible: boolean;
     MtRuggedOpen: boolean;
     PrologueOpen: boolean;
     ShuffleChapterDifficulty: boolean;

@@ -174,6 +174,7 @@ export class RandomizerService {
       ToyboxOpen: settingsForm.get('openLocations').get('toyboxOpen').value,
       MagicalSeedsRequired: settingsForm.get('openLocations').get('magicalSeedsRequired').value,
       WhaleOpen: settingsForm.get('openLocations').get('whaleOpen').value,
+      Ch7BridgeVisible: settingsForm.get('openLocations').get('ch7BridgeVisible').value,
       MtRuggedOpen: settingsForm.get('openLocations').get('mtRuggedOpen').value,
       PrologueOpen: settingsForm.get('openLocations').get('prologueOpen').value,
       StartingMap: settingsForm.get('openLocations').get('startingMap').value,
