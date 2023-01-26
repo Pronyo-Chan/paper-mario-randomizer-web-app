@@ -1,6 +1,61 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
     <mat-card class="settings-card latest-changelog">
+        <mat-card-title class="settings-title">0.19.0 (beta) (2023-02-XX)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> When playing Jumpless, Mario cannot use heart blocks.</li>
+        </ul>
+
+        <h2>Game Mod Fixes</h2>
+        <ul>
+            <li> Fixed an issue where berries and equip upgrades were displayed as a "X" on the Goomba Road signpost.</li>
+            <li> Fixed issues with full inventory menu overlapping with dialogue during cutscenes.</li>
+            <li> Fixed a crash that could occur when placing an item in a Shiver Mountain socket while picking up a tossed item.</li>
+            <li> Fixed an issue with item pouches where items wouldn't be sorted properly in the extra inventory slots.</li>
+            <li> Fixed an issue that would sometimes prevent skipping the whale ride to the island when pressing A.</li>
+            <li> Brought back vanilla staircase skip behavior: When doing the glitch in Koopa Bros. Fortress, Mario will now always enter through the bottom door after the trap cutscene.</li>
+        </ul>
+
+        <h2>Options</h2>
+
+        <h3>XP Multiplier (new)</h3>
+        <ul>
+            <li> This new slider goes from 0x to 2x, in increments of 0.5, and multiplies the star points obtained from enemies.</li>
+            <li> Individual battles will still cap at 100 xp.</li>
+            <li> This option replaces the previous "No XP" toggle.</li>
+        </ul>
+
+        <h3>Mt. Rugged Open (new)</h3>
+        <ul>
+            <li> When turned on, the boulder on the Toad Town train track will be gone from the start.</li>
+        </ul>
+
+        <h3>Ch.7 Visible Bridge (new)</h3>
+        <ul>
+            <li> Off: Blocks leading to Shiver City are invisible and Ultra Boots are required to hit them (Vanilla).</li>
+            <li> On: The blocks are visible from the start so Shiver City can be reached, and they can be hit from above with Super Boots.</li>
+        </ul>
+
+        <h3>Shortened Cutscenes (change)</h3>
+        <ul>
+            <li> The following cutscenes have been shortened:</li>
+            <li> Ch.0: Goomba King (pre-fight).</li>
+            <li> Ch.1: Giving back Kooper's shell, Koopa Bros building block trap, Koopa Bros boss room (pre-fight).</li>
+            <li> Ch.2: Buzzar (pre-fight).</li>
+            <li> Ch.3: Fice T. sees Bootler, Mario meets Bootler in front of the mansion, Tubba goes to sleep, boos block the castle doors during the escape.</li>
+            <li> Ch.4: Kammy spawns an item (Blue Station).</li>
+            <li> Ch.5: Yoshi chief gives Jade Raven.</li>
+            <li> Ch.6: Petunia asks for help, Mario sets the Water Stone (Press A to skip), fighting Lakilester (before and after scenes), breaking the Puff Puff machine.</li>
+            <li> Ch.7: Mayor found on the floor, murder mystery solved, snowmen open the way, duplighost impersonates Kooper (Shiver Mountain), Merlar gives the Star Stone, ice staircase is raised (Press A to skip), Crystal King appears.</li>
+            <li> Ch.8: Camera pan during first visit in Star Haven (removed), receiving Star Beam, Jr. Troopa (pre-fight).</li>
+            <li> Final Boss: After using Star Beam on Final Bowser during the first phase, the game will now skip to the scene after Kammy is defeated. The following cutscene was also slightly shortened.</li>
+        </ul>
+    </mat-card>
+
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.18.3 (beta) (2023-01-17)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
