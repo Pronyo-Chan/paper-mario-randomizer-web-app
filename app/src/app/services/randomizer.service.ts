@@ -35,9 +35,9 @@ export class RandomizerService {
     return this._randomizerRepo.getSeedInfo(seedId);
   }
 
-  public downloadPatchedRom(userRom: any, seedId: string, modVersion: number, cosmeticsFormGroup?: FormGroup): Observable<Blob> 
+  public downloadPatchedRom(userRom: any, seedId: string, modVersion: number, useProdPatch: boolean, cosmeticsFormGroup?: FormGroup): Observable<Blob> 
   {
-    var starRodRom$ = this._randomizerRepo.getStarRodPatch(modVersion).pipe(
+    var starRodRom$ = this._randomizerRepo.getStarRodPatch(modVersion, useProdPatch).pipe(
       switchMap(starRodPatchFile => getMarcFileFromSource(new File([starRodPatchFile], 'patch'))),
       map(starRodMarcFile => {
         var bpsPatch = parseBPSFile(starRodMarcFile);

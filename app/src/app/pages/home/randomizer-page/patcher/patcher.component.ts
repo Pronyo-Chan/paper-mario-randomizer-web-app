@@ -9,6 +9,7 @@ import { RandomizerService } from 'src/app/services/randomizer.service';
 import { getMarcFileFromSource } from 'src/app/utilities/RomPatcher/MarcFile';
 import { crc32 } from 'src/app/utilities/RomPatcher/crc32';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
+import { environment } from 'src/environments/environment';
 
   
 @Component({
@@ -30,6 +31,8 @@ export class PatcherComponent implements OnInit, OnDestroy {
   public isUserRomLoading = false;
   public isPatching = false;
   public doOverrideCosmetics = false;
+  public useProdPatch: boolean;
+  public isProduction: boolean;
 
   public patchingError: string;
 
@@ -50,6 +53,9 @@ export class PatcherComponent implements OnInit, OnDestroy {
         this.processUserRom(userRom.rom)
       }
     });
+
+    this.isProduction = environment.production;
+    this.useProdPatch = environment.production;
   }
 
   public ngOnDestroy(): void {
@@ -78,6 +84,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
       this.userRom,
       this.seedId,
       this.modVersion,
+      this.useProdPatch,
       this.doOverrideCosmetics ? this.cosmeticsFormGroup : null
     ).pipe(
       take(1),
