@@ -1,3 +1,4 @@
+import { ShuffledEntrance } from './shuffledEntrance';
 import { StarPowerCost } from './starPowerCost';
 import { PartnerCost } from './partnerCost';
 import { BadgeCost } from './badgeCost';
@@ -9,4 +10,5 @@ export interface SettingsSpoilerLog
     starPowerCosts: StarPowerCost[];
     superBlocks: string[];
     chapterDifficulties: number[];
+    entrances: ShuffledEntrance[];
 }

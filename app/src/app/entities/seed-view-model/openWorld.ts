@@ -1,3 +1,5 @@
+import { BowsersCastleMode } from "../enum/bowsersCastleMode";
+
 export interface OpenWorld {
     MagicalSeedsRequired: string;
     OpenBlueHouse: boolean;
@@ -7,4 +9,6 @@ export interface OpenWorld {
     OpenWhale: boolean;
     OpenMtRugged: boolean;
     Ch7BridgeVisible: boolean;
+    BowsersCastleMode: BowsersCastleMode;
+    ShuffleDungeonEntrances: boolean
 }

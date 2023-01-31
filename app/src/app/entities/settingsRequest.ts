@@ -37,6 +37,7 @@ export interface SettingsRequest {
     ShuffleChapterDifficulty: boolean;
     ProgressiveScaling: boolean;
     RandomFormations: boolean;
+    ShuffleDungeonEntrances: boolean;
     ShuffleItems: boolean;
     IncludeCoins: boolean;
     IncludeShops: boolean;

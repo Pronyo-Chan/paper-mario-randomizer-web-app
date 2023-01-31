@@ -195,6 +195,32 @@
             </div>
         </div>
     </mat-tab>
+
+    <mat-tab [label]="'Entrances'">
+        <ng-template [ngTemplateOutlet]="searchContainer"></ng-template>
+        <div class="right-container">
+            <div class="table-container">
+                <mat-table [dataSource]="settingsSpoilerLog.entrances">
+                    <ng-container matColumnDef="entry" >
+                        <th mat-header-cell *matHeaderCellDef stic>Entry</th>
+                        <td mat-cell *matCellDef="let element"><span>{{element.entrance}}</span></td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="exit">
+                        <th mat-header-cell *matHeaderCellDef>Exit</th>
+                        <td mat-cell *matCellDef="let element"><span>{{element.exit}}</span></td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="direction">
+                        <th mat-header-cell *matHeaderCellDef>Direction</th>
+                        <td mat-cell *matCellDef="let element"><span>{{element.direction}}</span></td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="['entry', 'exit', 'direction']"></tr>
+                    <tr mat-row *matRowDef="let row; columns: ['entry', 'exit', 'direction'];"></tr>
+                </mat-table>
+            </div>
+        </div>
+    </mat-tab>
 </mat-tab-group>
 
 <ng-template #noSphereData>
