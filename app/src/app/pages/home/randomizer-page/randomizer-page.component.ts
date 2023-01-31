@@ -148,8 +148,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         alwaysISpy: new FormControl(false),      
         alwaysPeekaboo: new FormControl(false),        
         skipQuiz: new FormControl(false),      
-        preventPhysicsGlitches: new FormControl(false), 
-        bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla), 
+        preventPhysicsGlitches: new FormControl(false),
         shortenCutscenes: new FormControl(false), 
         skipEpilogue: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),
@@ -197,7 +196,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         ch7BridgeVisible: new FormControl(true),
         mtRuggedOpen: new FormControl(false),
         prologueOpen: new FormControl(false),
-        startingMap: new FormControl(StartingMap.ToadTown)
+        startingMap: new FormControl(StartingMap.ToadTown),
+        bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla),
+        shuffleDungeonEntrances: new FormControl(false)
       }),
       cosmetics: new FormGroup({
         menu: new FormControl(0),

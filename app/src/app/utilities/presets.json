@@ -51,7 +51,6 @@
                 "alwaysPeekaboo": true,
                 "skipQuiz": false,
                 "preventPhysicsGlitches": false,
-                "bowsersCastleMode": 1,
                 "shortenCutscenes": true,
                 "skipEpilogue": true,
                 "writeSpoilerLog": true,
@@ -99,6 +98,8 @@
                 "ch7BridgeVisible": true,
                 "mtRuggedOpen": false,
                 "prologueOpen": false,
+                "bowsersCastleMode": 1,
+                "shuffleDungeonEntrances": false,
                 "startingMap": 65796
             },
             "cosmetics": {
@@ -212,7 +213,6 @@
             "alwaysPeekaboo": true,
             "skipQuiz": false,
             "preventPhysicsGlitches": false,
-            "bowsersCastleMode": 0,
             "shortenCutscenes": true,
             "skipEpilogue": true,
             "writeSpoilerLog": true,
@@ -260,6 +260,8 @@
             "ch7BridgeVisible": true,
             "mtRuggedOpen": true,
             "prologueOpen": true,
+            "bowsersCastleMode": 0,
+            "shuffleDungeonEntrances": false,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -373,7 +375,6 @@
             "alwaysPeekaboo": true,
             "skipQuiz": false,
             "preventPhysicsGlitches": false,
-            "bowsersCastleMode": 1,
             "shortenCutscenes": true,
             "skipEpilogue": true,
             "writeSpoilerLog": true,
@@ -421,6 +422,8 @@
             "ch7BridgeVisible": true,
             "mtRuggedOpen": false,
             "prologueOpen": false,
+            "bowsersCastleMode": 1,
+            "shuffleDungeonEntrances": false,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -534,7 +537,6 @@
             "alwaysPeekaboo": true,
             "skipQuiz": false,
             "preventPhysicsGlitches": false,
-            "bowsersCastleMode": 0,
             "shortenCutscenes": true,
             "skipEpilogue": true,
             "writeSpoilerLog": true,
@@ -582,6 +584,8 @@
             "ch7BridgeVisible": true,
             "mtRuggedOpen": false,
             "prologueOpen": false,
+            "bowsersCastleMode": 0,
+            "shuffleDungeonEntrances": false,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -695,7 +699,6 @@
             "alwaysPeekaboo":true,
             "skipQuiz":true,
             "preventPhysicsGlitches":false,
-            "bowsersCastleMode":2,
             "shortenCutscenes":true,
             "skipEpilogue":true,
             "writeSpoilerLog":true,
@@ -745,6 +748,8 @@
             "ch7BridgeVisible": true,
             "mtRuggedOpen": false,
             "prologueOpen": false,
+            "bowsersCastleMode":2,
+            "shuffleDungeonEntrances": false,
             "startingMap":65796
          },
          "cosmetics":{

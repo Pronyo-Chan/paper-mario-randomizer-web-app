@@ -1,4 +1,3 @@
-import { LakilesterSprite } from './../../../../entities/enum/lakilesterSprite';
 import { MerlowRewardPricing } from './../../../../entities/enum/merlowRewardPricing';
 import { Boots } from './../../../../entities/enum/boots';
 import { BowsersCastleMode } from './../../../../entities/enum/bowsersCastleMode';
@@ -12,7 +11,6 @@ import { Items } from './../../../../entities/enum/items';
 import { Component, Input, OnInit } from '@angular/core';
 import { HiddenBlockMode } from 'src/app/entities/enum/hiddenBlockMode';
 import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
-import { SpriteSetting } from 'src/app/entities/enum/spriteSetting';
 import { Hammer } from 'src/app/entities/enum/hammer';
 import glitchesJson from '../../../../utilities/glitches.json'
 import { LogicGlitch } from 'src/app/entities/logicGlitch';
@@ -239,6 +237,8 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Open Whale", value: this.seedModel.OpenWorld.OpenWhale},
       {name: "Open Blue House", value: this.seedModel.OpenWorld.OpenBlueHouse},
       {name: "Ch.7 Bridge Visible", value: this.seedModel.OpenWorld.Ch7BridgeVisible},
+      {name: "Bowser's Castle Mode", value: BowsersCastleMode[this.seedModel.OpenWorld.BowsersCastleMode]},
+      {name: "Shuffle Dungeon Entrances", value: this.seedModel.OpenWorld.ShuffleDungeonEntrances},
     ] as SettingRow[]
   }
 
@@ -247,7 +247,6 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Always I Spy", value: this.seedModel.QualityOfLife.AlwaysISpy},
       {name: "Always Peekaboo", value: this.seedModel.QualityOfLife.AlwaysPeekaboo},
       {name: "Always Speedy Spin", value: this.seedModel.QualityOfLife.AlwaysSpeedySpin},
-      {name: "Bowser's Castle Mode", value: BowsersCastleMode[this.seedModel.QualityOfLife.BowsersCastleMode]},
       {name: "Cook Without Frying Pan", value: this.seedModel.QualityOfLife.CookWithoutFryingPan},
       {name: "Foliage Item Hints", value: this.seedModel.QualityOfLife.FoliageItemHints},
       {name: "Hidden Block Mode", value: HiddenBlockMode[this.seedModel.QualityOfLife.HiddenBlockMode]},

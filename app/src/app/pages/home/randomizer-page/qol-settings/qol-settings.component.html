@@ -20,22 +20,6 @@
             </select>
         </div>
 
-        <div class="setting-element dropdown-element">
-            <app-tooltip-span
-                 spanText="Bowser's Castle Mode"
-                  tooltipText="Vanilla: Mario will need to go through the entire castle, like in the original game.
-                  
-                                Shortened: Multiple sections of Bowser's Castle will be skipped. No Bowser Castle's key or partners abilities will be required.
-                                
-                                Boss Rush: The entire castle will be skipped until the hallway where you fight the Duplighosts.">
-            </app-tooltip-span>
-            <select formControlName='bowsersCastleMode'>
-                <option [ngValue]="0">Vanilla</option>
-                <option [ngValue]="1">Shortened</option>
-                <option [ngValue]="2">Boss Rush</option>
-            </select>
-        </div>
-
         <div class="setting-element">
             <mat-slide-toggle formControlName='alwaysSpeedySpin'></mat-slide-toggle>
             <app-tooltip-span spanText="Always Speedy Spin" tooltipText="Mario will always spin fast when pressing Z without needing to equip the Speedy Spin badge.

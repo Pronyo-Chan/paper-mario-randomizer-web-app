@@ -1,3 +1,4 @@
+import { ShuffledEntrance } from './../../../entities/shuffledEntrance';
 import { StarPowerCost } from './../../../entities/starPowerCost';
 import { PartnerCost } from './../../../entities/partnerCost';
 import { BadgeCost } from './../../../entities/badgeCost';
@@ -119,11 +120,12 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       partnerCosts: [],
       starPowerCosts: [],
       superBlocks: [],
-      chapterDifficulties:[]
+      chapterDifficulties:[],
+      entrances: []
     }
 
     const spoilerLogData = Object.fromEntries(Object.entries(spoilerLogJson).filter(
-      ([key]) => key!= "difficulty" && key != "sphere_log" && key != "move_costs" && key != "superblocks" && key != "SeedHashItems"))
+      ([key]) => key!= "difficulty" && key != "sphere_log" && key != "move_costs" && key != "superblocks" && key != "SeedHashItems" && key != "entrances"))
 
     for (const region in spoilerLogData) {
       spoilerLogRegions[region] = [];
@@ -187,6 +189,16 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       for (const superBlockLocation in superBlocksData[areaName]) {
         settingsSpoilerLog.superBlocks.push(`${areaName} - ${superBlocksData[areaName][superBlockLocation]}`);
       }
+    }
+
+    const entrancesData = spoilerLogJson["entrances"]
+    for (const i in entrancesData) {
+      settingsSpoilerLog.entrances.push(
+        {
+          entrance: spoilerLogJson["entrances"][i]["entrance"],
+          exit: spoilerLogJson["entrances"][i]["exit"],
+          direction: pascalToVerboseString(spoilerLogJson["entrances"][i]["direction"]),
+        } as ShuffledEntrance);
     }
 
     if(this.isDifficultyShuffled) {
