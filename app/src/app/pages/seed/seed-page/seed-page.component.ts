@@ -39,8 +39,11 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
   public displaySpoilerLog: boolean = false;
   public isSpoilerLogExpanded: boolean = false;
-  private _navigationSubscription: Subscription;
+
   private isDifficultyShuffled: boolean;
+  private isEntranceRando: boolean;
+
+  private _navigationSubscription: Subscription;
 
   constructor(private _renderer: Renderer2, private _activatedRoute: ActivatedRoute, private _router: Router, private _randomizerService: RandomizerService) { }
   
@@ -68,6 +71,9 @@ export class SeedPageComponent implements OnInit, OnDestroy {
             }
             if(seedModel.GeneralDifficulty.EnemyDifficulty == "Shuffle Chapter Difficulty") {
               this.isDifficultyShuffled = true;
+            }
+            if(seedModel.World.ShuffleDungeonEntrances) {
+              this.isEntranceRando = true;
             }
           }),
           catchError(err => this.handleError(err))
@@ -191,14 +197,16 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       }
     }
 
-    const entrancesData = spoilerLogJson["entrances"]
-    for (const i in entrancesData) {
-      settingsSpoilerLog.entrances.push(
+    if (this.isEntranceRando) {
+      const entrancesData = spoilerLogJson["entrances"]
+      for (const i in entrancesData) {
+        settingsSpoilerLog.entrances.push(
         {
           entrance: spoilerLogJson["entrances"][i]["entrance"],
           exit: spoilerLogJson["entrances"][i]["exit"],
           direction: pascalToVerboseString(spoilerLogJson["entrances"][i]["direction"]),
         } as ShuffledEntrance);
+      }
     }
 
     if(this.isDifficultyShuffled) {

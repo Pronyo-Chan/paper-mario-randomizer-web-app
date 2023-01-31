@@ -196,7 +196,7 @@
         </div>
     </mat-tab>
 
-    <mat-tab [label]="'Entrances'">
+    <mat-tab *ngIf="settingsSpoilerLog.entrances.length" [label]="'Entrances'">
         <ng-template [ngTemplateOutlet]="searchContainer"></ng-template>
         <div class="right-container">
             <div class="table-container">
