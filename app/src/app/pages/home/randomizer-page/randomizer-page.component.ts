@@ -32,6 +32,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public readonly GOOMBA_HAMMERLESS_START_ERROR = 'goombaHammerlessStart';
   public readonly LACKING_SHUFFLE_HAMMERLESS_START_ERROR = 'toadTownHammerlessStart';
   public readonly LACKING_SHUFFLE_JUMPLESS_START_ERROR = 'jumplessStartNoShuffle';
+  public readonly SHUFFLED_ENTRANCES_NO_ITEMS_ERROR = 'entranceRandoNoShuffle';
 
   public homepageLink;
   public formGroup: FormGroup
@@ -69,6 +70,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         return;
       } else if (errors.some(e => e == this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)) {
         this.seedGenError = "Jumpless Start is impossible without Item Shuffle enabled."
+        return;
+      } else if (errors.some(e => e == this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)) {
+        this.seedGenError = "Shuffling entrances is impossible without Item Shuffle enabled."
         return;
       }
     }
@@ -238,7 +242,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isGeneralShuffleEnabled = this.formGroup.get('items').get('shuffleItems').value;
     const isPartnerShuffleEnabled = this.formGroup.get('partners').get('shufflePartners').value;
     const isBombetteStartingPartner = this.formGroup.get('partners').get('startWithPartners').get('bombette').value
-
+    const isEntranceRandoEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value
 
     const isBreakingYellowBlocksWithSuperBootsEnabled = this.formGroup.get('glitches').value
       .some(enabledGlitch => enabledGlitch.settingName == "BreakYellowBlocksWithSuperBoots");
@@ -258,6 +262,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     if ( startingBoots == Boots.Jumpless && !isGeneralShuffleEnabled) {
       errors.push(this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)
+    }
+
+    if ( isEntranceRandoEnabled && !isGeneralShuffleEnabled) {
+      errors.push(this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)
     }
 
     return errors;
