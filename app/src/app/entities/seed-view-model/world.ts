@@ -1,6 +1,6 @@
 import { BowsersCastleMode } from "../enum/bowsersCastleMode";
 
-export interface OpenWorld {
+export interface World {
     MagicalSeedsRequired: string;
     OpenBlueHouse: boolean;
     OpenPrologue: boolean;

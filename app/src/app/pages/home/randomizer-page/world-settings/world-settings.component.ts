@@ -4,11 +4,11 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { StartingMap as StartingMaps } from 'src/app/entities/enum/startingMaps';
 
 @Component({
-  selector: 'app-open-world-settings',
-  templateUrl: './open-world-settings.component.html',
-  styleUrls: ['./open-world-settings.component.scss']
+  selector: 'app-world-settings',
+  templateUrl: './world-settings.component.html',
+  styleUrls: ['./world-settings.component.scss']
 })
-export class OpenWorldSettingsComponent implements OnInit, OnDestroy {
+export class WorldSettingsComponent implements OnInit, OnDestroy {
 
   public startingMaps = [
     {name: "Toad Town", value: StartingMaps.ToadTown},
@@ -18,7 +18,7 @@ export class OpenWorldSettingsComponent implements OnInit, OnDestroy {
     {name: "Random Pick", value: StartingMaps.Random}
   ];
 
-  @Input() public openLocationsFormGroup: FormGroup;
+  @Input() public worldFormGroup: FormGroup;
   private _startingMapSubcription: Subscription;
   public constructor() { }
 

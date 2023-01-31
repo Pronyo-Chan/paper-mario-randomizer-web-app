@@ -31,7 +31,7 @@ import { ItemsComponent } from './pages/home/randomizer-page/items/items.compone
 import { PartnersComponent } from './pages/home/randomizer-page/partners/partners.component';
 import { GameplayComponent } from './pages/home/randomizer-page/gameplay/gameplay.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { OpenWorldSettingsComponent } from './pages/home/randomizer-page/open-world-settings/open-world-settings.component';
+import { WorldSettingsComponent } from './pages/home/randomizer-page/world-settings/world-settings.component';
 import { DifficultySettingsComponent } from './pages/home/randomizer-page/difficulty-settings/difficulty-settings.component';
 import { QolSettingsComponent } from './pages/home/randomizer-page/qol-settings/qol-settings.component';
 import { PresetSettingsComponent } from './pages/home/randomizer-page/preset-settings/preset-settings.component';
@@ -79,7 +79,7 @@ const dbConfig: DBConfig  = {
     ItemsComponent,
     PartnersComponent,
     GameplayComponent,
-    OpenWorldSettingsComponent,
+    WorldSettingsComponent,
     DifficultySettingsComponent,
     QolSettingsComponent,
     PresetSettingsComponent,

@@ -2,7 +2,7 @@ import { QualityOfLife } from './qualityOfLife';
 import { StatsAndGear } from './statsAndGear';
 import { Spoiler } from './spoiler';
 import { Partners } from './partners';
-import { OpenWorld } from './openWorld';
+import { World } from './world';
 import { GeneralDifficulty } from './generalDifficulty';
 import { Gameplay } from './gameplay';
 import { Cosmetics } from './cosmetics';
@@ -15,7 +15,7 @@ export interface SeedViewModel {
     GeneralDifficulty: GeneralDifficulty;
     Glitches: string[];
     Items: ItemSettings;
-    OpenWorld: OpenWorld;
+    World: World;
     Partners: Partners;
     QualityOfLife: QualityOfLife;
     SeedInfo: SeedInfo;

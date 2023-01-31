@@ -42,7 +42,7 @@ export class SettingsInfoComponent implements OnInit {
   public cosmeticsRows: SettingRow[] = [];
   public difficultyRows: SettingRow[] = [];
   public statsAndGearRows: SettingRow[] = [];
-  public openWorldRows: SettingRow[] = [];
+  public worldRows: SettingRow[] = [];
   public qolRows: SettingRow[] = [];
   public spoilerRows: SettingRow[] = [];
   public enabledGlitchesRows: SettingRow[];
@@ -88,7 +88,7 @@ export class SettingsInfoComponent implements OnInit {
     this.initCosmeticsRows();
     this.initDifficultyRows();
     this.initStatsRows();
-    this.initOpenWorldRows();
+    this.initWorldRows();
     this.initQolRows();
     this.initSpoilerRows();
 
@@ -100,7 +100,7 @@ export class SettingsInfoComponent implements OnInit {
       ...this.cosmeticsRows, emptyRow,
       ...this.difficultyRows, emptyRow,
       ...this.statsAndGearRows, emptyRow,
-      ...this.openWorldRows, emptyRow,
+      ...this.worldRows, emptyRow,
       ...this.qolRows, emptyRow,
       ...this.spoilerRows, emptyRow
     ];
@@ -113,7 +113,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Cosmetics", rows: this.cosmeticsRows},
       {name: "Difficulty", rows: this.difficultyRows},
       {name: "Stats & Gear", rows: this.statsAndGearRows},
-      {name: "Open World", rows: this.openWorldRows},
+      {name: "World", rows: this.worldRows},
       {name: "Quality Of Life", rows: this.qolRows},
       {name: "Spoiler", rows: this.spoilerRows},
       {name: "Glitches & Tricks", rows: this.enabledGlitchesRows},
@@ -227,18 +227,18 @@ export class SettingsInfoComponent implements OnInit {
     ] as SettingRow[]
   }
 
-  private initOpenWorldRows(): void {
-    this.openWorldRows = [
-      {name: "Starting Location", value: this.seedModel.OpenWorld.StartingLocation},
-      {name: "Magical Seeds Required", value: this.seedModel.OpenWorld.MagicalSeedsRequired},
-      {name: "Open Prologue", value: this.seedModel.OpenWorld.OpenPrologue},
-      {name: "Open Mt.Rugged", value: this.seedModel.OpenWorld.OpenMtRugged},      
-      {name: "Open Toy Box", value: this.seedModel.OpenWorld.OpenToyBox},
-      {name: "Open Whale", value: this.seedModel.OpenWorld.OpenWhale},
-      {name: "Open Blue House", value: this.seedModel.OpenWorld.OpenBlueHouse},
-      {name: "Ch.7 Bridge Visible", value: this.seedModel.OpenWorld.Ch7BridgeVisible},
-      {name: "Bowser's Castle Mode", value: BowsersCastleMode[this.seedModel.OpenWorld.BowsersCastleMode]},
-      {name: "Shuffle Dungeon Entrances", value: this.seedModel.OpenWorld.ShuffleDungeonEntrances},
+  private initWorldRows(): void {
+    this.worldRows = [
+      {name: "Starting Location", value: this.seedModel.World.StartingLocation},
+      {name: "Magical Seeds Required", value: this.seedModel.World.MagicalSeedsRequired},
+      {name: "Open Prologue", value: this.seedModel.World.OpenPrologue},
+      {name: "Open Mt.Rugged", value: this.seedModel.World.OpenMtRugged},      
+      {name: "Open Toy Box", value: this.seedModel.World.OpenToyBox},
+      {name: "Open Whale", value: this.seedModel.World.OpenWhale},
+      {name: "Open Blue House", value: this.seedModel.World.OpenBlueHouse},
+      {name: "Ch.7 Bridge Visible", value: this.seedModel.World.Ch7BridgeVisible},
+      {name: "Bowser's Castle Mode", value: BowsersCastleMode[this.seedModel.World.BowsersCastleMode]},
+      {name: "Shuffle Dungeon Entrances", value: this.seedModel.World.ShuffleDungeonEntrances},
     ] as SettingRow[]
   }
 
