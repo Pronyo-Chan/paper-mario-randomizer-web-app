@@ -50,7 +50,7 @@
         <div class="setting-element slider-element">
             <app-tooltip-span [spanText]="'XP Multiplier: ' + difficultyFormGroup.get('xpMultiplier').value + 'x'"
                              tooltipText="Multiplies the XP gained from enemies, between 0x and 2x."></app-tooltip-span>
-            <mat-slider formControlName="xpMultiplier" (input)="difficultyFormGroup.get('xpMultiplier').setValue($event.value)" min=0 max= 2 step="0.5" tickInterval="0.5" ></mat-slider>
+            <mat-slider formControlName="xpMultiplier" (input)="difficultyFormGroup.get('xpMultiplier').setValue($event.value)" min=0 max= 2 step="0.5" tickInterval="1" ></mat-slider>
         </div>  
         <div class="setting-element">
             <mat-slide-toggle formControlName='oneHitKO'></mat-slide-toggle>
