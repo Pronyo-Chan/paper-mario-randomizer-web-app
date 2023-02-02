@@ -51,7 +51,6 @@
                 "alwaysPeekaboo": true,
                 "skipQuiz": false,
                 "preventPhysicsGlitches": false,
-                "bowsersCastleMode": 1,
                 "shortenCutscenes": true,
                 "skipEpilogue": true,
                 "writeSpoilerLog": true,
@@ -64,7 +63,7 @@
             "difficulty": {
                 "difficultyMode": 2,
                 "capEnemyXP": true,
-                "noXP": false,
+                "xpMultiplier": 1,
                 "damageMultiplier": 1,
                 "oneHitKO": false,
                 "noSaveBlocks": false,
@@ -96,7 +95,11 @@
                 "blueHouseOpen": false,
                 "toyboxOpen": false,
                 "whaleOpen": false,
+                "ch7BridgeVisible": true,
+                "mtRuggedOpen": false,
                 "prologueOpen": false,
+                "bowsersCastleMode": 1,
+                "shuffleDungeonEntrances": false,
                 "startingMap": 65796
             },
             "cosmetics": {
@@ -210,7 +213,6 @@
             "alwaysPeekaboo": true,
             "skipQuiz": false,
             "preventPhysicsGlitches": false,
-            "bowsersCastleMode": 0,
             "shortenCutscenes": true,
             "skipEpilogue": true,
             "writeSpoilerLog": true,
@@ -223,7 +225,7 @@
           "difficulty": {
             "difficultyMode": 2,
             "capEnemyXP": true,
-            "noXP": false,
+            "xpMultiplier": 1,
             "damageMultiplier": 1,
             "oneHitKO": false,
             "noSaveBlocks": false,
@@ -255,7 +257,11 @@
             "blueHouseOpen": true,
             "toyboxOpen": true,
             "whaleOpen": true,
+            "ch7BridgeVisible": true,
+            "mtRuggedOpen": true,
             "prologueOpen": true,
+            "bowsersCastleMode": 0,
+            "shuffleDungeonEntrances": false,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -369,7 +375,6 @@
             "alwaysPeekaboo": true,
             "skipQuiz": false,
             "preventPhysicsGlitches": false,
-            "bowsersCastleMode": 1,
             "shortenCutscenes": true,
             "skipEpilogue": true,
             "writeSpoilerLog": true,
@@ -382,7 +387,7 @@
           "difficulty": {
             "difficultyMode": 2,
             "capEnemyXP": true,
-            "noXP": false,
+            "xpMultiplier": 1,
             "damageMultiplier": 1,
             "oneHitKO": false,
             "noSaveBlocks": false,
@@ -414,7 +419,11 @@
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
+            "ch7BridgeVisible": true,
+            "mtRuggedOpen": false,
             "prologueOpen": false,
+            "bowsersCastleMode": 1,
+            "shuffleDungeonEntrances": false,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -528,7 +537,6 @@
             "alwaysPeekaboo": true,
             "skipQuiz": false,
             "preventPhysicsGlitches": false,
-            "bowsersCastleMode": 0,
             "shortenCutscenes": true,
             "skipEpilogue": true,
             "writeSpoilerLog": true,
@@ -541,7 +549,7 @@
           "difficulty": {
             "difficultyMode": 1,
             "capEnemyXP": false,
-            "noXP": false,
+            "xpMultiplier": 1,
             "damageMultiplier": 1,
             "oneHitKO": false,
             "noSaveBlocks": false,
@@ -573,7 +581,11 @@
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
+            "ch7BridgeVisible": true,
+            "mtRuggedOpen": false,
             "prologueOpen": false,
+            "bowsersCastleMode": 0,
+            "shuffleDungeonEntrances": false,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -687,7 +699,6 @@
             "alwaysPeekaboo":true,
             "skipQuiz":true,
             "preventPhysicsGlitches":false,
-            "bowsersCastleMode":2,
             "shortenCutscenes":true,
             "skipEpilogue":true,
             "writeSpoilerLog":true,
@@ -734,7 +745,11 @@
             "blueHouseOpen":false,
             "toyboxOpen":false,
             "whaleOpen":false,
+            "ch7BridgeVisible": true,
+            "mtRuggedOpen": false,
             "prologueOpen": false,
+            "bowsersCastleMode":2,
+            "shuffleDungeonEntrances": false,
             "startingMap":65796
          },
          "cosmetics":{

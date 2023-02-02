@@ -13,18 +13,12 @@ import { SeedViewModel } from 'src/app/entities/seed-view-model/seedViewModel';
 })
 export class RandomizerRepository {
 
-  private modFileNamePrefix;
   public constructor(private _httpClient: HttpClient) {    
-    if(environment.production) {
-      this.modFileNamePrefix = "starrod_"
-    }
-    else {
-      this.modFileNamePrefix = "starrod_debug_"
-    }
   }
 
-  public getStarRodPatch(modVersion: number): Observable<Blob> {
-    return this._httpClient.get(`assets/${this.modFileNamePrefix}${modVersion}.bps`, { responseType: 'blob' }).pipe(take(1))
+  public getStarRodPatch(modVersion: number, useProdPatch: boolean): Observable<Blob> {
+    const modFileNamePrefix = useProdPatch ? "starrod_" : "starrod_debug_"
+    return this._httpClient.get(`assets/${modFileNamePrefix}${modVersion}.bps`, { responseType: 'blob' }).pipe(take(1))
   }
 
   public sendRandoSettings(request: SettingsRequest): Observable<string> {

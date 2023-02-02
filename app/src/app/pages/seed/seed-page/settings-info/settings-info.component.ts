@@ -1,4 +1,3 @@
-import { LakilesterSprite } from './../../../../entities/enum/lakilesterSprite';
 import { MerlowRewardPricing } from './../../../../entities/enum/merlowRewardPricing';
 import { Boots } from './../../../../entities/enum/boots';
 import { BowsersCastleMode } from './../../../../entities/enum/bowsersCastleMode';
@@ -12,7 +11,6 @@ import { Items } from './../../../../entities/enum/items';
 import { Component, Input, OnInit } from '@angular/core';
 import { HiddenBlockMode } from 'src/app/entities/enum/hiddenBlockMode';
 import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
-import { SpriteSetting } from 'src/app/entities/enum/spriteSetting';
 import { Hammer } from 'src/app/entities/enum/hammer';
 import glitchesJson from '../../../../utilities/glitches.json'
 import { LogicGlitch } from 'src/app/entities/logicGlitch';
@@ -44,7 +42,7 @@ export class SettingsInfoComponent implements OnInit {
   public cosmeticsRows: SettingRow[] = [];
   public difficultyRows: SettingRow[] = [];
   public statsAndGearRows: SettingRow[] = [];
-  public openWorldRows: SettingRow[] = [];
+  public worldRows: SettingRow[] = [];
   public qolRows: SettingRow[] = [];
   public spoilerRows: SettingRow[] = [];
   public enabledGlitchesRows: SettingRow[];
@@ -90,7 +88,7 @@ export class SettingsInfoComponent implements OnInit {
     this.initCosmeticsRows();
     this.initDifficultyRows();
     this.initStatsRows();
-    this.initOpenWorldRows();
+    this.initWorldRows();
     this.initQolRows();
     this.initSpoilerRows();
 
@@ -102,7 +100,7 @@ export class SettingsInfoComponent implements OnInit {
       ...this.cosmeticsRows, emptyRow,
       ...this.difficultyRows, emptyRow,
       ...this.statsAndGearRows, emptyRow,
-      ...this.openWorldRows, emptyRow,
+      ...this.worldRows, emptyRow,
       ...this.qolRows, emptyRow,
       ...this.spoilerRows, emptyRow
     ];
@@ -115,7 +113,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Cosmetics", rows: this.cosmeticsRows},
       {name: "Difficulty", rows: this.difficultyRows},
       {name: "Stats & Gear", rows: this.statsAndGearRows},
-      {name: "Open World", rows: this.openWorldRows},
+      {name: "World", rows: this.worldRows},
       {name: "Quality Of Life", rows: this.qolRows},
       {name: "Spoiler", rows: this.spoilerRows},
       {name: "Glitches & Tricks", rows: this.enabledGlitchesRows},
@@ -193,6 +191,7 @@ export class SettingsInfoComponent implements OnInit {
   private initDifficultyRows(): void {
     this.difficultyRows = [
       {name: "Enemy Difficulty", value: this.seedModel.GeneralDifficulty.EnemyDifficulty},
+      {name: "XP Multiplier", value: this.seedModel.GeneralDifficulty.XPMultiplier + "x"},
       {name: "Cap Enemy XP", value: this.seedModel.GeneralDifficulty.CapEnemyXP},
       {name: "Enemy Damage", value: this.seedModel.GeneralDifficulty.EnemyDamage},
       {name: "Consumable Item Pool", value: RandomConsumableMode[this.seedModel.GeneralDifficulty.ConsumableItemPool]},
@@ -204,7 +203,6 @@ export class SettingsInfoComponent implements OnInit {
       {name: "No Healing Items", value: this.seedModel.GeneralDifficulty.NoHealingItems},
       {name: "No Heart Blocks", value: this.seedModel.GeneralDifficulty.NoHeartBlocks},
       {name: "No Save Blocks", value: this.seedModel.GeneralDifficulty.NoSaveBlocks},
-      {name: "No XP", value: this.seedModel.GeneralDifficulty.NoXP},
       {name: "One Hit KO", value: this.seedModel.GeneralDifficulty.OneHitKO}
     ] as SettingRow[]
   }
@@ -229,14 +227,18 @@ export class SettingsInfoComponent implements OnInit {
     ] as SettingRow[]
   }
 
-  private initOpenWorldRows(): void {
-    this.openWorldRows = [
-      {name: "Starting Location", value: this.seedModel.OpenWorld.StartingLocation},
-      {name: "Magical Seeds Required", value: this.seedModel.OpenWorld.MagicalSeedsRequired},
-      {name: "Open Blue House", value: this.seedModel.OpenWorld.OpenBlueHouse},
-      {name: "Open Prologue", value: this.seedModel.OpenWorld.OpenPrologue},
-      {name: "Open Toy Box", value: this.seedModel.OpenWorld.OpenToyBox},
-      {name: "Open Whale", value: this.seedModel.OpenWorld.OpenWhale},
+  private initWorldRows(): void {
+    this.worldRows = [
+      {name: "Starting Location", value: this.seedModel.World.StartingLocation},
+      {name: "Magical Seeds Required", value: this.seedModel.World.MagicalSeedsRequired},
+      {name: "Open Prologue", value: this.seedModel.World.OpenPrologue},
+      {name: "Open Mt.Rugged", value: this.seedModel.World.OpenMtRugged},      
+      {name: "Open Toy Box", value: this.seedModel.World.OpenToyBox},
+      {name: "Open Whale", value: this.seedModel.World.OpenWhale},
+      {name: "Open Blue House", value: this.seedModel.World.OpenBlueHouse},
+      {name: "Ch.7 Bridge Visible", value: this.seedModel.World.Ch7BridgeVisible},
+      {name: "Bowser's Castle Mode", value: BowsersCastleMode[this.seedModel.World.BowsersCastleMode]},
+      {name: "Shuffle Dungeon Entrances", value: this.seedModel.World.ShuffleDungeonEntrances},
     ] as SettingRow[]
   }
 
@@ -245,7 +247,6 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Always I Spy", value: this.seedModel.QualityOfLife.AlwaysISpy},
       {name: "Always Peekaboo", value: this.seedModel.QualityOfLife.AlwaysPeekaboo},
       {name: "Always Speedy Spin", value: this.seedModel.QualityOfLife.AlwaysSpeedySpin},
-      {name: "Bowser's Castle Mode", value: BowsersCastleMode[this.seedModel.QualityOfLife.BowsersCastleMode]},
       {name: "Cook Without Frying Pan", value: this.seedModel.QualityOfLife.CookWithoutFryingPan},
       {name: "Foliage Item Hints", value: this.seedModel.QualityOfLife.FoliageItemHints},
       {name: "Hidden Block Mode", value: HiddenBlockMode[this.seedModel.QualityOfLife.HiddenBlockMode]},

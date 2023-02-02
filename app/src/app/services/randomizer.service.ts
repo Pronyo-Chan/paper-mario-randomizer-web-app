@@ -35,9 +35,9 @@ export class RandomizerService {
     return this._randomizerRepo.getSeedInfo(seedId);
   }
 
-  public downloadPatchedRom(userRom: any, seedId: string, modVersion: number, cosmeticsFormGroup?: FormGroup): Observable<Blob> 
+  public downloadPatchedRom(userRom: any, seedId: string, modVersion: number, useProdPatch: boolean, cosmeticsFormGroup?: FormGroup): Observable<Blob> 
   {
-    var starRodRom$ = this._randomizerRepo.getStarRodPatch(modVersion).pipe(
+    var starRodRom$ = this._randomizerRepo.getStarRodPatch(modVersion, useProdPatch).pipe(
       switchMap(starRodPatchFile => getMarcFileFromSource(new File([starRodPatchFile], 'patch'))),
       map(starRodMarcFile => {
         var bpsPatch = parseBPSFile(starRodMarcFile);
@@ -164,7 +164,7 @@ export class RandomizerService {
       AllowPhysicsGlitches: !settingsForm.get('qualityOfLife').get('preventPhysicsGlitches').value,
       StartingCoins: settingsForm.get('marioStats').get('startingCoins').value,
       CapEnemyXP: settingsForm.get('difficulty').get('capEnemyXP').value,
-      NoXP: settingsForm.get('difficulty').get('noXP').value,
+      XPMultiplier: settingsForm.get('difficulty').get('xpMultiplier').value,
       DoubleDamage: settingsForm.get('difficulty').get('damageMultiplier').value == 2,
       QuadrupleDamage: settingsForm.get('difficulty').get('damageMultiplier').value == 4,
       OHKO: settingsForm.get('difficulty').get('oneHitKO').value,
@@ -174,8 +174,12 @@ export class RandomizerService {
       ToyboxOpen: settingsForm.get('openLocations').get('toyboxOpen').value,
       MagicalSeedsRequired: settingsForm.get('openLocations').get('magicalSeedsRequired').value,
       WhaleOpen: settingsForm.get('openLocations').get('whaleOpen').value,
+      Ch7BridgeVisible: settingsForm.get('openLocations').get('ch7BridgeVisible').value,
+      MtRuggedOpen: settingsForm.get('openLocations').get('mtRuggedOpen').value,
       PrologueOpen: settingsForm.get('openLocations').get('prologueOpen').value,
       StartingMap: settingsForm.get('openLocations').get('startingMap').value,
+      BowsersCastleMode: settingsForm.get('openLocations').get('bowsersCastleMode').value,
+      ShuffleDungeonEntrances: settingsForm.get('openLocations').get('shuffleDungeonEntrances').value,
       ShuffleChapterDifficulty: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.RandomChapterDifficulty,
       ProgressiveScaling: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.ProgressiveScaling,
       RandomFormations: settingsForm.get('gameplay').get('randomFormations').value,
@@ -200,7 +204,6 @@ export class RandomizerService {
       RevealLogInHours: settingsForm.get('qualityOfLife').get('revealLogInHours').value,
       RomanNumerals: settingsForm.get('cosmetics').get('romanNumerals').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
-      BowsersCastleMode: settingsForm.get('qualityOfLife').get('bowsersCastleMode').value,
       ShortenCutscenes: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,
       SkipEpilogue: settingsForm.get('qualityOfLife').get('skipEpilogue').value,
       Box5ColorA: Constants.MENU_COLORS[menuColor].colorA,

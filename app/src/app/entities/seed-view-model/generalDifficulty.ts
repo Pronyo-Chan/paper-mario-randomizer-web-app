@@ -13,7 +13,7 @@ export interface GeneralDifficulty {
     NoHealingItems: boolean;
     NoHeartBlocks: boolean;
     NoSaveBlocks: boolean;
-    NoXP: boolean;
+    XPMultiplier: number;
     OneHitKO: boolean;
     RandomNumberOfRrequiredStarSpirits: boolean;
     StarSpiritsRequired: number

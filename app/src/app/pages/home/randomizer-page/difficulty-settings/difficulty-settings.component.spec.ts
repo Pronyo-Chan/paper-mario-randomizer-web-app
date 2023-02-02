@@ -26,7 +26,7 @@ describe('DifficultySettingsComponent', () => {
     component.difficultyFormGroup = new FormGroup({
       difficultyMode: new FormControl(DifficultySetting.Vanilla),
       capEnemyXP: new FormControl(false),
-      noXP: new FormControl(false),
+      xpMultiplier: new FormControl(1),
       damageMultiplier: new FormControl(1),
       oneHitKO: new FormControl(false),
       noSaveBlocks: new FormControl(false),

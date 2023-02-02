@@ -32,6 +32,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public readonly GOOMBA_HAMMERLESS_START_ERROR = 'goombaHammerlessStart';
   public readonly LACKING_SHUFFLE_HAMMERLESS_START_ERROR = 'toadTownHammerlessStart';
   public readonly LACKING_SHUFFLE_JUMPLESS_START_ERROR = 'jumplessStartNoShuffle';
+  public readonly SHUFFLED_ENTRANCES_NO_ITEMS_ERROR = 'entranceRandoNoShuffle';
 
   public homepageLink;
   public formGroup: FormGroup
@@ -69,6 +70,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         return;
       } else if (errors.some(e => e == this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)) {
         this.seedGenError = "Jumpless Start is impossible without Item Shuffle enabled."
+        return;
+      } else if (errors.some(e => e == this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)) {
+        this.seedGenError = "Shuffling entrances is impossible without Item Shuffle enabled."
         return;
       }
     }
@@ -148,8 +152,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         alwaysISpy: new FormControl(false),      
         alwaysPeekaboo: new FormControl(false),        
         skipQuiz: new FormControl(false),      
-        preventPhysicsGlitches: new FormControl(false), 
-        bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla), 
+        preventPhysicsGlitches: new FormControl(false),
         shortenCutscenes: new FormControl(false), 
         skipEpilogue: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),
@@ -162,7 +165,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       difficulty: new FormGroup({
         difficultyMode: new FormControl(DifficultySetting.Vanilla),
         capEnemyXP: new FormControl(false),
-        noXP: new FormControl(false),
+        xpMultiplier: new FormControl(1),
         damageMultiplier: new FormControl(1),
         oneHitKO: new FormControl(false),
         noSaveBlocks: new FormControl(false),
@@ -194,8 +197,12 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         blueHouseOpen : new FormControl(false),
         toyboxOpen: new FormControl(false),
         whaleOpen: new FormControl(false),
+        ch7BridgeVisible: new FormControl(true),
+        mtRuggedOpen: new FormControl(false),
         prologueOpen: new FormControl(false),
-        startingMap: new FormControl(StartingMap.ToadTown)
+        startingMap: new FormControl(StartingMap.ToadTown),
+        bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla),
+        shuffleDungeonEntrances: new FormControl(false)
       }),
       cosmetics: new FormGroup({
         menu: new FormControl(0),
@@ -235,7 +242,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isGeneralShuffleEnabled = this.formGroup.get('items').get('shuffleItems').value;
     const isPartnerShuffleEnabled = this.formGroup.get('partners').get('shufflePartners').value;
     const isBombetteStartingPartner = this.formGroup.get('partners').get('startWithPartners').get('bombette').value
-
+    const isEntranceRandoEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value
 
     const isBreakingYellowBlocksWithSuperBootsEnabled = this.formGroup.get('glitches').value
       .some(enabledGlitch => enabledGlitch.settingName == "BreakYellowBlocksWithSuperBoots");
@@ -255,6 +262,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     if ( startingBoots == Boots.Jumpless && !isGeneralShuffleEnabled) {
       errors.push(this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)
+    }
+
+    if ( isEntranceRandoEnabled && !isGeneralShuffleEnabled) {
+      errors.push(this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)
     }
 
     return errors;

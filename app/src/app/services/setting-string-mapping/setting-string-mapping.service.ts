@@ -46,7 +46,8 @@ export class SettingStringMappingService {
     { compressedString: "q", key: "itemQuality", type: "number"},
     { compressedString: "h", key: "noHeartBlocks", type: "bool"},
     { compressedString: "s", key: "noSaveBlocks", type: "bool"},
-    { compressedString: "x", key: "noXP", type: "bool"},
+    { compressedString: "x", key: "noXP", type: "removed"},
+    { compressedString: "a", key: "xpMultiplier", type: "number"},
     { compressedString: "k", key: "oneHitKO", type: "bool"},
     { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
     { compressedString: "z", key: "randomNumberOfStarSpirits", type: "bool"},
@@ -63,7 +64,7 @@ export class SettingStringMappingService {
     { compressedString: "f", key: "randomBadgesFP", type: "number"},
     { compressedString: "p", key: "randomPartnerFP", type: "number"},
     { compressedString: "s", key: "randomStarpowerSP", type: "number"},
-    { compressedString: "m", key: "mysteryMode", type: "number"},
+    { compressedString: "m", key: "mysteryMode", type: "number"}
   ]
 
   public readonly itemsMap: SettingModel [] = [
@@ -106,8 +107,12 @@ export class SettingStringMappingService {
     { compressedString: "s", key: "startingMap", type: "number"},
     { compressedString: "t", key: "toyboxOpen", type: "bool"},
     { compressedString: "w", key: "whaleOpen", type: "bool"},
+    { compressedString: "c", key: "ch7BridgeVisible", type: "bool"},
+    { compressedString: "r", key: "mtRuggedOpen", type: "bool"},
     { compressedString: "p", key: "prologueOpen", type: "bool"},
     { compressedString: "m", key: "magicalSeedsRequired", type: "number"},
+    { compressedString: "o", key: "bowsersCastleMode", type: "number"},
+    { compressedString: "d", key: "shuffleDungeonEntrances", type: "bool"}
   ]
 
   public readonly startWithPartnersMap: SettingModel [] = [
@@ -138,7 +143,7 @@ export class SettingStringMappingService {
     { compressedString: "g", key: "preventPhysicsGlitches", type: "bool"},
     { compressedString: "q", key: "quizmoAlwaysAppears", type: "bool"},
     { compressedString: "r", key: "romanNumerals", type: "removed"}, // Was moved to color palettes section
-    { compressedString: "b", key: "bowsersCastleMode", type: "number"},
+    { compressedString: "b", key: "bowsersCastleMode", type: "removed"}, // Was moved to World settings
     { compressedString: "c", key: "shortenCutscenes", type: "bool"},
     { compressedString: "e", key: "skipEpilogue", type: "bool"},
     { compressedString: "z", key: "skipQuiz", type: "bool"},
@@ -237,7 +242,7 @@ export class SettingStringMappingService {
         case "number":
             i++;
             var numValue = ""
-            while(!isNaN(Number(settingString[i])) || settingString[i] == '-') {
+            while(!isNaN(Number(settingString[i])) || settingString[i] == '-' || settingString[i] == '.') {
               numValue += settingString[i];
               i++;
             }

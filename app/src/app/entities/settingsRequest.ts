@@ -21,7 +21,7 @@ export interface SettingsRequest {
     AllowPhysicsGlitches: boolean;
     StartingCoins: number;
     CapEnemyXP: boolean;
-    NoXP: boolean;
+    XPMultiplier: number;
     DoubleDamage: boolean;
     QuadrupleDamage: boolean;
     OHKO: boolean;
@@ -31,10 +31,13 @@ export interface SettingsRequest {
     BlueHouseOpen: boolean;
     ToyboxOpen: boolean;
     WhaleOpen: boolean;
+    Ch7BridgeVisible: boolean;
+    MtRuggedOpen: boolean;
     PrologueOpen: boolean;
     ShuffleChapterDifficulty: boolean;
     ProgressiveScaling: boolean;
     RandomFormations: boolean;
+    ShuffleDungeonEntrances: boolean;
     ShuffleItems: boolean;
     IncludeCoins: boolean;
     IncludeShops: boolean;

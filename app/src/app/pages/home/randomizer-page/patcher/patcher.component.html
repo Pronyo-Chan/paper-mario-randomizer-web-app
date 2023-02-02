@@ -5,6 +5,10 @@
                 <mat-slide-toggle [(ngModel)]="doOverrideCosmetics"></mat-slide-toggle>
                 <app-tooltip-span spanText="Override Original Cosmetics" tooltipText="Overrides the cosmetic settings chosen during generation with the ones selected on this page."></app-tooltip-span>
             </div>
+            <div class="setting-element" *ngIf="!isProduction">
+                <mat-slide-toggle [(ngModel)]="useProdPatch"></mat-slide-toggle>
+                <app-tooltip-span spanText="Use Production Patch" tooltipText="Dev only option: Use production patch in debug environments."></app-tooltip-span>
+            </div>
             <div>
                 <input type="file" name="file" id="file" class="inputfile" (change)="handleFileInput($event.target.files)" aria-label="Please Select a Valid Paper Mario z64 rom">
                 <label for="file">
