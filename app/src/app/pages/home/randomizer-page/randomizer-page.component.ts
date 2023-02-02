@@ -72,7 +72,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         this.seedGenError = "Jumpless Start is impossible without Item Shuffle enabled."
         return;
       } else if (errors.some(e => e == this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)) {
-        this.seedGenError = "Shuffling entrances is impossible without Item Shuffle enabled."
+        this.seedGenError = "Shuffling entrances is impossible without Item and Partner Shuffle enabled."
         return;
       }
     }
@@ -264,7 +264,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       errors.push(this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)
     }
 
-    if ( isEntranceRandoEnabled && !isGeneralShuffleEnabled) {
+    if ( isEntranceRandoEnabled && (!isGeneralShuffleEnabled || !isPartnerShuffleEnabled)) {
       errors.push(this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)
     }
 
