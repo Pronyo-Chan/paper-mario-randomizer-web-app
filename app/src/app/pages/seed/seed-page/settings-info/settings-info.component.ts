@@ -250,7 +250,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Cook Without Frying Pan", value: this.seedModel.QualityOfLife.CookWithoutFryingPan},
       {name: "Foliage Item Hints", value: this.seedModel.QualityOfLife.FoliageItemHints},
       {name: "Hidden Block Mode", value: HiddenBlockMode[this.seedModel.QualityOfLife.HiddenBlockMode]},
-      {name: "Prevent Physics Glitches", value: this.seedModel.QualityOfLife.PreventPhysicsGlitches},
+      {name: "Prevent OOB / LZS tricks", value: this.seedModel.QualityOfLife.PreventPhysicsGlitches},
       {name: "Quizmo Always Appear", value: this.seedModel.QualityOfLife.QuizmoAlwaysAppear},
       {name: "Shorten Cutscenes", value: this.seedModel.QualityOfLife.ShortenCutscenes},
       {name: "Skip Epilogue", value: this.seedModel.QualityOfLife.SkipEpilogue},
