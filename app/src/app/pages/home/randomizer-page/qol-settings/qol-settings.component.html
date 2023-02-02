@@ -29,7 +29,9 @@
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='preventPhysicsGlitches'></mat-slide-toggle>
-            <app-tooltip-span spanText="Prevent Physics Glitches" tooltipText="Patches out of bound exploits present in the original game. Forced off if any glitch/trick is enabled."></app-tooltip-span>
+            <app-tooltip-span spanText="Prevent OOB / LZS tricks" tooltipText="Prevents out of bound and loading zone storage tricks. This setting does NOT affect logic in any way and cannot be used if any glitch/trick is enabled in logic.
+            
+            Warning: In some cases, attempting out of bound exploits with this setting enabled can cause softlocks, as the game fails to properly reset Mario's position."></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='alwaysPeekaboo'></mat-slide-toggle>
