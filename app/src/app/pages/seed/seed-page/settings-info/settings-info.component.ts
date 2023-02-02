@@ -191,7 +191,7 @@ export class SettingsInfoComponent implements OnInit {
   private initDifficultyRows(): void {
     this.difficultyRows = [
       {name: "Enemy Difficulty", value: this.seedModel.GeneralDifficulty.EnemyDifficulty},
-      {name: "XP Multiplier", value: this.seedModel.GeneralDifficulty.XPMultiplier + "x"},
+      {name: "XP Multiplier", value: this.seedModel.GeneralDifficulty.XPMultiplier ? `${this.seedModel.GeneralDifficulty.XPMultiplier}x` : null},
       {name: "Cap Enemy XP", value: this.seedModel.GeneralDifficulty.CapEnemyXP},
       {name: "Enemy Damage", value: this.seedModel.GeneralDifficulty.EnemyDamage},
       {name: "Consumable Item Pool", value: RandomConsumableMode[this.seedModel.GeneralDifficulty.ConsumableItemPool]},
