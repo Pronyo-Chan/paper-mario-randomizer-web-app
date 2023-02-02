@@ -711,6 +711,7 @@
          "difficulty":{
             "difficultyMode":1,
             "capEnemyXP":false,
+            "xpMultiplier": 1,
             "noXP":false,
             "damageMultiplier":1,
             "oneHitKO":false,
