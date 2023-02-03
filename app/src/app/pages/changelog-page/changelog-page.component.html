@@ -1,6 +1,23 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
     <mat-card class="settings-card latest-changelog">
+        <mat-card-title class="settings-title">0.19.1 (beta) (2023-02-02)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> When playing Jumpless, Mario cannot use heart blocks.</li>
+            <li> The 0.19.0 update introduces breaking changes to the settings string. Previously exported settings will need to be exported again. Saved presets should work but Bowser's Castle Mode will not update on load, so please update your presets too.</li>
+        </ul>
+
+        <h2>Game Mod Fixes</h2>
+        <ul>
+            <li> Fixed a console crash that would occur when shuffling dungeon entrances after defeating Tutankoopa.</li>
+            <li> Fixed a bug with the "riding the beanstalk" cutscene, where it wouldn't end unless the A button was pressed.</li>
+        </ul>
+    </mat-card>
+
+    <mat-card class="settings-card latest-changelog">
         <mat-card-title class="settings-title">0.19.0 (beta) (2023-02-02)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
