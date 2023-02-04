@@ -234,7 +234,11 @@ body.red-bg {
          .full-width-element {
             flex-basis: 100%;
          }
-     }        
+     }
+     
+     div.disabled-element {
+        opacity: 35%;
+    }        
  }
 
  .small-card {

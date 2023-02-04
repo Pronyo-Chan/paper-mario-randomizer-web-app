@@ -151,6 +151,7 @@ export class SettingStringMappingService {
     { compressedString: "l", key: "writeSpoilerLog", type: "bool"},
     { compressedString: "f", key: "foliageItemHints", type: "bool"},
     { compressedString: "t", key: "revealLogInHours", type: "number"},
+    { compressedString: "d", key: "delaySpoilerLog", type: "bool"},
     { compressedString: "v", key: "hiddenPanelVisibility", type: "bool"},
     { compressedString: "o", key: "cookWithoutFryingPan", type: "bool"},
   ]

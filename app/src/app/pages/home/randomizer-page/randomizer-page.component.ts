@@ -157,6 +157,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         skipEpilogue: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),
         revealLogInHours: new FormControl(0),
+        delaySpoilerLog: new FormControl(false),
         quizmoAlwaysAppears: new FormControl(false),
         foliageItemHints: new FormControl(false),
         hiddenPanelVisibility: new FormControl(false),
