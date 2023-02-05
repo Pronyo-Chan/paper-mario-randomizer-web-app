@@ -1,15 +1,19 @@
 <form [formGroup]="formGroup">
     <mat-card-content class=settings-card-content>        
         <div class="setting-element">
-            <mat-slide-toggle [formControl]="formGroup.get('qualityOfLife').get('writeSpoilerLog')"></mat-slide-toggle>
+            <mat-slide-toggle [formControl]="writeSpoilerLogControl"></mat-slide-toggle>
             <app-tooltip-span spanText="Include Spoiler Log" tooltipText="A Spoiler Log containing every item location in your custom ROM will be provided"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle [formControl]="formGroup.get('difficulty').get('allowItemHints')"></mat-slide-toggle>
             <app-tooltip-span spanText="Merluvlee Item Hints" tooltipText="Allows Mario to obtain hints about the locations of star pieces, key items and badges by paying Merluvlee at Shooting Star Summit."></app-tooltip-span>
         </div>
-        <div *ngIf="formGroup.get('qualityOfLife').get('writeSpoilerLog').value == true" class="setting-element input-element">
-            <app-tooltip-span spanText="Reveal log in" tooltipText="Amount of hours to delay the availability of spoiler log for races. To have it immediately, put 0."></app-tooltip-span>
+        <div [ngClass]="{ 'disabled-element': !writeSpoilerLogControl.value}" class="setting-element input-element">
+            <mat-slide-toggle [formControl]="delaySpoilerLogControl"></mat-slide-toggle>
+            <app-tooltip-span spanText="Delay Spoiler Log" tooltipText="Enable this to have the spoiler log available after a number of hours"></app-tooltip-span>
+        </div>
+        <div [ngClass]="{ 'disabled-element': !writeSpoilerLogControl.value || !delaySpoilerLogControl.value}" class="setting-element input-element">
+            <app-tooltip-span spanText="Reveal log in" tooltipText="Amount of hours to delay the availability of spoiler log for races."></app-tooltip-span>
             <input class="center-input"
                  matInput type="number"
                  min="0" 
@@ -18,7 +22,7 @@
                  [formControl]="formGroup.get('qualityOfLife').get('revealLogInHours')"
                  (blur)="onRevealLogInHoursBlur()"
                  autocomplete="off">
-                 <app-tooltip-span spanText="hours" tooltipText="Amount of hours to delay the availability of spoiler log for races. To have it immediately, put 0."></app-tooltip-span>
+                 <app-tooltip-span spanText="hours" tooltipText="Amount of hours to delay the availability of spoiler log for races."></app-tooltip-span>
         </div>
     </mat-card-content>
 </form>

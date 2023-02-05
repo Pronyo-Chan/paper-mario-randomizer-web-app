@@ -201,7 +201,7 @@ export class RandomizerService {
       PartnersAlwaysUsable: settingsForm.get('partners').get('partnersAlwaysUsable').value,
       StartWithRandomPartners: settingsForm.get('partners').get('startWithRandomPartners').value,
       WriteSpoilerLog: settingsForm.get('qualityOfLife').get('writeSpoilerLog').value,
-      RevealLogInHours: settingsForm.get('qualityOfLife').get('revealLogInHours').value,
+      RevealLogInHours: settingsForm.get('qualityOfLife').get('delaySpoilerLog').value ? settingsForm.get('qualityOfLife').get('revealLogInHours').value : 0,
       RomanNumerals: settingsForm.get('cosmetics').get('romanNumerals').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
       ShortenCutscenes: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,

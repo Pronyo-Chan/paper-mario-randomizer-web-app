@@ -85,7 +85,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         this.navigateToSeedPage(seedId);
       }),
       catchError(err => {
-        if(typeof err.error === 'string' && (err.error as string)?.includes("StarRodModVersion")) {
+        if(err.status === 429) {
+          this.seedGenError = "Limit reached: Only 10 seeds per hour can be generated."
+        }
+        else if(typeof err.error === 'string' && (err.error as string)?.includes("StarRodModVersion")) {
           this.seedGenError = "Server version mismatch. Please refresh the page and try again."
         }
         else {
@@ -157,6 +160,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         skipEpilogue: new FormControl(false), 
         writeSpoilerLog: new FormControl(true),
         revealLogInHours: new FormControl(0),
+        delaySpoilerLog: new FormControl(false),
         quizmoAlwaysAppears: new FormControl(false),
         foliageItemHints: new FormControl(false),
         hiddenPanelVisibility: new FormControl(false),
