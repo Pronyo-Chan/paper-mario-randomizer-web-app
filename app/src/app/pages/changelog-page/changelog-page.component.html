@@ -1,6 +1,50 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
     <mat-card class="settings-card latest-changelog">
+        <mat-card-title class="settings-title">0.20.0 (beta) (2023-02-XX)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> When playing Jumpless, Mario cannot use heart blocks.</li>
+        </ul>
+
+        <h2>Game Mod Fixes</h2>
+        <ul>
+            <li> Fixed an issue with the Laki boss fight, where the "Cap Enemy XP" setting would treat it as a regular enemy fight.</li>
+            <li> Fixed an error in Laki Lee's HP value, that would result in an extended HP bar after Lee transforms.</li>
+            <li> Temporarily disabled Koot's hidden function to skip a favor, as it is causing various issues.</li>
+            <li> Fixed an issue with the ice staircase cutscene skip, where it was possible to "skip" the cutscene with "A" even after it ended, warping Mario back in front of the star stone.</li>
+        </ul>
+
+        <h2>Options</h2>
+
+        <h3> Coinsanity (change)</h3>
+        <ul>
+            <li> The Coinsanity setting has been replaced by four new settings that now cover all the unique coins in the game.</li>
+            <li> Shuffle Overworld Coins: Overworld coins are included in the item pool.</li>
+            <li> Shuffle Coin Blocks: Single coin blocks are included in the item pool.</li>
+            <li> Shuffle Favor Coins: Coins earned from Koot favors are included in the item pool. Only has an effect when Koot favors are also shuffled.</li>
+            <li> Shuffle Foliage Coins: Coins from bushes and trees are included in the item pool.</li>
+        </ul>
+
+        <h3>Shortened Cutscenes (Change)</h3>
+        <ul>
+            <li> Simon the poet will now only give the lyrics the first time Mario talks to him when "Shortened Cutscenes" is enabled.</li>
+            <li> Removed the camera pan when first arriving at Koopa Bros Fortress.</li>
+            <li> Kolorado will now give the Artifact the first time Mario talks to him when "Shortened Cutscenes" is enabled.</li>
+            <li> Mario now only needs to talk to the train conductor once to ride the train in Toy Box.</li>
+            <li> Removed the short cutscene when first entering the Red Barricade room where a shy guy flees behind the wall.</li>
+            <li> When solving the Crystal Palace puzzle where you must use Kooper's ability inside the wall's hole, the mirror copy of Mario will already be showing the puzzle solution when entering the room, so you don't need to wait after it.</li>
+        </ul>
+
+        <h2>Seed Generator</h2>
+        <ul>
+            <li> The generator now uses Python 3.11, which should speed up generation time by around 15%.</li>
+        </ul>
+    </mat-card>
+
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.19.1 (beta) (2023-02-02)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
@@ -17,7 +61,7 @@
         </ul>
     </mat-card>
 
-    <mat-card class="settings-card latest-changelog">
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.19.0 (beta) (2023-02-02)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
