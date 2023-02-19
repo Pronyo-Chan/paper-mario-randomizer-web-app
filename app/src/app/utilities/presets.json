@@ -4,7 +4,10 @@
         "settings": {
             "items": {
                 "shuffleItems": true,
-                "includeCoins": false,
+                "includeCoinsOverworld": false,
+                "includeCoinsBlocks": false,
+                "includeCoinsFavors": false,
+                "includeCoinsFoliage": false,
                 "includeShops": false,
                 "includePanels": false,
                 "includeFavors": 0,
@@ -166,8 +169,11 @@
         "name": "Open World",
         "settings": {
           "items": {
-            "shuffleItems": true,
-            "includeCoins": false,
+            "shuffleItems": true,            
+            "includeCoinsOverworld": false,
+            "includeCoinsBlocks": false,
+            "includeCoinsFavors": false,
+            "includeCoinsFoliage": false,
             "includeShops": false,
             "includePanels": false,
             "includeFavors": 0,
@@ -329,8 +335,11 @@
         "name": "Intermediate",
         "settings": {
           "items": {
-            "shuffleItems": true,
-            "includeCoins": false,
+            "shuffleItems": true,            
+            "includeCoinsOverworld": false,
+            "includeCoinsBlocks": false,
+            "includeCoinsFavors": false,
+            "includeCoinsFoliage": false,
             "includeShops": true,
             "includePanels": true,
             "includeFavors": 1,
@@ -492,8 +501,11 @@
         "name": "Extreme Shuffle",
         "settings": {
           "items": {
-            "shuffleItems": true,
-            "includeCoins": true,
+            "shuffleItems": true,            
+            "includeCoinsOverworld": true,
+            "includeCoinsBlocks": true,
+            "includeCoinsFavors": true,
+            "includeCoinsFoliage": true,
             "includeShops": true,
             "includePanels": true,
             "includeFavors": 2,
@@ -655,8 +667,11 @@
       "name": "Standard Race",
       "settings":{
          "items":{
-            "shuffleItems":true,
-            "includeCoins":false,
+            "shuffleItems":true,            
+            "includeCoinsOverworld": false,
+            "includeCoinsBlocks": false,
+            "includeCoinsFavors": false,
+            "includeCoinsFoliage": false,
             "includeShops":true,
             "includePanels":false,
             "includeFavors":0,

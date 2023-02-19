@@ -126,7 +126,10 @@ export class SettingsInfoComponent implements OnInit {
   private initItemRows(): void {
     this.itemRows =  [
       {name: "Shuffle Items", value: this.seedModel.Items.ShuffleItems},
-      {name: "Coinsanity", value: this.seedModel.Items.Coinsanity},
+      {name: "Shuffle Overworld Coins", value: this.seedModel.Items.IncludeCoinsOverworld},
+      {name: "Shuffle Coin Blocks", value: this.seedModel.Items.IncludeCoinsBlocks},
+      {name: "Shuffle Favor Coins", value: this.seedModel.Items.IncludeCoinsFavors},
+      {name: "Shuffle Foliage Coins", value: this.seedModel.Items.IncludeCoinsFoliage},
       {name: "Keysanity", value: this.seedModel.Items.Keysanity},
       {name: "Gear Shuffle", value: GearShuffleMode[this.seedModel.Items.GearShuffle]},
       {name: "Include Dojo Rewards", value: this.seedModel.Items.IncludeDojoRewards},

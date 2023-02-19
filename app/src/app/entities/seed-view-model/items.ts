@@ -4,7 +4,10 @@ import { LettersMode } from "../enum/lettersMode";
 
 export interface ItemSettings {
     AddItemPouches: boolean;
-    Coinsanity: boolean;
+    IncludeCoinsOverworld: boolean;
+    IncludeCoinsBlocks: boolean;
+    IncludeCoinsFavors: boolean;
+    IncludeCoinsFoliage: boolean;
     GearShuffle: GearShuffleMode;
     IncludeDojoRewards: boolean;
     IncludeHiddenPanels: boolean;

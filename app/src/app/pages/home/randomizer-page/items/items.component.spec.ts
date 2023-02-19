@@ -25,7 +25,10 @@ describe('ItemsComponent', () => {
 
     component.itemFormGroup = new FormGroup({
       shuffleItems: new FormControl(false),
-      includeCoins: new FormControl(false),
+      includeCoinsOverworld: new FormControl(false),
+      includeCoinsBlocks: new FormControl(false),
+      includeCoinsFavors: new FormControl(false),
+      includeCoinsFoliage: new FormControl(false),
       includeShops: new FormControl(false),
       includePanels: new FormControl(false),
       includeFavors: new FormControl(false),
