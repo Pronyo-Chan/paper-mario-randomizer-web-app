@@ -39,7 +39,10 @@ export interface SettingsRequest {
     RandomFormations: boolean;
     ShuffleDungeonEntrances: boolean;
     ShuffleItems: boolean;
-    IncludeCoins: boolean;
+    IncludeCoinsOverworld: boolean;
+    IncludeCoinsBlocks: boolean;
+    IncludeCoinsFavors: boolean;
+    IncludeCoinsFoliage: boolean;
     IncludeShops: boolean;
     IncludePanels: boolean;
     IncludeFavorsMode: KootFavorsMode;

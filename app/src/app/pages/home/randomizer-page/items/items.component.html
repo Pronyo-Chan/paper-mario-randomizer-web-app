@@ -4,10 +4,6 @@
             <mat-slide-toggle formControlName='shuffleItems'></mat-slide-toggle>
             <app-tooltip-span spanText="Shuffle Items" tooltipText="Shuffle overworld items (free-standing, given by NPC, found in blocks, bushes and trees etc)."></app-tooltip-span>
         </div>
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='includeCoins'></mat-slide-toggle>
-            <app-tooltip-span spanText="Coinsanity" tooltipText="Overworld coins and single coin blocks are included in the item pool (does not include coins from bushes and trees)"></app-tooltip-span>
-        </div>
         
         <div class="setting-element">
             <mat-slide-toggle formControlName='includePanels'></mat-slide-toggle>
@@ -111,6 +107,28 @@
             <app-tooltip-span spanText="Merlow Items in Logic " 
                                 tooltipText="Determines whether Merlow rewards can be required for progression or not.">
             </app-tooltip-span>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='includeCoinsOverworld'></mat-slide-toggle>
+            <app-tooltip-span spanText="Shuffle Overworld Coins" tooltipText="Overworld coins are included in the item pool."></app-tooltip-span>
+        </div>
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='includeCoinsBlocks'></mat-slide-toggle>
+            <app-tooltip-span spanText="Shuffle Coin Blocks" tooltipText="Single coin blocks are included in the item pool."></app-tooltip-span>
+        </div>
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='includeCoinsFavors'></mat-slide-toggle>
+            <app-tooltip-span spanText="Shuffle Favor Coins" tooltipText="Coins earned from Koot favors are included in the item pool. Only has an effect when Koot favors are also shuffled. "></app-tooltip-span>
+        </div>
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='includeCoinsFoliage'></mat-slide-toggle>
+            <app-tooltip-span spanText="Shuffle Foliage Coins" tooltipText="Coins from bushes and trees are included in the item pool."></app-tooltip-span>
         </div>
 
     </mat-card-content>
