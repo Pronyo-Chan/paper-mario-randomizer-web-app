@@ -1,6 +1,38 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
     <mat-card class="settings-card latest-changelog">
+        <mat-card-title class="settings-title">0.21.0 (beta) (2023-03-XX)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> When playing Jumpless, Mario cannot use heart blocks.</li>
+        </ul>
+
+        <h2>Game Mod Changes</h2>
+        <ul>
+            <li> Cutscenes that can be skipped will now display a prompt to skip with "A" in the bottom-right corner of the screen.</li>
+            <li> Imported the JP collisions for the volcano entrance map, so the easier JP version of the "Raph Skip" glitch can be performed. 🎉Shoutouts to <span class="bolder-text">OfficialVladimirLenin</span> for providing the modification!🎉</li>
+            <li> Adjusted the XP formula so Mario gets more star points at lvl 0 than lvl 1.</li>
+            <li> Fixed an issue where some trees and bushes in Jade Jungle could spawn items infinitely.</li>
+            <li> Fixed an issue an issue with the ice staircase cutscene where the star stone would dissapear behind the socket.</li>
+            <li> Fixed an issue an issue with the beanstalk rising cutscene, where the beanstalk would be invisible during the first half of the cutscene.</li>
+        </ul>
+
+        <h2>Features</h2>
+
+        <h3>In-game Map tracker</h3>
+        <ul>
+            <li> An integrated map tracker has been added to the world map in the start menu.</li>
+            <li> Hovering a map location will now reveal the following info for regular item checks: (number of items collected) / (total number of item checks).</li>
+            <li> Hovering a map location will now reveal the following info for shop items: (number of distinct shop items bought) / (total number of shop items).</li>
+            <li> The total amount of checks for a region will change depending on what is randomized (ex: Koot favors will only be counted as checks with Koot favors shuffled).</li>
+            <li> The tracker will always count all shop items, even with shopsanity disabled.</li>
+            <li> Items are counted as checked upon pickup.</li>
+        </ul>
+    </mat-card>
+
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.20.0 (beta) (2023-02-23)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
