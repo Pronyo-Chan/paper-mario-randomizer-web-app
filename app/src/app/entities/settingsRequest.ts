@@ -256,6 +256,7 @@ export interface SettingsRequest {
 
     // Glitches: Jade Jungle
     RaphSkipEnglish: boolean
+    RaphSkipParakarry: boolean
     Ch5SushieGlitch: boolean
     SushielessJungleStarpieceAndLetter: boolean
     JumplessDeepJungleLaki: boolean

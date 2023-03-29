@@ -402,6 +402,7 @@ export class RandomizerService {
 
       // Glitches: Jade Jungle
       RaphSkipEnglish: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RaphSkipEnglish"),
+      RaphSkipParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RaphSkipParakarry"),
       Ch5SushieGlitch: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Ch5SushieGlitch"),
       SushielessJungleStarpieceAndLetter: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SushielessJungleStarpieceAndLetter"),
       JumplessDeepJungleLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessDeepJungleLaki"),
