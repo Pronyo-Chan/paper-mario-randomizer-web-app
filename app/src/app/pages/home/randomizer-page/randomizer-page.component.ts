@@ -230,6 +230,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomText: new FormControl(false),
         romanNumerals: new FormControl(false),
         randomPitch: new FormControl(false),
+        shuffleMusic: new FormControl(-1),
+        shuffleJingles: new FormControl(false),
       }),
       glitches: new FormControl([])
     });

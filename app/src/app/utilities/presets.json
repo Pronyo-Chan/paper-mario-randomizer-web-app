@@ -160,7 +160,9 @@
                 "coinColor": 0,
                 "randomText": false,
                 "romanNumerals": false,
-                "randomPitch": false
+                "randomPitch": false,
+                "shuffleMusic": -1,
+                "shuffleJingles": false
             },
             "glitches": []
         }
@@ -326,7 +328,9 @@
             "coinColor": 0,
             "randomText": false,
             "romanNumerals": false,
-            "randomPitch": false
+            "randomPitch": false,
+            "shuffleMusic": -1,
+            "shuffleJingles": false
           },
           "glitches": []
         }
@@ -492,7 +496,9 @@
             "coinColor": 0,
             "randomText": false,
             "romanNumerals": false,
-            "randomPitch": false
+            "randomPitch": false,
+            "shuffleMusic": -1,
+            "shuffleJingles": false
           },
           "glitches": []
         }
@@ -658,7 +664,9 @@
             "coinColor": 0,
             "randomText": false,
             "romanNumerals": false,
-            "randomPitch": false
+            "randomPitch": false,
+            "shuffleMusic": -1,
+            "shuffleJingles": false
           },
           "glitches": []
         }
@@ -827,7 +835,9 @@
             "coinColor":5,
             "randomText":false,
             "romanNumerals": false,
-            "randomPitch": false
+            "randomPitch": false,
+            "shuffleMusic": -1,
+            "shuffleJingles": false
          },
          "glitches": []
       }

@@ -187,6 +187,8 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Status Menu", value: this.seedModel.Cosmetics.StatusMenu},
       {name: "Roman Numerals", value: this.seedModel.Cosmetics.RomanNumerals},
       {name: "Random Text", value: this.seedModel.Cosmetics.RandomText},
+      {name: "Shuffle Music", value: this.seedModel.Cosmetics.ShuffleMusic},
+      {name: "Shuffle Jingles", value: this.seedModel.Cosmetics.ShuffleJingles},
       {name: "Random Pitch", value: this.seedModel.Cosmetics.RandomPitch},
     ] as SettingRow[]
   }
