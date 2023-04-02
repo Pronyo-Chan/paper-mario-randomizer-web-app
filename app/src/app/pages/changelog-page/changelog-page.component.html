@@ -1,25 +1,28 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
     <mat-card class="settings-card latest-changelog">
-        <mat-card-title class="settings-title">0.21.0 (beta) (2023-03-XX)</mat-card-title>
+        <mat-card-title class="settings-title">0.21.0 (beta) (2023-04-06)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
-            <li> When playing Jumpless, Mario cannot use heart blocks.</li>
+            <li> The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+            <li> Interacting with the Jade Jungle M.Bush that blocks off the red yoshi kid, if done when standing at very specific positions far to the right or the left of the bush, can softlock the game.
+                To avoid, try to interact with the bush somewhere from the front and not from the side.</li>
         </ul>
 
         <h2>Game Mod Changes</h2>
         <ul>
             <li> Cutscenes that can be skipped will now display a prompt to skip with "A" in the bottom-right corner of the screen.</li>
-            <li> Imported the JP collisions for the volcano entrance map, so the easier JP version of the "Raph Skip" glitch can be performed. 🎉Shoutouts to <span class="bolder-text">OfficialVladimirLenin</span> for providing the modification!🎉</li>
+            <li> When jumpless, Mario will now be able to use heart blocks by pressing "A" under them, just like save blocks.</li>
             <li> Adjusted the XP formula so Mario gets more star points at lvl 0 than lvl 1.</li>
+            <li> Fixed an exploit that allowed viewing a partner's move costs before it was unlocked.</li>
             <li> Fixed an issue where some trees and bushes in Jade Jungle could spawn items infinitely.</li>
-            <li> Fixed an issue an issue with the ice staircase cutscene where the star stone would dissapear behind the socket.</li>
-            <li> Fixed an issue an issue with the beanstalk rising cutscene, where the beanstalk would be invisible during the first half of the cutscene.</li>
+            <li> Fixed an issue with the ice staircase cutscene where the star stone would disappear behind the socket.</li>
+            <li> Fixed an issue with the beanstalk rising cutscene, where the beanstalk would be invisible during the first half of the cutscene.</li>
         </ul>
 
-        <h2>Features</h2>
+        <h2>New Features</h2>
 
         <h3>In-game Map tracker</h3>
         <ul>
@@ -29,6 +32,29 @@
             <li> The total amount of checks for a region will change depending on what is randomized (ex: Koot favors will only be counted as checks with Koot favors shuffled).</li>
             <li> The tracker will always count all shop items, even with shopsanity disabled.</li>
             <li> Items are counted as checked upon pickup.</li>
+        </ul>
+
+        <h2>Options</h2>
+
+        <h3>Shuffle Music (new)</h3>
+        <ul>
+            <li> This new cosmetic option allows shuffling the different in-game songs. Three different shuffling modes are possible:</li>
+            <li> Shuffle By Mood: Songs will be shuffled within groups of similar moods such as relaxed, upbeat, battle.</li>
+            <li> Shuffle By Type: Songs will be shuffled within groups of similar types such as overworld, battle, event.</li>
+            <li> Full Shuffle: Any song can be shuffled anywhere in the game.</li>
+            <li> Just like other cosmetic options, this option can be changed after seed generation under the "Cosmetics" tab.</li>
+        </ul>
+
+        <h3>Shuffle Jingles (new)</h3>
+        <ul>
+            <li> Shuffles short music jingles that play in-game at certain moments, such as opening a big chest or sleeping at Toad's house.</li>
+            <li> Just like other cosmetic options, this option can be changed after seed generation under the "Cosmetics" tab.</li>
+        </ul>
+
+        <h3>Glitches & Tricks (change)</h3>
+        <ul class="indented-text">            
+            <li> Raph Skip (Parakarry), which is a JP only trick, can now be selected to be in logic. The game has been modified to make the JP exploit possible in randomizer.</li>
+            <li> 🎉Shoutouts to <span class="bolder-text">OfficialVladimirLenin</span> for providing the modification!🎉</li>
         </ul>
     </mat-card>
 
@@ -611,7 +637,7 @@
             <li> Badges can now be favorited with C-Right in the badge menu. Favorite badges will always be listed at the top of the list.</li>
             <li> The unused Hustle Drink item now has a proper name and description. It was also patched to be able to combine it with other status effects.</li>
             <li> Hidden panels can now be flipped even if a partner is standing on them.</li>
-            <li> Although Bombette could already break yellow hammer blocks in vanilla, you would have to reload the map to make the block dissapear.
+            <li> Although Bombette could already break yellow hammer blocks in vanilla, you would have to reload the map to make the block disappear.
                  This behavior was modified for the randomizer: Bombing blocks will now make them explode immediately.
             </li>
         </ul>
@@ -1423,7 +1449,7 @@
             <li> Progressive Scaling should now ramp up the difficulty more slowly and the enemy stats have been toned down overall.</li>
             <li> The calculator thief Shy Guy now holds both items he can drop at once. This makes it so Mario is no longer required to leave and re-enter the Toy Box to get the Shy Guys's second item.</li>
             <li> The Star Pieces price to buy Merlow's items have been changed: Prices range from 2SP to 6SP, with 3 items offered for each price.</li>
-            <li> When an NPC hands out a consumable item and Mario's inventory is full, Mario is now able to discard a chosen item. Previously the NPC item would just disapear.</li>
+            <li> When an NPC hands out a consumable item and Mario's inventory is full, Mario is now able to discard a chosen item. Previously the NPC item would just disappear.</li>
             <li> Simon the poet in Toad Town will now give his item on first interaction, without needing to exit and re-enter the map.</li>
             <li> The speed at which Mario pushes blocks has been slightly increased.</li>
             <li> AlwaysISpy option is now silent, the Star Piece indicator will be visually present when entering a room with a hidden panel, but makes no sound.</li>
