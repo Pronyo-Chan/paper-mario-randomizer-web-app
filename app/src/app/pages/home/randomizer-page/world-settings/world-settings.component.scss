@@ -1,3 +1,7 @@
 input {
     max-width: 3rem;
 }
+
+.setting-name-container {
+    z-index: 1; // Needed so the slider click doesn't take priority over the tooltip
+}
