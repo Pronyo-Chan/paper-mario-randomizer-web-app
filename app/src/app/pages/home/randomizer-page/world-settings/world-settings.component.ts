@@ -30,4 +30,26 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
       this._startingMapSubcription.unsubscribe();
     }
   }
+
+  public onRequiredStarsBlur(): void {
+    const requiredStarsControl = this.worldFormGroup.get("starHuntRequired")
+    if(requiredStarsControl.value > 120) {
+      requiredStarsControl.setValue(120);
+    }
+    else if(requiredStarsControl.value < 0) {
+      requiredStarsControl.setValue(0);
+    }
+    requiredStarsControl.updateValueAndValidity();
+  }
+
+  public onPlacedStarsBlur(): void {
+    const requiredStarsControl = this.worldFormGroup.get("starHuntPlaced")
+    if(requiredStarsControl.value > 120) {
+      requiredStarsControl.setValue(120);
+    }
+    else if(requiredStarsControl.value < 0) {
+      requiredStarsControl.setValue(0);
+    }
+    requiredStarsControl.updateValueAndValidity();
+  }
 }

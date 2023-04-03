@@ -287,6 +287,10 @@ export class RandomizerService {
       MerlowRewardPricing: settingsForm.get('difficulty').get('merlowRewardPricing').value,
       ProgressionOnRowf: settingsForm.get('items').get('progressionOnRowf').value,
       ProgressionOnMerlow: settingsForm.get('items').get('progressionOnMerlow').value,
+      StarHunt: settingsForm.get('openLocations').get('starHunt').value,
+      StarHuntEndsGame: settingsForm.get('openLocations').get('starHuntEndsGame').value,
+      StarHuntRequired: settingsForm.get('openLocations').get('starHuntRequired').value,
+      StarHuntPlaced: settingsForm.get('openLocations').get('starHuntPlaced').value,
 
       // Glitches: Goomba Region
       PrologueGelEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "PrologueGelEarly"),

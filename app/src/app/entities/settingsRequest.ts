@@ -142,6 +142,10 @@ export interface SettingsRequest {
     MerlowRewardPricing: number;
     ProgressionOnRowf: boolean;
     ProgressionOnMerlow: boolean;
+    StarHunt: boolean;
+    StarHuntRequired: number;
+    StarHuntPlaced: number;
+    StarHuntEndsGame: boolean;
 
     // Glitches: Goomba Region
     PrologueGelEarly: boolean

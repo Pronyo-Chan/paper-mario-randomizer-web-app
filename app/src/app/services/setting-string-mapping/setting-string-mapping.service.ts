@@ -118,7 +118,11 @@ export class SettingStringMappingService {
     { compressedString: "p", key: "prologueOpen", type: "bool"},
     { compressedString: "m", key: "magicalSeedsRequired", type: "number"},
     { compressedString: "o", key: "bowsersCastleMode", type: "number"},
-    { compressedString: "d", key: "shuffleDungeonEntrances", type: "bool"}
+    { compressedString: "d", key: "shuffleDungeonEntrances", type: "bool"},
+    { compressedString: "x", key: "starHunt", type: "bool"},
+    { compressedString: "y", key: "starHuntEndsGame", type: "bool"},
+    { compressedString: "?", key: "starHuntRequired", type: "number"},
+    { compressedString: "!", key: "starHuntPlaced", type: "number"}
   ]
 
   public readonly startWithPartnersMap: SettingModel [] = [

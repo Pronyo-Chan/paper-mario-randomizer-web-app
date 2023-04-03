@@ -104,6 +104,10 @@
                 "prologueOpen": false,
                 "bowsersCastleMode": 1,
                 "shuffleDungeonEntrances": false,
+                "starHunt": false,
+                "starHuntEndsGame": true,
+                "starHuntRequired": 120,
+                "starHuntPlaced": 120,
                 "startingMap": 65796
             },
             "cosmetics": {
@@ -272,6 +276,10 @@
             "prologueOpen": true,
             "bowsersCastleMode": 0,
             "shuffleDungeonEntrances": false,
+            "starHunt": false,
+            "starHuntEndsGame": true,
+            "starHuntRequired": 120,
+            "starHuntPlaced": 120,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -440,6 +448,10 @@
             "prologueOpen": false,
             "bowsersCastleMode": 1,
             "shuffleDungeonEntrances": false,
+            "starHunt": false,
+            "starHuntEndsGame": true,
+            "starHuntRequired": 120,
+            "starHuntPlaced": 120,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -608,6 +620,10 @@
             "prologueOpen": false,
             "bowsersCastleMode": 0,
             "shuffleDungeonEntrances": false,
+            "starHunt": false,
+            "starHuntEndsGame": true,
+            "starHuntRequired": 120,
+            "starHuntPlaced": 120,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -779,6 +795,10 @@
             "prologueOpen": false,
             "bowsersCastleMode":2,
             "shuffleDungeonEntrances": false,
+            "starHunt": false,
+            "starHuntEndsGame": true,
+            "starHuntRequired": 120,
+            "starHuntPlaced": 120,
             "startingMap":65796
          },
          "cosmetics":{
