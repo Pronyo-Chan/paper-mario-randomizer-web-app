@@ -142,4 +142,11 @@
             <mat-slider formControlName="starHuntPlaced" (input)="worldFormGroup.get('starHuntPlaced').setValue($event.value)" min=0 max=120 step="1" tickInterval="1" ></mat-slider>
         </div>  
     </mat-card-content>
+    <ul *ngIf="worldFormGroup.invalid">
+        <mat-divider></mat-divider>
+        <li *ngIf="worldFormGroup.get('starHuntPlaced').hasError('greaterOrEqual')">
+            Number of placed stars must be greater or equal to required stars
+        </li>
+
+    </ul>
 </form>
