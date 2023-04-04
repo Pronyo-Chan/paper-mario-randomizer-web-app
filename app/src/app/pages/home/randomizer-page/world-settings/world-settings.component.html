@@ -98,6 +98,8 @@
                   tooltipText="Shuffles the main entrance of every chapter dungeon."></app-tooltip-span>
         </div>
 
+        <mat-divider></mat-divider>
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='starHunt'></mat-slide-toggle>
             <app-tooltip-span
@@ -108,7 +110,7 @@
         <div class="setting-element" [ngClass]="{ 'disabled-element': !worldFormGroup.get('starHunt').value}">
             <mat-slide-toggle formControlName='starHuntEndsGame'></mat-slide-toggle>
             <app-tooltip-span
-                 spanText="Star Hunt Ends Game"
+                 spanText="Star Hunt Skips Ch.8"
                   tooltipText="When enabled, Eldstar will give the Star Rod immediately after completing the star hunt and the game will end."></app-tooltip-span>
         </div>
 
