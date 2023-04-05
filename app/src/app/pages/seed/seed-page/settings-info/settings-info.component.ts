@@ -247,7 +247,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Star Hunt", value: this.seedModel.World.StarHunt},
       {name: "Star Hunt Skips Ch.8", value: this.seedModel.World.StarHuntEndsGame},
       {name: "Required Power Stars", value: this.seedModel.World.StarHuntRequired},
-      {name: "Placed Power Stars", value: this.seedModel.World.StarHuntPlaced},
+      {name: "Total Power Stars", value: this.seedModel.World.StarHuntTotal},
     ] as SettingRow[]
   }
 

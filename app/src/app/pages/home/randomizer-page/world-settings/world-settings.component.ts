@@ -43,7 +43,7 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
 
   public onRequiredStarsBlur(): void {
     const requiredStarsControl = this.worldFormGroup.get("starHuntRequired");
-    const placedStarsControl = this.worldFormGroup.get("starHuntPlaced");
+    const placedStarsControl = this.worldFormGroup.get("starHuntTotal");
 
     if(requiredStarsControl.value > 120) {
       requiredStarsControl.setValue(120);
@@ -56,9 +56,9 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
     placedStarsControl.updateValueAndValidity();
   }
 
-  public onPlacedStarsBlur(): void {
+  public onTotalStarsBlur(): void {
     const requiredStarsControl = this.worldFormGroup.get("starHuntRequired");
-    const placedStarsControl = this.worldFormGroup.get("starHuntPlaced");
+    const placedStarsControl = this.worldFormGroup.get("starHuntTotal");
 
     if(placedStarsControl.value > 120) {
       placedStarsControl.setValue(120);

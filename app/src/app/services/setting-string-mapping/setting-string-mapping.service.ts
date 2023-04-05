@@ -122,7 +122,7 @@ export class SettingStringMappingService {
     { compressedString: "x", key: "starHunt", type: "bool"},
     { compressedString: "y", key: "starHuntEndsGame", type: "bool"},
     { compressedString: "?", key: "starHuntRequired", type: "number"},
-    { compressedString: "!", key: "starHuntPlaced", type: "number"}
+    { compressedString: "!", key: "starHuntTotal", type: "number"}
   ]
 
   public readonly startWithPartnersMap: SettingModel [] = [

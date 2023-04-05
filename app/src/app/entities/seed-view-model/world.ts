@@ -13,6 +13,6 @@ export interface World {
     ShuffleDungeonEntrances: boolean
     StarHunt: boolean;
     StarHuntRequired: number;
-    StarHuntPlaced: number;
+    StarHuntTotal: number;
     StarHuntEndsGame: boolean;
 }

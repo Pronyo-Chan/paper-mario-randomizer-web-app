@@ -212,7 +212,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         shuffleDungeonEntrances: new FormControl(false),
         starHunt: new FormControl(false),
         starHuntRequired: new FormControl(120),
-        starHuntPlaced: new FormControl(120, [CustomValidators.greaterOrEqualTo('starHuntRequired')]),
+        starHuntTotal: new FormControl(120, [CustomValidators.greaterOrEqualTo('starHuntRequired')]),
         starHuntEndsGame: new FormControl(true),
       }),
       cosmetics: new FormGroup({

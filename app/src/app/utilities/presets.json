@@ -107,7 +107,7 @@
                 "starHunt": false,
                 "starHuntEndsGame": true,
                 "starHuntRequired": 120,
-                "starHuntPlaced": 120,
+                "starHuntTotal": 120,
                 "startingMap": 65796
             },
             "cosmetics": {
@@ -279,7 +279,7 @@
             "starHunt": false,
             "starHuntEndsGame": true,
             "starHuntRequired": 120,
-            "starHuntPlaced": 120,
+            "starHuntTotal": 120,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -451,7 +451,7 @@
             "starHunt": false,
             "starHuntEndsGame": true,
             "starHuntRequired": 120,
-            "starHuntPlaced": 120,
+            "starHuntTotal": 120,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -623,7 +623,7 @@
             "starHunt": false,
             "starHuntEndsGame": true,
             "starHuntRequired": 120,
-            "starHuntPlaced": 120,
+            "starHuntTotal": 120,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -798,7 +798,7 @@
             "starHunt": false,
             "starHuntEndsGame": true,
             "starHuntRequired": 120,
-            "starHuntPlaced": 120,
+            "starHuntTotal": 120,
             "startingMap":65796
          },
          "cosmetics":{
