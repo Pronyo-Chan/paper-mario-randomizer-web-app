@@ -208,7 +208,8 @@ export class SettingsInfoComponent implements OnInit {
       {name: "No Healing Items", value: this.seedModel.GeneralDifficulty.NoHealingItems},
       {name: "No Heart Blocks", value: this.seedModel.GeneralDifficulty.NoHeartBlocks},
       {name: "No Save Blocks", value: this.seedModel.GeneralDifficulty.NoSaveBlocks},
-      {name: "One Hit KO", value: this.seedModel.GeneralDifficulty.OneHitKO}
+      {name: "One Hit KO", value: this.seedModel.GeneralDifficulty.OneHitKO},
+      {name: "Badge Synergy", value: this.seedModel.GeneralDifficulty.BadgeSynergy}
     ] as SettingRow[]
   }
 

@@ -58,6 +58,7 @@ export class SettingStringMappingService {
     { compressedString: "y", key: "allowItemHints", type: "bool"},
     { compressedString: "p", key: "merlowRewardPricing", type: "number"},
     { compressedString: "r", key: "randomConsumableMode", type: "number"},
+    { compressedString: "b", key: "badgeSynergy", type: "bool"},
   ]
 
   public readonly gameplayMap: SettingModel [] = [

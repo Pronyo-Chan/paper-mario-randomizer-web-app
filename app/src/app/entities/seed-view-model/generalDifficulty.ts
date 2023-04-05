@@ -16,5 +16,6 @@ export interface GeneralDifficulty {
     XPMultiplier: number;
     OneHitKO: boolean;
     RandomNumberOfRrequiredStarSpirits: boolean;
-    StarSpiritsRequired: number
+    StarSpiritsRequired: number;
+    BadgeSynergy: boolean;
 }

@@ -263,6 +263,7 @@ export class RandomizerService {
       ItemQuality: settingsForm.get('difficulty').get('itemQuality').value,
       RandomConsumableMode: settingsForm.get('difficulty').get('randomConsumableMode').value,
       StarWaySpiritsNeeded: settingsForm.get('difficulty').get('randomNumberOfStarSpirits').value ? -1 : settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
+      BadgeSynergy: settingsForm.get('difficulty').get('badgeSynergy').value,
       FoliageItemHints: settingsForm.get('qualityOfLife').get('foliageItemHints').value,
       RandomText: settingsForm.get('cosmetics').get('randomText').value,
       NoHealingItems: settingsForm.get('difficulty').get('noHealingItems').value,

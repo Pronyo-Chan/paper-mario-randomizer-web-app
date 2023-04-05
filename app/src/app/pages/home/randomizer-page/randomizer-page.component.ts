@@ -185,6 +185,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         itemTrapMode: new FormControl(0),
         allowItemHints: new FormControl(true),
         merlowRewardPricing: new FormControl(MerlowRewardPricing.Normal),
+        badgeSynergy: new FormControl(false),
       }),
       marioStats: new FormGroup({
         startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]), 
