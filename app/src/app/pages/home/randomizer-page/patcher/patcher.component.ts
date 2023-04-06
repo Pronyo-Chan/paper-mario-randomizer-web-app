@@ -94,7 +94,12 @@ export class PatcherComponent implements OnInit, OnDestroy {
       }),
       catchError( err => {
         this.isPatching = false;
-        this.patchingError = 'A server error has occured';
+        if(err.status === 400) {
+          this.patchingError = "Unable to override cosmetic settings for seeds generated before 2023-04-06."
+        } else {
+          this.patchingError = 'A server error has occured';
+        }
+        
         return of(err);
       })
     ).subscribe();
