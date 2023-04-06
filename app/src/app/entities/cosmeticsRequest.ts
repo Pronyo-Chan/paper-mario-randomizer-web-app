@@ -1,3 +1,4 @@
+import { MusicMode } from './enum/musicMode';
 import { ParakarrySprite } from './enum/parakarrySprite';
 import { BombetteSprite } from './enum/bombetteSprite';
 import { BowSprite } from './enum/bowSprite';
@@ -40,4 +41,7 @@ export interface CosmeticsRequest {
     EnemiesSetting: SpriteSetting;
     RandomText: boolean;
     RandomPitch: boolean;
+    ShuffleMusic: boolean;
+    ShuffleMusicMode: MusicMode;
+    ShuffleJingles: boolean;
 }

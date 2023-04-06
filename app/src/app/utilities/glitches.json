@@ -704,12 +704,20 @@
     "id": "Ö"
   },
   {
-    "name": "Raph Skip (English)",
+    "name": "Raph Skip (Jump)",
     "settingName": "RaphSkipEnglish",
     "link": "https://www.youtube.com/watch?v=ogzj33iA9AI",
     "description": "You climb a tree to the east of Yoshi Village with neutral jumps, then go out of bounds and reach the volcano's entrance without using Raphael's zipline. The loading zone leading to the big tree can also be reached that way.",
     "location": "Jade Jungle",
     "id": "["
+  },
+  {
+    "name": "Raph Skip (Parakarry)",
+    "settingName": "RaphSkipParakarry",
+    "link": "https://www.youtube.com/watch?v=oPZmVJuNiF8",
+    "description": "Easier method to enter the volcano early, brought back from the JP version of the game. Parakarry can be used on a tree to clip out of bounds and reach the volcano's entrance without using Raphael's zipline. The loading zone leading to the big tree can also be reached that way.",
+    "location": "Jade Jungle",
+    "id": "ÿ"
   },
   {
     "name": "Chapter 5 Sushie Glitch",

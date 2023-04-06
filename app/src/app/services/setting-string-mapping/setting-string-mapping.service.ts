@@ -35,7 +35,9 @@ export class SettingStringMappingService {
     { compressedString: "l", key: "lakilesterSprite", type: "sprite"},
     { compressedString: "a", key: "parakarrySprite", type: "sprite"},    
     { compressedString: "r", key: "romanNumerals", type: "bool"},
-    { compressedString: "h", key: "randomPitch", type: "bool"}
+    { compressedString: "h", key: "randomPitch", type: "bool"},
+    { compressedString: "u", key: "shuffleMusic", type: "number"},
+    { compressedString: "j", key: "shuffleJingles", type: "bool"}
   ]
 
   public readonly difficultyMap: SettingModel [] = [
@@ -56,6 +58,7 @@ export class SettingStringMappingService {
     { compressedString: "y", key: "allowItemHints", type: "bool"},
     { compressedString: "p", key: "merlowRewardPricing", type: "number"},
     { compressedString: "r", key: "randomConsumableMode", type: "number"},
+    { compressedString: "b", key: "badgeSynergy", type: "bool"},
   ]
 
   public readonly gameplayMap: SettingModel [] = [
@@ -116,7 +119,11 @@ export class SettingStringMappingService {
     { compressedString: "p", key: "prologueOpen", type: "bool"},
     { compressedString: "m", key: "magicalSeedsRequired", type: "number"},
     { compressedString: "o", key: "bowsersCastleMode", type: "number"},
-    { compressedString: "d", key: "shuffleDungeonEntrances", type: "bool"}
+    { compressedString: "d", key: "shuffleDungeonEntrances", type: "bool"},
+    { compressedString: "x", key: "starHunt", type: "bool"},
+    { compressedString: "y", key: "starHuntEndsGame", type: "bool"},
+    { compressedString: "?", key: "starHuntRequired", type: "number"},
+    { compressedString: "!", key: "starHuntTotal", type: "number"}
   ]
 
   public readonly startWithPartnersMap: SettingModel [] = [

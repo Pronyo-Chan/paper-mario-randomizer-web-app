@@ -11,4 +11,8 @@ export interface World {
     Ch7BridgeVisible: boolean;
     BowsersCastleMode: BowsersCastleMode;
     ShuffleDungeonEntrances: boolean
+    StarHunt: boolean;
+    StarHuntRequired: number;
+    StarHuntTotal: number;
+    StarHuntEndsGame: boolean;
 }

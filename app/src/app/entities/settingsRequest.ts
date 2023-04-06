@@ -10,6 +10,7 @@ import { SpriteSetting } from './enum/spriteSetting';
 import { SushieSprite } from './enum/sushieSprite';
 import { WattSprite } from './enum/wattSprite';
 import { LakilesterSprite } from './enum/lakilesterSprite';
+import { MusicMode } from './enum/musicMode';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -131,6 +132,9 @@ export interface SettingsRequest {
     IncludeRadioTradeEvent: boolean;
     ShuffleBlocks: boolean;
     RandomPitch: boolean;
+    ShuffleMusic: boolean;
+    ShuffleMusicMode: MusicMode;
+    ShuffleJingles: boolean;
     HiddenPanelVisibility: number;
     CookWithoutFryingPan: boolean;
     GearShuffleMode: number;
@@ -138,6 +142,10 @@ export interface SettingsRequest {
     MerlowRewardPricing: number;
     ProgressionOnRowf: boolean;
     ProgressionOnMerlow: boolean;
+    StarHunt: boolean;
+    StarHuntRequired: number;
+    StarHuntTotal: number;
+    StarHuntEndsGame: boolean;
 
     // Glitches: Goomba Region
     PrologueGelEarly: boolean
@@ -252,6 +260,7 @@ export interface SettingsRequest {
 
     // Glitches: Jade Jungle
     RaphSkipEnglish: boolean
+    RaphSkipParakarry: boolean
     Ch5SushieGlitch: boolean
     SushielessJungleStarpieceAndLetter: boolean
     JumplessDeepJungleLaki: boolean

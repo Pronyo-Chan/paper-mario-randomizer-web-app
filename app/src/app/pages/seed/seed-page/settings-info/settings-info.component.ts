@@ -187,6 +187,8 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Status Menu", value: this.seedModel.Cosmetics.StatusMenu},
       {name: "Roman Numerals", value: this.seedModel.Cosmetics.RomanNumerals},
       {name: "Random Text", value: this.seedModel.Cosmetics.RandomText},
+      {name: "Shuffle Music", value: this.seedModel.Cosmetics.ShuffleMusic},
+      {name: "Shuffle Jingles", value: this.seedModel.Cosmetics.ShuffleJingles},
       {name: "Random Pitch", value: this.seedModel.Cosmetics.RandomPitch},
     ] as SettingRow[]
   }
@@ -206,7 +208,8 @@ export class SettingsInfoComponent implements OnInit {
       {name: "No Healing Items", value: this.seedModel.GeneralDifficulty.NoHealingItems},
       {name: "No Heart Blocks", value: this.seedModel.GeneralDifficulty.NoHeartBlocks},
       {name: "No Save Blocks", value: this.seedModel.GeneralDifficulty.NoSaveBlocks},
-      {name: "One Hit KO", value: this.seedModel.GeneralDifficulty.OneHitKO}
+      {name: "One Hit KO", value: this.seedModel.GeneralDifficulty.OneHitKO},
+      {name: "Badge Synergy", value: this.seedModel.GeneralDifficulty.BadgeSynergy}
     ] as SettingRow[]
   }
 
@@ -242,6 +245,10 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Ch.7 Bridge Visible", value: this.seedModel.World.Ch7BridgeVisible},
       {name: "Bowser's Castle Mode", value: BowsersCastleMode[this.seedModel.World.BowsersCastleMode]},
       {name: "Shuffle Dungeon Entrances", value: this.seedModel.World.ShuffleDungeonEntrances},
+      {name: "Power Star Hunt", value: this.seedModel.World.StarHunt},
+      {name: "Star Hunt Skips Ch.8", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarHuntEndsGame: null},
+      {name: "Required Power Stars", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarHuntRequired: null},
+      {name: "Total Power Stars", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarHuntTotal: null},
     ] as SettingRow[]
   }
 

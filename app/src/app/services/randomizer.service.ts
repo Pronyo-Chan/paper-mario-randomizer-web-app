@@ -134,6 +134,9 @@ export class RandomizerService {
       RandomText: cosmeticsFormGroup.get("randomText").value,
       RomanNumerals: cosmeticsFormGroup.get("romanNumerals").value,
       RandomPitch: cosmeticsFormGroup.get("randomPitch").value,
+      ShuffleMusic: cosmeticsFormGroup.get("shuffleMusic").value != -1,
+      ShuffleMusicMode: cosmeticsFormGroup.get("shuffleMusic").value != -1 ? cosmeticsFormGroup.get("shuffleMusic").value : 0,
+      ShuffleJingles: cosmeticsFormGroup.get("shuffleJingles").value,
       SushieSetting: (cosmeticsFormGroup.get('sushieSprite').value as CharacterSpriteSetting).setting,
       SushieSprite: (cosmeticsFormGroup.get('sushieSprite').value as CharacterSpriteSetting).paletteSelection,
       WattSetting: (cosmeticsFormGroup.get('wattSprite').value as CharacterSpriteSetting).setting,
@@ -260,6 +263,7 @@ export class RandomizerService {
       ItemQuality: settingsForm.get('difficulty').get('itemQuality').value,
       RandomConsumableMode: settingsForm.get('difficulty').get('randomConsumableMode').value,
       StarWaySpiritsNeeded: settingsForm.get('difficulty').get('randomNumberOfStarSpirits').value ? -1 : settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
+      BadgeSynergy: settingsForm.get('difficulty').get('badgeSynergy').value,
       FoliageItemHints: settingsForm.get('qualityOfLife').get('foliageItemHints').value,
       RandomText: settingsForm.get('cosmetics').get('randomText').value,
       NoHealingItems: settingsForm.get('difficulty').get('noHealingItems').value,
@@ -274,6 +278,9 @@ export class RandomizerService {
       IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value,
       ShuffleBlocks: settingsForm.get('items').get('shuffleBlocks').value,
       RandomPitch: settingsForm.get('cosmetics').get('randomPitch').value,
+      ShuffleMusic: settingsForm.get('cosmetics').get("shuffleMusic").value != -1,
+      ShuffleMusicMode: settingsForm.get('cosmetics').get("shuffleMusic").value != -1 ? settingsForm.get('cosmetics').get("shuffleMusic").value : 0,
+      ShuffleJingles: settingsForm.get('cosmetics').get("shuffleJingles").value,
       HiddenPanelVisibility: settingsForm.get('qualityOfLife').get('hiddenPanelVisibility').value ? 1 : 0,
       CookWithoutFryingPan: settingsForm.get('qualityOfLife').get('cookWithoutFryingPan').value,
       GearShuffleMode: settingsForm.get('items').get('gearShuffleMode').value,
@@ -281,6 +288,10 @@ export class RandomizerService {
       MerlowRewardPricing: settingsForm.get('difficulty').get('merlowRewardPricing').value,
       ProgressionOnRowf: settingsForm.get('items').get('progressionOnRowf').value,
       ProgressionOnMerlow: settingsForm.get('items').get('progressionOnMerlow').value,
+      StarHunt: settingsForm.get('openLocations').get('starHunt').value,
+      StarHuntEndsGame: settingsForm.get('openLocations').get('starHuntEndsGame').value,
+      StarHuntRequired: settingsForm.get('openLocations').get('starHuntRequired').value,
+      StarHuntTotal: settingsForm.get('openLocations').get('starHuntTotal').value,
 
       // Glitches: Goomba Region
       PrologueGelEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "PrologueGelEarly"),
@@ -396,6 +407,7 @@ export class RandomizerService {
 
       // Glitches: Jade Jungle
       RaphSkipEnglish: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RaphSkipEnglish"),
+      RaphSkipParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RaphSkipParakarry"),
       Ch5SushieGlitch: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Ch5SushieGlitch"),
       SushielessJungleStarpieceAndLetter: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SushielessJungleStarpieceAndLetter"),
       JumplessDeepJungleLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessDeepJungleLaki"),

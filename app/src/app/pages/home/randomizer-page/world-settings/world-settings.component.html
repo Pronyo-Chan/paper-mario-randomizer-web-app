@@ -97,5 +97,58 @@
                  spanText="Shuffle Dungeon Entrances"
                   tooltipText="Shuffles the main entrance of every chapter dungeon."></app-tooltip-span>
         </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='starHunt'></mat-slide-toggle>
+            <app-tooltip-span
+                 spanText="Power Star Hunt"
+                  tooltipText="Adds power stars into the item pool. Mario needs to collect a certain amount and give them to Eldstar at Shooting Star Summit to open the way to ch.8."></app-tooltip-span>
+        </div>
+
+        <div class="setting-element" [ngClass]="{ 'disabled-element': !worldFormGroup.get('starHunt').value}">
+            <mat-slide-toggle formControlName='starHuntEndsGame'></mat-slide-toggle>
+            <app-tooltip-span
+                 spanText="Star Hunt Skips Ch.8"
+                  tooltipText="When enabled, Eldstar will give the Star Rod immediately after completing the star hunt and the game will end."></app-tooltip-span>
+        </div>
+
+        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': !worldFormGroup.get('starHunt').value}">
+            <div class="setting-name-container">
+                <app-tooltip-span spanText="Required Power Stars:"
+                tooltipText="Number of power stars required by Eldstar at Shooting Star Summit"></app-tooltip-span>
+                
+                <input matInput type="number"
+                min="0" 
+                max="120" 
+                formControlName='starHuntRequired' 
+                (blur)="onRequiredStarsBlur()">
+            </div>
+            
+            <mat-slider formControlName="starHuntRequired" (input)="worldFormGroup.get('starHuntRequired').setValue($event.value)" min=0 max= 120 step="1" tickInterval="1" ></mat-slider>
+        </div>  
+
+        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': !worldFormGroup.get('starHunt').value}">
+            <div class="setting-name-container">
+                <app-tooltip-span spanText="Total Power Stars:"
+                tooltipText="Number of power stars placed in the game world"></app-tooltip-span>
+
+                <input matInput type="number"
+                min="0" 
+                max="120" 
+                formControlName='starHuntTotal' 
+                (blur)="onTotalStarsBlur()">
+            </div>
+            
+            <mat-slider formControlName="starHuntTotal" (input)="worldFormGroup.get('starHuntTotal').setValue($event.value)" min=0 max=120 step="1" tickInterval="1" ></mat-slider>
+        </div>  
     </mat-card-content>
+    <ul *ngIf="worldFormGroup.invalid">
+        <mat-divider></mat-divider>
+        <li *ngIf="worldFormGroup.get('starHuntTotal').hasError('greaterOrEqual')">
+            Number of placed stars must be greater or equal to required stars
+        </li>
+
+    </ul>
 </form>

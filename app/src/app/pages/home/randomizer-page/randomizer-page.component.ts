@@ -32,6 +32,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public readonly GOOMBA_HAMMERLESS_START_ERROR = 'goombaHammerlessStart';
   public readonly LACKING_SHUFFLE_HAMMERLESS_START_ERROR = 'toadTownHammerlessStart';
   public readonly LACKING_SHUFFLE_JUMPLESS_START_ERROR = 'jumplessStartNoShuffle';
+  public readonly LACKING_SHUFFLE_STAR_HUNT_ERROR = 'starHuntNoShuffle';
   public readonly SHUFFLED_ENTRANCES_NO_ITEMS_ERROR = 'entranceRandoNoShuffle';
 
   public homepageLink;
@@ -73,6 +74,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         return;
       } else if (errors.some(e => e == this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)) {
         this.seedGenError = "Shuffling entrances is impossible without Item and Partner Shuffle enabled."
+        return;
+      } else if (errors.some(e => e == this.LACKING_SHUFFLE_STAR_HUNT_ERROR)) {
+        this.seedGenError = "Star Hunt is impossible without item shuffle enabled."
         return;
       }
     }
@@ -185,6 +189,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         itemTrapMode: new FormControl(0),
         allowItemHints: new FormControl(true),
         merlowRewardPricing: new FormControl(MerlowRewardPricing.Normal),
+        badgeSynergy: new FormControl(false),
       }),
       marioStats: new FormGroup({
         startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]), 
@@ -209,7 +214,11 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         prologueOpen: new FormControl(false),
         startingMap: new FormControl(StartingMap.ToadTown),
         bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla),
-        shuffleDungeonEntrances: new FormControl(false)
+        shuffleDungeonEntrances: new FormControl(false),
+        starHunt: new FormControl(false),
+        starHuntRequired: new FormControl(120),
+        starHuntTotal: new FormControl(120, [CustomValidators.greaterOrEqualTo('starHuntRequired')]),
+        starHuntEndsGame: new FormControl(true),
       }),
       cosmetics: new FormGroup({
         menu: new FormControl(0),
@@ -230,6 +239,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomText: new FormControl(false),
         romanNumerals: new FormControl(false),
         randomPitch: new FormControl(false),
+        shuffleMusic: new FormControl(-1),
+        shuffleJingles: new FormControl(false),
       }),
       glitches: new FormControl([])
     });
@@ -248,8 +259,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const gearShuffleMode = this.formGroup.get('items').get('gearShuffleMode').value;
     const isGeneralShuffleEnabled = this.formGroup.get('items').get('shuffleItems').value;
     const isPartnerShuffleEnabled = this.formGroup.get('partners').get('shufflePartners').value;
-    const isBombetteStartingPartner = this.formGroup.get('partners').get('startWithPartners').get('bombette').value
-    const isEntranceRandoEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value
+    const isBombetteStartingPartner = this.formGroup.get('partners').get('startWithPartners').get('bombette').value;
+    const isEntranceRandoEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value;
+    const isStarHuntEnabled = this.formGroup.get('openLocations').get('starHunt').value;
 
     const isBreakingYellowBlocksWithSuperBootsEnabled = this.formGroup.get('glitches').value
       .some(enabledGlitch => enabledGlitch.settingName == "BreakYellowBlocksWithSuperBoots");
@@ -269,6 +281,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     if ( startingBoots == Boots.Jumpless && !isGeneralShuffleEnabled) {
       errors.push(this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)
+    }
+
+    if ( isStarHuntEnabled && !isGeneralShuffleEnabled) {
+      errors.push(this.LACKING_SHUFFLE_STAR_HUNT_ERROR)
     }
 
     if ( isEntranceRandoEnabled && (!isGeneralShuffleEnabled || !isPartnerShuffleEnabled)) {

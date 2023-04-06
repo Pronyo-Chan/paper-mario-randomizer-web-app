@@ -76,6 +76,7 @@
                 "randomConsumableMode": 2,
                 "randomNumberOfStarSpirits" : false,
                 "starWaySpiritsNeeded": 7,
+                "badgeSynergy": false,
                 "noHealingItems": false,
                 "itemTrapMode": 0,
                 "allowItemHints": true,
@@ -104,6 +105,10 @@
                 "prologueOpen": false,
                 "bowsersCastleMode": 1,
                 "shuffleDungeonEntrances": false,
+                "starHunt": false,
+                "starHuntEndsGame": true,
+                "starHuntRequired": 120,
+                "starHuntTotal": 120,
                 "startingMap": 65796
             },
             "cosmetics": {
@@ -160,7 +165,9 @@
                 "coinColor": 0,
                 "randomText": false,
                 "romanNumerals": false,
-                "randomPitch": false
+                "randomPitch": false,
+                "shuffleMusic": -1,
+                "shuffleJingles": false
             },
             "glitches": []
         }
@@ -242,6 +249,7 @@
             "randomConsumableMode": 0,
             "randomNumberOfStarSpirits" : false,
             "starWaySpiritsNeeded": 7,
+            "badgeSynergy": false,
             "noHealingItems": false,
             "itemTrapMode": 0,
             "allowItemHints": true,
@@ -270,6 +278,10 @@
             "prologueOpen": true,
             "bowsersCastleMode": 0,
             "shuffleDungeonEntrances": false,
+            "starHunt": false,
+            "starHuntEndsGame": true,
+            "starHuntRequired": 120,
+            "starHuntTotal": 120,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -326,7 +338,9 @@
             "coinColor": 0,
             "randomText": false,
             "romanNumerals": false,
-            "randomPitch": false
+            "randomPitch": false,
+            "shuffleMusic": -1,
+            "shuffleJingles": false
           },
           "glitches": []
         }
@@ -408,6 +422,7 @@
             "randomConsumableMode": 0,
             "randomNumberOfStarSpirits" : false,
             "starWaySpiritsNeeded": 7,
+            "badgeSynergy": false,
             "noHealingItems": false,
             "itemTrapMode": 1,
             "allowItemHints": true,
@@ -436,6 +451,10 @@
             "prologueOpen": false,
             "bowsersCastleMode": 1,
             "shuffleDungeonEntrances": false,
+            "starHunt": false,
+            "starHuntEndsGame": true,
+            "starHuntRequired": 120,
+            "starHuntTotal": 120,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -492,7 +511,9 @@
             "coinColor": 0,
             "randomText": false,
             "romanNumerals": false,
-            "randomPitch": false
+            "randomPitch": false,
+            "shuffleMusic": -1,
+            "shuffleJingles": false
           },
           "glitches": []
         }
@@ -574,6 +595,7 @@
             "randomConsumableMode": 1,
             "randomNumberOfStarSpirits" : false,
             "starWaySpiritsNeeded": 7,
+            "badgeSynergy": false,
             "noHealingItems": false,
             "itemTrapMode": 3,
             "allowItemHints": false,
@@ -602,6 +624,10 @@
             "prologueOpen": false,
             "bowsersCastleMode": 0,
             "shuffleDungeonEntrances": false,
+            "starHunt": false,
+            "starHuntEndsGame": true,
+            "starHuntRequired": 120,
+            "starHuntTotal": 120,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -658,7 +684,9 @@
             "coinColor": 0,
             "randomText": false,
             "romanNumerals": false,
-            "randomPitch": false
+            "randomPitch": false,
+            "shuffleMusic": -1,
+            "shuffleJingles": false
           },
           "glitches": []
         }
@@ -741,6 +769,7 @@
             "randomConsumableMode": 0,
             "randomNumberOfStarSpirits" : false,
             "starWaySpiritsNeeded":7,
+            "badgeSynergy": false,
             "noHealingItems":false,
             "itemTrapMode":0,
             "allowItemHints":false,
@@ -771,6 +800,10 @@
             "prologueOpen": false,
             "bowsersCastleMode":2,
             "shuffleDungeonEntrances": false,
+            "starHunt": false,
+            "starHuntEndsGame": true,
+            "starHuntRequired": 120,
+            "starHuntTotal": 120,
             "startingMap":65796
          },
          "cosmetics":{
@@ -827,7 +860,9 @@
             "coinColor":5,
             "randomText":false,
             "romanNumerals": false,
-            "randomPitch": false
+            "randomPitch": false,
+            "shuffleMusic": -1,
+            "shuffleJingles": false
          },
          "glitches": []
       }

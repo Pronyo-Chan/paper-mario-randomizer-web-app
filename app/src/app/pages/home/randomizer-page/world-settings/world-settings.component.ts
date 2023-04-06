@@ -19,15 +19,55 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
   ];
 
   @Input() public worldFormGroup: FormGroup;
+
   private _startingMapSubcription: Subscription;
+  private _requiredStarsSubscription: Subscription;
+
   public constructor() { }
 
   public ngOnInit(): void {
+    const requiredStarsControl = this.worldFormGroup.get("starHuntRequired");
+    this._requiredStarsSubscription = requiredStarsControl.valueChanges.pipe(
+      tap(() => this.onRequiredStarsBlur())
+    ).subscribe();
   }
 
   public ngOnDestroy(): void {
     if(this._startingMapSubcription) {
       this._startingMapSubcription.unsubscribe();
     }
+    if(this._requiredStarsSubscription) {
+      this._requiredStarsSubscription.unsubscribe();
+    }
+  }
+
+  public onRequiredStarsBlur(): void {
+    const requiredStarsControl = this.worldFormGroup.get("starHuntRequired");
+    const placedStarsControl = this.worldFormGroup.get("starHuntTotal");
+
+    if(requiredStarsControl.value > 120) {
+      requiredStarsControl.setValue(120);
+    }
+    else if(requiredStarsControl.value < 0) {
+      requiredStarsControl.setValue(0);
+    }
+
+    requiredStarsControl.updateValueAndValidity();
+    placedStarsControl.updateValueAndValidity();
+  }
+
+  public onTotalStarsBlur(): void {
+    const requiredStarsControl = this.worldFormGroup.get("starHuntRequired");
+    const placedStarsControl = this.worldFormGroup.get("starHuntTotal");
+
+    if(placedStarsControl.value > 120) {
+      placedStarsControl.setValue(120);
+    }
+    else if(placedStarsControl.value < 0) {
+      placedStarsControl.setValue(0);
+    }
+
+    requiredStarsControl.updateValueAndValidity();
+    placedStarsControl.updateValueAndValidity();
   }
 }

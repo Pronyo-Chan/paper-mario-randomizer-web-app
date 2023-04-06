@@ -122,6 +122,28 @@
             <mat-slide-toggle formControlName='romanNumerals'></mat-slide-toggle>
             <app-tooltip-span spanText="Roman Numerals" tooltipText="Changes the numbers to roman digits for enemy HP display in battle."></app-tooltip-span>
         </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Shuffle Music" tooltipText="Shuffles the different songs in the game.
+                                                                    Shuffle By Mood: Songs will be shuffled within groups of similar moods such as relaxed, upbeat, battle.
+                                                                    Shuffle By Type: Songs will be shuffled within groups of similar types such as overworld, battle, event.
+                                                                    Full Shuffle: Any song can be shuffled anywhere in the game.
+                                                                    "></app-tooltip-span>
+            <select formControlName='shuffleMusic'>
+                <option [ngValue]="-1">Off</option>
+                <option [ngValue]="0">Shuffle By Mood</option>
+                <option [ngValue]="1">Shuffle By Type</option>
+                <option [ngValue]="2">Full Shuffle</option>
+            </select> 
+        </div> 
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='shuffleJingles'></mat-slide-toggle>
+            <app-tooltip-span spanText="Shuffle Jingles" tooltipText="Shuffles the different short music jingles in the game."></app-tooltip-span>
+        </div>
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='randomPitch'></mat-slide-toggle>
             <app-tooltip-span spanText="Random Pitch" tooltipText="Randomizes the pitch of the game's sounds and music."></app-tooltip-span>
