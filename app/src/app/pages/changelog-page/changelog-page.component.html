@@ -1,6 +1,25 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
     <mat-card class="settings-card latest-changelog">
+        <mat-card-title class="settings-title">0.21.1 (beta) (2023-04-07)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>     
+            <li> The new music shuffle introduces breaking changes for cosmetics override, which means overriding cosmetics will not be possible with seeds generated before the udpate.</li>
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+            <li> Interacting with the Jade Jungle M.Bush that blocks off the red yoshi kid, if done when standing at very specific positions far to the right or the left of the bush, can softlock the game.
+                To avoid, try to interact with the bush somewhere from the front and not from the side.</li>
+        </ul>
+
+        <h2> Fixes</h2>
+        <ul>
+            <li> Fixed an issue with music shuffle where some songs would crash when played during the Koopa Bros Fortress, Dry Dry Ruins or beanstalk rising cutscenes.</li>
+        </ul>
+
+    </mat-card>
+
+    <mat-card class="settings-card latest-changelog">
         <mat-card-title class="settings-title">0.21.0 (beta) (2023-04-06)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>     
