@@ -117,7 +117,7 @@ export interface SettingsRequest {
     StartingItemF?: number;
     ItemQuality: number;
     RandomConsumableMode: number;
-    StarWaySpiritsNeeded: number;
+    StarWaySpiritsNeededCnt: number;
     FoliageItemHints: boolean;
     RandomText: boolean;
     NoHealingItems: boolean;
