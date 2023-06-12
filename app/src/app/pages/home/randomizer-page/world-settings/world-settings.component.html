@@ -1,7 +1,7 @@
 <form [formGroup]="worldFormGroup">
     <mat-card-content class=settings-card-content>
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="Starting Location" 
+            <app-tooltip-span spanText="Starting Location"
                                 tooltipText="Sets the town / village where the game starts. It is also the location where the Homeward Shroom warps Mario."></app-tooltip-span>
             <select formControlName='startingMap'>
                 <option *ngFor="let location of startingMaps" [ngValue]="location.value">{{location.name}}</option>
@@ -79,9 +79,9 @@
             <app-tooltip-span
                  spanText="Bowser's Castle Mode"
                   tooltipText="Vanilla: Mario will need to go through the entire castle, like in the original game.
-                  
+
                                 Shortened: Multiple sections of Bowser's Castle will be skipped. No Bowser Castle's key or partners abilities will be required.
-                                
+
                                 Boss Rush: The entire castle will be skipped until the hallway where you fight the Duplighosts.">
             </app-tooltip-span>
             <select formControlName='bowsersCastleMode'>
@@ -90,7 +90,7 @@
                 <option [ngValue]="2">Boss Rush</option>
             </select>
         </div>
-        
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='shuffleDungeonEntrances'></mat-slide-toggle>
             <app-tooltip-span
@@ -118,31 +118,31 @@
             <div class="setting-name-container">
                 <app-tooltip-span spanText="Required Power Stars:"
                 tooltipText="Number of power stars required by Eldstar at Shooting Star Summit"></app-tooltip-span>
-                
+
                 <input matInput type="number"
-                min="0" 
-                max="120" 
-                formControlName='starHuntRequired' 
+                min="0"
+                max="120"
+                formControlName='starHuntRequired'
                 (blur)="onRequiredStarsBlur()">
             </div>
-            
+
             <mat-slider formControlName="starHuntRequired" (input)="worldFormGroup.get('starHuntRequired').setValue($event.value)" min=0 max= 120 step="1" tickInterval="1" ></mat-slider>
-        </div>  
+        </div>
 
         <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': !worldFormGroup.get('starHunt').value}">
             <div class="setting-name-container">
                 <app-tooltip-span spanText="Total Power Stars:"
-                tooltipText="Number of power stars placed in the game world"></app-tooltip-span>
+                tooltipText="Number of power stars placed in the game world. A good number to choose is 1.5 times the amount of stars required."></app-tooltip-span>
 
                 <input matInput type="number"
-                min="0" 
-                max="120" 
-                formControlName='starHuntTotal' 
+                min="0"
+                max="120"
+                formControlName='starHuntTotal'
                 (blur)="onTotalStarsBlur()">
             </div>
-            
+
             <mat-slider formControlName="starHuntTotal" (input)="worldFormGroup.get('starHuntTotal').setValue($event.value)" min=0 max=120 step="1" tickInterval="1" ></mat-slider>
-        </div>  
+        </div>
     </mat-card-content>
     <ul *ngIf="worldFormGroup.invalid">
         <mat-divider></mat-divider>

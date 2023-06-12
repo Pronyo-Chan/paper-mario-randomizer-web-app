@@ -53,11 +53,11 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     if(this.randomPartnersMinSubscription) {
       this.randomPartnersMinSubscription.unsubscribe();
-    }    
+    }
 
     if(this._createSeedSubscription) {
       this._createSeedSubscription.unsubscribe();
-    }   
+    }
   }
 
   public onSubmit() {
@@ -98,7 +98,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         else {
           this.seedGenError = 'A server error has occured';
         }
-        
+
         this.isRandomizing = false;
         return of(err)
       })
@@ -156,15 +156,15 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
           lakilester: new FormControl(false)
         }, CustomValidators.atLeastOneTrueControl())
       }),
-      qualityOfLife: new FormGroup({   
-        hiddenBlockMode: new FormControl(0),           
-        alwaysSpeedySpin: new FormControl(false),      
-        alwaysISpy: new FormControl(false),      
-        alwaysPeekaboo: new FormControl(false),        
-        skipQuiz: new FormControl(false),      
+      qualityOfLife: new FormGroup({
+        hiddenBlockMode: new FormControl(0),
+        alwaysSpeedySpin: new FormControl(false),
+        alwaysISpy: new FormControl(false),
+        alwaysPeekaboo: new FormControl(false),
+        skipQuiz: new FormControl(false),
         preventPhysicsGlitches: new FormControl(false),
-        shortenCutscenes: new FormControl(false), 
-        skipEpilogue: new FormControl(false), 
+        shortenCutscenes: new FormControl(false),
+        skipEpilogue: new FormControl(false),
         writeSpoilerLog: new FormControl(true),
         revealLogInHours: new FormControl(0),
         delaySpoilerLog: new FormControl(false),
@@ -192,9 +192,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         badgeSynergy: new FormControl(false),
       }),
       marioStats: new FormGroup({
-        startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]), 
-        startingMaxHP: new FormControl(10), 
-        startingMaxFP: new FormControl(5), 
+        startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]),
+        startingMaxHP: new FormControl(10),
+        startingMaxFP: new FormControl(5),
         startingMaxBP: new FormControl(3),
         startingStarPower: new FormControl(0),
         startingBoots: new FormControl(Boots.Default),
@@ -216,8 +216,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla),
         shuffleDungeonEntrances: new FormControl(false),
         starHunt: new FormControl(false),
-        starHuntRequired: new FormControl(120),
-        starHuntTotal: new FormControl(120, [CustomValidators.greaterOrEqualTo('starHuntRequired')]),
+        starHuntRequired: new FormControl(50),
+        starHuntTotal: new FormControl(70, [CustomValidators.greaterOrEqualTo('starHuntRequired')]),
         starHuntEndsGame: new FormControl(true),
       }),
       cosmetics: new FormGroup({
