@@ -17,5 +17,7 @@ export interface GeneralDifficulty {
     OneHitKO: boolean;
     RandomNumberOfRrequiredStarSpirits: boolean;
     StarSpiritsRequired: number;
+    RequireSpecificSpirits: boolean;
+    LimitChapterLogic: boolean;
     BadgeSynergy: boolean;
 }

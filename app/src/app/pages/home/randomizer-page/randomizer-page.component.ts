@@ -185,6 +185,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomConsumableMode: new FormControl(RandomConsumableMode.Vanilla),
         randomNumberOfStarSpirits: new FormControl(false),
         starWaySpiritsNeeded: new FormControl(7),
+        requireSpecificSpirits: new FormControl(false),
+        limitChapterLogic: new FormControl(false),
         noHealingItems: new FormControl(false),
         itemTrapMode: new FormControl(0),
         allowItemHints: new FormControl(true),
