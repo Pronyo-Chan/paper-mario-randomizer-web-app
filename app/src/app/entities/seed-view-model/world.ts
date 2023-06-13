@@ -8,6 +8,7 @@ export interface World {
     StartingLocation: string;
     OpenWhale: boolean;
     OpenMtRugged: boolean;
+    OpenForeverForest: boolean;
     Ch7BridgeVisible: boolean;
     BowsersCastleMode: BowsersCastleMode;
     ShuffleDungeonEntrances: boolean

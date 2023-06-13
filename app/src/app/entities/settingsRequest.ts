@@ -34,6 +34,7 @@ export interface SettingsRequest {
     WhaleOpen: boolean;
     Ch7BridgeVisible: boolean;
     MtRuggedOpen: boolean;
+    ForeverForestOpen: boolean;
     PrologueOpen: boolean;
     ShuffleChapterDifficulty: boolean;
     ProgressiveScaling: boolean;

@@ -118,6 +118,7 @@ export class SettingStringMappingService {
     { compressedString: "w", key: "whaleOpen", type: "bool"},
     { compressedString: "c", key: "ch7BridgeVisible", type: "bool"},
     { compressedString: "r", key: "mtRuggedOpen", type: "bool"},
+    { compressedString: "f", key: "foreverForestOpen", type: "bool"},
     { compressedString: "p", key: "prologueOpen", type: "bool"},
     { compressedString: "m", key: "magicalSeedsRequired", type: "number"},
     { compressedString: "o", key: "bowsersCastleMode", type: "number"},

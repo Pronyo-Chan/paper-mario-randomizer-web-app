@@ -241,6 +241,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Magical Seeds Required", value: this.seedModel.World.MagicalSeedsRequired},
       {name: "Open Prologue", value: this.seedModel.World.OpenPrologue},
       {name: "Open Mt.Rugged", value: this.seedModel.World.OpenMtRugged},
+      {name: "Open Forever Forest", value: this.seedModel.World.OpenForeverForest},
       {name: "Open Toy Box", value: this.seedModel.World.OpenToyBox},
       {name: "Open Whale", value: this.seedModel.World.OpenWhale},
       {name: "Open Blue House", value: this.seedModel.World.OpenBlueHouse},

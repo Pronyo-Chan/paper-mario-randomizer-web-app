@@ -29,6 +29,7 @@ describe('WorldSettingsComponent', () => {
       whaleOpen: new FormControl(false),
       ch7BridgeVisible: new FormControl(false),
       mtRuggedOpen: new FormControl(false),
+      foreverForestOpen: new FormControl(false),
       prologueOpen: new FormControl(false),
     })
     fixture.detectChanges();

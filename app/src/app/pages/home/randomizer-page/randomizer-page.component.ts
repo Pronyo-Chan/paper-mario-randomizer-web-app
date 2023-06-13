@@ -213,6 +213,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         whaleOpen: new FormControl(false),
         ch7BridgeVisible: new FormControl(true),
         mtRuggedOpen: new FormControl(false),
+        foreverForestOpen: new FormControl(true),
         prologueOpen: new FormControl(false),
         startingMap: new FormControl(StartingMap.ToadTown),
         bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla),

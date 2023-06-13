@@ -179,6 +179,7 @@ export class RandomizerService {
       WhaleOpen: settingsForm.get('openLocations').get('whaleOpen').value,
       Ch7BridgeVisible: settingsForm.get('openLocations').get('ch7BridgeVisible').value,
       MtRuggedOpen: settingsForm.get('openLocations').get('mtRuggedOpen').value,
+      ForeverForestOpen: settingsForm.get('openLocations').get('foreverForestOpen').value,
       PrologueOpen: settingsForm.get('openLocations').get('prologueOpen').value,
       StartingMap: settingsForm.get('openLocations').get('startingMap').value,
       BowsersCastleMode: settingsForm.get('openLocations').get('bowsersCastleMode').value,
