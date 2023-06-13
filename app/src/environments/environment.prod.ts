@@ -1,6 +1,6 @@
 export const environment = {
-  production: true,  
+  production: true,
   apiEndPoint: "https://paper-mario-randomizer-server.ue.r.appspot.com/",
   homepage:"https://pm64randomizer.com/",
-  currentModVersion: 16
+  currentModVersion: 17
 };
