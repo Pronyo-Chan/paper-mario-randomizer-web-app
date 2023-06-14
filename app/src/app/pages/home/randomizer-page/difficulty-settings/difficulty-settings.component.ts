@@ -11,7 +11,7 @@ import { tap, Subscription } from 'rxjs';
 export class DifficultySettingsComponent implements OnInit, OnDestroy {
 
   @Input() public difficultyFormGroup: FormGroup;
-  public isSevenStarSpirits: boolean;
+  public isSevenOrZeroStarSpirits: boolean;
 
   private _randomConsumableModeSubscription: Subscription;
   private _randomNumberOfStarSpiritsSubscription: Subscription;
@@ -21,7 +21,7 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
   public constructor() { }
 
   public ngOnInit(): void {
-    this.isSevenStarSpirits = this.difficultyFormGroup.get('starWaySpiritsNeeded').value == 7 && !this.difficultyFormGroup.get('randomNumberOfStarSpirits').value
+    this.updateIsSevenOrZeroStarSpirits();
 
     this.disableItemQualityWhenNotBalancedRandom(this.difficultyFormGroup.get('randomConsumableMode').value);
     this.disableStarSpiritsNeededWhenRandom(this.difficultyFormGroup.get('randomNumberOfStarSpirits').value);
@@ -30,7 +30,7 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
 
     this._randomConsumableModeSubscription =  this.difficultyFormGroup.get('randomConsumableMode').valueChanges.pipe(
       tap(value => {
-        this.isSevenStarSpirits = this.difficultyFormGroup.get('starWaySpiritsNeeded').value == 7 && !this.difficultyFormGroup.get('randomNumberOfStarSpirits').value
+        this.updateIsSevenOrZeroStarSpirits();
         this.disableRequireSpecificSpiritsWhenSevenSpirits();
         this.disableItemQualityWhenNotBalancedRandom(value);
       })
@@ -38,15 +38,14 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
 
     this._starSpiritsNeededSubscription = this.difficultyFormGroup.get('starWaySpiritsNeeded').valueChanges.pipe(
       tap(value => {
-        this.isSevenStarSpirits = this.difficultyFormGroup.get('starWaySpiritsNeeded').value == 7 && !this.difficultyFormGroup.get('randomNumberOfStarSpirits').value
+        this.updateIsSevenOrZeroStarSpirits();
         this.disableRequireSpecificSpiritsWhenSevenSpirits();
       })
     ).subscribe();
 
     this._randomNumberOfStarSpiritsSubscription =  this.difficultyFormGroup.get('randomNumberOfStarSpirits').valueChanges.pipe(
       tap(value => {
-        this.isSevenStarSpirits = this.difficultyFormGroup.get('starWaySpiritsNeeded').value == 7 && !this.difficultyFormGroup.get('randomNumberOfStarSpirits').value
-        this.disableRequireSpecificSpiritsWhenSevenSpirits();
+        this.updateIsSevenOrZeroStarSpirits();
         this.disableStarSpiritsNeededWhenRandom(value);
       })
     ).subscribe();
@@ -94,7 +93,7 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
   }
 
   private disableRequireSpecificSpiritsWhenSevenSpirits() {
-    if(this.isSevenStarSpirits) {
+    if(this.isSevenOrZeroStarSpirits) {
       this.difficultyFormGroup.get('requireSpecificSpirits').disable();
     } else {
       this.difficultyFormGroup.get('requireSpecificSpirits').enable();
@@ -102,10 +101,15 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
   }
 
   private disableLimitChapterLogicWhenNotRequiringSpecificSpirits(requireSpecificSpirits: boolean) {
-    if(!requireSpecificSpirits) {
+    if(!requireSpecificSpirits || this.isSevenOrZeroStarSpirits) {
       this.difficultyFormGroup.get('limitChapterLogic').disable();
     } else {
       this.difficultyFormGroup.get('limitChapterLogic').enable();
     }
+  }
+
+  private updateIsSevenOrZeroStarSpirits() {
+    this.isSevenOrZeroStarSpirits = (this.difficultyFormGroup.get('starWaySpiritsNeeded').value == 7 || this.difficultyFormGroup.get('starWaySpiritsNeeded').value == 0)
+      && !this.difficultyFormGroup.get('randomNumberOfStarSpirits').value;
   }
 }

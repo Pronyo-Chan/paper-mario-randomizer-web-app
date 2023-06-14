@@ -113,13 +113,13 @@
             <mat-slider formControlName="starWaySpiritsNeeded" (input)="difficultyFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=0 max= 7 step="1" tickInterval="1" ></mat-slider>
         </div>
 
-        <div class="setting-element" [ngClass]="{ 'disabled-element': isSevenStarSpirits}">
+        <div class="setting-element" [ngClass]="{ 'disabled-element': isSevenOrZeroStarSpirits}">
           <mat-slide-toggle formControlName='requireSpecificSpirits'></mat-slide-toggle>
           <app-tooltip-span spanText="Require Specific Spirits"
                            tooltipText="Specific chapters must be completed to open the star way. You must visit shooting star summit to see which ones."></app-tooltip-span>
         </div>
 
-        <div class="setting-element" [ngClass]="{ 'disabled-element': !difficultyFormGroup.get('requireSpecificSpirits').value}">
+        <div class="setting-element" [ngClass]="{ 'disabled-element': !difficultyFormGroup.get('requireSpecificSpirits').value || isSevenOrZeroStarSpirits}">
           <mat-slide-toggle formControlName='limitChapterLogic'></mat-slide-toggle>
           <app-tooltip-span spanText="Limit Chapter Logic"
                            tooltipText="Only chapters that need to be completed will contain progression items if enabled."></app-tooltip-span>

@@ -205,7 +205,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Merlow Rewards Pricing", value: MerlowRewardPricing[this.seedModel.GeneralDifficulty.MerlowRewardsPricing]},
       {name: "Random Number of Required Star Spirits", value: this.seedModel.GeneralDifficulty.RandomNumberOfRrequiredStarSpirits},
       {name: "Star Spirits Required", value: this.seedModel.GeneralDifficulty.StarSpiritsRequired},
-      {name: "Require Specific Spirits", value: this.seedModel.GeneralDifficulty.StarSpiritsRequired == 7 ? null : this.seedModel.GeneralDifficulty.RequireSpecificSpirits},
+      {name: "Require Specific Spirits", value: this.seedModel.GeneralDifficulty.StarSpiritsRequired == 7 || this.seedModel.GeneralDifficulty.StarSpiritsRequired == 0 ? null : this.seedModel.GeneralDifficulty.RequireSpecificSpirits},
       {name: "Limit Chapter Logic", value: this.seedModel.GeneralDifficulty.RequireSpecificSpirits ? this.seedModel.GeneralDifficulty.LimitChapterLogic : null},
       {name: "No Healing Items", value: this.seedModel.GeneralDifficulty.NoHealingItems},
       {name: "No Heart Blocks", value: this.seedModel.GeneralDifficulty.NoHeartBlocks},
