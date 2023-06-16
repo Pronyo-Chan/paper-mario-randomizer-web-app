@@ -34,6 +34,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public readonly LACKING_SHUFFLE_JUMPLESS_START_ERROR = 'jumplessStartNoShuffle';
   public readonly LACKING_SHUFFLE_STAR_HUNT_ERROR = 'starHuntNoShuffle';
   public readonly SHUFFLED_ENTRANCES_NO_ITEMS_ERROR = 'entranceRandoNoShuffle';
+  public readonly LIMIT_CHAPTERS_NO_KEYSANITY_ERROR = 'limitChaptersNoKeysanity';
 
   public homepageLink;
   public formGroup: FormGroup
@@ -77,6 +78,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         return;
       } else if (errors.some(e => e == this.LACKING_SHUFFLE_STAR_HUNT_ERROR)) {
         this.seedGenError = "Star Hunt is impossible without item shuffle enabled."
+        return;
+      } else if (errors.some(e => e == this.LIMIT_CHAPTERS_NO_KEYSANITY_ERROR)) {
+        this.seedGenError = "Limiting chapter logic is impossible without Keysanity."
         return;
       }
     }
@@ -265,6 +269,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isBombetteStartingPartner = this.formGroup.get('partners').get('startWithPartners').get('bombette').value;
     const isEntranceRandoEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value;
     const isStarHuntEnabled = this.formGroup.get('openLocations').get('starHunt').value;
+    const isLimitChapterLogicEnabled = this.formGroup.get('difficulty').get('limitChapterLogic').value;
+    const isKeysanityEnabled = this.formGroup.get('items').get('keyitemsOutsideDungeon').value
 
     const isBreakingYellowBlocksWithSuperBootsEnabled = this.formGroup.get('glitches').value
       .some(enabledGlitch => enabledGlitch.settingName == "BreakYellowBlocksWithSuperBoots");
@@ -292,6 +298,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     if ( isEntranceRandoEnabled && (!isGeneralShuffleEnabled || !isPartnerShuffleEnabled)) {
       errors.push(this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)
+    }
+
+    if ( isLimitChapterLogicEnabled && !isKeysanityEnabled) {
+      errors.push(this.LIMIT_CHAPTERS_NO_KEYSANITY_ERROR)
     }
 
     return errors;

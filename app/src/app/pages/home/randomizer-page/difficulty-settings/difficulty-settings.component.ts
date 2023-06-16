@@ -94,6 +94,7 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
 
   private disableRequireSpecificSpiritsWhenSevenSpirits() {
     if(this.isSevenOrZeroStarSpirits) {
+      this.difficultyFormGroup.get('requireSpecificSpirits').setValue(false);
       this.difficultyFormGroup.get('requireSpecificSpirits').disable();
     } else {
       this.difficultyFormGroup.get('requireSpecificSpirits').enable();
@@ -102,6 +103,7 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
 
   private disableLimitChapterLogicWhenNotRequiringSpecificSpirits(requireSpecificSpirits: boolean) {
     if(!requireSpecificSpirits || this.isSevenOrZeroStarSpirits) {
+      this.difficultyFormGroup.get('limitChapterLogic').setValue(false);
       this.difficultyFormGroup.get('limitChapterLogic').disable();
     } else {
       this.difficultyFormGroup.get('limitChapterLogic').enable();
