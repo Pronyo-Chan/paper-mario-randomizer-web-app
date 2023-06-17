@@ -18,12 +18,10 @@
             <li>Merlow's reward program (custom made for the randomizer) can however hold progression items.</li>
         </ul>
 
-        <h2>Coinsanity</h2>
+        <h2>Shuffle Coins</h2>
         <ul>
-            <li>Includes all freestanding coins on the overworld.</li>
-            <li>Includes all coins located in ?-blocks.</li>
-            <li>Coins in bushes and trees are not included.</li>
-            <li>Koopa Koot coin rewards are shuffled when this setting is combined with shuffling Koopa Koot rewards.</li>
+            <li> When generating seeds combining coinsanity options and settings that add new items to the item pool (Power stars, item pouches), coins will now be prioritized as objects to replace from the item pool.</li>
+            <li> When adding the new item, coins will be replaced first until there are only 20 coins or less left in the item pool.</li>
         </ul>
 
         <h2>Include Hidden Panels</h2>
@@ -73,7 +71,7 @@
             <li>When playing with "Shuffle Chapter Difficulties" and starting from a location other than Toad Town, the maximum difficulty for the starting chapter will be 3.</li>
             <li>The following battles are unaffected by this setting and will have vanilla stats: All enemies/bosses in Toad Town Tunnels, all enemies/bosses in chapter 8, Dojo Fights (Toad Town), Kent C. Koopa (Pleasant Path), Anti Guy (Toy Box).</li>
         </ul>
-        
+
         <h2>Item Traps</h2>
         <ul>
             <li>Item traps cannot be in shops. Anywhere else is fair play.</li>
@@ -84,6 +82,21 @@
         <ul>
             <li>Determines how many star spirits are required to complete the game.</li>
             <li>The current number of star spirits left to save can be observed at Shooting Star Summit, by counting the unlit stars on the ground at the top.</li>
+        </ul>
+
+        <h3>Require Specific Spirits</h3>
+        <ul>
+            <li>When playing with a required number of star spirits other than 0 or 7, this setting makes it so specific spirits are needed.</li>
+            <li>To know which spirits are required, the player must visit the top of Shooting Star Summit. Holograms of the required spirits will be there,
+                  indicating that they are the required ones.</li>
+        </ul>
+
+        <h3>Limit Chapter Logic</h3>
+        <ul>
+            <li>This option is an add-on to the "Require Specific Spirits" setting, which must be enabled first.</li>
+            <li>Enabling it will render all checks in chapters where the spirit is not required out of logic.</li>
+            <li>This means that all progression items will be placed in the required chapters. Badges and consumable items can still be found in the non-required chapters.</li>
+            <li>Checks in the Goomba Region (Prologue), Toad Town, Toad Town Sewers and Shooting Star Summit are not considered as part of a chapter and will always be in logic.</li>
         </ul>
 
         <h3>Badge Synergy</h3>
@@ -101,7 +114,14 @@
             <li>When playing with Hammerless start, the bush in Jr. Troopa's playground is considered a big chest and contains an upgrade as well.</li>
             <li>Bombette can be used to bomb most trees, ground blocks, the whale and the frozen pond in Shiver City.</li>
         </ul>
-        
+
+        <h2>Jumpless Start</h2>
+        <ul>
+            <li> Enabling it will make Mario start without any boots. The first set of boots will be found in a random item location.</li>
+            <li> Until Mario finds boots, he will be unable to jump, both in battles and on the overworld.</li>
+            <li> Some unintuitive actions might be required, like using Parakarry to climb stairs/ledges or using Kooper to gain height and hit floating blocks.</li>
+        </ul>
+
     </mat-card>
 
     <mat-card class="settings-card">
@@ -121,6 +141,14 @@
         <ul>
             <li> With this setting, riding the star ship will lead directly to the Duplighost hallway, effectively skipping almost the entire castle.</li>
             <li> From there onwards, the end of the game plays as usual and Mario needs to defeat the Duplighosts, Jr. Troopa, Hallway Bowser and Final Bowser</li>
+        </ul>
+
+        <h3>Open Forever Forest</h3>
+        <ul>
+            <li> Allows closing Forever Forest by making Oakley require a Forest Pass, an unused item in the game's code.</li>
+            <li> Off: Oakley required the Forest Pass to enter Forever Forest. An additional item is given by Fice.T, the toad guarding the forest entrance and the Forest Pass is added into the item pool.</li>
+            <li> On: Oakley lets Mario into the forest without any requirements. The Forest Pass is not added to the game and Fice.T does not give any item.</li>
+            <li> If the forest is closed and Mario travels the forest backwards starting from Boo's Mansion without the Forest Pass, Oakley will let him pass anyway.</li>
         </ul>
     </mat-card>
 
