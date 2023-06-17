@@ -1,9 +1,65 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
-    <mat-card class="settings-card latest-changelog">
+  <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.22.0 (beta) (2023-06-10)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+        <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li> The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+    </ul>
+
+    <h2> Mod Fixes</h2>
+    <ul>
+        <li> Fixed an issue where interacting with M.Bush in Jade Jungle could rarely result in a softlock.</li>
+        <li> Fixed a rare console crash that could occur in Flower Fields, in the screen before the Puff machine.</li>
+        <li> Fixed an issue in the Shiver Mountain duplighost cutscene where it would be shortened even with "Shorten Cutscenes" disabled.</li>
+        <li> Changed the number of obtainable star pieces displayed at Mario's house to 116, properly reflecting the amount of star pieces in the randomizer.</li>
+    </ul>
+
+    <h2>Options</h2>
+
+    <h3>Require Specific Spirits (new)</h3>
+    <ul>
+        <li> When playing with a required number of star spirits other than 0 or 7, this setting makes it so specific spirits are needed.</li>
+        <li> To know which spirits are required, the player must visit the top of Shooting Star Summit. Holograms of the required spirits will be there,
+              indicating that they are the required ones.</li>
+    </ul>
+
+    <h3>Limit Chapter Logic (new)</h3>
+    <ul>
+        <li> This option is an add-on to the "Require Specific Spirits" setting, which must be enabled first.</li>
+        <li> Enabling it will render all checks in chapters where the spirit is not required out of logic.</li>
+        <li> This means that all progression items will be placed in the required chapters. Badges and consumable items can still be found in the non-required chapters.</li>
+        <li> Checks in the Goomba Region (Prologue), Toad Town, Toad Town Sewers and Shooting Star Summit are not considered as part of
+              a chapter and will always be in logic.</li>
+    </ul>
+
+    <h3>Open Forever Forest (new)</h3>
+    <ul>
+        <li> This new option allows closing Forever Forest by making Oakley require a Forest Pass, an unused item in the game's code.</li>
+        <li> Off: Oakley required the Forest Pass to enter Forever Forest. An additional item is given by Fice.T, the toad guarding the forest entrance and the Forest Pass is added into the item pool.</li>
+        <li> On: Oakley lets Mario into the forest without any requirements. The Forest Pass is not added to the game and Fice.T does not give any item.</li>
+        <li> If the forest is closed and Mario travels the forest backwards starting from Boo's Mansion without the Forest Pass, Oakley will let him pass anyway.</li>
+    </ul>
+
+    <h2>Seed Generator</h2>
+    <ul>
+        <li> When generating seeds combining coinsanity options and settings that add new items to the item pool (Power stars, item pouches), coins will now be prioritized as objects to replace from the item pool.</li>
+        <li> When adding the new item, coins will be replaced first until there are only 20 coins or less left in the item pool.</li>
+    </ul>
+
+    <h2>Website</h2>
+    <ul>
+        <li> Fixed a UI bug where disabling "Power Star Hunt" while the amount of total/required stars was invalid would send invalid settings to the server, resulting in an error.</li>
+    </ul>
+
+  </mat-card>
+
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.21.2 (beta) (2023-04-13)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> The new music shuffle introduces breaking changes for cosmetics override, which means overriding cosmetics will not be possible with seeds generated before the udpate.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
@@ -27,10 +83,10 @@
 
     </mat-card>
 
-    <mat-card class="settings-card latest-changelog">
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.21.1 (beta) (2023-04-07)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> The new music shuffle introduces breaking changes for cosmetics override, which means overriding cosmetics will not be possible with seeds generated before the udpate.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
@@ -46,10 +102,10 @@
 
     </mat-card>
 
-    <mat-card class="settings-card latest-changelog">
+    <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.21.0 (beta) (2023-04-06)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> The new music shuffle introduces breaking changes for cosmetics override, which means overriding cosmetics will not be possible with seeds generated before the udpate.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
@@ -122,7 +178,7 @@
 
 
         <h3>Glitches & Tricks (change)</h3>
-        <ul class="indented-text">            
+        <ul class="indented-text">
             <li> Raph Skip (Parakarry), which is a JP only trick, can now be selected to be in logic. The game has been modified to make the JP exploit possible in randomizer.</li>
             <li> 🎉Shoutouts to <span class="bolder-text">OfficialVladimirLenin</span> for providing the modification!🎉</li>
         </ul>
@@ -131,7 +187,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.20.0 (beta) (2023-02-23)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
             <li> When playing Jumpless, Mario cannot use heart blocks.</li>
@@ -179,7 +235,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.19.1 (beta) (2023-02-02)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
             <li> When playing Jumpless, Mario cannot use heart blocks.</li>
@@ -196,7 +252,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.19.0 (beta) (2023-02-02)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
             <li> When playing Jumpless, Mario cannot use heart blocks.</li>
@@ -229,7 +285,7 @@
             <li> This option is not compatible with "Shuffle Items: Off".</li>
             <li> The shuffled entrances can be found in the spoiler log, under the "Settings" section.</li>
         </ul>
-        
+
         <h3>Mt. Rugged Open (new)</h3>
         <ul>
             <li> When turned on, the boulder on the Toad Town train track will be gone from the start.</li>
@@ -267,7 +323,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.18.3 (beta) (2023-01-17)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
             <li> When playing Jumpless, Mario cannot use heart blocks.</li>
@@ -304,7 +360,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.18.2 (beta) (2023-01-11)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
             <li> When playing Jumpless, Mario cannot use heart blocks.</li>
@@ -333,7 +389,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.18.1 (beta) (2023-01-07)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
             <li> Merlow won't hand out bonus rewards when playing on Project 64 with the Recompiler mode. Please use another emulator or set Project 64 to use Interpreter mode instead.</li>
@@ -387,7 +443,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.18.0 (beta) (2022-12-21)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
             <li> Merlow won't hand out bonus rewards when playing on Project 64 with the Recompiler mode. Please use another emulator or set Project 64 to use Interpreter mode instead.</li>
@@ -439,7 +495,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.17.0 (beta) (2022-11-09)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
             <li> Merlow won't hand out bonus rewards when playing on Project 64 with the Recompiler mode. Please use another emulator or set Project 64 to use Interpreter mode instead.</li>
@@ -496,7 +552,7 @@
         </ul>
 
         <h3>Glitches & Tricks (change)</h3>
-        <ul class="indented-text">            
+        <ul class="indented-text">
             <li>The following tricks have been internally renamed and will need to be added to your presets again if they were enabled: Prologue Sushie Glitch, Kooperless Lavalava PowBlock, Sushieless Warehouse Key (Bombette Push).</li>
             <li>Some missing video links have been added.</li>
             <li>New glitches and tricks have been added:</li>
@@ -517,7 +573,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.16.0 (beta) (2022-10-17)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
             <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
             <li> Merlow won't hand out bonus rewards when playing on Project 64 with the Recompiler mode. Please use another emulator or set Project 64 to use Interpreter mode instead.</li>
@@ -562,7 +618,7 @@
         </ul>
 
         <h3>Glitches & Tricks (change)</h3>
-        <ul class="indented-text">            
+        <ul class="indented-text">
             <li> When clicking on a video link in the glitches/tricks list, the click will no longer enable/disable the glitch/trick simultaneously.</li>
             <li> A new trick specific to Jumpless Start has been added: Tubba's Table Laki Jump (Study Room). The previously existing Tubba's Table Jump tricks have been renamed so the distinction is clearer.</li>
             <li> Removed some broken video links.</li>
@@ -574,7 +630,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.15.0 (beta) (2022-09-22)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins and Crystal Palace may look like they are hanging on an invisible ceiling in certain rooms.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
@@ -638,7 +694,7 @@
         </ul>
 
         <h3>Glitches & Tricks (change)</h3>
-        <ul class="indented-text">            
+        <ul class="indented-text">
             <li> Some missing video links have been added.</li>
             <li>New glitches and tricks have been added:</li>
             <li><span class="bolder-text">Goomba Region:</span> Reverse Goomba King Bridge, Goomba Village Fence Clip, Goomba Village Exit (NPC Lure), Goomba Village Exit (Laki),
@@ -663,7 +719,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.14.1 (beta) (2022-08-27)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins and Crystal Palace may look like they are hanging on an invisible ceiling in certain rooms.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
@@ -695,7 +751,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.14.0 (beta) (2022-08-23)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins and Crystal Palace may look like they are hanging on an invisible ceiling in certain rooms.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
@@ -803,7 +859,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.13.2 (beta) (2022-07-31)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
@@ -819,7 +875,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.13.1 (beta) (2022-07-29)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
@@ -842,7 +898,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.13.0 (beta) (2022-07-26)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>     
+        <ul>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
@@ -933,7 +989,7 @@
         <mat-card-title class="settings-title">0.12.1 (beta) (2022-06-28)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>
-            <li> When containing a unique item or badge, non-replenishable trees will keep dropping copies of the item when hit until the item is collected.</li>        
+            <li> When containing a unique item or badge, non-replenishable trees will keep dropping copies of the item when hit until the item is collected.</li>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
@@ -967,7 +1023,7 @@
         <mat-card-title class="settings-title">0.12.0 (beta) (2022-06-08)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>
-            <li> When containing a unique item or badge, non-replenishable trees will keep dropping copies of the item when hit until the item is collected.</li>        
+            <li> When containing a unique item or badge, non-replenishable trees will keep dropping copies of the item when hit until the item is collected.</li>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
@@ -1028,8 +1084,8 @@
         <mat-card-title class="settings-title">0.11.0 (beta) (2022-05-20)</mat-card-title>
         <h2>Known Issues</h2>
         <ul>
-            <li> When containing a unique item or badge, non-replenishable trees will keep dropping copies of the item when hit until the item is collected.</li>        
-            <li> Under unknown conditions, the game can crash when growing the beanstalk in flower fields. The same crash has also been reported in a Koopa Bros Fotress cutscene once.</li>        
+            <li> When containing a unique item or badge, non-replenishable trees will keep dropping copies of the item when hit until the item is collected.</li>
+            <li> Under unknown conditions, the game can crash when growing the beanstalk in flower fields. The same crash has also been reported in a Koopa Bros Fotress cutscene once.</li>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
@@ -1075,7 +1131,7 @@
         <h3>Letter Delivery Rewards (new)</h3>
         <ul>
             <li> Determines which letter rewards are shuffled in the item pool.</li>
-            <li> Vanilla: Every letter reward remains unshuffled.</li>                           
+            <li> Vanilla: Every letter reward remains unshuffled.</li>
             <li> Vanilla Letter Chain: Shuffle letter delivery rewards, but don't shuffle anything that relates to the long letter chain.</li>
             <li> Final Letter Chain Reward: Shuffle letter delivery rewards and the final reward of the long letter chain.</li>
             <li> Full Shuffle: Every letter delivery reward is shuffled.</li>
@@ -1084,15 +1140,15 @@
         <h3>Koopa Koot Favors (new)</h3>
         <ul>
             <li> Determines if Koopa Koot's favor quest items and rewards are shuffled in the item pool.</li>
-            <li> Vanilla: Every Koopa Koot reward and quest item remains unshuffled.</li>                                           
-            <li> Shuffle Rewards: Shuffle Koopa Koot favor rewards, but not the key items obtained for his quests.</li>                
+            <li> Vanilla: Every Koopa Koot reward and quest item remains unshuffled.</li>
+            <li> Shuffle Rewards: Shuffle Koopa Koot favor rewards, but not the key items obtained for his quests.</li>
             <li> Full Shuffle: Every Koopa Koot reward and quest key item is shuffled.</li>
         </ul>
 
         <h3>Bowser's Castle Mode (rename +  change)</h3>
         <ul>
             <li> The "Shorten Bowser's Castle" option has been replaced by a "Bowser's Castle Mode" option dropdown.</li>
-            <li> Vanilla: Mario will need to go through the entire castle, like in the original game.</li>         
+            <li> Vanilla: Mario will need to go through the entire castle, like in the original game.</li>
             <li> Shortened: Multiple sections of Bowser's Castle will be skipped. No Bowser Castle's key or partners abilities will be required.</li>
             <li> Boss Rush: The entire castle will be skipped until the hallway where you fight the Duplighosts.</li>
         </ul>
@@ -1106,7 +1162,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.10.0 (beta) (2022-05-03)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>        
+        <ul>
             <li> Merluvlee giving a hint crashes the game on rare occasions, under currently unknown circumstances.</li>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
@@ -1138,7 +1194,7 @@
                  instead of being more concentrated in easily accessed locations like before.</li>
             <li> Turning in the artifact at the desert camp before completing chapter 2 is now in logic.</li>
             <li> Fixed an issue where some replenishable items locations were not used during the placement of replenishable progression items.</li>
-            <li> Adjusted logic in Tubba Blubba's Castle: Bow is now required in logic to reach the first locked door, and it is now considered possible to get 
+            <li> Adjusted logic in Tubba Blubba's Castle: Bow is now required in logic to reach the first locked door, and it is now considered possible to get
                 the spiked room chest with Lakilester.</li>
         </ul>
 
@@ -1157,7 +1213,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.9.1 (beta) (2022-04-19)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>        
+        <ul>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> When playing with Hidden Block Mode: "Watt Obtained", hidden blocks won't appear before Watt has been an active partner at least once.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
@@ -1180,7 +1236,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.9.0 (beta) (2022-04-18)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>            
+        <ul>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
             <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
@@ -1347,10 +1403,10 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.8.4 (beta) (2022-03-16)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>            
+        <ul>
             <li> The game can crash when pausing and unpausing in shops immediately after walking away from an item displayed in the shop.</li>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
-            <li> Under unknown circumstances, it is possible for some trees to drop unique items multiple times.</li> 
+            <li> Under unknown circumstances, it is possible for some trees to drop unique items multiple times.</li>
             <li> When playing on vanilla difficulty, some enemies have stats that differ from the original game.</li>
             <li> When Shuffle Battle Formations is on, Swoop enemies found in Dry Dry Ruins may look like they are hanging on an invisible ceiling in certain rooms.</li>
             <li> The "Include Koopa Koot Favors" and "Turn Off Music" settings  have been temporarily removed from the generator, as they need to be reworked.</li>
@@ -1392,7 +1448,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.8.3 (beta) (2022-03-09)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>            
+        <ul>
             <li> The game can crash when pausing and unpausing in shops immediately after walking away from an item displayed in the shop.</li>
             <li> Although the game now prevents Mario from picking up items while pushing blue blocks, a softlock is still possible if he begins pushing a block at the same time he obtains an item.</li>
             <li> On very rare occasions, the generator may place duplicate items, which might lead to a crash when loading maps.</li>
@@ -1438,7 +1494,7 @@
     <mat-card class="settings-card">
         <mat-card-title class="settings-title">0.8.2 (beta) (2022-03-07)</mat-card-title>
         <h2>Known Issues</h2>
-        <ul>            
+        <ul>
             <li> When fighting Ch1 Jr. Troopa coming from Toad Town, the game can softlock if you are hugging the wall at a specific position when triggering the cutscene.</li>
             <li> The game can crash when pausing and unpausing in shops immediately after walking away from an item displayed in the shop.</li>
             <li> Some item locations won't allow Mario to drop an item, if the new item obtained is a consumable and Mario's inventory is full (Fuzzy minigame reward, chest in Peach's Castle).</li>
@@ -1525,9 +1581,9 @@
             <li> AlwaysISpy option is now silent, the Star Piece indicator will be visually present when entering a room with a hidden panel, but makes no sound.</li>
             <li> Title Screen: Added a new title logo for the randomizer.</li>
             <li> Random Formations: As Medi Guys scale the same as other chapter 4 enemies, they no longer appear outside of the Toy Box during Random Formations if Progressive Scaling is turned off.</li>
-            <li> Logic now expects Mario to have the required partners for Bowser's Castle before entering it</li> 
-            <li> The bombable wall during the volcano escape is now always open to prevent softlocks if Mario doesn't have Bombette</li> 
-            <li> Star Pieces are now considered in logic so it should be impossible to be softlocked due to spending Star Pieces on non-progression items</li> 
+            <li> Logic now expects Mario to have the required partners for Bowser's Castle before entering it</li>
+            <li> The bombable wall during the volcano escape is now always open to prevent softlocks if Mario doesn't have Bombette</li>
+            <li> Star Pieces are now considered in logic so it should be impossible to be softlocked due to spending Star Pieces on non-progression items</li>
             <li> It is now possible to re-enter Tubba Bubba's castle after the escape and before beating the chapter boss. This prevents Mario from being softlocked if an item leading to the super boots was left behind in the castle.</li>
             <li> Star power abilities will now be cast by the star spirit that was saved to unlock it. If the game was started with more than 0SP, abilities that were unlocked without having saved a spirit for it will be cast by Twink instead.</li>
             <li> The Spirits pause menu tab will now properly display which star spirits have been saved.</li>
@@ -1674,7 +1730,7 @@
             <li> Due to technical reasons, the yellow Yoshi in Yoshi's Village will now only give his item in exchange for a Tayce T. item once.</li>
             <li> Due to technical reasons, Rip Cheato will now only give his last, formerly infinite, item once.</li>
         </ul>
-        
+
         <h3>Progression</h3>
         <ul>
             <li>Entering Toad Town Station via the train (before breaking the boulder that blocks the tracks) now breaks the boulder instead of letting the train pass through it.</li>
@@ -1870,7 +1926,7 @@
             <li> In Boo's Mansion, entering the basement library from above without Bombette's overworld ability available softlocks the game</li>
             <li> On Shiver Mountain, behind the snowmen door, Mario can softlock the game by falling into the pit where he needs to use the UltraBoots if he does not have them</li>
         </ul>
-        
+
         <h2>Vanilla bug fixes</h2>
         <p>Some changes have been made to vanilla game behavior to fix bugs left by the developers.</p>
 
