@@ -122,7 +122,7 @@
         <div class="setting-element" [ngClass]="{ 'disabled-element': !difficultyFormGroup.get('requireSpecificSpirits').value || isSevenOrZeroStarSpirits}">
           <mat-slide-toggle formControlName='limitChapterLogic'></mat-slide-toggle>
           <app-tooltip-span spanText="Limit Chapter Logic"
-                           tooltipText="Only chapters that need to be completed will contain progression items if enabled."></app-tooltip-span>
+                           tooltipText="Only chapters that need to be completed and prologue / common areas will contain progression items if enabled."></app-tooltip-span>
         </div>
 
     </mat-card-content>
