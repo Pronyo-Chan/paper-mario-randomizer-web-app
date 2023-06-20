@@ -33,7 +33,7 @@ export class SettingStringMappingService {
     { compressedString: "w", key: "wattSprite", type: "sprite"},
     { compressedString: "s", key: "sushieSprite", type: "sprite"},
     { compressedString: "l", key: "lakilesterSprite", type: "sprite"},
-    { compressedString: "a", key: "parakarrySprite", type: "sprite"},    
+    { compressedString: "a", key: "parakarrySprite", type: "sprite"},
     { compressedString: "r", key: "romanNumerals", type: "bool"},
     { compressedString: "h", key: "randomPitch", type: "bool"},
     { compressedString: "u", key: "shuffleMusic", type: "number"},
@@ -52,6 +52,8 @@ export class SettingStringMappingService {
     { compressedString: "a", key: "xpMultiplier", type: "number"},
     { compressedString: "k", key: "oneHitKO", type: "bool"},
     { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
+    { compressedString: "e", key: "requireSpecificSpirits", type: "bool"},
+    { compressedString: "f", key: "limitChapterLogic", type: "bool"},
     { compressedString: "z", key: "randomNumberOfStarSpirits", type: "bool"},
     { compressedString: "l", key: "noHealingItems", type: "bool"},
     { compressedString: "t", key: "itemTrapMode", type: "number"},
@@ -116,6 +118,7 @@ export class SettingStringMappingService {
     { compressedString: "w", key: "whaleOpen", type: "bool"},
     { compressedString: "c", key: "ch7BridgeVisible", type: "bool"},
     { compressedString: "r", key: "mtRuggedOpen", type: "bool"},
+    { compressedString: "f", key: "foreverForestOpen", type: "bool"},
     { compressedString: "p", key: "prologueOpen", type: "bool"},
     { compressedString: "m", key: "magicalSeedsRequired", type: "number"},
     { compressedString: "o", key: "bowsersCastleMode", type: "number"},
@@ -209,7 +212,7 @@ export class SettingStringMappingService {
           case "glitches":
             compressedString += this.encodeGlitches(nestedFormElement.value, settingModel)
             break;
-        
+
           default:
             throw new Error("Unimplemented setting string mapping type: " + settingModel.type);
             break;
@@ -281,7 +284,7 @@ export class SettingStringMappingService {
           }
           formGroup.controls[settingModel.key].setValue(this.decodeItems(itemsSubstring))
           break;
-        
+
         case "glitches":
           i++;
           var glitchesSubstring = '';
@@ -291,7 +294,7 @@ export class SettingStringMappingService {
           }
           formGroup.controls[settingModel.key].setValue(this.decodeGlitches(glitchesSubstring))
           break;
-      
+
         case "removed":
           i++
           break;
@@ -392,11 +395,11 @@ export class SettingStringMappingService {
     while(i < glitchesValue.length) {
       var glitch = allGlitches.find(g => g.id == glitchesValue[i])
       i += 1;
-      
+
       if(glitch) {
         enabledGlitches.push(glitch)
       }
-      
+
     }
     return enabledGlitches;
   }

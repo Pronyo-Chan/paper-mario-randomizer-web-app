@@ -6,6 +6,7 @@ export enum KeyItems {
 	PyramidStone = 0x0016,
 	DiamondStone = 0x0017,
 	KooperShell = 0x0019,
+	ForestPass = 0x001B,
 	BooWeight = 0x001C,
 	BooPortrait = 0x001D,
 	CrystalBerry = 0x001E,

@@ -56,10 +56,10 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
     const placedStarsControl = this.worldFormGroup.get("starHuntTotal");
 
     if(requiredStarsControl.value > 120) {
-      requiredStarsControl.setValue(120);
+      requiredStarsControl.setValue(120, { emitEvent: false });
     }
     else if(requiredStarsControl.value < 0) {
-      requiredStarsControl.setValue(0);
+      requiredStarsControl.setValue(0, { emitEvent: false });
     }
 
     requiredStarsControl.updateValueAndValidity();

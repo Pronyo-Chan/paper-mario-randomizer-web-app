@@ -47,7 +47,7 @@ export class SettingsInfoComponent implements OnInit {
   public spoilerRows: SettingRow[] = [];
   public enabledGlitchesRows: SettingRow[];
   public allRows: SettingRow[] = [];
-  
+
   public glitchesList: LogicGlitch[];
 
   public expirationDate: Date;
@@ -56,7 +56,7 @@ export class SettingsInfoComponent implements OnInit {
 
 
   public settingCategories = []
-  
+
   public constructor() { }
 
   public ngOnInit(): void {
@@ -118,7 +118,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Spoiler", rows: this.spoilerRows},
       {name: "Glitches & Tricks", rows: this.enabledGlitchesRows},
     ]
-    
+
     this.selectedCategory = this.settingCategories[0];
     this.updateDisplayedRows();
   }
@@ -205,6 +205,8 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Merlow Rewards Pricing", value: MerlowRewardPricing[this.seedModel.GeneralDifficulty.MerlowRewardsPricing]},
       {name: "Random Number of Required Star Spirits", value: this.seedModel.GeneralDifficulty.RandomNumberOfRrequiredStarSpirits},
       {name: "Star Spirits Required", value: this.seedModel.GeneralDifficulty.StarSpiritsRequired},
+      {name: "Require Specific Spirits", value: this.seedModel.GeneralDifficulty.StarSpiritsRequired == 7 || this.seedModel.GeneralDifficulty.StarSpiritsRequired == 0 ? null : this.seedModel.GeneralDifficulty.RequireSpecificSpirits},
+      {name: "Limit Chapter Logic", value: this.seedModel.GeneralDifficulty.RequireSpecificSpirits ? this.seedModel.GeneralDifficulty.LimitChapterLogic : null},
       {name: "No Healing Items", value: this.seedModel.GeneralDifficulty.NoHealingItems},
       {name: "No Heart Blocks", value: this.seedModel.GeneralDifficulty.NoHeartBlocks},
       {name: "No Save Blocks", value: this.seedModel.GeneralDifficulty.NoSaveBlocks},
@@ -238,7 +240,8 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Starting Location", value: this.seedModel.World.StartingLocation},
       {name: "Magical Seeds Required", value: this.seedModel.World.MagicalSeedsRequired},
       {name: "Open Prologue", value: this.seedModel.World.OpenPrologue},
-      {name: "Open Mt.Rugged", value: this.seedModel.World.OpenMtRugged},      
+      {name: "Open Mt.Rugged", value: this.seedModel.World.OpenMtRugged},
+      {name: "Open Forever Forest", value: this.seedModel.World.OpenForeverForest},
       {name: "Open Toy Box", value: this.seedModel.World.OpenToyBox},
       {name: "Open Whale", value: this.seedModel.World.OpenWhale},
       {name: "Open Blue House", value: this.seedModel.World.OpenBlueHouse},

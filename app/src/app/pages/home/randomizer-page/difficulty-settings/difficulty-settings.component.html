@@ -1,11 +1,11 @@
 <form [formGroup]="difficultyFormGroup">
     <mat-card-content class=settings-card-content>
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="Enemy Difficulty" 
+            <app-tooltip-span spanText="Enemy Difficulty"
                                 tooltipText="Vanilla: Untouched enemy stats from original game
-                                            
+
                                 Shuffle Chapter Difficulty: Will assign each of the first 7 chapters a new chapter number, scaling the strength of enemies encountered there up or down
-                                
+
                                 Progressive Scaling: Enemies get stronger as Mario gains more progression items and partners"></app-tooltip-span>
             <select formControlName='difficultyMode'>
                 <option [value]="0">Vanilla</option>
@@ -20,7 +20,7 @@
                 <option [value]="2">Double Pain</option>
                 <option [value]="4">Quadruple Pain</option>
             </select>
-        </div> 
+        </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Item Traps" tooltipText="Replaces some items with fakes that deal 2 damage upon contact."></app-tooltip-span>
             <select formControlName='itemTrapMode'>
@@ -29,29 +29,29 @@
                 <option [ngValue]="2">Moderate</option>
                 <option [ngValue]="3">Plenty</option>
             </select>
-        </div> 
+        </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Merlow Rewards Pricing" tooltipText="Sets the amount of spent star pieces required to obtain Merlow Rewards.
-            
+
                                                                             Cheap: Rewards will be obtained from 5 to 30 star pieces spent.
-                                                                            
+
                                                                             Normal: Rewards will be obtained from 10 to 60 star pieces spent.">
             </app-tooltip-span>
             <select formControlName='merlowRewardPricing'>
                 <option [ngValue]="0">Cheap</option>
                 <option [ngValue]="1">Normal</option>
             </select>
-        </div>   
-        
+        </div>
+
         <div class="setting-element">
-            <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>            
+            <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>
             <app-tooltip-span spanText="Cap Enemy XP" tooltipText="Limits the amount of XP obtainable per defeated enemy to 5 XP."></app-tooltip-span>
-        </div>  
+        </div>
         <div class="setting-element slider-element">
             <app-tooltip-span [spanText]="'XP Multiplier: ' + difficultyFormGroup.get('xpMultiplier').value + 'x'"
                              tooltipText="Multiplies the XP gained from enemies, between 0x and 2x."></app-tooltip-span>
             <mat-slider formControlName="xpMultiplier" (input)="difficultyFormGroup.get('xpMultiplier').setValue($event.value)" min=0 max= 2 step="0.5" tickInterval="1" ></mat-slider>
-        </div>  
+        </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='oneHitKO'></mat-slide-toggle>
             <app-tooltip-span spanText="One Hit KO" tooltipText="Mario will die instantly from an enemy attack if a block action command is failed"></app-tooltip-span>
@@ -59,7 +59,7 @@
         <div class="setting-element">
             <mat-slide-toggle formControlName='noSaveBlocks'></mat-slide-toggle>
             <app-tooltip-span spanText="No Save Blocks" tooltipText="Save blocks will be removed from the game if turned on.
-            
+
             It is still possible to save after every chapter with the 'Save and Continue' menu "></app-tooltip-span>
         </div>
         <div class="setting-element">
@@ -69,17 +69,17 @@
         <div class="setting-element">
             <mat-slide-toggle formControlName='noHealingItems'></mat-slide-toggle>
             <app-tooltip-span spanText="No Healing Items" tooltipText="HP/FP healing items will have no effect when used if turned on."></app-tooltip-span>
-        </div> 
+        </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Consumable Item Pool"
                                tooltipText="Replaces the consumable items with randomized ones.
-            
+
                                             Vanilla: The original item pool is preserved.
-                                            
+
                                             Fully Random: Items are replaced with completely random ones.
-                                            
+
                                             Balanced Random: The average strength of items is balanced to be similar to Vanilla. A quality factor can be set to make it weaker / stronger.
-                                            
+
                                             Mystery Only: All consumable items are replaced by Mystery"></app-tooltip-span>
             <select formControlName='randomConsumableMode'>
                 <option [ngValue]="0">Vanilla</option>
@@ -90,26 +90,40 @@
         </div>
 
         <div class="setting-element">
-            <mat-slide-toggle formControlName='randomNumberOfStarSpirits'></mat-slide-toggle>
-            <app-tooltip-span spanText="Random Number of Required Star Spirits" tooltipText="The amount of star spirits saved required to open the way to ch.8 will be random. To know how many you need in-game, check the top of Shooting Star Summit, it corresponds to the amount of unlit stars on the ground."></app-tooltip-span>
+          <mat-slide-toggle formControlName='badgeSynergy'></mat-slide-toggle>
+          <app-tooltip-span spanText="Badge Synergy" tooltipText="Increases Mario's attack power with boots or hammer attacks the more badges of similar type he wears."></app-tooltip-span>
         </div>
 
         <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': difficultyFormGroup.get('randomConsumableMode').value != 2}">
-            <app-tooltip-span [spanText]="'Item Quality: ' + difficultyFormGroup.get('itemQuality').value + '%' + (difficultyFormGroup.get('itemQuality').value == 100 ? ' (Vanilla)' : '')"
-                             tooltipText="Sets how powerful consumable items should be on average, where a higher number means better items. 100 is the strength of the vanilla item pool."></app-tooltip-span>
-            <mat-slider formControlName="itemQuality" (input)="difficultyFormGroup.get('itemQuality').setValue($event.value)" min=25 max= 125 step="25" tickInterval="1"></mat-slider>
-        </div>  
+          <app-tooltip-span [spanText]="'Item Quality: ' + difficultyFormGroup.get('itemQuality').value + '%' + (difficultyFormGroup.get('itemQuality').value == 100 ? ' (Vanilla)' : '')"
+                           tooltipText="Sets how powerful consumable items should be on average, where a higher number means better items. 100 is the strength of the vanilla item pool."></app-tooltip-span>
+          <mat-slider formControlName="itemQuality" (input)="difficultyFormGroup.get('itemQuality').setValue($event.value)" min=25 max= 125 step="25" tickInterval="1"></mat-slider>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="setting-element">
+            <mat-slide-toggle formControlName='randomNumberOfStarSpirits'></mat-slide-toggle>
+            <app-tooltip-span spanText="Random Number of Required Star Spirits" tooltipText="The amount of star spirits saved required to open the way to ch.8 will be random. To know how many you need in-game, check the top of Shooting Star Summit, it corresponds to the amount of unlit stars on the ground."></app-tooltip-span>
+        </div>
 
         <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': difficultyFormGroup.get('randomNumberOfStarSpirits').value}">
             <app-tooltip-span [spanText]="'Star Spirits Required: ' + difficultyFormGroup.get('starWaySpiritsNeeded').value"
                              tooltipText="Number of star spirits saved required to open the way to Ch.8"></app-tooltip-span>
             <mat-slider formControlName="starWaySpiritsNeeded" (input)="difficultyFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=0 max= 7 step="1" tickInterval="1" ></mat-slider>
-        </div>  
-
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='badgeSynergy'></mat-slide-toggle>
-            <app-tooltip-span spanText="Badge Synergy" tooltipText="Increases Mario's attack power with boots or hammer attacks the more badges of similar type he wears."></app-tooltip-span>
         </div>
-        
+
+        <div class="setting-element" [ngClass]="{ 'disabled-element': isSevenOrZeroStarSpirits}">
+          <mat-slide-toggle formControlName='requireSpecificSpirits'></mat-slide-toggle>
+          <app-tooltip-span spanText="Require Specific Spirits"
+                           tooltipText="Specific chapters must be completed to open the star way. You must visit shooting star summit to see which ones."></app-tooltip-span>
+        </div>
+
+        <div class="setting-element" [ngClass]="{ 'disabled-element': !difficultyFormGroup.get('requireSpecificSpirits').value || isSevenOrZeroStarSpirits}">
+          <mat-slide-toggle formControlName='limitChapterLogic'></mat-slide-toggle>
+          <app-tooltip-span spanText="Limit Chapter Logic"
+                           tooltipText="Only chapters that need to be completed and prologue / common areas will contain progression items if enabled."></app-tooltip-span>
+        </div>
+
     </mat-card-content>
 </form>

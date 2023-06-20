@@ -26,16 +26,16 @@ import { MysteryMode } from '../entities/enum/mysteryMode';
 })
 export class RandomizerService {
 
-  public constructor(private _randomizerRepo: RandomizerRepository, private _settingsStringService: SettingStringMappingService, private _localStorage: LocalStorageService) 
-  { 
+  public constructor(private _randomizerRepo: RandomizerRepository, private _settingsStringService: SettingStringMappingService, private _localStorage: LocalStorageService)
+  {
   }
 
-  public getSeedInfo(seedId: string): Observable<SeedViewModel> 
+  public getSeedInfo(seedId: string): Observable<SeedViewModel>
   {
     return this._randomizerRepo.getSeedInfo(seedId);
   }
 
-  public downloadPatchedRom(userRom: any, seedId: string, modVersion: number, useProdPatch: boolean, cosmeticsFormGroup?: FormGroup): Observable<Blob> 
+  public downloadPatchedRom(userRom: any, seedId: string, modVersion: number, useProdPatch: boolean, cosmeticsFormGroup?: FormGroup): Observable<Blob>
   {
     var starRodRom$ = this._randomizerRepo.getStarRodPatch(modVersion, useProdPatch).pipe(
       switchMap(starRodPatchFile => getMarcFileFromSource(new File([starRodPatchFile], 'patch'))),
@@ -49,7 +49,7 @@ export class RandomizerService {
       switchMap(randoPatchFile => getMarcFileFromSource(new File([randoPatchFile], 'patch'))),
       map(randoPatchFile => {
         var randoPatch = parseRandoPatchFile(randoPatchFile);
-        return randoPatch;  
+        return randoPatch;
       })
     );
 
@@ -62,7 +62,7 @@ export class RandomizerService {
         switchMap(cosmeticsPatchFile => getMarcFileFromSource(new File([cosmeticsPatchFile], 'cosmeticsPatch'))),
         map(cosmeticsPatchFile => {
           var cosmeticsPatch = parseRandoPatchFile(cosmeticsPatchFile);
-          return cosmeticsPatch;  
+          return cosmeticsPatch;
         })
       );
     }
@@ -71,24 +71,24 @@ export class RandomizerService {
       return forkJoin([starRodRom$, randoPatch$, cosmeticsPatch$]).pipe(
         map(results => {
           // If we did cosmetics patch, apply it first, then rando patch
-          
+
           var randoPatchedFile = applyPatch(results[1], results[0]); // Apply rando patch
           var cosmeticPatchedFile = applyPatch(results[2], randoPatchedFile) // Cosmetics patch on modded rom
           return cosmeticPatchedFile.save();
         })
-      ); 
+      );
     } else {
       return forkJoin([starRodRom$, randoPatch$]).pipe(
         map(results => {
           var finalRomMarcFile = applyPatch(results[1], results[0]); // Apply rando patch
           return finalRomMarcFile.save();
         })
-      ); 
+      );
     }
-    
+
   }
 
-  public downloadSpoilerLog(seedId: string): Observable<Blob> 
+  public downloadSpoilerLog(seedId: string): Observable<Blob>
   {
     return this._randomizerRepo.getSpoilerLog(seedId);
   }
@@ -107,7 +107,7 @@ export class RandomizerService {
     var menuColor = cosmeticsFormGroup.get('menu').value
     if(menuColor == 7) { // If random pick
       menuColor = Math.floor(Math.random() * 7);
-    } 
+    }
 
     var request = {
       SeedID: seedID,
@@ -152,7 +152,7 @@ export class RandomizerService {
     var menuColor = settingsForm.get('cosmetics').get('menu').value
     if(menuColor == 7) { // If random pick
       menuColor = Math.floor(Math.random() * 7);
-    } 
+    }
 
     var settingsString = this._settingsStringService.compressFormGroup(settingsForm, this._settingsStringService.settingsMap);
     this._localStorage.set('latestSettingsString', settingsString);
@@ -179,6 +179,7 @@ export class RandomizerService {
       WhaleOpen: settingsForm.get('openLocations').get('whaleOpen').value,
       Ch7BridgeVisible: settingsForm.get('openLocations').get('ch7BridgeVisible').value,
       MtRuggedOpen: settingsForm.get('openLocations').get('mtRuggedOpen').value,
+      ForeverForestOpen: settingsForm.get('openLocations').get('foreverForestOpen').value,
       PrologueOpen: settingsForm.get('openLocations').get('prologueOpen').value,
       StartingMap: settingsForm.get('openLocations').get('startingMap').value,
       BowsersCastleMode: settingsForm.get('openLocations').get('bowsersCastleMode').value,
@@ -263,6 +264,8 @@ export class RandomizerService {
       ItemQuality: settingsForm.get('difficulty').get('itemQuality').value,
       RandomConsumableMode: settingsForm.get('difficulty').get('randomConsumableMode').value,
       StarWaySpiritsNeededCnt: settingsForm.get('difficulty').get('randomNumberOfStarSpirits').value ? -1 : settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
+      RequireSpecificSpirits: settingsForm.get('difficulty').get('requireSpecificSpirits').value,
+      LimitChapterLogic: settingsForm.get('difficulty').get('limitChapterLogic').value,
       BadgeSynergy: settingsForm.get('difficulty').get('badgeSynergy').value,
       FoliageItemHints: settingsForm.get('qualityOfLife').get('foliageItemHints').value,
       RandomText: settingsForm.get('cosmetics').get('randomText').value,
@@ -290,8 +293,8 @@ export class RandomizerService {
       ProgressionOnMerlow: settingsForm.get('items').get('progressionOnMerlow').value,
       StarHunt: settingsForm.get('openLocations').get('starHunt').value,
       StarHuntEndsGame: settingsForm.get('openLocations').get('starHuntEndsGame').value,
-      StarHuntRequired: settingsForm.get('openLocations').get('starHuntRequired').value,
-      StarHuntTotal: settingsForm.get('openLocations').get('starHuntTotal').value,
+      StarHuntRequired: settingsForm.get('openLocations').get('starHunt').value ? settingsForm.get('openLocations').get('starHuntRequired').value : 0,
+      StarHuntTotal: settingsForm.get('openLocations').get('starHunt').value ? settingsForm.get('openLocations').get('starHuntTotal').value : 0,
 
       // Glitches: Goomba Region
       PrologueGelEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "PrologueGelEarly"),
@@ -472,7 +475,7 @@ export class RandomizerService {
       request.RandomPartnersMin = settingsForm.get('partners').get('randomPartnersMin').value;
       request.RandomPartnersMax = settingsForm.get('partners').get('randomPartnersMax').value;
       request.StartWithPartners = {} as StartingPartners;
-      
+
     }else {
       request.RandomPartnersMin = 1
       request.RandomPartnersMax = 1

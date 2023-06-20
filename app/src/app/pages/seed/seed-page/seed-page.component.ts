@@ -23,7 +23,7 @@ import { CoinColor } from 'src/app/entities/enum/coinColor';
   styleUrls: ['./seed-page.component.scss']
 })
 export class SeedPageComponent implements OnInit, OnDestroy {
-  
+
   public seedId: string;
   public seedViewModel$: Observable<SeedViewModel>;
   public cosmeticsFormGroup: FormGroup;
@@ -46,7 +46,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   private _navigationSubscription: Subscription;
 
   constructor(private _renderer: Renderer2, private _activatedRoute: ActivatedRoute, private _router: Router, private _randomizerService: RandomizerService) { }
-  
+
 
   public ngOnInit(): void {
     this._renderer.addClass(document.body, 'purple-bg');
@@ -78,7 +78,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
           }),
           catchError(err => this.handleError(err))
         )
-        
+
       }),
       catchError(err => this.handleError(err))
     )
@@ -112,16 +112,17 @@ export class SeedPageComponent implements OnInit, OnDestroy {
           this.isPageLoading = false;
         })
       }),
-      catchError(err => this.handleError(err)) 
+      catchError(err => this.handleError(err))
     ).subscribe();
   }
 
   public convertSpoilerFileToDict(spoilerLogJson: any) {
-    var progressionSphereData: SphereSpoilerLog = {}; 
-    var allItemsSphereData: SphereSpoilerLog = {}; 
+    var progressionSphereData: SphereSpoilerLog = {};
+    var allItemsSphereData: SphereSpoilerLog = {};
     var spoilerLogRegions: SpoilerLog = {};
 
     var settingsSpoilerLog: SettingsSpoilerLog = {
+      requiredStarSpirits: [],
       badgeCosts: [],
       partnerCosts: [],
       starPowerCosts: [],
@@ -131,7 +132,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     }
 
     const spoilerLogData = Object.fromEntries(Object.entries(spoilerLogJson).filter(
-      ([key]) => key!= "difficulty" && key != "sphere_log" && key != "move_costs" && key != "superblocks" && key != "SeedHashItems" && key != "entrances"))
+      ([key]) => key!= "difficulty" && key != "sphere_log" && key != "move_costs" && key != "superblocks" && key != "SeedHashItems" && key != "entrances" && key != "required_spirits"))
 
     for (const region in spoilerLogData) {
       spoilerLogRegions[region] = [];
@@ -140,7 +141,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
         spoilerLogRegions[region].push({location: location, item: cleanItemName} as ItemLocation)
       }
     }
-    this.spoilerLog = of(spoilerLogRegions); 
+    this.spoilerLog = of(spoilerLogRegions);
 
     const sphereLogData = spoilerLogJson["sphere_log"];
     var sphereCount = 0;
@@ -153,7 +154,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
         progressionSphereData["Starting Items"] = startingItems;
         continue;
       }
-      
+
       const sphereName = sphere == "unreachable_in_logic" ? "Unreachable in Logic" : `Sphere ${sphereCount}`
       allItemsSphereData[sphereName] = [];
       progressionSphereData[sphereName] = [];
@@ -197,6 +198,8 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       }
     }
 
+    settingsSpoilerLog.requiredStarSpirits = spoilerLogJson["required_spirits"];
+
     if (this.isEntranceRando) {
       const entrancesData = spoilerLogJson["entrances"]
       for (const i in entrancesData) {
@@ -236,7 +239,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   }
 
   private initCosmeticsFormGroup() {
-    
+
     this.cosmeticsFormGroup =  new FormGroup({
       menu: new FormControl(0),
       marioSprite : new FormControl(),

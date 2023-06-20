@@ -34,6 +34,7 @@ export interface SettingsRequest {
     WhaleOpen: boolean;
     Ch7BridgeVisible: boolean;
     MtRuggedOpen: boolean;
+    ForeverForestOpen: boolean;
     PrologueOpen: boolean;
     ShuffleChapterDifficulty: boolean;
     ProgressiveScaling: boolean;
@@ -70,7 +71,7 @@ export interface SettingsRequest {
     ShortenCutscenes: boolean;
     SkipEpilogue: boolean;
     Box5ColorA: number;
-    Box5ColorB: number;    
+    Box5ColorB: number;
     RandomCoinColor: boolean;
     CoinColor: CoinColor;
     MarioSetting: SpriteSetting;
@@ -118,6 +119,8 @@ export interface SettingsRequest {
     ItemQuality: number;
     RandomConsumableMode: number;
     StarWaySpiritsNeededCnt: number;
+    RequireSpecificSpirits: boolean;
+    LimitChapterLogic: boolean;
     FoliageItemHints: boolean;
     RandomText: boolean;
     NoHealingItems: boolean;
