@@ -1,5 +1,32 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
+    <mat-card class="settings-card latest-changelog">
+        <mat-card-title class="settings-title">0.22.1 (beta) (2023-07-04)</mat-card-title>
+        <h2>Known Issues</h2>
+        <ul>
+            <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+            <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li> The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        </ul>
+
+        <h2> Mod Fixes</h2>
+        <ul>
+            <li> Fixed a softlock that would occur when pausing during the homeward shroom fade-out while using Lakilester or Bow.</li>
+            <li> Fixed an issue where Rowf's inventory would not be shuffled when using the homeward shroom to Toad Town and unpausing before the shroom sound effect.</li>
+            <li> Fixed the item description for power stars.</li>
+            <li> Fixed a bug where the boo ring's dialogue in the super poots chest room was using the forest pass dialogue.</li>
+        </ul>
+
+        <h2>Options</h2>
+
+        <h3>Limit Chapter Logic (change)</h3>
+        <ul>
+            <li> Progression items that are only required for out-of-logic chapters will now have the possibility of being placed in out-of-logic chapters.</li>
+            <li> Enabling this option will no longer have any effect when combining it with Power Star Hunt.</li>
+        </ul>
+
+      </mat-card>
+
   <mat-card class="settings-card latest-changelog">
     <mat-card-title class="settings-title">0.22.0 (beta) (2023-06-20)</mat-card-title>
     <h2>Known Issues</h2>
