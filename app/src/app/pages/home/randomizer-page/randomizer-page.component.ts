@@ -192,6 +192,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         requireSpecificSpirits: new FormControl(false),
         limitChapterLogic: new FormControl(false),
         noHealingItems: new FormControl(false),
+        dropStarPoints: new FormControl(true),
         itemTrapMode: new FormControl(0),
         allowItemHints: new FormControl(true),
         merlowRewardPricing: new FormControl(MerlowRewardPricing.Normal),

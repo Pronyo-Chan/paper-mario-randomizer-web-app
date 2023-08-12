@@ -124,6 +124,7 @@ export interface SettingsRequest {
     FoliageItemHints: boolean;
     RandomText: boolean;
     NoHealingItems: boolean;
+    DropStarPoints: boolean;
     StartWithRandomItems: boolean;
     RandomItemsMin: number;
     RandomItemsMax: number;
