@@ -64,7 +64,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const errors = this.validateSettings();
     if(errors.length) {
       if (errors.some(e => e == this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)) {
-        this.seedGenError = "Hammerless Start is impossible without shuffled partners or full gear shuffle."
+        this.seedGenError = "Hammerless Start outside of Goomba Village is impossible without shuffled partners or full gear shuffle."
         return;
       } else if (errors.some(e => e == this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)) {
         this.seedGenError = "Jumpless Start is impossible without Item Shuffle enabled."
@@ -257,6 +257,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   private validateSettings(): string[] {
     let errors = [];
 
+    const startingMap = this.formGroup.get('openLocations').get('startingMap').value;
     const startingHammer = this.formGroup.get('marioStats').get('startingHammer').value;
     const startingBoots = this.formGroup.get('marioStats').get('startingBoots').value;
     const gearShuffleMode = this.formGroup.get('items').get('gearShuffleMode').value;
@@ -267,23 +268,25 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isLimitChapterLogicEnabled = this.formGroup.get('difficulty').get('limitChapterLogic').value;
     const isKeysanityEnabled = this.formGroup.get('items').get('keyitemsOutsideDungeon').value
 
-    if ( startingHammer == Hammer.Hammerless && (!isGeneralShuffleEnabled || (!isPartnerShuffleEnabled && gearShuffleMode != GearShuffleMode['Full Shuffle']))) {
+    if (startingMap != StartingMap.GoombaVillage &&
+       startingHammer == Hammer.Hammerless &&
+       (!isGeneralShuffleEnabled || (!isPartnerShuffleEnabled && gearShuffleMode != GearShuffleMode['Full Shuffle']))) {
       errors.push(this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)
     }
 
-    if ( startingBoots == Boots.Jumpless && !isGeneralShuffleEnabled) {
+    if (startingBoots == Boots.Jumpless && !isGeneralShuffleEnabled) {
       errors.push(this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)
     }
 
-    if ( isStarHuntEnabled && !isGeneralShuffleEnabled) {
+    if (isStarHuntEnabled && !isGeneralShuffleEnabled) {
       errors.push(this.LACKING_SHUFFLE_STAR_HUNT_ERROR)
     }
 
-    if ( isEntranceRandoEnabled && (!isGeneralShuffleEnabled || !isPartnerShuffleEnabled)) {
+    if (isEntranceRandoEnabled && (!isGeneralShuffleEnabled || !isPartnerShuffleEnabled)) {
       errors.push(this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)
     }
 
-    if ( isLimitChapterLogicEnabled && !isKeysanityEnabled) {
+    if (isLimitChapterLogicEnabled && !isKeysanityEnabled) {
       errors.push(this.LIMIT_CHAPTERS_NO_KEYSANITY_ERROR)
     }
 
