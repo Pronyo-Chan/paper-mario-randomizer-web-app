@@ -32,6 +32,7 @@ describe('DifficultySettingsComponent', () => {
       noSaveBlocks: new FormControl(false),
       noHeartBlocks: new FormControl(false),
       noHealingItems: new FormControl(false),
+      dropStarPoints: new FormControl(false),
     })
     fixture.detectChanges();
   });

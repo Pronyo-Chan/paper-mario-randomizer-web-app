@@ -80,6 +80,7 @@
                 "limitChapterLogic" : false,
                 "badgeSynergy": false,
                 "noHealingItems": false,
+                "dropStarPoints": true,
                 "itemTrapMode": 0,
                 "allowItemHints": true,
                 "merlowRewardPricing": 0
@@ -256,6 +257,7 @@
             "limitChapterLogic" : false,
             "badgeSynergy": false,
             "noHealingItems": false,
+            "dropStarPoints": true,
             "itemTrapMode": 0,
             "allowItemHints": true,
             "merlowRewardPricing": 1
@@ -432,6 +434,7 @@
             "limitChapterLogic" : false,
             "badgeSynergy": false,
             "noHealingItems": false,
+            "dropStarPoints": true,
             "itemTrapMode": 1,
             "allowItemHints": true,
             "merlowRewardPricing": 1
@@ -608,6 +611,7 @@
             "limitChapterLogic" : false,
             "badgeSynergy": false,
             "noHealingItems": false,
+            "dropStarPoints": true,
             "itemTrapMode": 3,
             "allowItemHints": false,
             "merlowRewardPricing": 1
@@ -785,6 +789,7 @@
             "limitChapterLogic" : false,
             "badgeSynergy": false,
             "noHealingItems":false,
+            "dropStarPoints": false,
             "itemTrapMode":0,
             "allowItemHints":false,
             "merlowRewardPricing": 0
@@ -964,6 +969,7 @@
             "limitChapterLogic" : false,
             "badgeSynergy": false,
             "noHealingItems":false,
+            "dropStarPoints": false,
             "itemTrapMode":0,
             "allowItemHints":false,
             "merlowRewardPricing": 0

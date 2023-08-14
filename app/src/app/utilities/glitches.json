@@ -795,7 +795,7 @@
     "name": "Volcano Sushie Glitch",
     "settingName": "VolcanoSushieGlitch",
     "link": "https://www.youtube.com/watch?v=3kwZo90plzY",
-    "description": "The sushie glitch can be obtained in the central volcano room by obtaining menu storage, from ground pounding the save block after jumping on the nearest trampoline. This state allows to skip metal blocks and the lava gap leading to the Ultra Hammer chest.",
+    "description": "The sushie glitch can be obtained in the central volcano room by obtaining menu storage, from ground pounding the save block after jumping on the nearest trampoline. This state allows to skip metal blocks and the lava gap leading to the Ultra Hammer chest. Can be performed with Goombario, Kooper or Bombette.",
     "location": "Mt. Lavalava",
     "id": "Ø"
   },
@@ -814,7 +814,7 @@
     "description": "Kolorado can be moved against the wall with Bombette NPC Pushes. He can then be used to squeeze into the loading zone and skip the spike ball puzzle.",
     "location": "Mt. Lavalava",
     "id": "`"
-  },  
+  },
   {
     "name": "Parakarry-less Flarakarry (Laki Teleport)",
     "settingName": "ParakarrylessFlarakarryLaki",

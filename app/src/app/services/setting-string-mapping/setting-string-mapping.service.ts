@@ -61,6 +61,7 @@ export class SettingStringMappingService {
     { compressedString: "p", key: "merlowRewardPricing", type: "number"},
     { compressedString: "r", key: "randomConsumableMode", type: "number"},
     { compressedString: "b", key: "badgeSynergy", type: "bool"},
+    { compressedString: "v", key: "dropStarPoints", type: "bool"},
   ]
 
   public readonly gameplayMap: SettingModel [] = [

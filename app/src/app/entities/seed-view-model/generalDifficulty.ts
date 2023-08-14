@@ -11,6 +11,7 @@ export interface GeneralDifficulty {
     ItemTraps: ItemTrapMode;
     MerlowRewardsPricing: MerlowRewardPricing;
     NoHealingItems: boolean;
+    DropStarPoints: boolean;
     NoHeartBlocks: boolean;
     NoSaveBlocks: boolean;
     XPMultiplier: number;

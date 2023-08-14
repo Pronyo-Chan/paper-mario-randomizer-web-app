@@ -29,7 +29,6 @@ import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode
   styleUrls: ['./randomizer-page.component.scss']
 })
 export class RandomizerPageComponent implements OnInit, OnDestroy {
-  public readonly GOOMBA_HAMMERLESS_START_ERROR = 'goombaHammerlessStart';
   public readonly LACKING_SHUFFLE_HAMMERLESS_START_ERROR = 'toadTownHammerlessStart';
   public readonly LACKING_SHUFFLE_JUMPLESS_START_ERROR = 'jumplessStartNoShuffle';
   public readonly LACKING_SHUFFLE_STAR_HUNT_ERROR = 'starHuntNoShuffle';
@@ -64,11 +63,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public onSubmit() {
     const errors = this.validateSettings();
     if(errors.length) {
-      if (errors.some(e => e == this.GOOMBA_HAMMERLESS_START_ERROR)) {
-        this.seedGenError = "Hammerless Start in Goomba Village is impossible with these settings."
-        return;
-      } else if (errors.some(e => e == this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)) {
-        this.seedGenError = "Hammerless Start is impossible without shuffled partners or full gear shuffle."
+      if (errors.some(e => e == this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)) {
+        this.seedGenError = "Hammerless Start outside of Goomba Village is impossible without shuffled partners or full gear shuffle."
         return;
       } else if (errors.some(e => e == this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)) {
         this.seedGenError = "Jumpless Start is impossible without Item Shuffle enabled."
@@ -192,6 +188,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         requireSpecificSpirits: new FormControl(false),
         limitChapterLogic: new FormControl(false),
         noHealingItems: new FormControl(false),
+        dropStarPoints: new FormControl(true),
         itemTrapMode: new FormControl(0),
         allowItemHints: new FormControl(true),
         merlowRewardPricing: new FormControl(MerlowRewardPricing.Normal),
@@ -266,41 +263,30 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const gearShuffleMode = this.formGroup.get('items').get('gearShuffleMode').value;
     const isGeneralShuffleEnabled = this.formGroup.get('items').get('shuffleItems').value;
     const isPartnerShuffleEnabled = this.formGroup.get('partners').get('shufflePartners').value;
-    const isBombetteStartingPartner = this.formGroup.get('partners').get('startWithPartners').get('bombette').value;
     const isEntranceRandoEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value;
     const isStarHuntEnabled = this.formGroup.get('openLocations').get('starHunt').value;
     const isLimitChapterLogicEnabled = this.formGroup.get('difficulty').get('limitChapterLogic').value;
     const isKeysanityEnabled = this.formGroup.get('items').get('keyitemsOutsideDungeon').value
 
-    const isBreakingYellowBlocksWithSuperBootsEnabled = this.formGroup.get('glitches').value
-      .some(enabledGlitch => enabledGlitch.settingName == "BreakYellowBlocksWithSuperBoots");
-
-    if ( startingMap == StartingMap.GoombaVillage &&
-         startingHammer == Hammer.Hammerless &&
-         !(startingBoots >= Boots.Super && isBreakingYellowBlocksWithSuperBootsEnabled) &&
-         gearShuffleMode != GearShuffleMode['Full Shuffle'] &&
-         (!isGeneralShuffleEnabled || (!isPartnerShuffleEnabled && !isBombetteStartingPartner))
-    ) {
-      errors.push(this.GOOMBA_HAMMERLESS_START_ERROR)
-    }
-
-    if ( startingHammer == Hammer.Hammerless && (!isGeneralShuffleEnabled || (!isPartnerShuffleEnabled && gearShuffleMode != GearShuffleMode['Full Shuffle']))) {
+    if (startingMap != StartingMap.GoombaVillage &&
+       startingHammer == Hammer.Hammerless &&
+       (!isGeneralShuffleEnabled || (!isPartnerShuffleEnabled && gearShuffleMode != GearShuffleMode['Full Shuffle']))) {
       errors.push(this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)
     }
 
-    if ( startingBoots == Boots.Jumpless && !isGeneralShuffleEnabled) {
+    if (startingBoots == Boots.Jumpless && !isGeneralShuffleEnabled) {
       errors.push(this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)
     }
 
-    if ( isStarHuntEnabled && !isGeneralShuffleEnabled) {
+    if (isStarHuntEnabled && !isGeneralShuffleEnabled) {
       errors.push(this.LACKING_SHUFFLE_STAR_HUNT_ERROR)
     }
 
-    if ( isEntranceRandoEnabled && (!isGeneralShuffleEnabled || !isPartnerShuffleEnabled)) {
+    if (isEntranceRandoEnabled && (!isGeneralShuffleEnabled || !isPartnerShuffleEnabled)) {
       errors.push(this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)
     }
 
-    if ( isLimitChapterLogicEnabled && !isKeysanityEnabled) {
+    if (isLimitChapterLogicEnabled && !isKeysanityEnabled) {
       errors.push(this.LIMIT_CHAPTERS_NO_KEYSANITY_ERROR)
     }
 

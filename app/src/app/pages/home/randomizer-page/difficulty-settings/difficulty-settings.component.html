@@ -100,6 +100,11 @@
           <mat-slider formControlName="itemQuality" (input)="difficultyFormGroup.get('itemQuality').setValue($event.value)" min=25 max= 125 step="25" tickInterval="1"></mat-slider>
         </div>
 
+        <div class="setting-element">
+          <mat-slide-toggle formControlName='dropStarPoints'></mat-slide-toggle>
+          <app-tooltip-span spanText="Drop Star Points" tooltipText="Mario will drop star points when running away from battle. This can be prevented by equipping the Runaway Pay badge."></app-tooltip-span>
+      </div>
+
         <mat-divider></mat-divider>
 
         <div class="setting-element">
