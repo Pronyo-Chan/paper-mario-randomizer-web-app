@@ -143,7 +143,6 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Letter Delivery Rewards", value: LettersMode[this.seedModel.Items.LetterDeliveryRewards]},
       {name: "Rip Cheato Items In Logic", value: this.seedModel.Items.RipCheatoItemsInLogic},
       {name: "Shuffle Super/Multicoin Blocks", value: this.seedModel.Items.ShuffleSuperAndMulticoinBlocks},
-      {name: "Add Item Pouches", value: this.seedModel.Items.AddItemPouches},
       {name: "Shopsanity", value: this.seedModel.Items.Shopsanity},
       {name: "Rowf Items in Logic", value: this.seedModel.Items.ProgressionOnRowf},
       {name: "Merlow Items in Logic", value: this.seedModel.Items.ProgressionOnMerlow},
@@ -222,6 +221,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Consumable Item Pool", value: RandomConsumableMode[this.seedModel.ItemPool.ConsumableItemPool]},
       {name: "Item Traps", value: ItemTrapMode[this.seedModel.ItemPool.ItemTraps]},
       {name: "Item Quality", value: this.seedModel.ItemPool.ItemQuality + "%"},
+      {name: "Add Item Pouches", value: this.seedModel.ItemPool.AddItemPouches},
     ] as SettingRow[]
   }
 

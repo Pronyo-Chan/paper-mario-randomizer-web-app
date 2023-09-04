@@ -13,7 +13,6 @@
                 "includeFavors": 0,
                 "keyitemsOutsideDungeon": false,
                 "includeDojo": false,
-                "itemPouches": true,
                 "includeLetters": 0,
                 "includeRadioTradeEvent": false,
                 "shuffleBlocks": false,
@@ -72,8 +71,6 @@
                 "oneHitKO": false,
                 "noSaveBlocks": false,
                 "noHeartBlocks": false,
-                "itemQuality": 125,
-                "randomConsumableMode": 2,
                 "randomNumberOfStarSpirits" : false,
                 "starWaySpiritsNeeded": 7,
                 "requireSpecificSpirits" : false,
@@ -81,9 +78,14 @@
                 "badgeSynergy": false,
                 "noHealingItems": false,
                 "dropStarPoints": true,
-                "itemTrapMode": 0,
                 "allowItemHints": true,
                 "merlowRewardPricing": 0
+            },
+            "itemPool": {
+              "itemTrapMode": 0,
+              "itemQuality": 125,
+              "randomConsumableMode": 2,
+              "itemPouches": true
             },
             "marioStats": {
                 "startingCoins": 100,
@@ -190,7 +192,6 @@
             "includeFavors": 0,
             "keyitemsOutsideDungeon": false,
             "includeDojo": false,
-            "itemPouches": true,
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
@@ -249,8 +250,6 @@
             "oneHitKO": false,
             "noSaveBlocks": false,
             "noHeartBlocks": false,
-            "itemQuality": 100,
-            "randomConsumableMode": 0,
             "randomNumberOfStarSpirits" : false,
             "starWaySpiritsNeeded": 7,
             "requireSpecificSpirits" : false,
@@ -258,9 +257,14 @@
             "badgeSynergy": false,
             "noHealingItems": false,
             "dropStarPoints": true,
-            "itemTrapMode": 0,
             "allowItemHints": true,
             "merlowRewardPricing": 1
+          },
+          "itemPool": {
+            "itemTrapMode": 0,
+            "itemQuality": 100,
+            "randomConsumableMode": 0,
+            "itemPouches": true
           },
           "marioStats": {
             "startingCoins": 100,
@@ -367,7 +371,6 @@
             "includeFavors": 1,
             "keyitemsOutsideDungeon": true,
             "includeDojo": false,
-            "itemPouches": true,
             "includeLetters": 1,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
@@ -426,8 +429,6 @@
             "oneHitKO": false,
             "noSaveBlocks": false,
             "noHeartBlocks": false,
-            "itemQuality": 100,
-            "randomConsumableMode": 0,
             "randomNumberOfStarSpirits" : false,
             "starWaySpiritsNeeded": 7,
             "requireSpecificSpirits" : false,
@@ -435,9 +436,14 @@
             "badgeSynergy": false,
             "noHealingItems": false,
             "dropStarPoints": true,
-            "itemTrapMode": 1,
             "allowItemHints": true,
             "merlowRewardPricing": 1
+          },
+          "itemPool": {
+            "itemTrapMode": 1,
+            "itemQuality": 100,
+            "randomConsumableMode": 0,
+            "itemPouches": true
           },
           "marioStats": {
             "startingCoins": 100,
@@ -544,7 +550,6 @@
             "includeFavors": 2,
             "keyitemsOutsideDungeon": true,
             "includeDojo": true,
-            "itemPouches": false,
             "includeLetters": 3,
             "includeRadioTradeEvent": true,
             "shuffleBlocks": true,
@@ -603,8 +608,6 @@
             "oneHitKO": false,
             "noSaveBlocks": false,
             "noHeartBlocks": false,
-            "itemQuality": 100,
-            "randomConsumableMode": 1,
             "randomNumberOfStarSpirits" : false,
             "starWaySpiritsNeeded": 7,
             "requireSpecificSpirits" : false,
@@ -612,9 +615,14 @@
             "badgeSynergy": false,
             "noHealingItems": false,
             "dropStarPoints": true,
-            "itemTrapMode": 3,
             "allowItemHints": false,
             "merlowRewardPricing": 1
+          },
+          "itemPool": {
+            "itemTrapMode": 3,
+            "itemQuality": 100,
+            "randomConsumableMode": 1,
+            "itemPouches": false
           },
           "marioStats": {
             "startingCoins": 100,
@@ -721,7 +729,6 @@
             "includeFavors":0,
             "keyitemsOutsideDungeon":true,
             "includeDojo":false,
-            "itemPouches":false,
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
@@ -781,8 +788,6 @@
             "oneHitKO":false,
             "noSaveBlocks":false,
             "noHeartBlocks":false,
-            "itemQuality":100,
-            "randomConsumableMode": 0,
             "randomNumberOfStarSpirits" : false,
             "starWaySpiritsNeeded":7,
             "requireSpecificSpirits" : false,
@@ -790,9 +795,14 @@
             "badgeSynergy": false,
             "noHealingItems":false,
             "dropStarPoints": false,
-            "itemTrapMode":0,
             "allowItemHints":false,
             "merlowRewardPricing": 0
+         },
+         "itemPool": {
+           "itemTrapMode": 0,
+           "itemQuality":100,
+           "randomConsumableMode": 0,
+           "itemPouches": false
          },
          "marioStats":{
             "startingCoins":100,
@@ -901,7 +911,6 @@
             "includeFavors":0,
             "keyitemsOutsideDungeon":true,
             "includeDojo":false,
-            "itemPouches":false,
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
@@ -961,8 +970,6 @@
             "oneHitKO":false,
             "noSaveBlocks":false,
             "noHeartBlocks":false,
-            "itemQuality":100,
-            "randomConsumableMode": 0,
             "randomNumberOfStarSpirits" : false,
             "starWaySpiritsNeeded":7,
             "requireSpecificSpirits" : false,
@@ -970,9 +977,14 @@
             "badgeSynergy": false,
             "noHealingItems":false,
             "dropStarPoints": false,
-            "itemTrapMode":0,
             "allowItemHints":false,
             "merlowRewardPricing": 0
+         },
+         "itemPool": {
+           "itemTrapMode": 0,
+           "itemQuality":100,
+           "randomConsumableMode": 0,
+           "itemPouches": false
          },
          "marioStats":{
             "startingCoins":100,

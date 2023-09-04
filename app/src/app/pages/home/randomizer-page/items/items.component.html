@@ -4,56 +4,52 @@
             <mat-slide-toggle formControlName='shuffleItems'></mat-slide-toggle>
             <app-tooltip-span spanText="Shuffle Items" tooltipText="Shuffle overworld items (free-standing, given by NPC, found in blocks, bushes and trees etc)."></app-tooltip-span>
         </div>
-        
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='includePanels'></mat-slide-toggle>
             <app-tooltip-span spanText="Include Hidden Panels" tooltipText="Star Pieces hidden under hidden panels are included in the item pool"></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='keyitemsOutsideDungeon'></mat-slide-toggle>
-            <app-tooltip-span spanText="Keysanity" 
+            <app-tooltip-span spanText="Keysanity"
                                 tooltipText="Off: Dungeon keys can only be found in their respective dungeon
-                                 
+
                                 On: Dungeon keys can be found anywhere" >
             </app-tooltip-span>
-        </div>   
+        </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeDojo'></mat-slide-toggle>
             <app-tooltip-span spanText="Include Dojo Rewards" tooltipText="Include Dojo fight rewards in the item pool. The logic can only expect you to do the 2nd fight with 1 star spirit saved. Master fights requirements are 3,4 and 5 star spirits saved."></app-tooltip-span>
         </div>
         <div class="setting-element">
-            <mat-slide-toggle formControlName='itemPouches'></mat-slide-toggle>
-            <app-tooltip-span spanText="Add Item Pouches" tooltipText="Adds 5 item pouches into the item pool. Every pouch found increases Mario's inventory size by 2, so his total item capacity can reach a maximum of 20."></app-tooltip-span>
-        </div> 
-        <div class="setting-element">
             <mat-slide-toggle formControlName='includeRadioTradeEvent'></mat-slide-toggle>
             <app-tooltip-span spanText="Include Trading Event Rewards" tooltipText="Adds the 3 rewards obtained for doing the Trading Toad quests (started Koopa Village's radio) in the item pool."></app-tooltip-span>
-        </div>  
+        </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='shuffleBlocks'></mat-slide-toggle>
             <app-tooltip-span spanText="Shuffle Super/Multicoin Blocks" tooltipText="Shuffles the locations of the Super Blocks and Multicoin Brick Blocks together."></app-tooltip-span>
-        </div>  
+        </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Gear Shuffle" tooltipText="Vanilla: Boots and Hammers are kept in their default locations.
-            
+
                                                                    Gear Location Shuffle: Every big chest and the bush in Jr. Troopa's playground may contain hammer and boot upgrades.
-                                                                   
+
                                                                    Full Shuffle: Boots and Hammer upgrades can be found anywhere in the game, and big chests / the bush may hold any item.">
             </app-tooltip-span>
             <select formControlName='gearShuffleMode'>
                 <option [ngValue]="0">Vanilla</option>
                 <option [ngValue]="1">Gear Location Shuffle</option>
                 <option [ngValue]="2">Full Shuffle</option>
-            </select> 
-        </div>  
+            </select>
+        </div>
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="Letter Delivery Rewards" 
+            <app-tooltip-span spanText="Letter Delivery Rewards"
                               tooltipText="Vanilla: Every letter reward remains unshuffled.
-                                           
+
                                            Vanilla Letter Chain: Shuffle letter delivery rewards, but don't shuffle anything that relates to the long letter chain.
-                                           
+
                                            Final Letter Chain Reward: Shuffle letter delivery rewards and the final reward of the long letter chain.
-                                           
+
                                            Full Shuffle: Every letter delivery reward is shuffled.">
             </app-tooltip-span>
             <select formControlName='includeLetters'>
@@ -61,50 +57,50 @@
                 <option [ngValue]="1">Vanilla Letter Chain</option>
                 <option [ngValue]="2">Final Letter Chain Reward</option>
                 <option [ngValue]="3">Full Shuffle</option>
-            </select> 
+            </select>
         </div>
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="Koopa Koot Favors" 
+            <app-tooltip-span spanText="Koopa Koot Favors"
                               tooltipText="Vanilla: Every Koopa Koot reward and quest item remains unshuffled.
-                                           
+
                                            Shuffle Rewards: Shuffle Koopa Koot favor rewards, but not the key items obtained for his quests.
-                                           
+
                                            Full Shuffle: Every Koopa Koot reward and quest key item is shuffled.">
             </app-tooltip-span>
             <select formControlName='includeFavors'>
                 <option [ngValue]="0">Vanilla</option>
                 <option [ngValue]="1">Shuffle Rewards</option>
                 <option [ngValue]="2">Full Shuffle</option>
-            </select> 
+            </select>
         </div>
 
         <div class="setting-element slider-element" >
             <app-tooltip-span [spanText]="'Rip Cheato Items In Logic: ' + itemFormGroup.get('ripCheatoItemsInLogic').value"
                              tooltipText="Number of items sold by Rip Cheato that can be required in logic. Items in logic will always be sold by him before the out of logic ones."></app-tooltip-span>
             <mat-slider formControlName="ripCheatoItemsInLogic" (input)="itemFormGroup.get('ripCheatoItemsInLogic').setValue($event.value)" min=0 max= 11 step="1" tickInterval="1" ></mat-slider>
-        </div> 
-        
+        </div>
+
         <mat-divider></mat-divider>
 
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeShops'></mat-slide-toggle>
-            <app-tooltip-span spanText="Shopsanity" 
+            <app-tooltip-span spanText="Shopsanity"
                                 tooltipText="Shop Items are included in the item pool.
-                                            
+
                                             Includes regular item shops, Rowf's badge shop and Merlow's star piece trade">
             </app-tooltip-span>
         </div>
 
         <div class="setting-element">
             <mat-slide-toggle formControlName='progressionOnRowf'></mat-slide-toggle>
-            <app-tooltip-span spanText="Rowf Items in Logic " 
+            <app-tooltip-span spanText="Rowf Items in Logic "
                                 tooltipText="Determines whether items sold by Rowf can be required for progression or not.">
             </app-tooltip-span>
         </div>
 
         <div class="setting-element">
             <mat-slide-toggle formControlName='progressionOnMerlow'></mat-slide-toggle>
-            <app-tooltip-span spanText="Merlow Items in Logic " 
+            <app-tooltip-span spanText="Merlow Items in Logic "
                                 tooltipText="Determines whether Merlow rewards can be required for progression or not.">
             </app-tooltip-span>
         </div>

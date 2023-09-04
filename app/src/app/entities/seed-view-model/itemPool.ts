@@ -5,4 +5,5 @@ export interface ItemPool {
     ConsumableItemPool: RandomConsumableMode;
     ItemQuality: number;
     ItemTraps: ItemTrapMode;
+    AddItemPouches: boolean;
 }

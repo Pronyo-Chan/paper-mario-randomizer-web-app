@@ -122,7 +122,6 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includeFavors: new FormControl(KootFavorsMode.Vanilla),
         keyitemsOutsideDungeon: new FormControl(false),
         includeDojo: new FormControl(false),
-        itemPouches: new FormControl(false),
         includeLetters: new FormControl(LettersMode.Vanilla),
         includeRadioTradeEvent: new FormControl(false),
         shuffleBlocks: new FormControl(false),
@@ -195,6 +194,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         itemQuality: new FormControl(100),
         randomConsumableMode: new FormControl(RandomConsumableMode.Vanilla),
         itemTrapMode: new FormControl(0),
+        itemPouches: new FormControl(false),
       }),
       marioStats: new FormGroup({
         startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]),

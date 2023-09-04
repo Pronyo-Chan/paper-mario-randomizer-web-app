@@ -68,6 +68,7 @@ export class SettingStringMappingService {
     { compressedString: "t", key: "itemTrapMode", type: "number"},
     { compressedString: "q", key: "itemQuality", type: "number"},
     { compressedString: "r", key: "randomConsumableMode", type: "number"},
+    { compressedString: "x", key: "itemPouches", type: "bool"},
   ]
 
   public readonly gameplayMap: SettingModel [] = [
@@ -91,7 +92,7 @@ export class SettingStringMappingService {
     { compressedString: "s", key: "includeShops", type: "bool"},
     { compressedString: "k", key: "keyitemsOutsideDungeon", type: "bool"},
     { compressedString: "i", key: "shuffleItems", type: "bool"},
-    { compressedString: "x", key: "itemPouches", type: "bool"},
+    { compressedString: "x", key: "itemPouches", type: "removed"},
     { compressedString: "l", key: "includeLetters", type: "number"},
     { compressedString: "r", key: "includeRadioTradeEvent", type: "bool"},
     { compressedString: "b", key: "shuffleBlocks", type: "bool"},

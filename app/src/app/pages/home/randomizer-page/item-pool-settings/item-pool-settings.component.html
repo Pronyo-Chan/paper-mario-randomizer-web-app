@@ -29,11 +29,15 @@
           </select>
       </div>
 
-        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': itemPoolFormGroup.get('randomConsumableMode').value != 2}">
-          <app-tooltip-span [spanText]="'Item Quality: ' + itemPoolFormGroup.get('itemQuality').value + '%' + (itemPoolFormGroup.get('itemQuality').value == 100 ? ' (Vanilla)' : '')"
-                           tooltipText="Sets how powerful consumable items should be on average, where a higher number means better items. 100 is the strength of the vanilla item pool."></app-tooltip-span>
-          <mat-slider formControlName="itemQuality" (input)="itemPoolFormGroup.get('itemQuality').setValue($event.value)" min=25 max= 125 step="25" tickInterval="1"></mat-slider>
-        </div>
+      <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': itemPoolFormGroup.get('randomConsumableMode').value != 2}">
+        <app-tooltip-span [spanText]="'Item Quality: ' + itemPoolFormGroup.get('itemQuality').value + '%' + (itemPoolFormGroup.get('itemQuality').value == 100 ? ' (Vanilla)' : '')"
+                          tooltipText="Sets how powerful consumable items should be on average, where a higher number means better items. 100 is the strength of the vanilla item pool."></app-tooltip-span>
+        <mat-slider formControlName="itemQuality" (input)="itemPoolFormGroup.get('itemQuality').setValue($event.value)" min=25 max= 125 step="25" tickInterval="1"></mat-slider>
+      </div>
 
+      <div class="setting-element">
+        <mat-slide-toggle formControlName='itemPouches'></mat-slide-toggle>
+        <app-tooltip-span spanText="Add Item Pouches" tooltipText="Adds 5 item pouches into the item pool. Every pouch found increases Mario's inventory size by 2, so his total item capacity can reach a maximum of 20."></app-tooltip-span>
+      </div>
     </mat-card-content>
 </form>
