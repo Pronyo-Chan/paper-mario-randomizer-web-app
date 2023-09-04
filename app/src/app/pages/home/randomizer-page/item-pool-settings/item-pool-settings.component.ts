@@ -34,6 +34,19 @@ export class ItemPoolSettingsComponent implements OnInit, OnDestroy {
     }
   }
 
+  public onBadgeLimitBlur(): void {
+    const badgePoolLimitControl = this.itemPoolFormGroup.get("badgePoolLimit");
+
+    if(badgePoolLimitControl.value > 128) {
+      badgePoolLimitControl.setValue(128);
+    }
+    else if(badgePoolLimitControl.value < 0) {
+      badgePoolLimitControl.setValue(0);
+    }
+
+    badgePoolLimitControl.updateValueAndValidity();
+  }
+
   private disableItemQualityWhenNotBalancedRandom(randomConsumableMode: RandomConsumableMode) {
     if(randomConsumableMode != RandomConsumableMode['Balanced Random']) {
       this.itemPoolFormGroup.get('itemQuality').disable();

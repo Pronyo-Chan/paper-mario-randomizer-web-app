@@ -69,6 +69,10 @@ export class SettingStringMappingService {
     { compressedString: "q", key: "itemQuality", type: "number"},
     { compressedString: "r", key: "randomConsumableMode", type: "number"},
     { compressedString: "x", key: "itemPouches", type: "bool"},
+    { compressedString: "u", key: "addUnusedBadgeDuplicates", type: "bool"},
+    { compressedString: "b", key: "addBetaItems", type: "bool"},
+    { compressedString: "p", key: "progressiveBadges", type: "bool"},
+    { compressedString: "l", key: "badgePoolLimit", type: "number"},
   ]
 
   public readonly gameplayMap: SettingModel [] = [

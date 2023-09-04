@@ -6,4 +6,8 @@ export interface ItemPool {
     ItemQuality: number;
     ItemTraps: ItemTrapMode;
     AddItemPouches: boolean;
+    AddUnusedBadgeDuplicates: boolean;
+    AddBetaItems: boolean;
+    ProgressiveBadges: boolean;
+    BadgePoolLimit: number;
 }

@@ -85,7 +85,11 @@
               "itemTrapMode": 0,
               "itemQuality": 125,
               "randomConsumableMode": 2,
-              "itemPouches": true
+              "itemPouches": true,
+              "addUnusedBadgeDuplicates": false,
+              "addBetaItems": false,
+              "progressiveBadges": false,
+              "badgePoolLimit": 128
             },
             "marioStats": {
                 "startingCoins": 100,
@@ -264,7 +268,11 @@
             "itemTrapMode": 0,
             "itemQuality": 100,
             "randomConsumableMode": 0,
-            "itemPouches": true
+            "itemPouches": true,
+            "addUnusedBadgeDuplicates": false,
+            "addBetaItems": false,
+            "progressiveBadges": false,
+            "badgePoolLimit": 128
           },
           "marioStats": {
             "startingCoins": 100,
@@ -443,7 +451,11 @@
             "itemTrapMode": 1,
             "itemQuality": 100,
             "randomConsumableMode": 0,
-            "itemPouches": true
+            "itemPouches": true,
+            "addUnusedBadgeDuplicates": false,
+            "addBetaItems": false,
+            "progressiveBadges": false,
+            "badgePoolLimit": 128
           },
           "marioStats": {
             "startingCoins": 100,
@@ -622,7 +634,11 @@
             "itemTrapMode": 3,
             "itemQuality": 100,
             "randomConsumableMode": 1,
-            "itemPouches": false
+            "itemPouches": false,
+            "addUnusedBadgeDuplicates": false,
+            "addBetaItems": false,
+            "progressiveBadges": false,
+            "badgePoolLimit": 128
           },
           "marioStats": {
             "startingCoins": 100,
@@ -802,7 +818,11 @@
            "itemTrapMode": 0,
            "itemQuality":100,
            "randomConsumableMode": 0,
-           "itemPouches": false
+           "itemPouches": false,
+           "addUnusedBadgeDuplicates": false,
+           "addBetaItems": false,
+           "progressiveBadges": false,
+           "badgePoolLimit": 128
          },
          "marioStats":{
             "startingCoins":100,
@@ -984,7 +1004,11 @@
            "itemTrapMode": 0,
            "itemQuality":100,
            "randomConsumableMode": 0,
-           "itemPouches": false
+           "itemPouches": false,
+           "addUnusedBadgeDuplicates": false,
+           "addBetaItems": false,
+           "progressiveBadges": false,
+           "badgePoolLimit": 128
          },
          "marioStats":{
             "startingCoins":100,

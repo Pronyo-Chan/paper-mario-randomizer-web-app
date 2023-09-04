@@ -222,6 +222,10 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Item Traps", value: ItemTrapMode[this.seedModel.ItemPool.ItemTraps]},
       {name: "Item Quality", value: this.seedModel.ItemPool.ItemQuality + "%"},
       {name: "Add Item Pouches", value: this.seedModel.ItemPool.AddItemPouches},
+      {name: "Add Unused Badge Duplicates", value: this.seedModel.ItemPool.AddUnusedBadgeDuplicates},
+      {name: "Add Beta Items", value: this.seedModel.ItemPool.AddBetaItems},
+      {name: "Progressive Badges", value: this.seedModel.ItemPool.ProgressiveBadges},
+      {name: "Badge Pool Limit", value: this.seedModel.ItemPool.BadgePoolLimit},
     ] as SettingRow[]
   }
 

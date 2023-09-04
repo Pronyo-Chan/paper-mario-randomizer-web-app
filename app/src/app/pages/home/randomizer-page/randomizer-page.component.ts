@@ -195,6 +195,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomConsumableMode: new FormControl(RandomConsumableMode.Vanilla),
         itemTrapMode: new FormControl(0),
         itemPouches: new FormControl(false),
+        addUnusedBadgeDuplicates: new FormControl(false),
+        addBetaItems: new FormControl(false),
+        progressiveBadges: new FormControl(false),
+        badgePoolLimit: new FormControl(128),
       }),
       marioStats: new FormGroup({
         startingCoins: new FormControl(0, [Validators.min(0), Validators.max(999)]),
