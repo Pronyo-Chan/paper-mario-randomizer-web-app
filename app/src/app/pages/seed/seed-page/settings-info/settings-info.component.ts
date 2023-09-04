@@ -41,6 +41,7 @@ export class SettingsInfoComponent implements OnInit {
   public gameplayRows: SettingRow[] = [];
   public cosmeticsRows: SettingRow[] = [];
   public difficultyRows: SettingRow[] = [];
+  public itemPoolRows: SettingRow[] = [];
   public statsAndGearRows: SettingRow[] = [];
   public worldRows: SettingRow[] = [];
   public qolRows: SettingRow[] = [];
@@ -87,6 +88,7 @@ export class SettingsInfoComponent implements OnInit {
     this.initGameplayRows();
     this.initCosmeticsRows();
     this.initDifficultyRows();
+    this.initItemPoolRows();
     this.initStatsRows();
     this.initWorldRows();
     this.initQolRows();
@@ -100,6 +102,7 @@ export class SettingsInfoComponent implements OnInit {
       ...this.cosmeticsRows, emptyRow,
       ...this.difficultyRows, emptyRow,
       ...this.statsAndGearRows, emptyRow,
+      ...this.itemPoolRows, emptyRow,
       ...this.worldRows, emptyRow,
       ...this.qolRows, emptyRow,
       ...this.spoilerRows, emptyRow
@@ -112,6 +115,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Gameplay", rows: this.gameplayRows},
       {name: "Cosmetics", rows: this.cosmeticsRows},
       {name: "Difficulty", rows: this.difficultyRows},
+      {name: "Item Pool", rows: this.itemPoolRows},
       {name: "Stats & Gear", rows: this.statsAndGearRows},
       {name: "World", rows: this.worldRows},
       {name: "Quality Of Life", rows: this.qolRows},
@@ -199,9 +203,6 @@ export class SettingsInfoComponent implements OnInit {
       {name: "XP Multiplier", value: this.seedModel.GeneralDifficulty.XPMultiplier ? `${this.seedModel.GeneralDifficulty.XPMultiplier}x` : null},
       {name: "Cap Enemy XP", value: this.seedModel.GeneralDifficulty.CapEnemyXP},
       {name: "Enemy Damage", value: this.seedModel.GeneralDifficulty.EnemyDamage},
-      {name: "Consumable Item Pool", value: RandomConsumableMode[this.seedModel.GeneralDifficulty.ConsumableItemPool]},
-      {name: "Item Traps", value: ItemTrapMode[this.seedModel.GeneralDifficulty.ItemTraps]},
-      {name: "Item Quality", value: this.seedModel.GeneralDifficulty.ItemQuality + "%"},
       {name: "Merlow Rewards Pricing", value: MerlowRewardPricing[this.seedModel.GeneralDifficulty.MerlowRewardsPricing]},
       {name: "Random Number of Required Star Spirits", value: this.seedModel.GeneralDifficulty.RandomNumberOfRrequiredStarSpirits},
       {name: "Star Spirits Required", value: this.seedModel.GeneralDifficulty.StarSpiritsRequired},
@@ -213,6 +214,14 @@ export class SettingsInfoComponent implements OnInit {
       {name: "One Hit KO", value: this.seedModel.GeneralDifficulty.OneHitKO},
       {name: "Badge Synergy", value: this.seedModel.GeneralDifficulty.BadgeSynergy},
       {name: "Drop Star Points", value: this.seedModel.GeneralDifficulty.DropStarPoints},
+    ] as SettingRow[]
+  }
+
+  private initItemPoolRows(): void {
+    this.itemPoolRows = [
+      {name: "Consumable Item Pool", value: RandomConsumableMode[this.seedModel.ItemPool.ConsumableItemPool]},
+      {name: "Item Traps", value: ItemTrapMode[this.seedModel.ItemPool.ItemTraps]},
+      {name: "Item Quality", value: this.seedModel.ItemPool.ItemQuality + "%"},
     ] as SettingRow[]
   }
 

@@ -8,6 +8,7 @@ import { Gameplay } from './gameplay';
 import { Cosmetics } from './cosmetics';
 import { ItemSettings } from './items';
 import { SeedInfo } from './seedInfo';
+import { ItemPool } from './itemPool';
 
 export interface SeedViewModel {
     Cosmetics: Cosmetics;
@@ -15,6 +16,7 @@ export interface SeedViewModel {
     GeneralDifficulty: GeneralDifficulty;
     Glitches: string[];
     Items: ItemSettings;
+    ItemPool: ItemPool;
     World: World;
     Partners: Partners;
     QualityOfLife: QualityOfLife;

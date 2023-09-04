@@ -1,0 +1,39 @@
+<form [formGroup]="itemPoolFormGroup">
+    <mat-card-content class=settings-card-content>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Consumable Item Pool"
+                               tooltipText="Replaces the consumable items with randomized ones.
+
+                                            Vanilla: The original item pool is preserved.
+
+                                            Fully Random: Items are replaced with completely random ones.
+
+                                            Balanced Random: The average strength of items is balanced to be similar to Vanilla. A quality factor can be set to make it weaker / stronger.
+
+                                            Mystery Only: All consumable items are replaced by Mystery"></app-tooltip-span>
+            <select formControlName='randomConsumableMode'>
+                <option [ngValue]="0">Vanilla</option>
+                <option [ngValue]="1">Fully Random</option>
+                <option [ngValue]="2">Balanced Random</option>
+                <option [ngValue]="3">Mystery Only</option>
+            </select>
+        </div>
+
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span spanText="Item Traps" tooltipText="Replaces some items with fakes that deal 2 damage upon contact."></app-tooltip-span>
+          <select formControlName='itemTrapMode'>
+              <option [ngValue]="0">No Traps</option>
+              <option [ngValue]="1">Sparse</option>
+              <option [ngValue]="2">Moderate</option>
+              <option [ngValue]="3">Plenty</option>
+          </select>
+      </div>
+
+        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': itemPoolFormGroup.get('randomConsumableMode').value != 2}">
+          <app-tooltip-span [spanText]="'Item Quality: ' + itemPoolFormGroup.get('itemQuality').value + '%' + (itemPoolFormGroup.get('itemQuality').value == 100 ? ' (Vanilla)' : '')"
+                           tooltipText="Sets how powerful consumable items should be on average, where a higher number means better items. 100 is the strength of the vanilla item pool."></app-tooltip-span>
+          <mat-slider formControlName="itemQuality" (input)="itemPoolFormGroup.get('itemQuality').setValue($event.value)" min=25 max= 125 step="25" tickInterval="1"></mat-slider>
+        </div>
+
+    </mat-card-content>
+</form>

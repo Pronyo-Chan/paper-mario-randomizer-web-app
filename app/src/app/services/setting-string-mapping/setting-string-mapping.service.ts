@@ -45,7 +45,7 @@ export class SettingStringMappingService {
     { compressedString: "m", key: "damageMultiplier", type: "number"},
     { compressedString: "d", key: "difficultyMode", type: "number"},
     { compressedString: "i", key: "itemScarcity", type: "removed"},
-    { compressedString: "q", key: "itemQuality", type: "number"},
+    { compressedString: "q", key: "itemQuality", type: "removed"},
     { compressedString: "h", key: "noHeartBlocks", type: "bool"},
     { compressedString: "s", key: "noSaveBlocks", type: "bool"},
     { compressedString: "x", key: "noXP", type: "removed"},
@@ -56,12 +56,18 @@ export class SettingStringMappingService {
     { compressedString: "f", key: "limitChapterLogic", type: "bool"},
     { compressedString: "z", key: "randomNumberOfStarSpirits", type: "bool"},
     { compressedString: "l", key: "noHealingItems", type: "bool"},
-    { compressedString: "t", key: "itemTrapMode", type: "number"},
+    { compressedString: "t", key: "itemTrapMode", type: "removed"},
     { compressedString: "y", key: "allowItemHints", type: "bool"},
     { compressedString: "p", key: "merlowRewardPricing", type: "number"},
-    { compressedString: "r", key: "randomConsumableMode", type: "number"},
+    { compressedString: "r", key: "randomConsumableMode", type: "removed"},
     { compressedString: "b", key: "badgeSynergy", type: "bool"},
     { compressedString: "v", key: "dropStarPoints", type: "bool"},
+  ]
+
+  public readonly itemPoolMap: SettingModel [] = [
+    { compressedString: "t", key: "itemTrapMode", type: "number"},
+    { compressedString: "q", key: "itemQuality", type: "number"},
+    { compressedString: "r", key: "randomConsumableMode", type: "number"},
   ]
 
   public readonly gameplayMap: SettingModel [] = [
@@ -174,6 +180,7 @@ export class SettingStringMappingService {
   public readonly settingsMap: SettingModel[] = [
     { compressedString: "(c", key: "cosmetics", type: "formGroup", map: this.cosmeticsMap},
     { compressedString: "(d", key: "difficulty", type: "formGroup", map: this.difficultyMap},
+    { compressedString: "(x", key: "itemPool", type: "formGroup", map: this.itemPoolMap},
     { compressedString: "(g", key: "gameplay", type: "formGroup", map: this.gameplayMap},
     { compressedString: "(i", key: "items", type: "formGroup", map: this.itemsMap},
     { compressedString: "(m", key: "marioStats", type: "formGroup", map: this.marioStatsMap},
