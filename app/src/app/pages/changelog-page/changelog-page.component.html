@@ -1,6 +1,68 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
+
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.23.0 (beta) (2023-09-XX)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+        <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li> The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        <li> The 0.23.0 update introduces breaking changes to the setting strings and presets. Previously exported settings will need to be exported again. Saved presets should work but the settings moved to the "Item Pool" tab will not be imported properly.</li>
+    </ul>
+
+    <h2> Mod Changes</h2>
+    <ul>
+        <li> Using a hustle drink will no longer remove other status effects.</li>
+    </ul>
+
+    <h2>Options</h2>
+
+    <h3>Add Unused Badge Duplicates (new)</h3>
+    <ul>
+        <li> Adds copies of the following badges to the item pool: Happy Heart, Happy Flower, Flower Saver, Damage Dodge, Power Plus, Defend Plus (2), HP Plus (2), FP Plus(2).</li>
+    </ul>
+
+    <h3>Add Beta Items (new)</h3>
+    <ul>
+      <li> Adds the following badges to the item pool: Smash Charge 0, Jump Charge 0, Berserker, Right On, Auto Jump, Auto Smash,
+        Crazy Heart, Mega HP Drain, Auto Multibounce, Flower Fanatic, Super Jump, Super Smash, Super Focus, Shrink Smash,
+         Earthquake Jump, Attack FX F, Healthy Healthy.</li>
+      <li> Adds the following items to the item pool: Insecticide Herb, Hustle Drink.</li>
+      <li> BP and FP costs of beta badges have been rebalanced. </li>
+      <li> Berserker has been modified to prevent softlocks. When equipped, partners will be able to run away, and Mario will automatically use Star Beam against Bowser when he shields.</li>
+      <li> When combined with the Badge Synergy option, the new hammer and jump badges will add attack power just like the regular ones.</li>
+    </ul>
+
+    <h3>Progressive Badges (new)</h3>
+    <ul>
+        <li> Removes all jump charge, hammer charge, quake hammer badges, as well as Power Jump / Mega Jump and Power Smash / Mega Smash from the item pool.
+          Then, 3 progressive badges are added for each of those 5 badge families. Beta badges are inserted into the progressive sequence, even if beta badges are turned off.</li>
+    </ul>
+
+    <h3>Badge Pool Limit (new)</h3>
+    <ul>
+        <li> Sets the maximum amount of badges that can be in the item pool.</li>
+        <li> The seed generator will attempt to place badges before consumable items and coins. It will then stop once the badge pool limit is reached.</li>
+        <li> For reference, the vanilla item pool has 79 badges.</li>
+    </ul>
+
+    <h2>Seed Generator</h2>
+    <ul>
+        <li> Fixed a crash that could occur during generation of dungeon shuffle seeds with some settings.</li>
+    </ul>
+
+
+    <h2>Website</h2>
+    <ul>
+        <li> The difficulty section contains a new settings tab, "Item Pool". It contains the 4 new item pool options included in this update.</li>
+        <li> The following settings have also been moved to this new tab: Add Item Pouches, Consumable Item Pool, Item Quality and Item Traps.</li>
+        <li> As a consequence, these settings will not be loaded properly when loading old presets and setting strings.</li>
+    </ul>
+
+  </mat-card>
+
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.22.2 (beta) (2023-08-14)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
@@ -24,7 +86,7 @@
     </ul>
   </mat-card>
 
-  <mat-card class="settings-card latest-changelog">
+  <mat-card class="settings-card">
       <mat-card-title class="settings-title">0.22.1 (beta) (2023-07-04)</mat-card-title>
       <h2>Known Issues</h2>
       <ul>
@@ -50,7 +112,7 @@
       </ul>
   </mat-card>
 
-  <mat-card class="settings-card latest-changelog">
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.22.0 (beta) (2023-06-20)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
