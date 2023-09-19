@@ -36,6 +36,9 @@
                 <mat-tab label="Starting Items">
                     <app-starting-items [marioStatsFormGroup]="formGroup.get('marioStats')"></app-starting-items>
                 </mat-tab>
+                <mat-tab label="Item Pool">
+                  <app-item-pool-settings [itemPoolFormGroup]="formGroup.get('itemPool')"></app-item-pool-settings>
+              </mat-tab>
             </mat-tab-group>
         </mat-card>
         <mat-card class="settings-card">
@@ -50,7 +53,7 @@
             <mat-card-title class="settings-title">Spoiler Settings</mat-card-title>
             <app-spoiler-settings [formGroup]="formGroup"></app-spoiler-settings>
         </mat-card>
-        <mat-card class="settings-card small-card">     
+        <mat-card class="settings-card small-card">
         <div class="button-container">
 
                 <button [disabled]="formGroup.invalid || isRandomizing" class="submit" (click)="onSubmit()">
@@ -60,7 +63,6 @@
                 <app-error *ngIf="seedGenError" [errorText]="seedGenError"></app-error>
             </div>
             <p class="bottom-note">*First time playing? We recommend you give the <a href="{{homepageLink}}/tips" target="_blank" rel="noopener noreferrer">Useful Tips</a> section a quick look before starting!</p>
-        </mat-card>   
+        </mat-card>
     </div>
 </form>
- 

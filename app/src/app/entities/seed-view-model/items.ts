@@ -3,7 +3,6 @@ import { KootFavorsMode } from "../enum/kootFavorsMode";
 import { LettersMode } from "../enum/lettersMode";
 
 export interface ItemSettings {
-    AddItemPouches: boolean;
     IncludeCoinsOverworld: boolean;
     IncludeCoinsBlocks: boolean;
     IncludeCoinsFavors: boolean;

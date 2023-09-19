@@ -21,7 +21,7 @@ import { MatChipsModule } from '@angular/material/chips'
 import { MatSliderModule } from '@angular/material/slider'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatDialogModule } from '@angular/material/dialog'
-import { MatListModule } from '@angular/material/list' 
+import { MatListModule } from '@angular/material/list'
 import { ClipboardModule } from '@angular/cdk/clipboard'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -59,6 +59,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatTabScrollToCenterDirective } from './utilities/directives/scrolling.directive';
 import { SpoilerSettingsComponent } from './pages/home/randomizer-page/spoiler-settings/spoiler-settings.component';
 import { GlitchesAndTricksComponent } from './pages/home/randomizer-page/glitches-and-tricks/glitches-and-tricks.component';
+import { ItemPoolSettingsComponent } from './pages/home/randomizer-page/item-pool-settings/item-pool-settings.component';
 
 const dbConfig: DBConfig  = {
   name: 'db',
@@ -81,6 +82,7 @@ const dbConfig: DBConfig  = {
     GameplayComponent,
     WorldSettingsComponent,
     DifficultySettingsComponent,
+    ItemPoolSettingsComponent,
     QolSettingsComponent,
     PresetSettingsComponent,
     PatcherComponent,

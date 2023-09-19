@@ -1,4 +1,3 @@
-import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode';
 import { FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { tap, Subscription } from 'rxjs';
@@ -23,18 +22,9 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.updateIsSevenOrZeroStarSpirits();
 
-    this.disableItemQualityWhenNotBalancedRandom(this.difficultyFormGroup.get('randomConsumableMode').value);
     this.disableStarSpiritsNeededWhenRandom(this.difficultyFormGroup.get('randomNumberOfStarSpirits').value);
     this.disableRequireSpecificSpiritsWhenSevenSpirits();
     this.disableLimitChapterLogicWhenNotRequiringSpecificSpirits(this.difficultyFormGroup.get('requireSpecificSpirits').value);
-
-    this._randomConsumableModeSubscription =  this.difficultyFormGroup.get('randomConsumableMode').valueChanges.pipe(
-      tap(value => {
-        this.updateIsSevenOrZeroStarSpirits();
-        this.disableRequireSpecificSpiritsWhenSevenSpirits();
-        this.disableItemQualityWhenNotBalancedRandom(value);
-      })
-    ).subscribe();
 
     this._starSpiritsNeededSubscription = this.difficultyFormGroup.get('starWaySpiritsNeeded').valueChanges.pipe(
       tap(value => {
@@ -73,14 +63,6 @@ export class DifficultySettingsComponent implements OnInit, OnDestroy {
 
     if(this._starSpiritsNeededSubscription) {
       this._starSpiritsNeededSubscription.unsubscribe();
-    }
-  }
-
-  private disableItemQualityWhenNotBalancedRandom(randomConsumableMode: RandomConsumableMode) {
-    if(randomConsumableMode != RandomConsumableMode['Balanced Random']) {
-      this.difficultyFormGroup.get('itemQuality').disable();
-    } else {
-      this.difficultyFormGroup.get('itemQuality').enable();
     }
   }
 

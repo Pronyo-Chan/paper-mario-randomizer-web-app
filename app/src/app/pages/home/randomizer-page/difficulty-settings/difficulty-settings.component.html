@@ -22,15 +22,6 @@
             </select>
         </div>
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="Item Traps" tooltipText="Replaces some items with fakes that deal 2 damage upon contact."></app-tooltip-span>
-            <select formControlName='itemTrapMode'>
-                <option [ngValue]="0">No Traps</option>
-                <option [ngValue]="1">Sparse</option>
-                <option [ngValue]="2">Moderate</option>
-                <option [ngValue]="3">Plenty</option>
-            </select>
-        </div>
-        <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Merlow Rewards Pricing" tooltipText="Sets the amount of spent star pieces required to obtain Merlow Rewards.
 
                                                                             Cheap: Rewards will be obtained from 5 to 30 star pieces spent.
@@ -70,35 +61,12 @@
             <mat-slide-toggle formControlName='noHealingItems'></mat-slide-toggle>
             <app-tooltip-span spanText="No Healing Items" tooltipText="HP/FP healing items will have no effect when used if turned on."></app-tooltip-span>
         </div>
-        <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="Consumable Item Pool"
-                               tooltipText="Replaces the consumable items with randomized ones.
-
-                                            Vanilla: The original item pool is preserved.
-
-                                            Fully Random: Items are replaced with completely random ones.
-
-                                            Balanced Random: The average strength of items is balanced to be similar to Vanilla. A quality factor can be set to make it weaker / stronger.
-
-                                            Mystery Only: All consumable items are replaced by Mystery"></app-tooltip-span>
-            <select formControlName='randomConsumableMode'>
-                <option [ngValue]="0">Vanilla</option>
-                <option [ngValue]="1">Fully Random</option>
-                <option [ngValue]="2">Balanced Random</option>
-                <option [ngValue]="3">Mystery Only</option>
-            </select>
-        </div>
 
         <div class="setting-element">
           <mat-slide-toggle formControlName='badgeSynergy'></mat-slide-toggle>
           <app-tooltip-span spanText="Badge Synergy" tooltipText="Increases Mario's attack power with boots or hammer attacks the more badges of similar type he wears."></app-tooltip-span>
         </div>
 
-        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': difficultyFormGroup.get('randomConsumableMode').value != 2}">
-          <app-tooltip-span [spanText]="'Item Quality: ' + difficultyFormGroup.get('itemQuality').value + '%' + (difficultyFormGroup.get('itemQuality').value == 100 ? ' (Vanilla)' : '')"
-                           tooltipText="Sets how powerful consumable items should be on average, where a higher number means better items. 100 is the strength of the vanilla item pool."></app-tooltip-span>
-          <mat-slider formControlName="itemQuality" (input)="difficultyFormGroup.get('itemQuality').setValue($event.value)" min=25 max= 125 step="25" tickInterval="1"></mat-slider>
-        </div>
 
         <div class="setting-element">
           <mat-slide-toggle formControlName='dropStarPoints'></mat-slide-toggle>

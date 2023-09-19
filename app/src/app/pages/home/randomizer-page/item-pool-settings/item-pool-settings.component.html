@@ -1,0 +1,73 @@
+<form [formGroup]="itemPoolFormGroup">
+    <mat-card-content class=settings-card-content>
+        <div class="setting-element dropdown-element">
+            <app-tooltip-span spanText="Consumable Item Pool"
+                               tooltipText="Replaces the consumable items with randomized ones.
+
+                                            Vanilla: The original item pool is preserved.
+
+                                            Fully Random: Items are replaced with completely random ones.
+
+                                            Balanced Random: The average strength of items is balanced to be similar to Vanilla. A quality factor can be set to make it weaker / stronger.
+
+                                            Mystery Only: All consumable items are replaced by Mystery"></app-tooltip-span>
+            <select formControlName='randomConsumableMode'>
+                <option [ngValue]="0">Vanilla</option>
+                <option [ngValue]="1">Fully Random</option>
+                <option [ngValue]="2">Balanced Random</option>
+                <option [ngValue]="3">Mystery Only</option>
+            </select>
+        </div>
+
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span spanText="Item Traps" tooltipText="Replaces some items with fakes that deal 2 damage upon contact."></app-tooltip-span>
+          <select formControlName='itemTrapMode'>
+              <option [ngValue]="0">No Traps</option>
+              <option [ngValue]="1">Sparse</option>
+              <option [ngValue]="2">Moderate</option>
+              <option [ngValue]="3">Plenty</option>
+          </select>
+      </div>
+
+      <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': itemPoolFormGroup.get('randomConsumableMode').value != 2}">
+        <app-tooltip-span [spanText]="'Item Quality: ' + itemPoolFormGroup.get('itemQuality').value + '%' + (itemPoolFormGroup.get('itemQuality').value == 100 ? ' (Vanilla)' : '')"
+                          tooltipText="Sets how powerful consumable items should be on average, where a higher number means better items. 100 is the strength of the vanilla item pool."></app-tooltip-span>
+        <mat-slider formControlName="itemQuality" (input)="itemPoolFormGroup.get('itemQuality').setValue($event.value)" min=25 max= 125 step="25" tickInterval="1"></mat-slider>
+      </div>
+
+      <div class="setting-element">
+        <mat-slide-toggle formControlName='itemPouches'></mat-slide-toggle>
+        <app-tooltip-span spanText="Add Item Pouches" tooltipText="Adds 5 item pouches into the item pool. Every pouch found increases Mario's inventory size by 2, so his total item capacity can reach a maximum of 20."></app-tooltip-span>
+      </div>
+
+      <div class="setting-element">
+        <mat-slide-toggle formControlName='addUnusedBadgeDuplicates'></mat-slide-toggle>
+        <app-tooltip-span spanText="Add Unused Badge Duplicates" tooltipText="Adds unused duplicates of badges that can stack into the item pool."></app-tooltip-span>
+      </div>
+
+      <div class="setting-element">
+        <mat-slide-toggle formControlName='addBetaItems'></mat-slide-toggle>
+        <app-tooltip-span spanText="Add Beta Items" tooltipText="Adds unused beta badges and consumable items into the item pool."></app-tooltip-span>
+      </div>
+
+      <div class="setting-element">
+        <mat-slide-toggle formControlName='progressiveBadges'></mat-slide-toggle>
+        <app-tooltip-span spanText="Progressive Badges" tooltipText="Removes all jump charge, hammer charge, quake hammer badges, as well as Power Jump / Mega Jump and Power Smash / Mega Smash.
+        Then, 3 progressive badges are added for each of those 5 badge families. Beta badges are inserted into the progressive sequence, even if beta badges are turned off."></app-tooltip-span>
+      </div>
+
+      <div class="setting-element slider-element">
+        <div class="setting-name-container">
+          <app-tooltip-span spanText="Badge Pool Limit" tooltipText="Sets the max amount of badges that can be in the item pool. The vanilla total is 79 badges."></app-tooltip-span>
+
+            <input matInput type="number"
+            min="0"
+            max="128"
+            formControlName='badgePoolLimit'
+            (blur)="onBadgeLimitBlur()">
+        </div>
+
+        <mat-slider formControlName="badgePoolLimit" (input)="itemPoolFormGroup.get('badgePoolLimit').setValue($event.value)" min=0 max=128 step="1" tickInterval="1" ></mat-slider>
+      </div>
+    </mat-card-content>
+</form>

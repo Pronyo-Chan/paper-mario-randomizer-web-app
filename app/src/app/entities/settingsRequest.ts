@@ -129,6 +129,10 @@ export interface SettingsRequest {
     RandomItemsMin: number;
     RandomItemsMax: number;
     AddItemPouches: boolean;
+    AddUnusedBadgeDuplicates: boolean;
+    AddBetaItems: boolean;
+    ProgressiveBadges: boolean;
+    BadgePoolLimit: number;
     RandomChoice: boolean; // Mystery Random On Every Use
     MysteryRandomPick: boolean; // Mystery Random Pick
     ItemTrapMode: ItemTrapMode;
