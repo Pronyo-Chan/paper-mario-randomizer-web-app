@@ -1,6 +1,26 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.23.2 (beta) (2023-09-25)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li> When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+        <li> The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li> The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        <li> The 0.23.0 update introduces breaking changes to the setting strings and presets. Previously exported settings will need to be exported again. Saved presets should work but the settings moved to the "Item Pool" tab will not be imported properly.</li>
+    </ul>
+
+    <h2> Mod Changes</h2>
+    <ul>
+        <li> Replaced the badge descriptions of Dodge Master and Berserker with more detailed ones.</li>
+        <li> Fixed an issue where progressive badges would be found in yellow blocks.</li>
+        <li> Fixed an issue with Huff Puff's body slam attack, where the damage was not scaling with difficulty.</li>
+        <li> Fixed an issue with Huff Puff's whirlwind attack, where the damage dealt was incorrect and did not match the value displayed in the action command.</li>
+    </ul>
+
+  </mat-card>
+
+  <mat-card class="settings-card latest-changelog">
     <mat-card-title class="settings-title">0.23.1 (beta) (2023-09-20)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
