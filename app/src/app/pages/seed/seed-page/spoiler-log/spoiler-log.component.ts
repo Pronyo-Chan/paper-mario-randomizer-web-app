@@ -25,7 +25,7 @@ export class SpoilerLogComponent implements OnInit, OnDestroy {
   public items: string[];
   public sphereNames: string[];
 
-  public searchText: string;
+  public searchText: string  = "";
   public filteredSearchItems: string[] = []
   public itemSearchresult: string
   public locationSearchResults: string[] = []
@@ -69,7 +69,7 @@ export class SpoilerLogComponent implements OnInit, OnDestroy {
 
   public filter() {
 
-    if(this.searchText.length < this.MIN_AMOUNT_OF_CHARS) {
+    if(this.searchText?.length < this.MIN_AMOUNT_OF_CHARS) {
       this.filteredSearchItems = [];
       return;
     }
@@ -97,7 +97,7 @@ export class SpoilerLogComponent implements OnInit, OnDestroy {
       take(1),
       tap(spoilerLog => {
         this.isDownloadingSpoilerLog = false;
-        this.serveDownload(spoilerLog, this.seedId+ '_spoiler.txt');     
+        this.serveDownload(spoilerLog, this.seedId+ '_spoiler.txt');
       }),
       catchError( err => {
         this.spoilerLogError = 'A server error has occured'
