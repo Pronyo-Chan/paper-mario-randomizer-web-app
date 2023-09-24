@@ -18,7 +18,7 @@ export class GlitchesAndTricksComponent implements OnInit {
   public filteredGlitches: LogicGlitch[];
   public locationsList: string[];
 
-  public searchText: string;
+  public searchText: string = "";
   public selectedLocation: string;
 
   public constructor() { }
@@ -34,12 +34,12 @@ export class GlitchesAndTricksComponent implements OnInit {
   }
 
   public filter() {
-    if(this.searchText.length < this.MIN_AMOUNT_OF_CHARS) {
+    if(this.searchText?.length < this.MIN_AMOUNT_OF_CHARS && this.selectedLocation === this.DEFAULT_LOCATION) {
       this.filteredGlitches = this.glitchesList;
       return;
     }
     this.filteredGlitches = this.glitchesList.filter(
-      g => g.name.toLowerCase().includes(this.searchText.toLowerCase()) && 
+      g => g.name.toLowerCase().includes(this.searchText.toLowerCase()) &&
       (g.location == this.selectedLocation || this.selectedLocation == this.DEFAULT_LOCATION)
     )
   }
