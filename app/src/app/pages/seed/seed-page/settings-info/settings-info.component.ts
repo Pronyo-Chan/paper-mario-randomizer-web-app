@@ -19,6 +19,7 @@ import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode
 import { SeedViewModel } from 'src/app/entities/seed-view-model/seedViewModel';
 import { MysteryMode } from 'src/app/entities/enum/mysteryMode';
 import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeShuffleMode';
+import { CustceneMode } from 'src/app/entities/enum/cutsceneMode';
 
 interface SettingRow {
   name: string;
@@ -282,7 +283,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Hidden Block Mode", value: HiddenBlockMode[this.seedModel.QualityOfLife.HiddenBlockMode]},
       {name: "Prevent OOB / LZS tricks", value: this.seedModel.QualityOfLife.PreventPhysicsGlitches},
       {name: "Quizmo Always Appear", value: this.seedModel.QualityOfLife.QuizmoAlwaysAppear},
-      {name: "Shorten Cutscenes", value: this.seedModel.QualityOfLife.ShortenCutscenes},
+      {name: "Cutscene Mode", value: CustceneMode[this.seedModel.QualityOfLife.CutsceneMode]},
       {name: "Skip Epilogue", value: this.seedModel.QualityOfLife.SkipEpilogue},
       {name: "Skip Quiz", value: this.seedModel.QualityOfLife.SkipQuiz},
       {name: "Visible Hidden Panels", value: this.seedModel.QualityOfLife.VisibleHiddenPanels},

@@ -207,7 +207,7 @@ export class RandomizerService {
       RevealLogInHours: settingsForm.get('qualityOfLife').get('delaySpoilerLog').value ? settingsForm.get('qualityOfLife').get('revealLogInHours').value : 0,
       RomanNumerals: settingsForm.get('cosmetics').get('romanNumerals').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
-      ShortenCutscenes: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,
+      CutsceneMode: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,
       SkipEpilogue: settingsForm.get('qualityOfLife').get('skipEpilogue').value,
       ColorMode: Constants.MENU_COLORS[menuColor].colorMode,
       Box5ColorA: Constants.MENU_COLORS[menuColor].colorA,

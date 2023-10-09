@@ -171,7 +171,7 @@ export class SettingStringMappingService {
     { compressedString: "q", key: "quizmoAlwaysAppears", type: "bool"},
     { compressedString: "r", key: "romanNumerals", type: "removed"}, // Was moved to color palettes section
     { compressedString: "b", key: "bowsersCastleMode", type: "removed"}, // Was moved to World settings
-    { compressedString: "c", key: "shortenCutscenes", type: "bool"},
+    { compressedString: "c", key: "shortenCutscenes", type: "number"},
     { compressedString: "e", key: "skipEpilogue", type: "bool"},
     { compressedString: "z", key: "skipQuiz", type: "bool"},
     { compressedString: "m", key: "turnOffMusic", type: "removed"},

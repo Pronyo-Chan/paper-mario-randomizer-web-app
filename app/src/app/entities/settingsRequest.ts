@@ -70,7 +70,7 @@ export interface SettingsRequest {
     RomanNumerals: boolean;
     IncludeDojo: boolean;
     BowsersCastleMode: boolean;
-    ShortenCutscenes: boolean;
+    CutsceneMode: number;
     SkipEpilogue: boolean;
     ColorMode: StatusBarColorMode;
     Box5ColorA: number;

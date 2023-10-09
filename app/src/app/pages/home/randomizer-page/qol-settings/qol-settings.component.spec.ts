@@ -22,18 +22,18 @@ describe('QolSettingsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(QolSettingsComponent);
     component = fixture.componentInstance;
-    component.qualityOfLifeFormGroup = new FormGroup({   
-      hiddenBlockMode: new FormControl(0),           
-      alwaysSpeedySpin: new FormControl(false),      
-      alwaysISpy: new FormControl(false),      
-      alwaysPeekaboo: new FormControl(false),        
-      skipQuiz: new FormControl(false),      
+    component.qualityOfLifeFormGroup = new FormGroup({
+      hiddenBlockMode: new FormControl(0),
+      alwaysSpeedySpin: new FormControl(false),
+      alwaysISpy: new FormControl(false),
+      alwaysPeekaboo: new FormControl(false),
+      skipQuiz: new FormControl(false),
       preventPhysicsGlitches: new FormControl(false),
-      shortenCutscenes: new FormControl(false), 
-      skipEpilogue: new FormControl(false), 
+      shortenCutscenes: new FormControl(0),
+      skipEpilogue: new FormControl(false),
       writeSpoilerLog: new FormControl(true),
       quizmoAlwaysAppears: new FormControl(false),
-      romanNumerals: new FormControl(false),        
+      romanNumerals: new FormControl(false),
     })
     fixture.detectChanges();
   });

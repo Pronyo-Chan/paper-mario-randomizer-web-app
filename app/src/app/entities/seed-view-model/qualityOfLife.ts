@@ -9,7 +9,7 @@ export interface QualityOfLife {
     HiddenBlockMode: HiddenBlockMode;
     PreventPhysicsGlitches: boolean;
     QuizmoAlwaysAppear: boolean;
-    ShortenCutscenes: boolean;
+    CutsceneMode: number;
     SkipEpilogue: boolean;
     SkipQuiz: boolean;
     VisibleHiddenPanels: boolean;
