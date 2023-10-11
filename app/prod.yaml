@@ -27,6 +27,6 @@ handlers:
   static_files: dist/paper-mario-randomizer-app/\1
   upload: dist/paper-mario-randomizer-app/(.*)
   secure: always
-  
+
 automatic_scaling:
-  max_instances: 4
+  max_instances: 2
