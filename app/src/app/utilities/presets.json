@@ -1161,7 +1161,7 @@
           "skipEpilogue": true,
           "writeSpoilerLog": true,
           "revealLogInHours": 7,
-          "delaySpoilerLog": false,
+          "delaySpoilerLog": true,
           "quizmoAlwaysAppears": true,
           "foliageItemHints": true,
           "hiddenPanelVisibility": true,
