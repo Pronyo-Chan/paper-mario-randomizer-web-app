@@ -464,6 +464,14 @@
     "id": "H"
   },
   {
+    "name": "Forever Forest Backwards",
+    "settingName": "ForeverForestBackwards",
+    "link": "",
+    "description": "Forever Forest may be travelled backwards if you know the way.",
+    "location": "Forever Forest",
+    "id": "ƃ"
+  },
+  {
     "name": "Jumpless Mansion Entry (Parakarry)",
     "settingName": "JumplessMansionEntry",
     "link": "",

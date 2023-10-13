@@ -378,6 +378,7 @@ export class RandomizerService {
 
       // Glitches: Boo's Mansion
       JumplessMansionEntry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessMansionEntry"),
+      ForeverForestBackwards: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ForeverForestBackwards"),
       RecordSkipNoBombettePush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RecordSkipNoBombettePush"),
       RecordSkipBombettePush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RecordSkipBombettePush"),
       BoosPortraitWithKooper: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BoosPortraitWithKooper"),

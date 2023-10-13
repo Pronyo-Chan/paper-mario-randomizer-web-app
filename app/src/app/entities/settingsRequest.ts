@@ -232,6 +232,7 @@ export interface SettingsRequest {
 
     // Glitches: Boo's Mansion
     JumplessMansionEntry: boolean
+    ForeverForestBackwards: boolean
     RecordSkipNoBombettePush: boolean
     RecordSkipBombettePush: boolean
     BoosPortraitWithKooper: boolean
