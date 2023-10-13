@@ -80,6 +80,20 @@
             <mat-slider formControlName="ripCheatoItemsInLogic" (input)="itemFormGroup.get('ripCheatoItemsInLogic').setValue($event.value)" min=0 max= 11 step="1" tickInterval="1" ></mat-slider>
         </div>
 
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span spanText="Partner Upgrade Shuffle" tooltipText="Off: Partners are upgraded through super blocks as usual.
+
+                                                                 Super Block Locations: Super blocks give upgrades to specific partners.
+
+                                                                 Full Shuffle: Super blocks are replaced with item blocks and specific partner upgrades are added as items in the pool.">
+          </app-tooltip-span>
+          <select formControlName='partnerUpgradeShuffle'>
+              <option [ngValue]="0">Off</option>
+              <option [ngValue]="1">Super Block Locations</option>
+              <option [ngValue]="2">Full Shuffle</option>
+          </select>
+      </div>
+
         <mat-divider></mat-divider>
 
         <div class="setting-element">

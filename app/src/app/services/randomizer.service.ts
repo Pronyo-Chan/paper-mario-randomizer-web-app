@@ -292,6 +292,7 @@ export class RandomizerService {
       HiddenPanelVisibility: settingsForm.get('qualityOfLife').get('hiddenPanelVisibility').value ? 1 : 0,
       CookWithoutFryingPan: settingsForm.get('qualityOfLife').get('cookWithoutFryingPan').value,
       GearShuffleMode: settingsForm.get('items').get('gearShuffleMode').value,
+      PartnerUpgradeShuffle: settingsForm.get('items').get('partnerUpgradeShuffle').value,
       RipCheatoItemsInLogic: settingsForm.get('items').get('ripCheatoItemsInLogic').value,
       MerlowRewardPricing: settingsForm.get('difficulty').get('merlowRewardPricing').value,
       ProgressionOnRowf: settingsForm.get('items').get('progressionOnRowf').value,

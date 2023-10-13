@@ -180,7 +180,7 @@
         </div>
     </mat-tab>
 
-    <mat-tab [label]="'Super Blocks'">
+    <mat-tab *ngIf="settingsSpoilerLog.superBlocks.length" [label]="'Super Blocks'">
         <ng-template [ngTemplateOutlet]="searchContainer"></ng-template>
         <div class="right-container">
             <div class="table-container">

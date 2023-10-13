@@ -17,6 +17,7 @@
                 "includeRadioTradeEvent": false,
                 "shuffleBlocks": false,
                 "gearShuffleMode": 0,
+                "partnerUpgradeShuffle": 0,
                 "ripCheatoItemsInLogic": 6,
                 "progressionOnRowf": false,
                 "progressionOnMerlow": false
@@ -200,6 +201,7 @@
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 2,
+            "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
             "progressionOnRowf": false,
             "progressionOnMerlow": false
@@ -383,6 +385,7 @@
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 1,
+            "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
             "progressionOnRowf": true,
             "progressionOnMerlow": true
@@ -566,6 +569,7 @@
             "includeRadioTradeEvent": true,
             "shuffleBlocks": true,
             "gearShuffleMode": 2,
+            "partnerUpgradeShuffle": 2,
             "ripCheatoItemsInLogic": 11,
             "progressionOnRowf": true,
             "progressionOnMerlow": true
@@ -749,6 +753,7 @@
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 0,
+            "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
             "progressionOnRowf": true,
             "progressionOnMerlow": true
@@ -935,6 +940,7 @@
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 2,
+            "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
             "progressionOnRowf": true,
             "progressionOnMerlow": true
@@ -1121,6 +1127,7 @@
           "includeRadioTradeEvent": false,
           "shuffleBlocks": false,
           "gearShuffleMode": 2,
+          "partnerUpgradeShuffle": 0,
           "ripCheatoItemsInLogic": 6,
           "progressionOnRowf": true,
           "progressionOnMerlow": false
