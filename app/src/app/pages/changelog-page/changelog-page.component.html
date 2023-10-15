@@ -1,6 +1,54 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.24.0 (beta) (2023-10-17)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li>When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+    </ul>
+
+    <h2> Mod Changes</h2>
+    <ul>
+        <li>Adjusted Crystal King's healing move so the heal potency scales with chapter difficulty. His AI was also adjusted to be percentage based:
+          He will stop summoning crystal bits at 50% or below and will switch from grounded clones to floating clones at 28% and below.</li>
+    </ul>
+
+    <h2>Options</h2>
+
+    <h3>Partner Upgrade Shuffle (new)</h3>
+    <ul>
+        <li>Allows adding partner specific upgrades into the item pool.</li>
+        <li>Off: Partners are upgraded through super blocks as usual.</li>
+        <li>Super Block Locations: Super blocks are replaced with item blocks that give partner specific upgrade items.</li>
+        <li>Full Shuffle: Super blocks are replaced with item blocks and specific partner upgrades are added as items in the pool.</li>
+    </ul>
+
+    <h3> Color Palettes (change)</h3>
+    <ul>
+        <li>Added new color palettes for the following characters: Goomba Bros, Harry and Toelielip.</li>
+    </ul>
+
+    <h2>Seed Generator</h2>
+    <ul>
+        <li>Going through Forever Forest backwards can no longer be expected in logic with closed forest. Instead, the "Forever Forest Backwards" trick has been added
+          in the "Glitches & Tricks" section.
+        </li>
+        <li>Logic: Fixed an issue with Limited Chapter Logic where handing over the artifact could be required without Ch.2 being in logic.</li>
+        <li>Spoiler Log: Fixed an issue where the hidden blocks in the Flower Fields West Path were swapped.</li>
+    </ul>
+
+
+    <h2>Website</h2>
+    <ul>
+        <li>Fixed a bug in the web spoiler log, where the "Super Blocks" tab would always be visible even when empty.</li>
+        <li>Fixed an issue where the server would periodically run out of memory, resulting in a generation error for users.</li>
+    </ul>
+
+  </mat-card>
+
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.23.3 (beta) (2023-09-25)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
@@ -17,7 +65,7 @@
 
   </mat-card>
 
-  <mat-card class="settings-card latest-changelog">
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.23.2 (beta) (2023-09-25)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
@@ -37,7 +85,7 @@
 
   </mat-card>
 
-  <mat-card class="settings-card latest-changelog">
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.23.1 (beta) (2023-09-20)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
@@ -55,7 +103,7 @@
 
   </mat-card>
 
-  <mat-card class="settings-card latest-changelog">
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.23.0 (beta) (2023-09-19)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
