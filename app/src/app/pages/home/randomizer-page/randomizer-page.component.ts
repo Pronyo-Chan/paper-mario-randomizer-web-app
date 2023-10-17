@@ -22,6 +22,7 @@ import { CoinColor } from 'src/app/entities/enum/coinColor';
 import { Boots } from 'src/app/entities/enum/boots';
 import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
 import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode';
+import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeShuffleMode';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -126,6 +127,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includeRadioTradeEvent: new FormControl(false),
         shuffleBlocks: new FormControl(false),
         gearShuffleMode: new FormControl(GearShuffleMode.Vanilla),
+        partnerUpgradeShuffle: new FormControl(PartnerUpgradeShuffleMode.Vanilla),
         ripCheatoItemsInLogic: new FormControl(6),
         progressionOnRowf: new FormControl(false),
         progressionOnMerlow: new FormControl(false),

@@ -18,6 +18,7 @@ import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
 import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode';
 import { SeedViewModel } from 'src/app/entities/seed-view-model/seedViewModel';
 import { MysteryMode } from 'src/app/entities/enum/mysteryMode';
+import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeShuffleMode';
 
 interface SettingRow {
   name: string;
@@ -142,6 +143,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Koopa Koot Favors", value: KootFavorsMode[this.seedModel.Items.KoopaKootFavors]},
       {name: "Letter Delivery Rewards", value: LettersMode[this.seedModel.Items.LetterDeliveryRewards]},
       {name: "Rip Cheato Items In Logic", value: this.seedModel.Items.RipCheatoItemsInLogic},
+      {name: "Partner Upgrade Shuffle", value: PartnerUpgradeShuffleMode[this.seedModel.Items.PartnerUpgradeShuffle]},
       {name: "Shuffle Super/Multicoin Blocks", value: this.seedModel.Items.ShuffleSuperAndMulticoinBlocks},
       {name: "Shopsanity", value: this.seedModel.Items.Shopsanity},
       {name: "Rowf Items in Logic", value: this.seedModel.Items.ProgressionOnRowf},

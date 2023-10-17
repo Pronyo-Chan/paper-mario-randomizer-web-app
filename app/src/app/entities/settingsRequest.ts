@@ -146,6 +146,7 @@ export interface SettingsRequest {
     HiddenPanelVisibility: number;
     CookWithoutFryingPan: boolean;
     GearShuffleMode: number;
+    PartnerUpgradeShuffle: number;
     RipCheatoItemsInLogic: number;
     MerlowRewardPricing: number;
     ProgressionOnRowf: boolean;
@@ -231,6 +232,7 @@ export interface SettingsRequest {
 
     // Glitches: Boo's Mansion
     JumplessMansionEntry: boolean
+    ForeverForestBackwards: boolean
     RecordSkipNoBombettePush: boolean
     RecordSkipBombettePush: boolean
     BoosPortraitWithKooper: boolean
