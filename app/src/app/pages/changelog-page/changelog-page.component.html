@@ -1,6 +1,33 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.24.1 (beta) (2023-10-21)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li>When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+    </ul>
+
+    <h2> Mod Changes</h2>
+    <ul>
+        <li> Restored the vanilla behavior where glitching through the metal block in Mt. Lavalava's central cavern would make the block dissapear.</li>
+    </ul>
+
+    <h2>Seed Generator</h2>
+    <ul>
+        <li>Fixed an issue with Partner Upgrade Shuffle where some seeds would fail to generate and throw an error.</li>
+        <li>Fixed an issue with Crystal King's heal where vanilla values were still written to the rom when shuffling chapter difficulties.</li>
+    </ul>
+
+    <h2>Website</h2>
+    <ul>
+        <li>On the seed info page, 'Star Spirits Required' will now be hidden when it's value is -1, aka random.</li>
+    </ul>
+
+  </mat-card>
+
+  <mat-card class="settings-card latest-changelog">
     <mat-card-title class="settings-title">0.24.0 (beta) (2023-10-17)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
