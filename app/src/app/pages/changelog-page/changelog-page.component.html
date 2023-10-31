@@ -1,6 +1,22 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.24.2 (beta) (2023-10-31)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li>When playing with item traps, coins dropped from trap damage in the Toad Town Storeroom will be invisible.</li>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+    </ul>
+
+    <h2> Mod Fixes</h2>
+    <ul>
+        <li> Fixed an issue with the crates in Boo's Mansion pot room where consumable items would not replenish.</li>
+    </ul>
+
+  </mat-card>
+
+  <mat-card class="settings-card latest-changelog">
     <mat-card-title class="settings-title">0.24.1 (beta) (2023-10-21)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
