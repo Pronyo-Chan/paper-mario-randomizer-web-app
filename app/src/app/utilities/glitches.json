@@ -155,7 +155,7 @@
     "name": "Toad Town Sushie Glitch",
     "settingName": "ToadTownSushieGlitch",
     "link": "https://www.youtube.com/watch?v=sL_bXF4XWCc&t=24s",
-    "description": "By pressing C-down at a precise location on the deck while having Mario face down-left, it is possible to ride Sushie out of bounds. This state allows to skip most obstacles on the overworld, aside from doors to dungeons.",
+    "description": "By pressing C-down at a precise location on the deck while having Mario face down-left, it is possible to ride Sushie out of bounds. This state allows to skip most obstacles on the overworld, aside from doors to dungeons. Requires either a hammer or boots to be in logic, to make positioning easier.",
     "location": "Toad Town",
     "id": "É"
   },
