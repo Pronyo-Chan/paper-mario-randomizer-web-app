@@ -1,8 +1,6 @@
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
 import { GithubPageComponent } from './pages/github-page/github-page.component';
-import { SettingDetailsPageComponent } from './pages/setting-details-page/setting-details-page.component';
 import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.component';
-import { TipsPageComponent } from './pages/tips-page/tips-page.component';
 import { SeedPageComponent } from './pages/seed/seed-page/seed-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,9 +8,7 @@ import { RandomizerPageComponent } from './pages/home/randomizer-page/randomizer
 
 const routes: Routes = [
   { path: 'seed', component: SeedPageComponent, runGuardsAndResolvers: 'always', },
-  { path: 'tips', component: TipsPageComponent },
   { path: 'changelog', component: ChangelogPageComponent },
-  { path: 'settings', component: SettingDetailsPageComponent },
   { path: 'github', component: GithubPageComponent },
   { path: 'dev-tools', component: DevPageComponent },
   { path: '', pathMatch: 'full', component: RandomizerPageComponent },
