@@ -11,6 +11,7 @@ import { SushieSprite } from './enum/sushieSprite';
 import { WattSprite } from './enum/wattSprite';
 import { LakilesterSprite } from './enum/lakilesterSprite';
 import { MusicMode } from './enum/musicMode';
+import { StatusBarColorMode } from './enum/statusBarColorMode';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -70,6 +71,7 @@ export interface SettingsRequest {
     BowsersCastleMode: boolean;
     ShortenCutscenes: boolean;
     SkipEpilogue: boolean;
+    ColorMode: StatusBarColorMode;
     Box5ColorA: number;
     Box5ColorB: number;
     RandomCoinColor: boolean;

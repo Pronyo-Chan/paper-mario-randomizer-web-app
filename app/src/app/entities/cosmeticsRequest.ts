@@ -10,12 +10,14 @@ import { SpriteSetting } from './enum/spriteSetting';
 import { SushieSprite } from './enum/sushieSprite';
 import { WattSprite } from './enum/wattSprite';
 import { LakilesterSprite } from './enum/lakilesterSprite';
+import { StatusBarColorMode } from './enum/statusBarColorMode';
 
 export interface CosmeticsRequest {
     SeedID: string
     RomanNumerals: boolean;
+    ColorMode: StatusBarColorMode;
     Box5ColorA: number;
-    Box5ColorB: number;    
+    Box5ColorB: number;
     RandomCoinColor: boolean;
     CoinColor: CoinColor;
     MarioSetting: SpriteSetting;

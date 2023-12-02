@@ -105,15 +105,13 @@ export class RandomizerService {
 
   private prepareCosmeticsRequest(seedID: string, cosmeticsFormGroup: FormGroup): CosmeticsRequest {
     var menuColor = cosmeticsFormGroup.get('menu').value
-    if(menuColor == 7) { // If random pick
-      menuColor = Math.floor(Math.random() * 7);
-    }
 
     var request = {
       SeedID: seedID,
       BossesSetting: cosmeticsFormGroup.get("bossesSetting").value,
       BowSetting: (cosmeticsFormGroup.get('bowSprite').value as CharacterSpriteSetting).setting,
       BowSprite: (cosmeticsFormGroup.get('bowSprite').value as CharacterSpriteSetting).paletteSelection,
+      ColorMode: Constants.MENU_COLORS[menuColor].colorMode,
       Box5ColorA: Constants.MENU_COLORS[menuColor].colorA,
       Box5ColorB: Constants.MENU_COLORS[menuColor].colorB,
       CoinColor: cosmeticsFormGroup.get('coinColor').value != CoinColor.Random ? cosmeticsFormGroup.get('coinColor').value : 0, // Is ignored if random
@@ -150,9 +148,6 @@ export class RandomizerService {
 
   private prepareRequestObject(settingsForm: FormGroup) {
     var menuColor = settingsForm.get('cosmetics').get('menu').value
-    if(menuColor == 7) { // If random pick
-      menuColor = Math.floor(Math.random() * 7);
-    }
 
     var settingsString = this._settingsStringService.compressFormGroup(settingsForm, this._settingsStringService.settingsMap);
     this._localStorage.set('latestSettingsString', settingsString);
@@ -213,6 +208,7 @@ export class RandomizerService {
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
       ShortenCutscenes: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,
       SkipEpilogue: settingsForm.get('qualityOfLife').get('skipEpilogue').value,
+      ColorMode: Constants.MENU_COLORS[menuColor].colorMode,
       Box5ColorA: Constants.MENU_COLORS[menuColor].colorA,
       Box5ColorB: Constants.MENU_COLORS[menuColor].colorB,
       CoinColor: settingsForm.get('cosmetics').get('coinColor').value != CoinColor.Random ? settingsForm.get('cosmetics').get('coinColor').value : 0, // Is ignored if random
