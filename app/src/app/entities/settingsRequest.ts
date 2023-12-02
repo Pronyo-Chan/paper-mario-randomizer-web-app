@@ -41,6 +41,7 @@ export interface SettingsRequest {
     ProgressiveScaling: boolean;
     RandomFormations: boolean;
     ShuffleDungeonEntrances: boolean;
+    MirrorMode: boolean;
     ShuffleItems: boolean;
     IncludeCoinsOverworld: boolean;
     IncludeCoinsBlocks: boolean;

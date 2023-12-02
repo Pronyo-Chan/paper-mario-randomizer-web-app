@@ -11,7 +11,8 @@ export interface World {
     OpenForeverForest: boolean;
     Ch7BridgeVisible: boolean;
     BowsersCastleMode: BowsersCastleMode;
-    ShuffleDungeonEntrances: boolean
+    ShuffleDungeonEntrances: boolean;
+    MirrorMode: boolean;
     StarHunt: boolean;
     StarHuntRequired: number;
     StarHuntTotal: number;

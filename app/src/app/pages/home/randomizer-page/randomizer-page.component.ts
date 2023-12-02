@@ -227,6 +227,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         startingMap: new FormControl(StartingMap.ToadTown),
         bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla),
         shuffleDungeonEntrances: new FormControl(false),
+        mirrorMode: new FormControl(false),
         starHunt: new FormControl(false),
         starHuntRequired: new FormControl(50),
         starHuntTotal: new FormControl(70, [CustomValidators.greaterOrEqualTo('starHuntRequired')]),

@@ -179,6 +179,7 @@ export class RandomizerService {
       StartingMap: settingsForm.get('openLocations').get('startingMap').value,
       BowsersCastleMode: settingsForm.get('openLocations').get('bowsersCastleMode').value,
       ShuffleDungeonEntrances: settingsForm.get('openLocations').get('shuffleDungeonEntrances').value,
+      MirrorMode: settingsForm.get('openLocations').get('mirrorMode').value,
       ShuffleChapterDifficulty: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.RandomChapterDifficulty,
       ProgressiveScaling: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.ProgressiveScaling,
       RandomFormations: settingsForm.get('gameplay').get('randomFormations').value,
