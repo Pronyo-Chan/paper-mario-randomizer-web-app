@@ -11,7 +11,7 @@ import { crc32 } from 'src/app/utilities/RomPatcher/crc32';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { environment } from 'src/environments/environment';
 
-  
+
 @Component({
   selector: 'app-patcher',
   templateUrl: './patcher.component.html',
@@ -31,7 +31,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
   public isUserRomLoading = false;
   public isPatching = false;
   public doOverrideCosmetics = false;
-  public useProdPatch: boolean;
+  public useProdPatch = true;
   public isProduction: boolean;
 
   public patchingError: string;
@@ -55,7 +55,6 @@ export class PatcherComponent implements OnInit, OnDestroy {
     });
 
     this.isProduction = environment.production;
-    this.useProdPatch = environment.production;
   }
 
   public ngOnDestroy(): void {
@@ -90,7 +89,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
       take(1),
       tap(romResult => {
         this.isPatching = false;
-        this.serveDownload(romResult, 'Paper_Mario_' + this.seedId + '.z64');     
+        this.serveDownload(romResult, 'Paper_Mario_' + this.seedId + '.z64');
       }),
       catchError( err => {
         this.isPatching = false;
@@ -99,7 +98,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
         } else {
           this.patchingError = 'A server error has occured';
         }
-        
+
         return of(err);
       })
     ).subscribe();
@@ -110,7 +109,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
       return;
     }
     this.userRom = null;
-    this.isRomValid = false;    
+    this.isRomValid = false;
     this.isUserRomLoading = true;
     this.processUserRom(files[0]);
   }
