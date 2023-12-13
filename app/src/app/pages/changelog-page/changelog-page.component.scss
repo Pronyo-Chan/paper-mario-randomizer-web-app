@@ -11,7 +11,7 @@
     .settings-card {
         background-color: $blue-background-card;
         display: none;
-    
+
         &.latest-changelog {
             display: block;
         }
@@ -20,11 +20,11 @@
         font-family: 'gluten';
         padding: 2rem 0 0 1rem;
     }
-    
+
     p {
         font-family: gluten;
     }
-    
+
     span.bolder-text {
         font-weight: 800;
     }
@@ -33,19 +33,19 @@
         font-size: 16px;
         font-weight: 500;
         li {
-            padding: 0.8rem;
+            padding: 0.5rem;
             line-height: 18px;
-    
+
             span.item-name{
                 color: $blue-item-main;
                 font-weight: 700;
             }
-    
+
             span.location-name{
                 color: $yellow-stat-text;
                 font-weight: 700;
             }
-    
+
             span.area-name{
                 color: $purple-text;
                 font-weight: 700;
@@ -64,5 +64,5 @@
         }
     }
 
-    
+
 }
