@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'github', component: GithubPageComponent },
   { path: 'dev-tools', component: DevPageComponent },
   { path: '', pathMatch: 'full', component: RandomizerPageComponent },
+  { path: "**", redirectTo: ''}
 ];
 
 @NgModule({
