@@ -20,6 +20,7 @@ import { SeedViewModel } from 'src/app/entities/seed-view-model/seedViewModel';
 import { MysteryMode } from 'src/app/entities/enum/mysteryMode';
 import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeShuffleMode';
 import { CustceneMode } from 'src/app/entities/enum/cutsceneMode';
+import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
 
 interface SettingRow {
   name: string;
@@ -265,7 +266,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Ch.7 Bridge Visible", value: this.seedModel.World.Ch7BridgeVisible},
       {name: "Bowser's Castle Mode", value: BowsersCastleMode[this.seedModel.World.BowsersCastleMode]},
       {name: "Shuffle Dungeon Entrances", value: this.seedModel.World.ShuffleDungeonEntrances},
-      {name: "Mirror Mode", value: this.seedModel.World.MirrorMode},
+      {name: "Mirror Mode", value: MirrorMode[this.seedModel.World.MirrorMode]},
       {name: "Power Star Hunt", value: this.seedModel.World.StarHunt},
       {name: "Star Hunt Skips Ch.8", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarHuntEndsGame: null},
       {name: "Required Power Stars", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarHuntRequired: null},

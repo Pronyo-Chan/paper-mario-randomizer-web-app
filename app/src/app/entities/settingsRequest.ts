@@ -12,6 +12,7 @@ import { WattSprite } from './enum/wattSprite';
 import { LakilesterSprite } from './enum/lakilesterSprite';
 import { MusicMode } from './enum/musicMode';
 import { StatusBarColorMode } from './enum/statusBarColorMode';
+import { MirrorMode } from './enum/mirrorMode';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -41,7 +42,7 @@ export interface SettingsRequest {
     ProgressiveScaling: boolean;
     RandomFormations: boolean;
     ShuffleDungeonEntrances: boolean;
-    MirrorMode: boolean;
+    MirrorMode: MirrorMode;
     ShuffleItems: boolean;
     IncludeCoinsOverworld: boolean;
     IncludeCoinsBlocks: boolean;
