@@ -19,6 +19,7 @@ import { parseRandoPatchFile, RandoPatch } from '../utilities/RomPatcher/randopa
 import { CharacterSpriteSetting } from '../entities/characterSpriteSetting';
 import { CoinColor } from '../entities/enum/coinColor';
 import { MysteryMode } from '../entities/enum/mysteryMode';
+import { MirrorMode } from '../entities/enum/mirrorMode';
 
 
 @Injectable({
@@ -179,7 +180,8 @@ export class RandomizerService {
       StartingMap: settingsForm.get('openLocations').get('startingMap').value,
       BowsersCastleMode: settingsForm.get('openLocations').get('bowsersCastleMode').value,
       ShuffleDungeonEntrances: settingsForm.get('openLocations').get('shuffleDungeonEntrances').value,
-      MirrorMode: settingsForm.get('openLocations').get('mirrorMode').value,
+      MirrorMode: settingsForm.get('openLocations').get('mirrorMode').value == MirrorMode['Static Random'] ? 0: settingsForm.get('openLocations').get('mirrorMode').value,
+      StaticMapMirroring: settingsForm.get('openLocations').get('mirrorMode').value == MirrorMode['Static Random'],
       ShuffleChapterDifficulty: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.RandomChapterDifficulty,
       ProgressiveScaling: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.ProgressiveScaling,
       RandomFormations: settingsForm.get('gameplay').get('randomFormations').value,

@@ -43,6 +43,7 @@ export interface SettingsRequest {
     RandomFormations: boolean;
     ShuffleDungeonEntrances: boolean;
     MirrorMode: MirrorMode;
+    StaticMapMirroring: boolean;
     ShuffleItems: boolean;
     IncludeCoinsOverworld: boolean;
     IncludeCoinsBlocks: boolean;
