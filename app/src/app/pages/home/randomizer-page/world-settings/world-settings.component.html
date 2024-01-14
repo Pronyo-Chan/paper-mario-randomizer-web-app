@@ -84,6 +84,19 @@
             </app-tooltip-span>
         </div>
 
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span
+               spanText="Mirror Mode"
+                tooltipText="The entire game world becomes mirrored">
+          </app-tooltip-span>
+          <select formControlName='mirrorMode'>
+            <option [ngValue]="0">Off</option>
+            <option [ngValue]="1">Always On</option>
+            <option [ngValue]="2">Random On Every Load</option>
+            <option [ngValue]="3">Static Random</option>
+          </select>
+        </div>
+
         <mat-divider></mat-divider>
 
         <div class="setting-element dropdown-element">

@@ -4,55 +4,55 @@
             <app-tooltip-span spanText="Mario" tooltipText="Mario's color palette"></app-tooltip-span>
             <select formControlName='marioSprite'>
                 <option *ngFor="let marioOption of marioOptions" [ngValue]="marioOption">{{marioOption.optionDisplay}}</option>
-            </select> 
+            </select>
         </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Goombario" tooltipText="Goombario's color palette"></app-tooltip-span>
             <select formControlName='goombarioSprite'>
                 <option *ngFor="let goombarioOption of goombarioOptions" [ngValue]="goombarioOption">{{goombarioOption.optionDisplay}}</option>
-            </select> 
+            </select>
         </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Kooper" tooltipText="Kooper's color palette"></app-tooltip-span>
             <select formControlName='kooperSprite'>
                 <option *ngFor="let kooperOption of kooperOptions" [ngValue]="kooperOption">{{kooperOption.optionDisplay}}</option>
-            </select> 
+            </select>
         </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Bombette" tooltipText="Bombette's color palette"></app-tooltip-span>
             <select formControlName='bombetteSprite'>
                 <option *ngFor="let bombetteOption of bombetteOptions" [ngValue]="bombetteOption">{{bombetteOption.optionDisplay}}</option>
-            </select> 
+            </select>
         </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Parakarry" tooltipText="Parakarry's color palette"></app-tooltip-span>
             <select formControlName='parakarrySprite'>
                 <option *ngFor="let parakarryOption of parakarryOptions" [ngValue]="parakarryOption">{{parakarryOption.optionDisplay}}</option>
-            </select> 
+            </select>
         </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Bow" tooltipText="Bow's color palette"></app-tooltip-span>
             <select formControlName='bowSprite'>
                 <option *ngFor="let bowOption of bowOptions" [ngValue]="bowOption">{{bowOption.optionDisplay}}</option>
-            </select> 
+            </select>
         </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Watt" tooltipText="Watt's color palette"></app-tooltip-span>
             <select formControlName='wattSprite'>
                 <option *ngFor="let wattOption of wattOptions" [ngValue]="wattOption">{{wattOption.optionDisplay}}</option>
-            </select> 
+            </select>
         </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Sushie" tooltipText="Sushie's color palette"></app-tooltip-span>
             <select formControlName='sushieSprite'>
                 <option *ngFor="let sushieOption of sushieOptions" [ngValue]="sushieOption">{{sushieOption.optionDisplay}}</option>
-            </select> 
+            </select>
         </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Lakilester" tooltipText="Lakilester's color palette"></app-tooltip-span>
             <select formControlName='lakilesterSprite'>
                 <option *ngFor="let lakilesterOption of lakilesterOptions" [ngValue]="lakilesterOption">{{lakilesterOption.optionDisplay}}</option>
-            </select> 
+            </select>
         </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Bosses" tooltipText="Color shuffle setting for bosses"></app-tooltip-span>
@@ -61,8 +61,8 @@
                 <option [ngValue]="2">Random Pick</option>
                 <option [ngValue]="3">Random Pick (No Vanilla)</option>
                 <option [ngValue]="4">Random On Every Load</option>
-            </select> 
-        </div> 
+            </select>
+        </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="NPC" tooltipText="Color shuffle setting for non playable characters that aren't enemies or bosses"></app-tooltip-span>
             <select formControlName='npcSetting'>
@@ -70,7 +70,7 @@
                 <option [ngValue]="2">Random Pick</option>
                 <option [ngValue]="3">Random Pick (No Vanilla)</option>
                 <option [ngValue]="4">Random On Every Load</option>
-            </select> 
+            </select>
         </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Enemies" tooltipText="Color shuffle setting for enemies other than bosses"></app-tooltip-span>
@@ -79,8 +79,8 @@
                 <option [ngValue]="2">Random Pick</option>
                 <option [ngValue]="3">Random Pick (No Vanilla)</option>
                 <option [ngValue]="4">Random On Every Load</option>
-            </select> 
-        </div>  
+            </select>
+        </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Hammer" tooltipText="Color shuffle setting for hammers"></app-tooltip-span>
             <select formControlName='hammerSetting'>
@@ -88,8 +88,8 @@
                 <option [ngValue]="2">Random Pick</option>
                 <option [ngValue]="3">Random Pick (No Vanilla)</option>
                 <option [ngValue]="4">Random On Every Load</option>
-            </select> 
-        </div>  
+            </select>
+        </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Status Menu" tooltipText="Color of the status menu at the top of the screen"></app-tooltip-span>
             <select formControlName='menu'>
@@ -101,8 +101,9 @@
                 <option [ngValue]="5">Purple</option>
                 <option [ngValue]="6">Grey</option>
                 <option [ngValue]="7">Random Pick</option>
-            </select> 
-        </div> 
+                <option [ngValue]="8">Animated</option>
+            </select>
+        </div>
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Coin Color" tooltipText="Color of coins throughout the game"></app-tooltip-span>
             <select formControlName='coinColor'>
@@ -112,8 +113,8 @@
                 <option [ngValue]="3">Purple</option>
                 <option [ngValue]="4">Silver</option>
                 <option [ngValue]="5">Random Pick</option>
-            </select> 
-        </div> 
+            </select>
+        </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='randomText'></mat-slide-toggle>
             <app-tooltip-span spanText="Random Text" tooltipText="Makes all the game's text completely random."></app-tooltip-span>
@@ -136,8 +137,8 @@
                 <option [ngValue]="0">Shuffle By Mood</option>
                 <option [ngValue]="1">Shuffle By Type</option>
                 <option [ngValue]="2">Full Shuffle</option>
-            </select> 
-        </div> 
+            </select>
+        </div>
 
         <div class="setting-element">
             <mat-slide-toggle formControlName='shuffleJingles'></mat-slide-toggle>

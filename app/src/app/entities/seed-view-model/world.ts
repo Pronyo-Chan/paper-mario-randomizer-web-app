@@ -1,4 +1,5 @@
 import { BowsersCastleMode } from "../enum/bowsersCastleMode";
+import { MirrorMode } from "../enum/mirrorMode";
 
 export interface World {
     MagicalSeedsRequired: string;
@@ -11,7 +12,8 @@ export interface World {
     OpenForeverForest: boolean;
     Ch7BridgeVisible: boolean;
     BowsersCastleMode: BowsersCastleMode;
-    ShuffleDungeonEntrances: boolean
+    ShuffleDungeonEntrances: boolean;
+    MirrorMode: MirrorMode;
     StarHunt: boolean;
     StarHuntRequired: number;
     StarHuntTotal: number;

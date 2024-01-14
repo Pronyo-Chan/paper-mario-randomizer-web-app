@@ -1,6 +1,65 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.25.0 (beta) (2025-01-14)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+    </ul>
+
+    <h2> Mod Changes</h2>
+    <ul>
+        <li>Kent will now refund Mario's coins if he is defeated after he has been paid off.</li>
+        <li>When using custom status bar colors, the text outline has been edited to blend in with the new color properly.</li>
+        <li>Fixed an issue where the obtained item description would point to the wrong item when shuffling gear and finding a hammer in the Lavalava big chest.</li>
+        <li>Fixed an issue with progressive items shuffled as the fuzzy minigame reward, where the icon would briefly display the wrong item tier.</li>
+        <li>Fixed an issue with the map tracker where a coin tree in Jr. Troopa's Playground was getting counted twice.</li>
+        <li>Fixed an issue where coins dropped from collecting an item trap while in the Toad Town Storeroom would be invisible.</li>
+    </ul>
+
+    <h2>Options</h2>
+
+    <h3>Cutscene Mode (new)</h3>
+    <ul>
+        <li>This new quality of life option replaces the previous "Shorten Cutscenes" option.</li>
+        <li>It provides 3 different choices of how cutscenes play out: Vanilla, Shortened and Minimal</li>
+        <li>Vanilla preserves the game's original cutscenes.
+          Shortened is equivalent to the previous "Shorten Cutscenes" option, where most cutscenes are shorter but still keep the essential.
+          Minimal removes most cutscenes and dialogues entirely.</li>
+    </ul>
+
+    <h3>Mirror Mode (new)</h3>
+    <ul>
+        <li>This new world option makes the whole game world mirrored, flipping the horizontal axis.</li>
+        <li>Can be set to off, always on, statically random, or random on every load.</li>
+    </ul>
+
+    <h3> Status Menu Color (change)</h3>
+    <ul>
+        <li>Added a new option, "Animated", that will make the color change gradually over time during gameplay.</li>
+        <li>When choosing "Random Pick", the pick is now done on the mod side instead of the website, allowing to properly display "Random" on the seed info page.</li>
+        <li>When choosing "Random Pick", the color chosen now depends on your seed hash.</li>
+    </ul>
+
+    <h2>Seed Generator</h2>
+    <ul>
+        <li>Fixed an issue where extra partner upgrade items were sometimes added to the item pool when shuffling partner upgrades and enabling item traps.</li>
+        <li>Glitched logic: Toad Town sushie glitch now requires either the hammer or boots to be in logic.</li>
+
+    </ul>
+
+    <h2>Website</h2>
+    <ul>
+        <li>Changed the styling of tooltips to make them more readable.</li>
+        <li>The "Useful Tips" and "Setting Details" pages have been removed. Instead, the "Help" dropdown now contains a link to our official Github Wiki, where you can find all the useful info about the randomizer.</li>
+        <li>Attempting to access a page that does not exist will now redirect to the home page instead of loading the website in an invalid state.</li>
+    </ul>
+
+  </mat-card>
+
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.24.2 (beta) (2023-10-31)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
@@ -16,7 +75,7 @@
 
   </mat-card>
 
-  <mat-card class="settings-card latest-changelog">
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.24.1 (beta) (2023-10-21)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
@@ -43,7 +102,7 @@
 
   </mat-card>
 
-  <mat-card class="settings-card latest-changelog">
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.24.0 (beta) (2023-10-17)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>

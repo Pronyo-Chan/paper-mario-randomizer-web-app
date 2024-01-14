@@ -135,6 +135,7 @@ export class SettingStringMappingService {
     { compressedString: "m", key: "magicalSeedsRequired", type: "number"},
     { compressedString: "o", key: "bowsersCastleMode", type: "number"},
     { compressedString: "d", key: "shuffleDungeonEntrances", type: "bool"},
+    { compressedString: "z", key: "mirrorMode", type: "number"},
     { compressedString: "x", key: "starHunt", type: "bool"},
     { compressedString: "y", key: "starHuntEndsGame", type: "bool"},
     { compressedString: "?", key: "starHuntRequired", type: "number"},
@@ -170,7 +171,7 @@ export class SettingStringMappingService {
     { compressedString: "q", key: "quizmoAlwaysAppears", type: "bool"},
     { compressedString: "r", key: "romanNumerals", type: "removed"}, // Was moved to color palettes section
     { compressedString: "b", key: "bowsersCastleMode", type: "removed"}, // Was moved to World settings
-    { compressedString: "c", key: "shortenCutscenes", type: "bool"},
+    { compressedString: "c", key: "shortenCutscenes", type: "number"},
     { compressedString: "e", key: "skipEpilogue", type: "bool"},
     { compressedString: "z", key: "skipQuiz", type: "bool"},
     { compressedString: "m", key: "turnOffMusic", type: "removed"},

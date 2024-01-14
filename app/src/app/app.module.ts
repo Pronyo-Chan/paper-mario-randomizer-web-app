@@ -42,13 +42,11 @@ import { SettingsInfoComponent } from './pages/seed/seed-page/settings-info/sett
 import { SpoilerLogComponent } from './pages/seed/seed-page/spoiler-log/spoiler-log.component';
 import { LoadingComponent } from './common/loading/loading.component';
 import { ErrorComponent } from './common/error/error.component';
-import { TipsPageComponent } from './pages/tips-page/tips-page.component';
 import { ChangelogPageComponent } from './pages/changelog-page/changelog-page.component';
 import { CosmeticsComponent } from './pages/seed/seed-page/cosmetics/cosmetics.component';
 import { MarioSettingsComponent } from './pages/home/randomizer-page/mario-settings/mario-settings.component';
 import { StartingItemsComponent } from './pages/home/randomizer-page/starting-items/starting-items.component';
 import { ItemChiplistComponent } from './pages/home/randomizer-page/starting-items/item-chiplist/item-chiplist.component';
-import { SettingDetailsPageComponent } from './pages/setting-details-page/setting-details-page.component';
 import { GithubPageComponent } from './pages/github-page/github-page.component';
 import { HttpCacheInterceptorModule } from '@ngneat/cashew';
 import { SavePresetDialogComponent } from './pages/home/randomizer-page/preset-settings/save-preset-dialog/save-preset-dialog.component';
@@ -93,13 +91,11 @@ const dbConfig: DBConfig  = {
     EmergencySpoilerLogComponent,
     LoadingComponent,
     ErrorComponent,
-    TipsPageComponent,
     ChangelogPageComponent,
     CosmeticsComponent,
     MarioSettingsComponent,
     StartingItemsComponent,
     ItemChiplistComponent,
-    SettingDetailsPageComponent,
     SavePresetDialogComponent,
     GithubPageComponent,
     DevPageComponent,

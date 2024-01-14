@@ -10,18 +10,21 @@ import { KooperSprite } from "../entities/enum/kooperSprite";
 import { MarioSprite } from "../entities/enum/marioSprite";
 import { SpriteSetting } from "../entities/enum/spriteSetting";
 import { MenuColor } from "../entities/menuColors";
+import { StatusBarColorMode } from '../entities/enum/statusBarColorMode';
 
 export class Constants {
 
     public static VALID_ROM_CRC: string = "2817903998"; //decimal value
     public static MENU_COLORS: MenuColor[] = [
-        {colorA: 0xEBE677FF, colorB: 0x8E5A25FF, colorName: 'Default'}, // 0 = Default
-        {colorA: 0x8D8FFFFF, colorB: 0x2B4566FF, colorName: 'Blue'}, // 1 = Blue
-        {colorA: 0xAAD080FF, colorB: 0x477B53FF, colorName: 'Green'}, // 2 = Green
-        {colorA: 0x8ED4ECFF, colorB: 0x436245FF, colorName: 'Teal'}, // 3 = Teal
-        {colorA: 0xD7BF74FF, colorB: 0x844632FF, colorName: 'Brown'}, // 4 = Brown
-        {colorA: 0xB797B7FF, colorB: 0x62379AFF, colorName: 'Purple'}, // 5 = Purple
-        {colorA: 0xC0C0C0FF, colorB: 0x404040FF, colorName: 'Grey'}, // 6 = Grey
+        {colorMode: StatusBarColorMode.Fixed, colorA: 0xEBE677FF, colorB: 0x8E5A25FF, colorName: 'Default'}, // 0 = Default
+        {colorMode: StatusBarColorMode.Fixed, colorA: 0x8D8FFFFF, colorB: 0x2B4566FF, colorName: 'Blue'}, // 1 = Blue
+        {colorMode: StatusBarColorMode.Fixed, colorA: 0xAAD080FF, colorB: 0x477B53FF, colorName: 'Green'}, // 2 = Green
+        {colorMode: StatusBarColorMode.Fixed, colorA: 0x8ED4ECFF, colorB: 0x436245FF, colorName: 'Teal'}, // 3 = Teal
+        {colorMode: StatusBarColorMode.Fixed, colorA: 0xD7BF74FF, colorB: 0x844632FF, colorName: 'Brown'}, // 4 = Brown
+        {colorMode: StatusBarColorMode.Fixed, colorA: 0xB797B7FF, colorB: 0x62379AFF, colorName: 'Purple'}, // 5 = Purple
+        {colorMode: StatusBarColorMode.Fixed, colorA: 0xC0C0C0FF, colorB: 0x404040FF, colorName: 'Grey'}, // 6 = Grey
+        {colorMode: StatusBarColorMode.Random, colorA: 0xEBE677FF, colorB: 0x8E5A25FF, colorName: 'Random Pick'}, // 7 = Random
+        {colorMode: StatusBarColorMode.Animated, colorA: 0xEBE677FF, colorB: 0x8E5A25FF, colorName: 'Animated'}, // 8 = Animated
     ]
 
     public static MARIO_OPTIONS : CharacterSpriteSetting[] = [
@@ -37,7 +40,7 @@ export class Constants {
         {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: MarioSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: MarioSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
-      
+
       public static GOOMBARIO_OPTIONS : CharacterSpriteSetting[] = [
         {setting: SpriteSetting.Default, paletteSelection: GoombarioSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: GoombarioSprite.Green, optionDisplay: 'Green'},
@@ -49,7 +52,7 @@ export class Constants {
         {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: GoombarioSprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: GoombarioSprite.Default, optionDisplay: 'Random On Every Load'}
       ];
-    
+
       public static KOOPER_OPTIONS : CharacterSpriteSetting[] = [
         {setting: SpriteSetting.Default, paletteSelection: KooperSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: KooperSprite.Green, optionDisplay: 'Green'},
@@ -83,7 +86,7 @@ export class Constants {
         {setting: SpriteSetting.RandomPickNoVanilla, paletteSelection: ParakarrySprite.Default, optionDisplay: 'Random Pick (No Vanilla)'},
         {setting: SpriteSetting.RandomOnEveryLoad, paletteSelection: ParakarrySprite.Default, optionDisplay: 'Random On Every Load'}
       ];
-    
+
       public static BOW_OPTIONS : CharacterSpriteSetting[] = [
         {setting: SpriteSetting.Default, paletteSelection: BowSprite.Default, optionDisplay: 'Default'},
         {setting: SpriteSetting.SelectPalette, paletteSelection: BowSprite.Red, optionDisplay: 'Red'},

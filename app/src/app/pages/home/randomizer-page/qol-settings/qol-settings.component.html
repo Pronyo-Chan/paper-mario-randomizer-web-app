@@ -5,11 +5,11 @@
             <app-tooltip-span
                  spanText="Hidden Block Mode"
                   tooltipText="Watt's Ability: Mario needs to use Watt's ability to see hidden blocks (Vanilla)
-                  
+
                                 Watt Out: Mario needs to have Watt as active partner to see hidden blocks
-                                
+
                                 Watt Obtained: Hidden blocks will always be visible after Watt is unlocked
-                                
+
                                 Always Visible: Hidden blocks will be visible from the start">
             </app-tooltip-span>
             <select formControlName='hiddenBlockMode'>
@@ -23,20 +23,20 @@
         <div class="setting-element">
             <mat-slide-toggle formControlName='alwaysSpeedySpin'></mat-slide-toggle>
             <app-tooltip-span spanText="Always Speedy Spin" tooltipText="Mario will always spin fast when pressing Z without needing to equip the Speedy Spin badge.
-            
+
             The Speedy Spin badge is also removed from the item pool">
         </app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='preventPhysicsGlitches'></mat-slide-toggle>
             <app-tooltip-span spanText="Prevent OOB / LZS tricks" tooltipText="Prevents out of bound and loading zone storage tricks. This setting does NOT affect logic in any way and cannot be used if any glitch/trick is enabled in logic.
-            
+
             Warning: In some cases, attempting out of bound exploits with this setting enabled can cause softlocks, as the game fails to properly reset Mario's position."></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='alwaysPeekaboo'></mat-slide-toggle>
             <app-tooltip-span spanText="Always Peekaboo" tooltipText="Enemy HP will always be displayed without needing to equip the Peekaboo badge.
-            
+
             The Peekaboo badge is also removed from the item pool">
         </app-tooltip-span>
         </div>
@@ -47,7 +47,7 @@
         <div class="setting-element">
             <mat-slide-toggle formControlName='alwaysISpy'></mat-slide-toggle>
             <app-tooltip-span spanText="Always I Spy" tooltipText="Hidden Panels will always be indicated to be in the present room without needing to equip the I Spy badge.
-            The sound effect has been removed, so it is only a visual cue.            
+            The sound effect has been removed, so it is only a visual cue.
             The I Spy badge is also removed from the item pool."></app-tooltip-span>
         </div>
         <div class="setting-element">
@@ -56,7 +56,7 @@
                                                                              but not necessarily in every map of that town, 100% of the time until his local questions have been answered.">
             </app-tooltip-span>
         </div>
-        
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='foliageItemHints'></mat-slide-toggle>
             <app-tooltip-span spanText="Foliage Item Hints" tooltipText="Bushes and trees will emit a glow when they are hiding something."></app-tooltip-span>
@@ -72,10 +72,21 @@
             <app-tooltip-span spanText="Cook Without Frying Pan" tooltipText="Makes cooking items with Tayce T. possible without the frying pan."></app-tooltip-span>
         </div>
 
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='shortenCutscenes'></mat-slide-toggle>
-            <app-tooltip-span spanText="Shorten Cutscenes" tooltipText="Cutscenes will be shorter when turned on. Some of them may be skipped by pressing the A button if they don't have text."></app-tooltip-span>
-        </div>
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span
+               spanText="Cutscene Mode"
+                tooltipText="Vanilla: Cutscenes from the original game are preserved.
+
+                Shortened: Cutscenes are quicker but preserved with some condensed dialogue.
+
+                Minimal: Most cutscenes and dialogues are removed.">
+          </app-tooltip-span>
+          <select formControlName='shortenCutscenes'>
+              <option [ngValue]="0">Vanilla</option>
+              <option [ngValue]="1">Shortened</option>
+              <option [ngValue]="2">Minimal</option>
+          </select>
+      </div>
 
         <div class="setting-element">
             <mat-slide-toggle formControlName='skipEpilogue'></mat-slide-toggle>

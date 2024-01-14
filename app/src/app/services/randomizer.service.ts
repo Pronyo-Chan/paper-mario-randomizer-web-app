@@ -19,6 +19,7 @@ import { parseRandoPatchFile, RandoPatch } from '../utilities/RomPatcher/randopa
 import { CharacterSpriteSetting } from '../entities/characterSpriteSetting';
 import { CoinColor } from '../entities/enum/coinColor';
 import { MysteryMode } from '../entities/enum/mysteryMode';
+import { MirrorMode } from '../entities/enum/mirrorMode';
 
 
 @Injectable({
@@ -105,15 +106,13 @@ export class RandomizerService {
 
   private prepareCosmeticsRequest(seedID: string, cosmeticsFormGroup: FormGroup): CosmeticsRequest {
     var menuColor = cosmeticsFormGroup.get('menu').value
-    if(menuColor == 7) { // If random pick
-      menuColor = Math.floor(Math.random() * 7);
-    }
 
     var request = {
       SeedID: seedID,
       BossesSetting: cosmeticsFormGroup.get("bossesSetting").value,
       BowSetting: (cosmeticsFormGroup.get('bowSprite').value as CharacterSpriteSetting).setting,
       BowSprite: (cosmeticsFormGroup.get('bowSprite').value as CharacterSpriteSetting).paletteSelection,
+      ColorMode: Constants.MENU_COLORS[menuColor].colorMode,
       Box5ColorA: Constants.MENU_COLORS[menuColor].colorA,
       Box5ColorB: Constants.MENU_COLORS[menuColor].colorB,
       CoinColor: cosmeticsFormGroup.get('coinColor').value != CoinColor.Random ? cosmeticsFormGroup.get('coinColor').value : 0, // Is ignored if random
@@ -150,9 +149,6 @@ export class RandomizerService {
 
   private prepareRequestObject(settingsForm: FormGroup) {
     var menuColor = settingsForm.get('cosmetics').get('menu').value
-    if(menuColor == 7) { // If random pick
-      menuColor = Math.floor(Math.random() * 7);
-    }
 
     var settingsString = this._settingsStringService.compressFormGroup(settingsForm, this._settingsStringService.settingsMap);
     this._localStorage.set('latestSettingsString', settingsString);
@@ -184,6 +180,8 @@ export class RandomizerService {
       StartingMap: settingsForm.get('openLocations').get('startingMap').value,
       BowsersCastleMode: settingsForm.get('openLocations').get('bowsersCastleMode').value,
       ShuffleDungeonEntrances: settingsForm.get('openLocations').get('shuffleDungeonEntrances').value,
+      MirrorMode: settingsForm.get('openLocations').get('mirrorMode').value == MirrorMode['Static Random'] ? 0: settingsForm.get('openLocations').get('mirrorMode').value,
+      StaticMapMirroring: settingsForm.get('openLocations').get('mirrorMode').value == MirrorMode['Static Random'],
       ShuffleChapterDifficulty: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.RandomChapterDifficulty,
       ProgressiveScaling: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.ProgressiveScaling,
       RandomFormations: settingsForm.get('gameplay').get('randomFormations').value,
@@ -211,8 +209,9 @@ export class RandomizerService {
       RevealLogInHours: settingsForm.get('qualityOfLife').get('delaySpoilerLog').value ? settingsForm.get('qualityOfLife').get('revealLogInHours').value : 0,
       RomanNumerals: settingsForm.get('cosmetics').get('romanNumerals').value,
       IncludeDojo: settingsForm.get('items').get('includeDojo').value,
-      ShortenCutscenes: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,
+      CutsceneMode: settingsForm.get('qualityOfLife').get('shortenCutscenes').value,
       SkipEpilogue: settingsForm.get('qualityOfLife').get('skipEpilogue').value,
+      ColorMode: Constants.MENU_COLORS[menuColor].colorMode,
       Box5ColorA: Constants.MENU_COLORS[menuColor].colorA,
       Box5ColorB: Constants.MENU_COLORS[menuColor].colorB,
       CoinColor: settingsForm.get('cosmetics').get('coinColor').value != CoinColor.Random ? settingsForm.get('cosmetics').get('coinColor').value : 0, // Is ignored if random

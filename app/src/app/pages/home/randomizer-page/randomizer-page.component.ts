@@ -23,6 +23,7 @@ import { Boots } from 'src/app/entities/enum/boots';
 import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
 import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode';
 import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeShuffleMode';
+import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -164,7 +165,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         alwaysPeekaboo: new FormControl(false),
         skipQuiz: new FormControl(false),
         preventPhysicsGlitches: new FormControl(false),
-        shortenCutscenes: new FormControl(false),
+        shortenCutscenes: new FormControl(0),
         skipEpilogue: new FormControl(false),
         writeSpoilerLog: new FormControl(true),
         revealLogInHours: new FormControl(0),
@@ -227,6 +228,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         startingMap: new FormControl(StartingMap.ToadTown),
         bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla),
         shuffleDungeonEntrances: new FormControl(false),
+        mirrorMode: new FormControl(MirrorMode.Off),
         starHunt: new FormControl(false),
         starHuntRequired: new FormControl(50),
         starHuntTotal: new FormControl(70, [CustomValidators.greaterOrEqualTo('starHuntRequired')]),
