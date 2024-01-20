@@ -145,6 +145,7 @@ export interface SettingsRequest {
     IncludeRadioTradeEvent: boolean;
     ShuffleBlocks: boolean;
     RandomPitch: boolean;
+    MuteDangerBeeps: boolean;
     ShuffleMusic: boolean;
     ShuffleMusicMode: MusicMode;
     ShuffleJingles: boolean;

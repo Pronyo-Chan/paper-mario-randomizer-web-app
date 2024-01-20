@@ -36,6 +36,7 @@ export class SettingStringMappingService {
     { compressedString: "a", key: "parakarrySprite", type: "sprite"},
     { compressedString: "r", key: "romanNumerals", type: "bool"},
     { compressedString: "h", key: "randomPitch", type: "bool"},
+    { compressedString: "d", key: "muteDangerBeeps", type: "bool"},
     { compressedString: "u", key: "shuffleMusic", type: "number"},
     { compressedString: "j", key: "shuffleJingles", type: "bool"}
   ]

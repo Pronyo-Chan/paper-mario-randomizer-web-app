@@ -178,6 +178,7 @@
                 "randomText": false,
                 "romanNumerals": false,
                 "randomPitch": false,
+                "muteDangerBeeps": false,
                 "shuffleMusic": -1,
                 "shuffleJingles": false
             },
@@ -363,6 +364,7 @@
             "randomText": false,
             "romanNumerals": false,
             "randomPitch": false,
+            "muteDangerBeeps": false,
             "shuffleMusic": -1,
             "shuffleJingles": false
           },
@@ -548,6 +550,7 @@
             "randomText": false,
             "romanNumerals": false,
             "randomPitch": false,
+            "muteDangerBeeps": false,
             "shuffleMusic": -1,
             "shuffleJingles": false
           },
@@ -733,6 +736,7 @@
             "randomText": false,
             "romanNumerals": false,
             "randomPitch": false,
+            "muteDangerBeeps": false,
             "shuffleMusic": -1,
             "shuffleJingles": false
           },
@@ -921,6 +925,7 @@
             "randomText":false,
             "romanNumerals": false,
             "randomPitch": false,
+            "muteDangerBeeps": false,
             "shuffleMusic": -1,
             "shuffleJingles": false
          },
@@ -1109,6 +1114,7 @@
             "randomText":false,
             "romanNumerals": false,
             "randomPitch": false,
+            "muteDangerBeeps": false,
             "shuffleMusic": -1,
             "shuffleJingles": false
          },
@@ -1305,6 +1311,7 @@
           "randomText": false,
           "romanNumerals": false,
           "randomPitch": false,
+          "muteDangerBeeps": false,
           "shuffleMusic": -1,
           "shuffleJingles": false
         },

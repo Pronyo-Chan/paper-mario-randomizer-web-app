@@ -197,6 +197,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Shuffle Music", value: this.seedModel.Cosmetics.ShuffleMusic},
       {name: "Shuffle Jingles", value: this.seedModel.Cosmetics.ShuffleJingles},
       {name: "Random Pitch", value: this.seedModel.Cosmetics.RandomPitch},
+      {name: "Mute Danger Beeps", value: this.seedModel.Cosmetics.MuteDangerBeeps},
     ] as SettingRow[]
   }
 
