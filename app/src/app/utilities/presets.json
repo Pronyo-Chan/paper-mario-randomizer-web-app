@@ -32,7 +32,7 @@
             },
             "partners": {
                 "shufflePartners": false,
-                "partnersAlwaysUsable": true,
+                "partnersAlwaysUsable": false,
                 "startWithRandomPartners": true,
                 "randomPartnersMin": 1,
                 "randomPartnersMax": 1,
