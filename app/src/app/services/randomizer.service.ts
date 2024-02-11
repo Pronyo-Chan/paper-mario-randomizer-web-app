@@ -482,7 +482,6 @@ export class RandomizerService {
     if(request.StartWithRandomPartners) {
       request.RandomPartnersMin = settingsForm.get('partners').get('randomPartnersMin').value;
       request.RandomPartnersMax = settingsForm.get('partners').get('randomPartnersMax').value;
-      request.StartWithPartners = {} as StartingPartners;
 
     }else {
       request.RandomPartnersMin = 1
