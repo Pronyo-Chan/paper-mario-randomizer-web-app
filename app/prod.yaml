@@ -1,11 +1,4 @@
 runtime: python311
-api_version: 1
-
-skip_files:
-- node_modules/
-- .angular/
-- e2e/
-- src/
 
 handlers:
 # index files
