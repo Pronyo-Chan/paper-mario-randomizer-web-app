@@ -66,7 +66,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const errors = this.validateSettings();
     if(errors.length) {
       if (errors.some(e => e == this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)) {
-        this.seedGenError = "Hammerless Start outside of Goomba Village is impossible without shuffled partners or full gear shuffle."
+        this.seedGenError = "Hammerless Start is impossible without shuffled partners or full gear shuffle."
         return;
       } else if (errors.some(e => e == this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)) {
         this.seedGenError = "Jumpless Start is impossible without Item Shuffle enabled."
@@ -279,7 +279,11 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isLimitChapterLogicEnabled = this.formGroup.get('difficulty').get('limitChapterLogic').value;
     const isKeysanityEnabled = this.formGroup.get('items').get('keyitemsOutsideDungeon').value
 
-    if (startingMap != StartingMap.GoombaVillage &&
+    const isVanillaStart = startingMap == StartingMap.GoombaVillage &&
+      startingHammer == Hammer.Hammerless &&
+      !isGeneralShuffleEnabled
+
+    if (!isVanillaStart &&
        startingHammer == Hammer.Hammerless &&
        (!isGeneralShuffleEnabled || (!isPartnerShuffleEnabled && gearShuffleMode != GearShuffleMode['Full Shuffle']))) {
       errors.push(this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)
