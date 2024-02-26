@@ -75,24 +75,24 @@
 
         <mat-divider></mat-divider>
 
-        <div class="setting-element">
+        <div class="setting-element" [ngClass]="{ 'disabled-element': starHuntFormControl.value}">
             <mat-slide-toggle formControlName='randomNumberOfStarSpirits'></mat-slide-toggle>
             <app-tooltip-span spanText="Random Number of Required Star Spirits" tooltipText="The amount of star spirits saved required to open the way to ch.8 will be random. To know how many you need in-game, check the top of Shooting Star Summit, it corresponds to the amount of unlit stars on the ground."></app-tooltip-span>
         </div>
 
-        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': difficultyFormGroup.get('randomNumberOfStarSpirits').value}">
+        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': difficultyFormGroup.get('randomNumberOfStarSpirits').value  || starHuntFormControl.value}">
             <app-tooltip-span [spanText]="'Star Spirits Required: ' + difficultyFormGroup.get('starWaySpiritsNeeded').value"
-                             tooltipText="Number of star spirits saved required to open the way to Ch.8"></app-tooltip-span>
+                             tooltipText="Number of star spirits saved required to open the way to Ch.8. This setting is ignored when star hunt is enabled."></app-tooltip-span>
             <mat-slider formControlName="starWaySpiritsNeeded" (input)="difficultyFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=0 max= 7 step="1" tickInterval="1" ></mat-slider>
         </div>
 
-        <div class="setting-element" [ngClass]="{ 'disabled-element': isSevenOrZeroStarSpirits}">
+        <div class="setting-element" [ngClass]="{ 'disabled-element': isSevenOrZeroStarSpirits || starHuntFormControl.value}">
           <mat-slide-toggle formControlName='requireSpecificSpirits'></mat-slide-toggle>
           <app-tooltip-span spanText="Require Specific Spirits"
                            tooltipText="Specific chapters must be completed to open the star way. You must visit shooting star summit to see which ones."></app-tooltip-span>
         </div>
 
-        <div class="setting-element" [ngClass]="{ 'disabled-element': !difficultyFormGroup.get('requireSpecificSpirits').value || isSevenOrZeroStarSpirits}">
+        <div class="setting-element" [ngClass]="{ 'disabled-element': !difficultyFormGroup.get('requireSpecificSpirits').value || isSevenOrZeroStarSpirits  || starHuntFormControl.value}">
           <mat-slide-toggle formControlName='limitChapterLogic'></mat-slide-toggle>
           <app-tooltip-span spanText="Limit Chapter Logic"
                            tooltipText="Only chapters that need to be completed and prologue / common areas will contain progression items if enabled."></app-tooltip-span>
