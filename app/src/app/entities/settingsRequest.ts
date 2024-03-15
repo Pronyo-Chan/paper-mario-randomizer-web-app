@@ -41,6 +41,7 @@ export interface SettingsRequest {
     ShuffleChapterDifficulty: boolean;
     ProgressiveScaling: boolean;
     RandomFormations: boolean;
+    RandomizePuzzles: boolean;
     ShuffleDungeonEntrances: boolean;
     MirrorMode: MirrorMode;
     StaticMapMirroring: boolean;

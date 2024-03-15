@@ -186,6 +186,7 @@ export class RandomizerService {
       ShuffleChapterDifficulty: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.RandomChapterDifficulty,
       ProgressiveScaling: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.ProgressiveScaling,
       RandomFormations: settingsForm.get('gameplay').get('randomFormations').value,
+      RandomizePuzzles: settingsForm.get('gameplay').get('randomizePuzzles').value,
       ShuffleItems: settingsForm.get('items').get('shuffleItems').value,
       IncludeCoinsOverworld: settingsForm.get('items').get('includeCoinsOverworld').value,
       IncludeCoinsBlocks: settingsForm.get('items').get('includeCoinsBlocks').value,

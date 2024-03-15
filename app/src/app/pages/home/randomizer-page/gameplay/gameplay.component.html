@@ -1,13 +1,13 @@
 <form [formGroup]="gameplayFormGroup">
     <mat-card-content class=settings-card-content>
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="Badges BP" 
+            <app-tooltip-span spanText="Badges BP"
                                 tooltipText="Vanilla: Untouched BP from original game.
-                                            
+
                                 Balanced Random: BP values will mostly be +/- 2 from the original, with a 10% chance of being random between 1 and 8.
-                                
+
                                 Shuffled: BP values from the original game are shuffled together.
-                                
+
                                 Fully Random: BP values will be completely random, between 1 and 6 BP for every badge."></app-tooltip-span>
             <select formControlName='randomBadgesBP'>
                 <option [ngValue]="0">Vanilla</option>
@@ -16,15 +16,15 @@
                 <option [ngValue]="3">Fully Random</option>
             </select>
         </div>
-        
+
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="Badges FP" 
+            <app-tooltip-span spanText="Badges FP"
                                 tooltipText="Vanilla: Untouched FP from original game.
-                                            
+
                                 Balanced Random: Badge abilities FP values will mostly be +/- 2 from the original, with a 10% chance of being random between 1 and 7.
-                                
+
                                 Shuffled: FP values from the original game are shuffled together.
-                                
+
                                 Fully Random: FP values will be completely random, between 1 and 7 FP for every badge ability."></app-tooltip-span>
             <select formControlName='randomBadgesFP'>
                 <option [ngValue]="0">Vanilla</option>
@@ -35,13 +35,13 @@
         </div>
 
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="Partners FP" 
+            <app-tooltip-span spanText="Partners FP"
                                 tooltipText="Vanilla: Untouched FP from original game.
-                                            
+
                                 Balanced Random: Partner abilities FP values will mostly be +/- 2 from the original, with a 10% chance of being random between 1 and 8.
-                                
+
                                 Shuffled: FP values from the original game are shuffled together.
-                                
+
                                 Fully Random: FP values will be completely random, between 1 and 8 FP for every partner ability."></app-tooltip-span>
             <select formControlName='randomPartnerFP'>
                 <option [ngValue]="0">Vanilla</option>
@@ -52,13 +52,13 @@
         </div>
 
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="StarPower SP" 
+            <app-tooltip-span spanText="StarPower SP"
                                 tooltipText="Vanilla: Untouched SP from original game.
-                                            
+
                                 Balanced Random: StarPower SP values will mostly be +/- 1 from the original, with a 10% chance of being random between 1 and 3.
-                                
+
                                 Shuffled: SP values from the original game are shuffled together.
-                                
+
                                 Fully Random: SP values will be completely random, between 1 and 3 SP for every star power ability."></app-tooltip-span>
             <select formControlName='randomStarpowerSP'>
                 <option [ngValue]="0">Vanilla</option>
@@ -69,11 +69,11 @@
         </div>
 
         <div class="setting-element dropdown-element">
-            <app-tooltip-span spanText="Mystery" 
+            <app-tooltip-span spanText="Mystery"
                                 tooltipText="Vanilla: Item selection when using Mystery in battle will be the one from the original game.
-                                            
+
                                 Random Pick: Item selection for Mystery will be random, but always the same throughout the game.
-                                
+
                                 Random Use: Item selection for Mystery will be random and different on every use."></app-tooltip-span>
             <select formControlName='mysteryMode'>
                 <option [ngValue]="0">Vanilla</option>
@@ -85,8 +85,15 @@
         <div class="setting-element">
             <mat-slide-toggle formControlName='randomFormations'></mat-slide-toggle>
             <app-tooltip-span
-                 spanText="Shuffle Battle Formations"
-                  tooltipText="Shuffles which enemies you encounter and in what number. The enemies are limited to those that normally appear within an area."></app-tooltip-span>
+                spanText="Shuffle Battle Formations"
+                tooltipText="Shuffles which enemies you encounter and in what number. The enemies are limited to those that normally appear within an area."></app-tooltip-span>
         </div>
+
+        <div class="setting-element">
+          <mat-slide-toggle formControlName='randomizePuzzles'></mat-slide-toggle>
+          <app-tooltip-span
+              spanText="Randomize Puzzles"
+              tooltipText="Randomizes most of the game's puzzles."></app-tooltip-span>
+      </div>
     </mat-card-content>
 </form>

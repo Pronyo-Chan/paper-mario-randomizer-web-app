@@ -16,6 +16,7 @@ import { SphereSpoilerLog } from 'src/app/entities/sphereSpoilerLog';
 import { FormControl, FormGroup } from '@angular/forms';
 import { SpriteSetting } from 'src/app/entities/enum/spriteSetting';
 import { CoinColor } from 'src/app/entities/enum/coinColor';
+import { PuzzleSolution } from 'src/app/entities/PuzzleSolution';
 
 @Component({
   selector: 'app-seed-page',
@@ -128,11 +129,12 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       starPowerCosts: [],
       superBlocks: [],
       chapterDifficulties:[],
-      entrances: []
+      entrances: [],
+      puzzleSolutions: []
     }
 
     const spoilerLogData = Object.fromEntries(Object.entries(spoilerLogJson).filter(
-      ([key]) => key!= "difficulty" && key != "sphere_log" && key != "move_costs" && key != "superblocks" && key != "SeedHashItems" && key != "entrances" && key != "required_spirits"))
+      ([key]) => key!= "difficulty" && key != "sphere_log" && key != "move_costs" && key != "superblocks" && key != "SeedHashItems" && key != "entrances" && key != "required_spirits" && key != "entrances" && key != "puzzle_solutions"))
 
     for (const region in spoilerLogData) {
       spoilerLogRegions[region] = [];
@@ -196,6 +198,13 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       for (const superBlockLocation in superBlocksData[areaName]) {
         settingsSpoilerLog.superBlocks.push(`${areaName} - ${superBlocksData[areaName][superBlockLocation]}`);
       }
+    }
+
+    const puzzleData = spoilerLogJson["puzzle_solutions"]
+    for (const puzzleName in puzzleData) {
+      const cleanPuzzleName = pascalToVerboseString(puzzleName);
+      const cleanSolutionName = pascalToVerboseString(puzzleData[puzzleName]);
+      settingsSpoilerLog.puzzleSolutions.push({puzzle: cleanPuzzleName, solution: cleanSolutionName} as PuzzleSolution);
     }
 
     settingsSpoilerLog.requiredStarSpirits = spoilerLogJson["required_spirits"];

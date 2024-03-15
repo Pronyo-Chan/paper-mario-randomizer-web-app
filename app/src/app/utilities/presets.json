@@ -28,7 +28,8 @@
                 "randomPartnerFP": 0,
                 "randomStarpowerSP": 0,
                 "randomFormations": false,
-                "mysteryMode": 0
+                "mysteryMode": 0,
+                "randomizePuzzles": false
             },
             "partners": {
                 "shufflePartners": false,
@@ -214,7 +215,8 @@
             "randomPartnerFP": 0,
             "randomStarpowerSP": 0,
             "randomFormations": false,
-            "mysteryMode": 0
+            "mysteryMode": 0,
+            "randomizePuzzles": false
           },
           "partners": {
             "shufflePartners": false,
@@ -400,7 +402,8 @@
             "randomPartnerFP": 0,
             "randomStarpowerSP": 0,
             "randomFormations": true,
-            "mysteryMode": 0
+            "mysteryMode": 0,
+            "randomizePuzzles": false
           },
           "partners": {
             "shufflePartners": true,
@@ -586,7 +589,8 @@
             "randomPartnerFP": 3,
             "randomStarpowerSP": 3,
             "randomFormations": true,
-            "mysteryMode": 2
+            "mysteryMode": 2,
+            "randomizePuzzles": false
           },
           "partners": {
             "shufflePartners": true,
@@ -772,7 +776,8 @@
             "randomPartnerFP":1,
             "randomStarpowerSP":0,
             "randomFormations":true,
-            "mysteryMode":0
+            "mysteryMode":0,
+            "randomizePuzzles": false
          },
          "partners":{
             "shufflePartners":true,
@@ -961,7 +966,8 @@
             "randomPartnerFP":1,
             "randomStarpowerSP":0,
             "randomFormations":true,
-            "mysteryMode":0
+            "mysteryMode":0,
+            "randomizePuzzles": false
          },
          "partners":{
             "shufflePartners":true,
@@ -1150,7 +1156,8 @@
           "randomPartnerFP": 1,
           "randomStarpowerSP": 0,
           "randomFormations": true,
-          "mysteryMode": 2
+          "mysteryMode": 2,
+          "randomizePuzzles": false
         },
         "partners": {
           "shufflePartners": true,
