@@ -590,7 +590,7 @@
             "randomStarpowerSP": 3,
             "randomFormations": true,
             "mysteryMode": 2,
-            "randomizePuzzles": false
+            "randomizePuzzles": true
           },
           "partners": {
             "shufflePartners": true,
