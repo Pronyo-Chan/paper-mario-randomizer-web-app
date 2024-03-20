@@ -16,6 +16,7 @@ export interface Cosmetics {
     CoinColor: string;
     RomanNumerals: boolean;
     RandomPitch: boolean;
+    MuteDangerBeeps: boolean;
     ShuffleMusic: string;
     ShuffleJingles: boolean;
     RandomText: boolean

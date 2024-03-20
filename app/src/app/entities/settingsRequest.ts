@@ -41,6 +41,7 @@ export interface SettingsRequest {
     ShuffleChapterDifficulty: boolean;
     ProgressiveScaling: boolean;
     RandomFormations: boolean;
+    RandomizePuzzles: boolean;
     ShuffleDungeonEntrances: boolean;
     MirrorMode: MirrorMode;
     StaticMapMirroring: boolean;
@@ -145,6 +146,7 @@ export interface SettingsRequest {
     IncludeRadioTradeEvent: boolean;
     ShuffleBlocks: boolean;
     RandomPitch: boolean;
+    MuteDangerBeeps: boolean;
     ShuffleMusic: boolean;
     ShuffleMusicMode: MusicMode;
     ShuffleJingles: boolean;

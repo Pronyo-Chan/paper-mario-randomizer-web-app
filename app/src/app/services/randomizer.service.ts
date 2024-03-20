@@ -133,6 +133,7 @@ export class RandomizerService {
       RandomText: cosmeticsFormGroup.get("randomText").value,
       RomanNumerals: cosmeticsFormGroup.get("romanNumerals").value,
       RandomPitch: cosmeticsFormGroup.get("randomPitch").value,
+      MuteDangerBeeps: cosmeticsFormGroup.get("muteDangerBeeps").value,
       ShuffleMusic: cosmeticsFormGroup.get("shuffleMusic").value != -1,
       ShuffleMusicMode: cosmeticsFormGroup.get("shuffleMusic").value != -1 ? cosmeticsFormGroup.get("shuffleMusic").value : 0,
       ShuffleJingles: cosmeticsFormGroup.get("shuffleJingles").value,
@@ -185,6 +186,7 @@ export class RandomizerService {
       ShuffleChapterDifficulty: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.RandomChapterDifficulty,
       ProgressiveScaling: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.ProgressiveScaling,
       RandomFormations: settingsForm.get('gameplay').get('randomFormations').value,
+      RandomizePuzzles: settingsForm.get('gameplay').get('randomizePuzzles').value,
       ShuffleItems: settingsForm.get('items').get('shuffleItems').value,
       IncludeCoinsOverworld: settingsForm.get('items').get('includeCoinsOverworld').value,
       IncludeCoinsBlocks: settingsForm.get('items').get('includeCoinsBlocks').value,
@@ -285,6 +287,7 @@ export class RandomizerService {
       IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value,
       ShuffleBlocks: settingsForm.get('items').get('shuffleBlocks').value,
       RandomPitch: settingsForm.get('cosmetics').get('randomPitch').value,
+      MuteDangerBeeps: settingsForm.get('cosmetics').get('muteDangerBeeps').value,
       ShuffleMusic: settingsForm.get('cosmetics').get("shuffleMusic").value != -1,
       ShuffleMusicMode: settingsForm.get('cosmetics').get("shuffleMusic").value != -1 ? settingsForm.get('cosmetics').get("shuffleMusic").value : 0,
       ShuffleJingles: settingsForm.get('cosmetics').get("shuffleJingles").value,
@@ -480,7 +483,6 @@ export class RandomizerService {
     if(request.StartWithRandomPartners) {
       request.RandomPartnersMin = settingsForm.get('partners').get('randomPartnersMin').value;
       request.RandomPartnersMax = settingsForm.get('partners').get('randomPartnersMax').value;
-      request.StartWithPartners = {} as StartingPartners;
 
     }else {
       request.RandomPartnersMin = 1

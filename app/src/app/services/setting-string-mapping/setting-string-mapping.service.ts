@@ -36,6 +36,7 @@ export class SettingStringMappingService {
     { compressedString: "a", key: "parakarrySprite", type: "sprite"},
     { compressedString: "r", key: "romanNumerals", type: "bool"},
     { compressedString: "h", key: "randomPitch", type: "bool"},
+    { compressedString: "d", key: "muteDangerBeeps", type: "bool"},
     { compressedString: "u", key: "shuffleMusic", type: "number"},
     { compressedString: "j", key: "shuffleJingles", type: "bool"}
   ]
@@ -81,7 +82,8 @@ export class SettingStringMappingService {
     { compressedString: "f", key: "randomBadgesFP", type: "number"},
     { compressedString: "p", key: "randomPartnerFP", type: "number"},
     { compressedString: "s", key: "randomStarpowerSP", type: "number"},
-    { compressedString: "m", key: "mysteryMode", type: "number"}
+    { compressedString: "m", key: "mysteryMode", type: "number"},
+    { compressedString: "z", key: "randomizePuzzles", type: "bool"}
   ]
 
   public readonly itemsMap: SettingModel [] = [

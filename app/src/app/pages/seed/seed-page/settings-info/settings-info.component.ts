@@ -172,6 +172,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Star Power SP", value: AbilityCostMode[this.seedModel.Gameplay.StarPowerSP]},
       {name: "Shuffle Battle Formations", value: this.seedModel.Gameplay.ShuffleBattleFormations},
       {name: "Mystery", value: MysteryMode[this.seedModel.Gameplay.MysteryMode]},
+      {name: "Randomize Puzzles", value: this.seedModel.Gameplay.RandomizePuzzles},
     ] as SettingRow[]
   }
 
@@ -197,6 +198,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Shuffle Music", value: this.seedModel.Cosmetics.ShuffleMusic},
       {name: "Shuffle Jingles", value: this.seedModel.Cosmetics.ShuffleJingles},
       {name: "Random Pitch", value: this.seedModel.Cosmetics.RandomPitch},
+      {name: "Mute Danger Beeps", value: this.seedModel.Cosmetics.MuteDangerBeeps},
     ] as SettingRow[]
   }
 

@@ -196,6 +196,26 @@
         </div>
     </mat-tab>
 
+    <mat-tab *ngIf="settingsSpoilerLog.puzzleSolutions.length" [label]="'Puzzle Solutions'">
+      <ng-template [ngTemplateOutlet]="searchContainer"></ng-template>
+      <div class="right-container">
+          <div class="table-container">
+              <mat-table [dataSource]="settingsSpoilerLog.puzzleSolutions">
+                  <ng-container matColumnDef="puzzle" >
+                      <th mat-header-cell *matHeaderCellDef stic>Puzzle</th>
+                      <td mat-cell *matCellDef="let puzzleSolution"><span>{{puzzleSolution.puzzle}}</span></td>
+                  </ng-container>
+                  <ng-container matColumnDef="solution" >
+                    <th mat-header-cell *matHeaderCellDef stic>Solution</th>
+                    <td mat-cell *matCellDef="let puzzleSolution"><span>{{puzzleSolution.solution}}</span></td>
+                  </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="['puzzle', 'solution']"></tr>
+                  <tr mat-row *matRowDef="let row; columns: ['puzzle', 'solution'];"></tr>
+              </mat-table>
+          </div>
+      </div>
+  </mat-tab>
+
     <mat-tab *ngIf="settingsSpoilerLog.entrances.length" [label]="'Entrances'">
         <ng-template [ngTemplateOutlet]="searchContainer"></ng-template>
         <div class="right-container">

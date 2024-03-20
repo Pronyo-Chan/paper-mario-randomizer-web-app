@@ -1,6 +1,57 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.26.0 (beta) (2024-03-20)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+    </ul>
+
+    <h2>Mod Changes</h2>
+    <ul>
+        <li>Fixed an issue with "Progressive Items" where the wrong name would be displayed in the Shiver Mountain item sockets.</li>
+        <li>Fixed an issue with the ingame map tracker where the Maple Syrup check at the top of Koopa Bros Fortress was not tracked properly.</li>
+    </ul>
+
+    <h2>Options</h2>
+
+    <h3>Mute Danger Beeps (new)</h3>
+    <ul>
+        <li>When enabled, the battle sound effects that play when Mario is in danger or peril will be muted.</li>
+        <li>Can be enabled in the "Cosmetics" section.</li>
+    </ul>
+
+    <h3>Randomize Puzzles (new)</h3>
+    <ul>
+        <li>The "Random Puzzles" setting allows changing the puzzles around the Mushroom Kingdom, providing altered solutions.</li>
+        <li>Can be enabled in the "Randomizer Settings - Gameplay" section.</li>
+        <li>Additional details can be found on the <a href="https://github.com/icebound777/PMR-SeedGenerator/wiki/Random-Puzzles"  target="_blank" rel="noopener noreferrer">wiki page</a>.</li>
+    </ul>
+
+    <h3>Minimal Cutscene Mode (change)</h3>
+    <ul>
+      <li>Removed dialogue when giving the Artifact to Kolorado at the Toad Town docks.</li>
+      <li>Removed dialogue when talking to Misstar after completing ch.5 with Dungeon Entrance Shuffle.</li>
+    </ul>
+
+    <h2>Seed Generator</h2>
+    <ul>
+        <li>RNG for puzzles that are already random in the base game, such as the Fuzzy trees or the Boo rings, now have their RNG tied to the randomizer seed.
+           This means that these mini-games will be identical for everyone when playing a shared seed.</li>
+    </ul>
+
+    <h2>Website</h2>
+    <ul>
+        <li>The "Partner Always Usable" setting is now disabled by default in the "Beginner" preset.</li>
+        <li>When "Star Hunt" is enabled, the different "Star Spirits Required" options will now be disabled.</li>
+        <li>The website's backend repo can now fully run on any local computer, without any special access. The readme has been updated with instructions.</li>
+    </ul>
+
+  </mat-card>
+
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.25.0 (beta) (2024-01-14)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>

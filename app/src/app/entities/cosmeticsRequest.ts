@@ -43,6 +43,7 @@ export interface CosmeticsRequest {
     EnemiesSetting: SpriteSetting;
     RandomText: boolean;
     RandomPitch: boolean;
+    MuteDangerBeeps: boolean;
     ShuffleMusic: boolean;
     ShuffleMusicMode: MusicMode;
     ShuffleJingles: boolean;

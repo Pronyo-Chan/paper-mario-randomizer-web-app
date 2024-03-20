@@ -139,6 +139,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomPartnerFP: new FormControl(0),
         randomStarpowerSP: new FormControl(0),
         randomFormations: new FormControl(false),
+        randomizePuzzles: new FormControl(false),
         mysteryMode: new FormControl(MysteryMode.Vanilla),
       }),
       partners: new FormGroup({
@@ -253,6 +254,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomText: new FormControl(false),
         romanNumerals: new FormControl(false),
         randomPitch: new FormControl(false),
+        muteDangerBeeps: new FormControl(false),
         shuffleMusic: new FormControl(-1),
         shuffleJingles: new FormControl(false),
       }),

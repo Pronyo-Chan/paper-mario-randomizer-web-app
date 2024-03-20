@@ -28,6 +28,7 @@ describe('GameplayComponent', () => {
       randomPartnerFP: new FormControl(false),
       randomStarpowerSP: new FormControl(false),
       randomFormations: new FormControl(false),
+      randomizePuzzles: new FormControl(false),
     })
     fixture.detectChanges();
   });

@@ -28,11 +28,12 @@
                 "randomPartnerFP": 0,
                 "randomStarpowerSP": 0,
                 "randomFormations": false,
-                "mysteryMode": 0
+                "mysteryMode": 0,
+                "randomizePuzzles": false
             },
             "partners": {
                 "shufflePartners": false,
-                "partnersAlwaysUsable": true,
+                "partnersAlwaysUsable": false,
                 "startWithRandomPartners": true,
                 "randomPartnersMin": 1,
                 "randomPartnersMax": 1,
@@ -178,6 +179,7 @@
                 "randomText": false,
                 "romanNumerals": false,
                 "randomPitch": false,
+                "muteDangerBeeps": false,
                 "shuffleMusic": -1,
                 "shuffleJingles": false
             },
@@ -213,7 +215,8 @@
             "randomPartnerFP": 0,
             "randomStarpowerSP": 0,
             "randomFormations": false,
-            "mysteryMode": 0
+            "mysteryMode": 0,
+            "randomizePuzzles": false
           },
           "partners": {
             "shufflePartners": false,
@@ -363,6 +366,7 @@
             "randomText": false,
             "romanNumerals": false,
             "randomPitch": false,
+            "muteDangerBeeps": false,
             "shuffleMusic": -1,
             "shuffleJingles": false
           },
@@ -398,7 +402,8 @@
             "randomPartnerFP": 0,
             "randomStarpowerSP": 0,
             "randomFormations": true,
-            "mysteryMode": 0
+            "mysteryMode": 0,
+            "randomizePuzzles": false
           },
           "partners": {
             "shufflePartners": true,
@@ -548,6 +553,7 @@
             "randomText": false,
             "romanNumerals": false,
             "randomPitch": false,
+            "muteDangerBeeps": false,
             "shuffleMusic": -1,
             "shuffleJingles": false
           },
@@ -583,7 +589,8 @@
             "randomPartnerFP": 3,
             "randomStarpowerSP": 3,
             "randomFormations": true,
-            "mysteryMode": 2
+            "mysteryMode": 2,
+            "randomizePuzzles": true
           },
           "partners": {
             "shufflePartners": true,
@@ -733,6 +740,7 @@
             "randomText": false,
             "romanNumerals": false,
             "randomPitch": false,
+            "muteDangerBeeps": false,
             "shuffleMusic": -1,
             "shuffleJingles": false
           },
@@ -768,7 +776,8 @@
             "randomPartnerFP":1,
             "randomStarpowerSP":0,
             "randomFormations":true,
-            "mysteryMode":0
+            "mysteryMode":0,
+            "randomizePuzzles": false
          },
          "partners":{
             "shufflePartners":true,
@@ -921,6 +930,7 @@
             "randomText":false,
             "romanNumerals": false,
             "randomPitch": false,
+            "muteDangerBeeps": false,
             "shuffleMusic": -1,
             "shuffleJingles": false
          },
@@ -956,7 +966,8 @@
             "randomPartnerFP":1,
             "randomStarpowerSP":0,
             "randomFormations":true,
-            "mysteryMode":0
+            "mysteryMode":0,
+            "randomizePuzzles": false
          },
          "partners":{
             "shufflePartners":true,
@@ -1109,6 +1120,7 @@
             "randomText":false,
             "romanNumerals": false,
             "randomPitch": false,
+            "muteDangerBeeps": false,
             "shuffleMusic": -1,
             "shuffleJingles": false
          },
@@ -1144,7 +1156,8 @@
           "randomPartnerFP": 1,
           "randomStarpowerSP": 0,
           "randomFormations": true,
-          "mysteryMode": 2
+          "mysteryMode": 2,
+          "randomizePuzzles": false
         },
         "partners": {
           "shufflePartners": true,
@@ -1305,6 +1318,7 @@
           "randomText": false,
           "romanNumerals": false,
           "randomPitch": false,
+          "muteDangerBeeps": false,
           "shuffleMusic": -1,
           "shuffleJingles": false
         },
