@@ -97,6 +97,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         else if(typeof err.error === 'string' && (err.error as string)?.includes("StarRodModVersion")) {
           this.seedGenError = "Server version mismatch. Please refresh the page and try again."
         }
+        else if(typeof err.error === 'string' && (err.error as string) == "item_pool_too_small") {
+          this.seedGenError = "The amount of new items to place is greater than the item pool size. Try to shuffle more item sources, or disable options that add new items."
+        }
         else {
           this.seedGenError = 'A server error has occured';
         }
