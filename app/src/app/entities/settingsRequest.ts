@@ -13,6 +13,7 @@ import { LakilesterSprite } from './enum/lakilesterSprite';
 import { MusicMode } from './enum/musicMode';
 import { StatusBarColorMode } from './enum/statusBarColorMode';
 import { MirrorMode } from './enum/mirrorMode';
+import { SeedGoal } from './enum/seedGoal';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -159,9 +160,9 @@ export interface SettingsRequest {
     ProgressionOnRowf: boolean;
     ProgressionOnMerlow: boolean;
     StarHunt: boolean;
-    StarHuntRequired: number;
+    StarWayPowerStarsNeeded: number;
     StarHuntTotal: number;
-    StarHuntEndsGame: boolean;
+    SeedGoal: SeedGoal;
 
     // Glitches: Goomba Region
     PrologueGelEarly: boolean

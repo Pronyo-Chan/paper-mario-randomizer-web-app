@@ -27,7 +27,7 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
   public constructor() { }
 
   public ngOnInit(): void {
-    const requiredStarsControl = this.worldFormGroup.get("starHuntRequired");
+    const requiredStarsControl = this.worldFormGroup.get("starWayPowerStarsNeeded");
     this._requiredStarsSubscription = requiredStarsControl.valueChanges.pipe(
       tap(() => this.onRequiredStarsBlur())
     ).subscribe();
@@ -52,7 +52,7 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
   }
 
   public onRequiredStarsBlur(): void {
-    const requiredStarsControl = this.worldFormGroup.get("starHuntRequired");
+    const requiredStarsControl = this.worldFormGroup.get("starWayPowerStarsNeeded");
     const placedStarsControl = this.worldFormGroup.get("starHuntTotal");
 
     if(requiredStarsControl.value > 120) {
@@ -67,7 +67,7 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
   }
 
   public onTotalStarsBlur(): void {
-    const requiredStarsControl = this.worldFormGroup.get("starHuntRequired");
+    const requiredStarsControl = this.worldFormGroup.get("starWayPowerStarsNeeded");
     const placedStarsControl = this.worldFormGroup.get("starHuntTotal");
 
     if(placedStarsControl.value > 120) {
@@ -83,13 +83,13 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
 
   private disableSecondaryStarHuntOptionsWhenStarHuntDisabled(starHunt: boolean) {
     if(starHunt) {
-      this.worldFormGroup.get('starHuntRequired').enable();
+      this.worldFormGroup.get('starWayPowerStarsNeeded').enable();
       this.worldFormGroup.get('starHuntTotal').enable();
-      this.worldFormGroup.get('starHuntEndsGame').enable();
+      this.worldFormGroup.get('seedGoal').enable();
     } else {
-      this.worldFormGroup.get('starHuntRequired').disable();
+      this.worldFormGroup.get('starWayPowerStarsNeeded').disable();
       this.worldFormGroup.get('starHuntTotal').disable();
-      this.worldFormGroup.get('starHuntEndsGame').disable();
+      this.worldFormGroup.get('seedGoal').disable();
     }
   }
 }

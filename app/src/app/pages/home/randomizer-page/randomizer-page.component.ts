@@ -24,6 +24,7 @@ import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
 import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode';
 import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeShuffleMode';
 import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
+import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -234,9 +235,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         shuffleDungeonEntrances: new FormControl(false),
         mirrorMode: new FormControl(MirrorMode.Off),
         starHunt: new FormControl(false),
-        starHuntRequired: new FormControl(50),
-        starHuntTotal: new FormControl(70, [CustomValidators.greaterOrEqualTo('starHuntRequired')]),
-        starHuntEndsGame: new FormControl(true),
+        starWayPowerStarsNeeded: new FormControl(0),
+        starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualTo('starWayPowerStarsNeeded')]),
+        seedGoal: new FormControl(SeedGoal.DefeatBowser),
       }),
       cosmetics: new FormGroup({
         menu: new FormControl(0),

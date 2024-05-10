@@ -119,8 +119,8 @@
                 "shuffleDungeonEntrances": false,
                 "mirrorMode": 0,
                 "starHunt": false,
-                "starHuntEndsGame": false,
-                "starHuntRequired": 0,
+                "seedGoal": 0,
+                "starWayPowerStarsNeeded": 0,
                 "starHuntTotal": 0,
                 "startingMap": 65796
             },
@@ -306,8 +306,8 @@
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
             "starHunt": false,
-            "starHuntEndsGame": false,
-            "starHuntRequired": 0,
+            "seedGoal": 0,
+            "starWayPowerStarsNeeded": 0,
             "starHuntTotal": 0,
             "startingMap": 65796
           },
@@ -493,8 +493,8 @@
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
             "starHunt": false,
-            "starHuntEndsGame": false,
-            "starHuntRequired": 0,
+            "seedGoal": 0,
+            "starWayPowerStarsNeeded": 0,
             "starHuntTotal": 0,
             "startingMap": 65796
           },
@@ -680,8 +680,8 @@
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
             "starHunt": false,
-            "starHuntEndsGame": false,
-            "starHuntRequired": 0,
+            "seedGoal": 0,
+            "starWayPowerStarsNeeded": 0,
             "starHuntTotal": 0,
             "startingMap": 65796
           },
@@ -870,8 +870,8 @@
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
             "starHunt": false,
-            "starHuntEndsGame": false,
-            "starHuntRequired": 0,
+            "seedGoal": 0,
+            "starWayPowerStarsNeeded": 0,
             "starHuntTotal": 0,
             "startingMap":65796
          },
@@ -1060,8 +1060,8 @@
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
             "starHunt": false,
-            "starHuntEndsGame": false,
-            "starHuntRequired": 0,
+            "seedGoal": 0,
+            "starWayPowerStarsNeeded": 0,
             "starHuntTotal": 0,
             "startingMap":65796
          },
@@ -1259,8 +1259,8 @@
           "shuffleDungeonEntrances": false,
           "mirrorMode": 0,
           "starHunt": false,
-          "starHuntEndsGame": false,
-          "starHuntRequired": 0,
+          "seedGoal": 0,
+          "starWayPowerStarsNeeded": 0,
           "starHuntTotal": 0
         },
         "cosmetics": {

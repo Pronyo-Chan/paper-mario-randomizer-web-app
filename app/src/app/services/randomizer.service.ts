@@ -300,8 +300,8 @@ export class RandomizerService {
       ProgressionOnRowf: settingsForm.get('items').get('progressionOnRowf').value,
       ProgressionOnMerlow: settingsForm.get('items').get('progressionOnMerlow').value,
       StarHunt: settingsForm.get('openLocations').get('starHunt').value,
-      StarHuntEndsGame: settingsForm.get('openLocations').get('starHuntEndsGame').value,
-      StarHuntRequired: settingsForm.get('openLocations').get('starHunt').value ? settingsForm.get('openLocations').get('starHuntRequired').value : 0,
+      SeedGoal: settingsForm.get('openLocations').get('seedGoal').value,
+      StarWayPowerStarsNeeded: settingsForm.get('openLocations').get('starHunt').value ? settingsForm.get('openLocations').get('starWayPowerStarsNeeded').value : 0,
       StarHuntTotal: settingsForm.get('openLocations').get('starHunt').value ? settingsForm.get('openLocations').get('starHuntTotal').value : 0,
 
       // Glitches: Goomba Region

@@ -21,6 +21,7 @@ import { MysteryMode } from 'src/app/entities/enum/mysteryMode';
 import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeShuffleMode';
 import { CustceneMode } from 'src/app/entities/enum/cutsceneMode';
 import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
+import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 
 interface SettingRow {
   name: string;
@@ -270,8 +271,8 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Shuffle Dungeon Entrances", value: this.seedModel.World.ShuffleDungeonEntrances},
       {name: "Mirror Mode", value: MirrorMode[this.seedModel.World.MirrorMode]},
       {name: "Power Star Hunt", value: this.seedModel.World.StarHunt},
-      {name: "Star Hunt Skips Ch.8", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarHuntEndsGame: null},
-      {name: "Required Power Stars", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarHuntRequired: null},
+      {name: "Seed Goal", value: this.seedModel.World.StarHunt ? SeedGoal[this.seedModel.World.SeedGoal] : null},
+      {name: "Required Power Stars", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarWayPowerStarsNeeded: null},
       {name: "Total Power Stars", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarHuntTotal: null},
     ] as SettingRow[]
   }
