@@ -119,9 +119,9 @@
                 "shuffleDungeonEntrances": false,
                 "mirrorMode": 0,
                 "starHunt": false,
-                "starHuntEndsGame": true,
-                "starHuntRequired": 50,
-                "starHuntTotal": 70,
+                "starHuntEndsGame": false,
+                "starHuntRequired": 0,
+                "starHuntTotal": 0,
                 "startingMap": 65796
             },
             "cosmetics": {
@@ -306,9 +306,9 @@
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
             "starHunt": false,
-            "starHuntEndsGame": true,
-            "starHuntRequired": 50,
-            "starHuntTotal": 70,
+            "starHuntEndsGame": false,
+            "starHuntRequired": 0,
+            "starHuntTotal": 0,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -493,9 +493,9 @@
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
             "starHunt": false,
-            "starHuntEndsGame": true,
-            "starHuntRequired": 50,
-            "starHuntTotal": 70,
+            "starHuntEndsGame": false,
+            "starHuntRequired": 0,
+            "starHuntTotal": 0,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -680,9 +680,9 @@
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
             "starHunt": false,
-            "starHuntEndsGame": true,
-            "starHuntRequired": 50,
-            "starHuntTotal": 70,
+            "starHuntEndsGame": false,
+            "starHuntRequired": 0,
+            "starHuntTotal": 0,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -870,9 +870,9 @@
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
             "starHunt": false,
-            "starHuntEndsGame": true,
-            "starHuntRequired": 50,
-            "starHuntTotal": 70,
+            "starHuntEndsGame": false,
+            "starHuntRequired": 0,
+            "starHuntTotal": 0,
             "startingMap":65796
          },
          "cosmetics":{
@@ -1060,9 +1060,9 @@
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
             "starHunt": false,
-            "starHuntEndsGame": true,
-            "starHuntRequired": 50,
-            "starHuntTotal": 70,
+            "starHuntEndsGame": false,
+            "starHuntRequired": 0,
+            "starHuntTotal": 0,
             "startingMap":65796
          },
          "cosmetics":{
@@ -1259,9 +1259,9 @@
           "shuffleDungeonEntrances": false,
           "mirrorMode": 0,
           "starHunt": false,
-          "starHuntRequired": 50,
-          "starHuntTotal": 70,
-          "starHuntEndsGame": true
+          "starHuntEndsGame": false,
+          "starHuntRequired": 0,
+          "starHuntTotal": 0
         },
         "cosmetics": {
           "menu": 7,
