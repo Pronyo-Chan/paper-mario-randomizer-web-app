@@ -236,7 +236,6 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla),
         shuffleDungeonEntrances: new FormControl(false),
         mirrorMode: new FormControl(MirrorMode.Off),
-        starHunt: new FormControl(false),
         starWayPowerStarsNeeded: new FormControl(0),
         starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualTo('starWayPowerStarsNeeded')]),
         seedGoal: new FormControl(SeedGoal.DefeatBowser),
@@ -283,7 +282,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isGeneralShuffleEnabled = this.formGroup.get('items').get('shuffleItems').value;
     const isPartnerShuffleEnabled = this.formGroup.get('partners').get('shufflePartners').value;
     const isEntranceRandoEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value;
-    const isStarHuntEnabled = this.formGroup.get('openLocations').get('starHunt').value;
+    const isStarHuntEnabled = false // TODO: Find a way to determine if star hunt is enabled
     const isLimitChapterLogicEnabled = this.formGroup.get('difficulty').get('limitChapterLogic').value;
     const isKeysanityEnabled = this.formGroup.get('items').get('keyitemsOutsideDungeon').value
 

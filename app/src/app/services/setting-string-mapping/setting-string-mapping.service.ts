@@ -138,7 +138,6 @@ export class SettingStringMappingService {
     { compressedString: "o", key: "bowsersCastleMode", type: "number"},
     { compressedString: "d", key: "shuffleDungeonEntrances", type: "bool"},
     { compressedString: "z", key: "mirrorMode", type: "number"},
-    { compressedString: "x", key: "starHunt", type: "bool"},
     { compressedString: "y", key: "seedGoal", type: "bool"},
     { compressedString: "?", key: "starWayPowerStarsNeeded", type: "number"},
     { compressedString: "!", key: "starHuntTotal", type: "number"}

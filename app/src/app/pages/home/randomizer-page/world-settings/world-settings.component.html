@@ -125,20 +125,13 @@
         <mat-divider></mat-divider>
 
         <div class="setting-element">
-            <mat-slide-toggle formControlName='starHunt'></mat-slide-toggle>
-            <app-tooltip-span
-                 spanText="Power Star Hunt"
-                  tooltipText="Adds power stars into the item pool. Mario needs to collect a certain amount and give them to Eldstar at Shooting Star Summit to open the way to ch.8."></app-tooltip-span>
-        </div>
-
-        <div class="setting-element" [ngClass]="{ 'disabled-element': !worldFormGroup.get('starHunt').value}">
             <mat-slide-toggle formControlName='seedGoal'></mat-slide-toggle>
             <app-tooltip-span
                  spanText="Seed Goal"
                   tooltipText="Determines if the game should end when opening the starway to ch.8, or when Bowser is defeated."></app-tooltip-span>
         </div>
 
-        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': !worldFormGroup.get('starHunt').value}">
+        <div class="setting-element slider-element">
             <div class="setting-name-container">
                 <app-tooltip-span spanText="Star Way Power Stars Needed:"
                 tooltipText="Number of power stars required by Eldstar at Shooting Star Summit"></app-tooltip-span>
@@ -153,7 +146,7 @@
             <mat-slider formControlName="starWayPowerStarsNeeded" (input)="worldFormGroup.get('starWayPowerStarsNeeded').setValue($event.value)" min=0 max= 120 step="1" tickInterval="1" ></mat-slider>
         </div>
 
-        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': !worldFormGroup.get('starHunt').value}">
+        <div class="setting-element slider-element">
             <div class="setting-name-container">
                 <app-tooltip-span spanText="Total Power Stars:"
                 tooltipText="Number of power stars placed in the game world. A good number to choose is 1.5 times the amount of stars required."></app-tooltip-span>
@@ -176,7 +169,7 @@
 
     </ul>
 
-    <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': !worldFormGroup.get('starHunt').value}">
+    <div class="setting-element slider-element">
       <div class="setting-name-container">
           <app-tooltip-span spanText="Star Beam Power Stars Needed:"
           tooltipText="Number of power stars required to get the Star Beam item in Star Haven"></app-tooltip-span>

@@ -22,7 +22,6 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
 
   private _startingMapSubcription: Subscription;
   private _requiredStarsSubscription: Subscription;
-  private _starHuntSubscription: Subscription;
 
   public constructor() { }
 
@@ -32,12 +31,6 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
       tap(() => this.onRequiredStarWayStarsBlur()),
       tap(() => this.onRequiredStarBeamStarsBlur())
     ).subscribe();
-
-    const starHuntControl = this.worldFormGroup.get("starHunt");
-    this._starHuntSubscription = starHuntControl.valueChanges.pipe(
-      tap(value => this.disableSecondaryStarHuntOptionsWhenStarHuntDisabled(value))
-    ).subscribe();
-    this.disableSecondaryStarHuntOptionsWhenStarHuntDisabled(starHuntControl.value);
   }
 
   public ngOnDestroy(): void {
@@ -46,9 +39,6 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
     }
     if(this._requiredStarsSubscription) {
       this._requiredStarsSubscription.unsubscribe();
-    }
-    if(this._starHuntSubscription) {
-      this._starHuntSubscription.unsubscribe();
     }
   }
 
@@ -95,17 +85,5 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
 
     requiredStarsControl.updateValueAndValidity();
     placedStarsControl.updateValueAndValidity();
-  }
-
-  private disableSecondaryStarHuntOptionsWhenStarHuntDisabled(starHunt: boolean) {
-    if(starHunt) {
-      this.worldFormGroup.get('starWayPowerStarsNeeded').enable();
-      this.worldFormGroup.get('starHuntTotal').enable();
-      this.worldFormGroup.get('seedGoal').enable();
-    } else {
-      this.worldFormGroup.get('starWayPowerStarsNeeded').disable();
-      this.worldFormGroup.get('starHuntTotal').disable();
-      this.worldFormGroup.get('seedGoal').disable();
-    }
   }
 }

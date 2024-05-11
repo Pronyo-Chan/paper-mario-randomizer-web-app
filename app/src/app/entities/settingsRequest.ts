@@ -162,7 +162,6 @@ export interface SettingsRequest {
     MerlowRewardPricing: number;
     ProgressionOnRowf: boolean;
     ProgressionOnMerlow: boolean;
-    StarHunt: boolean;
     StarWayPowerStarsNeeded: number;
     StarHuntTotal: number;
     SeedGoal: SeedGoal;

@@ -273,10 +273,9 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Bowser's Castle Mode", value: BowsersCastleMode[this.seedModel.World.BowsersCastleMode]},
       {name: "Shuffle Dungeon Entrances", value: this.seedModel.World.ShuffleDungeonEntrances},
       {name: "Mirror Mode", value: MirrorMode[this.seedModel.World.MirrorMode]},
-      {name: "Power Star Hunt", value: this.seedModel.World.StarHunt},
-      {name: "Seed Goal", value: this.seedModel.World.StarHunt ? SeedGoal[this.seedModel.World.SeedGoal] : null},
-      {name: "Required Power Stars", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarWayPowerStarsNeeded: null},
-      {name: "Total Power Stars", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarHuntTotal: null},
+      {name: "Seed Goal", value: SeedGoal[this.seedModel.World.SeedGoal]},
+      {name: "Required Power Stars", value: this.seedModel.World.StarWayPowerStarsNeeded},
+      {name: "Total Power Stars", value: this.seedModel.World.StarHuntTotal},
     ] as SettingRow[]
   }
 
