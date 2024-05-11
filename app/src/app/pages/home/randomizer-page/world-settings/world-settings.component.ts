@@ -29,7 +29,8 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     const requiredStarsControl = this.worldFormGroup.get("starWayPowerStarsNeeded");
     this._requiredStarsSubscription = requiredStarsControl.valueChanges.pipe(
-      tap(() => this.onRequiredStarsBlur())
+      tap(() => this.onRequiredStarWayStarsBlur()),
+      tap(() => this.onRequiredStarBeamStarsBlur())
     ).subscribe();
 
     const starHuntControl = this.worldFormGroup.get("starHunt");
@@ -51,7 +52,7 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
     }
   }
 
-  public onRequiredStarsBlur(): void {
+  public onRequiredStarWayStarsBlur(): void {
     const requiredStarsControl = this.worldFormGroup.get("starWayPowerStarsNeeded");
     const placedStarsControl = this.worldFormGroup.get("starHuntTotal");
 
@@ -63,6 +64,21 @@ export class WorldSettingsComponent implements OnInit, OnDestroy {
     }
 
     requiredStarsControl.updateValueAndValidity();
+    placedStarsControl.updateValueAndValidity();
+  }
+
+  public onRequiredStarBeamStarsBlur(): void {
+    const requiredBeamStarsControl = this.worldFormGroup.get("starBeamPowerStarsNeeded");
+    const placedStarsControl = this.worldFormGroup.get("starHuntTotal");
+
+    if(requiredBeamStarsControl.value > 120) {
+      requiredBeamStarsControl.setValue(120, { emitEvent: false });
+    }
+    else if(requiredBeamStarsControl.value < 0) {
+      requiredBeamStarsControl.setValue(0, { emitEvent: false });
+    }
+
+    requiredBeamStarsControl.updateValueAndValidity();
     placedStarsControl.updateValueAndValidity();
   }
 

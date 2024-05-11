@@ -127,6 +127,9 @@ export interface SettingsRequest {
     RandomConsumableMode: number;
     StarWaySpiritsNeededCnt: number;
     RequireSpecificSpirits: boolean;
+    ShuffleStarBeam: boolean;
+    StarBeamSpiritsNeeded: number;
+    StarBeamPowerStarsNeeded: number;
     LimitChapterLogic: boolean;
     FoliageItemHints: boolean;
     RandomText: boolean;

@@ -191,6 +191,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomNumberOfStarSpirits: new FormControl(false),
         starWaySpiritsNeeded: new FormControl(7),
         requireSpecificSpirits: new FormControl(false),
+        shuffleStarBeam: new FormControl(false),
+        starBeamSpiritsNeeded: new FormControl(0),
         limitChapterLogic: new FormControl(false),
         noHealingItems: new FormControl(false),
         dropStarPoints: new FormControl(true),
@@ -238,6 +240,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         starWayPowerStarsNeeded: new FormControl(0),
         starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualTo('starWayPowerStarsNeeded')]),
         seedGoal: new FormControl(SeedGoal.DefeatBowser),
+        starBeamPowerStarsNeeded: new FormControl(0)
       }),
       cosmetics: new FormGroup({
         menu: new FormControl(0),

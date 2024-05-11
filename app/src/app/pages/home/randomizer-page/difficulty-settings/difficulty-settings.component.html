@@ -98,5 +98,17 @@
                            tooltipText="Only chapters that need to be completed and prologue / common areas will contain progression items if enabled."></app-tooltip-span>
         </div>
 
+        <div class="setting-element">
+          <mat-slide-toggle formControlName='shuffleStarBeam'></mat-slide-toggle>
+          <app-tooltip-span spanText="Shuffle Star Beam"
+                           tooltipText="Star Beam becomes an item shuffled in the item pool. Another random item will replace star beam in Star Haven."></app-tooltip-span>
+        </div>
+
+        <div class="setting-element slider-element">
+          <app-tooltip-span [spanText]="'Star Beam Spirits Required: ' + difficultyFormGroup.get('starBeamSpiritsNeeded').value"
+                           tooltipText="Number of star spirits saved required to obtain the item in the star beam location, in Star Haven."></app-tooltip-span>
+          <mat-slider formControlName="starBeamSpiritsNeeded" (input)="difficultyFormGroup.get('starBeamSpiritsNeeded').setValue($event.value)" min=0 max= 7 step="1" tickInterval="1" ></mat-slider>
+      </div>
+
     </mat-card-content>
 </form>

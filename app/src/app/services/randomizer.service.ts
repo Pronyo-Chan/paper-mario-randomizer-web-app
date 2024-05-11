@@ -273,6 +273,8 @@ export class RandomizerService {
       StarWaySpiritsNeededCnt: settingsForm.get('difficulty').get('randomNumberOfStarSpirits').value ? -1 : settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
       RequireSpecificSpirits: settingsForm.get('difficulty').get('requireSpecificSpirits').value,
       LimitChapterLogic: settingsForm.get('difficulty').get('limitChapterLogic').value,
+      ShuffleStarBeam: settingsForm.get('difficulty').get('shuffleStarBeam').value,
+      StarBeamSpiritsNeeded: settingsForm.get('difficulty').get('StarBeamSpiritsNeeded').value,
       BadgeSynergy: settingsForm.get('difficulty').get('badgeSynergy').value,
       FoliageItemHints: settingsForm.get('qualityOfLife').get('foliageItemHints').value,
       RandomText: settingsForm.get('cosmetics').get('randomText').value,
@@ -303,6 +305,7 @@ export class RandomizerService {
       SeedGoal: settingsForm.get('openLocations').get('seedGoal').value,
       StarWayPowerStarsNeeded: settingsForm.get('openLocations').get('starHunt').value ? settingsForm.get('openLocations').get('starWayPowerStarsNeeded').value : 0,
       StarHuntTotal: settingsForm.get('openLocations').get('starHunt').value ? settingsForm.get('openLocations').get('starHuntTotal').value : 0,
+      StarBeamPowerStarsNeeded: settingsForm.get('openLocations').get('starBeamPowerStarsNeeded').value,
 
       // Glitches: Goomba Region
       PrologueGelEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "PrologueGelEarly"),

@@ -14,6 +14,9 @@ export interface GeneralDifficulty {
     RandomNumberOfRrequiredStarSpirits: boolean;
     StarSpiritsRequired: number;
     RequireSpecificSpirits: boolean;
+    ShuffleStarBeam: boolean;
+    StarBeamSpiritsNeeded: number;
+    StarBeamPowerStarsNeeded: number;
     LimitChapterLogic: boolean;
     BadgeSynergy: boolean;
 }

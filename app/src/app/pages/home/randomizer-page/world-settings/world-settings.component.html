@@ -147,7 +147,7 @@
                 min="0"
                 max="120"
                 formControlName='starWayPowerStarsNeeded'
-                (blur)="onRequiredStarsBlur()">
+                (blur)="onRequiredStarWayStarsBlur()">
             </div>
 
             <mat-slider formControlName="starWayPowerStarsNeeded" (input)="worldFormGroup.get('starWayPowerStarsNeeded').setValue($event.value)" min=0 max= 120 step="1" tickInterval="1" ></mat-slider>
@@ -175,4 +175,19 @@
         </li>
 
     </ul>
+
+    <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': !worldFormGroup.get('starHunt').value}">
+      <div class="setting-name-container">
+          <app-tooltip-span spanText="Star Beam Power Stars Needed:"
+          tooltipText="Number of power stars required to get the Star Beam item in Star Haven"></app-tooltip-span>
+
+          <input matInput type="number"
+          min="0"
+          max="120"
+          formControlName='starBeamPowerStarsNeeded'
+          (blur)="onRequiredStarBeamStarsBlur()">
+      </div>
+
+      <mat-slider formControlName="starBeamPowerStarsNeeded" (input)="worldFormGroup.get('starBeamPowerStarsNeeded').setValue($event.value)" min=0 max= 120 step="1" tickInterval="1" ></mat-slider>
+  </div>
 </form>
