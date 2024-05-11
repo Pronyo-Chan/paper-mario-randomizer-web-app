@@ -274,7 +274,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Shuffle Dungeon Entrances", value: this.seedModel.World.ShuffleDungeonEntrances},
       {name: "Mirror Mode", value: MirrorMode[this.seedModel.World.MirrorMode]},
       {name: "Seed Goal", value: SeedGoal[this.seedModel.World.SeedGoal]},
-      {name: "Required Power Stars", value: this.seedModel.World.StarWayPowerStarsNeeded},
+      {name: "Star Way:Required Power Stars", value: this.seedModel.World.StarWayPowerStarsNeeded},
       {name: "Total Power Stars", value: this.seedModel.World.StarHuntTotal},
     ] as SettingRow[]
   }

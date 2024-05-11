@@ -188,12 +188,6 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         oneHitKO: new FormControl(false),
         noSaveBlocks: new FormControl(false),
         noHeartBlocks: new FormControl(false),
-        randomNumberOfStarSpirits: new FormControl(false),
-        starWaySpiritsNeeded: new FormControl(7),
-        requireSpecificSpirits: new FormControl(false),
-        shuffleStarBeam: new FormControl(false),
-        starBeamSpiritsNeeded: new FormControl(0),
-        limitChapterLogic: new FormControl(false),
         noHealingItems: new FormControl(false),
         dropStarPoints: new FormControl(true),
         allowItemHints: new FormControl(true),
@@ -236,6 +230,15 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla),
         shuffleDungeonEntrances: new FormControl(false),
         mirrorMode: new FormControl(MirrorMode.Off),
+      }),
+      goals: new FormGroup({
+        randomNumberOfStarWayStarSpirits: new FormControl(false),
+        starWaySpiritsNeeded: new FormControl(7),
+        requireSpecificSpirits: new FormControl(false),
+        shuffleStarBeam: new FormControl(false),
+        randomNumberOfStarBeamStarSpirits: new FormControl(false),
+        starBeamSpiritsNeeded: new FormControl(0),
+        limitChapterLogic: new FormControl(false),
         starWayPowerStarsNeeded: new FormControl(0),
         starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualTo('starWayPowerStarsNeeded')]),
         seedGoal: new FormControl(SeedGoal.DefeatBowser),
@@ -283,7 +286,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isPartnerShuffleEnabled = this.formGroup.get('partners').get('shufflePartners').value;
     const isEntranceRandoEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value;
     const isStarHuntEnabled = false // TODO: Find a way to determine if star hunt is enabled
-    const isLimitChapterLogicEnabled = this.formGroup.get('difficulty').get('limitChapterLogic').value;
+    const isLimitChapterLogicEnabled = this.formGroup.get('goals').get('limitChapterLogic').value;
     const isKeysanityEnabled = this.formGroup.get('items').get('keyitemsOutsideDungeon').value
 
     const isVanillaStart = startingMap == StartingMap.GoombaVillage &&
