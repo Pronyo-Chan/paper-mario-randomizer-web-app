@@ -11,12 +11,5 @@ export interface GeneralDifficulty {
     NoSaveBlocks: boolean;
     XPMultiplier: number;
     OneHitKO: boolean;
-    RandomNumberOfRrequiredStarSpirits: boolean;
-    StarSpiritsRequired: number;
-    RequireSpecificSpirits: boolean;
-    ShuffleStarBeam: boolean;
-    StarBeamSpiritsNeeded: number;
-    StarBeamPowerStarsNeeded: number;
-    LimitChapterLogic: boolean;
     BadgeSynergy: boolean;
 }

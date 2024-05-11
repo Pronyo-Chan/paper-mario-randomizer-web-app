@@ -15,7 +15,4 @@ export interface World {
     BowsersCastleMode: BowsersCastleMode;
     ShuffleDungeonEntrances: boolean;
     MirrorMode: MirrorMode;
-    StarWayPowerStarsNeeded: number;
-    StarHuntTotal: number;
-    SeedGoal: SeedGoal;
 }

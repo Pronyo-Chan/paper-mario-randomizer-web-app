@@ -9,11 +9,13 @@ import { Cosmetics } from './cosmetics';
 import { ItemSettings } from './items';
 import { SeedInfo } from './seedInfo';
 import { ItemPool } from './itemPool';
+import { Goals } from './goals';
 
 export interface SeedViewModel {
     Cosmetics: Cosmetics;
     Gameplay: Gameplay;
     GeneralDifficulty: GeneralDifficulty;
+    Goals: Goals;
     Glitches: string[];
     Items: ItemSettings;
     ItemPool: ItemPool;
