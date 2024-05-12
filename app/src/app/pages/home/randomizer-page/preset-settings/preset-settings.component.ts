@@ -43,7 +43,7 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
 
     if (customPresetsString) {
       this.customPresets = JSON.parse(customPresetsString);
-    } 
+    }
     else {
       this.customPresets = []
     }
@@ -63,7 +63,7 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
     }
 
     this.presetStatus = null;
-  } 
+  }
 
   public loadPreset(): void {
     let preset = presetsJson.find(p => p['name'] == this.selectedPreset);
@@ -89,22 +89,22 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
     if(this.selectedPreset == this.CUSTOM_PRESET_NAME) {
       const dialogRef = this._dialog.open(SavePresetDialogComponent, {
         width: '30rem',
-        
+
         data: this.customPresets.map(p => p.name).concat(this.premadePresets.map(p => p.name))
       });
-  
+
       this._dialogSubscription = dialogRef.afterClosed().subscribe(newPresetName => {
         if(!newPresetName) {
           return;
         }
         newPresetName = newPresetName.trim().replace(/\s+/g, ' ')
-  
+
         let formObj = this.formGroup.getRawValue();
         let newPreset = {name: newPresetName, settings: formObj}
-  
+
         this.customPresets.push(newPreset);
         localStorage.setItem("presets", JSON.stringify(this.customPresets))
-  
+
         this.selectedPreset = newPresetName;
         this.presetStatus = "saved";
       });
@@ -117,7 +117,7 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
       this.presetStatus = "saved";
     }
 
-    
+
   }
 
   public removePreset(): void {
@@ -138,7 +138,7 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
   public importSettings() {
     this.importStatus = null;
     const previousFormState = this.formGroup.getRawValue()
-    try {      
+    try {
       this._mappingService.decompressFormGroup(this.settingsString, this.formGroup, this._mappingService.settingsMap)
       this.importStatus = "success";
     }

@@ -65,14 +65,14 @@ export class SettingStringMappingService {
     { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
     { compressedString: "e", key: "requireSpecificSpirits", type: "bool"},
     { compressedString: "f", key: "limitChapterLogic", type: "bool"},
-    { compressedString: "z", key: "randomNumberOfStarWayStarSpirits", type: "bool"},
-    { compressedString: "!", key: "randomNumberOfStarBeamStarSpirits", type: "bool"},
     { compressedString: "@", key: "starBeamSpiritsNeeded", type: "number"},
     { compressedString: "#", key: "starBeamPowerStarsNeeded", type: "number"},
     { compressedString: "$", key: "shuffleStarBeam", type: "bool"},
-    { compressedString: "y", key: "seedGoal", type: "bool"},
+    { compressedString: "y", key: "seedGoal", type: "number"},
     { compressedString: "?", key: "starWayPowerStarsNeeded", type: "number"},
-    { compressedString: "!", key: "starHuntTotal", type: "number"}
+    { compressedString: "!", key: "starHuntTotal", type: "number"},
+    { compressedString: "p", key: "includePowerStars", type: "bool"},
+    { compressedString: "b", key: "includeCustomStarBeamSettings", type: "bool"}
   ];
 
   public readonly itemPoolMap: SettingModel [] = [
@@ -219,7 +219,6 @@ export class SettingStringMappingService {
       else {
         var settingModel = settingsMap.find(m => m.key == controlName)
 
-        console.log(controlName)
         switch (settingModel.type) {
           case "bool":
             compressedString += this.encodeBoolean(nestedFormElement.value, settingModel);
@@ -263,6 +262,7 @@ export class SettingStringMappingService {
       }
       var currentSubstring = isNestingKey ? '(' + settingString[i] : settingString[i];
       var settingModel = settingsMap.find(m => m.compressedString.toLowerCase() == currentSubstring.toLowerCase())
+
 
       switch (settingModel.type) {
         case "formGroup":

@@ -232,17 +232,18 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         mirrorMode: new FormControl(MirrorMode.Off),
       }),
       goals: new FormGroup({
-        randomNumberOfStarWayStarSpirits: new FormControl(false),
         starWaySpiritsNeeded: new FormControl(7),
         requireSpecificSpirits: new FormControl(false),
         shuffleStarBeam: new FormControl(false),
-        randomNumberOfStarBeamStarSpirits: new FormControl(false),
         starBeamSpiritsNeeded: new FormControl(0),
         limitChapterLogic: new FormControl(false),
         starWayPowerStarsNeeded: new FormControl(0),
         starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualTo('starWayPowerStarsNeeded')]),
         seedGoal: new FormControl(SeedGoal.DefeatBowser),
-        starBeamPowerStarsNeeded: new FormControl(0)
+        starBeamPowerStarsNeeded: new FormControl(0),
+        // Unsubmitted controls
+        includePowerStars: new FormControl(false),
+        includeCustomStarBeamSettings: new FormControl(false)
       }),
       cosmetics: new FormGroup({
         menu: new FormControl(0),

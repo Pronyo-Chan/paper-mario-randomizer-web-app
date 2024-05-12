@@ -1,6 +1,7 @@
 import { FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { tap, Subscription } from 'rxjs';
+import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 
 @Component({
   selector: 'app-goal-settings',
@@ -12,10 +13,8 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
   @Input() public goalsFormGroup: FormGroup;
   public isSevenOrZeroStarSpirits: boolean;
 
-  private _randomNumberOfStarWayStarSpiritsSubscription: Subscription;
   private _requireSpecificSpiritsSubscription: Subscription;
   private _starWaySpiritsNeededSubscription: Subscription;
-  private _randomNumberOfStarBeamStarSpiritsSubscription: Subscription;
   private _requiredStarWayPowerStarsSubscription: Subscription;
   private _requiredStarBeamPowerStarsSubscription: Subscription;
 
@@ -24,7 +23,6 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.updateIsSevenOrZeroStarSpirits();
 
-    this.disableStarSpiritsNeededWhenRandom(this.goalsFormGroup.get('randomNumberOfStarWayStarSpirits').value);
     this.disableRequireSpecificSpiritsWhenSevenSpirits();
     this.disableLimitChapterLogicWhenNotRequiringSpecificSpirits(this.goalsFormGroup.get('requireSpecificSpirits').value);
 
@@ -32,20 +30,6 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
       tap(value => {
         this.updateIsSevenOrZeroStarSpirits();
         this.disableRequireSpecificSpiritsWhenSevenSpirits();
-      })
-    ).subscribe();
-
-    this._randomNumberOfStarWayStarSpiritsSubscription =  this.goalsFormGroup.get('randomNumberOfStarWayStarSpirits').valueChanges.pipe(
-      tap(value => {
-        this.updateIsSevenOrZeroStarSpirits();
-        this.disableStarSpiritsNeededWhenRandom(value);
-      })
-    ).subscribe();
-
-    this._randomNumberOfStarBeamStarSpiritsSubscription =  this.goalsFormGroup.get('randomNumberOfStarBeamStarSpirits').valueChanges.pipe(
-      tap(value => {
-        this.updateIsSevenOrZeroStarSpirits();
-        this.disableStarBeamSpiritsNeededWhenRandom(value);
       })
     ).subscribe();
 
@@ -67,14 +51,6 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    if(this._randomNumberOfStarWayStarSpiritsSubscription) {
-      this._randomNumberOfStarWayStarSpiritsSubscription.unsubscribe();
-    }
-
-    if(this._randomNumberOfStarBeamStarSpiritsSubscription) {
-      this._randomNumberOfStarWayStarSpiritsSubscription.unsubscribe();
-    }
-
     if(this._requireSpecificSpiritsSubscription) {
       this._starWaySpiritsNeededSubscription.unsubscribe();
     }
@@ -137,20 +113,17 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     placedStarsControl.updateValueAndValidity();
   }
 
-  private disableStarSpiritsNeededWhenRandom(randomNumberOfStarWayStarSpirits: boolean) {
-    if(randomNumberOfStarWayStarSpirits) {
-      this.goalsFormGroup.get('starWaySpiritsNeeded').disable();
-    } else {
-      this.goalsFormGroup.get('starWaySpiritsNeeded').enable();
-    }
+  public shouldShowStarBeamSettings(): boolean {
+    const seedGoalControl = this.goalsFormGroup.get("seedGoal");
+    return seedGoalControl.value == SeedGoal.DefeatBowser
   }
 
-  private disableStarBeamSpiritsNeededWhenRandom(randomNumberOfStarBeamStarSpirits: boolean) {
-    if(randomNumberOfStarBeamStarSpirits) {
-      this.goalsFormGroup.get('starBeamSpiritsNeeded').disable();
-    } else {
-      this.goalsFormGroup.get('starBeamSpiritsNeeded').enable();
-    }
+  public getStarWaySpiritsNumber(): string {
+    return this.goalsFormGroup.get('starWaySpiritsNeeded').value >= 0 ? this.goalsFormGroup.get('starWaySpiritsNeeded').value : 'Random'
+  }
+
+  public getStarBeamSpiritsNumber(): string {
+    return this.goalsFormGroup.get('starBeamSpiritsNeeded').value >= 0 ? this.goalsFormGroup.get('starBeamSpiritsNeeded').value : 'Random'
   }
 
   private disableRequireSpecificSpiritsWhenSevenSpirits() {
@@ -172,7 +145,6 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
   }
 
   private updateIsSevenOrZeroStarSpirits() {
-    this.isSevenOrZeroStarSpirits = (this.goalsFormGroup.get('starWaySpiritsNeeded').value == 7 || this.goalsFormGroup.get('starWaySpiritsNeeded').value == 0)
-      && !this.goalsFormGroup.get('randomNumberOfStarWayStarSpirits').value;
+    this.isSevenOrZeroStarSpirits = (this.goalsFormGroup.get('starWaySpiritsNeeded').value == 7 || this.goalsFormGroup.get('starWaySpiritsNeeded').value == 0);
   }
 }

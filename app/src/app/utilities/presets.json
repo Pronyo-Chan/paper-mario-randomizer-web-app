@@ -80,7 +80,6 @@
                 "merlowRewardPricing": 0
             },
             "goals": {
-              "randomNumberOfStarWayStarSpirits" : false,
               "starWaySpiritsNeeded": 7,
               "starWayPowerStarsNeeded": 0,
               "requireSpecificSpirits" : false,
@@ -89,8 +88,7 @@
               "starHuntTotal": 0,
               "shuffleStarBeam": false,
               "starBeamSpiritsNeeded": 0,
-              "starBeamPowerStarsNeeded": 0,
-              "randomNumberOfStarBeamStarSpirits": false
+              "starBeamPowerStarsNeeded": 0
           },
             "itemPool": {
               "itemTrapMode": 0,
@@ -272,7 +270,6 @@
             "merlowRewardPricing": 1
           },
           "goals": {
-            "randomNumberOfStarWayStarSpirits" : false,
             "starWaySpiritsNeeded": 7,
             "starWayPowerStarsNeeded": 0,
             "requireSpecificSpirits" : false,
@@ -281,8 +278,7 @@
             "starHuntTotal": 0,
             "shuffleStarBeam": false,
             "starBeamSpiritsNeeded": 0,
-            "starBeamPowerStarsNeeded": 0,
-            "randomNumberOfStarBeamStarSpirits": false
+            "starBeamPowerStarsNeeded": 0
         },
           "itemPool": {
             "itemTrapMode": 0,
@@ -464,7 +460,6 @@
             "merlowRewardPricing": 1
           },
           "goals": {
-            "randomNumberOfStarWayStarSpirits" : false,
             "starWaySpiritsNeeded": 7,
             "starWayPowerStarsNeeded": 0,
             "requireSpecificSpirits" : false,
@@ -473,8 +468,7 @@
             "starHuntTotal": 0,
             "shuffleStarBeam": false,
             "starBeamSpiritsNeeded": 0,
-            "starBeamPowerStarsNeeded": 0,
-            "randomNumberOfStarBeamStarSpirits": false
+            "starBeamPowerStarsNeeded": 0
         },
           "itemPool": {
             "itemTrapMode": 1,
@@ -656,7 +650,6 @@
             "merlowRewardPricing": 1
           },
           "goals": {
-            "randomNumberOfStarWayStarSpirits" : false,
             "starWaySpiritsNeeded": 7,
             "starWayPowerStarsNeeded": 0,
             "requireSpecificSpirits" : false,
@@ -665,8 +658,7 @@
             "starHuntTotal": 0,
             "shuffleStarBeam": false,
             "starBeamSpiritsNeeded": 0,
-            "starBeamPowerStarsNeeded": 0,
-            "randomNumberOfStarBeamStarSpirits": false
+            "starBeamPowerStarsNeeded": 0
         },
           "itemPool": {
             "itemTrapMode": 3,
@@ -849,7 +841,6 @@
             "merlowRewardPricing": 0
          },
          "goals": {
-          "randomNumberOfStarWayStarSpirits" : false,
           "starWaySpiritsNeeded": 7,
           "starWayPowerStarsNeeded": 0,
           "requireSpecificSpirits" : false,
@@ -858,8 +849,7 @@
           "starHuntTotal": 0,
           "shuffleStarBeam": false,
           "starBeamSpiritsNeeded": 0,
-          "starBeamPowerStarsNeeded": 0,
-          "randomNumberOfStarBeamStarSpirits": false
+          "starBeamPowerStarsNeeded": 0
       },
          "itemPool": {
            "itemTrapMode": 0,
@@ -1044,7 +1034,6 @@
             "merlowRewardPricing": 0
          },
          "goals": {
-          "randomNumberOfStarWayStarSpirits" : false,
           "starWaySpiritsNeeded": 7,
           "starWayPowerStarsNeeded": 0,
           "requireSpecificSpirits" : false,
@@ -1053,8 +1042,7 @@
           "starHuntTotal": 0,
           "shuffleStarBeam": false,
           "starBeamSpiritsNeeded": 0,
-          "starBeamPowerStarsNeeded": 0,
-          "randomNumberOfStarBeamStarSpirits": false
+          "starBeamPowerStarsNeeded": 0
       },
          "itemPool": {
            "itemTrapMode": 0,
@@ -1238,7 +1226,6 @@
           "badgeSynergy": false
         },
         "goals": {
-          "randomNumberOfStarWayStarSpirits" : false,
           "starWaySpiritsNeeded": 7,
           "starWayPowerStarsNeeded": 0,
           "requireSpecificSpirits" : false,
@@ -1247,8 +1234,7 @@
           "starHuntTotal": 0,
           "shuffleStarBeam": false,
           "starBeamSpiritsNeeded": 0,
-          "starBeamPowerStarsNeeded": 0,
-          "randomNumberOfStarBeamStarSpirits": false
+          "starBeamPowerStarsNeeded": 0
       },
         "itemPool": {
           "itemQuality": 100,
