@@ -224,18 +224,19 @@ export class SettingsInfoComponent implements OnInit {
   }
 
   private initGoalsRows(): void {
+    const isStarHuntEnabled = this.seedModel.Goals.StarHuntTotal > 0;
+    const isStarBeamReachable = this.seedModel.Goals.SeedGoal == SeedGoal.DefeatBowser;
+
     this.goalsRows = [
-      {name: "Random Number of Required Star Spirits", value: this.seedModel.Goals.RandomNumberOfStarWayStarSpirits},
-      {name: "Star Way Spirits Required", value: this.seedModel.Goals.RandomNumberOfStarWayStarSpirits ? null : this.seedModel.Goals.StarWaySpiritsNeeded},
-      {name: "Star Beam Spirits Required", value: this.seedModel.Goals.RandomNumberOfStarBeamStarSpirits ? null : this.seedModel.Goals.StarBeamSpiritsNeeded},
+      {name: "Seed Goal", value: pascalToVerboseString(SeedGoal[this.seedModel.Goals.SeedGoal])},
+      {name: "Star Way Spirits Required", value: this.seedModel.Goals.StarWaySpiritsNeeded},
       {name: "Require Specific Spirits", value: this.seedModel.Goals.StarWaySpiritsNeeded == 7 || this.seedModel.Goals.StarWaySpiritsNeeded == 0 ? null : this.seedModel.Goals.RequireSpecificSpirits},
       {name: "Limit Chapter Logic", value: this.seedModel.Goals.RequireSpecificSpirits ? this.seedModel.Goals.LimitChapterLogic : null},
-      {name: "Shuffle Star Beam", value: this.seedModel.Goals.ShuffleStarBeam},
-      {name: "Star Beam Spirits Needed", value: this.seedModel.Goals.StarBeamSpiritsNeeded},
-      {name: "Star Beam Power Stars Needed", value: this.seedModel.Goals.StarBeamPowerStarsNeeded},
-      {name: "Seed Goal", value: SeedGoal[this.seedModel.Goals.SeedGoal]},
-      {name: "Star Way:Required Power Stars", value: this.seedModel.Goals.StarWayPowerStarsNeeded},
-      {name: "Total Power Stars", value: this.seedModel.Goals.StarHuntTotal},
+      {name: "Shuffle Star Beam", value: isStarBeamReachable ? this.seedModel.Goals.ShuffleStarBeam : null},
+      {name: "Star Beam Spirits Rquired", value: isStarBeamReachable ? this.seedModel.Goals.StarBeamSpiritsNeeded : null},
+      {name: "Total Power Stars", value: isStarHuntEnabled ? this.seedModel.Goals.StarHuntTotal : null},
+      {name: "Star Way - Power Stars Required", value: isStarHuntEnabled ? this.seedModel.Goals.StarWayPowerStarsNeeded : null},
+      {name: "Star Beam - Power Stars Required", value: isStarBeamReachable && isStarHuntEnabled ? this.seedModel.Goals.StarBeamPowerStarsNeeded : null}
     ] as SettingRow[]
   }
 

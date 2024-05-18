@@ -1,8 +1,6 @@
 import { SeedGoal } from '../enum/seedGoal';
 
 export interface Goals {
-    RandomNumberOfStarWayStarSpirits: boolean;
-    RandomNumberOfStarBeamStarSpirits: boolean;
     StarWaySpiritsNeeded: number;
     RequireSpecificSpirits: boolean;
     ShuffleStarBeam: boolean;

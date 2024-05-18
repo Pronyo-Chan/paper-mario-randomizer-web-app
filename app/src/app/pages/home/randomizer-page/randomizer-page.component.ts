@@ -238,7 +238,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         starBeamSpiritsNeeded: new FormControl(0),
         limitChapterLogic: new FormControl(false),
         starWayPowerStarsNeeded: new FormControl(0),
-        starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualTo('starWayPowerStarsNeeded')]),
+        starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualTo('starWayPowerStarsNeeded'), CustomValidators.greaterOrEqualTo('starBeamPowerStarsNeeded')]),
         seedGoal: new FormControl(SeedGoal.DefeatBowser),
         starBeamPowerStarsNeeded: new FormControl(0),
         // Unsubmitted controls
