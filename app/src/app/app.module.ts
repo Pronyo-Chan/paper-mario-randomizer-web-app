@@ -33,6 +33,7 @@ import { GameplayComponent } from './pages/home/randomizer-page/gameplay/gamepla
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WorldSettingsComponent } from './pages/home/randomizer-page/world-settings/world-settings.component';
 import { DifficultySettingsComponent } from './pages/home/randomizer-page/difficulty-settings/difficulty-settings.component';
+import { GoalSettingsComponent } from './pages/home/randomizer-page/goal-settings/goal-settings.component';
 import { QolSettingsComponent } from './pages/home/randomizer-page/qol-settings/qol-settings.component';
 import { PresetSettingsComponent } from './pages/home/randomizer-page/preset-settings/preset-settings.component';
 import { PatcherComponent } from './pages/home/randomizer-page/patcher/patcher.component';
@@ -80,6 +81,7 @@ const dbConfig: DBConfig  = {
     GameplayComponent,
     WorldSettingsComponent,
     DifficultySettingsComponent,
+    GoalSettingsComponent,
     ItemPoolSettingsComponent,
     QolSettingsComponent,
     PresetSettingsComponent,

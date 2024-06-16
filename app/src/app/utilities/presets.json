@@ -73,16 +73,23 @@
                 "oneHitKO": false,
                 "noSaveBlocks": false,
                 "noHeartBlocks": false,
-                "randomNumberOfStarSpirits" : false,
-                "starWaySpiritsNeeded": 7,
-                "requireSpecificSpirits" : false,
-                "limitChapterLogic" : false,
                 "badgeSynergy": false,
                 "noHealingItems": false,
                 "dropStarPoints": true,
                 "allowItemHints": true,
                 "merlowRewardPricing": 0
             },
+            "goals": {
+              "starWaySpiritsNeeded": 7,
+              "starWayPowerStarsNeeded": 0,
+              "requireSpecificSpirits" : false,
+              "limitChapterLogic" : false,
+              "seedGoal": 0,
+              "starHuntTotal": 0,
+              "shuffleStarBeam": false,
+              "starBeamSpiritsNeeded": 0,
+              "starBeamPowerStarsNeeded": 0
+          },
             "itemPool": {
               "itemTrapMode": 0,
               "itemQuality": 125,
@@ -118,10 +125,6 @@
                 "bowsersCastleMode": 1,
                 "shuffleDungeonEntrances": false,
                 "mirrorMode": 0,
-                "starHunt": false,
-                "starHuntEndsGame": true,
-                "starHuntRequired": 50,
-                "starHuntTotal": 70,
                 "startingMap": 65796
             },
             "cosmetics": {
@@ -260,16 +263,23 @@
             "oneHitKO": false,
             "noSaveBlocks": false,
             "noHeartBlocks": false,
-            "randomNumberOfStarSpirits" : false,
-            "starWaySpiritsNeeded": 7,
-            "requireSpecificSpirits" : false,
-            "limitChapterLogic" : false,
             "badgeSynergy": false,
             "noHealingItems": false,
             "dropStarPoints": true,
             "allowItemHints": true,
             "merlowRewardPricing": 1
           },
+          "goals": {
+            "starWaySpiritsNeeded": 7,
+            "starWayPowerStarsNeeded": 0,
+            "requireSpecificSpirits" : false,
+            "limitChapterLogic" : false,
+            "seedGoal": 0,
+            "starHuntTotal": 0,
+            "shuffleStarBeam": false,
+            "starBeamSpiritsNeeded": 0,
+            "starBeamPowerStarsNeeded": 0
+        },
           "itemPool": {
             "itemTrapMode": 0,
             "itemQuality": 100,
@@ -305,10 +315,6 @@
             "bowsersCastleMode": 0,
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
-            "starHunt": false,
-            "starHuntEndsGame": true,
-            "starHuntRequired": 50,
-            "starHuntTotal": 70,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -447,16 +453,23 @@
             "oneHitKO": false,
             "noSaveBlocks": false,
             "noHeartBlocks": false,
-            "randomNumberOfStarSpirits" : false,
-            "starWaySpiritsNeeded": 7,
-            "requireSpecificSpirits" : false,
-            "limitChapterLogic" : false,
             "badgeSynergy": false,
             "noHealingItems": false,
             "dropStarPoints": true,
             "allowItemHints": true,
             "merlowRewardPricing": 1
           },
+          "goals": {
+            "starWaySpiritsNeeded": 7,
+            "starWayPowerStarsNeeded": 0,
+            "requireSpecificSpirits" : false,
+            "limitChapterLogic" : false,
+            "seedGoal": 0,
+            "starHuntTotal": 0,
+            "shuffleStarBeam": false,
+            "starBeamSpiritsNeeded": 0,
+            "starBeamPowerStarsNeeded": 0
+        },
           "itemPool": {
             "itemTrapMode": 1,
             "itemQuality": 100,
@@ -492,10 +505,6 @@
             "bowsersCastleMode": 1,
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
-            "starHunt": false,
-            "starHuntEndsGame": true,
-            "starHuntRequired": 50,
-            "starHuntTotal": 70,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -634,16 +643,23 @@
             "oneHitKO": false,
             "noSaveBlocks": false,
             "noHeartBlocks": false,
-            "randomNumberOfStarSpirits" : false,
-            "starWaySpiritsNeeded": 7,
-            "requireSpecificSpirits" : false,
-            "limitChapterLogic" : false,
             "badgeSynergy": false,
             "noHealingItems": false,
             "dropStarPoints": true,
             "allowItemHints": false,
             "merlowRewardPricing": 1
           },
+          "goals": {
+            "starWaySpiritsNeeded": 7,
+            "starWayPowerStarsNeeded": 0,
+            "requireSpecificSpirits" : false,
+            "limitChapterLogic" : false,
+            "seedGoal": 0,
+            "starHuntTotal": 0,
+            "shuffleStarBeam": false,
+            "starBeamSpiritsNeeded": 0,
+            "starBeamPowerStarsNeeded": 0
+        },
           "itemPool": {
             "itemTrapMode": 3,
             "itemQuality": 100,
@@ -679,10 +695,6 @@
             "bowsersCastleMode": 0,
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
-            "starHunt": false,
-            "starHuntEndsGame": true,
-            "starHuntRequired": 50,
-            "starHuntTotal": 70,
             "startingMap": 65796
           },
           "cosmetics": {
@@ -822,16 +834,23 @@
             "oneHitKO":false,
             "noSaveBlocks":false,
             "noHeartBlocks":false,
-            "randomNumberOfStarSpirits" : false,
-            "starWaySpiritsNeeded":7,
-            "requireSpecificSpirits" : false,
-            "limitChapterLogic" : false,
             "badgeSynergy": false,
             "noHealingItems":false,
             "dropStarPoints": false,
             "allowItemHints":false,
             "merlowRewardPricing": 0
          },
+         "goals": {
+          "starWaySpiritsNeeded": 7,
+          "starWayPowerStarsNeeded": 0,
+          "requireSpecificSpirits" : false,
+          "limitChapterLogic" : false,
+          "seedGoal": 0,
+          "starHuntTotal": 0,
+          "shuffleStarBeam": false,
+          "starBeamSpiritsNeeded": 0,
+          "starBeamPowerStarsNeeded": 0
+      },
          "itemPool": {
            "itemTrapMode": 0,
            "itemQuality":100,
@@ -869,10 +888,6 @@
             "bowsersCastleMode":2,
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
-            "starHunt": false,
-            "starHuntEndsGame": true,
-            "starHuntRequired": 50,
-            "starHuntTotal": 70,
             "startingMap":65796
          },
          "cosmetics":{
@@ -1012,16 +1027,23 @@
             "oneHitKO":false,
             "noSaveBlocks":false,
             "noHeartBlocks":false,
-            "randomNumberOfStarSpirits" : false,
-            "starWaySpiritsNeeded":7,
-            "requireSpecificSpirits" : false,
-            "limitChapterLogic" : false,
             "badgeSynergy": false,
             "noHealingItems":false,
             "dropStarPoints": false,
             "allowItemHints":false,
             "merlowRewardPricing": 0
          },
+         "goals": {
+          "starWaySpiritsNeeded": 7,
+          "starWayPowerStarsNeeded": 0,
+          "requireSpecificSpirits" : false,
+          "limitChapterLogic" : false,
+          "seedGoal": 0,
+          "starHuntTotal": 0,
+          "shuffleStarBeam": false,
+          "starBeamSpiritsNeeded": 0,
+          "starBeamPowerStarsNeeded": 0
+      },
          "itemPool": {
            "itemTrapMode": 0,
            "itemQuality":100,
@@ -1059,10 +1081,6 @@
             "bowsersCastleMode":2,
             "shuffleDungeonEntrances": false,
             "mirrorMode": 0,
-            "starHunt": false,
-            "starHuntEndsGame": true,
-            "starHuntRequired": 50,
-            "starHuntTotal": 70,
             "startingMap":65796
          },
          "cosmetics":{
@@ -1201,16 +1219,23 @@
           "oneHitKO": false,
           "noSaveBlocks": false,
           "noHeartBlocks": false,
-          "randomNumberOfStarSpirits": false,
-          "starWaySpiritsNeeded": 4,
-          "requireSpecificSpirits": true,
-          "limitChapterLogic": true,
           "noHealingItems": false,
           "dropStarPoints": false,
           "allowItemHints": false,
           "merlowRewardPricing": 0,
           "badgeSynergy": false
         },
+        "goals": {
+          "starWaySpiritsNeeded": 7,
+          "starWayPowerStarsNeeded": 0,
+          "requireSpecificSpirits" : false,
+          "limitChapterLogic" : false,
+          "seedGoal": 0,
+          "starHuntTotal": 0,
+          "shuffleStarBeam": false,
+          "starBeamSpiritsNeeded": 0,
+          "starBeamPowerStarsNeeded": 0
+      },
         "itemPool": {
           "itemQuality": 100,
           "randomConsumableMode": 0,
@@ -1257,11 +1282,7 @@
           "startingMap": 65796,
           "bowsersCastleMode": 2,
           "shuffleDungeonEntrances": false,
-          "mirrorMode": 0,
-          "starHunt": false,
-          "starHuntRequired": 50,
-          "starHuntTotal": 70,
-          "starHuntEndsGame": true
+          "mirrorMode": 0
         },
         "cosmetics": {
           "menu": 7,

@@ -52,10 +52,6 @@ export class SettingStringMappingService {
     { compressedString: "x", key: "noXP", type: "removed"},
     { compressedString: "a", key: "xpMultiplier", type: "number"},
     { compressedString: "k", key: "oneHitKO", type: "bool"},
-    { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
-    { compressedString: "e", key: "requireSpecificSpirits", type: "bool"},
-    { compressedString: "f", key: "limitChapterLogic", type: "bool"},
-    { compressedString: "z", key: "randomNumberOfStarSpirits", type: "bool"},
     { compressedString: "l", key: "noHealingItems", type: "bool"},
     { compressedString: "t", key: "itemTrapMode", type: "removed"},
     { compressedString: "y", key: "allowItemHints", type: "bool"},
@@ -63,7 +59,21 @@ export class SettingStringMappingService {
     { compressedString: "r", key: "randomConsumableMode", type: "removed"},
     { compressedString: "b", key: "badgeSynergy", type: "bool"},
     { compressedString: "v", key: "dropStarPoints", type: "bool"},
-  ]
+  ];
+
+  public readonly goalsMap: SettingModel [] = [
+    { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
+    { compressedString: "e", key: "requireSpecificSpirits", type: "bool"},
+    { compressedString: "f", key: "limitChapterLogic", type: "bool"},
+    { compressedString: "@", key: "starBeamSpiritsNeeded", type: "number"},
+    { compressedString: "#", key: "starBeamPowerStarsNeeded", type: "number"},
+    { compressedString: "$", key: "shuffleStarBeam", type: "bool"},
+    { compressedString: "y", key: "seedGoal", type: "number"},
+    { compressedString: "?", key: "starWayPowerStarsNeeded", type: "number"},
+    { compressedString: "!", key: "starHuntTotal", type: "number"},
+    { compressedString: "p", key: "includePowerStars", type: "bool"},
+    { compressedString: "b", key: "includeCustomStarBeamSettings", type: "bool"}
+  ];
 
   public readonly itemPoolMap: SettingModel [] = [
     { compressedString: "t", key: "itemTrapMode", type: "number"},
@@ -137,11 +147,7 @@ export class SettingStringMappingService {
     { compressedString: "m", key: "magicalSeedsRequired", type: "number"},
     { compressedString: "o", key: "bowsersCastleMode", type: "number"},
     { compressedString: "d", key: "shuffleDungeonEntrances", type: "bool"},
-    { compressedString: "z", key: "mirrorMode", type: "number"},
-    { compressedString: "x", key: "starHunt", type: "bool"},
-    { compressedString: "y", key: "starHuntEndsGame", type: "bool"},
-    { compressedString: "?", key: "starHuntRequired", type: "number"},
-    { compressedString: "!", key: "starHuntTotal", type: "number"}
+    { compressedString: "z", key: "mirrorMode", type: "number"}
   ]
 
   public readonly startWithPartnersMap: SettingModel [] = [
@@ -188,6 +194,7 @@ export class SettingStringMappingService {
   public readonly settingsMap: SettingModel[] = [
     { compressedString: "(c", key: "cosmetics", type: "formGroup", map: this.cosmeticsMap},
     { compressedString: "(d", key: "difficulty", type: "formGroup", map: this.difficultyMap},
+    { compressedString: "(l", key: "goals", type: "formGroup", map: this.goalsMap},
     { compressedString: "(x", key: "itemPool", type: "formGroup", map: this.itemPoolMap},
     { compressedString: "(g", key: "gameplay", type: "formGroup", map: this.gameplayMap},
     { compressedString: "(i", key: "items", type: "formGroup", map: this.itemsMap},
@@ -211,6 +218,7 @@ export class SettingStringMappingService {
       }
       else {
         var settingModel = settingsMap.find(m => m.key == controlName)
+
         switch (settingModel.type) {
           case "bool":
             compressedString += this.encodeBoolean(nestedFormElement.value, settingModel);
@@ -254,6 +262,7 @@ export class SettingStringMappingService {
       }
       var currentSubstring = isNestingKey ? '(' + settingString[i] : settingString[i];
       var settingModel = settingsMap.find(m => m.compressedString.toLowerCase() == currentSubstring.toLowerCase())
+
 
       switch (settingModel.type) {
         case "formGroup":

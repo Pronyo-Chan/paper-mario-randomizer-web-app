@@ -20,6 +20,7 @@ import { CharacterSpriteSetting } from '../entities/characterSpriteSetting';
 import { CoinColor } from '../entities/enum/coinColor';
 import { MysteryMode } from '../entities/enum/mysteryMode';
 import { MirrorMode } from '../entities/enum/mirrorMode';
+import { SeedGoal } from '../entities/enum/seedGoal';
 
 
 @Injectable({
@@ -150,6 +151,8 @@ export class RandomizerService {
 
   private prepareRequestObject(settingsForm: FormGroup) {
     var menuColor = settingsForm.get('cosmetics').get('menu').value
+    const isStarHuntEnabled = settingsForm.get('goals').get('includePowerStars').value;
+    const isStarBeamReachable = settingsForm.get('goals').get('seedGoal').value == SeedGoal.DefeatBowser;
 
     var settingsString = this._settingsStringService.compressFormGroup(settingsForm, this._settingsStringService.settingsMap);
     this._localStorage.set('latestSettingsString', settingsString);
@@ -270,9 +273,6 @@ export class RandomizerService {
       AddBetaItems: settingsForm.get('itemPool').get('addBetaItems').value,
       ProgressiveBadges: settingsForm.get('itemPool').get('progressiveBadges').value,
       BadgePoolLimit: settingsForm.get('itemPool').get('badgePoolLimit').value,
-      StarWaySpiritsNeededCnt: settingsForm.get('difficulty').get('randomNumberOfStarSpirits').value ? -1 : settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
-      RequireSpecificSpirits: settingsForm.get('difficulty').get('requireSpecificSpirits').value,
-      LimitChapterLogic: settingsForm.get('difficulty').get('limitChapterLogic').value,
       BadgeSynergy: settingsForm.get('difficulty').get('badgeSynergy').value,
       FoliageItemHints: settingsForm.get('qualityOfLife').get('foliageItemHints').value,
       RandomText: settingsForm.get('cosmetics').get('randomText').value,
@@ -299,10 +299,15 @@ export class RandomizerService {
       MerlowRewardPricing: settingsForm.get('difficulty').get('merlowRewardPricing').value,
       ProgressionOnRowf: settingsForm.get('items').get('progressionOnRowf').value,
       ProgressionOnMerlow: settingsForm.get('items').get('progressionOnMerlow').value,
-      StarHunt: settingsForm.get('openLocations').get('starHunt').value,
-      StarHuntEndsGame: settingsForm.get('openLocations').get('starHuntEndsGame').value,
-      StarHuntRequired: settingsForm.get('openLocations').get('starHunt').value ? settingsForm.get('openLocations').get('starHuntRequired').value : 0,
-      StarHuntTotal: settingsForm.get('openLocations').get('starHunt').value ? settingsForm.get('openLocations').get('starHuntTotal').value : 0,
+      SeedGoal: settingsForm.get('goals').get('seedGoal').value,
+      StarWaySpiritsNeededCnt: settingsForm.get('goals').get('starWaySpiritsNeeded').value,
+      RequireSpecificSpirits: settingsForm.get('goals').get('requireSpecificSpirits').value,
+      LimitChapterLogic: settingsForm.get('goals').get('limitChapterLogic').value,
+      ShuffleStarBeam: isStarBeamReachable ? settingsForm.get('goals').get('shuffleStarBeam').value : false,
+      StarBeamSpiritsNeeded: isStarBeamReachable ? settingsForm.get('goals').get('starBeamSpiritsNeeded').value : 0,
+      StarHuntTotal: isStarHuntEnabled ? settingsForm.get('goals').get('starHuntTotal').value : 0,
+      StarWayPowerStarsNeeded: isStarHuntEnabled ? settingsForm.get('goals').get('starWayPowerStarsNeeded').value : 0,
+      StarBeamPowerStarsNeeded: isStarHuntEnabled && isStarBeamReachable ? settingsForm.get('goals').get('starBeamPowerStarsNeeded').value: 0,
 
       // Glitches: Goomba Region
       PrologueGelEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "PrologueGelEarly"),

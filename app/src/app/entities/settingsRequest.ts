@@ -13,6 +13,7 @@ import { LakilesterSprite } from './enum/lakilesterSprite';
 import { MusicMode } from './enum/musicMode';
 import { StatusBarColorMode } from './enum/statusBarColorMode';
 import { MirrorMode } from './enum/mirrorMode';
+import { SeedGoal } from './enum/seedGoal';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -126,6 +127,9 @@ export interface SettingsRequest {
     RandomConsumableMode: number;
     StarWaySpiritsNeededCnt: number;
     RequireSpecificSpirits: boolean;
+    ShuffleStarBeam: boolean;
+    StarBeamSpiritsNeeded: number;
+    StarBeamPowerStarsNeeded: number;
     LimitChapterLogic: boolean;
     FoliageItemHints: boolean;
     RandomText: boolean;
@@ -158,10 +162,9 @@ export interface SettingsRequest {
     MerlowRewardPricing: number;
     ProgressionOnRowf: boolean;
     ProgressionOnMerlow: boolean;
-    StarHunt: boolean;
-    StarHuntRequired: number;
+    StarWayPowerStarsNeeded: number;
     StarHuntTotal: number;
-    StarHuntEndsGame: boolean;
+    SeedGoal: SeedGoal;
 
     // Glitches: Goomba Region
     PrologueGelEarly: boolean

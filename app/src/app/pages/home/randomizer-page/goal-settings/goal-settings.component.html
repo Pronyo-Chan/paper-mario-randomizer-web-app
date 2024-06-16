@@ -1,0 +1,123 @@
+<form [formGroup]="goalsFormGroup">
+    <mat-card-content class=settings-card-content>
+      <div class="setting-element dropdown-element">
+        <app-tooltip-span
+             spanText="Seed Goal"
+              tooltipText="Determines if the game should end when opening the starway to ch.8, or when Bowser is defeated.">
+        </app-tooltip-span>
+        <select formControlName='seedGoal'>
+            <option [ngValue]="0">Defeat Bowser</option>
+            <option [ngValue]="1">Open Star Way</option>
+        </select>
+      </div>
+
+      <div class="setting-element">
+        <mat-slide-toggle formControlName='includePowerStars'></mat-slide-toggle>
+        <app-tooltip-span spanText="Star Hunt"
+                          tooltipText="Allows adding power stars into the item pools.
+
+                          Different amount of power star requirements can be set to open the star way and obtain the star beam item in Star Haven.
+
+                          Power star requirements can be combined with star spirits requirements.">
+        </app-tooltip-span>
+      </div>
+
+      <mat-divider />
+
+      <div class="setting-element slider-element">
+          <app-tooltip-span [spanText]="'Star Way - Star Spirits Required: ' + getStarWaySpiritsNumber()"
+                            tooltipText="Number of star spirits saved required to open the way to Ch.8. Can be set to random by bringing the slider behind 0."></app-tooltip-span>
+          <mat-slider formControlName="starWaySpiritsNeeded" (input)="goalsFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=-1 max= 7 step="1" tickInterval="1" ></mat-slider>
+      </div>
+
+      <div class="setting-element" [ngClass]="{ 'disabled-element': isSevenOrZeroStarSpirits}">
+        <mat-slide-toggle formControlName='requireSpecificSpirits'></mat-slide-toggle>
+        <app-tooltip-span spanText="Require Specific Spirits"
+                          tooltipText="Specific chapters must be completed to open the star way. You must visit shooting star summit to see which ones."></app-tooltip-span>
+      </div>
+
+      <div class="setting-element" [ngClass]="{ 'disabled-element': !goalsFormGroup.get('requireSpecificSpirits').value || isSevenOrZeroStarSpirits}">
+        <mat-slide-toggle formControlName='limitChapterLogic'></mat-slide-toggle>
+        <app-tooltip-span spanText="Limit Chapter Logic"
+                          tooltipText="Only chapters that need to be completed and prologue / common areas will contain progression items if enabled."></app-tooltip-span>
+      </div>
+
+
+      <ng-container *ngIf="shouldShowStarBeamSettings()">
+        <mat-divider />
+
+        <div class="setting-element">
+          <mat-slide-toggle formControlName='shuffleStarBeam'></mat-slide-toggle>
+          <app-tooltip-span spanText="Shuffle Star Beam"
+                            tooltipText="Star Beam becomes an item shuffled in the item pool. Another random item will replace star beam in Star Haven."></app-tooltip-span>
+        </div>
+
+        <div class="setting-element slider-element">
+          <app-tooltip-span [spanText]="'Star Beam  - Star Spirits Required: ' + getStarBeamSpiritsNumber()"
+                             tooltipText="Number of star spirits saved required to obtain the item in the star beam location, in Star Haven. Can be set to random by bringing the slider behind 0."></app-tooltip-span>
+          <mat-slider formControlName="starBeamSpiritsNeeded" (input)="goalsFormGroup.get('starBeamSpiritsNeeded').setValue($event.value)" min=-1 max= 7 step="1" tickInterval="1" ></mat-slider>
+        </div>
+
+      </ng-container>
+
+      <ng-container *ngIf="goalsFormGroup.get('includePowerStars').value">
+        <mat-divider />
+
+        <div class="setting-element slider-element">
+          <div class="setting-name-container">
+              <app-tooltip-span spanText="Total Power Stars:"
+              tooltipText="Number of power stars placed in the game world. A good number to choose is 1.5 times the amount of stars required."></app-tooltip-span>
+
+              <input matInput type="number"
+              min="0"
+              max="120"
+              formControlName='starHuntTotal'
+              (blur)="onTotalStarsBlur()">
+          </div>
+
+          <mat-slider formControlName="starHuntTotal" (input)="goalsFormGroup.get('starHuntTotal').setValue($event.value)" min=0 max=120 step="1" tickInterval="1" ></mat-slider>
+      </div>
+
+        <div class="setting-element slider-element">
+            <div class="setting-name-container">
+                <app-tooltip-span spanText="Star Way - Power Stars Required: "
+                tooltipText="Number of power stars required by Eldstar at Shooting Star Summit"></app-tooltip-span>
+
+                <input matInput type="number"
+                min="0"
+                max="120"
+                formControlName='starWayPowerStarsNeeded'
+                (blur)="onRequiredStarWayStarsBlur()">
+            </div>
+
+            <mat-slider formControlName="starWayPowerStarsNeeded" (input)="goalsFormGroup.get('starWayPowerStarsNeeded').setValue($event.value)" min=0 max= 120 step="1" tickInterval="1" ></mat-slider>
+        </div>
+
+        <div class="setting-element slider-element"></div>
+
+        <div *ngIf="shouldShowStarBeamSettings()" class="setting-element slider-element">
+          <div class="setting-name-container">
+              <app-tooltip-span spanText="Star Beam - Power Stars Required:"
+              tooltipText="Number of power stars required to get the Star Beam item in Star Haven"></app-tooltip-span>
+
+              <input matInput type="number"
+              min="0"
+              max="120"
+              formControlName='starBeamPowerStarsNeeded'
+              (blur)="onRequiredStarBeamStarsBlur()">
+          </div>
+
+          <mat-slider formControlName="starBeamPowerStarsNeeded" (input)="goalsFormGroup.get('starBeamPowerStarsNeeded').setValue($event.value)" min=0 max= 120 step="1" tickInterval="1" ></mat-slider>
+        </div>
+
+
+      </ng-container>
+
+    </mat-card-content>
+    <ul *ngIf="goalsFormGroup.invalid">
+      <mat-divider></mat-divider>
+      <li *ngIf="goalsFormGroup.get('starHuntTotal').hasError('greaterOrEqual')">
+          Number of placed stars must be greater or equal to required stars
+      </li>
+  </ul>
+</form>
