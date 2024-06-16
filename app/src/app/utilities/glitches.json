@@ -192,12 +192,28 @@
     "id": "0"
   },
   {
+    "name": "Clippy Sewers Upgrade Block",
+    "settingName": "ClippySewersUpgradeBlock",
+    "link": "",
+    "description": "By entering clippy state, the metal block in blocking the way to the partner upgrade block in the sewers can be reached without the ultra hammer.",
+    "location": "Toad Town Tunnels",
+    "id": "Ĩ"
+  },
+  {
     "name": "Sewer Blocks Without Ultra Boots",
     "settingName": "SewerBlocksWithoutUltraBoots",
     "link": "https://www.youtube.com/watch?v=8kDX_f28QUo",
     "description": "By gaining height from jumping on a Dark Koopa, the highest blocks in the sewers can be reached with regular boots. This trick also applies to the 3 blocks in the room before the Ultra Boots chest.",
     "location": "Toad Town Tunnels",
     "id": "1"
+  },
+  {
+    "name": "Chapter 7 Bridge With Super Boots",
+    "settingName": "Chapter7BridgeWithSuperBoots",
+    "link": "",
+    "description": "By doing well timed ground pounds in the invisible blocks, the blocks can be hit without the ultra boots to reach the door to ch.7.",
+    "location": "Toad Town Tunnels",
+    "id": "ĩ"
   },
   {
     "name": "First Block To Shiver City Without Super Boots",
@@ -464,6 +480,14 @@
     "id": "H"
   },
   {
+    "name": "Ruins Stone Skip",
+    "settingName": "RuinsStoneSkip",
+    "link": "",
+    "description": "TODO: ADD DESCRIPTION",
+    "location": "Dry Dry Ruins",
+    "id": "İ"
+  },
+  {
     "name": "Forever Forest Backwards",
     "settingName": "ForeverForestBackwards",
     "link": "",
@@ -648,6 +672,14 @@
     "id": "Y"
   },
   {
+    "name": "Clippy Green Station Coin Block",
+    "settingName": "ClippyGreenStationCoinBlock",
+    "link": "",
+    "description": "TODO: ADD DESCRIPTION",
+    "location": "ToyBox",
+    "id": "Ĵ"
+  },
+  {
     "name": "Kooper-less Red Station Shooting Star",
     "settingName": "KooperlessRedStationShootingStar",
     "link": "https://youtu.be/Bdr6tOdBSKQ?t=10",
@@ -694,6 +726,14 @@
     "description": "A laki teleport can be used to pass the red barricade without Bombette. Warning: The camera won't follow Mario around beyond the barricade and enabling this assumes you know how to collect the items beyond it without seeing.",
     "location": "ToyBox",
     "id": "Ô"
+  },
+  {
+    "name": "Wattless Dark Room",
+    "settingName": "WattlessDarkRoom",
+    "link": "",
+    "description": "TODO: ADD DESCRIPTION",
+    "location": "ToyBox",
+    "id": "Ķ"
   },
   {
     "name": "Hammerless Blue Station (Clippy)",
@@ -806,6 +846,14 @@
     "description": "The sushie glitch can be obtained in the central volcano room by obtaining menu storage, from ground pounding the save block after jumping on the nearest trampoline. This state allows to skip metal blocks and the lava gap leading to the Ultra Hammer chest. Can be performed with Goombario, Kooper or Bombette.",
     "location": "Mt. Lavalava",
     "id": "Ø"
+  },
+  {
+    "name": "Volcano Sushie Glitch (Goombario)",
+    "settingName": "VolcanoSushieGlitchGoombario",
+    "link": "",
+    "description": "TODO: ADD DESCRIPTION",
+    "location": "Mt. Lavalava",
+    "id": "Ĺ"
   },
   {
     "name": "Flarakarry",
@@ -1014,6 +1062,14 @@
     "description": "A Laki Teleport can be performed to get behind the mirror in the first room without needing a blue or red key.",
     "location": "Crystal Palace",
     "id": "s"
+  },
+  {
+    "name": "Kooper Puzzle Skip",
+    "settingName": "KooperPuzzleSkip",
+    "link": "https://papermarioarchives.com/Tricks/Kooper_Puzzle_Skip",
+    "description": "The Kooper impostor puzzle can be skipped by using Kooper's ability at the right position to trigger the puzzle, and then spinning into the loading zone after the cutscene ends.",
+    "location": "Crystal Palace",
+    "id": "ŀ"
   },
   {
     "name": "Bow-less Bowser's Castle Basement",
