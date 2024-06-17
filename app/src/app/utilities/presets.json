@@ -684,7 +684,7 @@
             "randomItemsMax":16
           },
           "openLocations": {
-            "magicalSeedsRequired": 5,
+            "magicalSeedsRequired": -1,
             "blueHouseOpen": false,
             "toyboxOpen": false,
             "whaleOpen": false,
