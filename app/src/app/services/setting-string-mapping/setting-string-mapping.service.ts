@@ -67,7 +67,7 @@ export class SettingStringMappingService {
     { compressedString: "f", key: "limitChapterLogic", type: "bool"},
     { compressedString: "@", key: "starBeamSpiritsNeeded", type: "number"},
     { compressedString: "#", key: "starBeamPowerStarsNeeded", type: "number"},
-    { compressedString: "$", key: "shuffleStarBeam", type: "bool"},
+    { compressedString: "s", key: "shuffleStarBeam", type: "bool"},
     { compressedString: "y", key: "seedGoal", type: "number"},
     { compressedString: "?", key: "starWayPowerStarsNeeded", type: "number"},
     { compressedString: "!", key: "starHuntTotal", type: "number"},

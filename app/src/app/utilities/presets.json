@@ -86,6 +86,7 @@
               "limitChapterLogic" : false,
               "seedGoal": 0,
               "starHuntTotal": 0,
+              "includePowerStars": false,
               "shuffleStarBeam": false,
               "starBeamSpiritsNeeded": 0,
               "starBeamPowerStarsNeeded": 0
@@ -276,6 +277,7 @@
             "limitChapterLogic" : false,
             "seedGoal": 0,
             "starHuntTotal": 0,
+            "includePowerStars": false,
             "shuffleStarBeam": false,
             "starBeamSpiritsNeeded": 0,
             "starBeamPowerStarsNeeded": 0
@@ -466,6 +468,7 @@
             "limitChapterLogic" : false,
             "seedGoal": 0,
             "starHuntTotal": 0,
+            "includePowerStars": false,
             "shuffleStarBeam": false,
             "starBeamSpiritsNeeded": 0,
             "starBeamPowerStarsNeeded": 0
@@ -656,6 +659,7 @@
             "limitChapterLogic" : false,
             "seedGoal": 0,
             "starHuntTotal": 0,
+            "includePowerStars": false,
             "shuffleStarBeam": false,
             "starBeamSpiritsNeeded": 0,
             "starBeamPowerStarsNeeded": 0
@@ -847,6 +851,7 @@
           "limitChapterLogic" : false,
           "seedGoal": 0,
           "starHuntTotal": 0,
+          "includePowerStars": false,
           "shuffleStarBeam": false,
           "starBeamSpiritsNeeded": 0,
           "starBeamPowerStarsNeeded": 0
@@ -1040,6 +1045,7 @@
           "limitChapterLogic" : false,
           "seedGoal": 0,
           "starHuntTotal": 0,
+          "includePowerStars": false,
           "shuffleStarBeam": false,
           "starBeamSpiritsNeeded": 0,
           "starBeamPowerStarsNeeded": 0
@@ -1226,12 +1232,13 @@
           "badgeSynergy": false
         },
         "goals": {
-          "starWaySpiritsNeeded": 7,
+          "starWaySpiritsNeeded": 4,
           "starWayPowerStarsNeeded": 0,
-          "requireSpecificSpirits" : false,
-          "limitChapterLogic" : false,
+          "requireSpecificSpirits" : true,
+          "limitChapterLogic" : true,
           "seedGoal": 0,
           "starHuntTotal": 0,
+          "includePowerStars": false,
           "shuffleStarBeam": false,
           "starBeamSpiritsNeeded": 0,
           "starBeamPowerStarsNeeded": 0
