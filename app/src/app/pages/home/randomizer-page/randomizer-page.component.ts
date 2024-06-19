@@ -285,7 +285,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isGeneralShuffleEnabled = this.formGroup.get('items').get('shuffleItems').value;
     const isPartnerShuffleEnabled = this.formGroup.get('partners').get('shufflePartners').value;
     const isEntranceRandoEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value;
-    const isStarHuntEnabled = false // TODO: Find a way to determine if star hunt is enabled
+    const isStarHuntEnabled = this.formGroup.get('goals').get('includePowerStars').value;
     const isLimitChapterLogicEnabled = this.formGroup.get('goals').get('limitChapterLogic').value;
     const isKeysanityEnabled = this.formGroup.get('items').get('keyitemsOutsideDungeon').value
 
