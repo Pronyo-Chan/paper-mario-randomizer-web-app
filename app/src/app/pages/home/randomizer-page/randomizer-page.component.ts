@@ -241,9 +241,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualTo('starWayPowerStarsNeeded'), CustomValidators.greaterOrEqualTo('starBeamPowerStarsNeeded')]),
         seedGoal: new FormControl(SeedGoal.DefeatBowser),
         starBeamPowerStarsNeeded: new FormControl(0),
-        // Unsubmitted controls
-        includePowerStars: new FormControl(false),
-        includeCustomStarBeamSettings: new FormControl(false)
+        // Unsubmitted control
+        includePowerStars: new FormControl(false)
       }),
       cosmetics: new FormGroup({
         menu: new FormControl(0),
