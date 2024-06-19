@@ -217,7 +217,6 @@ export class SettingStringMappingService {
       }
       else {
         var settingModel = settingsMap.find(m => m.key == controlName)
-
         switch (settingModel.type) {
           case "bool":
             compressedString += this.encodeBoolean(nestedFormElement.value, settingModel);
@@ -261,7 +260,6 @@ export class SettingStringMappingService {
       }
       var currentSubstring = isNestingKey ? '(' + settingString[i] : settingString[i];
       var settingModel = settingsMap.find(m => m.compressedString.toLowerCase() == currentSubstring.toLowerCase())
-
 
       switch (settingModel.type) {
         case "formGroup":
