@@ -17,6 +17,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
   private _starWaySpiritsNeededSubscription: Subscription;
   private _requiredStarWayPowerStarsSubscription: Subscription;
   private _requiredStarBeamPowerStarsSubscription: Subscription;
+  private _lclSubscription: Subscription;
 
   public constructor() { }
 
@@ -25,6 +26,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
 
     this.disableRequireSpecificSpiritsWhenSevenSpirits();
     this.disableLimitChapterLogicWhenNotRequiringSpecificSpirits(this.goalsFormGroup.get('requireSpecificSpirits').value);
+    this.disableStarBeamSpiritsRequiredWhenLCL(this.goalsFormGroup.get('limitChapterLogic').value);
 
     this._starWaySpiritsNeededSubscription = this.goalsFormGroup.get('starWaySpiritsNeeded').valueChanges.pipe(
       tap(value => {
@@ -36,6 +38,12 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     this._requireSpecificSpiritsSubscription =  this.goalsFormGroup.get('requireSpecificSpirits').valueChanges.pipe(
       tap(value => {
         this.disableLimitChapterLogicWhenNotRequiringSpecificSpirits(value);
+      })
+    ).subscribe();
+
+    this._lclSubscription =  this.goalsFormGroup.get('limitChapterLogic').valueChanges.pipe(
+      tap(value => {
+        this.disableStarBeamSpiritsRequiredWhenLCL(value);
       })
     ).subscribe();
 
@@ -65,6 +73,10 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
 
     if(this._requiredStarBeamPowerStarsSubscription) {
       this._requiredStarBeamPowerStarsSubscription.unsubscribe();
+    }
+
+    if(this._lclSubscription) {
+      this._lclSubscription.unsubscribe();
     }
   }
 
@@ -141,6 +153,15 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
       this.goalsFormGroup.get('limitChapterLogic').disable();
     } else {
       this.goalsFormGroup.get('limitChapterLogic').enable();
+    }
+  }
+
+  private disableStarBeamSpiritsRequiredWhenLCL(limitChapterLogic: boolean) {
+    if(limitChapterLogic) {
+      this.goalsFormGroup.get('starBeamSpiritsNeeded').setValue(0);
+      this.goalsFormGroup.get('starBeamSpiritsNeeded').disable();
+    } else {
+      this.goalsFormGroup.get('starBeamSpiritsNeeded').enable();
     }
   }
 

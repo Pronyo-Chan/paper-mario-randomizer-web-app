@@ -52,9 +52,9 @@
                             tooltipText="Star Beam becomes an item shuffled in the item pool. Another random item will replace star beam in Star Haven."></app-tooltip-span>
         </div>
 
-        <div class="setting-element slider-element">
+        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': goalsFormGroup.get('limitChapterLogic').value}">
           <app-tooltip-span [spanText]="'Star Beam  - Star Spirits Required: ' + getStarBeamSpiritsNumber()"
-                             tooltipText="Number of star spirits saved required to obtain the item in the star beam location, in Star Haven. Can be set to random by bringing the slider behind 0."></app-tooltip-span>
+                             tooltipText="Number of star spirits saved required to obtain the item in the star beam location, in Star Haven. Can be set to random by bringing the slider behind 0. Forced to 0 when 'Limit Chapter Logic' is active"></app-tooltip-span>
           <mat-slider formControlName="starBeamSpiritsNeeded" (input)="goalsFormGroup.get('starBeamSpiritsNeeded').setValue($event.value)" min=-1 max= 7 step="1" tickInterval="1" ></mat-slider>
         </div>
 
