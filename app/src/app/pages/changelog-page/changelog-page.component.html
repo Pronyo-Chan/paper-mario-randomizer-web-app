@@ -1,7 +1,7 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
-    <mat-card-title class="settings-title">0.27.0 (beta) (2024-06-XX)</mat-card-title>
+    <mat-card-title class="settings-title">0.27.0 (beta) (2024-06-20)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
         <li>The update introduces breaking changes to the setting strings and presets. Previously exported settings will need to be exported again. Saved presets should work but many settings will not be imported properly.</li>
@@ -10,7 +10,7 @@
         <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
     </ul>
 
-    <h2>Mod Changes</h2>
+    <h2>Bug Fixes</h2>
     <ul>
         <li>Fixed a bug that could rarely cause unintended item prices for shop items in Dry Dry Outpost if "Randomize Puzzles" and "Shopsanity" were turned on</li>
         <li>Lowered logical star piece requirements for some of Merlow's trades (the original calculations were off)</li>
@@ -21,6 +21,7 @@
         <li>(console only) Fix vanilla freeze when trying to Tidal Wave during phase 2 of the Lava Piranha battle if there are Petit Piranhas alive</li>
         <li>Fix Kent C. Koopa breaking the coin cap when handing back the 50 coins when defeated after paying him</li>
         <li>Fix frozen camera during Kooper's Shell turn-in cutscene</li>
+        <li>Fix broken seed generation if both `Mystery Only` and `Random Puzzles` are turned on</li>
     </ul>
 
     <h2>Options</h2>
