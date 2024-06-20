@@ -2,8 +2,8 @@
   {
     "name": "Early Prologue Repel Gel",
     "settingName": "PrologueGelEarly",
-    "link": "https://www.youtube.com/watch?v=6Mt0qnNLEW4",
-    "description": "By jumping from the nearby brick block , you can get on top of the stone block and either use Kooper or Bombette to get the item from the hidden block.",
+    "link": "https://youtu.be/0139HwpoISI",
+    "description": "By jumping from the nearby brick block , you can get on top of the stone block and either use Kooper or Bombette to get the item from the hidden block. It's also possible to hit the block from below by clipping into the stone block with Parakarry or Laki.",
     "location": "Goomba Region",
     "id": "!"
   },
@@ -192,12 +192,28 @@
     "id": "0"
   },
   {
+    "name": "Clippy Sewers Upgrade Block",
+    "settingName": "ClippySewersUpgradeBlock",
+    "link": "",
+    "description": "By entering clippy state, the metal block in blocking the way to the partner upgrade block in the sewers can be reached without the ultra hammer.",
+    "location": "Toad Town Tunnels",
+    "id": "Ĩ"
+  },
+  {
     "name": "Sewer Blocks Without Ultra Boots",
     "settingName": "SewerBlocksWithoutUltraBoots",
     "link": "https://www.youtube.com/watch?v=8kDX_f28QUo",
     "description": "By gaining height from jumping on a Dark Koopa, the highest blocks in the sewers can be reached with regular boots. This trick also applies to the 3 blocks in the room before the Ultra Boots chest.",
     "location": "Toad Town Tunnels",
     "id": "1"
+  },
+  {
+    "name": "Chapter 7 Bridge With Super Boots",
+    "settingName": "Chapter7BridgeWithSuperBoots",
+    "link": "",
+    "description": "By doing well timed ground pounds in the invisible blocks, the blocks can be hit without the ultra boots to reach the door to ch.7.",
+    "location": "Toad Town Tunnels",
+    "id": "ĩ"
   },
   {
     "name": "First Block To Shiver City Without Super Boots",
@@ -464,6 +480,14 @@
     "id": "H"
   },
   {
+    "name": "Ruins Stone Skip",
+    "settingName": "RuinsStoneSkip",
+    "link": "https://youtube.com/watch?v=4yoXsbiNFaQ",
+    "description": "It is possible to use a precise Laki teleport to get out of bounds and get to the ruins basement without placing the stones.",
+    "location": "Dry Dry Ruins",
+    "id": "İ"
+  },
+  {
     "name": "Forever Forest Backwards",
     "settingName": "ForeverForestBackwards",
     "link": "",
@@ -648,6 +672,14 @@
     "id": "Y"
   },
   {
+    "name": "Clippy Green Station Multicoin Block",
+    "settingName": "ClippyGreenStationCoinBlock",
+    "link": "https://discord.com/channels/958691533270433793/958818725891555328/1242859739386220576",
+    "description": "The multicoin brick block in Green Station can be reached without Parakarry by entering clippy state and jumping in the pink platform corner when it's lowered.",
+    "location": "ToyBox",
+    "id": "Ĵ"
+  },
+  {
     "name": "Kooper-less Red Station Shooting Star",
     "settingName": "KooperlessRedStationShootingStar",
     "link": "https://youtu.be/Bdr6tOdBSKQ?t=10",
@@ -694,6 +726,14 @@
     "description": "A laki teleport can be used to pass the red barricade without Bombette. Warning: The camera won't follow Mario around beyond the barricade and enabling this assumes you know how to collect the items beyond it without seeing.",
     "location": "ToyBox",
     "id": "Ô"
+  },
+  {
+    "name": "Wattless Dark Room",
+    "settingName": "WattlessDarkRoom",
+    "link": "https://www.youtube.com/watch?v=moVthBetF2k",
+    "description": "You can get out of bounds by getting off Laki in a corner of the dark room before General Guy and go in the loading zone without Watt.",
+    "location": "ToyBox",
+    "id": "Ķ"
   },
   {
     "name": "Hammerless Blue Station (Clippy)",
@@ -808,20 +848,20 @@
     "id": "Ø"
   },
   {
+    "name": "Volcano Sushie Glitch (Goombario)",
+    "settingName": "VolcanoSushieGlitchGoombario",
+    "link": "https://www.youtube.com/shorts/wskPCc7d0jk",
+    "description": "A variation of the regular sushie glitch, that does not require Sushie's ability, by using tattle and switching to Sushie by menuing inside a loading zone.",
+    "location": "Mt. Lavalava",
+    "id": "Ĺ"
+  },
+  {
     "name": "Flarakarry",
     "settingName": "Flarakarry",
     "link": "https://papermarioarchives.com/Flarakarry",
     "description": "The spike ball puzzle can be skipped by clipping into the east loading zone with Parakarry's ability.",
     "location": "Mt. Lavalava",
     "id": "_"
-  },
-  {
-    "name": "Parakarry-less Flarakarry (Bombette Push)",
-    "settingName": "ParakarrylessFlarakarryBombette",
-    "link": "https://www.youtube.com/watch?v=BpXqPM-_yAc",
-    "description": "Kolorado can be moved against the wall with Bombette NPC Pushes. He can then be used to squeeze into the loading zone and skip the spike ball puzzle.",
-    "location": "Mt. Lavalava",
-    "id": "`"
   },
   {
     "name": "Parakarry-less Flarakarry (Laki Teleport)",
@@ -1022,6 +1062,14 @@
     "description": "A Laki Teleport can be performed to get behind the mirror in the first room without needing a blue or red key.",
     "location": "Crystal Palace",
     "id": "s"
+  },
+  {
+    "name": "Kooper Puzzle Skip",
+    "settingName": "KooperPuzzleSkip",
+    "link": "https://papermarioarchives.com/Tricks/Kooper_Puzzle_Skip",
+    "description": "The Kooper impostor puzzle can be skipped by using Kooper's ability at the right position to trigger the puzzle, and then spinning into the loading zone after the cutscene ends.",
+    "location": "Crystal Palace",
+    "id": "ŀ"
   },
   {
     "name": "Bow-less Bowser's Castle Basement",

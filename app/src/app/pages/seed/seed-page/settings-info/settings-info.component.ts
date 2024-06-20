@@ -21,6 +21,7 @@ import { MysteryMode } from 'src/app/entities/enum/mysteryMode';
 import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeShuffleMode';
 import { CustceneMode } from 'src/app/entities/enum/cutsceneMode';
 import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
+import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 
 interface SettingRow {
   name: string;
@@ -44,6 +45,7 @@ export class SettingsInfoComponent implements OnInit {
   public gameplayRows: SettingRow[] = [];
   public cosmeticsRows: SettingRow[] = [];
   public difficultyRows: SettingRow[] = [];
+  public goalsRows: SettingRow[] = [];
   public itemPoolRows: SettingRow[] = [];
   public statsAndGearRows: SettingRow[] = [];
   public worldRows: SettingRow[] = [];
@@ -91,6 +93,7 @@ export class SettingsInfoComponent implements OnInit {
     this.initGameplayRows();
     this.initCosmeticsRows();
     this.initDifficultyRows();
+    this.initGoalsRows();
     this.initItemPoolRows();
     this.initStatsRows();
     this.initWorldRows();
@@ -104,6 +107,7 @@ export class SettingsInfoComponent implements OnInit {
       ...this.gameplayRows, emptyRow,
       ...this.cosmeticsRows, emptyRow,
       ...this.difficultyRows, emptyRow,
+      ...this.goalsRows, emptyRow,
       ...this.statsAndGearRows, emptyRow,
       ...this.itemPoolRows, emptyRow,
       ...this.worldRows, emptyRow,
@@ -118,6 +122,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Gameplay", rows: this.gameplayRows},
       {name: "Cosmetics", rows: this.cosmeticsRows},
       {name: "Difficulty", rows: this.difficultyRows},
+      {name: "Goals", rows: this.goalsRows},
       {name: "Item Pool", rows: this.itemPoolRows},
       {name: "Stats & Gear", rows: this.statsAndGearRows},
       {name: "World", rows: this.worldRows},
@@ -209,16 +214,29 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Cap Enemy XP", value: this.seedModel.GeneralDifficulty.CapEnemyXP},
       {name: "Enemy Damage", value: this.seedModel.GeneralDifficulty.EnemyDamage},
       {name: "Merlow Rewards Pricing", value: MerlowRewardPricing[this.seedModel.GeneralDifficulty.MerlowRewardsPricing]},
-      {name: "Random Number of Required Star Spirits", value: this.seedModel.GeneralDifficulty.RandomNumberOfRrequiredStarSpirits},
-      {name: "Star Spirits Required", value: this.seedModel.GeneralDifficulty.RandomNumberOfRrequiredStarSpirits ? null : this.seedModel.GeneralDifficulty.StarSpiritsRequired},
-      {name: "Require Specific Spirits", value: this.seedModel.GeneralDifficulty.StarSpiritsRequired == 7 || this.seedModel.GeneralDifficulty.StarSpiritsRequired == 0 ? null : this.seedModel.GeneralDifficulty.RequireSpecificSpirits},
-      {name: "Limit Chapter Logic", value: this.seedModel.GeneralDifficulty.RequireSpecificSpirits ? this.seedModel.GeneralDifficulty.LimitChapterLogic : null},
       {name: "No Healing Items", value: this.seedModel.GeneralDifficulty.NoHealingItems},
       {name: "No Heart Blocks", value: this.seedModel.GeneralDifficulty.NoHeartBlocks},
       {name: "No Save Blocks", value: this.seedModel.GeneralDifficulty.NoSaveBlocks},
       {name: "One Hit KO", value: this.seedModel.GeneralDifficulty.OneHitKO},
       {name: "Badge Synergy", value: this.seedModel.GeneralDifficulty.BadgeSynergy},
       {name: "Drop Star Points", value: this.seedModel.GeneralDifficulty.DropStarPoints},
+    ] as SettingRow[]
+  }
+
+  private initGoalsRows(): void {
+    const isStarHuntEnabled = this.seedModel.Goals.StarHuntTotal > 0;
+    const isStarBeamReachable = this.seedModel.Goals.SeedGoal == SeedGoal.DefeatBowser;
+
+    this.goalsRows = [
+      {name: "Seed Goal", value: pascalToVerboseString(SeedGoal[this.seedModel.Goals.SeedGoal])},
+      {name: "Star Way Spirits Required", value: this.seedModel.Goals.StarWaySpiritsNeeded},
+      {name: "Require Specific Spirits", value: this.seedModel.Goals.StarWaySpiritsNeeded == 7 || this.seedModel.Goals.StarWaySpiritsNeeded == 0 ? null : this.seedModel.Goals.RequireSpecificSpirits},
+      {name: "Limit Chapter Logic", value: this.seedModel.Goals.RequireSpecificSpirits ? this.seedModel.Goals.LimitChapterLogic : null},
+      {name: "Shuffle Star Beam", value: isStarBeamReachable ? this.seedModel.Goals.ShuffleStarBeam : null},
+      {name: "Star Beam Spirits Rquired", value: isStarBeamReachable ? this.seedModel.Goals.StarBeamSpiritsNeeded : null},
+      {name: "Total Power Stars", value: isStarHuntEnabled ? this.seedModel.Goals.StarHuntTotal : null},
+      {name: "Star Way - Power Stars Required", value: isStarHuntEnabled ? this.seedModel.Goals.StarWayPowerStarsNeeded : null},
+      {name: "Star Beam - Power Stars Required", value: isStarBeamReachable && isStarHuntEnabled ? this.seedModel.Goals.StarBeamPowerStarsNeeded : null}
     ] as SettingRow[]
   }
 
@@ -269,10 +287,6 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Bowser's Castle Mode", value: BowsersCastleMode[this.seedModel.World.BowsersCastleMode]},
       {name: "Shuffle Dungeon Entrances", value: this.seedModel.World.ShuffleDungeonEntrances},
       {name: "Mirror Mode", value: MirrorMode[this.seedModel.World.MirrorMode]},
-      {name: "Power Star Hunt", value: this.seedModel.World.StarHunt},
-      {name: "Star Hunt Skips Ch.8", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarHuntEndsGame: null},
-      {name: "Required Power Stars", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarHuntRequired: null},
-      {name: "Total Power Stars", value: this.seedModel.World.StarHunt ? this.seedModel.World.StarHuntTotal: null},
     ] as SettingRow[]
   }
 

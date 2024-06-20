@@ -1,0 +1,21 @@
+select {
+    max-width: 50%;
+    min-width: 11rem;
+}
+
+ul {
+  list-style-type: none;
+  li {
+      color: red;
+      font-family: 'gluten';
+      font-weight: 600;
+  }
+  li:before {
+      content: "❌" !important;
+      font-size: 14px !important;
+      font-weight: 600;
+  }
+  li:marker {
+      display: none;
+  }
+}

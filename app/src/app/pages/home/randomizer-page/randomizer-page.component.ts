@@ -24,6 +24,7 @@ import { GearShuffleMode } from 'src/app/entities/enum/gearShuffleMode';
 import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode';
 import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeShuffleMode';
 import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
+import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -96,6 +97,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         }
         else if(typeof err.error === 'string' && (err.error as string)?.includes("StarRodModVersion")) {
           this.seedGenError = "Server version mismatch. Please refresh the page and try again."
+        }
+        else if(typeof err.error === 'string' && (err.error as string) == "item_pool_too_small") {
+          this.seedGenError = "The amount of new items to place is greater than the item pool size. Try to shuffle more item sources, or disable options that add new items."
         }
         else {
           this.seedGenError = 'A server error has occured';
@@ -184,10 +188,6 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         oneHitKO: new FormControl(false),
         noSaveBlocks: new FormControl(false),
         noHeartBlocks: new FormControl(false),
-        randomNumberOfStarSpirits: new FormControl(false),
-        starWaySpiritsNeeded: new FormControl(7),
-        requireSpecificSpirits: new FormControl(false),
-        limitChapterLogic: new FormControl(false),
         noHealingItems: new FormControl(false),
         dropStarPoints: new FormControl(true),
         allowItemHints: new FormControl(true),
@@ -230,10 +230,19 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla),
         shuffleDungeonEntrances: new FormControl(false),
         mirrorMode: new FormControl(MirrorMode.Off),
-        starHunt: new FormControl(false),
-        starHuntRequired: new FormControl(50),
-        starHuntTotal: new FormControl(70, [CustomValidators.greaterOrEqualTo('starHuntRequired')]),
-        starHuntEndsGame: new FormControl(true),
+      }),
+      goals: new FormGroup({
+        starWaySpiritsNeeded: new FormControl(7),
+        requireSpecificSpirits: new FormControl(false),
+        shuffleStarBeam: new FormControl(false),
+        starBeamSpiritsNeeded: new FormControl(0),
+        limitChapterLogic: new FormControl(false),
+        starWayPowerStarsNeeded: new FormControl(0),
+        starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualTo('starWayPowerStarsNeeded'), CustomValidators.greaterOrEqualTo('starBeamPowerStarsNeeded')]),
+        seedGoal: new FormControl(SeedGoal.DefeatBowser),
+        starBeamPowerStarsNeeded: new FormControl(0),
+        // Unsubmitted control
+        includePowerStars: new FormControl(false)
       }),
       cosmetics: new FormGroup({
         menu: new FormControl(0),
@@ -276,8 +285,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isGeneralShuffleEnabled = this.formGroup.get('items').get('shuffleItems').value;
     const isPartnerShuffleEnabled = this.formGroup.get('partners').get('shufflePartners').value;
     const isEntranceRandoEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value;
-    const isStarHuntEnabled = this.formGroup.get('openLocations').get('starHunt').value;
-    const isLimitChapterLogicEnabled = this.formGroup.get('difficulty').get('limitChapterLogic').value;
+    const isStarHuntEnabled = this.formGroup.get('goals').get('includePowerStars').value;
+    const isLimitChapterLogicEnabled = this.formGroup.get('goals').get('limitChapterLogic').value;
     const isKeysanityEnabled = this.formGroup.get('items').get('keyitemsOutsideDungeon').value
 
     const isVanillaStart = startingMap == StartingMap.GoombaVillage &&

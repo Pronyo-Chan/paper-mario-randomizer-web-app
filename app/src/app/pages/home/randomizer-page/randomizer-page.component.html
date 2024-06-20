@@ -28,7 +28,10 @@
             <mat-card-title class="settings-title">Difficulty Settings</mat-card-title>
             <mat-tab-group animationDuration="0" scrollToCenter>
                 <mat-tab label="General">
-                <app-difficulty-settings [difficultyFormGroup]="formGroup.get('difficulty')" [starHuntFormControl]="formGroup.get('openLocations').get('starHunt')"></app-difficulty-settings>
+                <app-difficulty-settings [difficultyFormGroup]="formGroup.get('difficulty')"></app-difficulty-settings>
+                </mat-tab>
+                <mat-tab label="Goals">
+                  <app-goal-settings [goalsFormGroup]="formGroup.get('goals')"></app-goal-settings>
                 </mat-tab>
                 <mat-tab label="Stats & Gear">
                     <app-mario-settings [marioStatsFormGroup]="formGroup.get('marioStats')"></app-mario-settings>

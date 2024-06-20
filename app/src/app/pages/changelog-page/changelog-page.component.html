@@ -1,6 +1,104 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.27.0 (beta) (2024-06-20)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li>The update introduces breaking changes to the setting strings and presets. Previously exported settings will need to be exported again. Saved presets should work but many settings will not be imported properly.</li>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+    </ul>
+
+    <h2>Bug Fixes</h2>
+    <ul>
+        <li>Fixed a bug that could rarely cause unintended item prices for shop items in Dry Dry Outpost if "Randomize Puzzles" and "Shopsanity" were turned on</li>
+        <li>Lowered logical star piece requirements for some of Merlow's trades (the original calculations were off)</li>
+        <li>Homeward Shroom now properly reloads the music if the munching SFX is skipped by unpausing manually</li>
+        <li>Fix entrance rando issues with having Watt/Sushie/Lakilester active through certain loading zones</li>
+        <li>Fix counting star spirits twice during same-seed multiplayer</li>
+        <li>Fix Russ T. giving the toy box colored boxes code w/o having handed in the Dictionary first</li>
+        <li>(console only) Fix vanilla freeze when trying to Tidal Wave during phase 2 of the Lava Piranha battle if there are Petit Piranhas alive</li>
+        <li>Fix Kent C. Koopa breaking the coin cap when handing back the 50 coins when defeated after paying him</li>
+        <li>Fix frozen camera during Kooper's Shell turn-in cutscene</li>
+        <li>Fix broken seed generation if both `Mystery Only` and `Random Puzzles` are turned on</li>
+    </ul>
+
+    <h2>Options</h2>
+
+    <h3>Star Hunt (change)</h3>
+    <ul>
+      <li>Star Way Spirits Needed and Star Way Power Stars Needed options now determine how many spirits and power stars are needed to open Star Way. Any combination is valid, like 7 spirits & 0 power stars, 0 spirits & 50 power stars, 4 spirits & 30 power stars etc.</li>
+      <li>Star Hunt settings can now be found in the new "Goals" section, under "Difficulty Settings"</li>
+    </ul>
+
+    <h3>Seed Goal (new)</h3>
+    <ul>
+      <li>Select between "Defeat Bowser" and "Open Star Way"</li>
+      <li>"Open Star Way" is basically the old "Star Hunt Ends Game" setting, but can now be used while also requiring star spirits to open the teleporter.</li>
+    </ul>
+
+    <h3>Shuffle Star Beam (new) </h3>
+    <ul>
+      <li>Turns the Star Beam into an item and shuffles it into another location</li>
+      <li>Picking up the Star Beam item unlocks the Star Beam ability in battle, but does not increase the star power gauge or unlock any other star power ability</li>
+      <li>The Star Beam cutscene in Star Haven instead offers a different item</li>
+      <li>Hallway Bowser gets dialogue hinting at the location of the Star Beam, if Mario reaches him without having found the Star Beam. This dialogue plays even during "Cutscene Mode: Minimal"</li>
+    </ul>
+
+    <h3>Star Beam Spirits Needed and Star Beam Power Stars Needed (new)</h3>
+    <ul>
+      <li>Allows setting requirements for getting the item in the Star Beam item location in Star Haven</li>
+      <li>Can be combined with the new "Shuffle Star Beam" option</li>
+      <li>The "Require Specific Spirits" and "Limit Chapter Logic" options only affect opening Star Way, not acquiring the Star Beam</li>
+      <li>New sign posts on Shooting Star Summit and in Star Sanctuary will now spell out the requirements. If the unlock is free, that is it needs 0 Star Spirits and 0 Power Stars, the respective sign post will instead not spawn at all</li>
+      <li>The pause menu Power Stars counter has been reworked </li>
+      <li>This counter is hidden if there are no Power Stars placed in the seed</li>
+      <li>The icon in front of the "current / max" display now shows which unlock is coming up next:
+        Either a Shooting Star icon for "Star Way", the Star Beam icon for "Star Beam", and if both of those are already unlocked, a Power Star icon</li>
+      <li>The max value in the "current / max" display now also refers to the unlock that's coming up next</li>
+      <li>Example: Mario needs 10 Power Stars to open Star Way, 20 to get the Star Beam, and 35 total are placed in the seed. Then the Power Star counter will show:
+        <ul>
+          <li>"[Shooting Star icon] current / 10", if Mario has less than 10 Power Stars,</li>
+          <li>"[Star Beam icon] current / 20", if Mario has 10 or more, but fewer than 20 Power Stars,</li>
+          <li>"[Power Star icon] current / 35", if Mario has 20 or more Power Stars</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Glitches & Tricks (new)</h3>
+    <ul>
+      <li>"Volcano Sushie Glitch" (Goombario)</li>
+      <li>"Chapter 7 bridge with SuperBoots"</li>
+      <li>"Prologue Repel Gel early" (Parakarry-only and Lakilester-only versions)</li>
+      <li>"Clippy Sewers Upgrade Block"</li>
+      <li>"Kooper Puzzle Skip"</li>
+      <li>"Ruins Stones Skip"</li>
+      <li>"Wattless Dark room"</li>
+      <li>"Clippy Green Station Multicoin Block"</li>
+      <li>🎉Shoutouts to <span class="bolder-text">Nalfein</span> for discovering the Clippy Green Station trick and to <span class="bolder-text">Phantom</span> for adding the new tricks to the seed generator!!! 🎉</li>
+    </ul>
+
+    <h3>Glitches & Tricks (removed)</h3>
+    <ul>
+      <li>Flarakarry (Bombette) (due to it possibly causing a softlock)</li>
+    </ul>
+
+    <h2>Logic changes</h2>
+    <ul>
+      <li>While Keysanity is turned off, the FP Plus chest in the Koopa Bros. Fortress area is no longer a valid location for Koopa Fortress Keys</li>
+      <li>Now expects Watt for traversing the dark caves in Bowser's Castle</li>
+      <li>Now expects having enough star spirits and power stars to both open Star Way and get the Star Beam, to get past chapter 8 Jr. Troopa and Hallway Bowser (only relevant in prep for entrance rando)</li>
+    </ul>
+
+    <h2>Miscellaneous</h2>
+    <ul>
+      <li>Renamed some locations in the spoiler log for clarity</li>
+    </ul>
+
+  </mat-card>
+
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.26.0 (beta) (2024-03-20)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>

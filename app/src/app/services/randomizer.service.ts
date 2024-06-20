@@ -20,6 +20,7 @@ import { CharacterSpriteSetting } from '../entities/characterSpriteSetting';
 import { CoinColor } from '../entities/enum/coinColor';
 import { MysteryMode } from '../entities/enum/mysteryMode';
 import { MirrorMode } from '../entities/enum/mirrorMode';
+import { SeedGoal } from '../entities/enum/seedGoal';
 
 
 @Injectable({
@@ -150,6 +151,8 @@ export class RandomizerService {
 
   private prepareRequestObject(settingsForm: FormGroup) {
     var menuColor = settingsForm.get('cosmetics').get('menu').value
+    const isStarHuntEnabled = settingsForm.get('goals').get('includePowerStars').value;
+    const isStarBeamReachable = settingsForm.get('goals').get('seedGoal').value == SeedGoal.DefeatBowser;
 
     var settingsString = this._settingsStringService.compressFormGroup(settingsForm, this._settingsStringService.settingsMap);
     this._localStorage.set('latestSettingsString', settingsString);
@@ -270,9 +273,6 @@ export class RandomizerService {
       AddBetaItems: settingsForm.get('itemPool').get('addBetaItems').value,
       ProgressiveBadges: settingsForm.get('itemPool').get('progressiveBadges').value,
       BadgePoolLimit: settingsForm.get('itemPool').get('badgePoolLimit').value,
-      StarWaySpiritsNeededCnt: settingsForm.get('difficulty').get('randomNumberOfStarSpirits').value ? -1 : settingsForm.get('difficulty').get('starWaySpiritsNeeded').value,
-      RequireSpecificSpirits: settingsForm.get('difficulty').get('requireSpecificSpirits').value,
-      LimitChapterLogic: settingsForm.get('difficulty').get('limitChapterLogic').value,
       BadgeSynergy: settingsForm.get('difficulty').get('badgeSynergy').value,
       FoliageItemHints: settingsForm.get('qualityOfLife').get('foliageItemHints').value,
       RandomText: settingsForm.get('cosmetics').get('randomText').value,
@@ -299,10 +299,15 @@ export class RandomizerService {
       MerlowRewardPricing: settingsForm.get('difficulty').get('merlowRewardPricing').value,
       ProgressionOnRowf: settingsForm.get('items').get('progressionOnRowf').value,
       ProgressionOnMerlow: settingsForm.get('items').get('progressionOnMerlow').value,
-      StarHunt: settingsForm.get('openLocations').get('starHunt').value,
-      StarHuntEndsGame: settingsForm.get('openLocations').get('starHuntEndsGame').value,
-      StarHuntRequired: settingsForm.get('openLocations').get('starHunt').value ? settingsForm.get('openLocations').get('starHuntRequired').value : 0,
-      StarHuntTotal: settingsForm.get('openLocations').get('starHunt').value ? settingsForm.get('openLocations').get('starHuntTotal').value : 0,
+      SeedGoal: settingsForm.get('goals').get('seedGoal').value,
+      StarWaySpiritsNeededCnt: settingsForm.get('goals').get('starWaySpiritsNeeded').value,
+      RequireSpecificSpirits: settingsForm.get('goals').get('requireSpecificSpirits').value,
+      LimitChapterLogic: settingsForm.get('goals').get('limitChapterLogic').value,
+      ShuffleStarBeam: isStarBeamReachable ? settingsForm.get('goals').get('shuffleStarBeam').value : false,
+      StarBeamSpiritsNeeded: isStarBeamReachable ? settingsForm.get('goals').get('starBeamSpiritsNeeded').value : 0,
+      StarHuntTotal: isStarHuntEnabled ? settingsForm.get('goals').get('starHuntTotal').value : 0,
+      StarWayPowerStarsNeeded: isStarHuntEnabled ? settingsForm.get('goals').get('starWayPowerStarsNeeded').value : 0,
+      StarBeamPowerStarsNeeded: isStarHuntEnabled && isStarBeamReachable ? settingsForm.get('goals').get('starBeamPowerStarsNeeded').value: 0,
 
       // Glitches: Goomba Region
       PrologueGelEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "PrologueGelEarly"),
@@ -333,7 +338,9 @@ export class RandomizerService {
       ClippyBootsMetalBlockSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ClippyBootsMetalBlockSkip"),
       IslandPipeBlooperSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "IslandPipeBlooperSkip"),
       ParakarrylessSewerStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSewerStarPiece"),
+      ClippySewersUpgradeBlock: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ClippySewersUpgradeBlock"),
       SewerBlocksWithoutUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SewerBlocksWithoutUltraBoots"),
+      Chapter7BridgeWithSuperBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Chapter7BridgeWithSuperBoots"),
       FirstBlockToShiverCityWithoutSuperBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "FirstBlockToShiverCityWithoutSuperBoots"),
       BlocksToShiverCityWithKooperShellItemThrow: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlocksToShiverCityWithKooperShellItemThrow"),
       SewerYellowBlockWithUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SewerYellowBlockWithUltraBoots"),
@@ -377,6 +384,7 @@ export class RandomizerService {
       ParakarrylessSuperHammerRoomUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSuperHammerRoomUltraBoots"),
       ParakarrylessSuperHammerRoomNormalBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSuperHammerRoomNormalBoots"),
       RuinsLocksSkipClippy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsLocksSkipClippy"),
+      RuinsStoneSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsStoneSkip"),
 
       // Glitches: Boo's Mansion
       JumplessMansionEntry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessMansionEntry"),
@@ -408,12 +416,14 @@ export class RandomizerService {
       GourmetGuySkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GourmetGuySkipLaki"),
       GourmetGuySkipParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GourmetGuySkipParakarry"),
       BowlessGreenStation: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowlessGreenStation"),
+      ClippyGreenStationCoinBlock: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ClippyGreenStationCoinBlock"),
       KooperlessRedStationShootingStar: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessRedStationShootingStar"),
       GearlessRedStationShootingStar: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GearlessRedStationShootingStar"),
       ParakarrylessBlueBlockCityGap: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessBlueBlockCityGap"),
       BlueSwitchSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueSwitchSkipLaki"),
       BlueSwitchSkipUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueSwitchSkipUltraBoots"),
       RedBarricadeSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RedBarricadeSkip"),
+      WattlessDarkRoom: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "WattlessDarkRoom"),
       HammerlessBlueStationLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "HammerlessBlueStationLaki"),
       HammerlessPinkStationLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "HammerlessPinkStationLaki"),
 
@@ -435,6 +445,7 @@ export class RandomizerService {
       ParakarrylessFlarakarryBombette: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessFlarakarryBombette"),
       ParakarrylessFlarakarryLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessFlarakarryLaki"),
       VolcanoSushieGlitch: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "VolcanoSushieGlitch"),
+      VolcanoSushieGlitchGoombario: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "VolcanoSushieGlitchGoombario"),
 
       // Glitches: Flower Fields
       EarlyLakiLZS: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyLakiLZS"),
@@ -465,6 +476,7 @@ export class RandomizerService {
 
       // Glitches: Crystal Palace
       MirrorClip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MirrorClip"),
+      KooperPuzzleSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperPuzzleSkip"),
 
       // Glitches: Bowser's Castle
       BowlessBowsersCastleBasement: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowlessBowsersCastleBasement"),

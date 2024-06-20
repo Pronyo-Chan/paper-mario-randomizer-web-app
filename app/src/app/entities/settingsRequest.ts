@@ -13,6 +13,7 @@ import { LakilesterSprite } from './enum/lakilesterSprite';
 import { MusicMode } from './enum/musicMode';
 import { StatusBarColorMode } from './enum/statusBarColorMode';
 import { MirrorMode } from './enum/mirrorMode';
+import { SeedGoal } from './enum/seedGoal';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -126,6 +127,9 @@ export interface SettingsRequest {
     RandomConsumableMode: number;
     StarWaySpiritsNeededCnt: number;
     RequireSpecificSpirits: boolean;
+    ShuffleStarBeam: boolean;
+    StarBeamSpiritsNeeded: number;
+    StarBeamPowerStarsNeeded: number;
     LimitChapterLogic: boolean;
     FoliageItemHints: boolean;
     RandomText: boolean;
@@ -158,10 +162,9 @@ export interface SettingsRequest {
     MerlowRewardPricing: number;
     ProgressionOnRowf: boolean;
     ProgressionOnMerlow: boolean;
-    StarHunt: boolean;
-    StarHuntRequired: number;
+    StarWayPowerStarsNeeded: number;
     StarHuntTotal: number;
-    StarHuntEndsGame: boolean;
+    SeedGoal: SeedGoal;
 
     // Glitches: Goomba Region
     PrologueGelEarly: boolean
@@ -192,7 +195,9 @@ export interface SettingsRequest {
     ClippyBootsMetalBlockSkip: boolean
     IslandPipeBlooperSkip: boolean
     ParakarrylessSewerStarPiece: boolean
+    ClippySewersUpgradeBlock: boolean
     SewerBlocksWithoutUltraBoots: boolean
+    Chapter7BridgeWithSuperBoots: boolean
     FirstBlockToShiverCityWithoutSuperBoots: boolean
     BlocksToShiverCityWithKooperShellItemThrow: boolean
     SewerYellowBlockWithUltraBoots: boolean
@@ -236,6 +241,7 @@ export interface SettingsRequest {
     ParakarrylessSuperHammerRoomUltraBoots: boolean
     ParakarrylessSuperHammerRoomNormalBoots: boolean
     RuinsLocksSkipClippy: boolean
+    RuinsStoneSkip: boolean
 
     // Glitches: Boo's Mansion
     JumplessMansionEntry: boolean
@@ -266,12 +272,14 @@ export interface SettingsRequest {
     GourmetGuySkipLaki: boolean
     GourmetGuySkipParakarry: boolean
     BowlessGreenStation: boolean
+    ClippyGreenStationCoinBlock: boolean
     KooperlessRedStationShootingStar: boolean
     GearlessRedStationShootingStar: boolean
     ParakarrylessBlueBlockCityGap: boolean
     BlueSwitchSkipLaki: boolean
     BlueSwitchSkipUltraBoots: boolean
     RedBarricadeSkip: boolean
+    WattlessDarkRoom: boolean
     HammerlessBlueStationLaki: boolean
     HammerlessPinkStationLaki: boolean
 
@@ -293,6 +301,7 @@ export interface SettingsRequest {
     ParakarrylessFlarakarryBombette: boolean
     ParakarrylessFlarakarryLaki: boolean
     VolcanoSushieGlitch: boolean
+    VolcanoSushieGlitchGoombario: boolean
 
     // Glitches: Flower Fields
     EarlyLakiLZS: boolean
@@ -323,6 +332,7 @@ export interface SettingsRequest {
 
     // Glitches: Crystal Palace
     MirrorClip: boolean
+    KooperPuzzleSkip: boolean
 
     // Glitches: Bowser's Castle
     BowlessBowsersCastleBasement: boolean
