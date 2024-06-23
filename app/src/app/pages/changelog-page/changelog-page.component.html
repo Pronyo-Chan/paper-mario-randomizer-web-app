@@ -1,6 +1,23 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.27.1 (beta) (2024-06-24)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li>The 0.27.x updates introduces breaking changes to the setting strings and presets. Previously exported settings will need to be exported again. Saved presets should work but many settings will not be imported properly.</li>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+    </ul>
+
+    <h2>Bug Fixes</h2>
+    <ul>
+        <li>Fix a bug with `Require Specific Spirits` and `Goal: Open Star Way`, where the holograms of the spirits required to rescue don't show up on Shooting Star Summit.</li>
+    </ul>
+
+  </mat-card>
+
+  <mat-card class="settings-card latest-changelog">
     <mat-card-title class="settings-title">0.27.0 (beta) (2024-06-20)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
