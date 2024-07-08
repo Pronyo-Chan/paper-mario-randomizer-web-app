@@ -154,6 +154,10 @@ export class RandomizerService {
     const isStarHuntEnabled = settingsForm.get('goals').get('includePowerStars').value;
     const isStarBeamReachable = settingsForm.get('goals').get('seedGoal').value == SeedGoal.DefeatBowser;
 
+    if (settingsForm.get('openLocations').get('magicalSeedsRequired').value === 5) {
+      settingsForm.get('openLocations').get('magicalSeedsRequired').setValue(-1);
+    }
+
     var settingsString = this._settingsStringService.compressFormGroup(settingsForm, this._settingsStringService.settingsMap);
     this._localStorage.set('latestSettingsString', settingsString);
 
