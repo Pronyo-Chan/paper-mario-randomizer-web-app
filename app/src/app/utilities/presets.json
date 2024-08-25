@@ -764,7 +764,7 @@
         }
     },
     {
-      "name": "Standard Race (S1)",
+      "name": "All Chapters Race",
       "settings":{
          "items":{
             "shuffleItems":true,
@@ -819,7 +819,7 @@
             "alwaysPeekaboo":true,
             "skipQuiz":true,
             "preventPhysicsGlitches":false,
-            "shortenCutscenes": 1,
+            "shortenCutscenes": 2,
             "skipEpilogue":true,
             "writeSpoilerLog":true,
             "revealLogInHours": 7,
@@ -958,7 +958,7 @@
       }
     },
     {
-      "name": "Standard Race (S2)",
+      "name": "Blitz Race (S2)",
       "settings": {
         "items": {
           "shuffleItems": true,
@@ -1160,7 +1160,7 @@
       }
     },
     {
-      "name": "Standard Race (S3)",
+      "name": "Blitz Race (S3)",
       "settings": {
         "items": {
           "shuffleItems": true,
