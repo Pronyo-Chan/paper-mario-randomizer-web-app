@@ -71,6 +71,7 @@
               <input matInput type="number"
               min="0"
               max="120"
+              oninput="this.value=(parseInt(this.value)||0)"
               formControlName='starHuntTotal'
               (blur)="onTotalStarsBlur()">
           </div>
@@ -86,6 +87,7 @@
                 <input matInput type="number"
                 min="0"
                 max="120"
+                oninput="this.value=(parseInt(this.value)||0)"
                 formControlName='starWayPowerStarsNeeded'
                 (blur)="onRequiredStarWayStarsBlur()">
             </div>
@@ -103,6 +105,7 @@
               <input matInput type="number"
               min="0"
               max="120"
+              oninput="this.value=(parseInt(this.value)||0)"
               formControlName='starBeamPowerStarsNeeded'
               (blur)="onRequiredStarBeamStarsBlur()">
           </div>
@@ -114,9 +117,9 @@
       </ng-container>
 
     </mat-card-content>
-    <ul *ngIf="goalsFormGroup.invalid">
+    <ul *ngIf="goalsFormGroup.get('starHuntTotal').hasError('greaterOrEqual')">
       <mat-divider></mat-divider>
-      <li *ngIf="goalsFormGroup.get('starHuntTotal').hasError('greaterOrEqual')">
+      <li>
           Number of placed stars must be greater or equal to required stars
       </li>
   </ul>

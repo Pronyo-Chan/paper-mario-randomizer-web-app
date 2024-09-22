@@ -1,5 +1,5 @@
 <form [formGroup]="formGroup">
-    <mat-card-content class=settings-card-content>        
+    <mat-card-content class=settings-card-content>
         <div class="setting-element">
             <mat-slide-toggle [formControl]="writeSpoilerLogControl"></mat-slide-toggle>
             <app-tooltip-span spanText="Include Spoiler Log" tooltipText="A Spoiler Log containing every item location in your custom ROM will be provided"></app-tooltip-span>
@@ -16,9 +16,10 @@
             <app-tooltip-span spanText="Reveal log in" tooltipText="Amount of hours to delay the availability of spoiler log for races."></app-tooltip-span>
             <input class="center-input"
                  matInput type="number"
-                 min="0" 
+                 min="0"
                  max="700"
-                 step="1" 
+                 step="1"
+                 oninput="this.value=(parseInt(this.value)||0)"
                  [formControl]="formGroup.get('qualityOfLife').get('revealLogInHours')"
                  (blur)="onRevealLogInHoursBlur()"
                  autocomplete="off">
