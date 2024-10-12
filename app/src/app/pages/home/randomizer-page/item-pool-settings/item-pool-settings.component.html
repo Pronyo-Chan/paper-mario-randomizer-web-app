@@ -63,6 +63,7 @@
             <input matInput type="number"
             min="0"
             max="128"
+            oninput="this.value=(parseInt(this.value)||0)"
             formControlName='badgePoolLimit'
             (blur)="onBadgeLimitBlur()">
         </div>
