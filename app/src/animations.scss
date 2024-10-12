@@ -1,0 +1,21 @@
+.animate-character
+{
+  background-image: linear-gradient(
+    -300deg,
+    #0f0b02 0%,
+    #291e06 29%,
+    #57400c 67%,
+    #7c5c11 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 3s ease-in infinite reverse;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
