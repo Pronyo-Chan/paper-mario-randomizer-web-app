@@ -273,7 +273,7 @@
                 (ngModelChange)="filter()"
                 matInput
                 [matAutocomplete]="auto">
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"  (optionSelected)="onItemSearchChange()">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"  (optionSelected)="onItemSearchChange()" class="fancy-scrollbar">
             <mat-option *ngFor="let item of filteredSearchItems" [value]="item">
             {{item}}
             </mat-option>

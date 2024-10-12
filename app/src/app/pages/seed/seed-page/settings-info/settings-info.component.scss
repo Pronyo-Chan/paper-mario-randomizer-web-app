@@ -12,19 +12,18 @@
         @include medium {
             flex-basis: 45%;
         }
-        
+
         p {
             font-family: gluten;
             font-weight: 500;
             span.seed-detail {
                 font-size: 18px;
-                font-style: italic;
-                color: $yellow-stat-text;        
+                color: $yellow-stat-text;
             }
 
             span.copied-message {
                 font-size: 14px;
-                color: $blue-item-main;        
+                color: $blue-item-main;
             }
         }
         span.expiration-warning{
@@ -41,7 +40,7 @@
         }
 
         div.input-label {
-    
+
             textarea {
                 width: 80%;
                 resize: none;
@@ -83,26 +82,10 @@
             float:right;
             width: 100%;
 
-            scrollbar-width: thin !important;
-            scrollbar-color: $yellow-stat-border $purple-background-secondary  !important;
-
-            &::-webkit-scrollbar {
-                width: 8px;
-                height: 8px;
-              }
-            &::-webkit-scrollbar-track {
-                background-color: $purple-background-secondary;
-                border-radius: 10px;
-              }
-            &::-webkit-scrollbar-thumb {
-                background-color: $yellow-stat-border;
-                border-radius: 10px;
-              }
-            
             mat-table {
                 font-family: gluten;
                 background-color: inherit;
-                
+
                 .mat-cell {
                     white-space: pre-line;
                     overflow-wrap: break-word;
@@ -118,13 +101,13 @@
                 .mat-header-cell:last-of-type {
                     padding-left: 10%;
                 }
-    
+
                 td.mat-cell:last-of-type{
                     padding-left: 10%;
                 }
             }
         }
     }
-    
-    
+
+
 }

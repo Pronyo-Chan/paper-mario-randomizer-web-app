@@ -1,5 +1,6 @@
 @import './variables';
 @import './mixins';
+@import './animations';
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 
@@ -180,3 +181,23 @@ select {
 
 html, body { height: 100%; }
 body { margin: 3vmax 0 0 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.fancy-scrollbar {
+  scrollbar-width: thin !important;
+  scrollbar-color: $yellow-stat-border $purple-background-secondary  !important;
+
+  &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+  &::-webkit-scrollbar-track {
+      background-color: $purple-background-secondary;
+      border-radius: 10px;
+    }
+
+  &::-webkit-scrollbar-thumb {
+      background-color: $yellow-stat-border;
+      border-radius: 10px;
+    }
+}

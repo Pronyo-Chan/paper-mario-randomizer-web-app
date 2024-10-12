@@ -5,7 +5,7 @@
      .mat-tab-body-content {
         display: flex;
         flex-wrap: wrap;
-    
+
         div.search-container {
             margin-top: 2rem;
             flex-basis: 45%;
@@ -23,8 +23,6 @@
                 font-weight: 500;
                 padding: 0 1% 0 1%;
                 span {
-                    font-style: italic;                  
-
                     &.item-name{
                         color: $blue-item-main;
                         font-weight: 700;
@@ -48,7 +46,7 @@
             flex-grow: 2;
 
             div.table-container {
-                float:right;                
+                float:right;
                 width: 100%;
 
                 p {
@@ -61,7 +59,7 @@
                     font-family: gluten;
                     background-color: inherit;
                     min-height: 30rem;
-                    
+
                     .mat-cell {
                         overflow-wrap: break-word;
                         width: 25%;
@@ -76,7 +74,7 @@
                                 display: block;
                                 line-height: 16px;
                             }
-                           
+
                         }
                     }
 
@@ -92,14 +90,14 @@
                     .mat-header-cell:last-of-type {
                         padding-left: 10%;
                     }
-        
+
                     td.mat-cell:last-of-type{
                         padding-left: 10%;
                     }
                 }
             }
         }
-    }    
+    }
 }
 
 button {

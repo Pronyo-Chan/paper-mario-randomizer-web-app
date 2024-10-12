@@ -5,9 +5,9 @@
     <p>Expiration Date: <span class="seed-detail">{{expirationDate | date}}</span> <span style="color: red;">*</span></p>
     <div *ngIf="seedModel.SeedInfo.SettingsString" class="input-label">
         <p class="settings-label">Settings string
-             <mat-icon class="material-icons-outlined" 
+             <mat-icon class="material-icons-outlined"
                        [cdkCopyToClipboard]="seedModel.SeedInfo.SettingsString"
-                       [matTooltip]="'Copy to clipboard'" 
+                       [matTooltip]="'Copy to clipboard'"
                        [matTooltipPosition]="'right'"
                        (click)="copiedToClipboard = true"
                        (mouseenter)="copiedToClipboard = false">
@@ -19,7 +19,7 @@
     </div>
     <span class="expiration-warning">*Generated seeds are stored for a period of 30 days and are automatically deleted after.
          Please make sure to download and keep your patch / spoiler log before then if you plan on needing them later.</span>
-         
+
 </div>
 <div class="right-container">
     <div class="setting-element dropdown-element">
@@ -30,14 +30,14 @@
     </div>
 
 
-    <div class="table-container">
+    <div class="table-container fancy-scrollbar">
         <mat-divider></mat-divider>
         <mat-table [dataSource]="displayedRows">
             <ng-container matColumnDef="name" >
                 <th mat-header-cell *matHeaderCellDef stic>Name</th>
                 <td mat-cell *matCellDef="let setting">{{setting.name}}</td>
             </ng-container>
-            
+
             <ng-container matColumnDef="value">
                 <th mat-header-cell *matHeaderCellDef>Value</th>
                 <td mat-cell *matCellDef="let setting">{{setting.value}}</td>
@@ -47,4 +47,4 @@
     </div>
 </div>
 
-        
+
