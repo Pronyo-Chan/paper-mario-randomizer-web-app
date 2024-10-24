@@ -15,7 +15,7 @@
             </mat-icon>
             <span class="copied-message" *ngIf="copiedToClipboard">✔️ Copied to clipboard!</span>
         </p>
-        <textarea rows="3"matInput [disabled]="true" [(ngModel)]="seedModel.SeedInfo.SettingsString"> </textarea>
+        <textarea rows="4"matInput [disabled]="true" [(ngModel)]="seedModel.SeedInfo.SettingsString"> </textarea>
     </div>
     <span class="expiration-warning">*Generated seeds are stored for a period of 30 days and are automatically deleted after.
          Please make sure to download and keep your patch / spoiler log before then if you plan on needing them later.</span>
