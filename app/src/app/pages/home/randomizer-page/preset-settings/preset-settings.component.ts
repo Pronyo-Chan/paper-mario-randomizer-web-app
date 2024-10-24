@@ -27,6 +27,8 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
 
   public settingsString: string = null;
   public importStatus: string = null;
+  public copiedToClipboard = false;
+
   private _dialogSubscription: any;
 
   public constructor(private _dialog: MatDialog, private _mappingService: SettingStringMappingService) { }

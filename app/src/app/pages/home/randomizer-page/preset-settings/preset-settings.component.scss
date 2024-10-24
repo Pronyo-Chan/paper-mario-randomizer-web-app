@@ -17,7 +17,6 @@
 }
 
 .setting-string-container{
-    margin-top: 1rem;
     flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -26,6 +25,14 @@
     .input-label {
         flex-basis: 80%;
         margin-top: 1rem;
+
+        .mat-icon {
+          position: relative;
+          top: 8px;
+          margin-left: 4px;
+          font-size: 20px;
+          cursor: pointer;
+        }
 
         input {
             width: 85%;
@@ -39,13 +46,13 @@ span {
 
 span.error {
     font-family: gluten;
-    color: red;   
-    font-weight: 600;  
+    color: red;
+    font-weight: 600;
 }
 
 span.success {
     font-family: gluten;
-    font-weight: 600;  
+    font-weight: 600;
 }
 
 button:disabled {

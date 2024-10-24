@@ -6,8 +6,8 @@
                 <option *ngFor="let customPreset of customPresets">{{customPreset.name}}</option>
                 <option *ngFor="let preset of premadePresets">{{preset.name}}</option>
             </select>
-        </div>            
-        
+        </div>
+
         <div>
             <button class="yellow-button" [disabled]="isSelectedPresetPremade()" (click)="savePreset()">
                 <span [matTooltip]="isSelectedPresetPremade() ? 'Built-in presets cannot be overwritten': ''" matTooltipPosition="right">Save</span>
@@ -31,24 +31,36 @@
                 <span class="success">Removed preset: {{recentlyRemovedPreset}}</span>
             </ng-container>
         </div>
-        
+
     </div>
     <div class="setting-string-container">
         <div class="input-label">
             <span class="settings-label">Settings string: </span>
             <input matInput [(ngModel)]="settingsString">
+            <mat-icon
+              class="material-icons-outlined"
+              [cdkCopyToClipboard]="settingsString"
+              [matTooltip]="'Copy to clipboard'"
+              [matTooltipPosition]="'right'"
+              (click)="copiedToClipboard = true"
+              (mouseenter)="copiedToClipboard = false">
+              content_copy
+            </mat-icon>
+            <span class="copied-message" *ngIf="copiedToClipboard">✔️</span>
+
         </div>
 
-            <button class="yellow-button"  (click)="importSettings()"><span>Import</span></button>
-            <button class="yellow-button"  (click)="exportSettings()"><span>Export</span></button>
-            <div *ngIf="importStatus == 'error'">
-                <span>❌</span>
-                <span class="error">Invalid setting string</span>
-            </div>
-            <div *ngIf="importStatus == 'success'">
-                <span>✔️</span>
-                <span class="success">Settings import successful!</span>
-            </div>   
+
+        <button class="yellow-button"  (click)="importSettings()"><span>Import</span></button>
+        <button class="yellow-button"  (click)="exportSettings()"><span>Export</span></button>
+        <div *ngIf="importStatus == 'error'">
+            <span>❌</span>
+            <span class="error">Invalid setting string</span>
+        </div>
+        <div *ngIf="importStatus == 'success'">
+            <span>✔️</span>
+            <span class="success">Settings import successful!</span>
+        </div>
     </div>
-    
+
 </mat-card-content>
