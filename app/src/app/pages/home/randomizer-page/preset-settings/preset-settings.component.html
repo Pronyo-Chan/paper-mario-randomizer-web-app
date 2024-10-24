@@ -41,7 +41,7 @@
               class="material-icons-outlined"
               [cdkCopyToClipboard]="settingsString"
               [matTooltip]="'Copy to clipboard'"
-              [matTooltipPosition]="'right'"
+              [matTooltipPosition]="'above'"
               (click)="copiedToClipboard = true"
               (mouseenter)="copiedToClipboard = false">
               content_copy
@@ -51,16 +51,8 @@
         </div>
 
 
-        <button class="yellow-button"  (click)="importSettings()"><span>Import</span></button>
+        <button class="yellow-button"  [disabled]="!settingsString?.length" (click)="importSettings()"><span>Import</span></button>
         <button class="yellow-button"  (click)="exportSettings()"><span>Export</span></button>
-        <div *ngIf="importStatus == 'error'">
-            <span>❌</span>
-            <span class="error">Invalid setting string</span>
-        </div>
-        <div *ngIf="importStatus == 'success'">
-            <span>✔️</span>
-            <span class="success">Settings import successful!</span>
-        </div>
     </div>
 
 </mat-card-content>

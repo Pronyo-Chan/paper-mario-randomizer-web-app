@@ -6,6 +6,7 @@ import presetsJson from  '../../../../utilities/presets.json';
 import { MatDialog } from '@angular/material/dialog';
 import { LogicGlitch } from 'src/app/entities/logicGlitch';
 import glitchesJson from '../../../../utilities/glitches.json'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-preset-settings',
@@ -26,14 +27,13 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
   public recentlyRemovedPreset: string = null;
 
   public settingsString: string = null;
-  public importStatus: string = null;
   public copiedToClipboard = false;
 
   private _dialogSubscription: any;
 
-  public constructor(private _dialog: MatDialog, private _mappingService: SettingStringMappingService) { }
+  public constructor(private _dialog: MatDialog, private _mappingService: SettingStringMappingService, private _toastr: ToastrService) { }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if(this._dialogSubscription) {
       this._dialogSubscription.unsubscribe();
     }
@@ -65,6 +65,14 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
     }
 
     this.presetStatus = null;
+  }
+
+  public showImportSuccess() {
+    this._toastr.success('Settings import successful!');
+  }
+
+  public showImportError() {
+    this._toastr.error('Invalid setting string');
   }
 
   public loadPreset(): void {
@@ -132,21 +140,18 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
   }
 
   public exportSettings() {
-    this.importStatus = null;
-
     this.settingsString = this._mappingService.compressFormGroup(this.formGroup, this._mappingService.settingsMap)
   }
 
   public importSettings() {
-    this.importStatus = null;
     const previousFormState = this.formGroup.getRawValue()
     try {
       this._mappingService.decompressFormGroup(this.settingsString, this.formGroup, this._mappingService.settingsMap)
-      this.importStatus = "success";
+      this.showImportSuccess();
     }
     catch(error) {
       this.formGroup.patchValue(previousFormState)
-      this.importStatus = "error";
+      this.showImportError();
     }
   }
 
