@@ -87,6 +87,18 @@ export class SettingsInfoComponent implements OnInit {
     this.displayedRows = this.displayedRows.filter(sr => sr.value != null)
   }
 
+  public getSettingValueText(value: string | boolean) {
+    if (value === true) {
+      return "✔️"
+    }
+
+    if (value === false) {
+      return "❌"
+    }
+
+    return value;
+  }
+
   private initRows(): void {
     this.initItemRows();
     this.initPartnerRows();
