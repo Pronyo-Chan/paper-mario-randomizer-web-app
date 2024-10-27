@@ -50,9 +50,11 @@
 
         </div>
 
+        <div>
+          <button class="yellow-button"  [disabled]="!settingsString?.length" (click)="importSettings()"><span>Import</span></button>
+          <button class="yellow-button"  (click)="exportSettings()"><span>Export</span></button>
+        </div>
 
-        <button class="yellow-button"  [disabled]="!settingsString?.length" (click)="importSettings()"><span>Import</span></button>
-        <button class="yellow-button"  (click)="exportSettings()"><span>Export</span></button>
     </div>
 
 </mat-card-content>

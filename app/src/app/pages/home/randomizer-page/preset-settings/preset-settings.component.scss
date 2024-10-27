@@ -1,4 +1,6 @@
 @import './../../../../../variables';
+@import './../../../../../mixins.scss';
+
 .preset-button-container{
     flex-basis: 50%;
     display: flex;
@@ -23,7 +25,9 @@
     align-items: center;
 
     .input-label {
+      @include medium {
         flex-basis: 80%;
+      }
         margin-top: 1rem;
 
         .mat-icon {
