@@ -87,13 +87,17 @@ export class SettingsInfoComponent implements OnInit {
     this.displayedRows = this.displayedRows.filter(sr => sr.value != null)
   }
 
-  public getSettingValueText(value: string | boolean) {
+  public isValueBoolean(value: string | boolean) {
+    return typeof value === "boolean";
+  }
+
+  public getSettingValueSvg(value: string | boolean) {
     if (value === true) {
-      return "✔️"
+      return "assets/images/check_circle.svg"
     }
 
     if (value === false) {
-      return "❌"
+      return "assets/images/block.svg"
     }
 
     return value;

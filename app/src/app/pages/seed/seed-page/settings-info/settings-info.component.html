@@ -40,11 +40,18 @@
 
             <ng-container matColumnDef="value">
                 <th mat-header-cell *matHeaderCellDef>Value</th>
-                <td mat-cell *matCellDef="let setting">{{getSettingValueText(setting.value)}}</td>
+                <td mat-cell *matCellDef="let setting">
+                  <ng-container [ngSwitch]="isValueBoolean(setting.value)">
+                    <ng-container *ngSwitchCase="true">
+                      <img [src]="getSettingValueSvg(setting.value)">
+                    </ng-container>
+                    <ng-container *ngSwitchCase="false">
+                      {{setting.value}}
+                    </ng-container>
+                  </ng-container>
+                </td>
             </ng-container>
             <tr mat-row *matRowDef="let row; columns: ['name', 'value'];"></tr>
         </mat-table>
     </div>
 </div>
-
-
