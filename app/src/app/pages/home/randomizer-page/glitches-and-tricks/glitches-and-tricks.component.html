@@ -37,7 +37,7 @@
                 <mat-selection-list  #glitches class="glitches-list fancy-scrollbar" formControlName="glitches">
                     <mat-list-option *ngFor="let glitch of glitchesList" [value]="glitch" [ngStyle]="{ display : isGlitchInFilteredList(glitch) ? 'block' : 'none' }" [disabled]="!isGlitchInFilteredList(glitch)" >
                         <a class="image-link" [ngClass]="{ 'disabled-link' : !glitch.link}" [href]="glitch.link" target="_blank" rel="noopener noreferrer" (click)="$event.stopPropagation()">
-                            <mat-icon class="material-icons-outlined">smart_display</mat-icon>
+                            <mat-icon class="material-icons-outlined video-icon">smart_display</mat-icon>
                         </a>
                         <app-tooltip-span [tooltipText]="glitch.description" [spanText]="glitch.name"></app-tooltip-span>
                     </mat-list-option>
@@ -50,7 +50,7 @@
                 <mat-list class="glitches-list fancy-scrollbar">
                     <mat-list-item *ngFor="let enabledGlitch of formGroup.get('glitches').value">
                         <a class="image-link" [ngClass]="{ 'disabled-link' : !enabledGlitch.link}" [href]="enabledGlitch.link" target="_blank" rel="noopener noreferrer">
-                            <mat-icon class="material-icons-outlined">smart_display</mat-icon>
+                            <mat-icon class="material-icons-outlined video-icon">smart_display</mat-icon>
                         </a>
                         <app-tooltip-span [tooltipText]="enabledGlitch.description" [spanText]="enabledGlitch.name"></app-tooltip-span>
                         <button (click)="disableGlitch(enabledGlitch)" class="remove-button">
