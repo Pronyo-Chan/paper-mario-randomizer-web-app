@@ -14,6 +14,7 @@ import { MusicMode } from './enum/musicMode';
 import { StatusBarColorMode } from './enum/statusBarColorMode';
 import { MirrorMode } from './enum/mirrorMode';
 import { SeedGoal } from './enum/seedGoal';
+import { DungeonEntranceShuffleMode as DungeonEntranceShuffleMode } from './enum/DungeonEntranceShuffleMode';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -43,7 +44,7 @@ export interface SettingsRequest {
     ProgressiveScaling: boolean;
     RandomFormations: boolean;
     RandomizePuzzles: boolean;
-    ShuffleDungeonEntrances: boolean;
+    ShuffleDungeonEntrances: DungeonEntranceShuffleMode;
     MirrorMode: MirrorMode;
     StaticMapMirroring: boolean;
     ShuffleItems: boolean;

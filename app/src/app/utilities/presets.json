@@ -124,7 +124,7 @@
                 "foreverForestOpen": true,
                 "prologueOpen": false,
                 "bowsersCastleMode": 1,
-                "shuffleDungeonEntrances": false,
+                "shuffleDungeonEntrances": 0,
                 "mirrorMode": 0,
                 "startingMap": 65796
             },
@@ -315,7 +315,7 @@
             "foreverForestOpen": true,
             "prologueOpen": true,
             "bowsersCastleMode": 0,
-            "shuffleDungeonEntrances": false,
+            "shuffleDungeonEntrances": 0,
             "mirrorMode": 0,
             "startingMap": 65796
           },
@@ -506,7 +506,7 @@
             "foreverForestOpen": true,
             "prologueOpen": false,
             "bowsersCastleMode": 1,
-            "shuffleDungeonEntrances": false,
+            "shuffleDungeonEntrances": 0,
             "mirrorMode": 0,
             "startingMap": 65796
           },
@@ -697,7 +697,7 @@
             "foreverForestOpen": true,
             "prologueOpen": false,
             "bowsersCastleMode": 0,
-            "shuffleDungeonEntrances": false,
+            "shuffleDungeonEntrances": 0,
             "mirrorMode": 0,
             "startingMap": 65796
           },
@@ -891,7 +891,7 @@
             "foreverForestOpen": true,
             "prologueOpen": true,
             "bowsersCastleMode":2,
-            "shuffleDungeonEntrances": false,
+            "shuffleDungeonEntrances": 0,
             "mirrorMode": 0,
             "startingMap":65796
          },
@@ -1094,7 +1094,7 @@
           "prologueOpen": true,
           "startingMap": 65796,
           "bowsersCastleMode": 2,
-          "shuffleDungeonEntrances": false,
+          "shuffleDungeonEntrances": 0,
           "mirrorMode": 0
         },
         "cosmetics": {
@@ -1296,7 +1296,7 @@
           "prologueOpen": true,
           "startingMap": 65796,
           "bowsersCastleMode": 2,
-          "shuffleDungeonEntrances": false,
+          "shuffleDungeonEntrances": 0,
           "mirrorMode": 0
         },
         "cosmetics": {

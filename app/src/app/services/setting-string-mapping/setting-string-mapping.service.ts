@@ -145,7 +145,7 @@ export class SettingStringMappingService {
     { compressedString: "p", key: "prologueOpen", type: "bool"},
     { compressedString: "m", key: "magicalSeedsRequired", type: "number"},
     { compressedString: "o", key: "bowsersCastleMode", type: "number"},
-    { compressedString: "d", key: "shuffleDungeonEntrances", type: "bool"},
+    { compressedString: "d", key: "shuffleDungeonEntrances", type: "number"},
     { compressedString: "z", key: "mirrorMode", type: "number"}
   ]
 

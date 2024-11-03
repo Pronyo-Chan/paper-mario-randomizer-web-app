@@ -1,3 +1,4 @@
+import { DungeonEntranceShuffleMode } from './../../../../entities/enum/DungeonEntranceShuffleMode';
 import { MerlowRewardPricing } from './../../../../entities/enum/merlowRewardPricing';
 import { Boots } from './../../../../entities/enum/boots';
 import { BowsersCastleMode } from './../../../../entities/enum/bowsersCastleMode';
@@ -301,7 +302,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Open Blue House", value: this.seedModel.World.OpenBlueHouse},
       {name: "Ch.7 Bridge Visible", value: this.seedModel.World.Ch7BridgeVisible},
       {name: "Bowser's Castle Mode", value: BowsersCastleMode[this.seedModel.World.BowsersCastleMode]},
-      {name: "Shuffle Dungeon Entrances", value: this.seedModel.World.ShuffleDungeonEntrances},
+      {name: "Shuffle Dungeon Entrances", value: DungeonEntranceShuffleMode[this.seedModel.World.ShuffleDungeonEntrances]},
       {name: "Mirror Mode", value: MirrorMode[this.seedModel.World.MirrorMode]},
     ] as SettingRow[]
   }

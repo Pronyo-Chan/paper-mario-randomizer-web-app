@@ -25,6 +25,7 @@ import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode
 import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeShuffleMode';
 import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
 import { SeedGoal } from 'src/app/entities/enum/seedGoal';
+import { DungeonEntranceShuffleMode } from 'src/app/entities/enum/DungeonEntranceShuffleMode';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -228,7 +229,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         prologueOpen: new FormControl(false),
         startingMap: new FormControl(StartingMap.ToadTown),
         bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla),
-        shuffleDungeonEntrances: new FormControl(false),
+        shuffleDungeonEntrances: new FormControl(DungeonEntranceShuffleMode.Off),
         mirrorMode: new FormControl(MirrorMode.Off),
       }),
       goals: new FormGroup({
