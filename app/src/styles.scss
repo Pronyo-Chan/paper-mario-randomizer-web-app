@@ -177,6 +177,12 @@ input.mat-input-element:focus {
     height: inherit !important;
 }
 
+.ngx-toastr {
+  @include medium {
+    width: 25rem !important;
+  }
+}
+
 select {
   border: inset;
   border-radius: 4px;
