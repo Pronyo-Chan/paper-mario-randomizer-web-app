@@ -1,14 +1,20 @@
 <form [formGroup]="partnersFormGroup">
     <mat-card-content class=settings-card-content>
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='shufflePartners'></mat-slide-toggle>
-            <app-tooltip-span
-                spanText="Shuffle Partners"
-                tooltipText="Off: Partners can be obtained at their vanilla locations
 
-                    On: Partners are added to the item pool and are obtained as an item. Vanilla partner locations will give a random item instead">
-            </app-tooltip-span>
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span
+               spanText="Shuffle Partners"
+                tooltipText="Off: Partners can be obtained at their vanilla locations.
+                Partner Locations: Partners are shuffled but only amongst themselves.
+                Full Shuffle: Partners are added to the item pool and are obtained as an item. Vanilla partner locations will give a random item instead.">
+          </app-tooltip-span>
+          <select formControlName='shufflePartners'>
+              <option [ngValue]="0">Off</option>
+              <option [ngValue]="1">Partner Locations</option>
+              <option [ngValue]="2">Full Shuffle</option>
+          </select>
         </div>
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='partnersAlwaysUsable'></mat-slide-toggle>
             <app-tooltip-span

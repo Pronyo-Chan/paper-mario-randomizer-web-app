@@ -17,18 +17,19 @@
                                 On: Dungeon keys can be found anywhere" >
             </app-tooltip-span>
         </div>
+
         <div class="setting-element">
-            <mat-slide-toggle formControlName='includeDojo'></mat-slide-toggle>
-            <app-tooltip-span spanText="Include Dojo Rewards" tooltipText="Include Dojo fight rewards in the item pool. The logic can only expect you to do the 2nd fight with 1 star spirit saved. Master fights requirements are 3,4 and 5 star spirits saved."></app-tooltip-span>
+          <mat-slide-toggle formControlName='shuffleBlocks'></mat-slide-toggle>
+          <app-tooltip-span spanText="Shuffle Super/Multicoin Blocks" tooltipText="Shuffles the locations of the Super Blocks and Multicoin Brick Blocks together."></app-tooltip-span>
         </div>
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='includeRadioTradeEvent'></mat-slide-toggle>
             <app-tooltip-span spanText="Include Trading Event Rewards" tooltipText="Adds the 3 rewards obtained for doing the Trading Toad quests (started Koopa Village's radio) in the item pool."></app-tooltip-span>
         </div>
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='shuffleBlocks'></mat-slide-toggle>
-            <app-tooltip-span spanText="Shuffle Super/Multicoin Blocks" tooltipText="Shuffles the locations of the Super Blocks and Multicoin Brick Blocks together."></app-tooltip-span>
-        </div>
+
+        <div class="setting-element"></div>
+
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Gear Shuffle" tooltipText="Vanilla: Boots and Hammers are kept in their default locations.
 
@@ -94,6 +95,12 @@
           </select>
       </div>
 
+      <div class="setting-element slider-element" >
+        <app-tooltip-span [spanText]="'Include Dojo Rewards: ' + itemFormGroup.get('includeDojo').value"
+                         tooltipText="Determines the number of dojo battles included in logic."></app-tooltip-span>
+        <mat-slider formControlName="includeDojo" (input)="itemFormGroup.get('includeDojo').setValue($event.value)" min=0 max= 5 step="1" tickInterval="1" ></mat-slider>
+      </div>
+
         <mat-divider></mat-divider>
 
         <div class="setting-element">
@@ -105,11 +112,10 @@
             </app-tooltip-span>
         </div>
 
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='progressionOnRowf'></mat-slide-toggle>
-            <app-tooltip-span spanText="Rowf Items in Logic "
-                                tooltipText="Determines whether items sold by Rowf can be required for progression or not.">
-            </app-tooltip-span>
+        <div class="setting-element slider-element" >
+          <app-tooltip-span [spanText]="'Rowf Items in Logic: ' + itemFormGroup.get('progressionOnRowf').value"
+                           tooltipText="Determines the number of Rowf item sets included in logic."></app-tooltip-span>
+          <mat-slider formControlName="progressionOnRowf" (input)="itemFormGroup.get('progressionOnRowf').setValue($event.value)" min=0 max= 5 step="1" tickInterval="1" ></mat-slider>
         </div>
 
         <div class="setting-element">

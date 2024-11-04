@@ -101,7 +101,7 @@ export class SettingStringMappingService {
     { compressedString: "e", key: "includeCoinsBlocks", type: "bool"},
     { compressedString: "j", key: "includeCoinsFavors", type: "bool"},
     { compressedString: "n", key: "includeCoinsFoliage", type: "bool"},
-    { compressedString: "d", key: "includeDojo", type: "bool"},
+    { compressedString: "d", key: "includeDojo", type: "number"},
     { compressedString: "f", key: "includeFavors", type: "number"},
     { compressedString: "p", key: "includePanels", type: "bool"},
     { compressedString: "s", key: "includeShops", type: "bool"},
@@ -115,7 +115,7 @@ export class SettingStringMappingService {
     { compressedString: "g", key: "gearShuffleMode", type: "number"},
     { compressedString: "u", key: "partnerUpgradeShuffle", type: "number"},
     { compressedString: "a", key: "ripCheatoItemsInLogic", type: "number"},
-    { compressedString: "o", key: "progressionOnRowf", type: "bool"},
+    { compressedString: "o", key: "progressionOnRowf", type: "number"},
     { compressedString: "m", key: "progressionOnMerlow", type: "bool"}
   ]
 
@@ -164,7 +164,7 @@ export class SettingStringMappingService {
     { compressedString: "a", key: "partnersAlwaysUsable", type: "bool"},
     { compressedString: "x", key: "randomPartnersMax", type: "number"},
     { compressedString: "n", key: "randomPartnersMin", type: "number"},
-    { compressedString: "s", key: "shufflePartners", type: "bool"},
+    { compressedString: "s", key: "shufflePartners", type: "number"},
     { compressedString: "(p", key: "startWithPartners", type: "formGroup", map: this.startWithPartnersMap},
     { compressedString: "r", key: "startWithRandomPartners", type: "bool"},
   ]

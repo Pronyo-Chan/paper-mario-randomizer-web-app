@@ -1,3 +1,4 @@
+import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
 import { DungeonEntranceShuffleMode } from './../../../../entities/enum/DungeonEntranceShuffleMode';
 import { MerlowRewardPricing } from './../../../../entities/enum/merlowRewardPricing';
 import { Boots } from './../../../../entities/enum/boots';
@@ -177,7 +178,7 @@ export class SettingsInfoComponent implements OnInit {
 
   private initPartnerRows(): void {
     this.partnerRows =  [
-      {name: "Shuffle Partners", value: this.seedModel.Partners.ShufflePartners},
+      {name: "Shuffle Partners", value: PartnerShuffleMode[this.seedModel.Partners.ShufflePartners]},
       {name: "Partners Always Usable", value: this.seedModel.Partners.PartnersAlwaysUsable},
       {name: "Min Number Of Starting Partners", value: this.seedModel.Partners.MinNumberOfStartingPartners},
       {name: "Max Number Of Starting Partners", value: this.seedModel.Partners.MaxNumberOfStartingPartners},

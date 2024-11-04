@@ -12,14 +12,14 @@
                 "includePanels": false,
                 "includeFavors": 0,
                 "keyitemsOutsideDungeon": false,
-                "includeDojo": false,
+                "includeDojo": 0,
                 "includeLetters": 0,
                 "includeRadioTradeEvent": false,
                 "shuffleBlocks": false,
                 "gearShuffleMode": 0,
                 "partnerUpgradeShuffle": 0,
                 "ripCheatoItemsInLogic": 6,
-                "progressionOnRowf": false,
+                "progressionOnRowf": 0,
                 "progressionOnMerlow": false
             },
             "gameplay": {
@@ -32,7 +32,7 @@
                 "randomizePuzzles": false
             },
             "partners": {
-                "shufflePartners": false,
+                "shufflePartners": 0,
                 "partnersAlwaysUsable": false,
                 "startWithRandomPartners": true,
                 "randomPartnersMin": 1,
@@ -203,14 +203,14 @@
             "includePanels": false,
             "includeFavors": 0,
             "keyitemsOutsideDungeon": false,
-            "includeDojo": false,
+            "includeDojo": 0,
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 2,
             "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
-            "progressionOnRowf": false,
+            "progressionOnRowf": 0,
             "progressionOnMerlow": false
           },
           "gameplay": {
@@ -223,7 +223,7 @@
             "randomizePuzzles": false
           },
           "partners": {
-            "shufflePartners": false,
+            "shufflePartners": 0,
             "partnersAlwaysUsable": true,
             "startWithRandomPartners": true,
             "randomPartnersMin": 1,
@@ -394,14 +394,14 @@
             "includePanels": true,
             "includeFavors": 1,
             "keyitemsOutsideDungeon": true,
-            "includeDojo": false,
+            "includeDojo": 0,
             "includeLetters": 1,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 1,
             "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
-            "progressionOnRowf": true,
+            "progressionOnRowf": 5,
             "progressionOnMerlow": true
           },
           "gameplay": {
@@ -414,7 +414,7 @@
             "randomizePuzzles": false
           },
           "partners": {
-            "shufflePartners": true,
+            "shufflePartners": 2,
             "partnersAlwaysUsable": false,
             "startWithRandomPartners": true,
             "randomPartnersMin": 1,
@@ -585,14 +585,14 @@
             "includePanels": true,
             "includeFavors": 2,
             "keyitemsOutsideDungeon": true,
-            "includeDojo": true,
+            "includeDojo": 5,
             "includeLetters": 3,
             "includeRadioTradeEvent": true,
             "shuffleBlocks": true,
             "gearShuffleMode": 2,
             "partnerUpgradeShuffle": 2,
             "ripCheatoItemsInLogic": 11,
-            "progressionOnRowf": true,
+            "progressionOnRowf": 5,
             "progressionOnMerlow": true
           },
           "gameplay": {
@@ -605,7 +605,7 @@
             "randomizePuzzles": true
           },
           "partners": {
-            "shufflePartners": true,
+            "shufflePartners": 2,
             "partnersAlwaysUsable": false,
             "startWithRandomPartners": true,
             "randomPartnersMin": 1,
@@ -776,14 +776,14 @@
             "includePanels":false,
             "includeFavors":0,
             "keyitemsOutsideDungeon":true,
-            "includeDojo":false,
+            "includeDojo":0,
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 2,
             "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
-            "progressionOnRowf": true,
+            "progressionOnRowf": 5,
             "progressionOnMerlow": true
          },
          "gameplay":{
@@ -796,7 +796,7 @@
             "randomizePuzzles": false
          },
          "partners":{
-            "shufflePartners":true,
+            "shufflePartners":2,
             "partnersAlwaysUsable":false,
             "startWithRandomPartners":true,
             "randomPartnersMin":1,
@@ -970,14 +970,14 @@
           "includePanels": false,
           "includeFavors": 0,
           "keyitemsOutsideDungeon": true,
-          "includeDojo": false,
+          "includeDojo": 0,
           "includeLetters": 0,
           "includeRadioTradeEvent": false,
           "shuffleBlocks": false,
           "gearShuffleMode": 2,
           "partnerUpgradeShuffle": 0,
           "ripCheatoItemsInLogic": 6,
-          "progressionOnRowf": true,
+          "progressionOnRowf": 5,
           "progressionOnMerlow": false
         },
         "gameplay": {
@@ -990,7 +990,7 @@
           "randomizePuzzles": false
         },
         "partners": {
-          "shufflePartners": true,
+          "shufflePartners": 2,
           "partnersAlwaysUsable": false,
           "startWithRandomPartners": true,
           "randomPartnersMin": 1,
@@ -1172,14 +1172,14 @@
           "includePanels": true,
           "includeFavors": 0,
           "keyitemsOutsideDungeon": true,
-          "includeDojo": false,
+          "includeDojo": 0,
           "includeLetters": 0,
           "includeRadioTradeEvent": false,
           "shuffleBlocks": false,
           "gearShuffleMode": 2,
           "partnerUpgradeShuffle": 2,
           "ripCheatoItemsInLogic": 6,
-          "progressionOnRowf": true,
+          "progressionOnRowf": 5,
           "progressionOnMerlow": false
         },
         "gameplay": {
@@ -1192,7 +1192,7 @@
           "randomizePuzzles": false
         },
         "partners": {
-          "shufflePartners": true,
+          "shufflePartners": 2,
           "partnersAlwaysUsable": false,
           "startWithRandomPartners": true,
           "randomPartnersMin": 1,

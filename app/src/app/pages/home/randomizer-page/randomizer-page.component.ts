@@ -27,6 +27,7 @@ import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeS
 import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
 import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 import { DungeonEntranceShuffleMode } from 'src/app/entities/enum/DungeonEntranceShuffleMode';
+import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -133,14 +134,14 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includePanels: new FormControl(false),
         includeFavors: new FormControl(KootFavorsMode.Vanilla),
         keyitemsOutsideDungeon: new FormControl(false),
-        includeDojo: new FormControl(false),
+        includeDojo: new FormControl(0),
         includeLetters: new FormControl(LettersMode.Vanilla),
         includeRadioTradeEvent: new FormControl(false),
         shuffleBlocks: new FormControl(false),
         gearShuffleMode: new FormControl(GearShuffleMode.Vanilla),
         partnerUpgradeShuffle: new FormControl(PartnerUpgradeShuffleMode.Vanilla),
         ripCheatoItemsInLogic: new FormControl(6),
-        progressionOnRowf: new FormControl(false),
+        progressionOnRowf: new FormControl(0),
         progressionOnMerlow: new FormControl(false),
       }),
       gameplay: new FormGroup({
@@ -153,7 +154,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         mysteryMode: new FormControl(MysteryMode.Vanilla),
       }),
       partners: new FormGroup({
-        shufflePartners: new FormControl(false),
+        shufflePartners: new FormControl(PartnerShuffleMode.Off),
         partnersAlwaysUsable: new FormControl(false),
         startWithRandomPartners: new FormControl(false),
         randomPartnersMin: new FormControl(1, [Validators.min(1), Validators.max(8)]),

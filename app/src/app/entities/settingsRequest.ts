@@ -15,6 +15,7 @@ import { StatusBarColorMode } from './enum/statusBarColorMode';
 import { MirrorMode } from './enum/mirrorMode';
 import { SeedGoal } from './enum/seedGoal';
 import { DungeonEntranceShuffleMode as DungeonEntranceShuffleMode } from './enum/DungeonEntranceShuffleMode';
+import { PartnerShuffleMode } from './enum/partnerShuffleMode';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -64,7 +65,7 @@ export interface SettingsRequest {
     RandomQuiz: boolean;
     SkipQuiz: boolean;
     QuizmoAlwaysAppears: boolean;
-    PartnersInDefaultLocations: boolean;
+    PartnerShuffle: PartnerShuffleMode;
     PartnersAlwaysUsable: boolean;
     StartWithRandomPartners: boolean;
     RandomPartnersMin?: number;
@@ -73,7 +74,7 @@ export interface SettingsRequest {
     WriteSpoilerLog : boolean;
     RevealLogInHours : boolean;
     RomanNumerals: boolean;
-    IncludeDojo: boolean;
+    IncludeDojo: number;
     BowsersCastleMode: boolean;
     CutsceneMode: number;
     SkipEpilogue: boolean;
@@ -161,7 +162,7 @@ export interface SettingsRequest {
     PartnerUpgradeShuffle: number;
     RipCheatoItemsInLogic: number;
     MerlowRewardPricing: number;
-    ProgressionOnRowf: boolean;
+    ProgressionOnRowf: number;
     ProgressionOnMerlow: boolean;
     StarWayPowerStarsNeeded: number;
     StarHuntTotal: number;
