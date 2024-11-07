@@ -11,6 +11,7 @@ export interface SettingsSpoilerLog
     partnerCosts: PartnerCost[];
     starPowerCosts: StarPowerCost[];
     superBlocks: string[];
+    bossBattles: string[];
     chapterDifficulties: number[];
     entrances: ShuffledEntrance[];
     puzzleSolutions: PuzzleSolution[];
