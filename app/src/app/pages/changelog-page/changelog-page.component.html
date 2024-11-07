@@ -1,6 +1,88 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.28.0 (beta) (2024-11-XX)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li>The update introduces breaking changes to the setting strings and presets. Previously exported settings will need to be exported again. Saved presets should work but many settings will not be imported properly.</li>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+    </ul>
+
+    <h2>Mod Changes</h2>
+    <ul>
+        <li>The pulse stone will now be muted if the player enters Dry Dry Ruins with glitches.</li>
+    </ul>
+
+    <h2>Options</h2>
+
+    <h3>Progression On Rowf (change)</h3>
+    <ul>
+      <li>Instead of marking either all or none of Rowf's item sets for holding progression, now allows choosing the maximum number of item sets which may hold progression.</li>
+      <li>Can be turned off, or set a value from 1-5.</li>
+    </ul>
+
+    <h3>Include Dojo (change)</h3>
+    <ul>
+      <li>Instead of either having the four degree-cards and the diploma being vanilla, or having them all removed and placing other random items as dojo rewards, now allows choosing the maximum number of dojo battles that can hold random items.</li>
+      <li>Can be turned off, or set a value from 1-5.</li>
+      <li>The battles that won't hold random items will still keep the original degree-cards / diploma items.</li>
+      <li>Any value from 1-5 will count all 5 dojo item locations on the pause menu's map, even if some of them don't hold shuffled items.</li>
+    </ul>
+
+    <h3>Shuffle Partners / Partners In Default Locations (change) </h3>
+    <ul>
+      <li>This setting now has three different values:</li>
+      <li>Partners completely vanilla</li>
+      <li>(new) Partners shuffled among vanilla partner locations</li>
+      <li>Partners shuffled anywhere</li>
+    </ul>
+
+    <h3>Star Way Spirits Required (change) </h3>
+    <ul>
+      <li>If "Star Way Spirits Required" is set to random, then a number between 1 and 7 spirits will be chosen for opening Star Way (was: a number between 0 and 7).</li>
+    </ul>
+
+    <h3>Star Beam Spirits Required (change) </h3>
+    <ul>
+      <li>If `Star Beam Spirits Required` is set to random, then a number between 1 and 7 spirits will be chosen for receiving the Star Beam (was: a number between 0 and 7)</li>
+    </ul>
+
+    <h3>Shuffle Dungeon Entrances (change) </h3>
+    <ul>
+      <li>This setting now has three different values:</li>
+      <li>No dungeon shuffle</li>
+      <li>Shuffle spirit dungeons</li>
+      <li>(new) Shuffle spirit dungeons, and include Bowser's Castle</li>
+      <li>Note: For inclusion of Bowser's Castle, the `Star Way Spirits Needed` setting has to be set to require fewer than 7 star spirits.</li>
+    </ul>
+
+    <h2>Logic changes</h2>
+    <ul>
+      <li>Reaching the top of Shooting Star Summit now expects having the Boots (formerly expected Boots or Parakarry).</li>
+      <li>Fixed logic always expecting Parakarry or Boots for reaching the vanilla location of the Odd Key item.</li>
+    </ul>
+
+    <h2>Spoiler log</h2>
+    <ul>
+      <li>Moved `Ruined Castle Grounds - Muss T. Letter Reward` from the `Peachs Castle Grounds` area to the `Toad Town` area.</li>
+      <li>Moved `Hijacked Castle Entrance - Hidden Block` from the `Peachs Castle Grounds` area to the `Peachs Castle` area.</li>
+      <li>The `Peachs Castle Grounds` area is a bit weirdly laid out, so these changes were made to make finding these two locations within the spoiler log easier.</li>
+    </ul>
+
+    <h2>Website</h2>
+    <ul>
+      <li>A button to copy the settings string has been added on the seed generation page.</li>
+      <li>On the seed page, settings that are "true" or "false" now have that value displayed as an icon instead of raw text.</li>
+      <li>Some success / error messages are now displayed as a toast notification at the top of the page.</li>
+      <li>Improved ease of use of the website on small resolutions</li>
+      <li>Various minor styling adjustments</li>
+    </ul>
+
+  </mat-card>
+
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.27.1 (beta) (2024-06-24)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
@@ -17,7 +99,7 @@
 
   </mat-card>
 
-  <mat-card class="settings-card latest-changelog">
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.27.0 (beta) (2024-06-20)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
