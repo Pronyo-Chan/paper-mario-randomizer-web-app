@@ -28,6 +28,7 @@ import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
 import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 import { DungeonEntranceShuffleMode } from 'src/app/entities/enum/DungeonEntranceShuffleMode';
 import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
+import { BossShuffleMode } from 'src/app/entities/enum/BossShuffleMode';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -152,6 +153,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomFormations: new FormControl(false),
         randomizePuzzles: new FormControl(false),
         mysteryMode: new FormControl(MysteryMode.Vanilla),
+        bossShuffle: new FormControl(BossShuffleMode.Off)
       }),
       partners: new FormGroup({
         shufflePartners: new FormControl(PartnerShuffleMode.Off),

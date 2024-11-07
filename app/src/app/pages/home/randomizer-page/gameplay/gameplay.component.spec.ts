@@ -5,6 +5,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { GameplayComponent } from './gameplay.component';
+import { BossShuffleMode } from 'src/app/entities/enum/BossShuffleMode';
 
 describe('GameplayComponent', () => {
   let component: GameplayComponent;
@@ -28,6 +29,7 @@ describe('GameplayComponent', () => {
       randomPartnerFP: new FormControl(false),
       randomStarpowerSP: new FormControl(false),
       randomFormations: new FormControl(false),
+      bossShuffle: new FormControl(BossShuffleMode.Off),
       randomizePuzzles: new FormControl(false),
     })
     fixture.detectChanges();

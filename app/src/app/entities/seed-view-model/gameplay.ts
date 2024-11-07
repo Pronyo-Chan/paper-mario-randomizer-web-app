@@ -1,3 +1,4 @@
+import { BossShuffleMode } from "../enum/BossShuffleMode";
 import { MysteryMode } from "../enum/mysteryMode";
 
 export interface Gameplay {
@@ -8,4 +9,5 @@ export interface Gameplay {
     ShuffleBattleFormations: boolean;
     MysteryMode: MysteryMode;
     RandomizePuzzles: boolean;
+    BossShuffle: BossShuffleMode;
 }

@@ -16,6 +16,7 @@ import { MirrorMode } from './enum/mirrorMode';
 import { SeedGoal } from './enum/seedGoal';
 import { DungeonEntranceShuffleMode as DungeonEntranceShuffleMode } from './enum/DungeonEntranceShuffleMode';
 import { PartnerShuffleMode } from './enum/partnerShuffleMode';
+import { BossShuffleMode } from './enum/BossShuffleMode';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -44,6 +45,7 @@ export interface SettingsRequest {
     ShuffleChapterDifficulty: boolean;
     ProgressiveScaling: boolean;
     RandomFormations: boolean;
+    BossShuffleMode: BossShuffleMode;
     RandomizePuzzles: boolean;
     ShuffleDungeonEntrances: DungeonEntranceShuffleMode;
     MirrorMode: MirrorMode;

@@ -28,6 +28,7 @@
                 "randomPartnerFP": 0,
                 "randomStarpowerSP": 0,
                 "randomFormations": false,
+                "bossShuffle": 0,
                 "mysteryMode": 0,
                 "randomizePuzzles": false
             },
@@ -219,6 +220,7 @@
             "randomPartnerFP": 0,
             "randomStarpowerSP": 0,
             "randomFormations": false,
+            "bossShuffle": 0,
             "mysteryMode": 0,
             "randomizePuzzles": false
           },
@@ -410,6 +412,7 @@
             "randomPartnerFP": 0,
             "randomStarpowerSP": 0,
             "randomFormations": true,
+            "bossShuffle": 0,
             "mysteryMode": 0,
             "randomizePuzzles": false
           },
@@ -601,6 +604,7 @@
             "randomPartnerFP": 3,
             "randomStarpowerSP": 3,
             "randomFormations": true,
+            "bossShuffle": 1,
             "mysteryMode": 2,
             "randomizePuzzles": true
           },
@@ -792,6 +796,7 @@
             "randomPartnerFP":1,
             "randomStarpowerSP":0,
             "randomFormations":true,
+            "bossShuffle": 0,
             "mysteryMode":0,
             "randomizePuzzles": false
          },
@@ -986,6 +991,7 @@
           "randomPartnerFP": 1,
           "randomStarpowerSP": 0,
           "randomFormations": true,
+          "bossShuffle": 0,
           "mysteryMode": 2,
           "randomizePuzzles": false
         },
@@ -1188,6 +1194,7 @@
           "randomPartnerFP": 1,
           "randomStarpowerSP": 0,
           "randomFormations": true,
+          "bossShuffle": 0,
           "mysteryMode": 2,
           "randomizePuzzles": false
         },

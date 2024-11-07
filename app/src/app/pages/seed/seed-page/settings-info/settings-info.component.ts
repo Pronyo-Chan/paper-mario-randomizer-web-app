@@ -1,3 +1,4 @@
+import { BossShuffleMode } from './../../../../entities/enum/BossShuffleMode';
 import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
 import { DungeonEntranceShuffleMode } from './../../../../entities/enum/DungeonEntranceShuffleMode';
 import { MerlowRewardPricing } from './../../../../entities/enum/merlowRewardPricing';
@@ -196,6 +197,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Shuffle Battle Formations", value: this.seedModel.Gameplay.ShuffleBattleFormations},
       {name: "Mystery", value: MysteryMode[this.seedModel.Gameplay.MysteryMode]},
       {name: "Randomize Puzzles", value: this.seedModel.Gameplay.RandomizePuzzles},
+      {name: "Boss Shuffle", value: BossShuffleMode[this.seedModel.Gameplay.BossShuffle]}
     ] as SettingRow[]
   }
 
