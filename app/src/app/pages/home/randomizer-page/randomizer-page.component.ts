@@ -300,9 +300,6 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isKeysanityEnabled = this.formGroup.get('items').get('keyitemsOutsideDungeon').value
     const requiredStarwaySpiritsCount = this.formGroup.get('goals').get('starWaySpiritsNeeded').value
 
-    console.log(isEntranceRandoWithBowserEnabled);
-    console.log(requiredStarwaySpiritsCount);
-
     const isVanillaStart = startingMap == StartingMap.GoombaVillage &&
       startingHammer == Hammer.Hammerless &&
       !isGeneralShuffleEnabled
