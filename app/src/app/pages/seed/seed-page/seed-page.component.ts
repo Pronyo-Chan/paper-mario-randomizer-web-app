@@ -75,7 +75,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
             if(seedModel.GeneralDifficulty.EnemyDifficulty == "Shuffle Chapter Difficulty") {
               this.isDifficultyShuffled = true;
             }
-            if(seedModel.Gameplay.BossShuffle !== BossShuffleMode.Off) {
+            if(seedModel.Gameplay.BossShuffle === BossShuffleMode['Chapter Bosses']) {
               this.isBossShuffleEnabled = true;
             }
             if(seedModel.World.ShuffleDungeonEntrances) {
@@ -232,7 +232,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     }
 
     if(this.isBossShuffleEnabled) {
-      settingsSpoilerLog.bossBattles = Object.values(spoilerLogJson["boss_battles"]).map(b => pascalToVerboseString(b as string));
+      settingsSpoilerLog.bossBattles = Object.values(spoilerLogJson["boss_battles"])?.map(b => pascalToVerboseString(b as string));
     }
 
     this.progressionSphereLog = of(progressionSphereData);
