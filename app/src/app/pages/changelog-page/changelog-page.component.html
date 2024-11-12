@@ -21,6 +21,8 @@
     <ul>
       <li>Allows shuffling which boss is encountered at the end of each dungeon area. The map and cutscenes are unaffected by this, but a different boss will load upon fading into the battle.</li>
       <li>During `Vanilla Difficulty` and `Shuffle Chapter Difficulty` the shuffled boss inherits the difficulty of the chapter it is encountered in (instead of the difficulty assigned to its original chapter).Example: General Guy gets shuffled as the boss within Koopa Bros. Fortress, then General Guy will have the same difficulty as the rest of chapter 1.</li>
+      <li>During `Boss Shuffle` Mario can run away from the seven dungeon boss battles on the very first turn. This will place Mario one room before the boss battle. After the first turn the option to run away will again be disabled.</li>
+      <li>Whichever boss gets shuffled into chapter 3, thus replacing the Tubba's Heart battle, will not give any star points. This is to mimic the original Tubba's Heart battle not giving star points, either. If Tubba's Heart is shuffled into another chapter, then it will now grant star points. That battle is still won by lowering the Heart's HP to 5 or lower.</li>
       <li>For technical reasons bosses cannot appear in more than one chapter at the moment. So each of the seven main chapter bosses will always be encountered exactly once per seed.</li>
     </ul>
 
@@ -69,6 +71,7 @@
     <ul>
       <li>Reaching the top of Shooting Star Summit now expects having the Boots (formerly expected Boots or Parakarry).</li>
       <li>Fixed logic always expecting Parakarry or Boots for reaching the vanilla location of the Odd Key item.</li>
+      <li>Fixed logic not requiring being able to climb ledges in Gusty Gulch, while there are very obvious ledges preventing Mario from continuing (only affected glitched logic seeds).</li>
     </ul>
 
     <h2>Spoiler log</h2>
