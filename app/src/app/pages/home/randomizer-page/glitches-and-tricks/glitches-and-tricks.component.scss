@@ -1,4 +1,5 @@
 @import '../../../../../variables';
+@import '../../../../../mixins.scss';
 
 .table-container {
     display: flex;
@@ -8,12 +9,16 @@
     flex-grow: 1;
 
     .tricks-section {
-        margin-left: 3rem;
-        margin-bottom: 2rem;
 
-        flex-basis: 45%;
-        width: 45%;
-        flex-grow: 1;
+        @include medium {
+          margin-left: 3rem;
+          margin-bottom: 2rem;
+
+          flex-basis: 45%;
+          width: 45%;
+          flex-grow: 1;
+        }
+
 
         .glitches-list {
             padding-right: 1rem;
@@ -34,7 +39,7 @@
             background-color: $yellow-stat-border;
             border-radius: 10px;
           }
-    }    
+    }
 }
 
 .filter-section {
@@ -44,22 +49,24 @@
 
 mat-selection-list, mat-list {
     .mat-list-item {
-        
-        border: solid !important; 
-        border-width: 3px 3px 1px 3px !important;    
+        border: solid !important;
+        border-width: 3px 3px 0 3px !important;
         border-color: $yellow-stat-border !important;
 
         button {
             position: absolute;
-            top: 7px;
+            top: 8px;
             right: 0;
-            padding-right: 2px;
+            padding-right: 6px;
 
             mat-icon {
                 font-size: 25px;
             }
         }
-        
+    }
+    .mat-list-item:last-child {
+      border-bottom: 3px solid !important;
+      border-color: $yellow-stat-border !important;
     }
 }
 
@@ -103,4 +110,10 @@ a.disabled-link {
     pointer-events: none;
     cursor: default;
     opacity: 0;
+}
+
+.video-icon {
+  padding-right: 2px;
+  position: relative;
+  top: 7px;
 }

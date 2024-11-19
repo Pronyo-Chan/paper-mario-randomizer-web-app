@@ -59,6 +59,7 @@ import { MatTabScrollToCenterDirective } from './utilities/directives/scrolling.
 import { SpoilerSettingsComponent } from './pages/home/randomizer-page/spoiler-settings/spoiler-settings.component';
 import { GlitchesAndTricksComponent } from './pages/home/randomizer-page/glitches-and-tricks/glitches-and-tricks.component';
 import { ItemPoolSettingsComponent } from './pages/home/randomizer-page/item-pool-settings/item-pool-settings.component';
+import { GlobalConfig, ToastrModule } from 'ngx-toastr';
 
 const dbConfig: DBConfig  = {
   name: 'db',
@@ -71,6 +72,14 @@ const dbConfig: DBConfig  = {
     ]
   }]
 };
+
+const toasterConfig: Partial<GlobalConfig> = {
+  closeButton: true,
+  progressBar: true,
+  maxOpened: 1,
+  timeOut: 5000,
+  positionClass: "toast-top-center"
+}
 
 @NgModule({
   declarations: [
@@ -134,6 +143,7 @@ const dbConfig: DBConfig  = {
     MatDialogModule,
     MatListModule,
     ClipboardModule,
+    ToastrModule.forRoot(toasterConfig),
     HttpCacheInterceptorModule.forRoot(),
     NgxIndexedDBModule.forRoot(dbConfig)
   ],

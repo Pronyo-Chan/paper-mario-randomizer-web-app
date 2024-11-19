@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { MerlowRewardPricing } from './../../../entities/enum/merlowRewardPricing';
 import { StartingMap } from './../../../entities/enum/startingMaps';
 import { Hammer } from './../../../entities/enum/hammer';
@@ -25,6 +26,9 @@ import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode
 import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeShuffleMode';
 import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
 import { SeedGoal } from 'src/app/entities/enum/seedGoal';
+import { DungeonEntranceShuffleMode } from 'src/app/entities/enum/DungeonEntranceShuffleMode';
+import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
+import { BossShuffleMode } from 'src/app/entities/enum/BossShuffleMode';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -36,6 +40,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public readonly LACKING_SHUFFLE_JUMPLESS_START_ERROR = 'jumplessStartNoShuffle';
   public readonly LACKING_SHUFFLE_STAR_HUNT_ERROR = 'starHuntNoShuffle';
   public readonly SHUFFLED_ENTRANCES_NO_ITEMS_ERROR = 'entranceRandoNoShuffle';
+  public readonly SHUFFLED_ENTRANCES_WITH_BOWSER_7_SPIRITS_ERROR = 'entranceRandoWitBowserAnd7Spirits';
   public readonly LIMIT_CHAPTERS_NO_KEYSANITY_ERROR = 'limitChaptersNoKeysanity';
 
   public homepageLink;
@@ -46,7 +51,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public seedGenError: string;
   private _createSeedSubscription: Subscription;
 
-  public constructor(private _randomizerService: RandomizerService, private _localStorage: LocalStorageService, private _router: Router){}
+  public constructor(private _randomizerService: RandomizerService, private _localStorage: LocalStorageService, private _router: Router, private _toast: ToastrService){}
 
   public ngOnInit(): void {
     this.homepageLink = environment.homepage;
@@ -67,19 +72,22 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const errors = this.validateSettings();
     if(errors.length) {
       if (errors.some(e => e == this.LACKING_SHUFFLE_HAMMERLESS_START_ERROR)) {
-        this.seedGenError = "Hammerless Start is impossible without shuffled partners or full gear shuffle."
+        this._toast.error("Hammerless Start is impossible without shuffled partners or full gear shuffle.")
         return;
       } else if (errors.some(e => e == this.LACKING_SHUFFLE_JUMPLESS_START_ERROR)) {
-        this.seedGenError = "Jumpless Start is impossible without Item Shuffle enabled."
+        this._toast.error("Jumpless Start is impossible without Item Shuffle enabled.")
         return;
       } else if (errors.some(e => e == this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)) {
-        this.seedGenError = "Shuffling entrances is impossible without Item and Partner Shuffle enabled."
+        this._toast.error("Shuffling entrances is impossible without Item and Partner Shuffle enabled.")
         return;
       } else if (errors.some(e => e == this.LACKING_SHUFFLE_STAR_HUNT_ERROR)) {
-        this.seedGenError = "Star Hunt is impossible without item shuffle enabled."
+        this._toast.error("Star Hunt is impossible without item shuffle enabled.")
         return;
       } else if (errors.some(e => e == this.LIMIT_CHAPTERS_NO_KEYSANITY_ERROR)) {
-        this.seedGenError = "Limiting chapter logic is impossible without Keysanity."
+        this._toast.error("Limiting chapter logic is impossible without Keysanity.")
+        return;
+      } else if (errors.some(e => e == this.SHUFFLED_ENTRANCES_WITH_BOWSER_7_SPIRITS_ERROR)) {
+        this._toast.error("Shuffling the entrance to Bowser's Castle is impossible with 7 star spirits required.")
         return;
       }
     }
@@ -127,14 +135,14 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includePanels: new FormControl(false),
         includeFavors: new FormControl(KootFavorsMode.Vanilla),
         keyitemsOutsideDungeon: new FormControl(false),
-        includeDojo: new FormControl(false),
+        includeDojo: new FormControl(0),
         includeLetters: new FormControl(LettersMode.Vanilla),
         includeRadioTradeEvent: new FormControl(false),
         shuffleBlocks: new FormControl(false),
         gearShuffleMode: new FormControl(GearShuffleMode.Vanilla),
         partnerUpgradeShuffle: new FormControl(PartnerUpgradeShuffleMode.Vanilla),
         ripCheatoItemsInLogic: new FormControl(6),
-        progressionOnRowf: new FormControl(false),
+        progressionOnRowf: new FormControl(0),
         progressionOnMerlow: new FormControl(false),
       }),
       gameplay: new FormGroup({
@@ -145,9 +153,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         randomFormations: new FormControl(false),
         randomizePuzzles: new FormControl(false),
         mysteryMode: new FormControl(MysteryMode.Vanilla),
+        bossShuffle: new FormControl(BossShuffleMode.Off)
       }),
       partners: new FormGroup({
-        shufflePartners: new FormControl(false),
+        shufflePartners: new FormControl(PartnerShuffleMode.Off),
         partnersAlwaysUsable: new FormControl(false),
         startWithRandomPartners: new FormControl(false),
         randomPartnersMin: new FormControl(1, [Validators.min(1), Validators.max(8)]),
@@ -228,7 +237,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         prologueOpen: new FormControl(false),
         startingMap: new FormControl(StartingMap.ToadTown),
         bowsersCastleMode: new FormControl(BowsersCastleMode.Vanilla),
-        shuffleDungeonEntrances: new FormControl(false),
+        shuffleDungeonEntrances: new FormControl(DungeonEntranceShuffleMode.Off),
         mirrorMode: new FormControl(MirrorMode.Off),
       }),
       goals: new FormGroup({
@@ -285,9 +294,11 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isGeneralShuffleEnabled = this.formGroup.get('items').get('shuffleItems').value;
     const isPartnerShuffleEnabled = this.formGroup.get('partners').get('shufflePartners').value;
     const isEntranceRandoEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value;
+    const isEntranceRandoWithBowserEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value == DungeonEntranceShuffleMode['Include Bowsers Castle'];
     const isStarHuntEnabled = this.formGroup.get('goals').get('includePowerStars').value;
     const isLimitChapterLogicEnabled = this.formGroup.get('goals').get('limitChapterLogic').value;
     const isKeysanityEnabled = this.formGroup.get('items').get('keyitemsOutsideDungeon').value
+    const requiredStarwaySpiritsCount = this.formGroup.get('goals').get('starWaySpiritsNeeded').value
 
     const isVanillaStart = startingMap == StartingMap.GoombaVillage &&
       startingHammer == Hammer.Hammerless &&
@@ -309,6 +320,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     if (isEntranceRandoEnabled && (!isGeneralShuffleEnabled || !isPartnerShuffleEnabled)) {
       errors.push(this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)
+    }
+
+    if (isEntranceRandoWithBowserEnabled && requiredStarwaySpiritsCount === 7) {
+      errors.push(this.SHUFFLED_ENTRANCES_WITH_BOWSER_7_SPIRITS_ERROR)
     }
 
     if (isLimitChapterLogicEnabled && !isKeysanityEnabled) {

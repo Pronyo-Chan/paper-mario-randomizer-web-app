@@ -10,13 +10,13 @@ export interface ItemSettings {
     IncludeCoinsFoliage: boolean;
     GearShuffle: GearShuffleMode;
     PartnerUpgradeShuffle: PartnerUpgradeShuffleMode;
-    IncludeDojoRewards: boolean;
+    IncludeDojoRewards: number;
     IncludeHiddenPanels: boolean;
     IncludeTradingEventRewards: boolean;
     Keysanity: boolean;
     KoopaKootFavors: KootFavorsMode;
     LetterDeliveryRewards: LettersMode;
-    ProgressionOnRowf: boolean;
+    ProgressionOnRowf: number;
     ProgressionOnMerlow: boolean;
     RipCheatoItemsInLogic: number;
     Shopsanity: boolean;

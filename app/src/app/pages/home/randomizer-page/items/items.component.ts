@@ -13,9 +13,9 @@ export class ItemsComponent implements OnInit, OnDestroy {
   private _includeShopsSubscription: Subscription;
 
   @Input() public itemFormGroup: FormGroup;
-  
+
   public constructor() { }
-  
+
   public ngOnInit(): void {
     this.onShuffleItemsChange();
     this.onShuffleShopsChange();
@@ -64,7 +64,7 @@ export class ItemsComponent implements OnInit, OnDestroy {
         this.itemFormGroup.get("progressionOnMerlow").setValue(false);
         this.itemFormGroup.get("progressionOnMerlow").disable();
 
-        this.itemFormGroup.get("progressionOnRowf").setValue(false);
+        this.itemFormGroup.get("progressionOnRowf").setValue(0);
         this.itemFormGroup.get("progressionOnRowf").disable();
 
     } else {

@@ -17,6 +17,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { SpriteSetting } from 'src/app/entities/enum/spriteSetting';
 import { CoinColor } from 'src/app/entities/enum/coinColor';
 import { PuzzleSolution } from 'src/app/entities/PuzzleSolution';
+import { BossShuffleMode } from 'src/app/entities/enum/BossShuffleMode';
 
 @Component({
   selector: 'app-seed-page',
@@ -42,6 +43,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
   public isSpoilerLogExpanded: boolean = false;
 
   private isDifficultyShuffled: boolean;
+  private isBossShuffleEnabled: boolean;
   private isEntranceRando: boolean;
 
   private _navigationSubscription: Subscription;
@@ -72,6 +74,9 @@ export class SeedPageComponent implements OnInit, OnDestroy {
             }
             if(seedModel.GeneralDifficulty.EnemyDifficulty == "Shuffle Chapter Difficulty") {
               this.isDifficultyShuffled = true;
+            }
+            if(seedModel.Gameplay.BossShuffle === BossShuffleMode['Chapter Bosses']) {
+              this.isBossShuffleEnabled = true;
             }
             if(seedModel.World.ShuffleDungeonEntrances) {
               this.isEntranceRando = true;
@@ -130,11 +135,12 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       superBlocks: [],
       chapterDifficulties:[],
       entrances: [],
-      puzzleSolutions: []
+      puzzleSolutions: [],
+      bossBattles: []
     }
 
     const spoilerLogData = Object.fromEntries(Object.entries(spoilerLogJson).filter(
-      ([key]) => key!= "difficulty" && key != "sphere_log" && key != "move_costs" && key != "superblocks" && key != "SeedHashItems" && key != "entrances" && key != "required_spirits" && key != "entrances" && key != "puzzle_solutions"))
+      ([key]) => key!= "difficulty" && key != "sphere_log" && key != "move_costs" && key != "superblocks" && key != "SeedHashItems" && key != "entrances" && key != "required_spirits" && key != "entrances" && key != "puzzle_solutions" && key != "boss_battles"))
 
     for (const region in spoilerLogData) {
       spoilerLogRegions[region] = [];
@@ -223,6 +229,10 @@ export class SeedPageComponent implements OnInit, OnDestroy {
 
     if(this.isDifficultyShuffled) {
       settingsSpoilerLog.chapterDifficulties = Object.values(spoilerLogJson["difficulty"]);
+    }
+
+    if(this.isBossShuffleEnabled) {
+      settingsSpoilerLog.bossBattles = Object.values(spoilerLogJson["boss_battles"])?.map(b => pascalToVerboseString(b as string));
     }
 
     this.progressionSphereLog = of(progressionSphereData);

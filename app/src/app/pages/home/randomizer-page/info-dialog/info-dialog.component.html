@@ -1,9 +1,8 @@
 
-<h2 mat-dialog-title>IMPORTANT INFO!</h2>
-<div class="input-label">
-    <span class="settings-label">There was an error in the previous release where there was a mismatch between the generator and the game items!
-         If your seed was generated between 19h40 and 22h15 (UTC) on March 9th, it is most likely broken and unbeatable, please generate a new one!</span>
-</div>
-<div mat-dialog-actions>
-    <button (click)="onCancelClick()"><span>Close</span></button>
-</div>
+<h1 mat-dialog-title class="modal-header">Paper Mario Randomizer 0.28.0 Release</h1>
+
+<mat-dialog-content class="modal-content">
+    <p>A new major update for the randomizer was just released! Please check out the <a class="text-link" (click)="onChangelogClick()" [routerLink]="'/changelog'">changelog</a> to learn about the changes.</p>
+    <p>You'll need to update your custom presets and setting strings, as the update has some breaking changes.</p>
+    <p>Have fun!</p>
+</mat-dialog-content>

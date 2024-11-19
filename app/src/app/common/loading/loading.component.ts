@@ -12,5 +12,5 @@ export class LoadingComponent {
   @Input() public loadingText: string;
 
   public constructor() { }
-  
+
 }

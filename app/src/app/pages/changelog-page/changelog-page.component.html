@@ -1,6 +1,105 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.28.0 (beta) (2024-11-19)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li>The update introduces breaking changes to the setting strings and presets. Previously exported settings will need to be exported again. Saved presets should work but many settings will not be imported properly.</li>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+    </ul>
+
+    <h2>Mod Changes</h2>
+    <ul>
+        <li>Pulse Stone beeping now turns off after using tricks to enter the Dry Dry Ruins entrance loading zone without raising the ruins.</li>
+    </ul>
+
+    <h2>Options</h2>
+
+    <h3>Boss Shuffle (new)</h3>
+    <ul>
+      <li>Allows shuffling which boss is encountered at the end of each dungeon area. The map and cutscenes are unaffected by this, but a different boss will load upon fading into the battle.</li>
+      <li>During `Vanilla Difficulty` and `Shuffle Chapter Difficulty` the shuffled boss inherits the difficulty of the chapter it is encountered in (instead of the difficulty assigned to its original chapter).Example: General Guy gets shuffled as the boss within Koopa Bros. Fortress, then General Guy will have the same difficulty as the rest of chapter 1.</li>
+      <li>During `Boss Shuffle` Mario can run away from the seven dungeon boss battles on the very first turn. This will place Mario one room before the boss battle. After the first turn the option to run away will again be disabled.</li>
+      <li>Whichever boss gets shuffled into chapter 3, thus replacing the Tubba's Heart battle, will not give any star points. This is to mimic the original Tubba's Heart battle not giving star points, either. If Tubba's Heart is shuffled into another chapter, then it will now grant star points. That battle is still won by lowering the Heart's HP to 5 or lower.</li>
+      <li>For technical reasons bosses cannot appear in more than one chapter at the moment. So each of the seven main chapter bosses will always be encountered exactly once per seed.</li>
+    </ul>
+
+    <h3>Progression On Rowf (change)</h3>
+    <ul>
+      <li>Instead of marking either all or none of Rowf's item sets for holding progression, now allows choosing the maximum number of item sets which may hold progression.</li>
+      <li>Can be turned off, or set a value from 1-5.</li>
+    </ul>
+
+    <h3>Include Dojo (change)</h3>
+    <ul>
+      <li>Instead of either having the four degree-cards and the diploma being vanilla, or having them all removed and placing other random items as dojo rewards, now allows choosing the maximum number of dojo battles that can hold random items.</li>
+      <li>Can be turned off, or set a value from 1-5.</li>
+      <li>The battles that won't hold random items will still keep the original degree-cards / diploma items.</li>
+      <li>Any value from 1-5 will count all 5 dojo item locations on the pause menu's map, even if some of them don't hold shuffled items.</li>
+    </ul>
+
+    <h3>Shuffle Partners / Partners In Default Locations (change) </h3>
+    <ul>
+      <li>This setting now has three different values:</li>
+      <li>Partners completely vanilla</li>
+      <li>(new) Partners shuffled among vanilla partner locations</li>
+      <li>Partners shuffled anywhere</li>
+    </ul>
+
+    <h3>Star Way Spirits Required (change) </h3>
+    <ul>
+      <li>If "Star Way Spirits Required" is set to random, then a number between 1 and 7 spirits will be chosen for opening Star Way (was: a number between 0 and 7).</li>
+    </ul>
+
+    <h3>Star Beam Spirits Required (change) </h3>
+    <ul>
+      <li>If `Star Beam Spirits Required` is set to random, then a number between 1 and 7 spirits will be chosen for receiving the Star Beam (was: a number between 0 and 7)</li>
+    </ul>
+
+    <h3>Shuffle Dungeon Entrances (change) </h3>
+    <ul>
+      <li>This setting now has three different values:</li>
+      <li>No dungeon shuffle</li>
+      <li>Shuffle spirit dungeons</li>
+      <li>(new) Shuffle spirit dungeons, and include Bowser's Castle</li>
+      <li>Note: For inclusion of Bowser's Castle, the `Star Way Spirits Needed` setting has to be set to require fewer than 7 star spirits.</li>
+    </ul>
+
+    <h3>Hammerless Start and Jumpless Start (change) </h3>
+    <ul>
+      <li>Now has a vastly increased chance of placing the first gear item later into the seed progression.</li>
+      <li>It happened quite often during these seeds that the first hammer/boots upgrade (respectively) could be found super early, somewhat defeating the point of these settings. This change tries to combat this. While it will still happen that you find these gear upgrades right away, the chances of that happening should be lower now.</li>
+      <li>Does not affect seeds that are made with neither `Hammerless Start` nor `Jumpless Start` settings.</li>
+    </ul>
+
+    <h2>Logic changes</h2>
+    <ul>
+      <li>Reaching the top of Shooting Star Summit now expects having the Boots (formerly expected Boots or Parakarry).</li>
+      <li>Fixed logic always expecting Parakarry or Boots for reaching the vanilla location of the Odd Key item.</li>
+      <li>Fixed logic not requiring being able to climb ledges in Gusty Gulch, while there are very obvious ledges preventing Mario from continuing (only affected glitched logic seeds).</li>
+    </ul>
+
+    <h2>Spoiler log</h2>
+    <ul>
+      <li>Moved `Ruined Castle Grounds - Muss T. Letter Reward` from the `Peachs Castle Grounds` area to the `Toad Town` area.</li>
+      <li>Moved `Hijacked Castle Entrance - Hidden Block` from the `Peachs Castle Grounds` area to the `Peachs Castle` area.</li>
+      <li>The `Peachs Castle Grounds` area is a bit weirdly laid out, so these changes were made to make finding these two locations within the spoiler log easier.</li>
+    </ul>
+
+    <h2>Website</h2>
+    <ul>
+      <li>A button to copy the settings string has been added on the seed generation page.</li>
+      <li>On the seed page, settings that are "true" or "false" now have that value displayed as an icon instead of raw text.</li>
+      <li>Some success / error messages are now displayed as a toast notification at the top of the page.</li>
+      <li>Improved ease of use of the website on small resolutions</li>
+      <li>Various minor styling adjustments</li>
+    </ul>
+
+  </mat-card>
+
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.27.1 (beta) (2024-06-24)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
@@ -17,7 +116,7 @@
 
   </mat-card>
 
-  <mat-card class="settings-card latest-changelog">
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.27.0 (beta) (2024-06-20)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>

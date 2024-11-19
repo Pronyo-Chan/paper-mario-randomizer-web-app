@@ -194,6 +194,7 @@ export class RandomizerService {
       ProgressiveScaling: settingsForm.get('difficulty').get('difficultyMode').value == DifficultySetting.ProgressiveScaling,
       RandomFormations: settingsForm.get('gameplay').get('randomFormations').value,
       RandomizePuzzles: settingsForm.get('gameplay').get('randomizePuzzles').value,
+      BossShuffleMode: Number(settingsForm.get('gameplay').get('bossShuffle').value),
       ShuffleItems: settingsForm.get('items').get('shuffleItems').value,
       IncludeCoinsOverworld: settingsForm.get('items').get('includeCoinsOverworld').value,
       IncludeCoinsBlocks: settingsForm.get('items').get('includeCoinsBlocks').value,
@@ -211,7 +212,7 @@ export class RandomizerService {
       RandomQuiz: true, // We're forcing it to true, at least for now
       SkipQuiz: settingsForm.get('qualityOfLife').get('skipQuiz').value,
       QuizmoAlwaysAppears: settingsForm.get('qualityOfLife').get('quizmoAlwaysAppears').value,
-      PartnersInDefaultLocations: !settingsForm.get('partners').get('shufflePartners').value,
+      PartnerShuffle: settingsForm.get('partners').get('shufflePartners').value,
       PartnersAlwaysUsable: settingsForm.get('partners').get('partnersAlwaysUsable').value,
       StartWithRandomPartners: settingsForm.get('partners').get('startWithRandomPartners').value,
       WriteSpoilerLog: settingsForm.get('qualityOfLife').get('writeSpoilerLog').value,

@@ -16,26 +16,29 @@ export class AppComponent implements OnInit {
 
   public $latestSeedId: Observable<string>;
 
+  private readonly lastChangelogEntry = "viewed-0.28.0-changelog";
+  private readonly cutoffDate = new Date("2024-12-01");
+
   public constructor(private _localStorage: LocalStorageService, private _dialog: MatDialog,) {
 
   }
 
   public ngOnInit(): void {
     this.$latestSeedId = this._localStorage.watch('latestSeedId');
-    // const userSawWarning = this._localStorage.get('viewed 0.8.3 warning')
+    const userSawChangelog = this._localStorage.get(this.lastChangelogEntry)
+    const dateNow = new Date();
 
-    if(true) {
+    if(userSawChangelog || dateNow > this.cutoffDate) {
       return;
     }
 
     const dialogRef = this._dialog.open(InfoDialogComponent, {
-      width: '50rem',
-      
+      width: '35rem',
+      autoFocus: null
     });
 
-    dialogRef.afterClosed().subscribe(newPresetName => {
-      this._localStorage.set('viewed 0.8.3 warning', true)
-
+    dialogRef.afterClosed().subscribe(() => {
+      this._localStorage.set(this.lastChangelogEntry, true)
     });
   }
 }

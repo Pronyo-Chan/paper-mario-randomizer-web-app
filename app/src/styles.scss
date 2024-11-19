@@ -1,5 +1,6 @@
 @import './variables';
 @import './mixins';
+@import './animations';
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 
@@ -165,10 +166,21 @@ input.mat-input-element:focus {
   }
 }
 
+.mat-list-item-content {
+  align-items: baseline !important;
+}
+
 .mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
-    min-height: 48px;
+    padding-bottom: 16px !important;
+    padding-top: 2px !important;
     max-height: 100%;
     height: inherit !important;
+}
+
+.ngx-toastr {
+  @include medium {
+    width: 25rem !important;
+  }
 }
 
 select {
@@ -180,3 +192,23 @@ select {
 
 html, body { height: 100%; }
 body { margin: 3vmax 0 0 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.fancy-scrollbar {
+  scrollbar-width: thin !important;
+  scrollbar-color: $yellow-stat-border $purple-background-secondary  !important;
+
+  &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+  &::-webkit-scrollbar-track {
+      background-color: $purple-background-secondary;
+      border-radius: 10px;
+    }
+
+  &::-webkit-scrollbar-thumb {
+      background-color: $yellow-stat-border;
+      border-radius: 10px;
+    }
+}

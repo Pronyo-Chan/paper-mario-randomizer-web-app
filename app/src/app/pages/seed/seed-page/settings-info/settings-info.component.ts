@@ -1,3 +1,6 @@
+import { BossShuffleMode } from './../../../../entities/enum/BossShuffleMode';
+import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
+import { DungeonEntranceShuffleMode } from './../../../../entities/enum/DungeonEntranceShuffleMode';
 import { MerlowRewardPricing } from './../../../../entities/enum/merlowRewardPricing';
 import { Boots } from './../../../../entities/enum/boots';
 import { BowsersCastleMode } from './../../../../entities/enum/bowsersCastleMode';
@@ -87,6 +90,22 @@ export class SettingsInfoComponent implements OnInit {
     this.displayedRows = this.displayedRows.filter(sr => sr.value != null)
   }
 
+  public isValueBoolean(value: string | boolean) {
+    return typeof value === "boolean";
+  }
+
+  public getSettingValueSvg(value: string | boolean) {
+    if (value === true) {
+      return "assets/images/check_circle.svg"
+    }
+
+    if (value === false) {
+      return "assets/images/block.svg"
+    }
+
+    return value;
+  }
+
   private initRows(): void {
     this.initItemRows();
     this.initPartnerRows();
@@ -160,7 +179,7 @@ export class SettingsInfoComponent implements OnInit {
 
   private initPartnerRows(): void {
     this.partnerRows =  [
-      {name: "Shuffle Partners", value: this.seedModel.Partners.ShufflePartners},
+      {name: "Shuffle Partners", value: PartnerShuffleMode[this.seedModel.Partners.ShufflePartners]},
       {name: "Partners Always Usable", value: this.seedModel.Partners.PartnersAlwaysUsable},
       {name: "Min Number Of Starting Partners", value: this.seedModel.Partners.MinNumberOfStartingPartners},
       {name: "Max Number Of Starting Partners", value: this.seedModel.Partners.MaxNumberOfStartingPartners},
@@ -178,6 +197,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Shuffle Battle Formations", value: this.seedModel.Gameplay.ShuffleBattleFormations},
       {name: "Mystery", value: MysteryMode[this.seedModel.Gameplay.MysteryMode]},
       {name: "Randomize Puzzles", value: this.seedModel.Gameplay.RandomizePuzzles},
+      {name: "Boss Shuffle", value: BossShuffleMode[this.seedModel.Gameplay.BossShuffle]}
     ] as SettingRow[]
   }
 
@@ -285,7 +305,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Open Blue House", value: this.seedModel.World.OpenBlueHouse},
       {name: "Ch.7 Bridge Visible", value: this.seedModel.World.Ch7BridgeVisible},
       {name: "Bowser's Castle Mode", value: BowsersCastleMode[this.seedModel.World.BowsersCastleMode]},
-      {name: "Shuffle Dungeon Entrances", value: this.seedModel.World.ShuffleDungeonEntrances},
+      {name: "Shuffle Dungeon Entrances", value: DungeonEntranceShuffleMode[this.seedModel.World.ShuffleDungeonEntrances]},
       {name: "Mirror Mode", value: MirrorMode[this.seedModel.World.MirrorMode]},
     ] as SettingRow[]
   }

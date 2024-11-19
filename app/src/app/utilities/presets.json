@@ -12,14 +12,14 @@
                 "includePanels": false,
                 "includeFavors": 0,
                 "keyitemsOutsideDungeon": false,
-                "includeDojo": false,
+                "includeDojo": 0,
                 "includeLetters": 0,
                 "includeRadioTradeEvent": false,
                 "shuffleBlocks": false,
                 "gearShuffleMode": 0,
                 "partnerUpgradeShuffle": 0,
                 "ripCheatoItemsInLogic": 6,
-                "progressionOnRowf": false,
+                "progressionOnRowf": 0,
                 "progressionOnMerlow": false
             },
             "gameplay": {
@@ -28,11 +28,12 @@
                 "randomPartnerFP": 0,
                 "randomStarpowerSP": 0,
                 "randomFormations": false,
+                "bossShuffle": 0,
                 "mysteryMode": 0,
                 "randomizePuzzles": false
             },
             "partners": {
-                "shufflePartners": false,
+                "shufflePartners": 0,
                 "partnersAlwaysUsable": false,
                 "startWithRandomPartners": true,
                 "randomPartnersMin": 1,
@@ -124,7 +125,7 @@
                 "foreverForestOpen": true,
                 "prologueOpen": false,
                 "bowsersCastleMode": 1,
-                "shuffleDungeonEntrances": false,
+                "shuffleDungeonEntrances": 0,
                 "mirrorMode": 0,
                 "startingMap": 65796
             },
@@ -203,14 +204,14 @@
             "includePanels": false,
             "includeFavors": 0,
             "keyitemsOutsideDungeon": false,
-            "includeDojo": false,
+            "includeDojo": 0,
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 2,
             "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
-            "progressionOnRowf": false,
+            "progressionOnRowf": 0,
             "progressionOnMerlow": false
           },
           "gameplay": {
@@ -219,11 +220,12 @@
             "randomPartnerFP": 0,
             "randomStarpowerSP": 0,
             "randomFormations": false,
+            "bossShuffle": 0,
             "mysteryMode": 0,
             "randomizePuzzles": false
           },
           "partners": {
-            "shufflePartners": false,
+            "shufflePartners": 0,
             "partnersAlwaysUsable": true,
             "startWithRandomPartners": true,
             "randomPartnersMin": 1,
@@ -315,7 +317,7 @@
             "foreverForestOpen": true,
             "prologueOpen": true,
             "bowsersCastleMode": 0,
-            "shuffleDungeonEntrances": false,
+            "shuffleDungeonEntrances": 0,
             "mirrorMode": 0,
             "startingMap": 65796
           },
@@ -394,14 +396,14 @@
             "includePanels": true,
             "includeFavors": 1,
             "keyitemsOutsideDungeon": true,
-            "includeDojo": false,
+            "includeDojo": 0,
             "includeLetters": 1,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 1,
             "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
-            "progressionOnRowf": true,
+            "progressionOnRowf": 5,
             "progressionOnMerlow": true
           },
           "gameplay": {
@@ -410,11 +412,12 @@
             "randomPartnerFP": 0,
             "randomStarpowerSP": 0,
             "randomFormations": true,
+            "bossShuffle": 0,
             "mysteryMode": 0,
             "randomizePuzzles": false
           },
           "partners": {
-            "shufflePartners": true,
+            "shufflePartners": 2,
             "partnersAlwaysUsable": false,
             "startWithRandomPartners": true,
             "randomPartnersMin": 1,
@@ -506,7 +509,7 @@
             "foreverForestOpen": true,
             "prologueOpen": false,
             "bowsersCastleMode": 1,
-            "shuffleDungeonEntrances": false,
+            "shuffleDungeonEntrances": 0,
             "mirrorMode": 0,
             "startingMap": 65796
           },
@@ -585,14 +588,14 @@
             "includePanels": true,
             "includeFavors": 2,
             "keyitemsOutsideDungeon": true,
-            "includeDojo": true,
+            "includeDojo": 5,
             "includeLetters": 3,
             "includeRadioTradeEvent": true,
             "shuffleBlocks": true,
             "gearShuffleMode": 2,
             "partnerUpgradeShuffle": 2,
             "ripCheatoItemsInLogic": 11,
-            "progressionOnRowf": true,
+            "progressionOnRowf": 5,
             "progressionOnMerlow": true
           },
           "gameplay": {
@@ -601,11 +604,12 @@
             "randomPartnerFP": 3,
             "randomStarpowerSP": 3,
             "randomFormations": true,
+            "bossShuffle": 1,
             "mysteryMode": 2,
             "randomizePuzzles": true
           },
           "partners": {
-            "shufflePartners": true,
+            "shufflePartners": 2,
             "partnersAlwaysUsable": false,
             "startWithRandomPartners": true,
             "randomPartnersMin": 1,
@@ -697,7 +701,7 @@
             "foreverForestOpen": true,
             "prologueOpen": false,
             "bowsersCastleMode": 0,
-            "shuffleDungeonEntrances": false,
+            "shuffleDungeonEntrances": 0,
             "mirrorMode": 0,
             "startingMap": 65796
           },
@@ -776,14 +780,14 @@
             "includePanels":false,
             "includeFavors":0,
             "keyitemsOutsideDungeon":true,
-            "includeDojo":false,
+            "includeDojo":0,
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
             "shuffleBlocks": false,
             "gearShuffleMode": 2,
             "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
-            "progressionOnRowf": true,
+            "progressionOnRowf": 5,
             "progressionOnMerlow": true
          },
          "gameplay":{
@@ -792,11 +796,12 @@
             "randomPartnerFP":1,
             "randomStarpowerSP":0,
             "randomFormations":true,
+            "bossShuffle": 0,
             "mysteryMode":0,
             "randomizePuzzles": false
          },
          "partners":{
-            "shufflePartners":true,
+            "shufflePartners":2,
             "partnersAlwaysUsable":false,
             "startWithRandomPartners":true,
             "randomPartnersMin":1,
@@ -891,7 +896,7 @@
             "foreverForestOpen": true,
             "prologueOpen": true,
             "bowsersCastleMode":2,
-            "shuffleDungeonEntrances": false,
+            "shuffleDungeonEntrances": 0,
             "mirrorMode": 0,
             "startingMap":65796
          },
@@ -970,14 +975,14 @@
           "includePanels": false,
           "includeFavors": 0,
           "keyitemsOutsideDungeon": true,
-          "includeDojo": false,
+          "includeDojo": 0,
           "includeLetters": 0,
           "includeRadioTradeEvent": false,
           "shuffleBlocks": false,
           "gearShuffleMode": 2,
           "partnerUpgradeShuffle": 0,
           "ripCheatoItemsInLogic": 6,
-          "progressionOnRowf": true,
+          "progressionOnRowf": 5,
           "progressionOnMerlow": false
         },
         "gameplay": {
@@ -986,11 +991,12 @@
           "randomPartnerFP": 1,
           "randomStarpowerSP": 0,
           "randomFormations": true,
+          "bossShuffle": 0,
           "mysteryMode": 2,
           "randomizePuzzles": false
         },
         "partners": {
-          "shufflePartners": true,
+          "shufflePartners": 2,
           "partnersAlwaysUsable": false,
           "startWithRandomPartners": true,
           "randomPartnersMin": 1,
@@ -1094,7 +1100,7 @@
           "prologueOpen": true,
           "startingMap": 65796,
           "bowsersCastleMode": 2,
-          "shuffleDungeonEntrances": false,
+          "shuffleDungeonEntrances": 0,
           "mirrorMode": 0
         },
         "cosmetics": {
@@ -1172,14 +1178,14 @@
           "includePanels": true,
           "includeFavors": 0,
           "keyitemsOutsideDungeon": true,
-          "includeDojo": false,
+          "includeDojo": 0,
           "includeLetters": 0,
           "includeRadioTradeEvent": false,
           "shuffleBlocks": false,
           "gearShuffleMode": 2,
           "partnerUpgradeShuffle": 2,
           "ripCheatoItemsInLogic": 6,
-          "progressionOnRowf": true,
+          "progressionOnRowf": 5,
           "progressionOnMerlow": false
         },
         "gameplay": {
@@ -1188,11 +1194,12 @@
           "randomPartnerFP": 1,
           "randomStarpowerSP": 0,
           "randomFormations": true,
+          "bossShuffle": 0,
           "mysteryMode": 2,
           "randomizePuzzles": false
         },
         "partners": {
-          "shufflePartners": true,
+          "shufflePartners": 2,
           "partnersAlwaysUsable": false,
           "startWithRandomPartners": true,
           "randomPartnersMin": 1,
@@ -1296,7 +1303,7 @@
           "prologueOpen": true,
           "startingMap": 65796,
           "bowsersCastleMode": 2,
-          "shuffleDungeonEntrances": false,
+          "shuffleDungeonEntrances": 0,
           "mirrorMode": 0
         },
         "cosmetics": {

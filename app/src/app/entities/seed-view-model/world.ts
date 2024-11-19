@@ -1,4 +1,5 @@
 import { BowsersCastleMode } from "../enum/bowsersCastleMode";
+import { DungeonEntranceShuffleMode } from "../enum/DungeonEntranceShuffleMode";
 import { MirrorMode } from "../enum/mirrorMode";
 import { SeedGoal } from "../enum/seedGoal";
 
@@ -13,6 +14,6 @@ export interface World {
     OpenForeverForest: boolean;
     Ch7BridgeVisible: boolean;
     BowsersCastleMode: BowsersCastleMode;
-    ShuffleDungeonEntrances: boolean;
+    ShuffleDungeonEntrances: DungeonEntranceShuffleMode;
     MirrorMode: MirrorMode;
 }

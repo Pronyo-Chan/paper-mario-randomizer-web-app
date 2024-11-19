@@ -33,7 +33,7 @@ describe('ItemsComponent', () => {
       includePanels: new FormControl(false),
       includeFavors: new FormControl(false),
       keyitemsOutsideDungeon: new FormControl(false),
-      includeDojo: new FormControl(false)
+      includeDojo: new FormControl(0)
     })
     fixture.detectChanges();
   });

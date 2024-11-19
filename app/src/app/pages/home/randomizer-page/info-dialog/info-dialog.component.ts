@@ -1,5 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-info-dialog',
@@ -8,13 +9,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class InfoDialogComponent {
 
-  public constructor(
-    @Inject(MAT_DIALOG_DATA) public presetNames: string[],
-    private _dialogRef: MatDialogRef<InfoDialogComponent>
-  ) {}
+  public constructor(private _router: Router, private _dialogRef: MatDialogRef<InfoDialogComponent>) {}
 
-  public onCancelClick(): void {
+  public onChangelogClick(): void {
     this._dialogRef.close();
   }
-
 }
