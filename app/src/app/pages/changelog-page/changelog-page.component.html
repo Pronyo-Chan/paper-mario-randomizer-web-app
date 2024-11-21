@@ -1,6 +1,27 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.28.1 (beta) (2024-11-21)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li>The 0.28.0 update introduced breaking changes to the setting strings and presets. Previously exported settings will need to be exported again. Saved presets should work but many settings will not be imported properly.</li>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+    </ul>
+
+    <h2>Bug Fixes</h2>
+    <ul>
+      <li>Fix a bug that caused the chapter 3 boss battle's post-battle cutscene to sometimes not play out properly during `Boss Shuffle: On`, causing a softlock</li>
+      <li>Fix a bug that caused the seed generator to fail at item placement while `Shuffle Partners` was set to `Shuffle among vanilla locations`, if other settings were very restrictive (like jumpless and hammerless start plus Goombario as only partner)</li>
+      <li>Fix a bug that caused the seed generator to fail at item placement while `Seed Goal: Open Starway`, `Dungeon Entrance Shuffle: All + Bowser's Castle`, and `Partner Upgrades: Shuffle among super block locations` were all active</li>
+      <li>Stop an uninteractible Bow-NPC from spawning when re-visiting Lady Bow's Room atop Boo's Mansion during `Cutscene Mode: Minimal`</li>
+      <li>Fix a crash during the Crystal Palace fake Bombettes puzzle if re-entering the puzzle with a non-Bombette partner out. Fixed by resetting the bombable wall in this niche scenario</li>
+    </ul>
+
+  </mat-card>
+
+  <mat-card class="settings-card latest-changelog">
     <mat-card-title class="settings-title">0.28.0 (beta) (2024-11-19)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
