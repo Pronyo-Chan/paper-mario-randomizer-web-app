@@ -1,0 +1,12 @@
+<h2>Partner Move FP Costs</h2>
+<p class="text-center">If left blank, seed generator settings will determine FP cost.</p>
+<div [formGroup]="moveCostsFormGroup" class="container">
+    <div *ngFor="let partner of PARTNERS" class="panel" formGroupName="partner">
+        <h3 class="row">{{partner.name}}</h3>
+        <div *ngFor="let move of partner.moves;" [formGroupName]="partner.name" class="move-grid">
+            <label [for]="move.id">{{move.displayName}}:</label>
+            <input [name]="move.id" type="number" [formControlName]="move.id" min="0" [max]="MAX_FP">
+            <span>&nbsp;FP</span>
+        </div>
+    </div>
+</div>

@@ -60,6 +60,11 @@ import { SpoilerSettingsComponent } from './pages/home/randomizer-page/spoiler-s
 import { GlitchesAndTricksComponent } from './pages/home/randomizer-page/glitches-and-tricks/glitches-and-tricks.component';
 import { ItemPoolSettingsComponent } from './pages/home/randomizer-page/item-pool-settings/item-pool-settings.component';
 import { GlobalConfig, ToastrModule } from 'ngx-toastr';
+import { PlandoPageComponent } from './pages/plando-page/plando-page.component';
+import { PlandoSpiritsAndChaptersComponent } from './pages/plando-page/plando-spirits-and-chapters/plando-spirits-and-chapters.component';
+import { PlandoPartyComponent } from './pages/plando-page/plando-party/plando-party.component';
+import { PlandoBadgesComponent } from './pages/plando-page/plando-badges/plando-badges.component';
+import { PlandoItemsComponent } from './pages/plando-page/plando-items/plando-items.component';
 
 const dbConfig: DBConfig  = {
   name: 'db',
@@ -113,7 +118,12 @@ const toasterConfig: Partial<GlobalConfig> = {
     InfoDialogComponent,
     MatTabScrollToCenterDirective,
     SpoilerSettingsComponent,
-    GlitchesAndTricksComponent
+    GlitchesAndTricksComponent,
+    PlandoPageComponent,
+    PlandoSpiritsAndChaptersComponent,
+    PlandoPartyComponent,
+    PlandoBadgesComponent,
+    PlandoItemsComponent,
   ],
   imports: [
     BrowserModule,

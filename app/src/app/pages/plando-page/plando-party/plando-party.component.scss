@@ -1,0 +1,10 @@
+:host {
+  .move-grid {
+    display: grid;
+    grid-template-columns: 45% 15% 10%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0;
+  }
+}

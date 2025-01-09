@@ -1,0 +1,21 @@
+<form [formGroup]="formGroup">
+    <div class="main-page">
+        <mat-card class="settings-card">
+            <mat-tab-group animationDuration="0" scrollToCenter>
+                <mat-tab label="Spirits & Chapters">
+                    <app-plando-spirits-and-chapters [plandoFormGroup]="formGroup"></app-plando-spirits-and-chapters>
+                </mat-tab>
+                <mat-tab label="Party">
+                    <app-plando-party [moveCostsFormGroup]="formGroup.get('move_costs')"></app-plando-party>
+                </mat-tab>
+                <mat-tab label="Badges">
+                    <app-plando-badges></app-plando-badges>
+                </mat-tab>
+                <mat-tab label="Items">
+                    <app-plando-items></app-plando-items>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card>
+    </div>
+    <button [disabled]="formGroup.invalid" class="submit" type="button" (click)="onSubmit()">Download Plando File</button>
+</form>
