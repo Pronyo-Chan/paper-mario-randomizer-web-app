@@ -25,7 +25,11 @@ export function pascalToVerboseString(text: string): string {
         .replace("O H K O", "One Hit KO")
         .replace("N P C", "NPC")
         .replace("T R A P", "TRAP")
-        .trimLeft()
+        .replace('D Down', "D-Down")
+        .replace("D Up", "D-Up")
+        .replace('P Down', "P-Down")
+        .replace("P Up", "P-Up")
+        .trimStart()
 
     return cleanText;
 }
