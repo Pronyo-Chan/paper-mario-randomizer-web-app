@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-plando-badges',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./plando-badges.component.scss']
 })
 export class PlandoBadgesComponent {
-
+  @Input() badgeMoveCostsFormGroup: FormGroup;
 }

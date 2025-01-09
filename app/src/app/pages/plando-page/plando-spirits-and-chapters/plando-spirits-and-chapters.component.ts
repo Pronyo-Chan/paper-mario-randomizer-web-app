@@ -8,7 +8,6 @@ type Boss = {
 type SpiritPower = {
   id: string;
   displayName: string;
-  cost: number;
 }
 @Component({
   selector: 'app-plando-spirits-and-chapters',
@@ -19,13 +18,13 @@ export class PlandoSpiritsAndChaptersComponent {
   @Input() plandoFormGroup: FormGroup;
 
   public readonly SPRIT_POWERS: Array<SpiritPower> = [
-    {id: "Refresh", displayName: "Refresh", cost: null},
-    {id: "Lullaby", displayName: "Lullaby", cost: null},
-    {id: "StarStorm", displayName: "Star Storm", cost: null},
-    {id: "ChillOut", displayName: "Chill Out", cost: null},
-    {id: "Smooch", displayName: "Smooch", cost: null},
-    {id: "TimeOut", displayName: "Time Out", cost: null},
-    {id: "UpAndAway", displayName: "Up And Away", cost: null}
+    {id: "Refresh", displayName: "Refresh"},
+    {id: "Lullaby", displayName: "Lullaby"},
+    {id: "StarStorm", displayName: "Star Storm"},
+    {id: "ChillOut", displayName: "Chill Out"},
+    {id: "Smooch", displayName: "Smooch"},
+    {id: "TimeOut", displayName: "Time Out"},
+    {id: "UpAndAway", displayName: "Up And Away"}
   ];
   public readonly SPIRITS: Array<string> = ['Eldstar', 'Mamar', 'Skolar', 'Muskular', 'Misstar', 'Klevar', 'Kalmar'];
   public readonly BOSSES: Array<Boss> = [

@@ -6,10 +6,10 @@
                     <app-plando-spirits-and-chapters [plandoFormGroup]="formGroup"></app-plando-spirits-and-chapters>
                 </mat-tab>
                 <mat-tab label="Party">
-                    <app-plando-party [moveCostsFormGroup]="formGroup.get('move_costs')"></app-plando-party>
+                    <app-plando-party [partnerMoveCostsFormGroup]="formGroup.get('move_costs').get('partner')"></app-plando-party>
                 </mat-tab>
                 <mat-tab label="Badges">
-                    <app-plando-badges></app-plando-badges>
+                    <app-plando-badges [badgeMoveCostsFormGroup]="formGroup.get('move_costs').get('badge')"></app-plando-badges>
                 </mat-tab>
                 <mat-tab label="Items">
                     <app-plando-items></app-plando-items>

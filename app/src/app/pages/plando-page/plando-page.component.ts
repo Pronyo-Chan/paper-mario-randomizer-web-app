@@ -90,6 +90,15 @@ export class PlandoPageComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formGroup.getRawValue())
+    let obj = this.formGroup.getRawValue()
+    // A bit of a kludge to keep the star power cost sliders consistent.
+    // Setting cost to 'null' while editing keeps the slider locked at 0.
+    const powercosts = obj['move_costs']['starpower']
+    for (const power in powercosts) {
+      if (powercosts[power] === -1) {
+        powercosts[power] = null;
+      }
+    }
+    console.log(obj)
   }
 }

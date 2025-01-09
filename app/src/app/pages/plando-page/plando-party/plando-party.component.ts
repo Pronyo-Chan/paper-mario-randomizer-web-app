@@ -5,7 +5,6 @@ import { MAX_FP_COST } from "../plando-page.component";
 type Move = {
   id: string;
   displayName: string;
-  cost: number;
 }
 
 type Partner = {
@@ -19,63 +18,63 @@ type Partner = {
   styleUrls: ['../plando-page.component.scss', './plando-party.component.scss']
 })
 export class PlandoPartyComponent {
-  @Input() moveCostsFormGroup: FormGroup;
+  @Input() partnerMoveCostsFormGroup: FormGroup;
   public readonly MAX_FP: number = MAX_FP_COST;
   public readonly PARTNERS: Array<Partner> = [
     {
       name: 'Goombario',
       moves: [
-        { id: 'Charge', displayName: 'Charge', cost: null },
-        { id: 'Multibonk', displayName: 'Multibonk', cost: null }]
+        { id: 'Charge', displayName: 'Charge'},
+        { id: 'Multibonk', displayName: 'Multibonk'}]
     },
     {
       name: 'Kooper',
       moves: [
-        { id: 'PowerShell', displayName: 'Power Shell', cost: null },
-        { id: 'DizzyShell', displayName: 'Dizzy Shell', cost: null },
-        { id: 'FireShell', displayName: 'Fire Shell', cost: null }]
+        { id: 'PowerShell', displayName: 'Power Shell'},
+        { id: 'DizzyShell', displayName: 'Dizzy Shell'},
+        { id: 'FireShell', displayName: 'Fire Shell'}]
     },
     {
       name: 'Bombette',
       moves: [
-        { id: 'Bomb', displayName: 'Bomb', cost: null },
-        { id: 'PowerBomb', displayName: 'Power Bomb', cost: null },
-        { id: 'MegaBomb', displayName: 'Mega Bomb', cost: null }]
+        { id: 'Bomb', displayName: 'Bomb'},
+        { id: 'PowerBomb', displayName: 'Power Bomb'},
+        { id: 'MegaBomb', displayName: 'Mega Bomb'}]
     },
     {
       name: 'Parakarry',
       moves: [
-        { id: 'ShellShot', displayName: 'Shell Shot', cost: null },
-        { id: 'AirLift', displayName: 'Air Lift', cost: null },
-        { id: 'AirRaid', displayName: 'Air Raid', cost: null }]
+        { id: 'ShellShot', displayName: 'Shell Shot'},
+        { id: 'AirLift', displayName: 'Air Lift'},
+        { id: 'AirRaid', displayName: 'Air Raid'}]
     },
     {
       name: 'Bow',
       moves: [
-        { id: 'OuttaSight', displayName: 'Outta Sight', cost: null },
-        { id: 'Spook', displayName: 'Spook', cost: null },
-        { id: 'FanSmack', displayName: 'Fan Smack', cost: null }]
+        { id: 'OuttaSight', displayName: 'Outta Sight'},
+        { id: 'Spook', displayName: 'Spook'},
+        { id: 'FanSmack', displayName: 'Fan Smack'}]
     },
     {
       name: 'Watt',
       moves: [
-        { id: 'PowerShock', displayName: 'Power Shock', cost: null },
-        { id: 'TurboCharge', displayName: 'Turbo Charge', cost: null },
-        { id: 'MegaShock', displayName: 'Mega Shock', cost: null }]
+        { id: 'PowerShock', displayName: 'Power Shock'},
+        { id: 'TurboCharge', displayName: 'Turbo Charge'},
+        { id: 'MegaShock', displayName: 'Mega Shock'}]
     },
     {
       name: 'Sushie',
       moves: [
-        { id: 'Squirt', displayName: 'Squirt', cost: null },
-        { id: 'WaterBlock', displayName: 'Water Block', cost: null },
-        { id: 'TidalWave', displayName: 'Tidal Wave', cost: null }]
+        { id: 'Squirt', displayName: 'Squirt'},
+        { id: 'WaterBlock', displayName: 'Water Block'},
+        { id: 'TidalWave', displayName: 'Tidal Wave'}]
     },
     {
       name: 'Lakilester',
       moves: [
-        { id: 'SpinySurge', displayName: 'Spiny Surge', cost: null },
-        { id: 'CloudNine', displayName: 'Cloud Nine', cost: null },
-        { id: 'Hurricane', displayName: 'Hurricane', cost: null }]
+        { id: 'SpinySurge', displayName: 'Spiny Surge'},
+        { id: 'CloudNine', displayName: 'Cloud Nine'},
+        { id: 'Hurricane', displayName: 'Hurricane'}]
     }
   ];
 }
