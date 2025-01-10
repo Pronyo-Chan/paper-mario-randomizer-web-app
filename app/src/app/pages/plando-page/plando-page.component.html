@@ -24,7 +24,7 @@
         <mat-card class="settings-card">
             <div class="button-container">
                 <button [disabled]="formGroup.invalid || isValidating" class="submit" type="button" (click)="onSubmit()">
-                    <span *ngIf="!isValidating">Validate & Download Plando File</span>
+                    <span *ngIf="!isValidating">Download Plando File</span>
                     <app-loading *ngIf="isValidating" [isLoading]="isValidating" [loadingText]="'Validating...'"></app-loading>
                 </button>
             </div>
