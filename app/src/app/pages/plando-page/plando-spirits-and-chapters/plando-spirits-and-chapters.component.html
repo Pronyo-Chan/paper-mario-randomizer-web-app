@@ -1,5 +1,5 @@
 <div [formGroup]="plandoFormGroup">
-  <h3>Required Spirits and Difficulty Scaling</h3>
+  <h2>Required Spirits and Difficulty Scaling</h2>
   <p class="text-center">
     If "Require Specific Spirits" is enabled in the seed generator, the selected
     Star Spirits will be required for completion.
@@ -42,14 +42,14 @@
       </div>
     </div>
   </div>
-  <h3>Star Spirit Power Costs</h3>
+  <h2>Star Spirit Power Costs</h2>
   <p class="text-center">If set to '?', the seed generator settings will determine the SP cost.</p>
   <div class="container" formGroupName="move_costs">
     <div *ngFor="let power of SPRIT_POWERS;" formGroupName="starpower" class="panel">
       <app-tooltip-span class="row"
-        [spanText]="power.displayName + ': ' + (getStarPowerCost(power.id) !== -1 ? getStarPowerCost(power.id) + ' SP' : '?')"
+        [spanText]="toDisplayString(power) + ': ' + (getStarPowerCost(power) !== -1 ? getStarPowerCost(power) + ' SP' : '?')"
         tooltipText=""></app-tooltip-span>
-      <mat-slider [formControlName]="power.id" (input)="setStarPowerCost(power.id, $event.value)" min=-1 max=7 step="1" tickInterval="1"></mat-slider>
+      <mat-slider [formControlName]="power" (input)="setStarPowerCost(power, $event.value)" min=-1 max=7 step="1" tickInterval="1"></mat-slider>
     </div>
   </div>
 </div>
