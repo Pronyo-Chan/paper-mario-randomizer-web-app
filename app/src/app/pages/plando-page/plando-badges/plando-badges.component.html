@@ -1,1 +1,17 @@
-<p>plando-badges works!</p>
+<h2>Badge and Move Costs</h2>
+<p class="text-center">If left blank, seed generator settings will determine BP and FP cost.</p>
+<div class="panel">
+    <div [formGroup]="badgeMoveCostsFormGroup" class="badge-list">
+        <div *ngFor="let badge of BADGES" [formGroupName]="badge.id" class="badge-entry">
+            <span>{{toDisplayString(badge.id) + ':'}}</span>
+            <div>
+                <input formControlName="BP" type="number" min="0" max="10" />
+                <span>&nbsp;BP</span>
+            </div>
+            <span *ngIf="badge.hasFPCost">
+                <input formControlName="FP" type="number" min="0" max="75" />
+                <span>&nbsp;FP</span>
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+:host {
+  .badge-list {
+    width: 100%;
+    column-count: auto;
+    column-width: 400px;
+  }
+  .badge-entry {
+    display: grid;
+    align-items: center;
+    justify-self: center;
+    grid-template-columns: 10rem 7rem 6rem;
+    margin: 10px 0;
+  }
+}
