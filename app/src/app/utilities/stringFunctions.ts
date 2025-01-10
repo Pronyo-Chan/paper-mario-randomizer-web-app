@@ -29,6 +29,7 @@ export function pascalToVerboseString(text: string): string {
         .replace("D Up", "D-Up")
         .replace('P Down', "P-Down")
         .replace("P Up", "P-Up")
+        .replace("Allor", "All or")
         .trimStart()
 
     return cleanText;
