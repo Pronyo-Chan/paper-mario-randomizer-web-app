@@ -1,7 +1,12 @@
+<div class="logo-wrapper logo-paste-over">
+    <a class="image-link" [routerLink]="'../'">
+        <img src="../../../assets/images/plando/plandologo.png" class="logo">
+    </a>
+</div>
 <form [formGroup]="formGroup">
     <div class="main-page">
         <mat-card class="settings-card">
-            <mat-tab-group animationDuration="0" scrollToCenter>
+            <mat-tab-group disablePagination="true" animationDuration="0" scrollToCenter>
                 <mat-tab label="Spirits & Chapters">
                     <app-plando-spirits-and-chapters [plandoFormGroup]="formGroup"></app-plando-spirits-and-chapters>
                 </mat-tab>
@@ -12,10 +17,17 @@
                     <app-plando-badges [badgeMoveCostsFormGroup]="formGroup.get('move_costs').get('badge')"></app-plando-badges>
                 </mat-tab>
                 <mat-tab label="Items">
-                    <app-plando-items></app-plando-items>
+                    <app-plando-items [itemsFormGroup]="formGroup.get('items')"></app-plando-items>
                 </mat-tab>
             </mat-tab-group>
         </mat-card>
+        <mat-card class="settings-card">
+            <div class="button-container">
+                <button [disabled]="formGroup.invalid || isValidating" class="submit" type="button" (click)="onSubmit()">
+                    <span *ngIf="!isValidating">Validate & Download Plando File</span>
+                    <app-loading *ngIf="isValidating" [isLoading]="isValidating" [loadingText]="'Validating...'"></app-loading>
+                </button>
+            </div>
+        </mat-card>
     </div>
-    <button [disabled]="formGroup.invalid" class="submit" type="button" (click)="onSubmit()">Download Plando File</button>
 </form>

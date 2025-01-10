@@ -3,6 +3,10 @@
   font-family: gluten;
   font-weight: 600;
 
+  .logo-paste-over {
+    margin-top: -11%;
+  }
+
   .text-center {
     text-align: center;
   }
@@ -44,7 +48,7 @@
     background-color: $blue-background-card;
     margin: 10px;
     border-radius: 15px;
-    padding: 0 1rem 1rem 1rem;
+    padding: 0.5rem;
     box-shadow: #919191 2px 2px 4px 0px;
     app-tooltip-span {
       position: relative;
@@ -52,11 +56,33 @@
   }
 
   .settings-card {
+    ::ng-deep .mat-tab-group.sub-tab {
+      .mat-tab-header {
+        .mat-tab-label-container {
+          .mat-tab-list {
+            .mat-tab-labels {
+              display: inline-flex;
+              .mat-tab-label {
+                background-color: $yellow-stat-main !important;
+                border-color: $yellow-stat-border !important;
+                border-radius: 28px 28px 0px 0px;
+                margin: 0 0 0 4px;
+
+                .mat-tab-label-content {
+                  font-family: gluten;
+                  font-size: 16px;
+                  color: white;
+                  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+                    -1px -1px 0 #000;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     ::ng-deep .mat-tab-group {
       .mat-tab-header {
-        .mat-tab-header-pagination {
-          display: none !important;
-        }
         .mat-tab-label-container {
           left: 0px;
           width: 100%;
@@ -89,6 +115,10 @@
                   text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
                     -1px -1px 0 #000;
                 }
+
+                .sub-tab .mat-tab-label-content {
+                  font-size: 32px;
+                }
               }
 
               > :first-child {
@@ -116,7 +146,7 @@
       }
     }
 
-    &.partners-tab-error {
+    &.tab-error {
       background-color: $red-card-error;
       ::ng-deep .mat-tab-group {
         .mat-tab-header {
@@ -124,26 +154,6 @@
             .mat-tab-list {
               .mat-tab-labels {
                 #mat-tab-label-0-1 {
-                  -webkit-box-shadow: 0 0 20px red;
-                  -moz-box-shadow: 0 0 20px red;
-                  box-shadow: 0 0 6px 3px red;
-                  transition: box-shadow 0.1s ease-in-out;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    &.starting-items-tab-error {
-      background-color: $red-card-error;
-      ::ng-deep .mat-tab-group {
-        .mat-tab-header {
-          .mat-tab-label-container {
-            .mat-tab-list {
-              .mat-tab-labels {
-                #mat-tab-label-0-2 {
                   -webkit-box-shadow: 0 0 20px red;
                   -moz-box-shadow: 0 0 20px red;
                   box-shadow: 0 0 6px 3px red;
@@ -176,15 +186,11 @@
       border: double;
       border-width: 6px;
       border-color: $yellow-stat-border;
+      min-width: 500px;
     }
     button:disabled {
       cursor: not-allowed;
     }
   }
 
-  p.bottom-note {
-    font-family: "gluten";
-    font-size: 14px;
-    font-weight: 500;
-  }
 }
