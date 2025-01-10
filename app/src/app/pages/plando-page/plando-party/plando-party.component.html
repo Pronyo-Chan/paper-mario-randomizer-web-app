@@ -4,8 +4,8 @@
     <div *ngFor="let partner of PARTNERS" class="panel">
         <h3 class="row">{{partner.name}}</h3>
         <div *ngFor="let move of partner.moves;" [formGroupName]="partner.name" class="move-grid">
-            <label [for]="move.id">{{move.displayName}}:</label>
-            <input [name]="move.id" type="number" [formControlName]="move.id" min="0" [max]="MAX_FP">
+            <label [for]="move.id">{{toDisplayString(move) + ':'}}</label>
+            <input [name]="move.id" type="number" [formControlName]="move" min="0" [max]="MAX_FP">
             <span>&nbsp;FP</span>
         </div>
     </div>
