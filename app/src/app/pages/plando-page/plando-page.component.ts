@@ -131,18 +131,19 @@ export class PlandoPageComponent implements OnInit {
     // Remove all null and empty values.
     const tidyObj = (obj) => {
       return Object.fromEntries(Object.entries(obj).flatMap(([k, v]) => {
+        if (v === null
+          || (typeof v === 'object' && Object.keys(v).length === 0)
+          || (typeof v === 'string' && v.trim() === '')) {
+          return [];
+        }
         if (typeof v !== 'object' || (Array.isArray(v) && v.length > 0)) {
           return [[k, v]];
         }
-        if (!v || Object.keys(v).length === 0 || (Array.isArray(v) && v.length === 0)) {
-          return [];
+        v = tidyObj(v);
+        if (Object.keys(v).length === 0) {
+          return []
         } else {
-          v = tidyObj(v);
-          if (Object.keys(v).length === 0) {
-            return []
-          } else {
-            return [[k, v]];
-          }
+          return [[k, v]];
         }
       }));
     }
@@ -150,7 +151,7 @@ export class PlandoPageComponent implements OnInit {
     const plandoFile = new Blob([JSON.stringify(tidyObj(plandoFormObj))], { type: 'application/json' });
     a.href = URL.createObjectURL(plandoFile);
     const dateParts = new Date().toISOString().split('T');
-    const datetime = dateParts[0] + '_' + dateParts[1].substring(0,8).replaceAll(':','');
+    const datetime = dateParts[0] + '_' + dateParts[1].substring(0, 8).replaceAll(':', '');
     a.download = 'pm64-plando-' + datetime + '.json';
     a.click();
     this.isValidating = false;
