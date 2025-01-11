@@ -1193,7 +1193,9 @@ export class PlandoItemsComponent implements OnInit, OnDestroy {
   }
 
   public resetFilter() {
-    this.filteredItems = this.PLANDO_ITEMS.slice();
+    if (this.filteredItems.length < this.PLANDO_ITEMS.length) {
+      this.filteredItems = this.PLANDO_ITEMS.slice();
+    }
   }
 
   public toggleCheckTypeFilter($event: MatSlideToggleChange, checkType: CheckType) {
@@ -1208,7 +1210,7 @@ export class PlandoItemsComponent implements OnInit, OnDestroy {
   }
 
   public toDisplayString = function (s: string): string {
-    return pascalToVerboseString(s).replaceAll(possessiveRegex, "$1's").replace(replacementRegEx, function (matched) {
+    return pascalToVerboseString(s).replace(possessiveRegex, "$1's").replace(replacementRegEx, function (matched) {
       return displayStringReplacements[matched];
     });
   }

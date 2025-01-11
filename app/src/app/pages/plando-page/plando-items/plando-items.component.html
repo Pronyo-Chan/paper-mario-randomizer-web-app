@@ -37,11 +37,11 @@
                             <div class="check-entry">
                                 <ng-container *ngIf="check.type !== CHECK_TYPES.SHOP">
                                     <label>{{toDisplayString(check.name)}}: </label>
-                                    <input [formControlName]="check.name" [matAutocomplete]="auto">
+                                    <input [formControlName]="check.name" [matAutocomplete]="auto" (focus)="resetFilter()" />
                                 </ng-container>
                                 <ng-container *ngIf="check.type === CHECK_TYPES.SHOP" [formGroupName]="check.name">
                                     <label>{{toDisplayString(check.name)}}: </label>
-                                    <input formControlName="item" [matAutocomplete]="auto">
+                                    <input formControlName="item" [matAutocomplete]="auto" (focus)="resetFilter()" >
                                     <label>&nbsp;Price:</label>
                                     <input type="number" formControlName="price" min="0" max="999" />
                                 </ng-container>
