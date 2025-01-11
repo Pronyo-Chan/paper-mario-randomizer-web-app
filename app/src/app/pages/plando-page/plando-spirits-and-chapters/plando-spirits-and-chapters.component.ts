@@ -49,11 +49,7 @@ export class PlandoSpiritsAndChaptersComponent {
   }
 
   setChapterDifficulty(chapter_number: number, value: number) {
-    if (value > 0) {
-      this.plandoFormGroup.get('difficulty').get('chapter ' + chapter_number).setValue(value);
-    } else {
-      this.plandoFormGroup.get('difficulty').get('chapter ' + chapter_number).setValue(null);
-    }
+    this.plandoFormGroup.get('difficulty').get('chapter ' + chapter_number).setValue(value);
   }
 
   getStarPowerCost(id: string) {

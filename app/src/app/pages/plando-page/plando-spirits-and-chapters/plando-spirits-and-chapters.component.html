@@ -28,7 +28,7 @@
           <app-tooltip-span class="row"
             [spanText]="'Difficulty: ' + (getChapterDifficulty(i+1) > 0 ? getChapterDifficulty(i+1) : '?')"
             tooltipText="Set the difficulty scaling for this chapter. If set to '?', the seed generator settings will determine scaling."></app-tooltip-span>
-          <mat-slider formControlName="{{ 'chapter ' + (i + 1) }}" (input)="setChapterDifficulty(i+1, $event.value)" min=0 max=7 step="1" tickInterval="1"></mat-slider>
+          <mat-slider formControlName="{{ 'chapter ' + (i + 1) }}" (input)="setChapterDifficulty(i+1, $event.value)" min="0" max="7" step="1" tickInterval="1"></mat-slider>
         </div>
         <div class="row" formGroupName="boss_battles">
           <label for="{{ 'chapter ' + (i + 1) }}">Boss:</label>

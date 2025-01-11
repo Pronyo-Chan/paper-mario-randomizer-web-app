@@ -19,13 +19,13 @@ export class PlandoPageComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       difficulty: new FormGroup({
-        'chapter 1': new FormControl<number>(null, [Validators.min(1), Validators.max(7)]),
-        'chapter 2': new FormControl<number>(null, [Validators.min(1), Validators.max(7)]),
-        'chapter 3': new FormControl<number>(null, [Validators.min(1), Validators.max(7)]),
-        'chapter 4': new FormControl<number>(null, [Validators.min(1), Validators.max(7)]),
-        'chapter 5': new FormControl<number>(null, [Validators.min(1), Validators.max(7)]),
-        'chapter 6': new FormControl<number>(null, [Validators.min(1), Validators.max(7)]),
-        'chapter 7': new FormControl<number>(null, [Validators.min(1), Validators.max(7)]),
+        'chapter 1': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
+        'chapter 2': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
+        'chapter 3': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
+        'chapter 4': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
+        'chapter 5': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
+        'chapter 6': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
+        'chapter 7': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
       }),
       boss_battles: new FormGroup({
         'chapter 1': new FormControl<string>(null),
@@ -119,9 +119,15 @@ export class PlandoPageComponent implements OnInit {
   onSubmit() {
     this.isValidating = true;
     let plandoFormObj = this.formGroup.getRawValue()
-    // A bit of a kludge to keep the star power cost sliders consistent.
-    // Setting cost to 'null' while editing keeps the slider locked at 0.
-    const powercosts = plandoFormObj['move_costs']['starpower']
+    // The slider inputs don't play nicely with setting the form control value to "null"
+    // when they're at the lowest setting; handle those values here by removing them instead.
+    const difficultySettings = plandoFormObj['difficulty'];
+    for (const chapter in difficultySettings) {
+      if (difficultySettings[chapter] === 0) {
+        delete difficultySettings[chapter];
+      }
+    }
+    const powercosts = plandoFormObj['move_costs']['starpower'];
     for (const power in powercosts) {
       if (powercosts[power] === -1) {
         delete powercosts[power];
