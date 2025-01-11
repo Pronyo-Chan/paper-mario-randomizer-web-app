@@ -1,36 +1,42 @@
 import { Constants } from "./constants";
 
+const verboseStringReplacements = {
+    "H P": "HP",
+    "B P": "BP",
+    "F P": "FP",
+    "S P": "SP",
+    "X P": "XP",
+    "F X": "FX",
+    "P O W": "POW",
+    "O H K O": "One Hit KO",
+    "N P C": "NPC",
+    "T R A P": "TRAP",
+    'D Down': "D-Down",
+    "D Up": "D-Up",
+    'P Down': "P-Down",
+    "P Up": "P-Up",
+    "Allor": "All or"
+}
+const stringReplaceRegEx = new RegExp(Object.keys(verboseStringReplacements).map(k => k.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&')).join('|'), 'g');
+
 export function pascalToVerboseString(text: string): string {
-    if(!text){
+    if (!text) {
         return null;
     }
 
-    if(text.includes("Letter") && text.length == 8) {
+    if (text.includes("Letter") && text.length == 8) {
         return Constants.VERBOSE_LETTER_NAMES[text];
     }
 
-    if(text.includes("MagicalSeed")) {
+    if (text.includes("MagicalSeed")) {
         return text.replace(/([A-Z0-9])/g, " $1");
     }
 
     var cleanText = text.replace(/([A-Z])/g, " $1");
     cleanText = cleanText.charAt(0).toUpperCase() + cleanText.slice(1);
-    cleanText = cleanText.replace("H P", "HP")
-        .replace("B P", "BP")
-        .replace("F P", "FP")
-        .replace("S P", "SP")
-        .replace("X P", "XP")
-        .replace("F X", "FX")
-        .replace("P O W", "POW")
-        .replace("O H K O", "One Hit KO")
-        .replace("N P C", "NPC")
-        .replace("T R A P", "TRAP")
-        .replace('D Down', "D-Down")
-        .replace("D Up", "D-Up")
-        .replace('P Down', "P-Down")
-        .replace("P Up", "P-Up")
-        .replace("Allor", "All or")
-        .trimStart()
+    cleanText = cleanText.replace(stringReplaceRegEx, function (matched) {
+        return verboseStringReplacements[matched];
+    }).trimStart()
 
     return cleanText;
 }

@@ -26,6 +26,25 @@ type Location = {
   checks: Array<Check>;
 }
 
+const possessiveRegex = /(Mario|Peach|Boo|Guy|Troopa|King|Bowser|Rowf|Merlow|Merluvlee|Tubba|Kolorado|Bow|Lily|Petunia|Rosie)s /g;
+const displayStringReplacements = {
+  "B L U": "BLU",
+  "P N K": "PNK",
+  "G R N": "GRN",
+  "R E D": "RED",
+  "P- ": "P-",
+  "D- ": "D-",
+  "( ": "(",
+  "N W": "NW",
+  "N E": "NE",
+  "S W": "SW",
+  "S E": "SE",
+  "Bros": "Bros.",
+  "Non Progression": "Non-Progression Item",
+  "Consumable": "Random Consumable",
+}
+const replacementRegEx = new RegExp(Object.keys(displayStringReplacements).map(k => k.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&')).join('|'), "g");
+
 export const LOCATIONS_LIST = [
   {
     name: "Goomba Region", checks: [
@@ -1189,22 +1208,9 @@ export class PlandoItemsComponent implements OnInit, OnDestroy {
   }
 
   public toDisplayString = function (s: string): string {
-    const possessiveRegex = /(Mario|Peach|Boo|Guy|Troopa|King|Bowser|Rowf|Merlow|Merluvlee|Tubba|Kolorado|Bow|Lily|Petunia|Rosie)s /g
-    return pascalToVerboseString(s).replaceAll(possessiveRegex, "$1's")
-      .replace("B L U", "BLU")
-      .replace("P N K", "PNK")
-      .replace("G R N", "GRN")
-      .replace("R E D", "RED")
-      .replace("P- ", "P-")
-      .replace("D- ", "D-")
-      .replace("( ", "(")
-      .replace("N W", "NW")
-      .replace("N E", "NE")
-      .replace("S W", "SW")
-      .replace("S E", "SE")
-      .replace("Bros", "Bros.")
-      .replace("Non Progression", "Non-Progression Item")
-      .replace("Consumable", "Random Consumable");
+    return pascalToVerboseString(s).replaceAll(possessiveRegex, "$1's").replace(replacementRegEx, function (matched) {
+      return displayStringReplacements[matched];
+    });
   }
 
 };
