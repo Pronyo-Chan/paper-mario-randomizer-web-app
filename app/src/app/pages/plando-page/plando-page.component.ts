@@ -16,7 +16,7 @@ export class PlandoPageComponent implements OnInit {
   public isValidating: boolean = false;
   public plandoName: FormControl = new FormControl('');
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.formGroup = new FormGroup({
       difficulty: new FormGroup({
         'chapter 1': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
@@ -116,7 +116,7 @@ export class PlandoPageComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  public onSubmit() {
     this.isValidating = true;
     let plandoFormObj = this.formGroup.getRawValue()
     // The slider inputs don't play nicely with setting the form control value to "null"

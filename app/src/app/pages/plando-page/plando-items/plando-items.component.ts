@@ -1160,18 +1160,18 @@ export class PlandoItemsComponent implements OnInit, OnDestroy {
   public autocompleteSubscriptions: Subscription[] = [];
   public searchText: FormControl;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.initAutoComplete(this.itemsFormGroup);
 
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     for (const sub of this.autocompleteSubscriptions) {
       sub.unsubscribe();
     }
   }
 
-  initAutoComplete(formGroup: FormGroup) {
+  private initAutoComplete(formGroup: FormGroup) {
     for (const field in formGroup.controls) {
       const control = formGroup.get(field);
       if (control instanceof FormControl) {

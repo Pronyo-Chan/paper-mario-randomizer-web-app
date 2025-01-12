@@ -27,10 +27,10 @@ export class PlandoSpiritsAndChaptersComponent {
     { id: 'HuffNPuff', displayName: 'Huff N Puff' },
     { id: 'CrystalKing', displayName: 'Crystal King' }];
   public requiredSpiritsArray = Array<string>();
-  
+
   public toDisplayString = pascalToVerboseString;
 
-  updateSpiritSelection($event: InputEvent, spirit: string) {
+  public updateSpiritSelection($event: InputEvent, spirit: string) {
     if ($event.currentTarget instanceof HTMLInputElement) {
       if ($event.currentTarget.checked) {
         this.requiredSpiritsArray.push(spirit)
@@ -44,20 +44,20 @@ export class PlandoSpiritsAndChaptersComponent {
     this.plandoFormGroup.get('required_spirits').setValue(this.requiredSpiritsArray)
   }
 
-  getChapterDifficulty(chapter_number: number) {
+  public getChapterDifficulty(chapter_number: number) {
     return this.plandoFormGroup.get('difficulty').get('chapter ' + chapter_number).value;
   }
 
-  setChapterDifficulty(chapter_number: number, value: number) {
+  public setChapterDifficulty(chapter_number: number, value: number) {
     this.plandoFormGroup.get('difficulty').get('chapter ' + chapter_number).setValue(value);
   }
 
-  getStarPowerCost(id: string) {
+  public getStarPowerCost(id: string) {
     const val = this.plandoFormGroup.get('move_costs').get('starpower').get(id).value
     return val === null ? -1 : val;
   }
 
-  setStarPowerCost(id: string, cost: number) {
+  public setStarPowerCost(id: string, cost: number) {
     this.plandoFormGroup.get('move_costs').get('starpower').get(id).setValue(cost);
   }
 }
