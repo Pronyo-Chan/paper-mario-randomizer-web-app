@@ -157,7 +157,7 @@ export class PlandoPageComponent implements OnInit {
     const plandoFile = new Blob([JSON.stringify(tidyObj(plandoFormObj))], { type: 'application/json' });
     a.href = URL.createObjectURL(plandoFile);
     const dateParts = new Date().toISOString().split('T');
-    const datetime = dateParts[0] + '_' + dateParts[1].substring(0, 8).replaceAll(':', '');
+    const datetime = dateParts[0] + '_' + dateParts[1].substring(0, 8).replace(/:/g, '');
     a.download = 'pm64-plando-' + datetime + '.json';
     a.click();
     this.isValidating = false;
