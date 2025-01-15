@@ -5,11 +5,11 @@
         <div *ngFor="let badge of BADGES" [formGroupName]="badge.id" class="badge-entry">
             <span>{{toDisplayString(badge.id) + ':'}}</span>
             <div>
-                <input formControlName="BP" type="number" min="0" max="10" />
+                <input formControlName="BP" type="number" min="0" [max]="MAX_BP" (input)="inputFilters.filterNumericInput($event, badgeMoveCostsFormGroup, badge.id + '.' + 'BP')" />
                 <span>&nbsp;BP</span>
             </div>
             <span *ngIf="badge.hasFPCost">
-                <input formControlName="FP" type="number" min="0" max="75" />
+                <input formControlName="FP" type="number" min="0" [max]="MAX_FP" (input)="inputFilters.filterNumericInput($event, badgeMoveCostsFormGroup, badge.id + '.' + 'FP')" />
                 <span>&nbsp;FP</span>
             </span>
         </div>

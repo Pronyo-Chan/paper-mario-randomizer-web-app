@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from "@angular/forms";
-import { MAX_FP_COST } from "../plando-page.component";
+import { InputFilterService } from "src/app/services/inputfilter.service";
 import { pascalToVerboseString } from "src/app/utilities/stringFunctions";
+import { MAX_FP_COST } from "../plando-page.component";
 
 type Partner = {
   name: string;
@@ -26,5 +27,6 @@ export class PlandoPartyComponent {
     { name: 'Sushie', moves: ['Squirt', 'WaterBlock', 'TidalWave'] },
     { name: 'Lakilester', moves: ['SpinySurge', 'CloudNine', 'Hurricane'] }
   ];
+  constructor(public inputFilters: InputFilterService) {}
   public toDisplayString = pascalToVerboseString;
 }

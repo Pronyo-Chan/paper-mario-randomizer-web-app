@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { InputFilterService } from "src/app/services/inputfilter.service";
 import { pascalToVerboseString } from "src/app/utilities/stringFunctions";
+import { MAX_BP_COST, MAX_FP_COST } from "../plando-page.component";
 
 type Badge = {
   id: string;
@@ -333,6 +335,9 @@ export const BADGE_LIST: Array<Badge> = [
 })
 export class PlandoBadgesComponent {
   @Input() badgeMoveCostsFormGroup: FormGroup;
+  constructor(public inputFilters: InputFilterService) { };
+  public readonly MAX_FP: number = MAX_FP_COST;
+  public readonly MAX_BP: number = MAX_BP_COST;
   public readonly BADGES = BADGE_LIST;
   public toDisplayString = pascalToVerboseString;
 }
