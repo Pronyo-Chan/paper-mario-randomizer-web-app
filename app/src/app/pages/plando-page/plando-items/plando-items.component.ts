@@ -2,6 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { MatSlideToggleChange } from "@angular/material/slide-toggle";
 import { Subscription, tap } from "rxjs";
+import { InputFilterService } from "src/app/services/inputfilter.service";
 import { pascalToVerboseString } from "src/app/utilities/stringFunctions";
 
 export enum CheckType {
@@ -855,9 +856,6 @@ export class PlandoItemsComponent implements OnInit, OnDestroy {
   @Input() itemsFormGroup: FormGroup;
   public readonly CHECK_TYPES = CheckType
   public readonly LOCATIONS: Array<Location> = LOCATIONS_LIST;
-  // Multicoin and super blocks not supported yet. Always filter them for now.
-  // Remove these and add toggles (if desired) when support is added.
-  public filteredTypes: Array<CheckType> = [CheckType.MULTICOIN_BLOCK, CheckType.SUPER_BLOCK];
   public readonly PLANDO_ITEMS: Array<string> = [
     "TRAP",
     "NonProgression",
@@ -1156,6 +1154,10 @@ export class PlandoItemsComponent implements OnInit, OnDestroy {
     "YummyMeal",
     "ZapTap"
   ];
+  constructor(public inputFilters: InputFilterService) { };
+  // Multicoin and super blocks not supported yet. Always filter them for now.
+  // Remove these and add toggles (if desired) when support is added.
+  public filteredTypes: Array<CheckType> = [CheckType.MULTICOIN_BLOCK, CheckType.SUPER_BLOCK];
   public filteredItems: string[] = this.PLANDO_ITEMS.slice();
   public autocompleteSubscriptions: Subscription[] = [];
   public searchText: FormControl;
@@ -1173,13 +1175,15 @@ export class PlandoItemsComponent implements OnInit, OnDestroy {
 
   private initAutoComplete(formGroup: FormGroup) {
     for (const field in formGroup.controls) {
-      const control = formGroup.get(field);
-      if (control instanceof FormControl) {
-        this.autocompleteSubscriptions.push(control.valueChanges.pipe(
-          tap((val) => this._filter(val))
-        ).subscribe());
-      } else if (control instanceof FormGroup) {
-        this.initAutoComplete(control);
+      if (field !== 'price') {
+        const control = formGroup.get(field);
+        if (control instanceof FormControl) {
+          this.autocompleteSubscriptions.push(control.valueChanges.pipe(
+            tap((val) => this._filter(val))
+          ).subscribe());
+        } else if (control instanceof FormGroup) {
+          this.initAutoComplete(control);
+        }
       }
     }
   }

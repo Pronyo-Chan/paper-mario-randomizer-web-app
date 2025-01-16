@@ -41,9 +41,10 @@
                                 </ng-container>
                                 <ng-container *ngIf="check.type === CHECK_TYPES.SHOP" [formGroupName]="check.name">
                                     <label>{{toDisplayString(check.name)}}: </label>
-                                    <input formControlName="item" [matAutocomplete]="auto" (focus)="resetFilter()" >
+                                    <input formControlName="item" [matAutocomplete]="auto" (focus)="resetFilter()">
                                     <label>&nbsp;Price:</label>
-                                    <input type="number" formControlName="price" min="0" max="999" />
+                                    <input type="number" formControlName="price" min="0" max="999"
+                                        (input)="inputFilters.filterNumericInput($event, itemsFormGroup, loc.name + '.' + check.name + '.price')" />
                                 </ng-container>
                             </div>
                         </ng-container>
