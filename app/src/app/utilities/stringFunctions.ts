@@ -17,7 +17,12 @@ const verboseStringReplacements = {
     "P Up": "P-Up",
     "Allor": "All or"
 }
-const stringReplaceRegEx = new RegExp(Object.keys(verboseStringReplacements).map(k => k.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&')).join('|'), 'g');
+
+export function escapeRegexChars(val: string): string {
+    return val.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&')
+}
+
+const stringReplaceRegEx = new RegExp(Object.keys(verboseStringReplacements).map(escapeRegexChars).join('|'), 'g');
 
 export function pascalToVerboseString(text: string): string {
     if (!text) {
