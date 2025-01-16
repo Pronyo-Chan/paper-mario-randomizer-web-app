@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
 import { BADGE_LIST } from "./plando-badges/plando-badges.component";
-import { CheckType, LOCATIONS_LIST } from "./plando-items/plando-items.component";
+import { CheckType, LOCATIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-items/plando-items.component";
+import { escapeRegexChars } from "src/app/utilities/stringFunctions";
 
 export const MAX_FP_COST = 75;
 export const MAX_BP_COST = 10;
+
+const plandoItemSet = new Set(PLANDO_ITEMS_LIST);
+const manualTrapRegex = new RegExp('^TRAP \\((' + PLANDO_ITEMS_LIST.slice(4).map(escapeRegexChars).join('|') + ')\\)$');
 
 @Component({
   selector: 'app-plando-page',
@@ -106,14 +110,21 @@ export class PlandoPageComponent implements OnInit {
         if (check.type === CheckType.SHOP) {
           const shopItemFormGroup = new FormGroup({});
           shopItemFormGroup.addControl('price', new FormControl<number>(null, [Validators.min(0), Validators.max(999)]));
-          shopItemFormGroup.addControl('item', new FormControl<string>(null));
+          shopItemFormGroup.addControl('item', new FormControl<string>(null, this.itemNameValidator));
           locationFormGroup.addControl(check.name, shopItemFormGroup);
         } else {
-          locationFormGroup.addControl(check.name, new FormControl<string>(null));
+          locationFormGroup.addControl(check.name, new FormControl<string>(null, this.itemNameValidator));
         }
       }
       (this.formGroup.get('items') as FormGroup).addControl(location.name, locationFormGroup);
     }
+  }
+
+  private itemNameValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    if (control.value === null || control.value === '' || manualTrapRegex.test(control.value) || plandoItemSet.has(control.value)) {
+      return null;
+    }
+    return { invalidPlandoItem: { value: control.value } };
   }
 
   public onSubmit() {

@@ -7,23 +7,36 @@
     <div class="main-page">
         <mat-card class="settings-card">
             <mat-tab-group disablePagination="true" animationDuration="0" scrollToCenter>
-                <mat-tab label="Spirits & Chapters">
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <label>Spirits & Chapters</label>
+                    </ng-template>
                     <app-plando-spirits-and-chapters [plandoFormGroup]="formGroup"></app-plando-spirits-and-chapters>
                 </mat-tab>
-                <mat-tab label="Party">
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <label [ngClass]="{'error': formGroup.get('move_costs').get('partner').invalid }">Party</label>
+                    </ng-template>
                     <app-plando-party [partnerMoveCostsFormGroup]="formGroup.get('move_costs').get('partner')"></app-plando-party>
                 </mat-tab>
-                <mat-tab label="Badges">
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <label [ngClass]="{'error': formGroup.get('move_costs').get('badge').invalid }">Badges</label>
+                    </ng-template>
                     <app-plando-badges [badgeMoveCostsFormGroup]="formGroup.get('move_costs').get('badge')"></app-plando-badges>
                 </mat-tab>
-                <mat-tab label="Items">
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <label [ngClass]="{'error': formGroup.get('items').invalid }">Items</label>
+                    </ng-template>
                     <app-plando-items [itemsFormGroup]="formGroup.get('items')"></app-plando-items>
                 </mat-tab>
             </mat-tab-group>
         </mat-card>
         <mat-card class="settings-card">
             <div class="button-container">
-                <button [disabled]="formGroup.invalid || isValidating" class="submit" type="button" (click)="onSubmit()">
+                <button [disabled]="formGroup.invalid || isValidating" class="submit" type="button" (click)="onSubmit()"
+                    [matTooltip]="formGroup.invalid ? 'Please fix the errors on the page to submit. Problems are highlighted in red.' : ''" matTooltipPosition="right">
                     <span *ngIf="!isValidating">Download Plando File</span>
                     <app-loading *ngIf="isValidating" [isLoading]="isValidating" [loadingText]="'Validating...'"></app-loading>
                 </button>

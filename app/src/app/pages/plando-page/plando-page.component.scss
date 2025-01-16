@@ -53,6 +53,16 @@
     app-tooltip-span {
       position: relative;
     }
+    input.ng-invalid {
+      border-color: #df2020;
+      background-color: #ffd6d2;
+    }
+    label:has(+ .ng-invalid) {
+      background-color: #650b0b;
+      border-radius: 6px;
+      color: #fff0f0;
+      padding: 3px;
+    }
   }
 
   .settings-card {
@@ -75,6 +85,9 @@
                   text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
                     -1px -1px 0 #000;
                 }
+              }
+              .mat-tab-label:has(> div > label.error) {
+                background-color: #650b0b !important;
               }
             }
           }
@@ -140,25 +153,9 @@
                 background-color: $purple-misc-main !important;
                 border-color: $purple-misc-border !important;
               }
-            }
-          }
-        }
-      }
-    }
-
-    &.tab-error {
-      background-color: $red-card-error;
-      ::ng-deep .mat-tab-group {
-        .mat-tab-header {
-          .mat-tab-label-container {
-            .mat-tab-list {
-              .mat-tab-labels {
-                #mat-tab-label-0-1 {
-                  -webkit-box-shadow: 0 0 20px red;
-                  -moz-box-shadow: 0 0 20px red;
-                  box-shadow: 0 0 6px 3px red;
-                  transition: box-shadow 0.1s ease-in-out;
-                }
+              
+              .mat-tab-label:has(> div > label.error) {
+                background-color: #650b0b !important;
               }
             }
           }
@@ -192,5 +189,4 @@
       cursor: not-allowed;
     }
   }
-
 }

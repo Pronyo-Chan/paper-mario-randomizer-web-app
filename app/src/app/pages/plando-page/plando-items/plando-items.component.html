@@ -25,7 +25,10 @@
 </div>
 <div [formGroup]="itemsFormGroup">
     <mat-tab-group disablePagination="true" class="sub-tab" animationDuration="0" scrollToCenter>
-        <mat-tab *ngFor="let loc of LOCATIONS" [label]="toDisplayString(loc.name)">
+        <mat-tab *ngFor="let loc of LOCATIONS">
+            <ng-template mat-tab-label>
+                <label [ngClass]="{ 'error': itemsFormGroup.get(loc.name).invalid }">{{toDisplayString(loc.name)}}</label>
+            </ng-template>
             <div class="panel">
                 <div class="checks-list">
                     <ng-container *ngFor="let check of loc.checks" [formGroupName]="loc.name">
