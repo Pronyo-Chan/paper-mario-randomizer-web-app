@@ -44,6 +44,7 @@ const displayStringReplacements = {
   "Consumable": "Random Consumable",
 }
 const replacementRegEx = new RegExp(Object.keys(displayStringReplacements).map(escapeRegexChars).join('|'), "g");
+const displayStrings: Map<string, string> = new Map<string, string>();
 
 export const LOCATIONS_LIST = [
   {
@@ -1152,7 +1153,7 @@ export const PLANDO_ITEMS_LIST: Array<string> = [
 })
 export class PlandoItemsComponent implements OnInit, OnDestroy {
   @Input() itemsFormGroup: FormGroup;
-  public readonly CHECK_TYPES = CheckType
+  public readonly CHECK_TYPES = CheckType;
   public readonly LOCATIONS: Array<Location> = LOCATIONS_LIST;
   public readonly PLANDO_ITEMS: Array<string> = PLANDO_ITEMS_LIST.slice();
   constructor(public inputFilters: InputFilterService) { };
@@ -1214,9 +1215,12 @@ export class PlandoItemsComponent implements OnInit, OnDestroy {
   }
 
   public toDisplayString = function (s: string): string {
-    return pascalToVerboseString(s).replace(possessiveRegex, "$1's").replace(replacementRegEx, function (matched) {
-      return displayStringReplacements[matched];
-    });
+    if (!displayStrings.has(s)) {
+      displayStrings.set(s, pascalToVerboseString(s).replace(possessiveRegex, "$1's").replace(replacementRegEx, function (matched) {
+        return displayStringReplacements[matched];
+      }));
+    }
+    return displayStrings.get(s);
   }
 
 };

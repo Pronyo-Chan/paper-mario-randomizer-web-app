@@ -22,26 +22,30 @@ export function escapeRegexChars(val: string): string {
     return val.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&')
 }
 
+const verboseStrings: Map<string, string> = new Map<string, string>();
+
 const stringReplaceRegEx = new RegExp(Object.keys(verboseStringReplacements).map(escapeRegexChars).join('|'), 'g');
 
 export function pascalToVerboseString(text: string): string {
     if (!text) {
         return null;
     }
-
-    if (text.includes("Letter") && text.length == 8) {
-        return Constants.VERBOSE_LETTER_NAMES[text];
+    if (!verboseStrings.has(text)) {
+        if (text.includes("Letter") && text.length == 8) {
+            return Constants.VERBOSE_LETTER_NAMES[text];
+        }
+    
+        if (text.includes("MagicalSeed")) {
+            return text.replace(/([A-Z0-9])/g, " $1");
+        }
+    
+        var cleanText = text.replace(/([A-Z])/g, " $1");
+        cleanText = cleanText.charAt(0).toUpperCase() + cleanText.slice(1);
+        cleanText = cleanText.replace(stringReplaceRegEx, function (matched) {
+            return verboseStringReplacements[matched];
+        }).trimStart()
+        verboseStrings.set(text, cleanText);
     }
 
-    if (text.includes("MagicalSeed")) {
-        return text.replace(/([A-Z0-9])/g, " $1");
-    }
-
-    var cleanText = text.replace(/([A-Z])/g, " $1");
-    cleanText = cleanText.charAt(0).toUpperCase() + cleanText.slice(1);
-    cleanText = cleanText.replace(stringReplaceRegEx, function (matched) {
-        return verboseStringReplacements[matched];
-    }).trimStart()
-
-    return cleanText;
+    return verboseStrings.get(text);
 }
