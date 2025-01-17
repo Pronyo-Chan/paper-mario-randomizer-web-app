@@ -121,7 +121,7 @@ export class PlandoPageComponent implements OnInit {
   }
 
   private itemNameValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-    if (control.value === null || control.value === '' || manualTrapRegex.test(control.value) || plandoItemSet.has(control.value)) {
+    if (control.value === null || control.value === '' || !control.touched || manualTrapRegex.test(control.value) || plandoItemSet.has(control.value)) {
       return null;
     }
     return { invalidPlandoItem: { value: control.value } };

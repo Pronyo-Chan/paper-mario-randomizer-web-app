@@ -1,5 +1,6 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
+import { MatAutocomplete } from "@angular/material/autocomplete";
 import { MatSlideToggleChange } from "@angular/material/slide-toggle";
 import { Subscription, tap } from "rxjs";
 import { InputFilterService } from "src/app/services/inputfilter.service";
@@ -1151,7 +1152,7 @@ export const PLANDO_ITEMS_LIST: Array<string> = [
   templateUrl: './plando-items.component.html',
   styleUrls: ['../plando-page.component.scss', './plando-items.component.scss']
 })
-export class PlandoItemsComponent implements OnInit, OnDestroy {
+export class PlandoItemsComponent {
   @Input() itemsFormGroup: FormGroup;
   public readonly CHECK_TYPES = CheckType;
   public readonly LOCATIONS: Array<Location> = LOCATIONS_LIST;
@@ -1161,32 +1162,10 @@ export class PlandoItemsComponent implements OnInit, OnDestroy {
   // Remove these and add toggles (if desired) when support is added.
   public filteredTypes: Array<CheckType> = [CheckType.MULTICOIN_BLOCK, CheckType.SUPER_BLOCK];
   public filteredItems: string[] = this.PLANDO_ITEMS.slice();
-  public autocompleteSubscriptions: Subscription[] = [];
   public searchText: FormControl;
 
-  public ngOnInit(): void {
-    this.initAutoComplete(this.itemsFormGroup);
-  }
-
-  public ngOnDestroy(): void {
-    for (const sub of this.autocompleteSubscriptions) {
-      sub.unsubscribe();
-    }
-  }
-
-  private initAutoComplete(formGroup: FormGroup) {
-    for (const field in formGroup.controls) {
-      if (field !== 'price') {
-        const control = formGroup.get(field);
-        if (control instanceof FormControl) {
-          this.autocompleteSubscriptions.push(control.valueChanges.pipe(
-            tap((val) => this._filter(val))
-          ).subscribe());
-        } else if (control instanceof FormGroup) {
-          this.initAutoComplete(control);
-        }
-      }
-    }
+  public updateAutoCompleteFilter($event: InputEvent) {
+    this._filter(($event.target as HTMLInputElement).value);
   }
 
   private _filter(value: string): void {
@@ -1201,6 +1180,10 @@ export class PlandoItemsComponent implements OnInit, OnDestroy {
     } else if (this.filteredItems.length < this.PLANDO_ITEMS.length) {
       this.filteredItems = this.PLANDO_ITEMS.slice();
     }
+  }
+
+  public onNameInputBlur(formControlName: string) {
+    this.itemsFormGroup.get(formControlName).updateValueAndValidity();
   }
 
   public toggleCheckTypeFilter($event: MatSlideToggleChange, checkType: CheckType) {
