@@ -31,39 +31,6 @@
         </div>
 
         <div class="setting-element input-element">
-            <app-tooltip-span spanText="Max HP" tooltipText="Amount of Heart Points Mario will start the game with"></app-tooltip-span>
-            <input matInput type="number"
-                 min="5"
-                 max="50"
-                 step="5"
-                 formControlName='startingMaxHP'
-                 (blur)="onStartingHPBlur()">
-        </div>
-
-        <input style="display: none;">
-        <div class="setting-element input-element">
-            <app-tooltip-span spanText="Max BP" tooltipText="Amount of Badge Points Mario will start the game with"></app-tooltip-span>
-            <input matInput type="number"
-                 min="0"
-                 max="30"
-                 step="3"
-                 formControlName='startingMaxBP'
-                 (blur)="onStartingBPBlur()"
-                 autocomplete="false">
-        </div>
-
-        <div class="setting-element input-element">
-            <app-tooltip-span spanText="Max FP" tooltipText="Amount of Flower Points Mario will start the game with"></app-tooltip-span>
-            <input matInput type="number"
-                 min="0"
-                 max="50"
-                 step="5"
-                 formControlName='startingMaxFP'
-                 (blur)="onStartingFPBlur()"
-                 autocomplete="off">
-        </div>
-
-        <div class="setting-element input-element">
             <app-tooltip-span spanText="Star Power" tooltipText="Amount of Star Power Mario will start the game with. Starting with more than 0 will allow Mario to use star powers, but they will be cast by Twink until star spirits are saved."></app-tooltip-span>
             <input matInput type="number"
                  min="0"
@@ -75,17 +42,71 @@
                  autocomplete="off">
         </div>
 
-        <div class="setting-element">
-            <span>Starting Level: {{this.startingLevel}}</span>
-        </div>
-
-
         <p class="bottom-note" *ngIf="marioStatsFormGroup.get('startingBoots').value == -1">
             * Jumpless will prevent Mario from jumping in battles and on the overworld until boots are found as a random item.
             Some unintuitive actions might be required, like using Parakarry to climb stairs/ledges or using Kooper to gain height and hit floating blocks.
         </p>
 
-        <ul *ngIf="marioStatsFormGroup.invalid">
+        <mat-divider />
+
+        <div class="setting-element">
+          <mat-slide-toggle formControlName='startWithRandomStats'></mat-slide-toggle>
+          <app-tooltip-span spanText="Random Starting Stats"
+                            tooltipText="When enabled, Mario's starting stats will be randomly distributed for the selected starting level.">
+          </app-tooltip-span>
+        </div>
+
+        <div *ngIf="!marioStatsFormGroup.get('startWithRandomStats').value" class="setting-element">
+          <input style="display: none;">
+        </div>
+
+
+        <div *ngIf="!marioStatsFormGroup.get('startWithRandomStats').value" class="setting-element input-element">
+          <app-tooltip-span spanText="Max HP" tooltipText="Amount of Heart Points Mario will start the game with"></app-tooltip-span>
+          <input matInput type="number"
+               min="5"
+               max="50"
+               step="5"
+               formControlName='startingMaxHP'
+               (blur)="onStartingHPBlur()">
+        </div>
+
+        <div *ngIf="!marioStatsFormGroup.get('startWithRandomStats').value" class="setting-element input-element">
+          <app-tooltip-span spanText="Max FP" tooltipText="Amount of Flower Points Mario will start the game with"></app-tooltip-span>
+          <input matInput type="number"
+               min="0"
+               max="50"
+               step="5"
+               formControlName='startingMaxFP'
+               (blur)="onStartingFPBlur()"
+               autocomplete="off">
+        </div>
+
+        <div *ngIf="!marioStatsFormGroup.get('startWithRandomStats').value" class="setting-element input-element">
+            <app-tooltip-span spanText="Max BP" tooltipText="Amount of Badge Points Mario will start the game with"></app-tooltip-span>
+            <input matInput type="number"
+                min="0"
+                max="30"
+                step="3"
+                formControlName='startingMaxBP'
+                (blur)="onStartingBPBlur()"
+                autocomplete="false">
+        </div>
+
+        <ng-container *ngIf="marioStatsFormGroup.get('startWithRandomStats').value; else fixedStartLevelTemplate">
+          <div class="setting-element input-element">
+            <app-tooltip-span spanText="Starting Level" tooltipText="The level Mario will start at. Starting stats will be randomly distributed."></app-tooltip-span>
+            <input matInput type="number"
+                min="0"
+                max="27"
+                step="1"
+                formControlName='randomStartingStatsLevel'
+                (blur)="onStartingLevelBlur()"
+                autocomplete="false">
+        </div>
+        </ng-container>
+
+        <ul *ngIf="marioStatsFormGroup.invalid && !marioStatsFormGroup.get('startWithRandomStats').value">
             <mat-divider></mat-divider>
             <li *ngIf="marioStatsFormGroup.hasError('levelGreaterOrEqualZero')">
                 Mario's starting level must be greater or equal 0
@@ -93,3 +114,9 @@
         </ul>
     </mat-card-content>
 </form>
+
+<ng-template #fixedStartLevelTemplate>
+  <div class="setting-element">
+    <span>Starting Level: {{this.startingLevel}}</span>
+  </div>
+</ng-template>

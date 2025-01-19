@@ -275,14 +275,16 @@ export class SettingsInfoComponent implements OnInit {
 
   private initStatsRows(): void {
     let startingItems = this.seedModel.StatsAndGear.StartingItems.map(i => this.getStartingItemName(i))
+    const isRandomStats = this.seedModel.StatsAndGear.RandomStartingStatsLevel > -1;
     if(!startingItems.length) {
       startingItems = ["None"];
     }
 
     this.statsAndGearRows = [
-      {name: "HP", value: this.seedModel.StatsAndGear.HP},
-      {name: "FP", value: this.seedModel.StatsAndGear.FP},
-      {name: "BP", value: this.seedModel.StatsAndGear.BP},
+      {name: "HP", value: !isRandomStats ? this.seedModel.StatsAndGear.HP : null},
+      {name: "FP", value: !isRandomStats ? this.seedModel.StatsAndGear.FP : null},
+      {name: "BP", value: !isRandomStats ? this.seedModel.StatsAndGear.BP : null},
+      {name: "Random Starting Stats Level", value: isRandomStats ? this.seedModel.StatsAndGear.RandomStartingStatsLevel : null},
       {name: "Star Power", value: this.seedModel.StatsAndGear.StarPower},
       {name: "Boots", value: Boots[this.seedModel.StatsAndGear.Boots]},
       {name: "Hammer", value: Hammer[this.seedModel.StatsAndGear.Hammer]},

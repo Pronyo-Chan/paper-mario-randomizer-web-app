@@ -126,6 +126,8 @@ export class SettingStringMappingService {
     { compressedString: "b", key: "startingMaxBP", type: "number"},
     { compressedString: "f", key: "startingMaxFP", type: "number"},
     { compressedString: "h", key: "startingMaxHP", type: "number"},
+    { compressedString: "w", key: "startWithRandomStats", type: "bool"},
+    { compressedString: "l", key: "randomStartingStatsLevel", type: "number"},
     { compressedString: "s", key: "startingStarPower", type: "number"},
     { compressedString: "j", key: "startingBoots", type: "number"},
     { compressedString: "a", key: "startingHammer", type: "number"},

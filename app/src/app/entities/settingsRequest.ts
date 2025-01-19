@@ -108,6 +108,7 @@ export interface SettingsRequest {
     StartingMaxHP: number;
     StartingMaxFP: number;
     StartingMaxBP: number;
+    RandomStartingStatsLevel: number;
     StartingStarPower: number;
     StartingBoots: number;
     StartingHammer: number;

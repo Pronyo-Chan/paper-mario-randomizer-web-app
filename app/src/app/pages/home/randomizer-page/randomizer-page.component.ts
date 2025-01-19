@@ -218,6 +218,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         startingMaxHP: new FormControl(10),
         startingMaxFP: new FormControl(5),
         startingMaxBP: new FormControl(3),
+        randomStartingStatsLevel: new FormControl(1),
+        startWithRandomStats: new FormControl(false),
         startingStarPower: new FormControl(0),
         startingBoots: new FormControl(Boots.Default),
         startingHammer: new FormControl(Hammer.Default),
