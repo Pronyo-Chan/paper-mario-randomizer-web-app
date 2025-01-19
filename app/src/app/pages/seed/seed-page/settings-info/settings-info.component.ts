@@ -244,8 +244,19 @@ export class SettingsInfoComponent implements OnInit {
   }
 
   private initGoalsRows(): void {
-    const isStarHuntEnabled = this.seedModel.Goals.StarHuntTotal > 0;
     const isStarBeamReachable = this.seedModel.Goals.SeedGoal == SeedGoal.DefeatBowser;
+
+    function getPowerStarDisplayValue(value: number) {
+      if (value === 0) {
+        return null;
+      }
+
+      if (value === -1) {
+        return "Random";
+      }
+
+      return value;
+    }
 
     this.goalsRows = [
       {name: "Seed Goal", value: pascalToVerboseString(SeedGoal[this.seedModel.Goals.SeedGoal])},
@@ -254,9 +265,9 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Limit Chapter Logic", value: this.seedModel.Goals.RequireSpecificSpirits ? this.seedModel.Goals.LimitChapterLogic : null},
       {name: "Shuffle Star Beam", value: isStarBeamReachable ? this.seedModel.Goals.ShuffleStarBeam : null},
       {name: "Star Beam Spirits Rquired", value: isStarBeamReachable ? this.seedModel.Goals.StarBeamSpiritsNeeded : null},
-      {name: "Total Power Stars", value: isStarHuntEnabled ? this.seedModel.Goals.StarHuntTotal : null},
-      {name: "Star Way - Power Stars Required", value: isStarHuntEnabled ? this.seedModel.Goals.StarWayPowerStarsNeeded : null},
-      {name: "Star Beam - Power Stars Required", value: isStarBeamReachable && isStarHuntEnabled ? this.seedModel.Goals.StarBeamPowerStarsNeeded : null}
+      {name: "Total Power Stars", value: getPowerStarDisplayValue(this.seedModel.Goals.StarHuntTotal)},
+      {name: "Star Way - Power Stars Required", value: getPowerStarDisplayValue(this.seedModel.Goals.StarWayPowerStarsNeeded)},
+      {name: "Star Beam - Power Stars Required", value: getPowerStarDisplayValue(this.seedModel.Goals.StarBeamPowerStarsNeeded)}
     ] as SettingRow[]
   }
 

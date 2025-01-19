@@ -87,7 +87,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     if(requiredStarsControl.value > 120) {
       requiredStarsControl.setValue(120, { emitEvent: false });
     }
-    else if(requiredStarsControl.value < 0) {
+    else if(requiredStarsControl.value < -1) {
       requiredStarsControl.setValue(0, { emitEvent: false });
     }
 
@@ -102,7 +102,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     if(requiredBeamStarsControl.value > 120) {
       requiredBeamStarsControl.setValue(120, { emitEvent: false });
     }
-    else if(requiredBeamStarsControl.value < 0) {
+    else if(requiredBeamStarsControl.value < -1) {
       requiredBeamStarsControl.setValue(0, { emitEvent: false });
     }
 
@@ -117,7 +117,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     if(placedStarsControl.value > 120) {
       placedStarsControl.setValue(120);
     }
-    else if(placedStarsControl.value < 0) {
+    else if(placedStarsControl.value < -1) {
       placedStarsControl.setValue(0);
     }
 
@@ -136,6 +136,18 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
 
   public getStarBeamSpiritsNumber(): string {
     return this.goalsFormGroup.get('starBeamSpiritsNeeded').value >= 0 ? this.goalsFormGroup.get('starBeamSpiritsNeeded').value : 'Random'
+  }
+
+  public getStarHuntTotalNumber(): string {
+    return this.goalsFormGroup.get('starHuntTotal').value >= 0 ? this.goalsFormGroup.get('starHuntTotal').value : 'Random'
+  }
+
+  public getStarWayPowerStarsNeededNumber(): string {
+    return this.goalsFormGroup.get('starWayPowerStarsNeeded').value >= 0 ? this.goalsFormGroup.get('starWayPowerStarsNeeded').value : 'Random'
+  }
+
+  public getStarBeamPowerStarsNeededNumber(): string {
+    return this.goalsFormGroup.get('starBeamPowerStarsNeeded').value >= 0 ? this.goalsFormGroup.get('starBeamPowerStarsNeeded').value : 'Random'
   }
 
   private disableRequireSpecificSpiritsWhenSevenSpirits() {

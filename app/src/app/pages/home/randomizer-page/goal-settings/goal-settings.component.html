@@ -65,34 +65,38 @@
 
         <div class="setting-element slider-element">
           <div class="setting-name-container">
-              <app-tooltip-span spanText="Total Power Stars:"
-              tooltipText="Number of power stars placed in the game world. A good number to choose is 1.5 times the amount of stars required."></app-tooltip-span>
+              <app-tooltip-span [spanText]="'Total Power Stars:'"
+              tooltipText="Number of power stars placed in the game world. A good number to choose is 1.5 times the amount of stars required. Can be set to '-1' for random."></app-tooltip-span>
 
               <input matInput type="number"
-              min="0"
+              min="-1"
               max="120"
-              oninput="this.value=(parseInt(this.value)||0)"
+              onblur="this.value=(parseInt(this.value) || this.value === -1 || 0)"
               formControlName='starHuntTotal'
               (blur)="onTotalStarsBlur()">
+
+              <span *ngIf="goalsFormGroup.get('starHuntTotal').value === -1" class="random-label">(Random)</span>
           </div>
 
-          <mat-slider formControlName="starHuntTotal" (input)="goalsFormGroup.get('starHuntTotal').setValue($event.value)" min=0 max=120 step="1" tickInterval="1" ></mat-slider>
+          <mat-slider formControlName="starHuntTotal" (input)="goalsFormGroup.get('starHuntTotal').setValue($event.value)" min=-1 max=120 step="1" tickInterval="1" ></mat-slider>
       </div>
 
         <div class="setting-element slider-element">
             <div class="setting-name-container">
                 <app-tooltip-span spanText="Star Way - Power Stars Required: "
-                tooltipText="Number of power stars required by Eldstar at Shooting Star Summit"></app-tooltip-span>
+                tooltipText="Number of power stars required by Eldstar at Shooting Star Summit. Can be set to '-1' for random."></app-tooltip-span>
 
                 <input matInput type="number"
-                min="0"
+                min="-1"
                 max="120"
-                oninput="this.value=(parseInt(this.value)||0)"
+                onblur="this.value=(parseInt(this.value) || this.value === -1 || 0)"
                 formControlName='starWayPowerStarsNeeded'
                 (blur)="onRequiredStarWayStarsBlur()">
+
+                <span *ngIf="goalsFormGroup.get('starWayPowerStarsNeeded').value === -1" class="random-label">(Random)</span>
             </div>
 
-            <mat-slider formControlName="starWayPowerStarsNeeded" (input)="goalsFormGroup.get('starWayPowerStarsNeeded').setValue($event.value)" min=0 max= 120 step="1" tickInterval="1" ></mat-slider>
+          <mat-slider formControlName="starWayPowerStarsNeeded" (input)="goalsFormGroup.get('starWayPowerStarsNeeded').setValue($event.value)" min=-1 max= 120 step="1" tickInterval="1" ></mat-slider>
         </div>
 
         <div class="setting-element slider-element"></div>
@@ -100,17 +104,19 @@
         <div *ngIf="shouldShowStarBeamSettings()" class="setting-element slider-element">
           <div class="setting-name-container">
               <app-tooltip-span spanText="Star Beam - Power Stars Required:"
-              tooltipText="Number of power stars required to get the Star Beam item in Star Haven"></app-tooltip-span>
+              tooltipText="Number of power stars required to get the Star Beam item in Star Haven. Can be set to '-1' for random."></app-tooltip-span>
 
               <input matInput type="number"
-              min="0"
+              min="-1"
               max="120"
-              oninput="this.value=(parseInt(this.value)||0)"
+              onblur="this.value=(parseInt(this.value) || this.value === -1 || 0)"
               formControlName='starBeamPowerStarsNeeded'
               (blur)="onRequiredStarBeamStarsBlur()">
+
+              <span *ngIf="goalsFormGroup.get('starBeamPowerStarsNeeded').value === -1" class="random-label">(Random)</span>
           </div>
 
-          <mat-slider formControlName="starBeamPowerStarsNeeded" (input)="goalsFormGroup.get('starBeamPowerStarsNeeded').setValue($event.value)" min=0 max= 120 step="1" tickInterval="1" ></mat-slider>
+          <mat-slider formControlName="starBeamPowerStarsNeeded" (input)="goalsFormGroup.get('starBeamPowerStarsNeeded').setValue($event.value)" min=-1 max= 120 step="1" tickInterval="1" ></mat-slider>
         </div>
 
 
