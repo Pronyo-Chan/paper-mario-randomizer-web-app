@@ -1,0 +1,37 @@
+@import './../../../../../variables';
+
+div.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  button.submit {
+      span {
+
+          font-family: gluten ;
+          color: white ;
+          text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+          font-size: 30px;
+
+      }
+      cursor: pointer;
+      padding: 1rem 2rem;
+      background-color: $yellow-stat-main;
+      border-radius: 28px;
+      border: double;
+      border-width: 6px;
+      border-color: $yellow-stat-border;
+  }
+  button:disabled {
+      cursor: not-allowed;
+  }
+}
+
+p.bottom-note {
+  font-family: 'gluten';
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.file-name {
+  margin-left: 1rem;
+}

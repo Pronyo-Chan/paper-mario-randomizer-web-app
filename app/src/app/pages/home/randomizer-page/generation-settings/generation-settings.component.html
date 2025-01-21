@@ -1,0 +1,24 @@
+<mat-card-content class=settings-card-content style="flex-direction: column;">
+  <div>
+    <div class="setting-element">
+      <mat-slide-toggle [checked]="isPlandomizerSeed" [(ngModel)]="isPlandomizerSeed" (ngModelChange)="onPlandomizerSeedChange()"></mat-slide-toggle>
+      <app-tooltip-span spanText="Include plandomizer file" tooltipText="Inclue a plandomizer json file to manually place item locations."></app-tooltip-span>
+    </div>
+
+    <div *ngIf="isPlandomizerSeed">
+      <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+      <input hidden (change)="onFileSelected($event)" #fileInput type="file">
+      <span class="file-name">{{selectedFile?.name}}</span>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button [disabled]="formGroup.invalid || isRandomizing" class="submit" (click)="onSubmit()">
+        <span [matTooltip]="formGroup.invalid ? 'Please fix the errors on the page to submit' : ''" matTooltipPosition="right">Generate Seed</span>
+    </button>
+
+    <app-loading *ngIf="isRandomizing" [isLoading]="isRandomizing" [loadingText]="'Generating Seed'"></app-loading>
+    <app-error *ngIf="seedGenError" [errorText]="seedGenError"></app-error>
+  </div>
+  <p class="bottom-note">*First time playing? We recommend you give the <a href="https://github.com/icebound777/PMR-SeedGenerator/wiki" target="_blank" rel="noopener noreferrer">Wiki</a> a quick look before starting!</p>
+</mat-card-content>

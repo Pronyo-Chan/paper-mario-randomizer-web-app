@@ -67,6 +67,7 @@ import { PlandoBadgesComponent } from './pages/plando-page/plando-badges/plando-
 import { PlandoItemsComponent } from './pages/plando-page/plando-items/plando-items.component';
 import { PlandoSaveLoadComponent } from './pages/plando-page/plando-save-load/plando-save-load.component';
 import { PlandomizersComponent } from './pages/home/randomizer-page/plandomizers/plandomizers.component';
+import { GenerationSettingsComponent } from './pages/home/randomizer-page/generation-settings/generation-settings.component';
 
 const dbConfig: DBConfig  = {
   name: 'db',
@@ -120,6 +121,7 @@ const toasterConfig: Partial<GlobalConfig> = {
     InfoDialogComponent,
     MatTabScrollToCenterDirective,
     SpoilerSettingsComponent,
+    GenerationSettingsComponent,
     GlitchesAndTricksComponent,
     PlandoPageComponent,
     PlandoSpiritsAndChaptersComponent,

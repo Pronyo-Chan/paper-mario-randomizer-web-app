@@ -48,6 +48,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public plandomizerFormControl: FormControl;
   randomPartnersMinSubscription: Subscription;
 
+  public selectedPlandoFile: File = null;
   public isRandomizing = false;
   public seedGenError: string;
   private _createSeedSubscription: Subscription;
@@ -95,7 +96,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     this.seedGenError = null;
     this.isRandomizing = true;
 
-    this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup).pipe(
+    this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup, this.selectedPlandoFile).pipe(
       tap(seedId => {
         this._localStorage.set("latestSeedId", seedId)
         this.navigateToSeedPage(seedId);
@@ -118,6 +119,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         return of(err)
       })
     ).subscribe()
+  }
+
+  public onPlandoFileSelected(file: File): void {
+    this.selectedPlandoFile = file;
   }
 
   public navigateToSeedPage(seedId: string): void {
