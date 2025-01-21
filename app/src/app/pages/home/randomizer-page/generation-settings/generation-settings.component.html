@@ -1,16 +1,18 @@
 <mat-card-content class=settings-card-content style="flex-direction: column;">
-  <div>
-    <div class="setting-element">
+  <div class="plando-settings">
+    <div class="plando-toggle">
       <mat-slide-toggle [checked]="isPlandomizerSeed" [(ngModel)]="isPlandomizerSeed" (ngModelChange)="onPlandomizerSeedChange()"></mat-slide-toggle>
-      <app-tooltip-span spanText="Include plandomizer file" tooltipText="Inclue a plandomizer json file to manually place item locations."></app-tooltip-span>
+      <app-tooltip-span spanText="Include plandomizer file" tooltipText="Include a plandomizer json file to manually place item locations."></app-tooltip-span>
     </div>
 
-    <div *ngIf="isPlandomizerSeed">
+    <div *ngIf="isPlandomizerSeed" class="plando-file-selector">
       <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
       <input hidden (change)="onFileSelected($event)" #fileInput type="file">
-      <span class="file-name">{{selectedFile?.name}}</span>
+      <div *ngIf="selectedFile" class="filename">{{selectedFile?.name}}</div>
     </div>
   </div>
+
+  <mat-divider></mat-divider>
 
   <div class="button-container">
     <button [disabled]="formGroup.invalid || isRandomizing" class="submit" (click)="onSubmit()">

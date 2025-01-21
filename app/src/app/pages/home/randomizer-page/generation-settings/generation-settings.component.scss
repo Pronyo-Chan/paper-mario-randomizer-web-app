@@ -1,4 +1,5 @@
 @import './../../../../../variables';
+@import './../../../../../mixins';
 
 div.button-container {
   display: flex;
@@ -26,12 +27,49 @@ div.button-container {
   }
 }
 
+.plando-settings {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  gap: 2rem;
+  max-width: 100%;
+
+  @include large {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.plando-file-selector {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
+.filename {
+  margin-left: 16px;
+  font-family: gluten;
+  padding: 4px;
+  border: inset;
+  border-radius: 4px;
+  border-color: #F0C74E;
+  border-width: 3px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  max-width: 50%;
+
+}
+
+.plando-toggle {
+  display: flex;
+  align-items: center;
+  min-width: 16rem;
+}
 p.bottom-note {
   font-family: 'gluten';
   font-size: 14px;
   font-weight: 500;
-}
-
-.file-name {
-  margin-left: 1rem;
 }
