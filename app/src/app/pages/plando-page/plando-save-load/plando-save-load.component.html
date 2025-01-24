@@ -1,0 +1,15 @@
+<h3>Save & Load Plando Configs</h3>
+
+<label>
+    <span>Plando Name:</span>
+    <input #plandoName />
+</label>
+<button type="button" (click)="savePlandoSettings(plandoName.value)" [disabled]="plandoName.value.trim() !== ''">Save</button>
+
+<label>
+    <span>Load previous Plando:</span>
+    <select #loadDropDown>
+        <option *ngFor="let plandoName of getSavedPlandos()">{{plandoName}}</option>
+    </select>
+</label>
+<button type="button" (click)="loadPlandoSettings(loadDropDown.value)">Load</button>

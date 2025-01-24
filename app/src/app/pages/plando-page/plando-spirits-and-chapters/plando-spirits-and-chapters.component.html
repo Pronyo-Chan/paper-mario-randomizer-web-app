@@ -45,7 +45,7 @@
   <h2>Star Spirit Power Costs</h2>
   <p class="text-center">If set to '?', the seed generator settings will determine the SP cost.</p>
   <div class="container" formGroupName="move_costs">
-    <div *ngFor="let power of SPRIT_POWERS;" formGroupName="starpower" class="panel">
+    <div *ngFor="let power of SPIRIT_POWERS;" formGroupName="starpower" class="panel">
       <app-tooltip-span class="row"
         [spanText]="toDisplayString(power) + ': ' + (getStarPowerCost(power) !== -1 ? getStarPowerCost(power) + ' SP' : '?')"
         tooltipText=""></app-tooltip-span>

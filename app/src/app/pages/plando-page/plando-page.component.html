@@ -3,8 +3,11 @@
         <img src="../../../assets/images/plando/plandologo.png" class="logo">
     </a>
 </div>
-<form [formGroup]="formGroup">
-    <div class="main-page">
+<div class="main-page">
+    <mat-card class="settings-card">
+        <app-plando-save-load [plandoFormGroup]="formGroup"></app-plando-save-load>
+    </mat-card>
+    <form [formGroup]="formGroup">
         <mat-card class="settings-card">
             <mat-tab-group disablePagination="true" animationDuration="0" scrollToCenter>
                 <mat-tab>
@@ -42,5 +45,5 @@
                 </button>
             </div>
         </mat-card>
-    </div>
-</form>
+    </form>
+</div>
