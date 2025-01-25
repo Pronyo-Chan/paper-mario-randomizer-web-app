@@ -33,9 +33,6 @@ export class PlandoSaveLoadComponent implements OnInit {
     localStorage.setItem(this.SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
     this.saveLoadStatus = 'saved';
     this.lastPlandoName = name;
-    setTimeout(() => {
-      this.saveLoadStatus = '';
-    }, 5000);
   };
 
   public loadPlandoSettings(name: string) {
@@ -62,9 +59,6 @@ export class PlandoSaveLoadComponent implements OnInit {
       this.plandoFormGroup.updateValueAndValidity();
       this.lastPlandoName = name;
       this.saveLoadStatus = 'loaded';
-      setTimeout(() => {
-        this.saveLoadStatus = '';
-      }, 5000);
     }
   }
 
@@ -74,8 +68,5 @@ export class PlandoSaveLoadComponent implements OnInit {
     localStorage.setItem(this.SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
     this.lastPlandoName = name;
     this.saveLoadStatus = 'deleted';
-    setTimeout(() => {
-      this.saveLoadStatus = '';
-    }, 5000);
   }
 }
