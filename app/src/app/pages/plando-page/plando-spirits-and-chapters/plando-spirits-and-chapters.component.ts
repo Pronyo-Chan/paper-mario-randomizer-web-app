@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Subscription } from "rxjs";
 import { pascalToVerboseString } from "src/app/utilities/stringFunctions";
@@ -15,7 +15,7 @@ export const STAR_SPIRIT_POWER_NAMES: Array<string> = ['Refresh', 'Lullaby', 'St
   templateUrl: './plando-spirits-and-chapters.component.html',
   styleUrls: ['../plando-page.component.scss']
 })
-export class PlandoSpiritsAndChaptersComponent implements OnInit, OnDestroy {
+export class PlandoSpiritsAndChaptersComponent implements OnInit, OnDestroy, AfterContentInit {
   @Input() plandoFormGroup: FormGroup;
 
   public readonly SPIRIT_POWERS: Array<string> = STAR_SPIRIT_POWER_NAMES;
@@ -41,6 +41,10 @@ export class PlandoSpiritsAndChaptersComponent implements OnInit, OnDestroy {
         this.requiredSpiritsArray = val;
       }
     })
+  }
+
+  public ngAfterContentInit(): void {
+    this.requiredSpiritsArray = this.plandoFormGroup.get('required_spirits').value;
   }
 
   public ngOnDestroy(): void {
