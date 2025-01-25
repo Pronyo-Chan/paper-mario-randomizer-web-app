@@ -40,7 +40,7 @@ export class PlandoSaveLoadComponent {
       }
       const powercosts = plandoFormObj['move_costs']['starpower'];
       for (const power of STAR_SPIRIT_POWER_NAMES) {
-        if (!powercosts[power]) {
+        if (powercosts[power] === undefined || powercosts[power] === null) {
           powercosts[power] = -1;
         }
       }

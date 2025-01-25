@@ -85,13 +85,13 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
           })
         }),
         starpower: new FormGroup({
-          'Refresh': new FormControl<number>(null),
-          'Lullaby': new FormControl<number>(null),
-          'StarStorm': new FormControl<number>(null),
-          'ChillOut': new FormControl<number>(null),
-          'Smooch': new FormControl<number>(null),
-          'TimeOut': new FormControl<number>(null),
-          'UpAndAway': new FormControl<number>(null)
+          'Refresh': new FormControl<number>(-1),
+          'Lullaby': new FormControl<number>(-1),
+          'StarStorm': new FormControl<number>(-1),
+          'ChillOut': new FormControl<number>(-1),
+          'Smooch': new FormControl<number>(-1),
+          'TimeOut': new FormControl<number>(-1),
+          'UpAndAway': new FormControl<number>(-1)
         })
       }),
       items: new FormGroup({})
