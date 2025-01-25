@@ -45,6 +45,9 @@
       flex: 1 1 100%;
       margin: 10px 0;
     }
+    .row.start {
+      justify-content: start;
+    }
     .end {
       justify-content: end;
     }

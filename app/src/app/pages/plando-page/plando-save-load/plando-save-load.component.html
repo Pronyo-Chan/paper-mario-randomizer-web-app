@@ -1,15 +1,38 @@
-<h3>Save & Load Plando Configs</h3>
+<h2>Save & Load Plando Configs</h2>
+<div class="container">
+    <div class="panel" [formGroup]="saveLoadFormGroup">
+        <div class="row start">
+            <p>All current changes will be auto-saved, and will auto-load when returning to this page. Use the controls below if you'd like to create and save multiple plandos.</p>
+        </div>
 
-<label>
-    <span>Plando Name:</span>
-    <input #plandoName />
-</label>
-<button type="button" (click)="savePlandoSettings(plandoName.value)" [disabled]="plandoName.value.trim() !== ''">Save</button>
+        <div class="row start">
+            <label for="plandoName">Plando Name:</label>
+            <input name="plandoName" formControlName="plandoName" #plandoName (keydown)="this.inputFilters.disallowChars($event, ',')" />
+            <button class="yellow-button" type="button" (click)="savePlandoSettings(plandoName.value)"><span>Save</span></button>
+            <ng-container *ngIf="saveLoadStatus === 'saved'">
+                <span>✔️</span>
+                <span class="success">Plando Saved!</span>
+            </ng-container>
+        </div>
 
-<label>
-    <span>Load previous Plando:</span>
-    <select #loadDropDown>
-        <option *ngFor="let plandoName of getSavedPlandos()">{{plandoName}}</option>
-    </select>
-</label>
-<button type="button" (click)="loadPlandoSettings(loadDropDown.value)">Load</button>
+        <div class="row start" *ngIf="savedPlandoNames.size > 0">
+            <label for="savedPlandosSelect">Saved Plandos:</label>
+            <select name="savedPlandosSelect" #savedPlandosSelect formControlName="savedPlandoNameSelect">
+                <option></option>
+                <option *ngFor="let plandoName of savedPlandoNames" [value]="plandoName">{{plandoName}}</option>
+            </select>
+            <div>
+                <button class="yellow-button" type="button" (click)="loadPlandoSettings(savedPlandosSelect.value)"><span>Load</span></button>
+                <button class="yellow-button" type="button" (click)="deletePlandoSettings(savedPlandosSelect.value)"><span>Delete</span></button>
+                <ng-container *ngIf="saveLoadStatus === 'loaded'">
+                    <span>✔️</span>
+                    <span class="success">Loaded Plando: {{this.lastPlandoName}}</span>
+                </ng-container>
+                <ng-container *ngIf="saveLoadStatus === 'deleted'">
+                    <span>✔️</span>
+                    <span class="success">Deleted Plando: {{this.lastPlandoName}}</span>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
