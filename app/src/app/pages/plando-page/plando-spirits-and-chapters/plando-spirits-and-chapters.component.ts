@@ -35,16 +35,20 @@ export class PlandoSpiritsAndChaptersComponent implements OnInit, OnDestroy, Aft
 
   public ngOnInit(): void {
     this.spiritsSubscription = this.plandoFormGroup.get('required_spirits').valueChanges.subscribe(val => {
-      if (!val) {
-        this.requiredSpiritsArray = [];
-      } else {
+      if (val) {
         this.requiredSpiritsArray = val;
+      } else {
+        this.requiredSpiritsArray = [];
       }
     })
   }
 
   public ngAfterContentInit(): void {
-    this.requiredSpiritsArray = this.plandoFormGroup.get('required_spirits').value;
+    if (this.plandoFormGroup.get('required_spirits').value) {
+      this.requiredSpiritsArray = this.plandoFormGroup.get('required_spirits').value;
+    } else {
+      this.requiredSpiritsArray = [];
+    }
   }
 
   public ngOnDestroy(): void {
