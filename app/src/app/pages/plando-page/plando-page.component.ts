@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
 import { BADGE_LIST } from "./plando-badges/plando-badges.component";
 import { CheckType, LOCATIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-items/plando-items.component";
@@ -15,7 +15,7 @@ const manualTrapRegex = new RegExp('^TRAP \\((' + PLANDO_ITEMS_LIST.slice(4).map
   templateUrl: './plando-page.component.html',
   styleUrls: ['./plando-page.component.scss']
 })
-export class PlandoPageComponent implements OnInit {
+export class PlandoPageComponent implements OnInit, OnDestroy {
   public formGroup: FormGroup
   public isValidating: boolean = false;
   public plandoName: FormControl = new FormControl('');
@@ -118,6 +118,14 @@ export class PlandoPageComponent implements OnInit {
       }
       (this.formGroup.get('items') as FormGroup).addControl(location.name, locationFormGroup);
     }
+    const savedFormObj = localStorage.getItem('autosavePlandoSettings');
+    if (savedFormObj) {
+      this.formGroup.setValue(JSON.parse(savedFormObj));
+    }
+  }
+
+  public ngOnDestroy(): void {
+    localStorage.setItem('autosavePlandoSettings', JSON.stringify(this.formGroup.getRawValue()));
   }
 
   private itemNameValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
