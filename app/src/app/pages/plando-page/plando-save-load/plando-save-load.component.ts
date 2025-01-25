@@ -31,8 +31,6 @@ export class PlandoSaveLoadComponent implements OnInit {
     localStorage.setItem(name, JSON.stringify(this.plandoFormGroup.getRawValue()))
     this.savedPlandoNames.add(name);
     localStorage.setItem(this.SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
-    this.saveLoadFormGroup.get('plandoName').reset();
-    this.saveLoadFormGroup.get('plandoName').updateValueAndValidity();
     this.saveLoadStatus = 'saved';
     this.lastPlandoName = name;
     setTimeout(() => {
