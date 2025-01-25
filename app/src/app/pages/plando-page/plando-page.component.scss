@@ -22,6 +22,18 @@
   }
 
   .panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex: 0 1 20%;
+    min-width: 250px;
+    background-color: $blue-background-card;
+    margin: 10px;
+    border-radius: 15px;
+    padding: 0.5rem;
+    box-shadow: #919191 2px 2px 4px 0px;
+
     input[type="checkbox"] {
       visibility: hidden;
     }
@@ -42,17 +54,6 @@
     label {
       margin-right: 1rem;
     }
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex: 0 1 20%;
-    min-width: 250px;
-    background-color: $blue-background-card;
-    margin: 10px;
-    border-radius: 15px;
-    padding: 0.5rem;
-    box-shadow: #919191 2px 2px 4px 0px;
     app-tooltip-span {
       position: relative;
     }
@@ -156,7 +157,7 @@
                 background-color: $purple-misc-main !important;
                 border-color: $purple-misc-border !important;
               }
-              
+
               .mat-tab-label:has(> div > label.error) {
                 background-color: #650b0b !important;
               }

@@ -4,9 +4,6 @@
     </a>
 </div>
 <div class="main-page">
-    <mat-card class="settings-card">
-        <app-plando-save-load [plandoFormGroup]="formGroup"></app-plando-save-load>
-    </mat-card>
     <form [formGroup]="formGroup">
         <mat-card class="settings-card">
             <mat-tab-group disablePagination="true" animationDuration="0" scrollToCenter>
@@ -51,4 +48,7 @@
             </div>
         </mat-card>
     </form>
+    <mat-card class="settings-card">
+        <app-plando-save-load [plandoFormGroup]="formGroup"></app-plando-save-load>
+    </mat-card>
 </div>
