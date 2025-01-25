@@ -1182,7 +1182,7 @@ export class PlandoItemsComponent {
     }
   }
 
-  public onNameInputBlur(formControlName: string) {
+  public onNameInputBlur(formControlName: string[]) {
     this.itemsFormGroup.get(formControlName).updateValueAndValidity();
   }
 
