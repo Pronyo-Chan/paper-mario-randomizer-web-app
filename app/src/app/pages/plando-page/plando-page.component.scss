@@ -17,6 +17,9 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  .container.space-between {
+    justify-content: space-between;
+  }
 
   .panel {
     input[type="checkbox"] {
