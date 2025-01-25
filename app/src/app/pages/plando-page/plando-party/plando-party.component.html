@@ -6,7 +6,7 @@
         <div *ngFor="let move of partner.moves;" [formGroupName]="partner.name" class="move-grid">
             <label [for]="move.id">{{toDisplayString(move) + ':'}}</label>
             <input [name]="move.id" type="number" [formControlName]="move" min="0" [max]="MAX_FP" data-prev-value=""
-                (input)="inputFilters.filterNumericInput($event, partnerMoveCostsFormGroup, partner.name + '.' + move)">
+                (input)="inputFilters.filterNumericInput($event, partnerMoveCostsFormGroup, [partner.name, move])">
             <span>&nbsp;FP</span>
         </div>
     </div>

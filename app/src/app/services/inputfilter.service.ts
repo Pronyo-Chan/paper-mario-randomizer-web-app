@@ -9,7 +9,7 @@ const intRegex = /^[0-9]*$/;
 export class InputFilterService {
 
   constructor() { }
-  public filterNumericInput($event: Event, parentFormGroup: FormGroup, formControlName: string) {
+  public filterNumericInput($event: Event, parentFormGroup: FormGroup, formControlName: string[]) {
     const target = $event.target as HTMLInputElement;
     if (target.type === 'number') {
       if (target.value === '') {
