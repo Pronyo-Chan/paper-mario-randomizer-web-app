@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from "@angular/forms";
+import { escapeRegexChars } from "../utilities/stringFunctions";
 const intRegex = /^[0-9]*$/;
 
 @Injectable({
@@ -8,7 +9,7 @@ const intRegex = /^[0-9]*$/;
 export class InputFilterService {
 
   constructor() { }
-  public filterNumericInput($event: Event, parentFormGroup: FormGroup, formControlName: string) {
+  public filterNumericInput($event: Event, parentFormGroup: FormGroup, formControlName: string[]) {
     const target = $event.target as HTMLInputElement;
     if (target.type === 'number') {
       if (target.value === '') {
@@ -16,7 +17,11 @@ export class InputFilterService {
         target.dataset.prevValue = target.value;
         parentFormGroup.get(formControlName).setValue(null);
       } else if (!intRegex.test(target.value)) {
-        target.value = target.dataset.prevValue;
+        if (target.dataset.prevValue !== undefined) {
+          target.value = target.dataset.prevValue;
+        } else {
+          target.value = '';
+        }
       } else {
         const val = parseInt(target.value);
         target.dataset.prevValue = target.value;
@@ -28,6 +33,13 @@ export class InputFilterService {
         parentFormGroup.get(formControlName).setValue(parseInt(target.value));
       }
       parentFormGroup.updateValueAndValidity();
+    }
+  }
+
+  public disallowChars($event: KeyboardEvent, invalidChars: string) {
+    if (new RegExp(escapeRegexChars(invalidChars)).test($event.key)) {
+      $event.preventDefault();
+      return false;
     }
   }
 }

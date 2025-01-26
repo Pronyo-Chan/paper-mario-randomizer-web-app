@@ -65,6 +65,7 @@ import { PlandoSpiritsAndChaptersComponent } from './pages/plando-page/plando-sp
 import { PlandoPartyComponent } from './pages/plando-page/plando-party/plando-party.component';
 import { PlandoBadgesComponent } from './pages/plando-page/plando-badges/plando-badges.component';
 import { PlandoItemsComponent } from './pages/plando-page/plando-items/plando-items.component';
+import { PlandoSaveLoadComponent } from './pages/plando-page/plando-save-load/plando-save-load.component';
 
 const dbConfig: DBConfig  = {
   name: 'db',
@@ -124,6 +125,7 @@ const toasterConfig: Partial<GlobalConfig> = {
     PlandoPartyComponent,
     PlandoBadgesComponent,
     PlandoItemsComponent,
+    PlandoSaveLoadComponent,
   ],
   imports: [
     BrowserModule,

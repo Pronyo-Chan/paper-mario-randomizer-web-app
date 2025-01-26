@@ -3,8 +3,8 @@
         <img src="../../../assets/images/plando/plandologo.png" class="logo">
     </a>
 </div>
-<form [formGroup]="formGroup">
-    <div class="main-page">
+<div class="main-page">
+    <form [formGroup]="formGroup">
         <mat-card class="settings-card">
             <mat-tab-group disablePagination="true" animationDuration="0" scrollToCenter>
                 <mat-tab>
@@ -34,13 +34,21 @@
             </mat-tab-group>
         </mat-card>
         <mat-card class="settings-card">
-            <div class="button-container">
-                <button [disabled]="formGroup.invalid || isValidating" class="submit" type="button" (click)="onSubmit()"
-                    [matTooltip]="formGroup.invalid ? 'Please fix the errors on the page to submit. Problems are highlighted in red.' : ''" matTooltipPosition="right">
-                    <span *ngIf="!isValidating">Download Plando File</span>
-                    <app-loading *ngIf="isValidating" [isLoading]="isValidating" [loadingText]="'Validating...'"></app-loading>
+            <div class="container space-between">
+                <div class="button-container">
+                    <button [disabled]="formGroup.invalid || isValidating" class="submit" type="button" (click)="onSubmit()"
+                        [matTooltip]="formGroup.invalid ? 'Please fix the errors on the page to submit. Problems are highlighted in red.' : ''" matTooltipPosition="right">
+                        <span *ngIf="!isValidating">Download Plando File</span>
+                        <app-loading *ngIf="isValidating" [isLoading]="isValidating" [loadingText]="'Validating...'"></app-loading>
+                    </button>
+                </div>
+                <button class="yellow-button" type="button" (click)="resetPlandoForm()">
+                    <span>Reset</span>
                 </button>
             </div>
         </mat-card>
-    </div>
-</form>
+    </form>
+    <mat-card class="settings-card">
+        <app-plando-save-load [plandoFormGroup]="formGroup"></app-plando-save-load>
+    </mat-card>
+</div>

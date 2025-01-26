@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Subscription } from "rxjs";
 import { pascalToVerboseString } from "src/app/utilities/stringFunctions";
 
 type Boss = {
@@ -7,15 +8,17 @@ type Boss = {
   displayName: string;
 }
 
+export const STAR_SPIRIT_POWER_NAMES: Array<string> = ['Refresh', 'Lullaby', 'StarStorm', 'ChillOut', 'Smooch', 'TimeOut', 'UpAndAway'];
+
 @Component({
   selector: 'app-plando-spirits-and-chapters',
   templateUrl: './plando-spirits-and-chapters.component.html',
   styleUrls: ['../plando-page.component.scss']
 })
-export class PlandoSpiritsAndChaptersComponent {
+export class PlandoSpiritsAndChaptersComponent implements OnInit, OnDestroy, AfterContentInit {
   @Input() plandoFormGroup: FormGroup;
 
-  public readonly SPRIT_POWERS: Array<string> = ['Refresh', 'Lullaby', 'StarStorm', 'ChillOut', 'Smooch', 'TimeOut', 'UpAndAway'];
+  public readonly SPIRIT_POWERS: Array<string> = STAR_SPIRIT_POWER_NAMES;
   public readonly SPIRITS: Array<string> = ['Eldstar', 'Mamar', 'Skolar', 'Muskular', 'Misstar', 'Klevar', 'Kalmar'];
   public readonly BOSSES: Array<Boss> = [
     { id: '', displayName: '' },
@@ -26,9 +29,31 @@ export class PlandoSpiritsAndChaptersComponent {
     { id: 'LavaPiranha', displayName: 'Lava Piranha' },
     { id: 'HuffNPuff', displayName: 'Huff N Puff' },
     { id: 'CrystalKing', displayName: 'Crystal King' }];
+  public spiritsSubscription: Subscription;
   public requiredSpiritsArray = Array<string>();
-
   public toDisplayString = pascalToVerboseString;
+
+  public ngOnInit(): void {
+    this.spiritsSubscription = this.plandoFormGroup.get('required_spirits').valueChanges.subscribe(val => {
+      if (val) {
+        this.requiredSpiritsArray = val;
+      } else {
+        this.requiredSpiritsArray = [];
+      }
+    })
+  }
+
+  public ngAfterContentInit(): void {
+    if (this.plandoFormGroup.get('required_spirits').value) {
+      this.requiredSpiritsArray = this.plandoFormGroup.get('required_spirits').value;
+    } else {
+      this.requiredSpiritsArray = [];
+    }
+  }
+
+  public ngOnDestroy(): void {
+    this.spiritsSubscription.unsubscribe();
+  }
 
   public updateSpiritSelection($event: InputEvent, spirit: string) {
     if ($event.currentTarget instanceof HTMLInputElement) {
@@ -41,7 +66,7 @@ export class PlandoSpiritsAndChaptersComponent {
         }
       }
     }
-    this.plandoFormGroup.get('required_spirits').setValue(this.requiredSpiritsArray)
+    this.plandoFormGroup.get('required_spirits').setValue(this.requiredSpiritsArray);
   }
 
   public getChapterDifficulty(chapter_number: number) {

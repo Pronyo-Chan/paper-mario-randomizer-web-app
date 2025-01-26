@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
 import { BADGE_LIST } from "./plando-badges/plando-badges.component";
 import { CheckType, LOCATIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-items/plando-items.component";
 import { escapeRegexChars } from "src/app/utilities/stringFunctions";
+import { STAR_SPIRIT_POWER_NAMES } from "./plando-spirits-and-chapters/plando-spirits-and-chapters.component";
 
 export const MAX_FP_COST = 75;
 export const MAX_BP_COST = 10;
@@ -15,7 +16,7 @@ const manualTrapRegex = new RegExp('^TRAP \\((' + PLANDO_ITEMS_LIST.slice(4).map
   templateUrl: './plando-page.component.html',
   styleUrls: ['./plando-page.component.scss']
 })
-export class PlandoPageComponent implements OnInit {
+export class PlandoPageComponent implements OnInit, OnDestroy {
   public formGroup: FormGroup
   public isValidating: boolean = false;
   public plandoName: FormControl = new FormControl('');
@@ -85,13 +86,13 @@ export class PlandoPageComponent implements OnInit {
           })
         }),
         starpower: new FormGroup({
-          'Refresh': new FormControl<number>(null),
-          'Lullaby': new FormControl<number>(null),
-          'StarStorm': new FormControl<number>(null),
-          'ChillOut': new FormControl<number>(null),
-          'Smooch': new FormControl<number>(null),
-          'TimeOut': new FormControl<number>(null),
-          'UpAndAway': new FormControl<number>(null)
+          'Refresh': new FormControl<number>(-1),
+          'Lullaby': new FormControl<number>(-1),
+          'StarStorm': new FormControl<number>(-1),
+          'ChillOut': new FormControl<number>(-1),
+          'Smooch': new FormControl<number>(-1),
+          'TimeOut': new FormControl<number>(-1),
+          'UpAndAway': new FormControl<number>(-1)
         })
       }),
       items: new FormGroup({})
@@ -118,6 +119,14 @@ export class PlandoPageComponent implements OnInit {
       }
       (this.formGroup.get('items') as FormGroup).addControl(location.name, locationFormGroup);
     }
+    const savedFormObj = localStorage.getItem('autosavePlandoSettings');
+    if (savedFormObj) {
+      this.formGroup.setValue(JSON.parse(savedFormObj));
+    }
+  }
+
+  public ngOnDestroy(): void {
+    localStorage.setItem('autosavePlandoSettings', JSON.stringify(this.formGroup.getRawValue()));
   }
 
   private itemNameValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
@@ -125,6 +134,16 @@ export class PlandoPageComponent implements OnInit {
       return null;
     }
     return { invalidPlandoItem: { value: control.value } };
+  }
+
+  public resetPlandoForm() {
+    if (confirm('This will reset all plando settings. Are you sure?')) {
+      this.formGroup.reset();
+      for (const power of STAR_SPIRIT_POWER_NAMES) {
+        this.formGroup.get('move_costs').get('starpower').get(power).setValue(-1);
+      }
+      this.formGroup.get('move_costs').get('starpower').updateValueAndValidity();
+    }
   }
 
   public onSubmit() {

@@ -17,28 +17,11 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  .container.space-between {
+    justify-content: space-between;
+  }
 
   .panel {
-    input[type="checkbox"] {
-      visibility: hidden;
-    }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      flex: 1 1 100%;
-      margin: 10px 0;
-    }
-    .end {
-      justify-content: end;
-    }
-    .settings {
-      flex: 1 1 50%;
-    }
-    label {
-      margin-right: 1rem;
-    }
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,6 +33,30 @@
     border-radius: 15px;
     padding: 0.5rem;
     box-shadow: #919191 2px 2px 4px 0px;
+
+    input[type="checkbox"] {
+      visibility: hidden;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      flex: 1 1 100%;
+      margin: 10px 0;
+    }
+    .row.start {
+      justify-content: start;
+    }
+    .end {
+      justify-content: end;
+    }
+    .settings {
+      flex: 1 1 50%;
+    }
+    label {
+      margin-right: 1rem;
+    }
     app-tooltip-span {
       position: relative;
     }
@@ -153,7 +160,7 @@
                 background-color: $purple-misc-main !important;
                 border-color: $purple-misc-border !important;
               }
-              
+
               .mat-tab-label:has(> div > label.error) {
                 background-color: #650b0b !important;
               }
@@ -185,8 +192,9 @@
       border-color: $yellow-stat-border;
       min-width: 500px;
     }
-    button:disabled {
-      cursor: not-allowed;
-    }
+  }
+  button:disabled {
+    opacity: 35%;
+    cursor: not-allowed;
   }
 }
