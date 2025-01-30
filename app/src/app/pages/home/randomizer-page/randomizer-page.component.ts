@@ -29,6 +29,7 @@ import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 import { DungeonEntranceShuffleMode } from 'src/app/entities/enum/DungeonEntranceShuffleMode';
 import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
 import { BossShuffleMode } from 'src/app/entities/enum/BossShuffleMode';
+import { SettingStringMappingService } from 'src/app/services/setting-string-mapping/setting-string-mapping.service';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -53,7 +54,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public seedGenError: string;
   private _createSeedSubscription: Subscription;
 
-  public constructor(private _randomizerService: RandomizerService, private _localStorage: LocalStorageService, private _router: Router, private _toast: ToastrService){}
+  public constructor(private _randomizerService: RandomizerService, private _localStorage: LocalStorageService, private _router: Router, private _toast: ToastrService, private _settingsStringService: SettingStringMappingService){}
 
   public ngOnInit(): void {
     this.homepageLink = environment.homepage;
@@ -68,6 +69,11 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     if(this._createSeedSubscription) {
       this._createSeedSubscription.unsubscribe();
     }
+
+    try {
+      var settingsString = this._settingsStringService.compressFormGroup(this.formGroup, this._settingsStringService.settingsMap);
+      this._localStorage.set('latestSettingsString', settingsString);
+    } catch {}
   }
 
   public onSubmit() {
