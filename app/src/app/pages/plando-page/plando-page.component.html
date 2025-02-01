@@ -9,25 +9,25 @@
             <mat-tab-group disablePagination="true" animationDuration="0" scrollToCenter>
                 <mat-tab>
                     <ng-template mat-tab-label>
-                        <label>Spirits & Chapters</label>
+                        <label class="mat-tab-label-content">Spirits & Chapters</label>
                     </ng-template>
                     <app-plando-spirits-and-chapters [plandoFormGroup]="formGroup"></app-plando-spirits-and-chapters>
                 </mat-tab>
                 <mat-tab>
                     <ng-template mat-tab-label>
-                        <label [ngClass]="{'error': formGroup.get('move_costs').get('partner').invalid }">Party</label>
+                        <label class="mat-tab-label-content" [ngClass]="{'error': formGroup.get('move_costs').get('partner').invalid }">Party</label>
                     </ng-template>
                     <app-plando-party [partnerMoveCostsFormGroup]="formGroup.get('move_costs').get('partner')"></app-plando-party>
                 </mat-tab>
                 <mat-tab>
                     <ng-template mat-tab-label>
-                        <label [ngClass]="{'error': formGroup.get('move_costs').get('badge').invalid }">Badges</label>
+                        <label class="mat-tab-label-content" [ngClass]="{'error': formGroup.get('move_costs').get('badge').invalid }">Badges</label>
                     </ng-template>
                     <app-plando-badges [badgeMoveCostsFormGroup]="formGroup.get('move_costs').get('badge')"></app-plando-badges>
                 </mat-tab>
                 <mat-tab>
                     <ng-template mat-tab-label>
-                        <label [ngClass]="{'error': formGroup.get('items').invalid }">Items</label>
+                        <label class="mat-tab-label-content" [ngClass]="{'error': formGroup.get('items').invalid }">Items</label>
                     </ng-template>
                     <app-plando-items [itemsFormGroup]="formGroup.get('items')"></app-plando-items>
                 </mat-tab>
