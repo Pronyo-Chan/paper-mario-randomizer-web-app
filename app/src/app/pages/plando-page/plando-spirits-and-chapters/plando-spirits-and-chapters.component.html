@@ -13,7 +13,8 @@
             type="checkbox"
             class="hidden"
             value="{{ spirit }}"
-            (change)="updateSpiritSelection($event, spirit)" />
+            (change)="updateSpiritSelection($event, spirit)"
+            [checked]="requiredSpiritsArray.includes(spirit)" />
           <img
             src="{{
               '/assets/images/plando/' +
