@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms";
-import { SAVED_PLANDO_NAMES_KEY } from "src/app/pages/plando-page/plando-save-load/plando-save-load.component";
+import { SAVED_PLANDO_NAME_PREFIX, SAVED_PLANDO_NAMES_KEY } from "src/app/pages/plando-page/plando-save-load/plando-save-load.component";
 
 @Component({
   selector: 'app-plandomizers',
@@ -24,7 +24,7 @@ export class PlandomizersComponent implements OnInit {
       this.formGroup.get('plandomizer').setValue(null);
       this.loadStatus = '';
     } else {
-      const plandoSettings = localStorage.getItem(plandoName);
+      const plandoSettings = localStorage.getItem(SAVED_PLANDO_NAME_PREFIX + plandoName);
       if (!plandoSettings) {
         this.savedPlandoNames.delete(plandoName);
         this.loadStatus = 'notFound';

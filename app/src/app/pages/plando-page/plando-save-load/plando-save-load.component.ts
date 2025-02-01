@@ -4,6 +4,7 @@ import { STAR_SPIRIT_POWER_NAMES } from "../plando-spirits-and-chapters/plando-s
 import { InputFilterService } from "src/app/services/inputfilter.service";
 
 export const SAVED_PLANDO_NAMES_KEY = 'savedPlandoNames';
+export const SAVED_PLANDO_NAME_PREFIX = 'plando_';
 
 @Component({
   selector: 'app-plando-save-load',
@@ -29,7 +30,7 @@ export class PlandoSaveLoadComponent implements OnInit {
   }
 
   public savePlandoSettings(name: string) {
-    localStorage.setItem(name, JSON.stringify(this.plandoFormGroup.getRawValue()))
+    localStorage.setItem(SAVED_PLANDO_NAME_PREFIX + name, JSON.stringify(this.plandoFormGroup.getRawValue()))
     this.savedPlandoNames.add(name);
     localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
     this.saveLoadStatus = 'saved';
@@ -37,7 +38,7 @@ export class PlandoSaveLoadComponent implements OnInit {
   };
 
   public loadPlandoSettings(name: string) {
-    const plandoSettings = localStorage.getItem(name);
+    const plandoSettings = localStorage.getItem(SAVED_PLANDO_NAME_PREFIX + name);
     if (!plandoSettings) {
       this.deletePlandoSettings(name);
     } else {

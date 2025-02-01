@@ -37,7 +37,7 @@ export class InputFilterService {
   }
 
   public disallowChars($event: KeyboardEvent, invalidChars: string) {
-    if (new RegExp(escapeRegexChars(invalidChars)).test($event.key)) {
+    if (new RegExp('[' + escapeRegexChars(invalidChars) + ']').test($event.key)) {
       $event.preventDefault();
       return false;
     }

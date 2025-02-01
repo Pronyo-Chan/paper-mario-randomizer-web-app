@@ -6,7 +6,7 @@
         <p>You have no saved Plandomizers. <a class="text-link" [routerLink]="'./plandomizer'">Go to the Plandomizer tool</a> to create or import one!</p>
     </div>
     <div class="row" *ngIf="savedPlandoNames.size > 0">
-        <label class="settings-label" for="savedPlandosSelect">Saved Plandos:</label>
+        <label class="settings-label" for="savedPlandosSelect">Select Plando:</label>
         <select name="savedPlandosSelect" #savedPlandosSelect (change)="onSavedPlandoSelect($event)">
             <option></option>
             <option *ngFor="let plandoName of savedPlandoNames" [value]="plandoName">{{plandoName}}</option>
