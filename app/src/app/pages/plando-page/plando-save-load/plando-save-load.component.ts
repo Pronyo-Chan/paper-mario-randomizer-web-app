@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { STAR_SPIRIT_POWER_NAMES } from "../plando-spirits-and-chapters/plando-spirits-and-chapters.component";
 import { InputFilterService } from "src/app/services/inputfilter.service";
 
+export const SAVED_PLANDO_NAMES_KEY = 'savedPlandoNames';
+
 @Component({
   selector: 'app-plando-save-load',
   templateUrl: './plando-save-load.component.html',
@@ -12,14 +14,13 @@ export class PlandoSaveLoadComponent implements OnInit {
   @Input() plandoFormGroup: FormGroup;
 
   constructor(public inputFilters: InputFilterService) { };
-  private readonly SAVED_PLANDO_NAMES_KEY = 'savedPlandoNames';
   public savedPlandoNames: Set<string>;
   public saveLoadFormGroup: FormGroup;
   public saveLoadStatus: string;
   public lastPlandoName: string;
 
   public ngOnInit(): void {
-    const savedNames = localStorage.getItem(this.SAVED_PLANDO_NAMES_KEY);
+    const savedNames = localStorage.getItem(SAVED_PLANDO_NAMES_KEY);
     this.savedPlandoNames = savedNames ? new Set(savedNames.split(',')) : new Set();
     this.saveLoadFormGroup = new FormGroup({
       plandoName: new FormControl<string>(''),
@@ -30,7 +31,7 @@ export class PlandoSaveLoadComponent implements OnInit {
   public savePlandoSettings(name: string) {
     localStorage.setItem(name, JSON.stringify(this.plandoFormGroup.getRawValue()))
     this.savedPlandoNames.add(name);
-    localStorage.setItem(this.SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
+    localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
     this.saveLoadStatus = 'saved';
     this.lastPlandoName = name;
   };
@@ -65,7 +66,7 @@ export class PlandoSaveLoadComponent implements OnInit {
   public deletePlandoSettings(name: string) {
     this.savedPlandoNames.delete(name);
     localStorage.removeItem(name);
-    localStorage.setItem(this.SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
+    localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
     this.lastPlandoName = name;
     this.saveLoadStatus = 'deleted';
   }

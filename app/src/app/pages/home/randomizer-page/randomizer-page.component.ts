@@ -278,7 +278,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         shuffleMusic: new FormControl(-1),
         shuffleJingles: new FormControl(false),
       }),
-      glitches: new FormControl([])
+      glitches: new FormControl([]),
+      plandomizer: new FormControl()
     });
 
     this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(
