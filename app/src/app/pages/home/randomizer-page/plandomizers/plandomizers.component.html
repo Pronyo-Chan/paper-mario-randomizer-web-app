@@ -6,7 +6,7 @@
         <p>You have no saved Plandomizers. <a class="text-link" [routerLink]="'./plandomizer'">Go to the Plandomizer tool</a> to create or import one!</p>
     </div>
     <div class="row" *ngIf="savedPlandoNames.size > 0">
-        <label class="settings-label" for="savedPlandosSelect">Select Plando:</label>
+        <label class="settings-label" for="savedPlandosSelect">Select Plandomizer:</label>
         <select name="savedPlandosSelect" #savedPlandosSelect (change)="onSavedPlandoSelect($event)">
             <option></option>
             <option *ngFor="let plandoName of savedPlandoNames" [value]="plandoName">{{plandoName}}</option>
@@ -15,11 +15,11 @@
     <div>
         <ng-container *ngIf="loadStatus === 'loaded'">
             <span>✔️</span>
-            <span>Applied Plando: {{this.selectedPlandoName}}</span>
+            <span>Applied Plandomizer: {{this.selectedPlandoName}}</span>
         </ng-container>
         <ng-container *ngIf="loadStatus === 'notFound'">
             <span>❌</span>
-            <span>Plando not found; it may have been deleted.</span>
+            <span>Plandomizer not found; it may have been deleted.</span>
         </ng-container>
     </div>
 </mat-card-content>

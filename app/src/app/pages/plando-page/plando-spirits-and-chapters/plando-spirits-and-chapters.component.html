@@ -1,8 +1,7 @@
 <div [formGroup]="plandoFormGroup">
   <h2>Required Spirits and Difficulty Scaling</h2>
   <p class="text-center">
-    If "Require Specific Spirits" is enabled in the seed generator, the selected
-    Star Spirits will be required for completion.
+    Selected Star Spirits will be required for completion. If no spirits are selected, the seed generator settings will determine the required Star Spirits.
   </p>
   <div class="container">
     <div *ngFor="let spirit of SPIRITS; let i = index; let requiredSpirits = requiredSpirits" class="panel">
