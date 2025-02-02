@@ -21,8 +21,8 @@
                 <option *ngFor="let plandoName of savedPlandoNames" [value]="plandoName">{{plandoName}}</option>
             </select>
             <div>
-                <button class="yellow-button" type="button" [disabled]="savedPlandosSelect.value === ''" (click)="loadPlandoSettings(savedPlandosSelect.value)"><span>Load</span></button>
-                <button class="yellow-button" type="button" [disabled]="savedPlandosSelect.value === ''" (click)="deletePlandoSettings(savedPlandosSelect.value)"><span>Delete</span></button>
+                <button class="yellow-button" type="button" [disabled]="saveLoadFormGroup.get('savedPlandoNameSelect').value === ''" (click)="loadPlandoSettings(savedPlandosSelect.value)"><span>Load</span></button>
+                <button class="yellow-button" type="button" [disabled]="saveLoadFormGroup.get('savedPlandoNameSelect').value === ''" (click)="deletePlandoSettings(savedPlandosSelect.value)"><span>Delete</span></button>
                 <ng-container *ngIf="saveLoadStatus === 'loaded'">
                     <span>✔️</span>
                     <span class="success">Loaded Plando: {{this.lastPlandoName}}</span>
