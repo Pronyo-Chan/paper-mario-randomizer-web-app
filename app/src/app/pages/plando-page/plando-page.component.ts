@@ -5,8 +5,9 @@ import { CheckType, LOCATIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-items/pla
 import { escapeRegexChars } from "src/app/utilities/stringFunctions";
 import { STAR_SPIRIT_POWER_NAMES } from "./plando-spirits-and-chapters/plando-spirits-and-chapters.component";
 
-export const MAX_FP_COST = 75;
-export const MAX_BP_COST = 10;
+export const MAX_FP_COST: number = 75;
+export const MAX_BP_COST: number = 10;
+export const DEFAULT_PLANDOMIZER_KEY: string = 'default_plandomizer';
 
 const plandoItemSet = new Set(PLANDO_ITEMS_LIST);
 const manualTrapRegex = new RegExp('^TRAP \\((' + PLANDO_ITEMS_LIST.slice(4).map(escapeRegexChars).join('|') + ')\\)$');
@@ -119,6 +120,7 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
       }
       (this.formGroup.get('items') as FormGroup).addControl(location.name, locationFormGroup);
     }
+    localStorage.setItem(DEFAULT_PLANDOMIZER_KEY, JSON.stringify(this.formGroup.getRawValue()));
     const savedFormObj = localStorage.getItem('autosavePlandoSettings');
     if (savedFormObj) {
       this.formGroup.setValue(JSON.parse(savedFormObj));
@@ -137,7 +139,7 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
   }
 
   public resetPlandoForm() {
-    if (confirm('This will reset all plando settings. Are you sure?')) {
+    if (confirm('This will clear and reset ALL plando settings. Are you sure?')) {
       this.formGroup.reset();
       for (const power of STAR_SPIRIT_POWER_NAMES) {
         this.formGroup.get('move_costs').get('starpower').get(power).setValue(-1);
@@ -146,50 +148,4 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  public onSubmit() {
-    this.isValidating = true;
-    let plandoFormObj = this.formGroup.getRawValue()
-    // The slider inputs don't play nicely with setting the form control value to "null"
-    // when they're at the lowest setting; handle those values here by removing them instead.
-    const difficultySettings = plandoFormObj['difficulty'];
-    for (const chapter in difficultySettings) {
-      if (difficultySettings[chapter] === 0) {
-        delete difficultySettings[chapter];
-      }
-    }
-    const powercosts = plandoFormObj['move_costs']['starpower'];
-    for (const power in powercosts) {
-      if (powercosts[power] === -1) {
-        delete powercosts[power];
-      }
-    }
-
-    // Remove all null and empty values.
-    const tidyObj = (obj) => {
-      return Object.fromEntries(Object.entries(obj).flatMap(([k, v]) => {
-        if (v === null
-          || (typeof v === 'object' && Object.keys(v).length === 0)
-          || (typeof v === 'string' && v.trim() === '')) {
-          return [];
-        }
-        if (typeof v !== 'object' || (Array.isArray(v) && v.length > 0)) {
-          return [[k, v]];
-        }
-        v = tidyObj(v);
-        if (Object.keys(v).length === 0) {
-          return []
-        } else {
-          return [[k, v]];
-        }
-      }));
-    }
-    const a = document.createElement('a');
-    const plandoFile = new Blob([JSON.stringify(tidyObj(plandoFormObj))], { type: 'application/json' });
-    a.href = URL.createObjectURL(plandoFile);
-    const dateParts = new Date().toISOString().split('T');
-    const datetime = dateParts[0] + '_' + dateParts[1].substring(0, 8).replace(/:/g, '');
-    a.download = 'pm64-plando-' + datetime + '.json';
-    a.click();
-    this.isValidating = false;
-  }
 }

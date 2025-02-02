@@ -66,6 +66,11 @@
                                 background-color: $green-spirit-main !important;
                                 border-color: $green-spirit-border !important;
                               }
+
+                            > :nth-child(6) {
+                                background-color: $yellow-stat-main !important;
+                                border-color: $yellow-stat-border !important;
+                            }
                           }
                     }
                 }

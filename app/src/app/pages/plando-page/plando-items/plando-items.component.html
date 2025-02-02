@@ -27,7 +27,7 @@
     <mat-tab-group disablePagination="true" class="sub-tab" animationDuration="0" scrollToCenter>
         <mat-tab *ngFor="let loc of LOCATIONS">
             <ng-template mat-tab-label>
-                <label [ngClass]="{ 'error': itemsFormGroup.get(loc.name).invalid }">{{toDisplayString(loc.name)}}</label>
+                <label class="mat-tab-label-content" [ngClass]="{ 'error': itemsFormGroup.get(loc.name).invalid }">{{toDisplayString(loc.name)}}</label>
             </ng-template>
             <div class="panel">
                 <div class="checks-list">

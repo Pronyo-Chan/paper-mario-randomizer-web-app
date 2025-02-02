@@ -1,11 +1,23 @@
 :host {
     .panel {
-        flex: 0 1 100%;
+        flex: 1 1 31%;
+        min-height: 210px;
+        align-items: start;
     }
     select {
         min-width: 15rem;
     }
     button {
         margin: 0.5rem;
+    }
+    .status {
+        position:absolute;
+        max-width: 60%;
+        @media screen and (min-width:637px) and (max-width: 1399px) {
+            max-width: 30%;
+        }
+        @media screen and (min-width:1752px) {
+            max-width: 30%;
+        }
     }
 }
