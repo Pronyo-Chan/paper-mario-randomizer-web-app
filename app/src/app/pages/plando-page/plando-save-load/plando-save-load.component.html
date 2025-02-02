@@ -7,7 +7,7 @@
         <h3>Save Plando</h3>
         <div class="row">
             <label for="plandoName">Plando Name:</label>
-            <input name="plandoName" formControlName="plandoName" #plandoName (keydown)="this.inputFilters.disallowChars($event, ',_')" />
+            <input name="plandoName" formControlName="plandoName" #plandoName (keydown)="this.inputFilters.disallowChars($event, ',_')" [maxlength]="MAX_PLANDO_NAME_LENGTH" />
             <button class="yellow-button" type="button"
                 [disabled]="plandoName.value.trim() === '' || plandoFormGroup.invalid"
                 [matTooltip]="plandoFormGroup.invalid ? 'Please fix the errors on the page before saving. Problems are highlighted in red.' : ''"
@@ -31,8 +31,11 @@
             <ng-container *ngIf="importStatus === 'success'">
                 <span class="status">✔️ Plando settings imported successfully!</span>
             </ng-container>
-            <ng-container *ngIf="importStatus === 'failure'">
+            <ng-container *ngIf="importStatus === 'invalid'">
                 <span class="status">❌ Import failed. Ensure that the file is in the correct format.</span>
+            </ng-container>
+            <ng-container *ngIf="importStatus === 'exists'">
+                <span class="status">❌ Import failed. A plando with this name already exists.</span>
             </ng-container>
         </div>
     </div>

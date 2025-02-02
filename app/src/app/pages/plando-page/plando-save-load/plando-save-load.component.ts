@@ -14,6 +14,7 @@ export const SAVED_PLANDO_NAME_PREFIX = 'plando_';
 })
 export class PlandoSaveLoadComponent implements OnInit {
   @Input() plandoFormGroup: FormGroup;
+  public readonly MAX_PLANDO_NAME_LENGTH = 20;
 
   constructor(public inputFilters: InputFilterService) { };
   public savedPlandoNames: Set<string>;
@@ -32,6 +33,7 @@ export class PlandoSaveLoadComponent implements OnInit {
   }
 
   public savePlandoSettings(name: string) {
+    name = name.replace(/,/g, '');
     localStorage.setItem(SAVED_PLANDO_NAME_PREFIX + name, JSON.stringify(this.plandoFormGroup.getRawValue()))
     this.savedPlandoNames.add(name);
     localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
@@ -42,7 +44,7 @@ export class PlandoSaveLoadComponent implements OnInit {
   public loadPlandoSettings(name: string) {
     const plandoSettings = localStorage.getItem(SAVED_PLANDO_NAME_PREFIX + name);
     if (!plandoSettings) {
-      this.deletePlandoSettings(name);
+      this.deletePlandoSettings(name, true);
     } else {
       const plandoFormObj = JSON.parse(plandoSettings);
       // Because 0 is a valid value for star spirit power costs, and -1 is the "defer to generator" setting,
@@ -109,16 +111,14 @@ export class PlandoSaveLoadComponent implements OnInit {
       const a = document.createElement('a');
       const plandoFile = new Blob([JSON.stringify(tidyObj(plandoFormObj))], { type: 'application/json' });
       a.href = URL.createObjectURL(plandoFile);
-      const dateParts = new Date().toISOString().split('T');
-      const datetime = dateParts[0] + '_' + dateParts[1].substring(0, 8).replace(/:/g, '');
-      a.download = 'pm64-plando-' + datetime + '.json';
+      a.download = name + '.json';
       a.click();
     }
   }
 
   public deletePlandoSettings(name: string, notFound: boolean = false) {
     this.savedPlandoNames.delete(name);
-    localStorage.removeItem(name);
+    localStorage.removeItem(SAVED_PLANDO_NAME_PREFIX + name);
     localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
     this.lastPlandoName = name;
     this.saveLoadStatus = notFound ? 'notFound' : 'deleted';
@@ -132,7 +132,15 @@ export class PlandoSaveLoadComponent implements OnInit {
       if (!input.files || !input.files.item(0))
         return;
       try {
-        const fileContents = await this.loadFile(input.files.item(0) as File);
+        const file = input.files.item(0) as File;
+        if (!file.name.endsWith('.json')) {
+          throw new Error('invalid');
+        }
+        const plandoName = file.name.substring(0, file.name.length - 5).replace(/,/g, '').substring(0, 20);
+        if (this.savedPlandoNames.has(plandoName)) {
+          throw new Error('exists');
+        }
+        const fileContents = await this.loadFile(file);
         // Because we strip exported JSON, we can't just set value on the formgroup.
         // Merge the object into the default formgroup object we save on page load.
         // As a small bonus, this works as a sort of ad-hoc validator.
@@ -141,7 +149,7 @@ export class PlandoSaveLoadComponent implements OnInit {
         const mergeObjectDeep = (target, source) => {
           for (const key in source) {
             if (target[key] === undefined) {
-              throw Error();
+              throw new Error('invalid');
             }
             if (typeof source[key] === 'object' && !Array.isArray(source[key])) {
               mergeObjectDeep(target[key], source[key]);
@@ -153,8 +161,12 @@ export class PlandoSaveLoadComponent implements OnInit {
         mergeObjectDeep(defaultObj, importedObj);
         this.plandoFormGroup.setValue(defaultObj);
         this.importStatus = 'success';
+        this.saveLoadFormGroup.get('plandoName').setValue(plandoName);
+        this.savePlandoSettings(plandoName);
       } catch (e) {
-        this.importStatus = 'failure';
+        if (e.message && e.message.length <= 7) {
+          this.importStatus = e.message;
+        }
       }
     }
     input.click();
