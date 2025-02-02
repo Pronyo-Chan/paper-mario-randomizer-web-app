@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { STAR_SPIRIT_POWER_NAMES } from "../plando-spirits-and-chapters/plando-spirits-and-chapters.component";
 import { InputFilterService } from "src/app/services/inputfilter.service";
+import { DEFAULT_PLANDOMIZER_KEY } from "../plando-page.component";
 
 export const SAVED_PLANDO_NAMES_KEY = 'savedPlandoNames';
 export const SAVED_PLANDO_NAME_PREFIX = 'plando_';
@@ -132,11 +133,27 @@ export class PlandoSaveLoadComponent implements OnInit {
         return;
       try {
         const fileContents = await this.loadFile(input.files.item(0) as File);
-        const obj = JSON.parse(fileContents);
-        this.plandoFormGroup.setValue(obj);
+        // Because we strip exported JSON, we can't just set value on the formgroup.
+        // Merge the object into the default formgroup object we save on page load.
+        // As a small bonus, this works as a sort of ad-hoc validator.
+        const importedObj = JSON.parse(fileContents);
+        const defaultObj = JSON.parse(localStorage.getItem(DEFAULT_PLANDOMIZER_KEY));
+        const mergeObjectDeep = (target, source) => {
+          for (const key in source) {
+            if (target[key] === undefined) {
+              throw Error();
+            }
+            if (typeof source[key] === 'object' && !Array.isArray(source[key])) {
+              mergeObjectDeep(target[key], source[key]);
+            } else {
+              Object.assign(target, { [key]: source[key] });
+            }
+          }
+        }
+        mergeObjectDeep(defaultObj, importedObj);
+        this.plandoFormGroup.setValue(defaultObj);
         this.importStatus = 'success';
       } catch (e) {
-        console.error(e);
         this.importStatus = 'failure';
       }
     }
@@ -144,13 +161,13 @@ export class PlandoSaveLoadComponent implements OnInit {
   }
 
   private loadFile(file: File): Promise<string> {
-      return new Promise((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onload = () => {
-              resolve(reader.result as string);
-          }
-          reader.onerror = (e) => reject(e);
-          reader.readAsText(file);
-      });
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        resolve(reader.result as string);
+      }
+      reader.onerror = (e) => reject(e);
+      reader.readAsText(file);
+    });
   }
 }

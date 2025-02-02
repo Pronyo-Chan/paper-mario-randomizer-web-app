@@ -5,8 +5,9 @@ import { CheckType, LOCATIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-items/pla
 import { escapeRegexChars } from "src/app/utilities/stringFunctions";
 import { STAR_SPIRIT_POWER_NAMES } from "./plando-spirits-and-chapters/plando-spirits-and-chapters.component";
 
-export const MAX_FP_COST = 75;
-export const MAX_BP_COST = 10;
+export const MAX_FP_COST: number = 75;
+export const MAX_BP_COST: number = 10;
+export const DEFAULT_PLANDOMIZER_KEY: string = 'default_plandomizer';
 
 const plandoItemSet = new Set(PLANDO_ITEMS_LIST);
 const manualTrapRegex = new RegExp('^TRAP \\((' + PLANDO_ITEMS_LIST.slice(4).map(escapeRegexChars).join('|') + ')\\)$');
@@ -119,7 +120,7 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
       }
       (this.formGroup.get('items') as FormGroup).addControl(location.name, locationFormGroup);
     }
-    localStorage.setItem('default_plandomizer', JSON.stringify(this.formGroup.getRawValue()));
+    localStorage.setItem(DEFAULT_PLANDOMIZER_KEY, JSON.stringify(this.formGroup.getRawValue()));
     const savedFormObj = localStorage.getItem('autosavePlandoSettings');
     if (savedFormObj) {
       this.formGroup.setValue(JSON.parse(savedFormObj));
