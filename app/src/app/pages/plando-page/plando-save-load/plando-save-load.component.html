@@ -23,13 +23,13 @@
     </div>
 
     <div class="panel">
-        <h3>Import Plando Settings</h3>
+        <h3>Import Plando</h3>
         <div class="row">
             <button class="yellow-button" type="button" (click)="importPlandoSettings()"><span>Import</span></button>
         </div>
         <div class="row">
             <ng-container *ngIf="importStatus === 'success'">
-                <span class="status">✔️ Plando settings imported successfully!</span>
+                <span class="status">✔️ Plando imported successfully!</span>
             </ng-container>
             <ng-container *ngIf="importStatus === 'invalid'">
                 <span class="status">❌ Import failed. Ensure that the file is in the correct format.</span>
