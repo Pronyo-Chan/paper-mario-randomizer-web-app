@@ -45,6 +45,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
   public homepageLink;
   public formGroup: FormGroup
+  public plandomizerFormControl: FormControl;
   randomPartnersMinSubscription: Subscription;
 
   public isRandomizing = false;
@@ -279,8 +280,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         shuffleJingles: new FormControl(false),
       }),
       glitches: new FormControl([]),
-      plandomizer: new FormControl()
     });
+    this.plandomizerFormControl = new FormControl();
 
     this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(
       tap(() => this.formGroup.get('partners').get('randomPartnersMax').updateValueAndValidity())

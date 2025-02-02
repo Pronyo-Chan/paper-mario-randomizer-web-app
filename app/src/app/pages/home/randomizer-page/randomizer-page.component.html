@@ -23,7 +23,7 @@
                     <app-glitches-and-tricks [formGroup]="formGroup"></app-glitches-and-tricks>
                 </mat-tab>
                 <mat-tab label="Plandomizers">
-                    <app-plandomizers [formGroup]="formGroup"></app-plandomizers>
+                    <app-plandomizers [plandomizerFormControl]="plandomizerFormControl"></app-plandomizers>
                 </mat-tab>
             </mat-tab-group>
         </mat-card>
@@ -34,7 +34,7 @@
                 <app-difficulty-settings [difficultyFormGroup]="formGroup.get('difficulty')"></app-difficulty-settings>
                 </mat-tab>
                 <mat-tab label="Goals">
-                  <app-goal-settings [goalsFormGroup]="formGroup.get('goals')" [plandoFormControl]="formGroup.get('plandomizer')"></app-goal-settings>
+                  <app-goal-settings [goalsFormGroup]="formGroup.get('goals')" [plandoFormControl]="plandomizerFormControl"></app-goal-settings>
                 </mat-tab>
                 <mat-tab label="Stats & Gear">
                     <app-mario-settings [marioStatsFormGroup]="formGroup.get('marioStats')"></app-mario-settings>
