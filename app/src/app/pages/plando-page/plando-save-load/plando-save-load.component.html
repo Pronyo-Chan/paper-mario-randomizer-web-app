@@ -1,6 +1,6 @@
 <h2>Save & Load Plando Configs</h2>
 
-<p>All current changes will be auto-saved, and will auto-load when returning to this page.</p>
+<p class="text-center">All current changes will be auto-saved, and will auto-load when returning to this page.</p>
 <div class="container" [formGroup]="saveLoadFormGroup">
 
     <div class="panel">
@@ -10,30 +10,29 @@
             <input name="plandoName" formControlName="plandoName" #plandoName (keydown)="this.inputFilters.disallowChars($event, ',_')" />
             <button class="yellow-button" type="button"
                 [disabled]="plandoName.value.trim() === '' || plandoFormGroup.invalid"
-                [matTooltip]="plandoFormGroup.invalid ? 'Please fix the errors on the page to save. Problems are highlighted in red.' : ''"
+                [matTooltip]="plandoFormGroup.invalid ? 'Please fix the errors on the page before saving. Problems are highlighted in red.' : ''"
                 matTooltipPosition="right" (click)="savePlandoSettings(plandoName.value)">
                 <span>Save</span>
             </button>
+        </div>
+        <div class="row">
             <ng-container *ngIf="saveLoadStatus === 'saved'">
-                <span>✔️</span>
-                <span class="success">Plando Saved!</span>
+                <span class="status">✔️ Plando Saved!</span>
             </ng-container>
         </div>
     </div>
 
     <div class="panel">
-        <h3>Import Plando</h3>
+        <h3>Import Plando Settings</h3>
         <div class="row">
             <button class="yellow-button" type="button" (click)="importPlandoSettings()"><span>Import</span></button>
         </div>
         <div class="row">
             <ng-container *ngIf="importStatus === 'success'">
-                <span>✔️</span>
-                <span class="success">Plando settings imported successfully!</span>
+                <span class="status">✔️ Plando settings imported successfully!</span>
             </ng-container>
             <ng-container *ngIf="importStatus === 'failure'">
-                <span>❌</span>
-                <span class="success">Import failed. Ensure that the file is in the correct format.</span>
+                <span class="status">❌ Import failed. Ensure that the file is in the correct format.</span>
             </ng-container>
         </div>
     </div>
@@ -53,16 +52,13 @@
         </div>
         <div class="row">
             <ng-container *ngIf="saveLoadStatus === 'loaded'">
-                <span>✔️</span>
-                <span class="success">Loaded Plando: {{this.lastPlandoName}}</span>
+                <span class="status">✔️ Loaded Plando: {{this.lastPlandoName}}</span>
             </ng-container>
             <ng-container *ngIf="saveLoadStatus === 'deleted'">
-                <span>✔️</span>
-                <span class="success">Deleted Plando: {{this.lastPlandoName}}</span>
+                <span class="status">✔️ Deleted Plando: {{this.lastPlandoName}}</span>
             </ng-container>
             <ng-container *ngIf="saveLoadStatus === 'notFound'">
-                <span>❌</span>
-                <span>Plando not found; it may have been deleted. It has been removed from the list.</span>
+                <span class="status">❌ Plando not found; it may have been deleted. It has been removed from the list.</span>
             </ng-container>
         </div>
         <div class="row" *ngIf="savedPlandoNames.size === 0">There are no saved plandos.</div>
