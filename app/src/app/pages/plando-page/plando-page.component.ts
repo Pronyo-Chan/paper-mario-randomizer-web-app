@@ -119,6 +119,7 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
       }
       (this.formGroup.get('items') as FormGroup).addControl(location.name, locationFormGroup);
     }
+    localStorage.setItem('default_plandomizer', JSON.stringify(this.formGroup.getRawValue()));
     const savedFormObj = localStorage.getItem('autosavePlandoSettings');
     if (savedFormObj) {
       this.formGroup.setValue(JSON.parse(savedFormObj));
