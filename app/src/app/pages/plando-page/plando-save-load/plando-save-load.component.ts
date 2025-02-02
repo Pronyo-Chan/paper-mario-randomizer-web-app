@@ -164,9 +164,7 @@ export class PlandoSaveLoadComponent implements OnInit {
         this.saveLoadFormGroup.get('plandoName').setValue(plandoName);
         this.savePlandoSettings(plandoName);
       } catch (e) {
-        if (e.message && e.message.length <= 7) {
-          this.importStatus = e.message;
-        }
+        this.importStatus = e.message;
       }
     }
     input.click();
