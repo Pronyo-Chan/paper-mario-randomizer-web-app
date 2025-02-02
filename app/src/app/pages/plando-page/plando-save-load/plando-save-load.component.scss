@@ -12,6 +12,12 @@
     }
     .status {
         position:absolute;
-        max-width: 30%;
+        max-width: 60%;
+        @media screen and (min-width:637px) and (max-width: 1399px) {
+            max-width: 30%;
+        }
+        @media screen and (min-width:1752px) {
+            max-width: 30%;
+        }
     }
 }
