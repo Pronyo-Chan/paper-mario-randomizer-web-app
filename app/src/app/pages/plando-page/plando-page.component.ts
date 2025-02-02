@@ -137,7 +137,7 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
   }
 
   public resetPlandoForm() {
-    if (confirm('This will reset all plando settings. Are you sure?')) {
+    if (confirm('This will clear and reset ALL plando settings. Are you sure?')) {
       this.formGroup.reset();
       for (const power of STAR_SPIRIT_POWER_NAMES) {
         this.formGroup.get('move_costs').get('starpower').get(power).setValue(-1);
@@ -146,50 +146,4 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  public onSubmit() {
-    this.isValidating = true;
-    let plandoFormObj = this.formGroup.getRawValue()
-    // The slider inputs don't play nicely with setting the form control value to "null"
-    // when they're at the lowest setting; handle those values here by removing them instead.
-    const difficultySettings = plandoFormObj['difficulty'];
-    for (const chapter in difficultySettings) {
-      if (difficultySettings[chapter] === 0) {
-        delete difficultySettings[chapter];
-      }
-    }
-    const powercosts = plandoFormObj['move_costs']['starpower'];
-    for (const power in powercosts) {
-      if (powercosts[power] === -1) {
-        delete powercosts[power];
-      }
-    }
-
-    // Remove all null and empty values.
-    const tidyObj = (obj) => {
-      return Object.fromEntries(Object.entries(obj).flatMap(([k, v]) => {
-        if (v === null
-          || (typeof v === 'object' && Object.keys(v).length === 0)
-          || (typeof v === 'string' && v.trim() === '')) {
-          return [];
-        }
-        if (typeof v !== 'object' || (Array.isArray(v) && v.length > 0)) {
-          return [[k, v]];
-        }
-        v = tidyObj(v);
-        if (Object.keys(v).length === 0) {
-          return []
-        } else {
-          return [[k, v]];
-        }
-      }));
-    }
-    const a = document.createElement('a');
-    const plandoFile = new Blob([JSON.stringify(tidyObj(plandoFormObj))], { type: 'application/json' });
-    a.href = URL.createObjectURL(plandoFile);
-    const dateParts = new Date().toISOString().split('T');
-    const datetime = dateParts[0] + '_' + dateParts[1].substring(0, 8).replace(/:/g, '');
-    a.download = 'pm64-plando-' + datetime + '.json';
-    a.click();
-    this.isValidating = false;
-  }
 }

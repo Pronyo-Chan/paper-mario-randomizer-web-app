@@ -32,16 +32,8 @@
                     <app-plando-items [itemsFormGroup]="formGroup.get('items')"></app-plando-items>
                 </mat-tab>
             </mat-tab-group>
-        </mat-card>
-        <mat-card class="settings-card">
-            <div class="container space-between">
-                <div class="button-container">
-                    <button [disabled]="formGroup.invalid || isValidating" class="submit" type="button" (click)="onSubmit()"
-                        [matTooltip]="formGroup.invalid ? 'Please fix the errors on the page to submit. Problems are highlighted in red.' : ''" matTooltipPosition="right">
-                        <span *ngIf="!isValidating">Download Plando File</span>
-                        <app-loading *ngIf="isValidating" [isLoading]="isValidating" [loadingText]="'Validating...'"></app-loading>
-                    </button>
-                </div>
+            <mat-divider />
+            <div class="container end">
                 <button class="yellow-button" type="button" (click)="resetPlandoForm()">
                     <span>Reset</span>
                 </button>
