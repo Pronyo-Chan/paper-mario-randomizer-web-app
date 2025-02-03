@@ -852,7 +852,6 @@ export const PLANDO_ITEMS_LIST: Array<string> = [
   "TRAP",
   "NonProgression",
   "Consumable",
-  "Trash",
   "AllorNothing",
   "Apple",
   "ApplePie",
