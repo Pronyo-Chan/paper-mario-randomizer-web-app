@@ -139,13 +139,11 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       bossBattles: []
     }
 
-    const spoilerLogData = Object.fromEntries(Object.entries(spoilerLogJson).filter(
-      ([key]) => key!= "difficulty" && key != "sphere_log" && key != "move_costs" && key != "superblocks" && key != "SeedHashItems" && key != "entrances" && key != "required_spirits" && key != "entrances" && key != "puzzle_solutions" && key != "boss_battles"))
-
-    for (const region in spoilerLogData) {
+    const spoilerLogItems = spoilerLogJson["items"];
+    for (const region in spoilerLogItems) {
       spoilerLogRegions[region] = [];
-      for (const location in spoilerLogData[region] as any) {
-        const cleanItemName = pascalToVerboseString(spoilerLogData[region][location]);
+      for (const location in spoilerLogItems[region] as any) {
+        const cleanItemName = pascalToVerboseString(spoilerLogItems[region][location]);
         spoilerLogRegions[region].push({location: location, item: cleanItemName} as ItemLocation)
       }
     }

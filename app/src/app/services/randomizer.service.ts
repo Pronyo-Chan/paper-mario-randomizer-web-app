@@ -6,9 +6,9 @@ import { LocalStorageService } from './localStorage/localStorage.service';
 import { SettingStringMappingService } from './setting-string-mapping/setting-string-mapping.service';
 import { Constants } from './../utilities/constants';
 import { environment } from 'src/environments/environment';
-import { forkJoin, map, Observable, switchMap } from 'rxjs';
+import { forkJoin, map, Observable, Subscriber, switchMap, tap } from 'rxjs';
 import { RandomizerRepository } from './../repositories/randomizer-repository/randomizer.repository';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { SettingsRequest, StartingPartners } from '../entities/settingsRequest';
 import { DifficultySetting } from '../entities/enum/difficultySetting';
@@ -21,6 +21,7 @@ import { CoinColor } from '../entities/enum/coinColor';
 import { MysteryMode } from '../entities/enum/mysteryMode';
 import { MirrorMode } from '../entities/enum/mirrorMode';
 import { SeedGoal } from '../entities/enum/seedGoal';
+import { SeedGenerationRequest } from '../entities/SeedGenerationRequest';
 
 
 @Injectable({
@@ -95,9 +96,9 @@ export class RandomizerService {
     return this._randomizerRepo.getSpoilerLog(seedId);
   }
 
-  public createSeedWithSettings(settingsForm: FormGroup): Observable<string> {
-    var request = this.prepareRequestObject(settingsForm);
-    return this._randomizerRepo.sendRandoSettings(request)
+  public createSeedWithSettings(settingsForm: FormGroup, plandoForm: FormControl): Observable<string> {
+    const request = this.prepareRequestObject(settingsForm, plandoForm);
+        return this._randomizerRepo.sendRandoSettings(request)
   }
 
   private saveCosmeticsSettings(formGroup: FormGroup) {
@@ -149,7 +150,7 @@ export class RandomizerService {
     return request;
   }
 
-  private prepareRequestObject(settingsForm: FormGroup) {
+  private prepareRequestObject(settingsForm: FormGroup, plandoForm: FormControl): SeedGenerationRequest {
     var menuColor = settingsForm.get('cosmetics').get('menu').value
     const isStarHuntEnabled = settingsForm.get('goals').get('includePowerStars').value;
     const isStarBeamReachable = settingsForm.get('goals').get('seedGoal').value == SeedGoal.DefeatBowser;
@@ -161,7 +162,7 @@ export class RandomizerService {
     var settingsString = this._settingsStringService.compressFormGroup(settingsForm, this._settingsStringService.settingsMap);
     this._localStorage.set('latestSettingsString', settingsString);
 
-    var request =  {
+    var settingsRequest =  {
       StarRodModVersion: environment.currentModVersion,
       SettingsString: settingsString,
       AlwaysSpeedySpin: settingsForm.get('qualityOfLife').get('alwaysSpeedySpin').value,
@@ -498,14 +499,14 @@ export class RandomizerService {
       ReachHighBlocksWithSuperBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ReachHighBlocksWithSuperBoots")
     } as SettingsRequest;
 
-    if(request.StartWithRandomPartners) {
-      request.RandomPartnersMin = settingsForm.get('partners').get('randomPartnersMin').value;
-      request.RandomPartnersMax = settingsForm.get('partners').get('randomPartnersMax').value;
+    if(settingsRequest.StartWithRandomPartners) {
+      settingsRequest.RandomPartnersMin = settingsForm.get('partners').get('randomPartnersMin').value;
+      settingsRequest.RandomPartnersMax = settingsForm.get('partners').get('randomPartnersMax').value;
 
     }else {
-      request.RandomPartnersMin = 1
-      request.RandomPartnersMax = 1
-      request.StartWithPartners = {
+      settingsRequest.RandomPartnersMin = 1
+      settingsRequest.RandomPartnersMax = 1
+      settingsRequest.StartWithPartners = {
         Goombario: settingsForm.get('partners').get('startWithPartners').get('goombario').value,
         Kooper: settingsForm.get('partners').get('startWithPartners').get('kooper').value,
         Bombette: settingsForm.get('partners').get('startWithPartners').get('bombette').value,
@@ -516,6 +517,9 @@ export class RandomizerService {
         Lakilester: settingsForm.get('partners').get('startWithPartners').get('lakilester').value
       } as StartingPartners;
     }
-    return request;
+    return {
+      settings: settingsRequest,
+      plandomizer: plandoForm.value
+    } as SeedGenerationRequest;
   }
 }

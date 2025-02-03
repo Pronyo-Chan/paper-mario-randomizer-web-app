@@ -7,13 +7,14 @@ import { timeout, map, take } from 'rxjs/operators';
 import { withCache } from '@ngneat/cashew';
 import { CosmeticsRequest } from 'src/app/entities/cosmeticsRequest';
 import { SeedViewModel } from 'src/app/entities/seed-view-model/seedViewModel';
+import { SeedGenerationRequest } from 'src/app/entities/SeedGenerationRequest';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RandomizerRepository {
 
-  public constructor(private _httpClient: HttpClient) {    
+  public constructor(private _httpClient: HttpClient) {
   }
 
   public getStarRodPatch(modVersion: number, useProdPatch: boolean): Observable<Blob> {
@@ -21,7 +22,7 @@ export class RandomizerRepository {
     return this._httpClient.get(`assets/${modFileNamePrefix}${modVersion}.bps`, { responseType: 'blob' }).pipe(take(1))
   }
 
-  public sendRandoSettings(request: SettingsRequest): Observable<string> {
+  public sendRandoSettings(request: SeedGenerationRequest): Observable<string> {
     return this._httpClient.post(`${environment.apiEndPoint}randomizer_settings`, request, {responseType: 'text'}).pipe(take(1));
   }
 
