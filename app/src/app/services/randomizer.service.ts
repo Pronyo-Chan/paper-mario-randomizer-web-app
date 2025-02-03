@@ -8,7 +8,7 @@ import { Constants } from './../utilities/constants';
 import { environment } from 'src/environments/environment';
 import { forkJoin, map, Observable, Subscriber, switchMap, tap } from 'rxjs';
 import { RandomizerRepository } from './../repositories/randomizer-repository/randomizer.repository';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { SettingsRequest, StartingPartners } from '../entities/settingsRequest';
 import { DifficultySetting } from '../entities/enum/difficultySetting';
@@ -96,13 +96,9 @@ export class RandomizerService {
     return this._randomizerRepo.getSpoilerLog(seedId);
   }
 
-  public createSeedWithSettings(settingsForm: FormGroup, plandoFile: File): Observable<string> {
-    return this.parsePlandoFile(plandoFile).pipe(
-      switchMap(plandoJson => {
-        const request = this.prepareRequestObject(settingsForm, plandoJson);
+  public createSeedWithSettings(settingsForm: FormGroup, plandoForm: FormControl): Observable<string> {
+    const request = this.prepareRequestObject(settingsForm, plandoForm);
         return this._randomizerRepo.sendRandoSettings(request)
-      })
-    );
   }
 
   private saveCosmeticsSettings(formGroup: FormGroup) {
@@ -154,28 +150,7 @@ export class RandomizerService {
     return request;
   }
 
-  private parsePlandoFile(file: File): Observable<string> {
-    return Observable.create((observer: Subscriber<any>) => {
-      if (!file) {
-        observer.next(null);
-        observer.complete();
-        return;
-      }
-
-      const fileReader = new FileReader()
-      fileReader.onload = event => {
-        const fileJson = JSON.parse(event.target.result.toString()) as string;
-        observer.next(fileJson);
-        observer.complete();
-      }
-      fileReader.onerror = (error: any): void => {
-        observer.error(error);
-    }
-      fileReader.readAsText(file);
-    })
-  }
-
-  private prepareRequestObject(settingsForm: FormGroup, plandoJson: string): SeedGenerationRequest {
+  private prepareRequestObject(settingsForm: FormGroup, plandoForm: FormControl): SeedGenerationRequest {
     var menuColor = settingsForm.get('cosmetics').get('menu').value
     const isStarHuntEnabled = settingsForm.get('goals').get('includePowerStars').value;
     const isStarBeamReachable = settingsForm.get('goals').get('seedGoal').value == SeedGoal.DefeatBowser;
@@ -544,7 +519,7 @@ export class RandomizerService {
     }
     return {
       settings: settingsRequest,
-      plandomizer: plandoJson
+      plandomizer: plandoForm.value
     } as SeedGenerationRequest;
   }
 }
