@@ -34,19 +34,22 @@ export class PlandoSaveLoadComponent implements OnInit {
 
   public savePlandoSettings(name: string) {
     name = name.replace(/,/g, '');
-    localStorage.setItem(SAVED_PLANDO_NAME_PREFIX + name, JSON.stringify(this.plandoFormGroup.getRawValue()))
+    const plandoObj = this.minifyPlandoObj(this.plandoFormGroup.getRawValue());
+    localStorage.setItem(SAVED_PLANDO_NAME_PREFIX + name, JSON.stringify(plandoObj));
     this.savedPlandoNames.add(name);
     localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
     this.saveLoadStatus = 'saved';
     this.lastPlandoName = name;
-  };
+  }
 
   public loadPlandoSettings(name: string) {
     const plandoSettings = localStorage.getItem(SAVED_PLANDO_NAME_PREFIX + name);
     if (!plandoSettings) {
       this.deletePlandoSettings(name, true);
     } else {
-      const plandoFormObj = JSON.parse(plandoSettings);
+      const loadedObj = JSON.parse(plandoSettings);
+      const plandoFormObj = JSON.parse(localStorage.getItem(DEFAULT_PLANDOMIZER_KEY));
+      this.mergeObjectDeep(plandoFormObj, loadedObj);
       // Because 0 is a valid value for star spirit power costs, and -1 is the "defer to generator" setting,
       // manually set any missing star powers to -1, so that the sliders will display correctly.
       if (!plandoFormObj['move_costs']) {
@@ -73,43 +76,8 @@ export class PlandoSaveLoadComponent implements OnInit {
     if (!plandoSettings) {
       this.deletePlandoSettings(name, true);
     } else {
-      const plandoFormObj = JSON.parse(plandoSettings);
-      // The slider inputs don't play nicely with setting the form control value to "null"
-      // when they're at the lowest setting; handle those values here by removing them instead.
-      const difficultySettings = plandoFormObj['difficulty'];
-      for (const chapter in difficultySettings) {
-        if (difficultySettings[chapter] === 0) {
-          delete difficultySettings[chapter];
-        }
-      }
-      const powercosts = plandoFormObj['move_costs']['starpower'];
-      for (const power in powercosts) {
-        if (powercosts[power] === -1) {
-          delete powercosts[power];
-        }
-      }
-
-      // Remove all null and empty values.
-      const tidyObj = (obj) => {
-        return Object.fromEntries(Object.entries(obj).flatMap(([k, v]) => {
-          if (v === null
-            || (typeof v === 'object' && Object.keys(v).length === 0)
-            || (typeof v === 'string' && v.trim() === '')) {
-            return [];
-          }
-          if (typeof v !== 'object' || (Array.isArray(v) && v.length > 0)) {
-            return [[k, v]];
-          }
-          v = tidyObj(v);
-          if (Object.keys(v).length === 0) {
-            return []
-          } else {
-            return [[k, v]];
-          }
-        }));
-      }
       const a = document.createElement('a');
-      const plandoFile = new Blob([JSON.stringify(tidyObj(plandoFormObj))], { type: 'application/json' });
+      const plandoFile = new Blob([plandoSettings], { type: 'application/json' });
       a.href = URL.createObjectURL(plandoFile);
       a.download = name + '.json';
       a.click();
@@ -122,6 +90,81 @@ export class PlandoSaveLoadComponent implements OnInit {
     localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
     this.lastPlandoName = name;
     this.saveLoadStatus = notFound ? 'notFound' : 'deleted';
+  }
+
+  private minifyPlandoObj(plandoObj: any) {
+    return this.cleanObject(this.removeDefaultSliderValues(plandoObj));
+  }
+
+  /**
+   * Removes values for slider inputs from the form object when they are at their default positions.
+   * Slider inputs don't play nicely with setting the form control value to "null"
+   * when they're at the lowest setting, so we remove them instead.
+   * 
+   * @param plandoFormObj a plando form object
+   * @returns the plandoFormObj object with the default slider value entries removed
+   */
+  private removeDefaultSliderValues(plandoFormObj: any) {
+    const difficultySettings = plandoFormObj['difficulty'];
+    for (const chapter in difficultySettings) {
+      if (difficultySettings[chapter] === 0) {
+        delete difficultySettings[chapter];
+      }
+    }
+    const powercosts = plandoFormObj['move_costs']['starpower'];
+    for (const power in powercosts) {
+      if (powercosts[power] === -1) {
+        delete powercosts[power];
+      }
+    }
+    return plandoFormObj;
+  }
+
+  /**
+   * Recursively produces a deep-cleaned copy of an object, removing all empty strings and all null or undefined
+   * values from it and any nested objects.
+   * 
+   * @param obj the object to clean
+   * @returns a new object, with all null, undefined and empty string values removed
+   */
+  private cleanObject = (obj) => {
+    return Object.fromEntries(Object.entries(obj).flatMap(([k, v]) => {
+      if (v === null
+        || (typeof v === 'object' && Object.keys(v).length === 0)
+        || (typeof v === 'string' && v.trim() === '')) {
+        return [];
+      }
+      if (typeof v !== 'object' || (Array.isArray(v) && v.length > 0)) {
+        return [[k, v]];
+      }
+      v = this.cleanObject(v);
+      if (Object.keys(v).length === 0) {
+        return []
+      } else {
+        return [[k, v]];
+      }
+    }));
+  }
+
+  /**
+   * Recursively merges an object into a template object, overwriting any values with identical keys.
+   * 
+   * @param target the template object to merge into. this object is modified in-place.
+   * @param source the object to merge.
+   * 
+   * @throws if `source` contains any keys that do not map to equivalent keys in `target`
+   */
+  private mergeObjectDeep = (target, source) => {
+    for (const key in source) {
+      if (target[key] === undefined) {
+        throw new Error('invalid');
+      }
+      if (typeof source[key] === 'object' && !Array.isArray(source[key])) {
+        this.mergeObjectDeep(target[key], source[key]);
+      } else {
+        Object.assign(target, { [key]: source[key] });
+      }
+    }
   }
 
   public importPlandoSettings() {
@@ -146,19 +189,7 @@ export class PlandoSaveLoadComponent implements OnInit {
         // As a small bonus, this works as a sort of ad-hoc validator.
         const importedObj = JSON.parse(fileContents);
         const defaultObj = JSON.parse(localStorage.getItem(DEFAULT_PLANDOMIZER_KEY));
-        const mergeObjectDeep = (target, source) => {
-          for (const key in source) {
-            if (target[key] === undefined) {
-              throw new Error('invalid');
-            }
-            if (typeof source[key] === 'object' && !Array.isArray(source[key])) {
-              mergeObjectDeep(target[key], source[key]);
-            } else {
-              Object.assign(target, { [key]: source[key] });
-            }
-          }
-        }
-        mergeObjectDeep(defaultObj, importedObj);
+        this.mergeObjectDeep(defaultObj, importedObj);
         this.plandoFormGroup.setValue(defaultObj);
         this.importStatus = 'success';
         this.saveLoadFormGroup.get('plandoName').setValue(plandoName);
