@@ -1,4 +1,3 @@
-import { SettingsRequest } from './../../entities/settingsRequest';
 import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -7,7 +6,7 @@ import { timeout, map, take } from 'rxjs/operators';
 import { withCache } from '@ngneat/cashew';
 import { CosmeticsRequest } from 'src/app/entities/cosmeticsRequest';
 import { SeedViewModel } from 'src/app/entities/seed-view-model/seedViewModel';
-import { SeedGenerationRequest } from 'src/app/entities/SeedGenerationRequest';
+import { SeedGenerationRequest } from 'src/app/entities/seedGenerationRequest';
 
 @Injectable({
   providedIn: 'root'

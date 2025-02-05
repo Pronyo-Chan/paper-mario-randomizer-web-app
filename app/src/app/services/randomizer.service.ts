@@ -21,7 +21,7 @@ import { CoinColor } from '../entities/enum/coinColor';
 import { MysteryMode } from '../entities/enum/mysteryMode';
 import { MirrorMode } from '../entities/enum/mirrorMode';
 import { SeedGoal } from '../entities/enum/seedGoal';
-import { SeedGenerationRequest } from '../entities/SeedGenerationRequest';
+import { SeedGenerationRequest } from '../entities/seedGenerationRequest';
 
 
 @Injectable({
