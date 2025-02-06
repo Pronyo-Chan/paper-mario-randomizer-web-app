@@ -19,6 +19,9 @@
             <ng-container *ngIf="saveLoadStatus === 'saved'">
                 <span class="status">✔️ Plando Saved!</span>
             </ng-container>
+            <ng-container *ngIf="saveLoadStatus === 'error'">
+              <span class="status">❌ Failed to save plandomizer config!</span>
+          </ng-container>
         </div>
     </div>
 

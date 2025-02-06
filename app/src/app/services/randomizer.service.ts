@@ -98,7 +98,11 @@ export class RandomizerService {
 
   public createSeedWithSettings(settingsForm: FormGroup, plandoForm: FormControl): Observable<string> {
     const request = this.prepareRequestObject(settingsForm, plandoForm);
-        return this._randomizerRepo.sendRandoSettings(request)
+    return this._randomizerRepo.sendRandoSettings(request);
+  }
+
+  public validatePlandomizer(plandoObj: Object): Observable<string | Object> {
+    return this._randomizerRepo.validatePlandomizer(plandoObj);
   }
 
   private saveCosmeticsSettings(formGroup: FormGroup) {

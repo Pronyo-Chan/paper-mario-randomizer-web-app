@@ -25,6 +25,10 @@ export class RandomizerRepository {
     return this._httpClient.post(`${environment.apiEndPoint}randomizer_settings`, request, {responseType: 'text'}).pipe(take(1));
   }
 
+  public validatePlandomizer(request: Object): Observable<string | Object> {
+    return this._httpClient.post(`${environment.apiEndPoint}validate-plandomizer`, request, {responseType: 'json'}).pipe(take(1));
+  }
+
   public getSeedInfo(seedId: string): Observable<SeedViewModel> {
     return this._httpClient.get(`${environment.apiEndPoint}randomizer_settings_v2/${seedId}`, { responseType: 'json', context: withCache() }).pipe(
       take(1),

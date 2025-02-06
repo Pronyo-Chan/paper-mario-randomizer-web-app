@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { STAR_SPIRIT_POWER_NAMES } from "../plando-spirits-and-chapters/plando-spirits-and-chapters.component";
 import { InputFilterService } from "src/app/services/inputfilter.service";
 import { DEFAULT_PLANDOMIZER_KEY } from "../plando-page.component";
+import { RandomizerService } from 'src/app/services/randomizer.service';
+import { catchError, tap } from 'rxjs';
 
 export const SAVED_PLANDO_NAMES_KEY = 'savedPlandoNames';
 export const SAVED_PLANDO_NAME_PREFIX = 'plando_';
@@ -16,7 +18,7 @@ export class PlandoSaveLoadComponent implements OnInit {
   @Input() plandoFormGroup: FormGroup;
   public readonly MAX_PLANDO_NAME_LENGTH = 20;
 
-  constructor(public inputFilters: InputFilterService) { };
+  constructor(public inputFilters: InputFilterService, private _randomizerService: RandomizerService) { };
   public savedPlandoNames: Set<string>;
   public saveLoadFormGroup: FormGroup;
   public saveLoadStatus: string;
@@ -35,11 +37,18 @@ export class PlandoSaveLoadComponent implements OnInit {
   public savePlandoSettings(name: string) {
     name = name.replace(/,/g, '');
     const plandoObj = this.minifyPlandoObj(this.plandoFormGroup.getRawValue());
-    localStorage.setItem(SAVED_PLANDO_NAME_PREFIX + name, JSON.stringify(plandoObj));
-    this.savedPlandoNames.add(name);
-    localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
-    this.saveLoadStatus = 'saved';
-    this.lastPlandoName = name;
+
+    this._randomizerService.validatePlandomizer(plandoObj).pipe(
+      tap(response => {
+        console.log(response);
+        localStorage.setItem(SAVED_PLANDO_NAME_PREFIX + name, JSON.stringify(plandoObj));
+        this.savedPlandoNames.add(name);
+        localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
+        this.saveLoadStatus = 'saved';
+        this.lastPlandoName = name;
+      }),
+      catchError(_ => this.saveLoadStatus = 'error')
+    ).subscribe();
   }
 
   public loadPlandoSettings(name: string) {
@@ -100,7 +109,7 @@ export class PlandoSaveLoadComponent implements OnInit {
    * Removes values for slider inputs from the form object when they are at their default positions.
    * Slider inputs don't play nicely with setting the form control value to "null"
    * when they're at the lowest setting, so we remove them instead.
-   * 
+   *
    * @param plandoFormObj a plando form object
    * @returns the plandoFormObj object with the default slider value entries removed
    */
@@ -123,7 +132,7 @@ export class PlandoSaveLoadComponent implements OnInit {
   /**
    * Recursively produces a deep-cleaned copy of an object, removing all empty strings and all null or undefined
    * values from it and any nested objects.
-   * 
+   *
    * @param obj the object to clean
    * @returns a new object, with all null, undefined and empty string values removed
    */
@@ -148,10 +157,10 @@ export class PlandoSaveLoadComponent implements OnInit {
 
   /**
    * Recursively merges an object into a template object, overwriting any values with identical keys.
-   * 
+   *
    * @param target the template object to merge into. this object is modified in-place.
    * @param source the object to merge.
-   * 
+   *
    * @throws if `source` contains any keys that do not map to equivalent keys in `target`
    */
   private mergeObjectDeep = (target, source) => {
