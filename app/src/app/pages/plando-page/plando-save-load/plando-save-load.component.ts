@@ -4,7 +4,7 @@ import { STAR_SPIRIT_POWER_NAMES } from "../plando-spirits-and-chapters/plando-s
 import { InputFilterService } from "src/app/services/inputfilter.service";
 import { DEFAULT_PLANDOMIZER_KEY } from "../plando-page.component";
 import { RandomizerService } from 'src/app/services/randomizer.service';
-import { catchError, tap } from 'rxjs';
+import { catchError, of, tap } from 'rxjs';
 
 export const SAVED_PLANDO_NAMES_KEY = 'savedPlandoNames';
 export const SAVED_PLANDO_NAME_PREFIX = 'plando_';
@@ -24,6 +24,7 @@ export class PlandoSaveLoadComponent implements OnInit {
   public saveLoadStatus: string;
   public lastPlandoName: string;
   public importStatus: string;
+  public isValidating: boolean = false;
 
   public ngOnInit(): void {
     const savedNames = localStorage.getItem(SAVED_PLANDO_NAMES_KEY);
@@ -38,16 +39,27 @@ export class PlandoSaveLoadComponent implements OnInit {
     name = name.replace(/,/g, '');
     const plandoObj = this.minifyPlandoObj(this.plandoFormGroup.getRawValue());
 
+    this.isValidating = true;
+
     this._randomizerService.validatePlandomizer(plandoObj).pipe(
       tap(response => {
         console.log(response);
+
         localStorage.setItem(SAVED_PLANDO_NAME_PREFIX + name, JSON.stringify(plandoObj));
         this.savedPlandoNames.add(name);
         localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
         this.saveLoadStatus = 'saved';
         this.lastPlandoName = name;
+
+        this.isValidating = false;
       }),
-      catchError(_ => this.saveLoadStatus = 'error')
+      catchError(err => {
+        this.saveLoadStatus = 'error'
+        this.isValidating = false;
+
+        return of(err);
+      }),
+
     ).subscribe();
   }
 

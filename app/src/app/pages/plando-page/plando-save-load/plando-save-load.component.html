@@ -16,10 +16,11 @@
             </button>
         </div>
         <div class="row">
-            <ng-container *ngIf="saveLoadStatus === 'saved'">
+            <app-loading  *ngIf="isValidating" [isLoading]="isValidating" loadingText="Validating"></app-loading>
+            <ng-container *ngIf="saveLoadStatus === 'saved' && !isValidating">
                 <span class="status">✔️ Plando Saved!</span>
             </ng-container>
-            <ng-container *ngIf="saveLoadStatus === 'error'">
+            <ng-container *ngIf="saveLoadStatus === 'error' && !isValidating">
               <span class="status">❌ Failed to save plandomizer config!</span>
           </ng-container>
         </div>
