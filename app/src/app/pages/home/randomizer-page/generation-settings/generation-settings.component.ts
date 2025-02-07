@@ -12,8 +12,11 @@ export class GenerationSettingsComponent{
   @Input() public formGroup: FormGroup;
   @Input() public isRandomizing: boolean;
   @Input() public seedGenError: string;
+  @Input() public seedGenErrorDetails: string;
 
   @Output() onSubmitEmit = new EventEmitter<void>();
+
+  public shouldShowDetails: boolean = false;
 
   public onSubmit() {
     this.onSubmitEmit.emit();

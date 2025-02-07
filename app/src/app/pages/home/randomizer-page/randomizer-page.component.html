@@ -61,7 +61,7 @@
         </mat-card>
         <mat-card class="settings-card">
           <mat-card-title class="settings-title">Seed Generation</mat-card-title>
-          <app-generation-settings [formGroup]="formGroup" [isRandomizing]="isRandomizing" [seedGenError]="seedGenError" (onSubmitEmit)="onSubmit()"></app-generation-settings>
+          <app-generation-settings [formGroup]="formGroup" [isRandomizing]="isRandomizing" [seedGenError]="seedGenError" [seedGenErrorDetails]="seedGenErrorDetails" (onSubmitEmit)="onSubmit()"></app-generation-settings>
         </mat-card>
     </div>
 </form>

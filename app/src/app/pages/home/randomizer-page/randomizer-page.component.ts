@@ -51,6 +51,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
   public isRandomizing = false;
   public seedGenError: string;
+  public seedGenErrorDetails: string;
   private _createSeedSubscription: Subscription;
 
   public constructor(private _randomizerService: RandomizerService, private _localStorage: LocalStorageService, private _router: Router, private _toast: ToastrService, private _settingsStringService: SettingStringMappingService){}
@@ -99,6 +100,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       }
     }
     this.seedGenError = null;
+    this.seedGenErrorDetails = null;
     this.isRandomizing = true;
 
     this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup, this.plandomizerFormControl).pipe(
@@ -115,6 +117,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         }
         else if(typeof err.error === 'string' && (err.error as string) == "item_pool_too_small") {
           this.seedGenError = "The amount of new items to place is greater than the item pool size. Try to shuffle more item sources, or disable options that add new items."
+        }
+        else if(typeof err.error === 'string' && (err.error as string).includes("Plandomizer error")) {
+          this.seedGenError = "Could not generate a beatable seed with the selected settings and plandomizer config.";
+          this.seedGenErrorDetails = err.error;
         }
         else {
           this.seedGenError = 'A server error has occured';

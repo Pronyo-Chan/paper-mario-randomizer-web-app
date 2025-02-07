@@ -6,6 +6,8 @@
 
     <app-loading *ngIf="isRandomizing" [isLoading]="isRandomizing" [loadingText]="'Generating Seed'"></app-loading>
     <app-error *ngIf="seedGenError" [errorText]="seedGenError"></app-error>
+    <button class="link-button" *ngIf="seedGenErrorDetails" (click)="shouldShowDetails = !shouldShowDetails">(View Details)</button>
   </div>
+  <textarea rows="5" *ngIf="shouldShowDetails" class="error-details" [disabled]="true" [(ngModel)]="seedGenErrorDetails"> </textarea>
   <p class="bottom-note">*First time playing? We recommend you give the <a href="https://github.com/icebound777/PMR-SeedGenerator/wiki" target="_blank" rel="noopener noreferrer">Wiki</a> a quick look before starting!</p>
 </mat-card-content>

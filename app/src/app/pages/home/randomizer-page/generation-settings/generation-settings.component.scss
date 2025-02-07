@@ -32,3 +32,21 @@ p.bottom-note {
   font-size: 14px;
   font-weight: 500;
 }
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #069;
+  cursor: pointer;
+  margin: 0 0.25rem;
+  font-size: 14px;
+}
+
+.error-details {
+    resize: none;
+    color: black;
+    background-color: white;
+    margin-top: 1rem;
+    cursor: text;
+}
