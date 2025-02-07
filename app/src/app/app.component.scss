@@ -158,10 +158,6 @@ body.red-bg {
     background-color: $beige-background-card;
     margin: 0 .5rem 1rem .5rem;
 
-    @include medium {
-        margin: 0 3rem 2rem 3rem;
-    }
-
     @include large {
         margin: 0 4rem 2rem 4rem;
     }
