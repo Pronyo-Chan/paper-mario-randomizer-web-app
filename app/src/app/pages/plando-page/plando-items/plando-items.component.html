@@ -22,6 +22,14 @@
         <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.FOLIAGE)"></mat-slide-toggle>
         <span>&nbsp;Foliage</span>
     </div>
+    <div class="setting-element">
+        <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.LETTER_REWARD)"></mat-slide-toggle>
+        <span>&nbsp;Letter Rewards</span>
+    </div>
+    <div class="setting-element">
+        <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR)"></mat-slide-toggle>
+        <span>&nbsp;Koopa Koot Favors</span>
+    </div>
 </div>
 <div [formGroup]="itemsFormGroup">
     <mat-tab-group disablePagination="true" class="sub-tab" animationDuration="0" scrollToCenter>
