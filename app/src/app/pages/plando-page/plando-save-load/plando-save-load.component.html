@@ -3,7 +3,7 @@
 <p class="text-center">All current changes will be auto-saved, and will auto-load when returning to this page.</p>
 <div class="container" [formGroup]="saveLoadFormGroup">
 
-    <div class="panel">
+    <div class="panel save-panel">
         <h3>Save Plando</h3>
         <div class="row">
             <label for="plandoName">Plando Name:</label>
@@ -15,14 +15,40 @@
                 <span>Save</span>
             </button>
         </div>
-        <div class="row">
-            <app-loading  *ngIf="isValidating" [isLoading]="isValidating" loadingText="Validating"></app-loading>
-            <ng-container *ngIf="saveLoadStatus === 'saved' && !isValidating">
+        <app-loading *ngIf="isValidating" [isLoading]="isValidating" loadingText="Validating"></app-loading>
+        <div class="row" *ngIf="!isValidating && saveLoadStatus !== ''">
+            <ng-container *ngIf="saveLoadStatus === 'saved'">
                 <span class="status">✔️ Plando Saved!</span>
             </ng-container>
-            <ng-container *ngIf="saveLoadStatus === 'error' && !isValidating">
-              <span class="status">❌ Failed to save plandomizer config!</span>
-          </ng-container>
+            <ng-container *ngIf="saveLoadStatus === 'savedWithWarnings'">
+                <span class="status">✔️ Plando Saved! See warnings below.</span>
+            </ng-container>
+            <ng-container *ngIf="saveLoadStatus === 'validationFailure'">
+                <span class="status">❌ Failed to save plandomizer config! Please fix the errors listed below.</span>
+            </ng-container>
+            <ng-container *ngIf="saveLoadStatus === 'error'">
+                <span class="status">❌ Failed to save plandomizer config! An error occurred during validation.</span>
+            </ng-container>
+        </div>
+        <div class="row" *ngIf="validationWarnings.length > 0">
+            <mat-expansion-panel ngClass="bg-warn">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="gluten">⚠️ {{validationWarnings.length}} Warning(s)</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul>
+                    <li class="gluten" *ngFor="let warning of validationWarnings">{{warning}}</li>
+                </ul>
+            </mat-expansion-panel>
+        </div>
+        <div class="row" *ngIf="validationErrors.length > 0">
+            <mat-expansion-panel ngClass="bg-error">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="gluten">⛔ {{validationErrors.length}} Error(s)</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul>
+                    <li class="gluten" *ngFor="let error of validationErrors">{{error}}</li>
+                </ul>
+            </mat-expansion-panel>
         </div>
     </div>
 
