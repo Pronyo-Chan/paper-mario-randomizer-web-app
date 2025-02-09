@@ -122,6 +122,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
           this.seedGenError = "Could not generate a beatable seed with the selected settings and plandomizer config.";
           this.seedGenErrorDetails = err.error;
         }
+        else if(typeof err.error === 'string' && (err.error as string).includes("Invalid plandomizer config")) {
+          this.seedGenError = "The selected plandomizer config is invalid.";
+          this.seedGenErrorDetails = err.error;
+        }
         else {
           this.seedGenError = 'A server error has occured';
         }
