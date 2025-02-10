@@ -63,6 +63,13 @@
                 <button class="yellow-button" type="button" [disabled]="saveLoadFormGroup.get('savedPlandoNameSelect').value === ''" (click)="loadPlandoSettings(savedPlandosSelect.value)"><span>Load</span></button>
                 <button class="yellow-button" type="button" [disabled]="saveLoadFormGroup.get('savedPlandoNameSelect').value === ''" (click)="deletePlandoSettings(savedPlandosSelect.value)"><span>Delete</span></button>
                 <button class="yellow-button" type="button" [disabled]="saveLoadFormGroup.get('savedPlandoNameSelect').value === ''" (click)="exportPlandoSettings(savedPlandosSelect.value)"><span>Export</span></button>
+                <button class="yellow-button" type="button" (click)="importPlandoSettings()"><span>Import</span></button>
+            </div>
+        </div>
+        <div class="row" *ngIf="savedPlandoNames.size === 0">
+            <div class="row">There are no saved plandos.</div>
+            <div>
+                <button class="yellow-button" type="button" (click)="importPlandoSettings()"><span>Import</span></button>
             </div>
         </div>
         <div class="row">
@@ -75,23 +82,15 @@
             <ng-container *ngIf="saveLoadStatus === 'notFound'">
                 <span class="status">❌ Plando not found; it may have been deleted. It has been removed from the list.</span>
             </ng-container>
-        </div>
-        <div class="row" *ngIf="savedPlandoNames.size === 0">There are no saved plandos.</div>
-        <div class="row">
-            <div class="row">
-                <button class="yellow-button" type="button" (click)="importPlandoSettings()"><span>Import</span></button>
-            </div>
-            <div class="row">
-                <ng-container *ngIf="importStatus === 'success'">
-                    <span class="status">✔️ Plando imported successfully!</span>
-                </ng-container>
-                <ng-container *ngIf="importStatus === 'invalid'">
-                    <span class="status">❌ Import failed. Ensure that the file is in the correct format.</span>
-                </ng-container>
-                <ng-container *ngIf="importStatus === 'exists'">
-                    <span class="status">❌ Import failed. A plando with this name already exists.</span>
-                </ng-container>
-            </div>
+            <ng-container *ngIf="importStatus === 'success'">
+                <span class="status">✔️ Plando imported successfully!</span>
+            </ng-container>
+            <ng-container *ngIf="importStatus === 'invalid'">
+                <span class="status">❌ Import failed. Ensure that the file is in the correct format.</span>
+            </ng-container>
+            <ng-container *ngIf="importStatus === 'exists'">
+                <span class="status">❌ Import failed. A plando with this name already exists.</span>
+            </ng-container>
         </div>
     </div>
 </div>

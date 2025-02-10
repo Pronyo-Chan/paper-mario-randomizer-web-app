@@ -5,7 +5,7 @@
         font-weight: 600;
     }
     .panel {
-        flex: 1 1 29%;
+        flex: 1 1 45%;
         min-height: 210px;
         align-items: start;
         @media screen and (max-width:875px) {
@@ -13,7 +13,7 @@
         }
     }
     .panel.save-panel {
-        flex: 1 1 66%;
+        flex: 1 1 50%;
     }
     select {
         min-width: 15rem;
@@ -23,23 +23,11 @@
     }
     .status {
         position:absolute;
-        max-width: 80%;
-        @media screen and (min-width:620px) and (max-width: 1399px) {
-            max-width: 30%;
-        }
-        @media screen and (min-width:1400px) {
-            max-width: 30%;
-        }
-    }
-    .save-panel .status {
         max-width: 85%;
-        @media screen and (min-width:853px) and (max-width: 1399px) {
-            max-width: 50%;
-        }
     }
     .mat-expansion-panel {
         width:100%;
-        @media screen and (min-width:1336px) {
+        @media screen and (min-width:1336px) and (max-width:1631px) {
             margin: 0 10%;
         }
     }
