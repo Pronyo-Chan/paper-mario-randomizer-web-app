@@ -49,6 +49,13 @@ export class PlandoSaveLoadComponent implements OnInit {
     this.isValidating = true;
     this.saveLoadStatus = '';
 
+    localStorage.setItem(SAVED_PLANDO_NAME_PREFIX + name, JSON.stringify(plandoObj));
+    this.savedPlandoNames.add(name);
+    localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
+    this.saveLoadStatus = this.validationWarnings.length > 0 ? 'savedWithWarnings' : 'saved';
+    this.lastPlandoName = name;
+  this.isValidating = false;
+  /**
     this._randomizerService.validatePlandomizer(plandoObj).pipe(
       tap((response: PlandoValidationResponse) => {
         this.validationWarnings = response.warnings;
@@ -75,7 +82,7 @@ export class PlandoSaveLoadComponent implements OnInit {
         return of(err);
       }),
 
-    ).subscribe();
+    ).subscribe();*/
   }
 
   private formatValidationMessages(messages: string[]) {
@@ -112,6 +119,7 @@ export class PlandoSaveLoadComponent implements OnInit {
       this.plandoFormGroup.updateValueAndValidity();
       this.lastPlandoName = name;
       this.saveLoadStatus = 'loaded';
+      this.importStatus = '';
     }
   }
 
@@ -134,6 +142,7 @@ export class PlandoSaveLoadComponent implements OnInit {
     localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
     this.lastPlandoName = name;
     this.saveLoadStatus = notFound ? 'notFound' : 'deleted';
+    this.importStatus = '';
   }
 
   private minifyPlandoObj(plandoObj: any) {

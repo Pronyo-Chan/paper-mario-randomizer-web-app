@@ -53,24 +53,6 @@
     </div>
 
     <div class="panel">
-        <h3>Import Plando</h3>
-        <div class="row">
-            <button class="yellow-button" type="button" (click)="importPlandoSettings()"><span>Import</span></button>
-        </div>
-        <div class="row">
-            <ng-container *ngIf="importStatus === 'success'">
-                <span class="status">✔️ Plando imported successfully!</span>
-            </ng-container>
-            <ng-container *ngIf="importStatus === 'invalid'">
-                <span class="status">❌ Import failed. Ensure that the file is in the correct format.</span>
-            </ng-container>
-            <ng-container *ngIf="importStatus === 'exists'">
-                <span class="status">❌ Import failed. A plando with this name already exists.</span>
-            </ng-container>
-        </div>
-    </div>
-
-    <div class="panel">
         <h3>Manage Saved Plandos</h3>
         <div class="row" *ngIf="savedPlandoNames.size > 0">
             <label for="savedPlandosSelect">Saved Plandos:</label>
@@ -95,5 +77,21 @@
             </ng-container>
         </div>
         <div class="row" *ngIf="savedPlandoNames.size === 0">There are no saved plandos.</div>
+        <div class="row">
+            <div class="row">
+                <button class="yellow-button" type="button" (click)="importPlandoSettings()"><span>Import</span></button>
+            </div>
+            <div class="row">
+                <ng-container *ngIf="importStatus === 'success'">
+                    <span class="status">✔️ Plando imported successfully!</span>
+                </ng-container>
+                <ng-container *ngIf="importStatus === 'invalid'">
+                    <span class="status">❌ Import failed. Ensure that the file is in the correct format.</span>
+                </ng-container>
+                <ng-container *ngIf="importStatus === 'exists'">
+                    <span class="status">❌ Import failed. A plando with this name already exists.</span>
+                </ng-container>
+            </div>
+        </div>
     </div>
 </div>
