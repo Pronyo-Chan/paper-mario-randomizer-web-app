@@ -9,6 +9,11 @@ import { catchError, of, tap } from 'rxjs';
 export const SAVED_PLANDO_NAMES_KEY = 'savedPlandoNames';
 export const SAVED_PLANDO_NAME_PREFIX = 'plando_';
 
+interface PlandoValidationResponse {
+  errors: Array<string>,
+  warnings: Array<string>
+}
+
 @Component({
   selector: 'app-plando-save-load',
   templateUrl: './plando-save-load.component.html',
@@ -25,6 +30,8 @@ export class PlandoSaveLoadComponent implements OnInit {
   public lastPlandoName: string;
   public importStatus: string;
   public isValidating: boolean = false;
+  public validationWarnings: Array<string> = [];
+  public validationErrors: Array<string> = [];
 
   public ngOnInit(): void {
     const savedNames = localStorage.getItem(SAVED_PLANDO_NAMES_KEY);
@@ -40,20 +47,28 @@ export class PlandoSaveLoadComponent implements OnInit {
     const plandoObj = this.minifyPlandoObj(this.plandoFormGroup.getRawValue());
 
     this.isValidating = true;
+    this.saveLoadStatus = '';
 
     this._randomizerService.validatePlandomizer(plandoObj).pipe(
-      tap(response => {
-        console.log(response);
+      tap((response: PlandoValidationResponse) => {
+        this.validationWarnings = response.warnings;
+        this.validationErrors = response.errors;
+        this.formatValidationMessages(this.validationWarnings);
+        this.formatValidationMessages(this.validationErrors);
 
-        localStorage.setItem(SAVED_PLANDO_NAME_PREFIX + name, JSON.stringify(plandoObj));
-        this.savedPlandoNames.add(name);
-        localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
-        this.saveLoadStatus = 'saved';
-        this.lastPlandoName = name;
-
+        if (this.validationErrors.length > 0) {
+          this.saveLoadStatus = 'validationFailure';
+        } else {
+          localStorage.setItem(SAVED_PLANDO_NAME_PREFIX + name, JSON.stringify(plandoObj));
+          this.savedPlandoNames.add(name);
+          localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
+          this.saveLoadStatus = this.validationWarnings.length > 0 ? 'savedWithWarnings' : 'saved';
+          this.lastPlandoName = name;
+        }
         this.isValidating = false;
       }),
       catchError(err => {
+        console.error(err);
         this.saveLoadStatus = 'error'
         this.isValidating = false;
 
@@ -61,6 +76,14 @@ export class PlandoSaveLoadComponent implements OnInit {
       }),
 
     ).subscribe();
+  }
+
+  private formatValidationMessages(messages: string[]) {
+    for (let i = 0; i < messages.length; i++) {
+      messages[i] = messages[i].replace(/[a-z]/, (match) => match.toUpperCase());
+      messages[i] = messages[i].replace(/_[a-z]/, (match) => ' ' + match[1].toUpperCase());
+      messages[i] = messages[i].replace(/: [a-z]/, (match) => ': ' + match[2].toUpperCase());
+    }
   }
 
   public loadPlandoSettings(name: string) {
@@ -89,6 +112,7 @@ export class PlandoSaveLoadComponent implements OnInit {
       this.plandoFormGroup.updateValueAndValidity();
       this.lastPlandoName = name;
       this.saveLoadStatus = 'loaded';
+      this.importStatus = '';
     }
   }
 
@@ -111,6 +135,7 @@ export class PlandoSaveLoadComponent implements OnInit {
     localStorage.setItem(SAVED_PLANDO_NAMES_KEY, Array.from(this.savedPlandoNames).join(','));
     this.lastPlandoName = name;
     this.saveLoadStatus = notFound ? 'notFound' : 'deleted';
+    this.importStatus = '';
   }
 
   private minifyPlandoObj(plandoObj: any) {

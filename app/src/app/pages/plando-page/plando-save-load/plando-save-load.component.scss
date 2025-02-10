@@ -1,8 +1,19 @@
 :host {
+    .gluten {
+        font-family: gluten;
+        font-size: 16px;
+        font-weight: 600;
+    }
     .panel {
-        flex: 1 1 31%;
+        flex: 1 1 45%;
         min-height: 210px;
         align-items: start;
+        @media screen and (max-width:875px) {
+            flex-basis: 50%;
+        }
+    }
+    .panel.save-panel {
+        flex: 1 1 50%;
     }
     select {
         min-width: 15rem;
@@ -12,12 +23,22 @@
     }
     .status {
         position:absolute;
-        max-width: 60%;
-        @media screen and (min-width:637px) and (max-width: 1399px) {
-            max-width: 30%;
+        max-width: 85%;
+    }
+    .mat-expansion-panel {
+        width:100%;
+        @media screen and (min-width:1336px) and (max-width:1631px) {
+            margin: 0 10%;
         }
-        @media screen and (min-width:1752px) {
-            max-width: 30%;
-        }
+    }
+    .mat-expansion-panel.bg-warn {
+        background-color: #ffffb4;
+    }
+    .mat-expansion-panel.bg-error {
+        background-color: #ffc8c8;
+    }
+    ul {
+        margin: 0;
+        padding-left: 1rem;
     }
 }
