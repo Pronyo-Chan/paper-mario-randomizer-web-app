@@ -125,6 +125,7 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
     if (savedFormObj) {
       this.formGroup.setValue(JSON.parse(savedFormObj));
     }
+    window.addEventListener('beforeunload', () => this.ngOnDestroy());
   }
 
   public ngOnDestroy(): void {
