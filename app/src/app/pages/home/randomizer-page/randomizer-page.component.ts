@@ -30,7 +30,7 @@ import { DungeonEntranceShuffleMode } from 'src/app/entities/enum/DungeonEntranc
 import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
 import { BossShuffleMode } from 'src/app/entities/enum/BossShuffleMode';
 import { SettingStringMappingService } from 'src/app/services/setting-string-mapping/setting-string-mapping.service';
-import { CheckType, DUNEGON_KEYS, GEAR_LOCATIONS, KEY_TO_DUNGEON, LETTER_CHAIN_CHECKS, LOCATIONS_LIST, PARTNERS, PROGRESSIVE_BADGES, SUPER_BLOCK_LOCATIONS } from "../../plando-page/plando-constants";
+import { CheckType, DUNEGON_KEYS, GEAR_LOCATIONS, KEY_TO_DUNGEON, KOOT_FAVOR_CHECKS, KOOT_FAVOR_ITEMS, LETTER_CHAIN_CHECKS, LOCATIONS_LIST, PARTNERS, PROGRESSIVE_BADGES, SUPER_BLOCK_LOCATIONS } from "../../plando-page/plando-constants";
 
 @Component({
   selector: 'app-randomizer-page',
@@ -352,6 +352,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
                       }
                     }
 
+                    if (KOOT_FAVOR_ITEMS.has(plandoItem) && KOOT_FAVOR_CHECKS[check.name] !== plandoItem) {
+                      kootFavors = 2;
+                    }
+
                     if (PARTNERS.has(plandoItem)) {
                       if (!check.name.endsWith(' Partner')) {
                         partnerShuffle = 2;
@@ -450,7 +454,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
               assignedControls.add('includeCoinsFoliage');
             }
             if (plandoCheckTypes.has(CheckType.KOOT_FAVOR_REWARD)) {
-              kootFavors = 1;
+              kootFavors = Math.max(kootFavors, 1);
             }
             if (plandoCheckTypes.has(CheckType.KOOT_FAVOR_ITEM)) {
               kootFavors = 2;

@@ -1212,3 +1212,17 @@ export const LETTER_CHAIN_CHECKS: Set<string> = new Set([
     "Station District - Dane T. Letter Reward 2",
     "Starborn Valley - Frost T. Letter Reward"
 ]);
+
+export const KOOT_FAVOR_CHECKS = {
+    "Goomba Village - Goompa Koopa Koot Favor": "KootTheTape",
+    "Marios House - Luigi Koopa Koot Favor": "KootLuigiAutograph",
+    "Merluvlees House - Merluvlee Koopa Koot Favor": "KootMerluvleeAutograph",
+    "Koopa Village 1 - Bush Second From Left (Koopa Koot Favor)": "KootGlasses",
+    "Koopa Village 1 - Bush Far Right (Koopa Koot Favor)": "KootEmptyWallet",
+    "Koopa Village 2 - Kolorados Wife (Koopa Koot Favor)": "KootKoopaLegends",
+    "Outpost 2 - Merlee Request (Koopa Koot Favor)": "CrystalBall",
+    "Foyer - From Franky (Koopa Koot Favor)": "KootOldPhoto",
+    "Ghost Town 1 - From Boo (Koopa Koot Favor)": "KootPackage"
+}
+
+export const KOOT_FAVOR_ITEMS: Set<string> = new Set(Object.values(KOOT_FAVOR_CHECKS));
