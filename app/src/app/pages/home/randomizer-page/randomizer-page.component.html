@@ -8,7 +8,7 @@
             <mat-card-title class="settings-title">Randomizer Settings</mat-card-title>
             <mat-tab-group animationDuration="0" scrollToCenter>
                 <mat-tab label="Items">
-                <app-items [itemFormGroup]="formGroup.get('items')" [plandoAssignedControls]="plandoAssignedControls"></app-items>
+                <app-items [itemFormGroup]="formGroup.get('items')"></app-items>
                 </mat-tab>
                 <mat-tab label="Partners">
                     <app-partners [partnersFormGroup]="formGroup.get('partners')"></app-partners>
@@ -23,7 +23,7 @@
                     <app-glitches-and-tricks [formGroup]="formGroup"></app-glitches-and-tricks>
                 </mat-tab>
                 <mat-tab label="Plandomizers">
-                    <app-plandomizers [plandomizerFormControl]="plandomizerFormControl" [plandoAssignedControls]="plandoAssignedControls"></app-plandomizers>
+                    <app-plandomizers [plandomizerFormControl]="plandomizerFormControl"></app-plandomizers>
                 </mat-tab>
             </mat-tab-group>
         </mat-card>
@@ -34,7 +34,7 @@
                 <app-difficulty-settings [difficultyFormGroup]="formGroup.get('difficulty')"></app-difficulty-settings>
                 </mat-tab>
                 <mat-tab label="Goals">
-                  <app-goal-settings [goalsFormGroup]="formGroup.get('goals')" [plandoAssignedControls]="plandoAssignedControls"></app-goal-settings>
+                  <app-goal-settings [goalsFormGroup]="formGroup.get('goals')"></app-goal-settings>
                 </mat-tab>
                 <mat-tab label="Stats & Gear">
                     <app-mario-settings [marioStatsFormGroup]="formGroup.get('marioStats')"></app-mario-settings>
@@ -43,7 +43,7 @@
                     <app-starting-items [marioStatsFormGroup]="formGroup.get('marioStats')"></app-starting-items>
                 </mat-tab>
                 <mat-tab label="Item Pool">
-                  <app-item-pool-settings [itemPoolFormGroup]="formGroup.get('itemPool')" [plandoAssignedControls]="plandoAssignedControls"></app-item-pool-settings>
+                  <app-item-pool-settings [itemPoolFormGroup]="formGroup.get('itemPool')"></app-item-pool-settings>
               </mat-tab>
             </mat-tab-group>
         </mat-card>

@@ -13,7 +13,6 @@ export class ItemsComponent implements OnInit, OnDestroy {
   private _includeShopsSubscription: Subscription;
 
   @Input() public itemFormGroup: FormGroup;
-  @Input() public plandoAssignedControls: FormControl<Set<String>>;
 
   public constructor() { }
 

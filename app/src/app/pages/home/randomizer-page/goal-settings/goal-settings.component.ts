@@ -1,7 +1,8 @@
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { tap, Subscription } from 'rxjs';
 import { SeedGoal } from 'src/app/entities/enum/seedGoal';
+import { PlandoAssignmentService } from "src/app/services/plando-assignment.service";
 
 @Component({
   selector: 'app-goal-settings',
@@ -11,7 +12,6 @@ import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 export class GoalSettingsComponent implements OnInit, OnDestroy {
 
   @Input() public goalsFormGroup: FormGroup;
-  @Input() public plandoAssignedControls: FormControl<Set<String>>;
   public isSevenOrZeroStarSpirits: boolean;
 
   private _requireSpecificSpiritsSubscription: Subscription;
@@ -21,7 +21,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
   private _plandoSubscription: Subscription;
   private _lclSubscription: Subscription;
 
-  public constructor() { }
+  public constructor(private _plandoAssignmentService: PlandoAssignmentService) { }
 
   public ngOnInit(): void {
     this.updateIsSevenOrZeroStarSpirits();
@@ -160,7 +160,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     if(this.isSevenOrZeroStarSpirits) {
       this.goalsFormGroup.get('requireSpecificSpirits').setValue(false);
       this.goalsFormGroup.get('requireSpecificSpirits').disable();
-    } else if(this.plandoAssignedControls.value.has('starWaySpiritsNeeded')) {
+    } else if(this._plandoAssignmentService.assignedControls.getValue().has('starWaySpiritsNeeded')) {
       this.goalsFormGroup.get('requireSpecificSpirits').setValue(true);
       this.goalsFormGroup.get('requireSpecificSpirits').disable();
     } else {

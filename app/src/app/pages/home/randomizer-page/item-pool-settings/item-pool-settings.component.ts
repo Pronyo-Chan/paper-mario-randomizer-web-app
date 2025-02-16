@@ -11,7 +11,6 @@ import { tap, Subscription } from 'rxjs';
 export class ItemPoolSettingsComponent implements OnInit, OnDestroy {
 
   @Input() public itemPoolFormGroup: FormGroup;
-  @Input() public plandoAssignedControls: FormControl<Set<String>>;
   public isSevenOrZeroStarSpirits: boolean;
 
   private _randomConsumableModeSubscription: Subscription;

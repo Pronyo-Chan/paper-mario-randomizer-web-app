@@ -30,7 +30,7 @@ import { DungeonEntranceShuffleMode } from 'src/app/entities/enum/DungeonEntranc
 import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
 import { BossShuffleMode } from 'src/app/entities/enum/BossShuffleMode';
 import { SettingStringMappingService } from 'src/app/services/setting-string-mapping/setting-string-mapping.service';
-import { CheckType, DOJO_CHECK_VALUES, DUNEGON_KEYS, GEAR_LOCATIONS, KEY_TO_DUNGEON, KOOT_FAVOR_CHECKS, KOOT_FAVOR_ITEMS, LETTER_CHAIN_CHECKS, LOCATIONS_LIST, PARTNERS, PROGRESSIVE_BADGES, SUPER_BLOCK_LOCATIONS } from "../../plando-page/plando-constants";
+import { PlandoAssignmentService } from "src/app/services/plando-assignment.service";
 
 @Component({
   selector: 'app-randomizer-page',
@@ -48,7 +48,6 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public homepageLink;
   public formGroup: FormGroup
   public plandomizerFormControl: FormControl;
-  public plandoAssignedControls: FormControl<Set<string>>;
   private _plandoSubscription: Subscription;
   randomPartnersMinSubscription: Subscription;
 
@@ -57,7 +56,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public seedGenErrorDetails: string;
   private _createSeedSubscription: Subscription;
 
-  public constructor(private _randomizerService: RandomizerService, private _localStorage: LocalStorageService, private _router: Router, private _toast: ToastrService, private _settingsStringService: SettingStringMappingService){}
+  public constructor(private _randomizerService: RandomizerService, private _localStorage: LocalStorageService, private _router: Router, private _toast: ToastrService, private _settingsStringService: SettingStringMappingService, private _plandoAssignmentService: PlandoAssignmentService){}
 
   public ngOnInit(): void {
     this.homepageLink = environment.homepage;
@@ -305,7 +304,6 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       glitches: new FormControl([]),
     });
     this.plandomizerFormControl = new FormControl();
-    this.plandoAssignedControls = new FormControl(new Set([]));
 
     this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(
       tap(() => this.formGroup.get('partners').get('randomPartnersMax').updateValueAndValidity())
@@ -313,211 +311,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     this._plandoSubscription = this.plandomizerFormControl.valueChanges.pipe(
       tap(plando => {
-        const assignedControls: Set<string> = new Set();
-        if (plando && Object.keys(plando).length) {
-          let ripCheatoChecks: number = 0;
-          let dojoChecks: number = 0;
-          let kootFavors: number = 0;
-          let powerStars: number = 0;
-          let traps: number = 0;
-          let gearShuffle: number = 0;
-          let partnerShuffle: number = 0;
-          let partnerUpgradeShuffle: number = 0;
-          let letterShuffle: number = 0;
-          const rowfSets: Set<string> = new Set();
-          if (plando['items']) {
-            this.formGroup.get('items').get('shuffleItems').setValue(true);
-            assignedControls.add('shuffleItems');
-            const plandoCheckTypes: Set<CheckType> = new Set();
-            const plandoLocations = plando['items'];
-            for (const loc of LOCATIONS_LIST) {
-              if (plandoLocations[loc.name]) {
-                const plandoChecks = plandoLocations[loc.name];
-                for (const check of loc.checks) {
-                  if (plandoChecks[check.name]) {
-                    const plandoItem = check.type === CheckType.SHOP ? plandoChecks[check.name].item : plandoChecks[check.name];
-                    plandoCheckTypes.add(check.type);
-
-                    if (DUNEGON_KEYS.has(plandoItem)
-                      && (KEY_TO_DUNGEON[plandoItem] !== loc.name)) {
-                      this.formGroup.get('items').get('keyitemsOutsideDungeon').setValue(true);
-                      assignedControls.add('keyitemsOutsideDungeon');
-                    }
-
-                    if (plandoItem === 'ProgressiveHammer' || plandoItem === 'ProgressiveBoots') {
-                      if (!GEAR_LOCATIONS.has(check.name)) {
-                        gearShuffle = 2;
-                      } else {
-                        gearShuffle = Math.max(gearShuffle, 1);
-                      }
-                    }
-
-                    if (KOOT_FAVOR_ITEMS.has(plandoItem) && KOOT_FAVOR_CHECKS[check.name] !== plandoItem) {
-                      kootFavors = 2;
-                    }
-
-                    if (PARTNERS.has(plandoItem)) {
-                      if (!check.name.endsWith(' Partner')) {
-                        partnerShuffle = 2;
-                      } else {
-                        partnerShuffle = Math.max(partnerShuffle, 1);
-                      }
-                    }
-
-                    if (PROGRESSIVE_BADGES.has(plandoItem)) {
-                      this.formGroup.get('itemPool').get('progressiveBadges').setValue(true);
-                      assignedControls.add('progressiveBadges');
-                    }
-
-                    if (check.type === CheckType.LETTER_REWARD) {
-                      if (LETTER_CHAIN_CHECKS.has(check.name)) {
-                        letterShuffle = 3;
-                      } else if (check.name === 'Goomba Village - Goompapa Letter Reward 2') {
-                        letterShuffle = Math.max(letterShuffle, 2);
-                      } else {
-                        letterShuffle = Math.max(letterShuffle, 1);
-                      }
-                    }
-
-                    if (plandoItem === 'StarBeam'
-                      && check.name !== 'Star Sanctuary - Gift of the Stars') {
-                      this.formGroup.get('goals').get('shuffleStarBeam').setValue(true);
-                      assignedControls.add('shuffleStarBeam');
-                    }
-
-                    if (plandoItem === 'PowerStar') {
-                      this.formGroup.get('goals').get('includePowerStars').setValue(true);
-                      assignedControls.add('includePowerStars');
-                      powerStars++;
-                    }
-
-                    if (plandoItem === 'ItemPouch') {
-                      this.formGroup.get('itemPool').get('itemPouches').setValue(true);
-                      assignedControls.add('itemPouches');
-                    }
-
-                    if (plandoItem.includes('Upgrade')) {
-                      if (!SUPER_BLOCK_LOCATIONS.has(check.name)) {
-                        partnerUpgradeShuffle = 2;
-                      } else {
-                        partnerUpgradeShuffle = Math.max(partnerUpgradeShuffle, 1);
-                      }
-                    }
-
-                    if (plandoItem.includes('TRAP')) {
-                      traps++;
-                    }
-
-                    if (check.name.includes('Rip Cheato Offer')) {
-                      ripCheatoChecks++;
-                    }
-
-                    if (DOJO_CHECK_VALUES[check.name]) {
-                      dojoChecks = Math.max(dojoChecks, DOJO_CHECK_VALUES[check.name]);
-                    }
-
-                    if (check.name.includes('Rowfs Shop Set')) {
-                      const setNumber = check.name.substring(check.name.length - 5, check.name.length - 4);
-                      rowfSets.add(setNumber);
-                    }
-
-                    if (check.name.includes('Merlows Rewards')) {
-                      this.formGroup.get('items').get('progressionOnMerlow').setValue(true);
-                      assignedControls.add('progressionOnMerlow');
-                    }
-                  }
-                }
-              }
-            }
-            if (plandoCheckTypes.has(CheckType.HIDDEN_PANEL)) {
-              this.formGroup.get('items').get('includePanels').setValue(true);
-              assignedControls.add('includePanels');
-            }
-            if (plandoCheckTypes.has(CheckType.SHOP)) {
-              this.formGroup.get('items').get('includeShops').setValue(true);
-              assignedControls.add('includeShops');
-            }
-            if (plandoCheckTypes.has(CheckType.COIN_BLOCK)) {
-              this.formGroup.get('items').get('includeCoinsBlocks').setValue(true);
-              assignedControls.add('includeCoinsBlocks');
-            }
-            if (plandoCheckTypes.has(CheckType.OVERWORLD_COIN)) {
-              this.formGroup.get('items').get('includeCoinsOverworld').setValue(true);
-              assignedControls.add('includeCoinsOverworld');
-            }
-            if (plandoCheckTypes.has(CheckType.TRADE_EVENT)) {
-              this.formGroup.get('items').get('includeRadioTradeEvent').setValue(true);
-              assignedControls.add('includeRadioTradeEvent');
-            }
-            if (plandoCheckTypes.has(CheckType.FOLIAGE)) {
-              this.formGroup.get('items').get('includeCoinsFoliage').setValue(true);
-              assignedControls.add('includeCoinsFoliage');
-            }
-            if (plandoCheckTypes.has(CheckType.KOOT_FAVOR_REWARD)) {
-              kootFavors = Math.max(kootFavors, 1);
-            }
-            if (plandoCheckTypes.has(CheckType.KOOT_FAVOR_ITEM)) {
-              kootFavors = 2;
-            }
-            if (kootFavors) {
-              this.formGroup.get('items').get('includeFavors').setValue(kootFavors);
-              assignedControls.add('includeFavors');
-            }
-            if (plandoCheckTypes.has(CheckType.KOOT_FAVOR_COIN)) {
-              this.formGroup.get('items').get('includeCoinsFavors').setValue(true);
-              assignedControls.add('includeCoinsFavors');
-            }
-            if (dojoChecks) {
-              this.formGroup.get('items').get('includeDojo').setValue(dojoChecks);
-              assignedControls.add('includeDojo');
-            }
-            if (rowfSets.size) {
-              this.formGroup.get('items').get('progressionOnRowf').setValue(rowfSets.size);
-              assignedControls.add('progressionOnRowf');
-            }
-            if (ripCheatoChecks) {
-              this.formGroup.get('items').get('ripCheatoItemsInLogic').setValue(ripCheatoChecks);
-              assignedControls.add('ripCheatoItemsInLogic');
-            }
-            if (gearShuffle) {
-              this.formGroup.get('items').get('gearShuffleMode').setValue(gearShuffle);
-              assignedControls.add('gearShuffleMode');
-            }
-            if (partnerShuffle) {
-              this.formGroup.get('partners').get('shufflePartners').setValue(partnerShuffle);
-              assignedControls.add('shufflePartners');
-            }
-            if (letterShuffle) {
-              this.formGroup.get('items').get('includeLetters').setValue(letterShuffle);
-              assignedControls.add('includeLetters');
-            }
-            if (partnerUpgradeShuffle) {
-              this.formGroup.get('items').get('partnerUpgradeShuffle').setValue(partnerUpgradeShuffle);
-              assignedControls.add('partnerUpgradeShuffle');
-            }
-            if (traps) {
-              if (traps > 40) {
-                this.formGroup.get('itemPool').get('itemTrapMode').setValue(3);
-              } else if (traps > 20) {
-                this.formGroup.get('itemPool').get('itemTrapMode').setValue(2);
-              } else {
-                this.formGroup.get('itemPool').get('itemTrapMode').setValue(1);
-              }
-              assignedControls.add('itemTrapMode');
-            }
-          }
-          if (Array.isArray(plando['required_spirits']) && plando['required_spirits'].length) {
-            assignedControls.add('starWaySpiritsNeeded');
-            const selectedSpiritCount = plando['required_spirits'].length;
-            if (selectedSpiritCount > 0 && selectedSpiritCount < 7) {
-              this.formGroup.get('goals').get('requireSpecificSpirits').setValue(true);
-              assignedControls.add('requireSpecificSpirits');
-            } else {
-              this.formGroup.get('goals').get('requireSpecificSpirits').setValue(false);
-            }
-          }
-        }
-        this.plandoAssignedControls.setValue(assignedControls);
+        this._plandoAssignmentService.updatePlandoAssignedControls(this.formGroup, plando);
       })
     ).subscribe();
   }

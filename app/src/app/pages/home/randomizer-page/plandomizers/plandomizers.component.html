@@ -22,10 +22,10 @@
             <span>Plandomizer not found; it may have been deleted.</span>
         </ng-container>
     </div>
-    <div class="row" *ngIf="plandoAssignedControls.value.size > 0">
+    <div class="row" *ngIf="plandoAssignedControls.size > 0">
         <p>Based on the selected plando, the following settings have been adjusted automatically:</p>
         <ul>
-            <li *ngFor="let control of plandoAssignedControls.value">
+            <li *ngFor="let control of plandoAssignedControls">
                 <span>{{controlDisplayStrings.get(control)}}</span>
             </li>
         </ul>
