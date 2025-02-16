@@ -12,7 +12,7 @@
       </div>
 
       <div class="setting-element">
-        <mat-slide-toggle formControlName='includePowerStars'></mat-slide-toggle>
+        <mat-slide-toggle formControlName='includePowerStars' plandoAssignable></mat-slide-toggle>
         <app-tooltip-span spanText="Star Hunt"
                           tooltipText="Allows adding power stars into the item pools.
 
@@ -27,15 +27,11 @@
       <div class="setting-element slider-element">
           <app-tooltip-span [spanText]="'Star Way - Star Spirits Required: ' + getStarWaySpiritsNumber()"
                             tooltipText="Number of star spirits saved required to open the way to Ch.8. Can be set to random by bringing the slider behind 0."></app-tooltip-span>
-          <mat-slider formControlName="starWaySpiritsNeeded" (input)="goalsFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=-1 max=7 step="1" tickInterval="1"
-            [matTooltip]="plandomizerSetSpirits ? 'This setting is assigned by the currently-selected Plandomizer.' : ''"
-            matTooltipPosition="right" matTooltipShowDelay="50" matTooltipHideDelay="100"></mat-slider>
+          <mat-slider formControlName="starWaySpiritsNeeded" (input)="goalsFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=-1 max=7 step="1" tickInterval="1"></mat-slider>
       </div>
 
       <div class="setting-element" [ngClass]="{ 'disabled-element': isSevenOrZeroStarSpirits}">
-        <mat-slide-toggle formControlName='requireSpecificSpirits'
-            [matTooltip]="plandomizerSetSpirits ? 'This setting is assigned by the currently-selected Plandomizer.' : ''"
-            matTooltipPosition="right" matTooltipShowDelay="50" matTooltipHideDelay="100"></mat-slide-toggle>
+        <mat-slide-toggle formControlName='requireSpecificSpirits' plandoAssignable></mat-slide-toggle>
         <app-tooltip-span spanText="Require Specific Spirits"
                           tooltipText="Specific chapters must be completed to open the star way. You must visit shooting star summit to see which ones."></app-tooltip-span>
       </div>
@@ -51,7 +47,7 @@
         <mat-divider />
 
         <div class="setting-element">
-          <mat-slide-toggle formControlName='shuffleStarBeam'></mat-slide-toggle>
+          <mat-slide-toggle formControlName='shuffleStarBeam' plandoAssignable></mat-slide-toggle>
           <app-tooltip-span spanText="Shuffle Star Beam"
                             tooltipText="Star Beam becomes an item shuffled in the item pool. Another random item will replace star beam in Star Haven."></app-tooltip-span>
         </div>

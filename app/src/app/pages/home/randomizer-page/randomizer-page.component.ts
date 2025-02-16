@@ -13,7 +13,7 @@ import { SpriteSetting } from './../../../entities/enum/spriteSetting';
 import { RandomizerService } from './../../../services/randomizer.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
-import {tap, catchError} from 'rxjs/operators'
+import { tap, catchError } from 'rxjs/operators'
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../utilities/custom.validators'
 import { DifficultySetting } from 'src/app/entities/enum/difficultySetting';
@@ -30,6 +30,7 @@ import { DungeonEntranceShuffleMode } from 'src/app/entities/enum/DungeonEntranc
 import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
 import { BossShuffleMode } from 'src/app/entities/enum/BossShuffleMode';
 import { SettingStringMappingService } from 'src/app/services/setting-string-mapping/setting-string-mapping.service';
+import { PlandoAssignmentService } from "src/app/services/plando-assignment.service";
 
 @Component({
   selector: 'app-randomizer-page',
@@ -47,6 +48,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public homepageLink;
   public formGroup: FormGroup
   public plandomizerFormControl: FormControl;
+  private _plandoSubscription: Subscription;
   randomPartnersMinSubscription: Subscription;
 
   public isRandomizing = false;
@@ -54,7 +56,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public seedGenErrorDetails: string;
   private _createSeedSubscription: Subscription;
 
-  public constructor(private _randomizerService: RandomizerService, private _localStorage: LocalStorageService, private _router: Router, private _toast: ToastrService, private _settingsStringService: SettingStringMappingService){}
+  public constructor(private _randomizerService: RandomizerService, private _localStorage: LocalStorageService, private _router: Router, private _toast: ToastrService, private _settingsStringService: SettingStringMappingService, private _plandoAssignmentService: PlandoAssignmentService){}
 
   public ngOnInit(): void {
     this.homepageLink = environment.homepage;
@@ -68,6 +70,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     if(this._createSeedSubscription) {
       this._createSeedSubscription.unsubscribe();
+    }
+
+    if (this._plandoSubscription) {
+      this._plandoSubscription.unsubscribe();
     }
 
     try {
@@ -302,6 +308,12 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(
       tap(() => this.formGroup.get('partners').get('randomPartnersMax').updateValueAndValidity())
       ).subscribe();
+
+    this._plandoSubscription = this.plandomizerFormControl.valueChanges.pipe(
+      tap(plando => {
+        this._plandoAssignmentService.updatePlandoAssignedControls(this.formGroup, plando);
+      })
+    ).subscribe();
   }
 
   private validateSettings(): string[] {
