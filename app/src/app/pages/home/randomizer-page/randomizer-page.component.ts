@@ -466,7 +466,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
               assignedControls.add('includeDojo');
             }
             if (rowfSets.size) {
-              this.formGroup.get('items').get('progressionOnRowf').setValue(rowfSets);
+              this.formGroup.get('items').get('progressionOnRowf').setValue(rowfSets.size);
               assignedControls.add('progressionOnRowf');
             }
             if (ripCheatoChecks) {
