@@ -1,5 +1,5 @@
 import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { tap, Subscription } from 'rxjs';
 
