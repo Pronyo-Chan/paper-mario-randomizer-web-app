@@ -12,6 +12,7 @@ export class PlandomizersComponent implements OnInit {
   @Input() plandoAssignedControls: FormControl<Set<string>>;
 
   public readonly controlDisplayStrings: Map<string, string> = new Map([
+    ["shuffleItems", "Shuffle Items"],
     ["includePanels", "Include Hidden Panels"],
     ["keyitemsOutsideDungeon", "Keysanity"],
     ["includeRadioTradeEvent", "Include Trading Event Rewards"],

@@ -326,6 +326,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
           let letterShuffle: number = 0;
           const rowfSets: Set<string> = new Set();
           if (plando['items']) {
+            this.formGroup.get('items').get('shuffleItems').setValue(true);
+            assignedControls.add('shuffleItems');
             const plandoCheckTypes: Set<CheckType> = new Set();
             const plandoLocations = plando['items'];
             for (const loc of LOCATIONS_LIST) {

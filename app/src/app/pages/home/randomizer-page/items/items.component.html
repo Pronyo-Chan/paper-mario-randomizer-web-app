@@ -1,7 +1,7 @@
 <form [formGroup]="itemFormGroup">
     <mat-card-content class=settings-card-content>
         <div class="setting-element">
-            <mat-slide-toggle formControlName='shuffleItems'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='shuffleItems' plandoAssignable [plandoAssignedControls]="plandoAssignedControls"></mat-slide-toggle>
             <app-tooltip-span spanText="Shuffle Items" tooltipText="Shuffle overworld items (free-standing, given by NPC, found in blocks, bushes and trees etc)."></app-tooltip-span>
         </div>
 
