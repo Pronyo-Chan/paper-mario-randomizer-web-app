@@ -455,7 +455,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
             }
             if (kootFavors) {
               this.formGroup.get('items').get('includeFavors').setValue(kootFavors);
-              assignedControls.add('includeCoinsFavors');
+              assignedControls.add('includeFavors');
             }
             if (plandoCheckTypes.has(CheckType.KOOT_FAVOR_COIN)) {
               this.formGroup.get('items').get('includeCoinsFavors').setValue(true);
