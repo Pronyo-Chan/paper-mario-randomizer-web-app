@@ -27,7 +27,7 @@
         <span>&nbsp;Letter Rewards</span>
     </div>
     <div class="setting-element">
-        <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR)"></mat-slide-toggle>
+        <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR_COIN); toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR_ITEM); toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR_REWARD)"></mat-slide-toggle>
         <span>&nbsp;Koopa Koot Favors</span>
     </div>
 </div>

@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
 import { BADGE_LIST } from "./plando-badges/plando-badges.component";
-import { CheckType, LOCATIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-items/plando-items.component";
 import { escapeRegexChars } from "src/app/utilities/stringFunctions";
 import { STAR_SPIRIT_POWER_NAMES } from "./plando-spirits-and-chapters/plando-spirits-and-chapters.component";
+import { CheckType, LOCATIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-constants";
 
 export const MAX_FP_COST: number = 75;
 export const MAX_BP_COST: number = 10;
