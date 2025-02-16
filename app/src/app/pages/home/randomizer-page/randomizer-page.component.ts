@@ -314,7 +314,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     this._plandoSubscription = this.plandomizerFormControl.valueChanges.pipe(
       tap(plando => {
         const assignedControls: Set<string> = new Set();
-        if (Object.keys(plando).length) {
+        if (plando && Object.keys(plando).length) {
           let ripCheatoChecks: number = 0;
           let dojoChecks: number = 0;
           let kootFavors: number = 0;
