@@ -12,7 +12,7 @@
             <option *ngFor="let plandoName of savedPlandoNames" [value]="plandoName">{{plandoName}}</option>
         </select>
     </div>
-    <div>
+    <div class="row">
         <ng-container *ngIf="loadStatus === 'loaded'">
             <span>✔️</span>
             <span>Applied Plandomizer: {{this.selectedPlandoName}}</span>
@@ -21,5 +21,13 @@
             <span>❌</span>
             <span>Plandomizer not found; it may have been deleted.</span>
         </ng-container>
+    </div>
+    <div class="row" *ngIf="plandoAssignedControls.value.size > 0">
+        <p>Based on the selected plando, the following settings have been adjusted automatically:</p>
+        <ul>
+            <li *ngFor="let control of plandoAssignedControls.value">
+                <span>{{controlDisplayStrings.get(control)}}</span>
+            </li>
+        </ul>
     </div>
 </mat-card-content>

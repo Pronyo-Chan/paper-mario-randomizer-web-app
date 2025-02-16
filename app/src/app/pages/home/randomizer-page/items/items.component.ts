@@ -1,4 +1,4 @@
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { tap, Subscription } from 'rxjs';
 
@@ -13,6 +13,7 @@ export class ItemsComponent implements OnInit, OnDestroy {
   private _includeShopsSubscription: Subscription;
 
   @Input() public itemFormGroup: FormGroup;
+  @Input() public plandoAssignedControls: FormControl<Set<String>>;
 
   public constructor() { }
 

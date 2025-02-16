@@ -1,5 +1,5 @@
 import { RandomConsumableMode } from 'src/app/entities/enum/randomConsumableMode';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { tap, Subscription } from 'rxjs';
 
@@ -11,6 +11,7 @@ import { tap, Subscription } from 'rxjs';
 export class ItemPoolSettingsComponent implements OnInit, OnDestroy {
 
   @Input() public itemPoolFormGroup: FormGroup;
+  @Input() public plandoAssignedControls: FormControl<Set<String>>;
   public isSevenOrZeroStarSpirits: boolean;
 
   private _randomConsumableModeSubscription: Subscription;

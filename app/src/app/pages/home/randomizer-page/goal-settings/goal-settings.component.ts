@@ -11,9 +11,8 @@ import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 export class GoalSettingsComponent implements OnInit, OnDestroy {
 
   @Input() public goalsFormGroup: FormGroup;
-  @Input() public plandoFormControl: FormControl;
+  @Input() public plandoAssignedControls: FormControl<Set<String>>;
   public isSevenOrZeroStarSpirits: boolean;
-  public plandomizerSetSpirits: boolean = false;
 
   private _requireSpecificSpiritsSubscription: Subscription;
   private _starWaySpiritsNeededSubscription: Subscription;
@@ -47,25 +46,6 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     this._lclSubscription =  this.goalsFormGroup.get('limitChapterLogic').valueChanges.pipe(
       tap(value => {
         this.disableStarBeamSpiritsRequiredWhenLCL(value);
-      })
-    ).subscribe();
-
-    this._plandoSubscription = this.plandoFormControl.valueChanges.pipe(
-      tap(value => {
-        if(value && Array.isArray(value['required_spirits']) && value['required_spirits'].length) {
-          this.plandomizerSetSpirits = true;
-          const selectedSpiritCount = value['required_spirits'].length;
-          this.goalsFormGroup.get('starWaySpiritsNeeded').setValue(selectedSpiritCount);
-          this.goalsFormGroup.get('starWaySpiritsNeeded').disable();
-          if (selectedSpiritCount > 0 && selectedSpiritCount < 7) {
-            this.goalsFormGroup.get('requireSpecificSpirits').setValue(true);
-          } else {
-            this.goalsFormGroup.get('requireSpecificSpirits').setValue(false);
-          }
-        } else {
-          this.plandomizerSetSpirits = false;
-          this.goalsFormGroup.get('starWaySpiritsNeeded').enable();
-        }
       })
     ).subscribe();
 
@@ -180,7 +160,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     if(this.isSevenOrZeroStarSpirits) {
       this.goalsFormGroup.get('requireSpecificSpirits').setValue(false);
       this.goalsFormGroup.get('requireSpecificSpirits').disable();
-    } else if(this.plandomizerSetSpirits) {
+    } else if(this.plandoAssignedControls.value.has('starWaySpiritsNeeded')) {
       this.goalsFormGroup.get('requireSpecificSpirits').setValue(true);
       this.goalsFormGroup.get('requireSpecificSpirits').disable();
     } else {

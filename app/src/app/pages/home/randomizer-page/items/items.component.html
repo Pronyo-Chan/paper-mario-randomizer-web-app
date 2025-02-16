@@ -6,11 +6,11 @@
         </div>
 
         <div class="setting-element">
-            <mat-slide-toggle formControlName='includePanels'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='includePanels' plandoAssignable [plandoAssignedControls]="plandoAssignedControls"></mat-slide-toggle>
             <app-tooltip-span spanText="Include Hidden Panels" tooltipText="Star Pieces hidden under hidden panels are included in the item pool"></app-tooltip-span>
         </div>
         <div class="setting-element">
-            <mat-slide-toggle formControlName='keyitemsOutsideDungeon'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='keyitemsOutsideDungeon' plandoAssignable [plandoAssignedControls]="plandoAssignedControls"></mat-slide-toggle>
             <app-tooltip-span spanText="Keysanity"
                                 tooltipText="Off: Dungeon keys can only be found in their respective dungeon
 
@@ -24,7 +24,7 @@
         </div>
 
         <div class="setting-element">
-            <mat-slide-toggle formControlName='includeRadioTradeEvent'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='includeRadioTradeEvent' plandoAssignable [plandoAssignedControls]="plandoAssignedControls"></mat-slide-toggle>
             <app-tooltip-span spanText="Include Trading Event Rewards" tooltipText="Adds the 3 rewards obtained for doing the Trading Toad quests (started Koopa Village's radio) in the item pool."></app-tooltip-span>
         </div>
 
@@ -104,7 +104,7 @@
         <mat-divider></mat-divider>
 
         <div class="setting-element">
-            <mat-slide-toggle formControlName='includeShops'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='includeShops' plandoAssignable [plandoAssignedControls]="plandoAssignedControls"></mat-slide-toggle>
             <app-tooltip-span spanText="Shopsanity"
                                 tooltipText="Shop Items are included in the item pool.
 
@@ -119,7 +119,7 @@
         </div>
 
         <div class="setting-element">
-            <mat-slide-toggle formControlName='progressionOnMerlow'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='progressionOnMerlow' plandoAssignable [plandoAssignedControls]="plandoAssignedControls"></mat-slide-toggle>
             <app-tooltip-span spanText="Merlow Items in Logic "
                                 tooltipText="Determines whether Merlow rewards can be required for progression or not.">
             </app-tooltip-span>
@@ -128,22 +128,22 @@
         <mat-divider></mat-divider>
 
         <div class="setting-element">
-            <mat-slide-toggle formControlName='includeCoinsOverworld'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='includeCoinsOverworld' plandoAssignable [plandoAssignedControls]="plandoAssignedControls"></mat-slide-toggle>
             <app-tooltip-span spanText="Shuffle Overworld Coins" tooltipText="Overworld coins are included in the item pool."></app-tooltip-span>
         </div>
 
         <div class="setting-element">
-            <mat-slide-toggle formControlName='includeCoinsBlocks'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='includeCoinsBlocks' plandoAssignable [plandoAssignedControls]="plandoAssignedControls"></mat-slide-toggle>
             <app-tooltip-span spanText="Shuffle Coin Blocks" tooltipText="Single coin blocks are included in the item pool."></app-tooltip-span>
         </div>
 
         <div class="setting-element">
-            <mat-slide-toggle formControlName='includeCoinsFavors'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='includeCoinsFavors' plandoAssignable [plandoAssignedControls]="plandoAssignedControls"></mat-slide-toggle>
             <app-tooltip-span spanText="Shuffle Favor Coins" tooltipText="Coins earned from Koot favors are included in the item pool. Only has an effect when Koot favors are also shuffled. "></app-tooltip-span>
         </div>
 
         <div class="setting-element">
-            <mat-slide-toggle formControlName='includeCoinsFoliage'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='includeCoinsFoliage' plandoAssignable [plandoAssignedControls]="plandoAssignedControls"></mat-slide-toggle>
             <app-tooltip-span spanText="Shuffle Foliage Coins" tooltipText="Coins from bushes and trees are included in the item pool."></app-tooltip-span>
         </div>
 

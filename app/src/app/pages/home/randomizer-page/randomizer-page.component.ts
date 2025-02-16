@@ -47,6 +47,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public homepageLink;
   public formGroup: FormGroup
   public plandomizerFormControl: FormControl;
+  public plandoAssignedControls: FormControl<Set<string>>;
+  private _plandoSubscription: Subscription;
   randomPartnersMinSubscription: Subscription;
 
   public isRandomizing = false;
@@ -68,6 +70,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
     if(this._createSeedSubscription) {
       this._createSeedSubscription.unsubscribe();
+    }
+
+    if (this._plandoSubscription) {
+      this._plandoSubscription.unsubscribe();
     }
 
     try {
@@ -298,6 +304,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       glitches: new FormControl([]),
     });
     this.plandomizerFormControl = new FormControl();
+    this.plandoAssignedControls = new FormControl(new Set([]));
 
     this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(
       tap(() => this.formGroup.get('partners').get('randomPartnersMax').updateValueAndValidity())
