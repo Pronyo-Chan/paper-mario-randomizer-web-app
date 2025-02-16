@@ -30,7 +30,7 @@ import { DungeonEntranceShuffleMode } from 'src/app/entities/enum/DungeonEntranc
 import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
 import { BossShuffleMode } from 'src/app/entities/enum/BossShuffleMode';
 import { SettingStringMappingService } from 'src/app/services/setting-string-mapping/setting-string-mapping.service';
-import { CheckType, DUNEGON_KEYS, GEAR_LOCATIONS, KEY_TO_DUNGEON, KOOT_FAVOR_CHECKS, KOOT_FAVOR_ITEMS, LETTER_CHAIN_CHECKS, LOCATIONS_LIST, PARTNERS, PROGRESSIVE_BADGES, SUPER_BLOCK_LOCATIONS } from "../../plando-page/plando-constants";
+import { CheckType, DOJO_CHECK_VALUES, DUNEGON_KEYS, GEAR_LOCATIONS, KEY_TO_DUNGEON, KOOT_FAVOR_CHECKS, KOOT_FAVOR_ITEMS, LETTER_CHAIN_CHECKS, LOCATIONS_LIST, PARTNERS, PROGRESSIVE_BADGES, SUPER_BLOCK_LOCATIONS } from "../../plando-page/plando-constants";
 
 @Component({
   selector: 'app-randomizer-page',
@@ -412,8 +412,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
                       ripCheatoChecks++;
                     }
 
-                    if (check.name.includes('Dojo')) {
-                      dojoChecks++;
+                    if (DOJO_CHECK_VALUES[check.name]) {
+                      dojoChecks = Math.max(dojoChecks, DOJO_CHECK_VALUES[check.name]);
                     }
 
                     if (check.name.includes('Rowfs Shop Set')) {

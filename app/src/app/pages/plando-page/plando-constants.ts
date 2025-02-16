@@ -1226,3 +1226,11 @@ export const KOOT_FAVOR_CHECKS = {
 }
 
 export const KOOT_FAVOR_ITEMS: Set<string> = new Set(Object.values(KOOT_FAVOR_CHECKS));
+
+export const DOJO_CHECK_VALUES = {
+    "Gate District - Dojo: Chan": 1,
+    "Gate District - Dojo: Lee": 2,
+    "Gate District - Dojo: Master 1": 3,
+    "Gate District - Dojo: Master 2": 4,
+    "Gate District - Dojo: Master 3": 5,
+}
