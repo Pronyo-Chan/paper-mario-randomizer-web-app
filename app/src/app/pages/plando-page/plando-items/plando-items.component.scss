@@ -4,6 +4,28 @@ mat-tab-group {
 code {
     margin: 0 0.5rem;
 }
+.check-filters-container {
+  flex: 0 1 35%;
+  @media screen and (max-width:699px) {
+    flex-basis: 100%;
+  }
+  .check-filters {
+    column-count:auto;
+    column-width: 13rem;
+  }
+}
+.mass-fill {
+  flex: 0 1 65%;
+  @media screen and (max-width:699px) {
+    flex-basis: 100%;
+  }
+  input {
+    width: 15rem;
+  }
+  .yellow-button {
+    margin: 0 0.5rem;
+  }
+}
 .checks-list {
   width: 100%;
   column-count: auto;
