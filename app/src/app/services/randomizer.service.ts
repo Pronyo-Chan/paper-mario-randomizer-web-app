@@ -335,6 +335,7 @@ export class RandomizerService {
       BlueHouseSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueHouseSkip"),
       BlueHouseSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueHouseSkipLaki"),
       BlueHouseSkipToadLure: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueHouseSkipToadLure"),
+      JumplessDaneTLetters: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessDaneTLetters"),
       BowlessToyBoxHammer: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == ("BowlessToyBoxHammer")),
       BowlessToyBoxHammerlessLure: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == ("BowlessToyBoxHammerlessLure")),
       EarlyStoreroomParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyStoreroomParakarry"),
@@ -342,7 +343,12 @@ export class RandomizerService {
       EarlyStoreroomHammerlessLure: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyStoreroomHammerlessLure"),
       WhaleEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "WhaleEarly"),
       SushielessToadTownStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SushielessToadTownStarPiece"),
-      ToadTownSushieGlitch: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ToadTownSushieGlitch"),
+      ToadTownSushieGlitchGearless: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ToadTownSushieGlitchGearless"),
+      ToadTownSushieGlitchOneGear: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ToadTownSushieGlitchOneGear"),
+      ToadTownSushieGlitchFullGear: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ToadTownSushieGlitchFullGear"),
+
+      // Glitches: Shooting Star Summit
+      JumplessSummitClimb: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessSummitClimb"),
 
       // Glitches: Toad Town Tunnels
       ClippyBootsStoneBlockSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ClippyBootsStoneBlockSkip"),
@@ -363,6 +369,7 @@ export class RandomizerService {
       InvisibleBridgeClipLzs: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "InvisibleBridgeClipLzs"),
       InvisibleBridgeClipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "InvisibleBridgeClipLaki"),
       KooperlessPleasantPathThunderBolt: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessPleasantPathThunderBolt"),
+      JumplessKoopaVillageBluePipe: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessKoopaVillageBluePipe"),
 
       // Glitches: Koopa Bros Fortress
       BombettelessKbfFpPlusLZS: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BombettelessKbfFpPlusLZS"),
@@ -374,6 +381,7 @@ export class RandomizerService {
       // Glitches: Mt. Rugged
       MtRuggedQuakeHammerAndLetterWithLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MtRuggedQuakeHammerAndLetterWithLaki"),
       ParakarrylessMtRuggedSeed: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMtRuggedSeed"),
+      ParakarrylessMtRuggedSeedClippy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMtRuggedSeedClippy"),
       BuzzarGapSkipClippy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BuzzarGapSkipClippy"),
       ParakarrylessMtRuggedStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMtRuggedStarPiece"),
       MtRuggedCoinsWithKooper: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MtRuggedCoinsWithKooper"),
@@ -395,6 +403,7 @@ export class RandomizerService {
       ParakarrylessSuperHammerRoomUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSuperHammerRoomUltraBoots"),
       ParakarrylessSuperHammerRoomNormalBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSuperHammerRoomNormalBoots"),
       RuinsLocksSkipClippy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsLocksSkipClippy"),
+      RuinsPuzzleSolutionEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsPuzzleSolutionEarly"),
       RuinsStoneSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsStoneSkip"),
 
       // Glitches: Boo's Mansion
@@ -419,6 +428,7 @@ export class RandomizerService {
       TubbasTableLakiJumpStudy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasTableLakiJumpStudy"),
       TubbasTableUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasTableUltraBoots"),
       TubbasCastleSuperBootsSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasCastleSuperBootsSkip"),
+      JumplessMegaRush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessMegaRush"),
       ParakarrylessMegaRush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMegaRush"),
 
       // Glitches: Toy Box
@@ -441,6 +451,7 @@ export class RandomizerService {
       // Glitches: Jade Jungle
       RaphSkipEnglish: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RaphSkipEnglish"),
       RaphSkipParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RaphSkipParakarry"),
+      RaphSkipLakilester: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RaphSkipLakilester"),
       Ch5SushieGlitch: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Ch5SushieGlitch"),
       SushielessJungleStarpieceAndLetter: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SushielessJungleStarpieceAndLetter"),
       JumplessDeepJungleLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessDeepJungleLaki"),
@@ -487,12 +498,20 @@ export class RandomizerService {
 
       // Glitches: Crystal Palace
       MirrorClip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MirrorClip"),
+      BombettePuzzleSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BombettePuzzleSkip"),
       KooperPuzzleSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperPuzzleSkip"),
 
       // Glitches: Bowser's Castle
       BowlessBowsersCastleBasement: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowlessBowsersCastleBasement"),
+      WattlessDarkBasement: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "WattlessDarkBasement"),
+      BasementSkipParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BasementSkipParakarry"),
+      BasementSkipLakilester: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BasementSkipLakilester"),
+      BasementSkipHammer: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BasementSkipHammer"),
+      BowsersCastleHub1StairClip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowsersCastleHub1StairClip"),
       FastFloodRoomKooper: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "FastFloodRoomKooper"),
+      FastFloodRoomKooperless: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "FastFloodRoomKooperless"),
       FastFloodRoomBombetteUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "FastFloodRoomBombetteUltraBoots"),
+      Cannonless: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Cannonless"),
       BombettelessBowsersCastleBasement: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BombettelessBowsersCastleBasement"),
 
       // Glitches: Global

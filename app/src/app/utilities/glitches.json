@@ -96,6 +96,14 @@
     "id": "µ"
   },
   {
+    "name": "Jumpless Dane T. Letters",
+    "settingName": "JumplessDaneTLetters",
+    "link": "https://youtu.be/uhiUKmlG3VY",
+    "description": "From the train station platform, Parakarry can be used to climb the opposite ledge before the camera finishes turning, allowing Dane T's two letters to be delivered without boots.",
+    "location": "Toad Town",
+    "id": "α"
+  },
+  {
     "name": "Enter ToyBox Without Bow (Hammer)",
     "settingName": "BowlessToyBoxHammer",
     "link": "https://www.youtube.com/watch?v=58ykf3BWfJ0",
@@ -152,12 +160,36 @@
     "id": "+"
   },
   {
-    "name": "Toad Town Sushie Glitch",
-    "settingName": "ToadTownSushieGlitch",
+    "name": "Toad Town Sushie Glitch (Gearless)",
+    "settingName": "ToadTownSushieGlitchGearless",
+    "link": "https://www.youtube.com/watch?v=sL_bXF4XWCc&t=24s",
+    "description": "By pressing C-down at a precise location on the deck while having Mario face down-left, it is possible to ride Sushie out of bounds. This state allows to skip most obstacles on the overworld, aside from doors to dungeons. Requires either a hammer or boots to be in logic, to make positioning easier.",
+    "location": "Toad Town",
+    "id": "β"
+  },
+  {
+    "name": "Toad Town Sushie Glitch (Hammer or Boots)",
+    "settingName": "ToadTownSushieGlitchOneGear",
     "link": "https://www.youtube.com/watch?v=sL_bXF4XWCc&t=24s",
     "description": "By pressing C-down at a precise location on the deck while having Mario face down-left, it is possible to ride Sushie out of bounds. This state allows to skip most obstacles on the overworld, aside from doors to dungeons. Requires either a hammer or boots to be in logic, to make positioning easier.",
     "location": "Toad Town",
     "id": "É"
+  },
+  {
+    "name": "Toad Town Sushie Glitch (Hammer + Boots)",
+    "settingName": "ToadTownSushieGlitchFullGear",
+    "link": "https://www.youtube.com/watch?v=sL_bXF4XWCc&t=24s",
+    "description": "By pressing C-down at a precise location on the deck while having Mario face down-left, it is possible to ride Sushie out of bounds. This state allows to skip most obstacles on the overworld, aside from doors to dungeons. Requires either a hammer or boots to be in logic, to make positioning easier.",
+    "location": "Toad Town",
+    "id": "γ"
+  },
+  {
+    "name": "Jumpless Summit Climb",
+    "settingName": "JumplessSummitClimb",
+    "link": "",
+    "description": "Shooting Star Summit peak can be reached with just Parakarry",
+    "location": "Shooting Star Summit",
+    "id": "δ"
   },
   {
     "name": "Clippy Boots Stone Block Skip",
@@ -252,7 +284,7 @@
     "settingName": "KooperlessPleasantPathStarPiece",
     "link": "https://www.youtube.com/watch?v=-u-viCdLmRs",
     "description": "By entering clippy state with Lakilester, it is possible to go out of bounds and reach the island star piece without Kooper.",
-    "location": "Pleasant Path",
+    "location": "Koopa Region",
     "id": "2"
   },
   {
@@ -260,7 +292,7 @@
     "settingName": "HammerlessPleasantPathBridgeUltraBootsParakarry",
     "link": "https://youtu.be/4wBh6NePj5Y?t=65",
     "description": "By performing a precise Tornado Jump, you can get on the item block near the tree and then fly out of bounds with Parakarry. From there you can obtain the item on the island and cross to the right side of the map without a bridge.",
-    "location": "Pleasant Path",
+    "location": "Koopa Region",
     "id": "á"
   },
   {
@@ -268,7 +300,7 @@
     "settingName": "InvisibleBridgeClipLzs",
     "link": "https://www.youtube.com/watch?v=v_-zJJidXls",
     "description": "The bridge before Koopa Bros Fortress can be passed without Kooper by going out of bounds around the west loading zone with precise jumps and movement.",
-    "location": "Pleasant Path",
+    "location": "Koopa Region",
     "id": "3"
   },
   {
@@ -276,7 +308,7 @@
     "settingName": "InvisibleBridgeClipLaki",
     "link": "https://papermarioarchives.com/Invisible_Bridge_Clip",
     "description": "The bridge before Koopa Bros Fortress can be passed without Kooper by clipping through the fence with Lakilester.",
-    "location": "Pleasant Path",
+    "location": "Koopa Region",
     "id": "4"
   },
   {
@@ -284,8 +316,16 @@
     "settingName": "KooperlessPleasantPathThunderBolt",
     "link": "https://www.youtube.com/watch?v=jaAVQ75UPYM",
     "description": "The Brick Block on Pleasant Path can be broken without Kooper by baiting a Spiked Goomba under the block and jumping on it.",
-    "location": "Pleasant Path",
+    "location": "Koopa Region",
     "id": "5"
+  },
+  {
+    "name": "Jumpless Koopa Village Blue Pipe",
+    "settingName": "JumplessKoopaVillageBluePipe",
+    "link": "",
+    "description": "Using Parakarry next to the tree can raise Mario high enough to land on the blue pipe.",
+    "location": "Koopa Region",
+    "id": "ε"
   },
   {
     "name": "Bombette-less KBF FP Plus (LZS)",
@@ -342,6 +382,14 @@
     "description": "You can clip out of bounds by spinning against the wall above the Mt.Rugged Bub-ulb and reach it without Parakarry.",
     "location": "Mt. Rugged",
     "id": ";"
+  },
+  {
+    "name": "Parakarry-less Mt.Rugged Seed (Clippy)",
+    "settingName": "ParakarrylessMtRuggedSeedClippy",
+    "link": "https://www.youtube.com/watch?v=itO-PdEOgwg",
+    "description": "Parakarry-less Mt. Rugged Seed using Clippy",
+    "location": "Mt. Rugged",
+    "id": "ζ"
   },
   {
     "name": "Buzzar Gap Skip (Clippy)",
@@ -478,6 +526,14 @@
     "description": "Clippy can be used to skip the first three locks in pretty much identical ways to this video. Note that the third one is impossible once the 3 Pokies are defeated, therefore won't be in logic.",
     "location": "Dry Dry Ruins",
     "id": "H"
+  },
+  {
+    "name": "Ruins Puzzle Solution Early",
+    "settingName": "RuinsPuzzleSolutionEarly",
+    "link": "",
+    "description": "This trick uses Lakilester to clip into the stairs of the lower part of the room, and fall out of bounds, landing in the upper part where the switch is located.",
+    "location": "Dry Dry Ruins",
+    "id": "η"
   },
   {
     "name": "Ruins Stone Skip",
@@ -624,6 +680,14 @@
     "id": "T"
   },
   {
+    "name": "Jumpless Mega Rush",
+    "settingName": "JumplessMegaRush",
+    "link": "https://www.youtube.com/watch?v=iRAFQj8BRxU",
+    "description": "Can climb the bookshelf by partially clipping into each shelf and using Parakarry.",
+    "location": "Tubba's Castle",
+    "id": "θ"
+  },
+  {
     "name": "Parakarry-less Mega Rush",
     "settingName": "ParakarrylessMegaRush",
     "link": "https://www.youtube.com/watch?v=iRAFQj8BRxU",
@@ -766,6 +830,14 @@
     "description": "Easier method to enter the volcano early, brought back from the JP version of the game. Parakarry can be used on a tree to clip out of bounds and reach the volcano's entrance without using Raphael's zipline. The loading zone leading to the big tree can also be reached that way.",
     "location": "Jade Jungle",
     "id": "ÿ"
+  },
+  {
+    "name": "Raph Skip (Lakilester)",
+    "settingName": "RaphSkipLakilester",
+    "link": "https://www.youtube.com/watch?v=oPZmVJuNiF8",
+    "description": "A very precise laki teleport can be used to get through the bushes and to Raphael's tree.",
+    "location": "Jade Jungle",
+    "id": "ι"
   },
   {
     "name": "Chapter 5 Sushie Glitch",
@@ -1064,6 +1136,14 @@
     "id": "s"
   },
   {
+    "name": "Bombette Puzzle Skip",
+    "settingName": "BombettePuzzleSkip",
+    "link": "",
+    "description": "Awaiting Description",
+    "location": "Crystal Palace",
+    "id": "σ"
+  },
+  {
     "name": "Kooper Puzzle Skip",
     "settingName": "KooperPuzzleSkip",
     "link": "https://papermarioarchives.com/Tricks/Kooper_Puzzle_Skip",
@@ -1080,6 +1160,46 @@
     "id": "t"
   },
   {
+    "name": "Wattless Dark Basement",
+    "settingName": "WattlessDarkBasement",
+    "link": "",
+    "description": "The basement can be cleared without Watt if you know the way.",
+    "location": "Bowser's Castle",
+    "id": "κ"
+  },
+  {
+    "name": "Basement Skip (Parakarry)",
+    "settingName": "BasementSkipParakarry",
+    "link": "",
+    "description": "Awaiting description",
+    "location": "Bowser's Castle",
+    "id": "λ"
+  },
+  {
+    "name": "Basement Skip (Lakilester)",
+    "settingName": "BasementSkipLakilester",
+    "link": "",
+    "description": "Awaiting description",
+    "location": "Bowser's Castle",
+    "id": "ν"
+  },
+  {
+    "name": "Basement Skip (Hammer)",
+    "settingName": "BasementSkipHammer",
+    "link": "https://youtu.be/HsOy7TGC_0I?si=xrHDcs4kDj4ntSjN",
+    "description": "See video attached",
+    "location": "Bowser's Castle",
+    "id": "ξ"
+  },
+  {
+    "name": "Bowser's Castle Hub 1 Stair Clip",
+    "settingName": "BowsersCastleHub1StairClip",
+    "link": "https://youtu.be/pJaLTptaDGM ",
+    "description": "By precisely walking into the left corner of the lower stair, Mario can clip out of bounds and fall to the upper level.",
+    "location": "Bowser's Castle",
+    "id": "ο"
+  },
+  {
     "name": "Bombette-less Bowsers Castle Basement",
     "settingName": "BombettelessBowsersCastleBasement",
     "link": "https://www.youtube.com/watch?v=7lDq0kGzoIQ",
@@ -1088,12 +1208,28 @@
     "id": "Ý"
   },
   {
-    "name": "Fast Flood Room With Kooper",
+    "name": "Fast Flood Room (Kooper)",
     "settingName": "FastFloodRoomKooper",
     "link": "https://youtu.be/Q58qKzRaqEM?t=156",
     "description": "Using Laki Clips and a Kooper Super Jump, the Castle Key can be obtained without completing the entire water puzzle in Bowser's Castle.",
     "location": "Bowser's Castle",
     "id": "u"
+  },
+  {
+    "name": "Fast Flood Room (Kooperless)",
+    "settingName": "FastFloodRoomKooperless",
+    "link": "https://www.youtube.com/watch?v=uWv5VNh7NtI",
+    "description": "See video attached",
+    "location": "Bowser's Castle",
+    "id": "π"
+  },
+  {
+    "name": "Cannonless",
+    "settingName": "Cannonless",
+    "link": "https://papermarioarchives.com/Tricks/Cannonless",
+    "description": "Cannonless allows the cannon room to be crossed jumpless using Parakarry and Lakilester.",
+    "location": "Bowser's Castle",
+    "id": "ρ"
   },
   {
     "name": "Fast Flood Room With Bombette and Ultra Boots",

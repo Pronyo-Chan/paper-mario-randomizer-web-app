@@ -186,6 +186,7 @@ export interface SettingsRequest {
     BlueHouseSkip: boolean
     BlueHouseSkipLaki: boolean
     BlueHouseSkipToadLure: boolean
+    JumplessDaneTLetters: boolean
     BowlessToyBoxHammer: boolean
     BowlessToyBoxHammerlessLure: boolean
     EarlyStoreroomParakarry: boolean
@@ -193,7 +194,10 @@ export interface SettingsRequest {
     EarlyStoreroomHammerlessLure: boolean
     WhaleEarly: boolean
     SushielessToadTownStarPiece: boolean
-    ToadTownSushieGlitch: boolean
+    ToadTownSushieGlitchGearless: boolean
+    ToadTownSushieGlitchOneGear: boolean
+    ToadTownSushieGlitchFullGear: boolean
+    JumplessSummitClimb: boolean
 
     // Glitches: Toad Town Tunnels
     ClippyBootsStoneBlockSkip: boolean
@@ -214,6 +218,7 @@ export interface SettingsRequest {
     InvisibleBridgeClipLzs: boolean
     InvisibleBridgeClipLaki: boolean
     KooperlessPleasantPathThunderBolt: boolean
+    JumplessKoopaVillageBluePipe: boolean
 
     // Glitches: Koopa Bros Fortress
     BombettelessKbfFpPlusLZS: boolean
@@ -225,6 +230,7 @@ export interface SettingsRequest {
     // Glitches: Mt. Rugged
     MtRuggedQuakeHammerAndLetterWithLaki: boolean
     ParakarrylessMtRuggedSeed: boolean
+    ParakarrylessMtRuggedSeedClippy: boolean
     BuzzarGapSkipClippy: boolean
     ParakarrylessMtRuggedStarPiece: boolean
     MtRuggedCoinsWithKooper: boolean
@@ -247,6 +253,7 @@ export interface SettingsRequest {
     ParakarrylessSuperHammerRoomNormalBoots: boolean
     RuinsLocksSkipClippy: boolean
     RuinsStoneSkip: boolean
+    RuinsPuzzleSolutionEarly: boolean
 
     // Glitches: Boo's Mansion
     JumplessMansionEntry: boolean
@@ -269,6 +276,7 @@ export interface SettingsRequest {
     TubbasTableLakiJumpClock: boolean
     TubbasTableUltraBoots: boolean
     TubbasCastleSuperBootsSkip: boolean
+    JumplessMegaRush: boolean
     ParakarrylessMegaRush: boolean
 
     // Glitches: Toy Box
@@ -291,6 +299,7 @@ export interface SettingsRequest {
     // Glitches: Jade Jungle
     RaphSkipEnglish: boolean
     RaphSkipParakarry: boolean
+    RaphSkipLakilester: boolean
     Ch5SushieGlitch: boolean
     SushielessJungleStarpieceAndLetter: boolean
     JumplessDeepJungleLaki: boolean
@@ -342,8 +351,15 @@ export interface SettingsRequest {
     // Glitches: Bowser's Castle
     BowlessBowsersCastleBasement: boolean
     FastFloodRoomKooper: boolean
+    FastFloodRoomKooperless: boolean
     FastFloodRoomBombetteUltraBoots: boolean
+    Cannonless: boolean
     BombettelessBowsersCastleBasement: boolean
+    WattlessDarkBasement: boolean
+    BasementSkipParakarry: boolean
+    BasementSkipLakilester: boolean
+    BasementSkipHammer: boolean
+    BowsersCastleHub1StairClip: boolean
 
     // Glitches: Global
     BreakStoneBlocksWithUltraBoots: boolean
