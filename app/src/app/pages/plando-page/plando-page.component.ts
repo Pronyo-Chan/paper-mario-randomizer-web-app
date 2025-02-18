@@ -25,13 +25,13 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.formGroup = new FormGroup({
       difficulty: new FormGroup({
-        'chapter 1': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
-        'chapter 2': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
-        'chapter 3': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
-        'chapter 4': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
-        'chapter 5': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
-        'chapter 6': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
-        'chapter 7': new FormControl<number>(null, [Validators.min(0), Validators.max(7)]),
+        'chapter 1': new FormControl<number>(null, [Validators.min(0), Validators.max(8)]),
+        'chapter 2': new FormControl<number>(null, [Validators.min(0), Validators.max(8)]),
+        'chapter 3': new FormControl<number>(null, [Validators.min(0), Validators.max(8)]),
+        'chapter 4': new FormControl<number>(null, [Validators.min(0), Validators.max(8)]),
+        'chapter 5': new FormControl<number>(null, [Validators.min(0), Validators.max(8)]),
+        'chapter 6': new FormControl<number>(null, [Validators.min(0), Validators.max(8)]),
+        'chapter 7': new FormControl<number>(null, [Validators.min(0), Validators.max(8)]),
       }),
       boss_battles: new FormGroup({
         'chapter 1': new FormControl<string>(null),
