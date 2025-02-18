@@ -2,6 +2,13 @@
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
     <mat-card-title class="settings-title">0.29.0 (beta) (2024-02-XX)</mat-card-title>
+    <h2>Special Thanks</h2>
+    <ul>
+      <li><span class="bolder-text">Veegie</span> for implementing the plandomizer web UI!</li>
+      <li><span class="bolder-text">Phantom</span> for implementing the new 'Random Starting Stats' feature, the 'Limit Chapter Logic' + 'Dungeon Entrance Shuffle' change and the glitched logic additions!</li>
+      <li>Everyone who helped to test the dev version of the plandomizer so we could find and fix issues!</li>
+    </ul>
+
     <h2>Known Issues</h2>
     <ul>
         <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
@@ -22,6 +29,7 @@
     <h3>Plandomizer (new)</h3>
     <ul>
       <li>The plandomizer (a portmanteau of "planned" and "randomizer") allows pre-setting different values for the seed, which overrule the changes to be made by the seed generator. This allows for forcing specific changes desired by the player.</li>
+      <li>To generate a plandomizer seed, visit the new Plandomizer page, accessible from a new tab in the top toolbar. Setup and save a config, then load it in Randomizer Settings > Plandomizers when generating a seed.</li>
       <li>Currently allows setting the following:
         <ul>
           <li>Item placement in most item locations</li>
