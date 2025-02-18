@@ -10,7 +10,7 @@ export const MAX_BP_COST: number = 10;
 export const DEFAULT_PLANDOMIZER_KEY: string = 'default_plandomizer';
 
 const plandoItemSet = new Set(PLANDO_ITEMS_LIST);
-const manualTrapRegex = new RegExp('^TRAP \\((' + PLANDO_ITEMS_LIST.slice(3).map(escapeRegexChars).join('|') + ')\\)$');
+export const manualTrapRegex = new RegExp('^TRAP \\((' + PLANDO_ITEMS_LIST.slice(3).map(escapeRegexChars).join('|') + ')\\)$');
 
 @Component({
   selector: 'app-plando-page',

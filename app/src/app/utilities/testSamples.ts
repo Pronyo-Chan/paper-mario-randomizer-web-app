@@ -470,8 +470,8 @@ Jade Jungle:
     (Beach - In Palm Tree 3): Mystery
     (Beach - In Palm Tree 4): Starpiece
     (Beach - In Palm Tree 5): DeepFocus
-    (Beach - In Palm Tree 6): FrightJar
-    (Beach - In Palm Tree 6 2): AllorNothing
+    (Beach - In Palm Tree 6 (one-off)): FrightJar
+    (Beach - In Palm Tree 6 (replenish)): AllorNothing
     (Village Cove - Village Leader Reward): Mailbag
     (Village Cove - Hidden Panel): Starpiece
     (Village Cove - In Palm Tree Left): SJumpCharge
