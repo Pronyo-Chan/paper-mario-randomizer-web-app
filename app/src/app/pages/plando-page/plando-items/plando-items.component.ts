@@ -38,7 +38,7 @@ export class PlandoItemsComponent {
   public readonly LOCATIONS: Array<Location> = LOCATIONS_LIST;
   public readonly PLANDO_ITEMS: Array<string> = PLANDO_ITEMS_LIST.slice();
   public readonly MASS_FILL_ITEMS: Set<string> = LEGAL_MASS_FILL_ITEMS;
-  public readonly LEGAL_TRAP_ITEMS: Set<string> = new Set(LEGAL_TRAP_ITEMS.map((i) => 'TRAP (' + i + ')'));
+  public readonly LEGAL_TRAP_ITEMS: Set<string> = new Set(['TRAP'].concat(LEGAL_TRAP_ITEMS.map((i) => 'TRAP (' + i + ')')));
   public readonly CHECK_TYPES_DISPLAY_MAP: Record<CheckType, string> = CHECK_TYPES_DISPLAY_MAPPING;
   constructor(public inputFilters: InputFilterService) { };
   // Multicoin and super blocks not supported yet. Always filter them for now.
@@ -124,7 +124,7 @@ export class PlandoItemsComponent {
   }
 
   private _filter(initialOptions: Array<string>, value: string): void {
-    if (value.startsWith('TRAP')) {
+    if (value.toLowerCase().startsWith('trap')) {
       initialOptions = Array.from(this.LEGAL_TRAP_ITEMS);
     }
     const regexes = value.toLowerCase().split(/\s/g).filter(s => s.trim() !== '').map(s => new RegExp(escapeRegexChars(s), 'i'));
