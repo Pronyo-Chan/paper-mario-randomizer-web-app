@@ -48,7 +48,6 @@ export class PlandoItemsComponent {
   public massFillCheckTypes = Object.values(CheckType).filter(val => !this.filteredTypes.includes(val) && val !== CheckType.NORMAL);
   public filteredItems: string[] = this.PLANDO_ITEMS.slice();
   public searchText: FormControl;
-  public settingTrap: boolean = false;
 
   public updateAutoCompleteFilter($event: InputEvent) {
     this._filter(this.PLANDO_ITEMS.slice(), ($event.target as HTMLInputElement).value);
@@ -127,9 +126,6 @@ export class PlandoItemsComponent {
   private _filter(initialOptions: Array<string>, value: string): void {
     if (value.startsWith('TRAP')) {
       initialOptions = Array.from(this.LEGAL_TRAP_ITEMS);
-      this.settingTrap = true;
-    } else {
-      this.settingTrap = false;
     }
     const regexes = value.toLowerCase().split(/\s/g).filter(s => s.trim() !== '').map(s => new RegExp(escapeRegexChars(s), 'i'));
     this.filteredItems = initialOptions.filter(item => regexes.every(reg => reg.test(item)));
