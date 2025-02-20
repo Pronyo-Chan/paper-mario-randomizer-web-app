@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { MatSlideToggleChange } from "@angular/material/slide-toggle";
 import { InputFilterService } from "src/app/services/inputfilter.service";
 import { escapeRegexChars, pascalToVerboseString } from "src/app/utilities/stringFunctions";
-import { CHECK_TYPES_DISPLAY_MAPPING, CheckType, LEGAL_MASS_FILL_ITEMS, Location, LOCATIONS_LIST, PLANDO_ITEMS_LIST, VANILLA_ITEMS } from "../plando-constants";
+import { CHECK_TYPES_DISPLAY_MAPPING, CheckType, LEGAL_MASS_FILL_ITEMS, LEGAL_TRAP_ITEMS, Location, LOCATIONS_LIST, PLANDO_ITEMS_LIST, VANILLA_ITEMS } from "../plando-constants";
 import { manualTrapRegex } from "../plando-page.component";
 
 const possessiveRegex = /(Mario|Peach|Boo|Guy|Troopa|King|Bowser|Rowf|Merlow|Merluvlee|Tubba|Kolorado|Bow|Lily|Petunia|Rosie)s /g;
@@ -38,6 +38,7 @@ export class PlandoItemsComponent {
   public readonly LOCATIONS: Array<Location> = LOCATIONS_LIST;
   public readonly PLANDO_ITEMS: Array<string> = PLANDO_ITEMS_LIST.slice();
   public readonly MASS_FILL_ITEMS: Set<string> = LEGAL_MASS_FILL_ITEMS;
+  public readonly LEGAL_TRAP_ITEMS: Set<string> = new Set(LEGAL_TRAP_ITEMS.map((i) => 'TRAP (' + i + ')'));
   public readonly CHECK_TYPES_DISPLAY_MAP: Record<CheckType, string> = CHECK_TYPES_DISPLAY_MAPPING;
   constructor(public inputFilters: InputFilterService) { };
   // Multicoin and super blocks not supported yet. Always filter them for now.
@@ -47,6 +48,7 @@ export class PlandoItemsComponent {
   public massFillCheckTypes = Object.values(CheckType).filter(val => !this.filteredTypes.includes(val) && val !== CheckType.NORMAL);
   public filteredItems: string[] = this.PLANDO_ITEMS.slice();
   public searchText: FormControl;
+  public settingTrap: boolean = false;
 
   public updateAutoCompleteFilter($event: InputEvent) {
     this._filter(this.PLANDO_ITEMS.slice(), ($event.target as HTMLInputElement).value);
@@ -113,8 +115,8 @@ export class PlandoItemsComponent {
           }
         } else {
           this.itemsFormGroup.get(check).setValue(fillItem);
-          if (fillItem === '' && this.itemsFormGroup.get([check[0],check[1],'price'])) {
-            this.itemsFormGroup.get([check[0],check[1],'price']).setValue('');
+          if (fillItem === '' && this.itemsFormGroup.get([check[0], check[1], 'price'])) {
+            this.itemsFormGroup.get([check[0], check[1], 'price']).setValue('');
           }
         }
       }
@@ -123,6 +125,12 @@ export class PlandoItemsComponent {
   }
 
   private _filter(initialOptions: Array<string>, value: string): void {
+    if (value.startsWith('TRAP')) {
+      initialOptions = Array.from(this.LEGAL_TRAP_ITEMS);
+      this.settingTrap = true;
+    } else {
+      this.settingTrap = false;
+    }
     const regexes = value.toLowerCase().split(/\s/g).filter(s => s.trim() !== '').map(s => new RegExp(escapeRegexChars(s), 'i'));
     this.filteredItems = initialOptions.filter(item => regexes.every(reg => reg.test(item)));
   }

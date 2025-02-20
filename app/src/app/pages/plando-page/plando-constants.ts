@@ -1897,6 +1897,14 @@ export const PLANDO_ITEMS_LIST: Array<string> = [
     "ZapTap"
 ];
 
+const ILLEGAL_TRAP_ITEMS: Set<string> = new Set([
+    "TRAP",
+    "NonProgression",
+    "Consumable",
+    "Coin"]);
+
+export const LEGAL_TRAP_ITEMS: Array<string> = Array.from(PLANDO_ITEMS_LIST.filter((item) => !ILLEGAL_TRAP_ITEMS.has(item)));
+
 export const LEGAL_MASS_FILL_ITEMS: Set<string> = new Set([
     "TRAP",
     "NonProgression",

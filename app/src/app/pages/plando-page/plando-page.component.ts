@@ -1,16 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
-import { BADGE_LIST } from "./plando-badges/plando-badges.component";
 import { escapeRegexChars } from "src/app/utilities/stringFunctions";
+import { BADGE_LIST } from "./plando-badges/plando-badges.component";
+import { CheckType, LEGAL_TRAP_ITEMS, LOCATIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-constants";
 import { STAR_SPIRIT_POWER_NAMES } from "./plando-spirits-and-chapters/plando-spirits-and-chapters.component";
-import { CheckType, LOCATIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-constants";
 
 export const MAX_FP_COST: number = 75;
 export const MAX_BP_COST: number = 10;
 export const DEFAULT_PLANDOMIZER_KEY: string = 'default_plandomizer';
 
 const plandoItemSet = new Set(PLANDO_ITEMS_LIST);
-export const manualTrapRegex = new RegExp('^TRAP \\((' + PLANDO_ITEMS_LIST.slice(3).map(escapeRegexChars).join('|') + ')\\)$');
+export const manualTrapRegex = new RegExp('^TRAP \\((' + LEGAL_TRAP_ITEMS.map(escapeRegexChars).join('|') + ')\\)$');
 
 @Component({
   selector: 'app-plando-page',
