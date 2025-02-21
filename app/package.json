@@ -29,6 +29,7 @@
     "ngx-toastr": "^16.2.0",
     "rxjs": "~7.8.1",
     "smoothscroll-polyfill": "^0.4.4",
+    "serialize-javascript": "^6.0.2",
     "tslib": "^2.7.0",
     "zone.js": "~0.13.0"
   },
