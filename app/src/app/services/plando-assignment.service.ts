@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { FormGroup } from "@angular/forms";
+import { FormGroup, Validators } from "@angular/forms";
 import { CheckType, DOJO_CHECK_VALUES, DUNEGON_KEYS, GEAR_LOCATIONS, KEY_TO_DUNGEON, KOOT_FAVOR_CHECKS, KOOT_FAVOR_ITEMS, LETTER_CHAIN_CHECKS, LOCATIONS_LIST, PARTNERS, PROGRESSIVE_BADGES, SUPER_BLOCK_LOCATIONS } from "../pages/plando-page/plando-constants";
 import { BehaviorSubject, Observable } from "rxjs";
+import { CustomValidators } from "../utilities/custom.validators";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,7 @@ export class PlandoAssignmentService {
       let partnerShuffle: number = 0;
       let partnerUpgradeShuffle: number = 0;
       let letterShuffle: number = 0;
+      let partnersPlandoed: number = 0;
       const rowfSets: Set<string> = new Set();
       if (plando['items']) {
         randoSettingsFormGroup.get('items').get('shuffleItems').setValue(true);
@@ -51,16 +53,14 @@ export class PlandoAssignmentService {
                   }
                 }
 
-                if (PARTNERS.has(plandoItem)) {
-                  randoSettingsFormGroup.get(['partners','startWithPartners',plandoItem.toLowerCase()]).setValue(false);
-                  plandoAssignedControls.add(plandoItem.toLowerCase());
-                }
-
                 if (KOOT_FAVOR_ITEMS.has(plandoItem) && KOOT_FAVOR_CHECKS[check.name] !== plandoItem) {
                   kootFavors = 2;
                 }
 
                 if (PARTNERS.has(plandoItem)) {
+                  randoSettingsFormGroup.get(['partners', 'startWithPartners', plandoItem.toLowerCase()]).setValue(false);
+                  plandoAssignedControls.add(plandoItem.toLowerCase());
+                  partnersPlandoed++;
                   if (!check.name.endsWith(' Partner')) {
                     partnerShuffle = 2;
                   } else {
@@ -199,6 +199,22 @@ export class PlandoAssignmentService {
           randoSettingsFormGroup.get('items').get('partnerUpgradeShuffle').setValue(partnerUpgradeShuffle);
           plandoAssignedControls.add('partnerUpgradeShuffle');
         }
+        if (partnersPlandoed) {
+          if (partnersPlandoed === 7) {
+            randoSettingsFormGroup.get(['partners', 'startWithRandomPartners']).setValue(false);
+            const startingPartner = Array.from(PARTNERS).filter((p) => !plandoAssignedControls.has(p.toLowerCase()))[0];
+            randoSettingsFormGroup.get(['partners', 'startWithPartners', startingPartner.toLowerCase()]).setValue(true);
+            plandoAssignedControls.add('startWithRandomPartners');
+          } else {
+            const maxRandomPartners = 8 - partnersPlandoed;
+            randoSettingsFormGroup.get(['partners', 'randomPartnersMin']).setValidators([Validators.min(1), Validators.max(maxRandomPartners)]);
+            randoSettingsFormGroup.get(['partners', 'randomPartnersMax']).setValidators([Validators.min(1), Validators.max(maxRandomPartners), CustomValidators.greaterOrEqualTo('randomPartnersMin')]);
+            if (randoSettingsFormGroup.get(['partners', 'randomPartnersMax']).value > maxRandomPartners) {
+              randoSettingsFormGroup.get(['partners', 'randomPartnersMax']).setValue(maxRandomPartners);
+            }
+            plandoAssignedControls.add('randomPartnersMax');
+          }
+        }
         if (traps) {
           if (traps > 40) {
             randoSettingsFormGroup.get('itemPool').get('itemTrapMode').setValue(3);
@@ -220,6 +236,10 @@ export class PlandoAssignmentService {
           randoSettingsFormGroup.get('goals').get('requireSpecificSpirits').setValue(false);
         }
       }
+    } else {
+      // No plando assigned, reset any validators.
+      randoSettingsFormGroup.get(['partners', 'randomPartnersMin']).setValidators([Validators.min(1), Validators.max(8)]);
+      randoSettingsFormGroup.get(['partners', 'randomPartnersMax']).setValidators([Validators.min(1), Validators.max(8), CustomValidators.greaterOrEqualTo('randomPartnersMin')]);
     }
     this.assignedControls.next(plandoAssignedControls);
   }

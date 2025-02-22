@@ -44,6 +44,8 @@ export class PlandomizersComponent implements OnInit, OnDestroy {
     ["addUnusedBadgeDuplicates", "Add Unused Badge Duplicates"],
     ["addBetaItems", "Add Beta Items"],
     ["progressiveBadges", "Progressive Badges"],
+    ["startWithRandomPartners", "Start with Random Partners"],
+    ["randomPartnersMax", "Max number of starting partners"]
   ]);
   public savedPlandoNames: Set<String>;
   public selectedPlandoName: string;

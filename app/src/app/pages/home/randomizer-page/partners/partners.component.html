@@ -24,7 +24,7 @@
         </div>
         <mat-divider></mat-divider>
         <div class="setting-element full-width-element">
-            <mat-slide-toggle formControlName='startWithRandomPartners'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='startWithRandomPartners' plandoAssignable></mat-slide-toggle>
             <app-tooltip-span
                 spanText="Start With Random Partners"
                  tooltipText="Off: Start the game with a custom selection of starting partners
@@ -40,6 +40,7 @@
                         max="8"
                         formControlName='randomPartnersMin'
                         (blur)="onRandomPartnersMinBlur()"
+                        (input)="inputfilters.filterNumericInput($event, partnersFormGroup, ['randomPartnersMin'])"
                         [ngClass]="{ 'error': partnersFormGroup.get('randomPartnersMin').invalid || partnersFormGroup.get('randomPartnersMax').hasError('greaterOrEqual')}">
                 <span class="settings-label">Min number of starting partners</span>
             </div>
@@ -50,6 +51,7 @@
                          max="8"
                          formControlName='randomPartnersMax'
                          (blur)="onRandomPartnersMaxBlur()"
+                         (input)="inputfilters.filterNumericInput($event, partnersFormGroup, ['randomPartnersMax'])"
                          [ngClass]="{ 'error': partnersFormGroup.get('randomPartnersMax').invalid}">
                 <span class="settings-label">Max number of starting partners</span>
             </div>
@@ -96,13 +98,13 @@
             Minimum number of starting partners must be greater or equal to 1
         </li>
         <li *ngIf="partnersFormGroup.get('randomPartnersMin').hasError('max')">
-            Minimum number of starting partners must be smaller or equal to 8
+            Total of starting and plandomized partners cannot exceed 8
         </li>
         <li *ngIf="partnersFormGroup.get('randomPartnersMax').hasError('min')">
             Maximum number of starting partners must be greater or equal to 1
         </li>
         <li *ngIf="partnersFormGroup.get('randomPartnersMax').hasError('max')">
-            Maximum number of starting partners must be smaller or equal to 8
+            Total of starting and plandomized partners cannot exceed 8
         </li>
         <li *ngIf="partnersFormGroup.get('randomPartnersMax').hasError('greaterOrEqual')">
             Maximum number of starting partners must be greater or equal to minimum
