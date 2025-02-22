@@ -1478,6 +1478,8 @@
             "startingMaxHP":10,
             "startingMaxFP":5,
             "startingMaxBP":3,
+            "randomStartingStatsLevel": 1,
+            "startWithRandomStats": false,
             "startingStarPower":0,
             "startingBoots":0,
             "startingHammer":0,
