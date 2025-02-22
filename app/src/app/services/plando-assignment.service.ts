@@ -51,6 +51,11 @@ export class PlandoAssignmentService {
                   }
                 }
 
+                if (PARTNERS.has(plandoItem)) {
+                  randoSettingsFormGroup.get(['partners','startWithPartners',plandoItem.toLowerCase()]).setValue(false);
+                  plandoAssignedControls.add(plandoItem.toLowerCase());
+                }
+
                 if (KOOT_FAVOR_ITEMS.has(plandoItem) && KOOT_FAVOR_CHECKS[check.name] !== plandoItem) {
                   kootFavors = 2;
                 }
@@ -215,8 +220,8 @@ export class PlandoAssignmentService {
           randoSettingsFormGroup.get('goals').get('requireSpecificSpirits').setValue(false);
         }
       }
-      this.assignedControls.next(plandoAssignedControls);
     }
+    this.assignedControls.next(plandoAssignedControls);
   }
 
 }

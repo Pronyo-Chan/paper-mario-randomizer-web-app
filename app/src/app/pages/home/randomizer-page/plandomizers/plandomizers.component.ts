@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from "@angular/forms";
 import { Subscription } from "rxjs";
+import { PARTNERS } from "src/app/pages/plando-page/plando-constants";
 import { SAVED_PLANDO_NAME_PREFIX, SAVED_PLANDO_NAMES_KEY } from "src/app/pages/plando-page/plando-save-load/plando-save-load.component";
 import { PlandoAssignmentService } from "src/app/services/plando-assignment.service";
 
@@ -13,6 +14,7 @@ export class PlandomizersComponent implements OnInit, OnDestroy {
   @Input() public plandomizerFormControl: FormControl;
 
   private _plandoAssignmentSubscription: Subscription;
+  public readonly PARTNERS_SET = new Set(Array.from(PARTNERS).map((p) => p.toLowerCase()));
   public readonly controlDisplayStrings: Map<string, string> = new Map([
     ["shuffleItems", "Shuffle Items"],
     ["includePanels", "Include Hidden Panels"],
@@ -47,13 +49,17 @@ export class PlandomizersComponent implements OnInit, OnDestroy {
   public selectedPlandoName: string;
   public loadStatus: string;
   public plandoAssignedControls: Set<string>
+  public anyPartnerPlandoed: boolean = false;
 
   constructor(private _plandoAssignmentService: PlandoAssignmentService) { }
 
   public ngOnInit(): void {
     const storedNames = window.localStorage.getItem(SAVED_PLANDO_NAMES_KEY);
     this.savedPlandoNames = storedNames ? new Set(storedNames.split(',')) : new Set();
-    this._plandoAssignmentSubscription = this._plandoAssignmentService.assignedControls.asObservable().subscribe(assignedControls => this.plandoAssignedControls = assignedControls);
+    this._plandoAssignmentSubscription = this._plandoAssignmentService.assignedControls.asObservable().subscribe(assignedControls => {
+      this.plandoAssignedControls = assignedControls;
+      this.anyPartnerPlandoed = Array.from(this.plandoAssignedControls).some((control) => this.PARTNERS_SET.has(control));
+    });
   }
 
   ngOnDestroy(): void {

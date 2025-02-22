@@ -25,9 +25,10 @@
     <div class="row" *ngIf="plandoAssignedControls.size > 0">
         <p>Based on the selected plando, the following settings have been adjusted automatically:</p>
         <ul>
-            <li *ngFor="let control of plandoAssignedControls">
-                <span>{{controlDisplayStrings.get(control)}}</span>
-            </li>
+            <ng-container *ngFor="let control of plandoAssignedControls">
+                <li *ngIf="!PARTNERS_SET.has(control)">{{controlDisplayStrings.get(control)}}</li>
+            </ng-container>
+            <li *ngIf="anyPartnerPlandoed">Start with Specific Partner(s)</li>
         </ul>
     </div>
 </mat-card-content>
