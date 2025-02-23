@@ -144,18 +144,6 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     return this.goalsFormGroup.get('starBeamSpiritsNeeded').value >= 0 ? this.goalsFormGroup.get('starBeamSpiritsNeeded').value : 'Random'
   }
 
-  public getStarHuntTotalNumber(): string {
-    return this.goalsFormGroup.get('starHuntTotal').value >= 0 ? this.goalsFormGroup.get('starHuntTotal').value : 'Random'
-  }
-
-  public getStarWayPowerStarsNeededNumber(): string {
-    return this.goalsFormGroup.get('starWayPowerStarsNeeded').value >= 0 ? this.goalsFormGroup.get('starWayPowerStarsNeeded').value : 'Random'
-  }
-
-  public getStarBeamPowerStarsNeededNumber(): string {
-    return this.goalsFormGroup.get('starBeamPowerStarsNeeded').value >= 0 ? this.goalsFormGroup.get('starBeamPowerStarsNeeded').value : 'Random'
-  }
-
   private disableRequireSpecificSpiritsWhenSevenSpirits() {
     if(this.isSevenOrZeroStarSpirits) {
       this.goalsFormGroup.get('requireSpecificSpirits').setValue(false);
