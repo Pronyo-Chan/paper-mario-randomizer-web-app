@@ -40,12 +40,24 @@ export class PlandoItemsComponent {
   public readonly MASS_FILL_ITEMS: Set<string> = LEGAL_MASS_FILL_ITEMS;
   public readonly LEGAL_TRAP_ITEMS: Set<string> = new Set(['TRAP'].concat(LEGAL_TRAP_ITEMS.map((i) => 'TRAP (' + i + ')')));
   public readonly CHECK_TYPES_DISPLAY_MAP: Record<CheckType, string> = CHECK_TYPES_DISPLAY_MAPPING;
+
   constructor(public inputFilters: InputFilterService) { };
-  // Multicoin and super blocks not supported yet. Always filter them for now.
-  // Remove these and add toggles (if desired) when support is added.
-  public filteredTypes: Array<CheckType> = [CheckType.MULTICOIN_BLOCK, CheckType.SUPER_BLOCK];
+
+  public filteredTypes: Array<CheckType> = [
+    CheckType.MULTICOIN_BLOCK,
+    CheckType.SUPER_BLOCK,
+    CheckType.SHOP,
+    CheckType.HIDDEN_PANEL,
+    CheckType.COIN_BLOCK,
+    CheckType.OVERWORLD_COIN,
+    CheckType.TRADE_EVENT,
+    CheckType.FOLIAGE_COIN,
+    CheckType.KOOT_FAVOR_ITEM,
+    CheckType.KOOT_FAVOR_COIN,
+    CheckType.KOOT_FAVOR_REWARD,
+    CheckType.LETTER_REWARD];
   // For mass fill, don't show unsupported check types, or "Normal".
-  public massFillCheckTypes = Object.values(CheckType).filter(val => !this.filteredTypes.includes(val) && val !== CheckType.NORMAL);
+  public massFillCheckTypes = Object.values(CheckType).filter(val => val !== CheckType.NORMAL && !this.filteredTypes.includes(val));
   public filteredItems: string[] = this.PLANDO_ITEMS.slice();
   public searchText: FormControl;
 
@@ -66,6 +78,9 @@ export class PlandoItemsComponent {
       for (const loc of LOCATIONS_LIST) {
         if (loc.name === targetRegion) {
           for (const check of loc.checks) {
+            if (this.filteredTypes.includes(check.type)) {
+              continue;
+            }
             const formControlKey = [targetRegion, check.name];
             if (check.type === CheckType.SHOP) {
               formControlKey.push('item');
@@ -157,13 +172,14 @@ export class PlandoItemsComponent {
 
   public toggleCheckTypeFilter($event: MatSlideToggleChange, checkType: CheckType) {
     if ($event.checked) {
-      this.filteredTypes.push(checkType);
-    } else {
       const i = this.filteredTypes.indexOf(checkType);
       if (i > -1) {
         this.filteredTypes.splice(i, 1);
       }
+    } else {
+      this.filteredTypes.push(checkType);
     }
+    this.massFillCheckTypes = Object.values(CheckType).filter(val => val !== CheckType.NORMAL && !this.filteredTypes.includes(val));
   }
 
   public toDisplayString = function (s: string): string {

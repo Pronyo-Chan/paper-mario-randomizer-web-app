@@ -3,7 +3,7 @@
     <p class="row">To manually specify a Trap item's fake sprite, append the fake item's code in parentheses. For example: <code>TRAP (UltraStone)</code> will place a trap item that appears as the Ultra Stone.</p>
     <div class="row">
         <div class="check-filters-container">
-            <h3 class="row">Hide Checks</h3>
+            <h3 class="row">Show Checks</h3>
             <div class="check-filters">
                 <div class="setting-element">
                     <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.SHOP)"></mat-slide-toggle>
@@ -37,19 +37,16 @@
         </div>
         <div class="mass-fill">
             <h3 class="row">Mass Fill</h3>
-            <p class="row">Select a region or check type and enter an item, then click "Fill" to assign that item to all matching checks.</p>
+            <p class="row">Select a check type and enter an item, then click "Fill" to assign that item to all matching checks.</p>
             <div class="row">
                 <select #fillTargetSelect>
                     <option></option>
-                    <hr />
-                    <optgroup label="Check Types">
+                    <hr *ngIf="massFillCheckTypes.length > 0" />
+                    <optgroup label="Check Types" *ngIf="massFillCheckTypes.length > 0">
                         <option *ngFor="let checkType of massFillCheckTypes" [value]="'checkType_' + checkType">{{CHECK_TYPES_DISPLAY_MAP[checkType]}}</option>
                     </optgroup>
                     <hr />
-                    <optgroup label="Regions">
-                        <option *ngFor="let region of LOCATIONS" [value]="'region_' + region.name">{{toDisplayString(region.name)}}</option>
-                    </optgroup>
-                    <hr />
+                    <option value="current_checks">Checks in Current Region</option>
                     <option value="ALL">ALL Checks</option>
                 </select>
                 <input #massFillItem [matAutocomplete]="auto" (input)="updateMassFillAutoCompleteFilter($event)" (focus)="resetMassFillFilter($event)" />
