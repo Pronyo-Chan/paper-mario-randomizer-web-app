@@ -69,6 +69,7 @@ import { PlandoSaveLoadComponent } from './pages/plando-page/plando-save-load/pl
 import { PlandomizersComponent } from './pages/home/randomizer-page/plandomizers/plandomizers.component';
 import { GenerationSettingsComponent } from './pages/home/randomizer-page/generation-settings/generation-settings.component';
 import { PlandoAssignableDirective } from './utilities/directives/plando-assignable.directive';
+import { DismissableBannerComponent } from './common/dismissable-banner/dismissable-banner.component';
 
 const dbConfig: DBConfig  = {
   name: 'db',
@@ -132,6 +133,7 @@ const toasterConfig: Partial<GlobalConfig> = {
     PlandoSaveLoadComponent,
     PlandomizersComponent,
     PlandoAssignableDirective,
+    DismissableBannerComponent
   ],
   imports: [
     BrowserModule,
