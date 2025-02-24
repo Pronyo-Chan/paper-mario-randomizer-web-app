@@ -157,7 +157,7 @@ export class PlandoAssignmentService {
           randoSettingsFormGroup.get('items').get('includeRadioTradeEvent').setValue(true);
           plandoAssignedControls.add('includeRadioTradeEvent');
         }
-        if (plandoCheckTypes.has(CheckType.FOLIAGE)) {
+        if (plandoCheckTypes.has(CheckType.FOLIAGE_COIN)) {
           randoSettingsFormGroup.get('items').get('includeCoinsFoliage').setValue(true);
           plandoAssignedControls.add('includeCoinsFoliage');
         }
