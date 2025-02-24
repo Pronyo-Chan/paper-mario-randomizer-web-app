@@ -10,6 +10,7 @@ export interface StatsAndGear {
     Hammer: Hammer;
     MaxNumberOfStartingItems: number;
     MinNumberOfStartingItems: number;
+    RandomStartingStatsLevel: number;
     StarPower: number;
     StartingItems: string[]
 }

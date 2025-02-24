@@ -4,4 +4,5 @@ export interface SeedInfo {
     SeedID: number;
     SettingsString: string;
     StarRodModVersion: number;
+    IsPlandomizerSeed: boolean
 }

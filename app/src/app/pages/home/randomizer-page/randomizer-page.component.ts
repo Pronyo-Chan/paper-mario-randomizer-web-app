@@ -13,7 +13,7 @@ import { SpriteSetting } from './../../../entities/enum/spriteSetting';
 import { RandomizerService } from './../../../services/randomizer.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { of, Subscription } from 'rxjs';
-import {tap, catchError} from 'rxjs/operators'
+import { tap, catchError } from 'rxjs/operators'
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../utilities/custom.validators'
 import { DifficultySetting } from 'src/app/entities/enum/difficultySetting';
@@ -29,6 +29,8 @@ import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 import { DungeonEntranceShuffleMode } from 'src/app/entities/enum/DungeonEntranceShuffleMode';
 import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
 import { BossShuffleMode } from 'src/app/entities/enum/BossShuffleMode';
+import { SettingStringMappingService } from 'src/app/services/setting-string-mapping/setting-string-mapping.service';
+import { PlandoAssignmentService } from "src/app/services/plando-assignment.service";
 
 @Component({
   selector: 'app-randomizer-page',
@@ -45,13 +47,16 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
 
   public homepageLink;
   public formGroup: FormGroup
+  public plandomizerFormControl: FormControl;
+  private _plandoSubscription: Subscription;
   randomPartnersMinSubscription: Subscription;
 
   public isRandomizing = false;
   public seedGenError: string;
+  public seedGenErrorDetails: string;
   private _createSeedSubscription: Subscription;
 
-  public constructor(private _randomizerService: RandomizerService, private _localStorage: LocalStorageService, private _router: Router, private _toast: ToastrService){}
+  public constructor(private _randomizerService: RandomizerService, private _localStorage: LocalStorageService, private _router: Router, private _toast: ToastrService, private _settingsStringService: SettingStringMappingService, private _plandoAssignmentService: PlandoAssignmentService){}
 
   public ngOnInit(): void {
     this.homepageLink = environment.homepage;
@@ -66,6 +71,15 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     if(this._createSeedSubscription) {
       this._createSeedSubscription.unsubscribe();
     }
+
+    if (this._plandoSubscription) {
+      this._plandoSubscription.unsubscribe();
+    }
+
+    try {
+      var settingsString = this._settingsStringService.compressFormGroup(this.formGroup, this._settingsStringService.settingsMap);
+      this._localStorage.set('latestSettingsString', settingsString);
+    } catch {}
   }
 
   public onSubmit() {
@@ -92,9 +106,10 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       }
     }
     this.seedGenError = null;
+    this.seedGenErrorDetails = null;
     this.isRandomizing = true;
 
-    this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup).pipe(
+    this._createSeedSubscription = this._randomizerService.createSeedWithSettings(this.formGroup, this.plandomizerFormControl).pipe(
       tap(seedId => {
         this._localStorage.set("latestSeedId", seedId)
         this.navigateToSeedPage(seedId);
@@ -108,6 +123,14 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         }
         else if(typeof err.error === 'string' && (err.error as string) == "item_pool_too_small") {
           this.seedGenError = "The amount of new items to place is greater than the item pool size. Try to shuffle more item sources, or disable options that add new items."
+        }
+        else if(typeof err.error === 'string' && (err.error as string).includes("Plandomizer error")) {
+          this.seedGenError = "Could not generate a beatable seed with the selected settings and plandomizer config.";
+          this.seedGenErrorDetails = err.error;
+        }
+        else if(typeof err.error === 'string' && (err.error as string).includes("Invalid plandomizer config")) {
+          this.seedGenError = "The selected plandomizer config is invalid.";
+          this.seedGenErrorDetails = err.error;
         }
         else {
           this.seedGenError = 'A server error has occured';
@@ -218,6 +241,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         startingMaxHP: new FormControl(10),
         startingMaxFP: new FormControl(5),
         startingMaxBP: new FormControl(3),
+        randomStartingStatsLevel: new FormControl(1),
+        startWithRandomStats: new FormControl(false),
         startingStarPower: new FormControl(0),
         startingBoots: new FormControl(Boots.Default),
         startingHammer: new FormControl(Hammer.Default),
@@ -247,7 +272,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         starBeamSpiritsNeeded: new FormControl(0),
         limitChapterLogic: new FormControl(false),
         starWayPowerStarsNeeded: new FormControl(0),
-        starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualTo('starWayPowerStarsNeeded'), CustomValidators.greaterOrEqualTo('starBeamPowerStarsNeeded')]),
+        starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualToWhenNotRandom('starWayPowerStarsNeeded'), CustomValidators.greaterOrEqualToWhenNotRandom('starBeamPowerStarsNeeded')]),
         seedGoal: new FormControl(SeedGoal.DefeatBowser),
         starBeamPowerStarsNeeded: new FormControl(0),
         // Unsubmitted control
@@ -276,12 +301,19 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         shuffleMusic: new FormControl(-1),
         shuffleJingles: new FormControl(false),
       }),
-      glitches: new FormControl([])
+      glitches: new FormControl([]),
     });
+    this.plandomizerFormControl = new FormControl();
 
     this.randomPartnersMinSubscription = this.formGroup.get('partners').get('randomPartnersMin').valueChanges.pipe(
       tap(() => this.formGroup.get('partners').get('randomPartnersMax').updateValueAndValidity())
       ).subscribe();
+
+    this._plandoSubscription = this.plandomizerFormControl.valueChanges.pipe(
+      tap(plando => {
+        this._plandoAssignmentService.updatePlandoAssignedControls(this.formGroup, plando);
+      })
+    ).subscribe();
   }
 
   private validateSettings(): string[] {

@@ -22,6 +22,9 @@
                 <mat-tab label="Glitches & Tricks">
                     <app-glitches-and-tricks [formGroup]="formGroup"></app-glitches-and-tricks>
                 </mat-tab>
+                <mat-tab label="Plandomizers">
+                    <app-plandomizers [plandomizerFormControl]="plandomizerFormControl"></app-plandomizers>
+                </mat-tab>
             </mat-tab-group>
         </mat-card>
         <mat-card class="settings-card" [ngClass]="{ 'starting-items-tab-error': formGroup.get('marioStats').invalid}">
@@ -56,16 +59,8 @@
             <mat-card-title class="settings-title">Spoiler Settings</mat-card-title>
             <app-spoiler-settings [formGroup]="formGroup"></app-spoiler-settings>
         </mat-card>
-        <mat-card class="settings-card small-card">
-        <div class="button-container">
-
-                <button [disabled]="formGroup.invalid || isRandomizing" class="submit" (click)="onSubmit()">
-                    <span [matTooltip]="formGroup.invalid ? 'Please fix the errors on the page to submit' : ''" matTooltipPosition="right">Generate Seed</span>
-                </button>
-                <app-loading *ngIf="isRandomizing" [isLoading]="isRandomizing" [loadingText]="'Generating Seed'"></app-loading>
-                <app-error *ngIf="seedGenError" [errorText]="seedGenError"></app-error>
-            </div>
-            <p class="bottom-note">*First time playing? We recommend you give the <a href="https://github.com/icebound777/PMR-SeedGenerator/wiki" target="_blank" rel="noopener noreferrer">Wiki</a> a quick look before starting!</p>
+        <mat-card class="settings-card">
+          <app-generation-settings [formGroup]="formGroup" [isRandomizing]="isRandomizing" [seedGenError]="seedGenError" [seedGenErrorDetails]="seedGenErrorDetails" (onSubmitEmit)="onSubmit()"></app-generation-settings>
         </mat-card>
     </div>
 </form>

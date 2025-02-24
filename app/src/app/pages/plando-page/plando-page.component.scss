@@ -1,0 +1,202 @@
+@import "./../../../variables";
+:host {
+  font-family: gluten;
+  font-weight: 600;
+
+  .logo-paste-over {
+    margin-top: -11%;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .container.end {
+    justify-content: end;
+  }
+
+  .panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex: 0 1 20%;
+    min-width: 250px;
+    background-color: $blue-background-card;
+    margin: 10px;
+    border-radius: 15px;
+    padding: 0.5rem;
+    box-shadow: #919191 2px 2px 4px 0px;
+
+    input[type="checkbox"] {
+      visibility: hidden;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      flex: 1 1 100%;
+      margin: 10px 0;
+    }
+    .row.start {
+      justify-content: start;
+    }
+    .end {
+      justify-content: end;
+    }
+    .settings {
+      flex: 1 1 50%;
+    }
+    label {
+      margin-right: 1rem;
+    }
+    app-tooltip-span {
+      position: relative;
+    }
+    input.ng-invalid {
+      border-color: #df2020;
+      background-color: #ffd6d2;
+    }
+    label:has(+ .ng-invalid) {
+      background-color: #650b0b;
+      border-radius: 6px;
+      color: #fff0f0;
+      padding: 3px;
+    }
+  }
+
+  .settings-card {
+    ::ng-deep .mat-tab-group.sub-tab {
+      .mat-tab-header {
+        .mat-tab-label-container {
+          .mat-tab-list {
+            .mat-tab-labels {
+              display: inline-flex;
+              .mat-tab-label {
+                background-color: $yellow-stat-main !important;
+                border-color: $yellow-stat-border !important;
+                border-radius: 28px 28px 0px 0px;
+                margin: 0 0 0 4px;
+
+                .mat-tab-label-content {
+                  font-family: gluten;
+                  font-size: 16px;
+                  color: white;
+                  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+                    -1px -1px 0 #000;
+                  cursor: pointer;
+                }
+              }
+              .mat-tab-label:has(> div > label.error) {
+                background-color: #650b0b !important;
+              }
+            }
+          }
+        }
+      }
+    }
+    ::ng-deep .mat-tab-group {
+      .mat-tab-header {
+        .mat-tab-label-container {
+          left: 0px;
+          width: 100%;
+
+          .mat-tab-list {
+            overflow-x: auto !important;
+            transform: none !important;
+
+            .mat-ink-bar {
+              display: none;
+            }
+
+            .mat-tab-labels {
+              .mat-tab-label {
+                opacity: 1 !important;
+                min-width: 165px !important;
+                border: solid 3px;
+                border-radius: 28px;
+                margin: 8px 0 8px 4px;
+                filter: brightness(0.6);
+
+                &.mat-tab-label-active {
+                  filter: brightness(1);
+                }
+
+                .mat-tab-label-content {
+                  font-family: gluten;
+                  font-size: 16px;
+                  color: white;
+                  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+                    -1px -1px 0 #000;
+                  cursor: pointer;
+                }
+
+                .sub-tab .mat-tab-label-content {
+                  font-size: 32px;
+                }
+              }
+
+              > :first-child {
+                background-color: $blue-item-main !important;
+                border-color: $blue-item-border !important;
+              }
+
+              > :nth-child(2) {
+                background-color: $turquoise-partner-main !important;
+                border-color: $turquoise-partner-border !important;
+              }
+
+              > :nth-child(3) {
+                background-color: $orange-badge-main !important;
+                border-color: $orange-badge-border !important;
+              }
+
+              > :nth-child(4) {
+                background-color: $purple-misc-main !important;
+                border-color: $purple-misc-border !important;
+              }
+
+              .mat-tab-label:has(> div > label.error) {
+                background-color: #650b0b !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  div.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    button.submit {
+      span {
+        font-family: gluten;
+        color: white;
+        text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+          -1px -1px 0 #000;
+        font-size: 30px;
+      }
+      cursor: pointer;
+      padding: 1rem 2rem;
+      background-color: $yellow-stat-main;
+      border-radius: 28px;
+      border: double;
+      border-width: 6px;
+      border-color: $yellow-stat-border;
+      min-width: 500px;
+    }
+  }
+  button:disabled {
+    opacity: 35%;
+    cursor: not-allowed;
+  }
+}

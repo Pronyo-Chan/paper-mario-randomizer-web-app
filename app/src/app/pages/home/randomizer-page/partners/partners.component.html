@@ -24,7 +24,7 @@
         </div>
         <mat-divider></mat-divider>
         <div class="setting-element full-width-element">
-            <mat-slide-toggle formControlName='startWithRandomPartners'></mat-slide-toggle>
+            <mat-slide-toggle formControlName='startWithRandomPartners' plandoAssignable></mat-slide-toggle>
             <app-tooltip-span
                 spanText="Start With Random Partners"
                  tooltipText="Off: Start the game with a custom selection of starting partners
@@ -40,6 +40,7 @@
                         max="8"
                         formControlName='randomPartnersMin'
                         (blur)="onRandomPartnersMinBlur()"
+                        (input)="inputfilters.filterNumericInput($event, partnersFormGroup, ['randomPartnersMin'])"
                         [ngClass]="{ 'error': partnersFormGroup.get('randomPartnersMin').invalid || partnersFormGroup.get('randomPartnersMax').hasError('greaterOrEqual')}">
                 <span class="settings-label">Min number of starting partners</span>
             </div>
@@ -50,6 +51,7 @@
                          max="8"
                          formControlName='randomPartnersMax'
                          (blur)="onRandomPartnersMaxBlur()"
+                         (input)="inputfilters.filterNumericInput($event, partnersFormGroup, ['randomPartnersMax'])"
                          [ngClass]="{ 'error': partnersFormGroup.get('randomPartnersMax').invalid}">
                 <span class="settings-label">Max number of starting partners</span>
             </div>
@@ -57,34 +59,34 @@
         <ng-template #fixedPartnersTemplate>
             <form [formGroup]="partnersFormGroup.get('startWithPartners')" class="full-width-element">
                 <div class="setting-element">
-                    <mat-checkbox formControlName='goombario'></mat-checkbox>
+                    <mat-checkbox formControlName='goombario' plandoAssignable></mat-checkbox>
                     <span class="settings-label">Goombario</span>
                 </div>
                 <div class="setting-element">
-                    <mat-checkbox formControlName='kooper'></mat-checkbox>
+                    <mat-checkbox formControlName='kooper' plandoAssignable></mat-checkbox>
                     <span class="settings-label">Kooper</span>
                 </div>
                 <div class="setting-element">
-                    <mat-checkbox formControlName='bombette'></mat-checkbox>
+                    <mat-checkbox formControlName='bombette' plandoAssignable></mat-checkbox>
                     <span class="settings-label">Bombette</span>
                 </div>
                 <div class="setting-element">
-                    <mat-checkbox formControlName='parakarry'></mat-checkbox>
+                    <mat-checkbox formControlName='parakarry' plandoAssignable></mat-checkbox>
                     <span class="settings-label">Parakarry</span>
                 </div>
                 <div class="setting-element">
-                    <mat-checkbox formControlName='bow'></mat-checkbox>
+                    <mat-checkbox formControlName='bow' plandoAssignable></mat-checkbox>
                     <span class="settings-label">Bow</span>
                 </div>
                 <div class="setting-element">
-                    <mat-checkbox formControlName='watt'></mat-checkbox>
+                    <mat-checkbox formControlName='watt' plandoAssignable></mat-checkbox>
                     <span class="settings-label">Watt</span>
                 </div>
                 <div class="setting-element">
-                    <mat-checkbox formControlName='sushie'></mat-checkbox>
+                    <mat-checkbox formControlName='sushie' plandoAssignable></mat-checkbox>
                     <span class="settings-label">Sushie</span>
                 </div><div class="setting-element">
-                    <mat-checkbox formControlName='lakilester'></mat-checkbox>
+                    <mat-checkbox formControlName='lakilester' plandoAssignable></mat-checkbox>
                     <span class="settings-label">Lakilester</span>
                 </div>
             </form>
@@ -96,13 +98,13 @@
             Minimum number of starting partners must be greater or equal to 1
         </li>
         <li *ngIf="partnersFormGroup.get('randomPartnersMin').hasError('max')">
-            Minimum number of starting partners must be smaller or equal to 8
+            Total of starting and plandomized partners cannot exceed 8
         </li>
         <li *ngIf="partnersFormGroup.get('randomPartnersMax').hasError('min')">
             Maximum number of starting partners must be greater or equal to 1
         </li>
         <li *ngIf="partnersFormGroup.get('randomPartnersMax').hasError('max')">
-            Maximum number of starting partners must be smaller or equal to 8
+            Total of starting and plandomized partners cannot exceed 8
         </li>
         <li *ngIf="partnersFormGroup.get('randomPartnersMax').hasError('greaterOrEqual')">
             Maximum number of starting partners must be greater or equal to minimum

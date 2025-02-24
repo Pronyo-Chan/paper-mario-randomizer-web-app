@@ -2,6 +2,7 @@ import { FormGroup } from '@angular/forms';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { tap, Subscription } from 'rxjs';
 import { SeedGoal } from 'src/app/entities/enum/seedGoal';
+import { PlandoAssignmentService } from "src/app/services/plando-assignment.service";
 
 @Component({
   selector: 'app-goal-settings',
@@ -17,9 +18,10 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
   private _starWaySpiritsNeededSubscription: Subscription;
   private _requiredStarWayPowerStarsSubscription: Subscription;
   private _requiredStarBeamPowerStarsSubscription: Subscription;
+  private _plandoSubscription: Subscription;
   private _lclSubscription: Subscription;
 
-  public constructor() { }
+  public constructor(private _plandoAssignmentService: PlandoAssignmentService) { }
 
   public ngOnInit(): void {
     this.updateIsSevenOrZeroStarSpirits();
@@ -78,6 +80,10 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     if(this._lclSubscription) {
       this._lclSubscription.unsubscribe();
     }
+
+    if(this._plandoSubscription) {
+      this._plandoSubscription.unsubscribe();
+    }
   }
 
   public onRequiredStarWayStarsBlur(): void {
@@ -87,7 +93,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     if(requiredStarsControl.value > 120) {
       requiredStarsControl.setValue(120, { emitEvent: false });
     }
-    else if(requiredStarsControl.value < 0) {
+    else if(requiredStarsControl.value < -1) {
       requiredStarsControl.setValue(0, { emitEvent: false });
     }
 
@@ -102,7 +108,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     if(requiredBeamStarsControl.value > 120) {
       requiredBeamStarsControl.setValue(120, { emitEvent: false });
     }
-    else if(requiredBeamStarsControl.value < 0) {
+    else if(requiredBeamStarsControl.value < -1) {
       requiredBeamStarsControl.setValue(0, { emitEvent: false });
     }
 
@@ -117,7 +123,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     if(placedStarsControl.value > 120) {
       placedStarsControl.setValue(120);
     }
-    else if(placedStarsControl.value < 0) {
+    else if(placedStarsControl.value < -1) {
       placedStarsControl.setValue(0);
     }
 
@@ -141,6 +147,9 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
   private disableRequireSpecificSpiritsWhenSevenSpirits() {
     if(this.isSevenOrZeroStarSpirits) {
       this.goalsFormGroup.get('requireSpecificSpirits').setValue(false);
+      this.goalsFormGroup.get('requireSpecificSpirits').disable();
+    } else if(this._plandoAssignmentService.assignedControls.getValue().has('starWaySpiritsNeeded')) {
+      this.goalsFormGroup.get('requireSpecificSpirits').setValue(true);
       this.goalsFormGroup.get('requireSpecificSpirits').disable();
     } else {
       this.goalsFormGroup.get('requireSpecificSpirits').enable();

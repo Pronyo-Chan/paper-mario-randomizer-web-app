@@ -3,12 +3,12 @@
 
 .logo-wrapper {
     margin: 0 33% 0 33%; //prevents clicking outside of image
-  
+
     img.logo {
       width: 100%;
     }
   }
- 
+
 span.caret {
     font-size: 0.5vmax;
     padding: 0 !important;
@@ -37,7 +37,7 @@ span.caret {
         height: 2.5rem;
         line-height: 2.5rem !important;
     }
-  
+
     @include large {
         height: 3rem;
         line-height: 3.0rem !important;
@@ -62,7 +62,7 @@ span.caret {
         @include medium {
             font-size: 15px;
           }
-      
+
         @include large {
         font-size: 18px;
         }
@@ -86,7 +86,7 @@ span.caret {
                 display: block;
             }
         }
-    } 
+    }
 
     .example-spacer {
         flex: 1 1 auto;
@@ -158,10 +158,6 @@ body.red-bg {
     background-color: $beige-background-card;
     margin: 0 .5rem 1rem .5rem;
 
-    @include medium {
-        margin: 0 3rem 2rem 3rem;
-    }
-
     @include large {
         margin: 0 4rem 2rem 4rem;
     }
@@ -198,25 +194,29 @@ body.red-bg {
          }
 
          .setting-element {
-             margin-top: 8px;
-             display: flex;         
-             align-items: center;
-             flex-basis: 100%;
-             flex-grow: 1;
+              margin-top: 8px;
+              display: flex;
+              align-items: center;
+              flex-basis: 100%;
+              flex-grow: 1;
 
-             @include medium {
-                flex-basis: 50%;
-                flex-grow: 2;
-             }
+              @include medium {
+                  flex-basis: 50%;
+                  flex-grow: 2;
+              }
          }
 
          .slider-element {
-             flex-wrap: wrap;
-             flex-direction: column;
-             align-items: baseline;
-             margin-top: 0;
-             position: relative;
-             top: 8px;
+              flex-wrap: wrap;
+              flex-direction: column;
+              align-items: baseline;
+              margin-top: 0;
+              position: relative;
+              top: 8px;
+
+              .setting-name-container {
+                padding-bottom: 6px;
+              }
          }
 
          .dropdown-element {
@@ -235,10 +235,10 @@ body.red-bg {
             flex-basis: 100%;
          }
      }
-     
+
      div.disabled-element {
         opacity: 35%;
-    }        
+    }
  }
 
  .small-card {
@@ -248,7 +248,7 @@ body.red-bg {
  button.yellow-button {
     width: 110px;
     span {
-        
+
         font-family: gluten ;
         font-size: 16px;
         color: white ;
@@ -258,7 +258,7 @@ body.red-bg {
     margin: 1rem 1rem 0 0;
     cursor: pointer;
     padding: 0.6rem 1rem;
-    background-color: $yellow-stat-main;         
+    background-color: $yellow-stat-main;
     border: none;
     border-radius: 28px;
  }

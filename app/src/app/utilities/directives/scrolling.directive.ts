@@ -24,15 +24,18 @@ export class MatTabScrollToCenterDirective implements OnDestroy {
   ) {
     this.subs.add(
       fromEvent(this.element.nativeElement, 'click').subscribe((clickedContainer: MouseEvent) => {
-        const scrollContainer = this.element.nativeElement.querySelector('.mat-tab-list');
-        const currentScrolledContainerPosition: number = scrollContainer.scrollLeft;
-        // const newPositionScrollTo = this.calcScrollValue(clickedContainer, currentScrolledContainerPosition);
-        const newPositionScrollTo = this.calcScrollToCenterValue(clickedContainer, currentScrolledContainerPosition);
+        if (clickedContainer.target instanceof HTMLElement
+          && (clickedContainer.target.classList.contains('mat-tab-label-content') || clickedContainer.target.classList.contains('mat-tab-label'))) {
+          const scrollContainer = this.element.nativeElement.querySelector('.mat-tab-list');
+          const currentScrolledContainerPosition: number = scrollContainer.scrollLeft;
+          // const newPositionScrollTo = this.calcScrollValue(clickedContainer, currentScrolledContainerPosition);
+          const newPositionScrollTo = this.calcScrollToCenterValue(clickedContainer, currentScrolledContainerPosition);
 
-        scrollContainer.scroll({
-          left: newPositionScrollTo,
-          behavior: 'smooth',
-        });
+          scrollContainer.scroll({
+            left: newPositionScrollTo,
+            behavior: 'smooth',
+          });
+        }
       })
     );
   }

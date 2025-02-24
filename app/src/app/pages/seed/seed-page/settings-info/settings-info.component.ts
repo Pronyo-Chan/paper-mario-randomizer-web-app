@@ -244,8 +244,19 @@ export class SettingsInfoComponent implements OnInit {
   }
 
   private initGoalsRows(): void {
-    const isStarHuntEnabled = this.seedModel.Goals.StarHuntTotal > 0;
     const isStarBeamReachable = this.seedModel.Goals.SeedGoal == SeedGoal.DefeatBowser;
+
+    function getPowerStarDisplayValue(value: number) {
+      if (value === 0) {
+        return null;
+      }
+
+      if (value === -1) {
+        return "Random";
+      }
+
+      return value;
+    }
 
     this.goalsRows = [
       {name: "Seed Goal", value: pascalToVerboseString(SeedGoal[this.seedModel.Goals.SeedGoal])},
@@ -254,9 +265,9 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Limit Chapter Logic", value: this.seedModel.Goals.RequireSpecificSpirits ? this.seedModel.Goals.LimitChapterLogic : null},
       {name: "Shuffle Star Beam", value: isStarBeamReachable ? this.seedModel.Goals.ShuffleStarBeam : null},
       {name: "Star Beam Spirits Rquired", value: isStarBeamReachable ? this.seedModel.Goals.StarBeamSpiritsNeeded : null},
-      {name: "Total Power Stars", value: isStarHuntEnabled ? this.seedModel.Goals.StarHuntTotal : null},
-      {name: "Star Way - Power Stars Required", value: isStarHuntEnabled ? this.seedModel.Goals.StarWayPowerStarsNeeded : null},
-      {name: "Star Beam - Power Stars Required", value: isStarBeamReachable && isStarHuntEnabled ? this.seedModel.Goals.StarBeamPowerStarsNeeded : null}
+      {name: "Total Power Stars", value: getPowerStarDisplayValue(this.seedModel.Goals.StarHuntTotal)},
+      {name: "Star Way - Power Stars Required", value: getPowerStarDisplayValue(this.seedModel.Goals.StarWayPowerStarsNeeded)},
+      {name: "Star Beam - Power Stars Required", value: getPowerStarDisplayValue(this.seedModel.Goals.StarBeamPowerStarsNeeded)}
     ] as SettingRow[]
   }
 
@@ -275,14 +286,16 @@ export class SettingsInfoComponent implements OnInit {
 
   private initStatsRows(): void {
     let startingItems = this.seedModel.StatsAndGear.StartingItems.map(i => this.getStartingItemName(i))
+    const isRandomStats = this.seedModel.StatsAndGear.RandomStartingStatsLevel > -1;
     if(!startingItems.length) {
       startingItems = ["None"];
     }
 
     this.statsAndGearRows = [
-      {name: "HP", value: this.seedModel.StatsAndGear.HP},
-      {name: "FP", value: this.seedModel.StatsAndGear.FP},
-      {name: "BP", value: this.seedModel.StatsAndGear.BP},
+      {name: "HP", value: !isRandomStats ? this.seedModel.StatsAndGear.HP : null},
+      {name: "FP", value: !isRandomStats ? this.seedModel.StatsAndGear.FP : null},
+      {name: "BP", value: !isRandomStats ? this.seedModel.StatsAndGear.BP : null},
+      {name: "Random Starting Stats Level", value: isRandomStats ? this.seedModel.StatsAndGear.RandomStartingStatsLevel : null},
       {name: "Star Power", value: this.seedModel.StatsAndGear.StarPower},
       {name: "Boots", value: Boots[this.seedModel.StatsAndGear.Boots]},
       {name: "Hammer", value: Hammer[this.seedModel.StatsAndGear.Hammer]},

@@ -14,19 +14,34 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
   @Input() public marioStatsFormGroup: FormGroup
 
   private _formGroupSubscription: any;
+  private _startWithRandomStatsSubscription: any;
   constructor() { }
-  
+
 
   public ngOnInit(): void {
     this.updateStartingLevel();
+
     this._formGroupSubscription = this.marioStatsFormGroup.valueChanges.pipe(
       tap(() => this.updateStartingLevel())
+    ).subscribe();
+
+    this._startWithRandomStatsSubscription = this.marioStatsFormGroup.get('startWithRandomStats').valueChanges.pipe(
+      tap(() => {
+        if(this.marioStatsFormGroup.get('startWithRandomStats').value)
+        {
+          this.marioStatsFormGroup.get('startingMaxHP').setValue(10);
+          this.marioStatsFormGroup.get('startingMaxFP').setValue(5);
+          this.marioStatsFormGroup.get('startingMaxBP').setValue(3);
+        }
+      })
     ).subscribe();
   }
 
   public ngOnDestroy(): void {
     if(this._formGroupSubscription)
       this._formGroupSubscription.unsubscribe();
+    if(this._startWithRandomStatsSubscription)
+      this._startWithRandomStatsSubscription.unsubscribe();
   }
 
   public updateStartingLevel(): void {
@@ -81,7 +96,7 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
   }
 
   public onStartingFPBlur() {
-    
+
     this.marioStatsFormGroup.get('startingMaxFP').setValue(this.getAdjustedFPValue())
     this.marioStatsFormGroup.updateValueAndValidity();
     this.updateStartingLevel();
@@ -107,7 +122,7 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
   }
 
   public onStartingBPBlur() {
-    
+
     this.marioStatsFormGroup.get('startingMaxBP').setValue(this.getAdjustedBPValue())
     this.marioStatsFormGroup.updateValueAndValidity();
     this.updateStartingLevel();
@@ -132,7 +147,7 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
     return adjustedValue;
   }
 
-  public onStartingSPBlur() {  
+  public onStartingSPBlur() {
     this.marioStatsFormGroup.get('startingStarPower').setValue(this.getAdjustedSPValue())
     this.marioStatsFormGroup.updateValueAndValidity();
   }
@@ -147,6 +162,26 @@ export class MarioSettingsComponent implements OnInit, OnDestroy {
     else if(startingSPControl.value > 7)
     {
       adjustedValue = 7;
+    }
+
+    return adjustedValue;
+  }
+
+  public onStartingLevelBlur() {
+    this.marioStatsFormGroup.get('randomStartingStatsLevel').setValue(this.getAdjustedStartingLevelValue())
+    this.marioStatsFormGroup.updateValueAndValidity();
+  }
+
+  public getAdjustedStartingLevelValue(): number {
+    var randomStartingStatsLevelControl = this.marioStatsFormGroup.get('randomStartingStatsLevel')
+    var adjustedValue = randomStartingStatsLevelControl.value;
+    if(randomStartingStatsLevelControl.value < 0)
+    {
+      adjustedValue = 0;
+    }
+    else if(randomStartingStatsLevelControl.value > 27)
+    {
+      adjustedValue = 27;
     }
 
     return adjustedValue;

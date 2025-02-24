@@ -1,0 +1,96 @@
+<h2>Save & Load Plando Configs</h2>
+
+<p class="text-center">All current changes will be auto-saved, and will auto-load when returning to this page.</p>
+<div class="container" [formGroup]="saveLoadFormGroup">
+
+    <div class="panel save-panel">
+        <h3>Save Plando</h3>
+        <div class="row">
+            <label for="plandoName">Plando Name:</label>
+            <input name="plandoName" formControlName="plandoName" #plandoName (keydown)="this.inputFilters.disallowChars($event, ',_')" [maxlength]="MAX_PLANDO_NAME_LENGTH" />
+            <button class="yellow-button" type="button"
+                [disabled]="plandoName.value.trim() === '' || plandoFormGroup.invalid"
+                [matTooltip]="plandoFormGroup.invalid ? 'Please fix the errors on the page before saving. Problems are highlighted in red.' : ''"
+                matTooltipPosition="right" (click)="savePlandoSettings(plandoName.value)">
+                <span>Save</span>
+            </button>
+        </div>
+        <app-loading *ngIf="isValidating" [isLoading]="isValidating" loadingText="Validating"></app-loading>
+        <div class="row" *ngIf="!isValidating && saveLoadStatus !== ''">
+            <ng-container *ngIf="saveLoadStatus === 'saved'">
+                <span class="status">✔️ Plando Saved!</span>
+            </ng-container>
+            <ng-container *ngIf="saveLoadStatus === 'savedWithWarnings'">
+                <span class="status">✔️ Plando Saved! See warnings below.</span>
+            </ng-container>
+            <ng-container *ngIf="saveLoadStatus === 'validationFailure'">
+                <span class="status">❌ Failed to save plandomizer config! Please fix the errors listed below.</span>
+            </ng-container>
+            <ng-container *ngIf="saveLoadStatus === 'error'">
+                <span class="status">❌ Failed to save plandomizer config! An error occurred during validation.</span>
+            </ng-container>
+        </div>
+        <div class="row" *ngIf="validationWarnings.length > 0">
+            <mat-expansion-panel ngClass="bg-warn">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="gluten">⚠️ {{validationWarnings.length}} Warning(s)</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul>
+                    <li class="gluten" *ngFor="let warning of validationWarnings">{{warning}}</li>
+                </ul>
+            </mat-expansion-panel>
+        </div>
+        <div class="row" *ngIf="validationErrors.length > 0">
+            <mat-expansion-panel ngClass="bg-error">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="gluten">⛔ {{validationErrors.length}} Error(s)</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul>
+                    <li class="gluten" *ngFor="let error of validationErrors">{{error}}</li>
+                </ul>
+            </mat-expansion-panel>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>Manage Saved Plandos</h3>
+        <div class="row" *ngIf="savedPlandoNames.size > 0">
+            <label for="savedPlandosSelect">Saved Plandos:</label>
+            <select name="savedPlandosSelect" #savedPlandosSelect formControlName="savedPlandoNameSelect">
+                <option *ngFor="let plandoName of savedPlandoNames" [value]="plandoName">{{plandoName}}</option>
+            </select>
+            <div>
+                <button class="yellow-button" type="button" [disabled]="saveLoadFormGroup.get('savedPlandoNameSelect').value === ''" (click)="loadPlandoSettings(savedPlandosSelect.value)"><span>Load</span></button>
+                <button class="yellow-button" type="button" [disabled]="saveLoadFormGroup.get('savedPlandoNameSelect').value === ''" (click)="deletePlandoSettings(savedPlandosSelect.value)"><span>Delete</span></button>
+                <button class="yellow-button" type="button" [disabled]="saveLoadFormGroup.get('savedPlandoNameSelect').value === ''" (click)="exportPlandoSettings(savedPlandosSelect.value)"><span>Export</span></button>
+                <button class="yellow-button" type="button" (click)="importPlandoSettings()"><span>Import</span></button>
+            </div>
+        </div>
+        <div class="row" *ngIf="savedPlandoNames.size === 0">
+            <div class="row">There are no saved plandos.</div>
+            <div>
+                <button class="yellow-button" type="button" (click)="importPlandoSettings()"><span>Import</span></button>
+            </div>
+        </div>
+        <div class="row">
+            <ng-container *ngIf="saveLoadStatus === 'loaded'">
+                <span class="status">✔️ Loaded Plando: {{this.lastPlandoName}}</span>
+            </ng-container>
+            <ng-container *ngIf="saveLoadStatus === 'deleted'">
+                <span class="status">✔️ Deleted Plando: {{this.lastPlandoName}}</span>
+            </ng-container>
+            <ng-container *ngIf="saveLoadStatus === 'notFound'">
+                <span class="status">❌ Plando not found; it may have been deleted. It has been removed from the list.</span>
+            </ng-container>
+            <ng-container *ngIf="importStatus === 'success'">
+                <span class="status">✔️ Plando imported successfully!</span>
+            </ng-container>
+            <ng-container *ngIf="importStatus === 'invalid'">
+                <span class="status">❌ Import failed. Ensure that the file is in the correct format.</span>
+            </ng-container>
+            <ng-container *ngIf="importStatus === 'exists'">
+                <span class="status">❌ Import failed. A plando with this name already exists.</span>
+            </ng-container>
+        </div>
+    </div>
+</div>

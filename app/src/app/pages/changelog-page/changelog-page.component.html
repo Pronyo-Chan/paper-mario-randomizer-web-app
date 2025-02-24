@@ -1,6 +1,145 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.29.0 (beta) (2024-02-24)</mat-card-title>
+    <h2>Special Thanks</h2>
+    <ul>
+      <li><span class="bolder-text">Veegie</span> for implementing the plandomizer web UI!</li>
+      <li><span class="bolder-text">Phantom</span> for implementing the new 'Random Starting Stats' feature, the 'Limit Chapter Logic' + 'Dungeon Entrance Shuffle' change and the glitched logic additions!</li>
+      <li>Everyone who helped to test the dev version of the plandomizer so we could find and fix issues!</li>
+    </ul>
+
+    <h2>Known Issues</h2>
+    <ul>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+    </ul>
+
+    <h2>Bug Fixes</h2>
+    <ul>
+      <li>Fixed the vanilla bug of being able to jump into a certain lava loading zone in the basement of Bowser's Castle, possibly causing softlocks or crashes.</li>
+      <li>Fixed certain issues with the cutscene of the ravens building the zipline during `Cutscene Mode: Minimal`, which could cause weird behavior or crashes during the cutscene if playing on original hardware.</li>
+      <li>Fixed an issue that would sometimes put the menu cursor onto the wrong partner instead of the active partner in the partner menu in battle. This was an edge case that could happen if Bow had not been unlocked yet, and the player was opening the partner menu while having Watt, Sushie, or Lakilester as their active partner.</li>
+      <li>Fixed possible buggy behavior and softlock potential when touching an item trap while riding Lakilester. Now item trap knockback is disabled while riding Lakilester.</li>
+      <li>Fixed missing star piece "plink" sound effect when a star piece item bounces on the floor. This has been an issue for over three years and apparently nobody noticed :)</li>
+    </ul>
+
+    <h2>Features</h2>
+    <h3>Plandomizer (new)</h3>
+    <ul>
+      <li>The plandomizer (a portmanteau of "planned" and "randomizer") allows pre-setting different values for the seed, which overrule the changes to be made by the seed generator. This allows for forcing specific changes desired by the player.</li>
+      <li>To generate a plandomizer seed, visit the new Plandomizer page, accessible from a new tab in the top toolbar. Setup and save a config, then load it in Randomizer Settings > Plandomizers when generating a seed.</li>
+      <li>Currently allows setting the following:
+        <ul>
+          <li>Item placement in most item locations</li>
+          <li>Prices in regular shops</li>
+          <li>Chapter difficulty</li>
+          <li>Which bosses appear where</li>
+          <li>BP, FP, and SP costs of badges, moves of Mario and his partners, and the star powers</li>
+          <li>Which spirits to rescue for the `Require Specific Spirits` setting</li>
+        </ul>
+      </li>
+      <li>If any changes are made to a seed using the plandomizer, the save select screen will show a `Plando` label to inform the player of this.</li>
+      <li>For more details, please refer to the plandomizer module documentation: <a href="https://github.com/icebound777/PMR-Plando-Validator">PMR-Plando-Validator</a></li>
+    </ul>
+
+    <h3>Random Starting Stats (new)</h3>
+    <ul>
+      <li>Allows starting the seed with random amounts of HP, FP, and BP by choosing the level to generate these starting stats for.</li>
+    </ul>
+
+    <h3>Power Star Hunt (change)</h3>
+    <ul>
+      <li>All three power star hunt settings, `Star Hunt Total`, `Star Way Power Stars Needed`, and `Star Beam Power Stars Needed` can now be set to random. `Star Beam Power Stars Needed` is slightly biased towards rolling higher than the value of `Star Way Power Stars Needed`. This can be done by setting the value to "-1".</li>
+      <li>The price for power stars sold in shops is now dynamic. The more power stars are in the item pool, the lower the price of power stars becomes.
+        <ul>
+          <li>40 or fewer power stars: random price out of `10,15,20,25,30` coins (same as before)</li>
+          <li>41 - 80 power stars: random price out of `5,10,15,20` coins</li>
+          <li>81 or more power stars: random price out of `5,10` coins</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Dungeon Entrance Shuffle (change)</h3>
+    <ul>
+      <li>If combining `Dungeon Entrance Shuffle` and `Limit Chapter Logic`, now only dungeons that are logically required will enter the shuffle, and only shuffle among themselves. This solves the odd case of having to enter logically non-required areas to reach required dungeons.</li>
+    </ul>
+
+    <h3>Randomize Puzzles (change)</h3>
+    <ul>
+      <li>Can now include `Blue Berry`, `Red Berry`, `Yellow Berry`, and `Bubble Berry` items in the Dry Dry Outpost shop code puzzles.</li>
+    </ul>
+
+    <h3>Cutscene Mode: Minimal (change)</h3>
+    <ul>
+        <li>Removed some dialogue from the Toad "inn keeper" in Peach's Castle.</li>
+    </ul>
+
+    <h2>Logic Changes</h2>
+    <ul>
+      <li>Fixed logic not expecting boots or Kooper for hitting the yellow item block in Tubba's Castle - Stairs to Third Floor.</li>
+      <li>Fixed logic for the three `Ultra Hammer Skip` glitch settings, and the two `Flarakarry` glitch settings. Formerly these didn't apply properly, so these settings would always count as being turned off.</li>
+    </ul>
+
+    <h2>Quality of Life</h2>
+    <ul>
+        <li>Entering the toy box in Toad Town will now automatically set the door to the toy box to be open. This is only relevant if you glitched around the toy box door into the toy box.</li>
+    </ul>
+
+    <h2>New Tricks & Glitches</h2>
+    <ul>
+        <li>Jumpless Dane T. Letters</li>
+        <li>Toad Town Sushie Glitch Gearless</li>
+        <li>Toad Town Sushie Glitch Full Gear</li>
+        <li>Jumpless Summit Climb</li>
+        <li>Jumpless Koopa Village Blue Pipe</li>
+        <li>Parakarryless Mt. Rugged Seed (Clippy variant)</li>
+        <li>Ruins Puzzle Solution Early</li>
+        <li>Jumpless Mega Rush</li>
+        <li>Raph Skip (Lakilester)</li>
+        <li>Bombette Puzzle Skip</li>
+        <li>Wattless Dark Basement</li>
+        <li>Basement Skip (Parakarry)</li>
+        <li>Basement Skip (Lakilester)</li>
+        <li>Basement Skip (Hammer)</li>
+        <li>Bowsers Castle Hub1 Stair Clip</li>
+        <li>Fast Flood Room (Kooperless)</li>
+        <li>Cannonless</li>
+    </ul>
+
+    <h2>Miscellaneous</h2>
+
+    <h3>Entrance Randomizer Preparations</h3>
+    <ul>
+      <li>Added a bomb trigger to the uppermost floor of the second Water Puzzle room in Bowser's Castle. This allows blowing up the wall from this side, which is normally not possible.</li>
+    </ul>
+
+    <h3>Spoiler Log</h3>
+    <ul>
+      <li>Moved the item placement areas into their own `items` subcategory.</li>
+      <li>For boss battles, renamed the chapters from just numbers to `chapter #`.</li>
+      <li>Fixed an issue that caused badge BP values to show as vanilla, despite being changed for the seed.</li>
+      <li>Remove the space from partner upgrades for consistency (e.g. `Bombette Upgrade` to `BombetteUpgrade`).</li>
+      <li>Adjust capitalization of star pieces for consistency (`Starpiece` to `StarPiece`).</li>
+      <li>Rename the Super Smash Charge badge from `SSmashChg` to `SSmashCharge` for consistency with the other charge badges.</li>
+      <li>Differentiate the two letters to Goompapa and the two letters to Koover by appending `1` and `2` to the respective item names.</li>
+      <li>If the plandomizer feature is used, the spoiler log will now display that data in a new `plandomizer` subcategory.</li>
+      <li>Renamed the item locations of the beach palm tree that drops two items to make differentiating between the one-time item and the replenishable item easier:
+        <ul>
+          <li>`Jade Jungle Beach - In Palm Tree 6` to `Jade Jungle Beach - In Palm Tree 6 (one-off)`</li>
+          <li>`Jade Jungle Beach - In Palm Tree 6 2` to `Jade Jungle Beach - In Palm Tree 6 (replenish)`</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Internal Reworks</h3>
+    <ul>
+        <li>Reworked how star pieces in non-randomized locations behave (hidden panels and letter rewards). The item pickup for those vanilla star pieces will now look slightly different, but they will still count as regular star pieces.</li>
+        <li>Reworked how the berry key items work. This was necessary for making the plandomizer implementation of the berries less painful. Ideally, players should not notice any difference to before.</li>
+    </ul>
+  </mat-card>
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.28.1 (beta) (2024-11-21)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
@@ -21,7 +160,7 @@
 
   </mat-card>
 
-  <mat-card class="settings-card latest-changelog">
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.28.0 (beta) (2024-11-19)</mat-card-title>
     <h2>Known Issues</h2>
     <ul>
@@ -534,7 +673,7 @@
     <ul>
         <li> Sets the maximum amount of badges that can be in the item pool.</li>
         <li> The seed generator will collect all badges available according to chosen settings, then remove badges at random until the badge pool limit is reached.</li>
-        <li> For reference, the vanilla item pool has 79 badges.</li>
+        <li> For reference, the vanilla item pool has 80 badges.</li>
     </ul>
 
     <h2>Seed Generator</h2>

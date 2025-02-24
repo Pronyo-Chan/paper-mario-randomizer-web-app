@@ -12,6 +12,9 @@
             <a mat-menu-item routerLink="../changelog">Changelog</a>
             <a mat-menu-item routerLink="../github">Github</a>
         </mat-menu>
+    <a class="text-link" [routerLink]="'../plandomizer'">
+        <span> Plandomizer</span>
+    </a>
 
     <a *ngIf="$latestSeedId | async" class="text-link" [routerLink]="'../seed'" [queryParams]="{id: ($latestSeedId | async)}">
         <span>  Most Recent Seed</span>

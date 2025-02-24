@@ -1,0 +1,55 @@
+<div [formGroup]="plandoFormGroup">
+  <h2>Required Spirits and Difficulty Scaling</h2>
+  <p class="text-center">
+    Selected Star Spirits will be required for completion. If no spirits are selected, the seed generator settings will determine the required Star Spirits.
+  </p>
+  <div class="container">
+    <div *ngFor="let spirit of SPIRITS; let i = index; let requiredSpirits = requiredSpirits" class="panel">
+      <h3 class="row text-center">Chapter {{ i + 1 }}</h3>
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            class="hidden"
+            value="{{ spirit }}"
+            (change)="updateSpiritSelection($event, spirit)"
+            [checked]="requiredSpiritsArray.includes(spirit)" />
+          <img
+            src="{{
+              '/assets/images/plando/' +
+                spirit +
+                (!requiredSpiritsArray.includes(spirit) ? '_No' : '') +
+                '.png'
+            }}" />
+        </label>
+      </div>
+      <div class="settings">
+        <div class="row" formGroupName="difficulty">
+          <app-tooltip-span class="row"
+            [spanText]="'Difficulty: ' + (getChapterDifficulty(i+1) > 0 ? getChapterDifficulty(i+1) : '?')"
+            tooltipText="Set the difficulty scaling for this chapter. If set to '?', the seed generator settings will determine scaling."></app-tooltip-span>
+          <mat-slider formControlName="{{ 'chapter ' + (i + 1) }}" (input)="setChapterDifficulty(i+1, $event.value)" min="0" max="8" step="1" tickInterval="1"></mat-slider>
+        </div>
+        <div class="row" formGroupName="boss_battles">
+          <label for="{{ 'chapter ' + (i + 1) }}">Boss:</label>
+          <select formControlName="{{ 'chapter ' + (i + 1) }}">
+            <option *ngFor="let boss of BOSSES" [value]="boss.id">
+              {{ boss.displayName }}
+            </option>
+          </select>
+        </div>
+        <div class="row"></div>
+      </div>
+    </div>
+  </div>
+  <h2>Star Spirit Power Costs</h2>
+  <p class="text-center">If set to '?', the seed generator settings will determine the SP cost.</p>
+  <div class="container" formGroupName="move_costs">
+    <div *ngFor="let power of SPIRIT_POWERS;" formGroupName="starpower" class="panel">
+      <app-tooltip-span class="row"
+        [spanText]="toDisplayString(power) + ': ' + (getStarPowerCost(power) !== -1 ? getStarPowerCost(power) + ' SP' : '?')"
+        tooltipText=""></app-tooltip-span>
+      <mat-slider [formControlName]="power" (input)="setStarPowerCost(power, $event.value)" min=-1 max=7 step="1" tickInterval="1"></mat-slider>
+    </div>
+  </div>
+</div>

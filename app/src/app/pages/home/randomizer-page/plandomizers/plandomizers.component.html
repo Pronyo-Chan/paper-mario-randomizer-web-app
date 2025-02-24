@@ -1,0 +1,34 @@
+<mat-card-content class=settings-card-content>
+    <div class="row">
+        <p>Apply a Plandomizer configuration to manually set move costs, item placements, and more.</p>
+    </div>
+    <div class="row" *ngIf="savedPlandoNames.size === 0">
+        <p>You have no saved Plandomizers. <a class="text-link" [routerLink]="'./plandomizer'">Go to the Plandomizer tool</a> to create or import one!</p>
+    </div>
+    <div class="row" *ngIf="savedPlandoNames.size > 0">
+        <label class="settings-label" for="savedPlandosSelect">Select Plandomizer:</label>
+        <select name="savedPlandosSelect" #savedPlandosSelect (change)="onSavedPlandoSelect($event)">
+            <option></option>
+            <option *ngFor="let plandoName of savedPlandoNames" [value]="plandoName">{{plandoName}}</option>
+        </select>
+    </div>
+    <div class="row">
+        <ng-container *ngIf="loadStatus === 'loaded'">
+            <span>✔️</span>
+            <span>Applied Plandomizer: {{this.selectedPlandoName}}</span>
+        </ng-container>
+        <ng-container *ngIf="loadStatus === 'notFound'">
+            <span>❌</span>
+            <span>Plandomizer not found; it may have been deleted.</span>
+        </ng-container>
+    </div>
+    <div class="row" *ngIf="plandoAssignedControls.size > 0">
+        <p>Based on the selected plando, the following settings have been adjusted automatically:</p>
+        <ul>
+            <ng-container *ngFor="let control of plandoAssignedControls">
+                <li *ngIf="!PARTNERS_SET.has(control)">{{controlDisplayStrings.get(control)}}</li>
+            </ng-container>
+            <li *ngIf="anyPartnerPlandoed">Start with Specific Partner(s)</li>
+        </ul>
+    </div>
+</mat-card-content>

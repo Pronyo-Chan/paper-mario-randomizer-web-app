@@ -1,0 +1,101 @@
+<div class="panel">
+    <p class="row">Blank entries will be populated according to seed generator settings.</p>
+    <p class="row">To manually specify a Trap item's fake sprite, append the fake item's code in parentheses. For example: <code>TRAP (UltraStone)</code> will place a trap item that appears as the Ultra Stone.</p>
+    <div class="row">
+        <div class="check-filters-container">
+            <h3 class="row">Hide Checks</h3>
+            <div class="check-filters">
+                <div class="setting-element">
+                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.SHOP)"></mat-slide-toggle>
+                    <span>&nbsp;Shop Items</span>
+                </div>
+                <div class="setting-element">
+                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.HIDDEN_PANEL)"></mat-slide-toggle>
+                    <span>&nbsp;Hidden Panels</span>
+                </div>
+                <div class="setting-element">
+                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.COIN_BLOCK)"></mat-slide-toggle>
+                    <span>&nbsp;Coin Blocks</span>
+                </div>
+                <div class="setting-element">
+                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.OVERWORLD_COIN)"></mat-slide-toggle>
+                    <span>&nbsp;Overworld Coins</span>
+                </div>
+                <div class="setting-element">
+                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.FOLIAGE)"></mat-slide-toggle>
+                    <span>&nbsp;Foliage</span>
+                </div>
+                <div class="setting-element">
+                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.LETTER_REWARD)"></mat-slide-toggle>
+                    <span>&nbsp;Letter Rewards</span>
+                </div>
+                <div class="setting-element">
+                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR_COIN); toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR_ITEM); toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR_REWARD)"></mat-slide-toggle>
+                    <span>&nbsp;Koopa Koot Favors</span>
+                </div>
+            </div>
+        </div>
+        <div class="mass-fill">
+            <h3 class="row">Mass Fill</h3>
+            <p class="row">Select a region or check type and enter an item, then click "Fill" to assign that item to all matching checks.</p>
+            <div class="row">
+                <select #fillTargetSelect>
+                    <option></option>
+                    <hr />
+                    <optgroup label="Check Types">
+                        <option *ngFor="let checkType of massFillCheckTypes" [value]="'checkType_' + checkType">{{CHECK_TYPES_DISPLAY_MAP[checkType]}}</option>
+                    </optgroup>
+                    <hr />
+                    <optgroup label="Regions">
+                        <option *ngFor="let region of LOCATIONS" [value]="'region_' + region.name">{{toDisplayString(region.name)}}</option>
+                    </optgroup>
+                    <hr />
+                    <option value="ALL">ALL Checks</option>
+                </select>
+                <input #massFillItem [matAutocomplete]="auto" (input)="updateMassFillAutoCompleteFilter($event)" (focus)="resetMassFillFilter($event)" />
+                <button class="yellow-button" type="button" [disabled]="!massFillSelectionValid(fillTargetSelect.value, massFillItem.value)"
+                    (click)="massFill(fillTargetSelect.value, massFillItem.value)"><span>Fill</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div [formGroup]="itemsFormGroup">
+    <mat-tab-group disablePagination="true" class="sub-tab" animationDuration="0" scrollToCenter>
+        <mat-tab *ngFor="let loc of LOCATIONS">
+            <ng-template mat-tab-label>
+                <label class="mat-tab-label-content" [ngClass]="{ 'error': itemsFormGroup.get(loc.name).invalid }">{{toDisplayString(loc.name)}}</label>
+            </ng-template>
+            <div class="panel">
+                <div class="checks-list">
+                    <ng-container *ngFor="let check of loc.checks" [formGroupName]="loc.name">
+                        <ng-container *ngIf="!filteredTypes.includes(check.type)">
+                            <div class="check-entry">
+                                <ng-container *ngIf="check.type !== CHECK_TYPES.SHOP">
+                                    <label>{{toDisplayString(check.name)}}: </label>
+                                    <input [formControlName]="check.name" [matAutocomplete]="auto"
+                                        (input)="updateAutoCompleteFilter($event)" (blur)="onNameInputBlur([loc.name, check.name])" (focus)="resetFilter($event)" />
+                                </ng-container>
+                                <ng-container *ngIf="check.type === CHECK_TYPES.SHOP" [formGroupName]="check.name">
+                                    <label>{{toDisplayString(check.name)}}: </label>
+                                    <input formControlName="item" [matAutocomplete]="auto"
+                                        (input)="updateAutoCompleteFilter($event)" (blur)="onNameInputBlur([loc.name, check.name, 'item'])" (focus)="resetFilter($event)" />
+                                    <label>&nbsp;Price:</label>
+                                    <input type="number" formControlName="price" min="0" max="999"
+                                        (input)="inputFilters.filterNumericInput($event, itemsFormGroup, [loc.name, check.name, 'price'])" />
+                                </ng-container>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+                <div class="row end">
+                    <button class="yellow-button" type="button" (click)="massFill('region_' + loc.name, '')"><span>Reset Region</span></button>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+    <mat-autocomplete #auto>
+        <mat-option *ngFor="let item of filteredItems" [value]="item">
+            {{toDisplayString(item)}}
+        </mat-option>
+    </mat-autocomplete>
+</div>

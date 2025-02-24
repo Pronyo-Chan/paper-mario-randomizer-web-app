@@ -6,9 +6,9 @@ import { LocalStorageService } from './localStorage/localStorage.service';
 import { SettingStringMappingService } from './setting-string-mapping/setting-string-mapping.service';
 import { Constants } from './../utilities/constants';
 import { environment } from 'src/environments/environment';
-import { forkJoin, map, Observable, switchMap } from 'rxjs';
+import { forkJoin, map, Observable, Subscriber, switchMap, tap } from 'rxjs';
 import { RandomizerRepository } from './../repositories/randomizer-repository/randomizer.repository';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { SettingsRequest, StartingPartners } from '../entities/settingsRequest';
 import { DifficultySetting } from '../entities/enum/difficultySetting';
@@ -21,6 +21,7 @@ import { CoinColor } from '../entities/enum/coinColor';
 import { MysteryMode } from '../entities/enum/mysteryMode';
 import { MirrorMode } from '../entities/enum/mirrorMode';
 import { SeedGoal } from '../entities/enum/seedGoal';
+import { SeedGenerationRequest } from '../entities/seedGenerationRequest';
 
 
 @Injectable({
@@ -95,9 +96,13 @@ export class RandomizerService {
     return this._randomizerRepo.getSpoilerLog(seedId);
   }
 
-  public createSeedWithSettings(settingsForm: FormGroup): Observable<string> {
-    var request = this.prepareRequestObject(settingsForm);
-    return this._randomizerRepo.sendRandoSettings(request)
+  public createSeedWithSettings(settingsForm: FormGroup, plandoForm: FormControl): Observable<string> {
+    const request = this.prepareRequestObject(settingsForm, plandoForm);
+    return this._randomizerRepo.sendRandoSettings(request);
+  }
+
+  public validatePlandomizer(plandoObj: Object): Observable<string | Object> {
+    return this._randomizerRepo.validatePlandomizer(plandoObj);
   }
 
   private saveCosmeticsSettings(formGroup: FormGroup) {
@@ -149,7 +154,7 @@ export class RandomizerService {
     return request;
   }
 
-  private prepareRequestObject(settingsForm: FormGroup) {
+  private prepareRequestObject(settingsForm: FormGroup, plandoForm: FormControl): SeedGenerationRequest {
     var menuColor = settingsForm.get('cosmetics').get('menu').value
     const isStarHuntEnabled = settingsForm.get('goals').get('includePowerStars').value;
     const isStarBeamReachable = settingsForm.get('goals').get('seedGoal').value == SeedGoal.DefeatBowser;
@@ -161,7 +166,7 @@ export class RandomizerService {
     var settingsString = this._settingsStringService.compressFormGroup(settingsForm, this._settingsStringService.settingsMap);
     this._localStorage.set('latestSettingsString', settingsString);
 
-    var request =  {
+    var settingsRequest =  {
       StarRodModVersion: environment.currentModVersion,
       SettingsString: settingsString,
       AlwaysSpeedySpin: settingsForm.get('qualityOfLife').get('alwaysSpeedySpin').value,
@@ -251,6 +256,7 @@ export class RandomizerService {
       StartingMaxHP: settingsForm.get('marioStats').get('startingMaxHP').value,
       StartingMaxFP: settingsForm.get('marioStats').get('startingMaxFP').value,
       StartingMaxBP: settingsForm.get('marioStats').get('startingMaxBP').value,
+      RandomStartingStatsLevel: settingsForm.get('marioStats').get('startWithRandomStats').value? settingsForm.get('marioStats').get('randomStartingStatsLevel').value : -1,
       StartingStarPower: settingsForm.get('marioStats').get('startingStarPower').value,
       StartingBoots: settingsForm.get('marioStats').get('startingBoots').value,
       StartingHammer: settingsForm.get('marioStats').get('startingHammer').value,
@@ -329,6 +335,7 @@ export class RandomizerService {
       BlueHouseSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueHouseSkip"),
       BlueHouseSkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueHouseSkipLaki"),
       BlueHouseSkipToadLure: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BlueHouseSkipToadLure"),
+      JumplessDaneTLetters: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessDaneTLetters"),
       BowlessToyBoxHammer: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == ("BowlessToyBoxHammer")),
       BowlessToyBoxHammerlessLure: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == ("BowlessToyBoxHammerlessLure")),
       EarlyStoreroomParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyStoreroomParakarry"),
@@ -336,7 +343,12 @@ export class RandomizerService {
       EarlyStoreroomHammerlessLure: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "EarlyStoreroomHammerlessLure"),
       WhaleEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "WhaleEarly"),
       SushielessToadTownStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SushielessToadTownStarPiece"),
-      ToadTownSushieGlitch: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ToadTownSushieGlitch"),
+      ToadTownSushieGlitchGearless: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ToadTownSushieGlitchGearless"),
+      ToadTownSushieGlitchOneGear: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ToadTownSushieGlitchOneGear"),
+      ToadTownSushieGlitchFullGear: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ToadTownSushieGlitchFullGear"),
+
+      // Glitches: Shooting Star Summit
+      JumplessSummitClimb: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessSummitClimb"),
 
       // Glitches: Toad Town Tunnels
       ClippyBootsStoneBlockSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ClippyBootsStoneBlockSkip"),
@@ -357,6 +369,7 @@ export class RandomizerService {
       InvisibleBridgeClipLzs: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "InvisibleBridgeClipLzs"),
       InvisibleBridgeClipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "InvisibleBridgeClipLaki"),
       KooperlessPleasantPathThunderBolt: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessPleasantPathThunderBolt"),
+      JumplessKoopaVillageBluePipe: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessKoopaVillageBluePipe"),
 
       // Glitches: Koopa Bros Fortress
       BombettelessKbfFpPlusLZS: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BombettelessKbfFpPlusLZS"),
@@ -368,6 +381,7 @@ export class RandomizerService {
       // Glitches: Mt. Rugged
       MtRuggedQuakeHammerAndLetterWithLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MtRuggedQuakeHammerAndLetterWithLaki"),
       ParakarrylessMtRuggedSeed: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMtRuggedSeed"),
+      ParakarrylessMtRuggedSeedClippy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMtRuggedSeedClippy"),
       BuzzarGapSkipClippy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BuzzarGapSkipClippy"),
       ParakarrylessMtRuggedStarPiece: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMtRuggedStarPiece"),
       MtRuggedCoinsWithKooper: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MtRuggedCoinsWithKooper"),
@@ -389,6 +403,7 @@ export class RandomizerService {
       ParakarrylessSuperHammerRoomUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSuperHammerRoomUltraBoots"),
       ParakarrylessSuperHammerRoomNormalBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessSuperHammerRoomNormalBoots"),
       RuinsLocksSkipClippy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsLocksSkipClippy"),
+      RuinsPuzzleSolutionEarly: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsPuzzleSolutionEarly"),
       RuinsStoneSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RuinsStoneSkip"),
 
       // Glitches: Boo's Mansion
@@ -413,6 +428,7 @@ export class RandomizerService {
       TubbasTableLakiJumpStudy: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasTableLakiJumpStudy"),
       TubbasTableUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasTableUltraBoots"),
       TubbasCastleSuperBootsSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "TubbasCastleSuperBootsSkip"),
+      JumplessMegaRush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessMegaRush"),
       ParakarrylessMegaRush: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ParakarrylessMegaRush"),
 
       // Glitches: Toy Box
@@ -435,6 +451,7 @@ export class RandomizerService {
       // Glitches: Jade Jungle
       RaphSkipEnglish: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RaphSkipEnglish"),
       RaphSkipParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RaphSkipParakarry"),
+      RaphSkipLakilester: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "RaphSkipLakilester"),
       Ch5SushieGlitch: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Ch5SushieGlitch"),
       SushielessJungleStarpieceAndLetter: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "SushielessJungleStarpieceAndLetter"),
       JumplessDeepJungleLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "JumplessDeepJungleLaki"),
@@ -481,12 +498,20 @@ export class RandomizerService {
 
       // Glitches: Crystal Palace
       MirrorClip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "MirrorClip"),
+      BombettePuzzleSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BombettePuzzleSkip"),
       KooperPuzzleSkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperPuzzleSkip"),
 
       // Glitches: Bowser's Castle
       BowlessBowsersCastleBasement: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowlessBowsersCastleBasement"),
+      WattlessDarkBasement: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "WattlessDarkBasement"),
+      BasementSkipParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BasementSkipParakarry"),
+      BasementSkipLakilester: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BasementSkipLakilester"),
+      BasementSkipHammer: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BasementSkipHammer"),
+      BowsersCastleHub1StairClip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowsersCastleHub1StairClip"),
       FastFloodRoomKooper: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "FastFloodRoomKooper"),
+      FastFloodRoomKooperless: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "FastFloodRoomKooperless"),
       FastFloodRoomBombetteUltraBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "FastFloodRoomBombetteUltraBoots"),
+      Cannonless: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "Cannonless"),
       BombettelessBowsersCastleBasement: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BombettelessBowsersCastleBasement"),
 
       // Glitches: Global
@@ -497,14 +522,14 @@ export class RandomizerService {
       ReachHighBlocksWithSuperBoots: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ReachHighBlocksWithSuperBoots")
     } as SettingsRequest;
 
-    if(request.StartWithRandomPartners) {
-      request.RandomPartnersMin = settingsForm.get('partners').get('randomPartnersMin').value;
-      request.RandomPartnersMax = settingsForm.get('partners').get('randomPartnersMax').value;
+    if(settingsRequest.StartWithRandomPartners) {
+      settingsRequest.RandomPartnersMin = settingsForm.get('partners').get('randomPartnersMin').value;
+      settingsRequest.RandomPartnersMax = settingsForm.get('partners').get('randomPartnersMax').value;
 
     }else {
-      request.RandomPartnersMin = 1
-      request.RandomPartnersMax = 1
-      request.StartWithPartners = {
+      settingsRequest.RandomPartnersMin = 1
+      settingsRequest.RandomPartnersMax = 1
+      settingsRequest.StartWithPartners = {
         Goombario: settingsForm.get('partners').get('startWithPartners').get('goombario').value,
         Kooper: settingsForm.get('partners').get('startWithPartners').get('kooper').value,
         Bombette: settingsForm.get('partners').get('startWithPartners').get('bombette').value,
@@ -515,6 +540,9 @@ export class RandomizerService {
         Lakilester: settingsForm.get('partners').get('startWithPartners').get('lakilester').value
       } as StartingPartners;
     }
-    return request;
+    return {
+      settings: settingsRequest,
+      plandomizer: plandoForm.value
+    } as SeedGenerationRequest;
   }
 }

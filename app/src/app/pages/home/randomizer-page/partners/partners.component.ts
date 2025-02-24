@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { tap, Subscription } from 'rxjs';
+import { InputFilterService } from "src/app/services/inputfilter.service";
 
 @Component({
   selector: 'app-partners',
@@ -13,7 +14,7 @@ export class PartnersComponent implements OnInit, OnDestroy {
 
   private _startWithRandomPartnersSubscription: Subscription
 
-  public constructor() { }
+  public constructor(public inputfilters: InputFilterService) { }
   
 
   public ngOnInit(): void {

@@ -3,6 +3,7 @@
     <p *ngIf="seedModel.SeedInfo.SeedHashItems">Seed Hash Items: <span class="seed-detail">{{seedModel.SeedInfo.SeedHashItems.join(", ")}}</span></p>
     <p>Creation Date: <span class="seed-detail">{{seedModel.SeedInfo.CreationDate | date}}</span></p>
     <p>Expiration Date: <span class="seed-detail">{{expirationDate | date}}</span> <span style="color: red;">*</span></p>
+    <p>Is Plandomizer Seed: <span class="seed-detail">{{seedModel.SeedInfo.IsPlandomizerSeed ? "Yes" : "No"}}</span> </p>
     <div *ngIf="seedModel.SeedInfo.SettingsString" class="input-label">
         <p class="settings-label">Settings string
              <mat-icon class="material-icons-outlined"
