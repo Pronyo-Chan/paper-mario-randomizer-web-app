@@ -37,6 +37,10 @@ export class PlandoAssignmentService {
             for (const check of loc.checks) {
               if (plandoChecks[check.name]) {
                 const plandoItem = check.type === CheckType.SHOP ? plandoChecks[check.name].item : plandoChecks[check.name];
+
+                if (!plandoItem) {
+                  continue;
+                }
                 plandoCheckTypes.add(check.type);
 
                 if (DUNEGON_KEYS.has(plandoItem)
