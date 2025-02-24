@@ -1,0 +1,25 @@
+@import './../../../variables';
+
+.banner {
+  position: relative;
+  background-color: $purple-background-card;
+  font-family: gluten;
+  font-weight: 700;
+  padding: 16px;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  opacity: 0.9;
+  text-align: center;
+
+  .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: black;
+  }
+}

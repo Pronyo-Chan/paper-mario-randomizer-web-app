@@ -24,6 +24,7 @@
         <img class="discord-icon" src="assets/images/discord.png">
     </a>
 </mat-toolbar>
+<app-dismissable-banner *ngIf="!isProduction" bannerText="You are currently on the DEV website! Please note that this version of the randomizer might be unstable."></app-dismissable-banner>
 <div class="logo-wrapper">
     <a [routerLink]="'../'">
         <img class="logo" src="assets/images/logo.png">
