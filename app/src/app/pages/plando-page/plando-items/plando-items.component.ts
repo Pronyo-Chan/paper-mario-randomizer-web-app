@@ -1,11 +1,11 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { MatSlideToggleChange } from "@angular/material/slide-toggle";
+import { MatTabGroup } from "@angular/material/tabs";
 import { InputFilterService } from "src/app/services/inputfilter.service";
 import { escapeRegexChars, pascalToVerboseString } from "src/app/utilities/stringFunctions";
-import { CHECK_TYPES_DISPLAY_MAPPING, CheckType, LEGAL_MASS_FILL_ITEMS, LEGAL_TRAP_ITEMS, Location, LOCATIONS_LIST, PLANDO_ITEMS_LIST, VANILLA_ITEMS } from "../plando-constants";
+import { CHECK_TYPES_DISPLAY_MAPPING, CheckType, LEGAL_TRAP_ITEMS, PLANDO_ITEMS_LIST, Region, REGIONS_LIST, VANILLA_ITEMS } from "../plando-constants";
 import { manualTrapRegex } from "../plando-page.component";
-import { MatTabGroup } from "@angular/material/tabs";
 
 const possessiveRegex = /(Mario|Peach|Boo|Guy|Troopa|King|Bowser|Rowf|Merlow|Merluvlee|Tubba|Kolorado|Bow|Lily|Petunia|Rosie)s /g;
 const displayStringReplacements = {
@@ -37,9 +37,9 @@ export class PlandoItemsComponent {
   @Input() itemsFormGroup: FormGroup;
   @ViewChild('locationTabGroup') locationTabGroup: MatTabGroup;
   public readonly CHECK_TYPES = CheckType;
-  public readonly LOCATIONS: Array<Location> = LOCATIONS_LIST;
-  public readonly PLANDO_ITEMS: Array<string> = PLANDO_ITEMS_LIST.slice();
-  public readonly MASS_FILL_ITEMS: Set<string> = LEGAL_MASS_FILL_ITEMS;
+  public readonly LOCATIONS: Array<Region> = REGIONS_LIST;
+  public readonly PLANDO_ITEMS: Array<string> = PLANDO_ITEMS_LIST.map(i => i.code);
+  public readonly MASS_FILL_ITEMS: Set<string> = new Set(PLANDO_ITEMS_LIST.filter(i => i.canMassFill).map(i => i.code));
   public readonly LEGAL_TRAP_ITEMS: Set<string> = new Set(['TRAP'].concat(LEGAL_TRAP_ITEMS.map((i) => 'TRAP (' + i + ')')));
   public readonly CHECK_TYPES_DISPLAY_MAP: Record<CheckType, string> = CHECK_TYPES_DISPLAY_MAPPING;
 
@@ -76,7 +76,7 @@ export class PlandoItemsComponent {
     let willOverwrite: boolean = false;
     let confirmType = '';
     if (fillTarget === 'current_region') {
-      const targetRegion = LOCATIONS_LIST[this.locationTabGroup.selectedIndex];
+      const targetRegion = REGIONS_LIST[this.locationTabGroup.selectedIndex];
       for (const check of targetRegion.checks) {
         if (this.filteredTypes.includes(check.type)) {
           continue;
@@ -96,13 +96,13 @@ export class PlandoItemsComponent {
       if (fillTarget.startsWith('checkType_')) {
         targetCheckType = fillTarget.slice('checkType_'.length);
       }
-      for (const loc of LOCATIONS_LIST) {
-        for (const check of loc.checks) {
+      for (const region of REGIONS_LIST) {
+        for (const check of region.checks) {
           if (this.filteredTypes.includes(check.type)) {
             continue;
           }
           if (!targetCheckType || check.type === targetCheckType) {
-            const formControlKey = [loc.name, check.name];
+            const formControlKey = [region.name, check.name];
             if (check.type === CheckType.SHOP) {
               formControlKey.push('item');
             }
