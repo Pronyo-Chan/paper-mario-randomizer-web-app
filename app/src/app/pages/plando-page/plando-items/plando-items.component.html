@@ -46,7 +46,7 @@
                         <option *ngFor="let checkType of massFillCheckTypes" [value]="'checkType_' + checkType">{{CHECK_TYPES_DISPLAY_MAP[checkType]}}</option>
                     </optgroup>
                     <hr />
-                    <option value="current_checks">Checks in Current Region</option>
+                    <option value="current_region">Checks in Current Region</option>
                     <option value="ALL">ALL Checks</option>
                 </select>
                 <input #massFillItem [matAutocomplete]="auto" (input)="updateMassFillAutoCompleteFilter($event)" (focus)="resetMassFillFilter($event)" />
@@ -57,7 +57,7 @@
     </div>
 </div>
 <div [formGroup]="itemsFormGroup">
-    <mat-tab-group disablePagination="true" class="sub-tab" animationDuration="0" scrollToCenter>
+    <mat-tab-group disablePagination="true" class="sub-tab" animationDuration="0" scrollToCenter #locationTabGroup>
         <mat-tab *ngFor="let loc of LOCATIONS">
             <ng-template mat-tab-label>
                 <label class="mat-tab-label-content" [ngClass]="{ 'error': itemsFormGroup.get(loc.name).invalid }">{{toDisplayString(loc.name)}}</label>
