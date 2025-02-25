@@ -39,7 +39,7 @@ export class PlandoItemsComponent {
   public readonly CHECK_TYPES = CheckType;
   public readonly LOCATIONS: Array<Region> = REGIONS_LIST;
   public readonly PLANDO_ITEMS: Array<string> = PLANDO_ITEMS_LIST.map(i => i.code);
-  public readonly MASS_FILL_ITEMS: Set<string> = new Set(PLANDO_ITEMS_LIST.filter(i => i.canMassFill).map(i => i.code));
+  public readonly MASS_FILL_ITEMS: Set<string> = new Set(PLANDO_ITEMS_LIST.filter(i => i.canMassFill).map(i => i.code).concat("Vanilla"));
   public readonly LEGAL_TRAP_ITEMS: Set<string> = new Set(['TRAP'].concat(LEGAL_TRAP_ITEMS.map((i) => 'TRAP (' + i + ')')));
   public readonly CHECK_TYPES_DISPLAY_MAP: Record<CheckType, string> = CHECK_TYPES_DISPLAY_MAPPING;
 
