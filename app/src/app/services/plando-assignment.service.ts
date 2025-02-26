@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, Validators } from "@angular/forms";
-import { CheckType, DOJO_CHECK_VALUES, DUNEGON_KEYS, GEAR_LOCATIONS, KEY_TO_DUNGEON, KOOT_FAVOR_CHECKS, KOOT_FAVOR_ITEMS, LETTER_CHAIN_CHECKS, REGIONS_LIST, PARTNERS, PROGRESSIVE_BADGES, SUPER_BLOCK_LOCATIONS, ROWF_MERLOW_BADGES } from "../pages/plando-page/plando-constants";
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject } from "rxjs";
+import { CheckType, DOJO_CHECK_VALUES, DUNEGON_KEYS, GEAR_LOCATIONS, KEY_TO_DUNGEON, KOOT_FAVOR_CHECKS, KOOT_FAVOR_ITEMS, LETTER_CHAIN_CHECKS, PARTNERS, PROGRESSIVE_BADGES, REGIONS_LIST, ROWF_MERLOW_BADGES, SUPER_BLOCK_LOCATIONS } from "../pages/plando-page/plando-constants";
 import { CustomValidators } from "../utilities/custom.validators";
 
 @Injectable({
