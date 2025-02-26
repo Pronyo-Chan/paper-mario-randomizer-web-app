@@ -9,7 +9,7 @@ export const MAX_FP_COST: number = 75;
 export const MAX_BP_COST: number = 10;
 export const DEFAULT_PLANDOMIZER_KEY: string = 'default_plandomizer';
 
-const plandoItemSet = new Set(PLANDO_ITEMS_LIST);
+const plandoItemSet = new Set(PLANDO_ITEMS_LIST.map((i) => i.code));
 export const manualTrapRegex = new RegExp('^TRAP \\((' + LEGAL_TRAP_ITEMS.map(escapeRegexChars).join('|') + ')\\)$');
 
 @Component({
