@@ -40,7 +40,7 @@ export class PlandoItemsComponent {
   public readonly LOCATIONS: Array<Region> = REGIONS_LIST;
   public readonly PLANDO_ITEMS: Array<string> = PLANDO_ITEMS_LIST.map(i => i.code);
   public readonly MASS_FILL_ITEMS: Set<string> = new Set(PLANDO_ITEMS_LIST.filter(i => i.canMassFill).map(i => i.code).concat("Vanilla"));
-  public readonly LEGAL_TRAP_ITEMS: Set<string> = new Set(['TRAP'].concat(LEGAL_TRAP_ITEMS.map((i) => 'TRAP (' + i + ')')));
+  public readonly TRAP_ITEM_CODES: Set<string> = new Set(['TRAP'].concat(LEGAL_TRAP_ITEMS.map((i) => 'TRAP (' + i + ')')));
   public readonly CHECK_TYPES_DISPLAY_MAP: Record<CheckType, string> = CHECK_TYPES_DISPLAY_MAPPING;
 
   constructor(public inputFilters: InputFilterService) { };
@@ -140,7 +140,7 @@ export class PlandoItemsComponent {
 
   private _filter(initialOptions: Array<string>, value: string): void {
     if (value.toLowerCase().startsWith('trap')) {
-      initialOptions = Array.from(this.LEGAL_TRAP_ITEMS);
+      initialOptions = Array.from(this.TRAP_ITEM_CODES);
     }
     const regexes = value.toLowerCase().split(/\s/g).filter(s => s.trim() !== '').map(s => new RegExp(escapeRegexChars(s), 'i'));
     this.filteredItems = initialOptions.filter(item => regexes.every(reg => reg.test(item)));
