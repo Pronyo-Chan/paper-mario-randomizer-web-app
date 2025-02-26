@@ -122,7 +122,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
           this.seedGenError = "Server version mismatch. Please refresh the page and try again."
         }
         else if(typeof err.error === 'string' && (err.error as string) == "item_pool_too_small") {
-          this.seedGenError = "The amount of new items to place is greater than the item pool size. Try to shuffle more item sources, or disable options that add new items."
+          this.seedGenError = "The amount of new items to place is greater than the item pool size. Try to shuffle more item sources, or disable options that add new items. If you are using Plandomizer, try freeing up more item locations."
         }
         else if(typeof err.error === 'string' && (err.error as string).includes("Plandomizer error")) {
           this.seedGenError = "Could not generate a beatable seed with the selected settings and plandomizer config.";

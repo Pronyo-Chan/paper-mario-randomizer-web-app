@@ -123,7 +123,7 @@ export class PlandoItemsComponent {
           if (VANILLA_ITEMS[check[0]][check[1]].endsWith('coins)')) {
             const shopItemParts = VANILLA_ITEMS[check[0]][check[1]].split(' ');
             this.itemsFormGroup.get(check).setValue(shopItemParts[0]);
-            this.itemsFormGroup.get([check[0], check[1], 'price']).setValue(shopItemParts[1].slice(1));
+            this.itemsFormGroup.get([check[0], check[1], 'price']).setValue(Number(shopItemParts[1].slice(1)));
           } else {
             this.itemsFormGroup.get(check).setValue(VANILLA_ITEMS[check[0]][check[1]]);
           }
