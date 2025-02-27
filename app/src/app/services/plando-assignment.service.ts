@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, Validators } from "@angular/forms";
-import { CheckType, DOJO_CHECK_VALUES, DUNEGON_KEYS, GEAR_LOCATIONS, KEY_TO_DUNGEON, KOOT_FAVOR_CHECKS, KOOT_FAVOR_ITEMS, LETTER_CHAIN_CHECKS, LOCATIONS_LIST, PARTNERS, PROGRESSIVE_BADGES, SUPER_BLOCK_LOCATIONS } from "../pages/plando-page/plando-constants";
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject } from "rxjs";
+import { CheckType, DOJO_CHECK_VALUES, DUNEGON_KEYS, GEAR_LOCATIONS, KEY_TO_DUNGEON, KOOT_FAVOR_CHECKS, KOOT_FAVOR_ITEMS, LETTER_CHAIN_CHECKS, PARTNERS, PROGRESSIVE_BADGES, REGIONS_LIST, ROWF_MERLOW_BADGES, SUPER_BLOCK_LOCATIONS } from "../pages/plando-page/plando-constants";
 import { CustomValidators } from "../utilities/custom.validators";
 
 @Injectable({
@@ -30,11 +30,11 @@ export class PlandoAssignmentService {
         randoSettingsFormGroup.get('items').get('shuffleItems').setValue(true);
         plandoAssignedControls.add('shuffleItems');
         const plandoCheckTypes: Set<CheckType> = new Set();
-        const plandoLocations = plando['items'];
-        for (const loc of LOCATIONS_LIST) {
-          if (plandoLocations[loc.name]) {
-            const plandoChecks = plandoLocations[loc.name];
-            for (const check of loc.checks) {
+        const plandoRegions = plando['items'];
+        for (const region of REGIONS_LIST) {
+          if (plandoRegions[region.name]) {
+            const plandoChecks = plandoRegions[region.name];
+            for (const check of region.checks) {
               if (plandoChecks[check.name]) {
                 const plandoItem = check.type === CheckType.SHOP ? plandoChecks[check.name].item : plandoChecks[check.name];
 
@@ -44,7 +44,7 @@ export class PlandoAssignmentService {
                 plandoCheckTypes.add(check.type);
 
                 if (DUNEGON_KEYS.has(plandoItem)
-                  && (KEY_TO_DUNGEON[plandoItem] !== loc.name)) {
+                  && (KEY_TO_DUNGEON[plandoItem] !== region.name)) {
                   randoSettingsFormGroup.get('items').get('keyitemsOutsideDungeon').setValue(true);
                   plandoAssignedControls.add('keyitemsOutsideDungeon');
                 }
@@ -75,6 +75,10 @@ export class PlandoAssignmentService {
                 if (PROGRESSIVE_BADGES.has(plandoItem)) {
                   randoSettingsFormGroup.get('itemPool').get('progressiveBadges').setValue(true);
                   plandoAssignedControls.add('progressiveBadges');
+                }
+
+                if (ROWF_MERLOW_BADGES.has(plandoItem)) {
+                  plandoCheckTypes.add(CheckType.SHOP);
                 }
 
                 if (check.type === CheckType.LETTER_REWARD) {
@@ -157,7 +161,7 @@ export class PlandoAssignmentService {
           randoSettingsFormGroup.get('items').get('includeRadioTradeEvent').setValue(true);
           plandoAssignedControls.add('includeRadioTradeEvent');
         }
-        if (plandoCheckTypes.has(CheckType.FOLIAGE)) {
+        if (plandoCheckTypes.has(CheckType.FOLIAGE_COIN)) {
           randoSettingsFormGroup.get('items').get('includeCoinsFoliage').setValue(true);
           plandoAssignedControls.add('includeCoinsFoliage');
         }
@@ -220,9 +224,9 @@ export class PlandoAssignmentService {
           }
         }
         if (traps) {
-          if (traps > 40) {
+          if (traps > 35) {
             randoSettingsFormGroup.get('itemPool').get('itemTrapMode').setValue(3);
-          } else if (traps > 20) {
+          } else if (traps > 15) {
             randoSettingsFormGroup.get('itemPool').get('itemTrapMode').setValue(2);
           } else {
             randoSettingsFormGroup.get('itemPool').get('itemTrapMode').setValue(1);

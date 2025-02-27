@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Subscription } from "rxjs";
 import { pascalToVerboseString } from "src/app/utilities/stringFunctions";
