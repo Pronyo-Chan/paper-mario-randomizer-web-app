@@ -2,14 +2,14 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
 import { escapeRegexChars } from "src/app/utilities/stringFunctions";
 import { BADGE_LIST } from "./plando-badges/plando-badges.component";
-import { CheckType, LEGAL_TRAP_ITEMS, LOCATIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-constants";
+import { CheckType, LEGAL_TRAP_ITEMS, REGIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-constants";
 import { STAR_SPIRIT_POWER_NAMES } from "./plando-spirits-and-chapters/plando-spirits-and-chapters.component";
 
 export const MAX_FP_COST: number = 75;
 export const MAX_BP_COST: number = 10;
 export const DEFAULT_PLANDOMIZER_KEY: string = 'default_plandomizer';
 
-const plandoItemSet = new Set(PLANDO_ITEMS_LIST);
+const plandoItemSet = new Set(PLANDO_ITEMS_LIST.map((i) => i.code));
 export const manualTrapRegex = new RegExp('^TRAP \\((' + LEGAL_TRAP_ITEMS.map(escapeRegexChars).join('|') + ')\\)$');
 
 @Component({
@@ -106,19 +106,19 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
       }
       (this.formGroup.get('move_costs').get('badge') as FormGroup).addControl(badge.id, badgeFormGroup)
     }
-    for (const location of LOCATIONS_LIST) {
-      const locationFormGroup = new FormGroup({});
-      for (const check of location.checks) {
+    for (const region of REGIONS_LIST) {
+      const regionFormGroup = new FormGroup({});
+      for (const check of region.checks) {
         if (check.type === CheckType.SHOP) {
           const shopItemFormGroup = new FormGroup({});
           shopItemFormGroup.addControl('price', new FormControl<number>(null, [Validators.min(0), Validators.max(999)]));
           shopItemFormGroup.addControl('item', new FormControl<string>(null, this.itemNameValidator));
-          locationFormGroup.addControl(check.name, shopItemFormGroup);
+          regionFormGroup.addControl(check.name, shopItemFormGroup);
         } else {
-          locationFormGroup.addControl(check.name, new FormControl<string>(null, this.itemNameValidator));
+          regionFormGroup.addControl(check.name, new FormControl<string>(null, this.itemNameValidator));
         }
       }
-      (this.formGroup.get('items') as FormGroup).addControl(location.name, locationFormGroup);
+      (this.formGroup.get('items') as FormGroup).addControl(region.name, regionFormGroup);
     }
     localStorage.setItem(DEFAULT_PLANDOMIZER_KEY, JSON.stringify(this.formGroup.getRawValue()));
     const savedFormObj = localStorage.getItem('autosavePlandoSettings');
