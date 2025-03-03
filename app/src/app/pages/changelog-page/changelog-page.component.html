@@ -1,6 +1,22 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog">
+    <mat-card-title class="settings-title">0.29.1 (beta) (2024-03-02)</mat-card-title>
+    <h2>Known Issues</h2>
+    <ul>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+    </ul>
+
+    <h2>Bug Fixes</h2>
+    <ul>
+      <li>Fixed an issue that would rarely cause the `Cake` item to be considered the logical progression for getting past Gourmet Guy, instead of requiring the `CakeMix` item and access to Tayce T.'s cooking.</li>
+      <li>Fixed an issue of `Blue Berry` items not respawning from the replenishible crates in Boo's Mansion.</li>
+    </ul>
+  </mat-card>
+
+  <mat-card class="settings-card latest-changelog">
     <mat-card-title class="settings-title">0.29.0 (beta) (2024-02-24)</mat-card-title>
     <h2>Special Thanks</h2>
     <ul>
@@ -139,6 +155,7 @@
         <li>Reworked how the berry key items work. This was necessary for making the plandomizer implementation of the berries less painful. Ideally, players should not notice any difference to before.</li>
     </ul>
   </mat-card>
+
   <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.28.1 (beta) (2024-11-21)</mat-card-title>
     <h2>Known Issues</h2>
