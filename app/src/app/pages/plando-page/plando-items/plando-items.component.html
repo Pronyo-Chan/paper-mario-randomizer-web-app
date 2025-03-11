@@ -18,6 +18,14 @@
                     <span>&nbsp;Coin Blocks</span>
                 </div>
                 <div class="setting-element">
+                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.MULTICOIN_BLOCK)"></mat-slide-toggle>
+                    <span>&nbsp;Multi-Coin Blocks</span>
+                </div>
+                <div class="setting-element">
+                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.SUPER_BLOCK)"></mat-slide-toggle>
+                    <span>&nbsp;Super Blocks</span>
+                </div>
+                <div class="setting-element">
                     <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.OVERWORLD_COIN)"></mat-slide-toggle>
                     <span>&nbsp;Overworld Coins</span>
                 </div>

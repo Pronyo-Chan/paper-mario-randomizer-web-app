@@ -58,7 +58,7 @@ export class PlandoItemsComponent {
     CheckType.KOOT_FAVOR_COIN,
     CheckType.KOOT_FAVOR_REWARD,
     CheckType.LETTER_REWARD];
-  // For mass fill, don't show unsupported check types, or "Normal".
+  // For mass fill, don't show hidden check types, or "Normal".
   public massFillCheckTypes = Object.values(CheckType).filter(val => val !== CheckType.NORMAL && !this.filteredTypes.includes(val));
   public filteredItems: string[] = this.PLANDO_ITEMS.slice();
   public searchText: FormControl;
