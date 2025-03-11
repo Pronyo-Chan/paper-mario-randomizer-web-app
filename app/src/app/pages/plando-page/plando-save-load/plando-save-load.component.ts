@@ -110,6 +110,7 @@ export class PlandoSaveLoadComponent implements OnInit {
       }
       this.plandoFormGroup.setValue(plandoFormObj);
       this.plandoFormGroup.updateValueAndValidity();
+      this.saveLoadFormGroup.get('plandoName').setValue(name);
       this.lastPlandoName = name;
       this.saveLoadStatus = 'loaded';
       this.importStatus = '';
