@@ -6,43 +6,45 @@
             <h3 class="row">Show Checks</h3>
             <div class="check-filters">
                 <div class="setting-element">
-                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.SHOP)"></mat-slide-toggle>
+                    <mat-slide-toggle [checked]="!filteredTypes.includes(CHECK_TYPES.SHOP)" (change)="toggleCheckTypeFilter($event, CHECK_TYPES.SHOP)"></mat-slide-toggle>
                     <span>&nbsp;Shop Items</span>
                 </div>
                 <div class="setting-element">
-                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.HIDDEN_PANEL)"></mat-slide-toggle>
+                    <mat-slide-toggle [checked]="!filteredTypes.includes(CHECK_TYPES.HIDDEN_PANEL)" (change)="toggleCheckTypeFilter($event, CHECK_TYPES.HIDDEN_PANEL)"></mat-slide-toggle>
                     <span>&nbsp;Hidden Panels</span>
                 </div>
                 <div class="setting-element">
-                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.COIN_BLOCK)"></mat-slide-toggle>
+                    <mat-slide-toggle [checked]="!filteredTypes.includes(CHECK_TYPES.COIN_BLOCK)" (change)="toggleCheckTypeFilter($event, CHECK_TYPES.COIN_BLOCK)"></mat-slide-toggle>
                     <span>&nbsp;Coin Blocks</span>
                 </div>
                 <div class="setting-element">
-                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.MULTICOIN_BLOCK)"></mat-slide-toggle>
+                    <mat-slide-toggle [checked]="!filteredTypes.includes(CHECK_TYPES.MULTICOIN_BLOCK)" (change)="toggleCheckTypeFilter($event, CHECK_TYPES.MULTICOIN_BLOCK)"></mat-slide-toggle>
                     <span>&nbsp;Multi-Coin Blocks</span>
                 </div>
                 <div class="setting-element">
-                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.SUPER_BLOCK)"></mat-slide-toggle>
+                    <mat-slide-toggle [checked]="!filteredTypes.includes(CHECK_TYPES.SUPER_BLOCK)" (change)="toggleCheckTypeFilter($event, CHECK_TYPES.SUPER_BLOCK)"></mat-slide-toggle>
                     <span>&nbsp;Super Blocks</span>
                 </div>
                 <div class="setting-element">
-                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.OVERWORLD_COIN)"></mat-slide-toggle>
+                    <mat-slide-toggle [checked]="!filteredTypes.includes(CHECK_TYPES.OVERWORLD_COIN)" (change)="toggleCheckTypeFilter($event, CHECK_TYPES.OVERWORLD_COIN)"></mat-slide-toggle>
                     <span>&nbsp;Overworld Coins</span>
                 </div>
                 <div class="setting-element">
-                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.TRADE_EVENT)"></mat-slide-toggle>
+                    <mat-slide-toggle [checked]="!filteredTypes.includes(CHECK_TYPES.TRADE_EVENT)" (change)="toggleCheckTypeFilter($event, CHECK_TYPES.TRADE_EVENT)"></mat-slide-toggle>
                     <span>&nbsp;Trade Events</span>
                 </div>
                 <div class="setting-element">
-                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.FOLIAGE_COIN)"></mat-slide-toggle>
+                    <mat-slide-toggle [checked]="!filteredTypes.includes(CHECK_TYPES.FOLIAGE_COIN)" (change)="toggleCheckTypeFilter($event, CHECK_TYPES.FOLIAGE_COIN)"></mat-slide-toggle>
                     <span>&nbsp;Foliage Coins</span>
                 </div>
                 <div class="setting-element">
-                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.LETTER_REWARD)"></mat-slide-toggle>
+                    <mat-slide-toggle [checked]="!filteredTypes.includes(CHECK_TYPES.LETTER_REWARD)" (change)="toggleCheckTypeFilter($event, CHECK_TYPES.LETTER_REWARD)"></mat-slide-toggle>
                     <span>&nbsp;Letter Rewards</span>
                 </div>
                 <div class="setting-element">
-                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR_COIN); toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR_ITEM); toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR_REWARD)"></mat-slide-toggle>
+                    <mat-slide-toggle
+                        [checked]="!filteredTypes.includes(CHECK_TYPES.KOOT_FAVOR_COIN) && !filteredTypes.includes(CHECK_TYPES.KOOT_FAVOR_ITEM) && !filteredTypes.includes(CHECK_TYPES.KOOT_FAVOR_REWARD)"
+                        (change)="toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR_COIN); toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR_ITEM); toggleCheckTypeFilter($event, CHECK_TYPES.KOOT_FAVOR_REWARD)"></mat-slide-toggle>
                     <span>&nbsp;Koopa Koot Favors</span>
                 </div>
             </div>
