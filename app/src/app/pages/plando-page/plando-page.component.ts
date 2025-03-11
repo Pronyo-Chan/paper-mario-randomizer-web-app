@@ -112,10 +112,10 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
         if (check.type === CheckType.SHOP) {
           const shopItemFormGroup = new FormGroup({});
           shopItemFormGroup.addControl('price', new FormControl<number>(null, [Validators.min(0), Validators.max(999)]));
-          shopItemFormGroup.addControl('item', new FormControl<string>(null, this.itemNameValidator));
+          shopItemFormGroup.addControl('item', new FormControl<string>(null, [this.itemNameValidator, this.perCheckTypeValidator(check.type)]));
           regionFormGroup.addControl(check.name, shopItemFormGroup);
         } else {
-          regionFormGroup.addControl(check.name, new FormControl<string>(null, this.itemNameValidator));
+          regionFormGroup.addControl(check.name, new FormControl<string>(null, [this.itemNameValidator, this.perCheckTypeValidator(check.type)]));
         }
       }
       (this.formGroup.get('items') as FormGroup).addControl(region.name, regionFormGroup);
@@ -137,6 +137,15 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
       return null;
     }
     return { invalidPlandoItem: { value: control.value } };
+  }
+
+  private perCheckTypeValidator(checkType: CheckType): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (control.value === 'SuperBlock' && checkType !== CheckType.SUPER_BLOCK && checkType !== CheckType.MULTICOIN_BLOCK) {
+        return { invalidPlacement: { value: 'SuperBlock can only be placed in Multi-Coin Block or Super Block check locations.' } };
+      }
+      return null;
+    };
   }
 
   public resetPlandoForm() {
