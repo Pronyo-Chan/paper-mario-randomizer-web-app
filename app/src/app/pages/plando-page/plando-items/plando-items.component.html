@@ -30,6 +30,10 @@
                     <span>&nbsp;Overworld Coins</span>
                 </div>
                 <div class="setting-element">
+                    <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.TRADE_EVENT)"></mat-slide-toggle>
+                    <span>&nbsp;Trade Events</span>
+                </div>
+                <div class="setting-element">
                     <mat-slide-toggle (change)="toggleCheckTypeFilter($event, CHECK_TYPES.FOLIAGE_COIN)"></mat-slide-toggle>
                     <span>&nbsp;Foliage Coins</span>
                 </div>
