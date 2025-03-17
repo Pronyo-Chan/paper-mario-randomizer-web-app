@@ -176,6 +176,14 @@ export class PlandoItemsComponent implements OnInit {
     this.itemsFormGroup.get(formControlName).updateValueAndValidity();
   }
 
+  public onScroll($event: WheelEvent) {
+    if ($event.target instanceof HTMLElement
+      && ($event.target.classList.contains('mat-tab-label-content') || $event.target.classList.contains('mat-tab-label') || $event.target.classList.contains('mat-tab-labels'))) {
+      this.locationTabGroup._elementRef.nativeElement.querySelector('.mat-tab-list').scrollLeft += $event.deltaY;
+      $event.preventDefault();
+    }
+  }
+
   public toggleCheckTypeFilter($event: MatSlideToggleChange, checkType: CheckType) {
     if ($event.checked) {
       const i = this.filteredTypes.indexOf(checkType);
