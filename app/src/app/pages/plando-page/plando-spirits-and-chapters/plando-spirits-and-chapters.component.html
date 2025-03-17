@@ -6,7 +6,7 @@
   <div class="container">
     <div *ngFor="let spirit of SPIRITS; let i = index; let requiredSpirits = requiredSpirits" class="panel">
       <h3 class="row text-center">Chapter {{ i + 1 }}</h3>
-      <div>
+      <div *ngIf="spirit !== ''">
         <label>
           <input
             type="checkbox"
@@ -24,17 +24,27 @@
         </label>
       </div>
       <div class="settings">
-        <div class="row" formGroupName="difficulty">
+        <div *ngIf="spirit !== ''" class="row" formGroupName="difficulty">
           <app-tooltip-span class="row"
             [spanText]="'Difficulty: ' + (getChapterDifficulty(i+1) > 0 ? getChapterDifficulty(i+1) : '?')"
             tooltipText="Set the difficulty scaling for this chapter. If set to '?', the seed generator settings will determine scaling."></app-tooltip-span>
           <mat-slider formControlName="{{ 'chapter ' + (i + 1) }}" (input)="setChapterDifficulty(i+1, $event.value)" min="0" max="8" step="1" tickInterval="1"></mat-slider>
         </div>
-        <div class="row" formGroupName="boss_battles">
+        <div class="row" formGroupName="dungeon_entrances">
+          <label for="{{ CHAPTER_OVERWORLDS[i] }}">Dungeon:</label>
+          <select formControlName="{{ CHAPTER_OVERWORLDS[i] }}">
+            <option value=""></option>
+            <option *ngFor="let dungeon of DUNGEONS" [value]="dungeon">
+              {{ toDisplayString(dungeon) }}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="spirit !== ''" class="row" formGroupName="boss_battles">
           <label for="{{ 'chapter ' + (i + 1) }}">Boss:</label>
           <select formControlName="{{ 'chapter ' + (i + 1) }}">
-            <option *ngFor="let boss of BOSSES" [value]="boss.id">
-              {{ boss.displayName }}
+            <option value=""></option>
+            <option *ngFor="let boss of BOSSES" [value]="boss">
+              {{ toDisplayString(boss) }}
             </option>
           </select>
         </div>
