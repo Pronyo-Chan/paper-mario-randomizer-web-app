@@ -7,27 +7,6 @@ import { escapeRegexChars, pascalToVerboseString } from "src/app/utilities/strin
 import { CHECK_TYPES_DISPLAY_MAPPING, CheckType, LEGAL_TRAP_ITEMS, PLANDO_ITEMS_LIST, Region, REGIONS_LIST, VANILLA_ITEMS } from "../plando-constants";
 import { manualTrapRegex } from "../plando-page.component";
 
-const possessiveRegex = /(Mario|Peach|Boo|Guy|Troopa|King|Bowser|Rowf|Merlow|Merluvlee|Tubba|Kolorado|Bow|Lily|Petunia|Rosie)s /g;
-const displayStringReplacements = {
-  "B L U": "BLU",
-  "P N K": "PNK",
-  "G R N": "GRN",
-  "R E D": "RED",
-  "P- ": "P-",
-  "D- ": "D-",
-  "( ": "(",
-  "N W": "NW",
-  "N E": "NE",
-  "S W": "SW",
-  "S E": "SE",
-  "Bros": "Bros.",
-  "Non Progression": "Non-Progression Item",
-  "Consumable": "Random Consumable",
-}
-const replacementRegEx = new RegExp(Object.keys(displayStringReplacements).map(escapeRegexChars).join('|'), "g");
-const displayStrings: Map<string, string> = new Map<string, string>();
-
-
 @Component({
   selector: 'app-plando-items',
   templateUrl: './plando-items.component.html',
@@ -209,13 +188,6 @@ export class PlandoItemsComponent implements OnInit {
     this.massFillCheckTypes = Object.values(CheckType).filter(val => val !== CheckType.NORMAL && !this.filteredTypes.includes(val));
   }
 
-  public toDisplayString = function (s: string): string {
-    if (!displayStrings.has(s)) {
-      displayStrings.set(s, pascalToVerboseString(s).replace(possessiveRegex, "$1's").replace(replacementRegEx, function (matched) {
-        return displayStringReplacements[matched];
-      }));
-    }
-    return displayStrings.get(s);
-  }
+  public toDisplayString = pascalToVerboseString;
 
 };

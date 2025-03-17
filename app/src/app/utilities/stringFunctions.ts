@@ -15,7 +15,21 @@ const verboseStringReplacements = {
     "D Up": "D-Up",
     'P Down': "P-Down",
     "P Up": "P-Up",
-    "Allor": "All or"
+    "Allor": "All or",
+    "B L U": "BLU",
+    "P N K": "PNK",
+    "G R N": "GRN",
+    "R E D": "RED",
+    "P- ": "P-",
+    "D- ": "D-",
+    "( ": "(",
+    "N W": "NW",
+    "N E": "NE",
+    "S W": "SW",
+    "S E": "SE",
+    "Bros": "Bros.",
+    "Non Progression": "Non-Progression Item",
+    "Consumable": "Random Consumable",
 }
 
 export function escapeRegexChars(val: string): string {
@@ -24,6 +38,7 @@ export function escapeRegexChars(val: string): string {
 
 const verboseStrings: Map<string, string> = new Map<string, string>();
 
+const possessiveRegex = /(Mario|Peach|Boo|Guy|Troopa|King|Bowser|Rowf|Merlow|Merluvlee|Tubba|Kolorado|Bow|Lily|Petunia|Rosie)s/g;
 const stringReplaceRegEx = new RegExp(Object.keys(verboseStringReplacements).map(escapeRegexChars).join('|'), 'g');
 
 export function pascalToVerboseString(text: string): string {
@@ -34,16 +49,17 @@ export function pascalToVerboseString(text: string): string {
         if (text.includes("Letter") && text.length == 8) {
             return Constants.VERBOSE_LETTER_NAMES[text];
         }
-    
+
         if (text.includes("MagicalSeed")) {
             return text.replace(/([A-Z0-9])/g, " $1");
         }
-    
+
         var cleanText = text.replace(/([A-Z])/g, " $1");
         cleanText = cleanText.charAt(0).toUpperCase() + cleanText.slice(1);
         cleanText = cleanText.replace(stringReplaceRegEx, function (matched) {
             return verboseStringReplacements[matched];
-        }).trimStart()
+        }).trimStart().replace(possessiveRegex, "$1's");
+
         verboseStrings.set(text, cleanText);
     }
 
