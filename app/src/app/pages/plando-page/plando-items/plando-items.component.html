@@ -71,7 +71,7 @@
     </div>
 </div>
 <div [formGroup]="itemsFormGroup">
-    <mat-tab-group disablePagination="true" class="sub-tab" animationDuration="0" scrollToCenter #locationTabGroup>
+    <mat-tab-group disablePagination="true" class="sub-tab" animationDuration="0" scrollToCenter #locationTabGroup (wheel)="onScroll($event)">
         <mat-tab *ngFor="let loc of LOCATIONS">
             <ng-template mat-tab-label>
                 <label class="mat-tab-label-content" [ngClass]="{ 'error': itemsFormGroup.get(loc.name).invalid }">{{toDisplayString(loc.name)}}</label>

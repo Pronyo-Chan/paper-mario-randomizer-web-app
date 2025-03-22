@@ -3,11 +3,6 @@ import { FormGroup } from '@angular/forms';
 import { Subscription } from "rxjs";
 import { pascalToVerboseString } from "src/app/utilities/stringFunctions";
 
-type Boss = {
-  id: string;
-  displayName: string;
-}
-
 export const STAR_SPIRIT_POWER_NAMES: Array<string> = ['Refresh', 'Lullaby', 'StarStorm', 'ChillOut', 'Smooch', 'TimeOut', 'UpAndAway'];
 
 @Component({
@@ -19,16 +14,10 @@ export class PlandoSpiritsAndChaptersComponent implements OnInit, OnDestroy, Aft
   @Input() plandoFormGroup: FormGroup;
 
   public readonly SPIRIT_POWERS: Array<string> = STAR_SPIRIT_POWER_NAMES;
-  public readonly SPIRITS: Array<string> = ['Eldstar', 'Mamar', 'Skolar', 'Muskular', 'Misstar', 'Klevar', 'Kalmar'];
-  public readonly BOSSES: Array<Boss> = [
-    { id: '', displayName: '' },
-    { id: 'KoopaBros', displayName: 'Koopa Bros.' },
-    { id: 'Tutankoopa', displayName: 'Tutankoopa' },
-    { id: 'TubbasHeart', displayName: 'Tubba\'s Heart' },
-    { id: 'GeneralGuy', displayName: 'General Guy' },
-    { id: 'LavaPiranha', displayName: 'Lava Piranha' },
-    { id: 'HuffNPuff', displayName: 'Huff N Puff' },
-    { id: 'CrystalKing', displayName: 'Crystal King' }];
+  public readonly SPIRITS: Array<string> = ['Eldstar', 'Mamar', 'Skolar', 'Muskular', 'Misstar', 'Klevar', 'Kalmar', ''];
+  public readonly CHAPTER_OVERWORLDS: Array<string> = ['PleasantPath', 'DryDryDesert', 'GustyGulch', 'EnterToyBox', 'LavalavaIsland', 'EnterFlowerGate', 'ShiverMountain', 'RideStarShip'];
+  public readonly DUNGEONS: Array<string> = ['KoopaBrosFortress', 'DryDryRuins', 'TubbasCastle', 'ShyGuysToybox', 'MtLavalava', 'FlowerFields', 'CrystalPalace', 'BowsersCastle'];
+  public readonly BOSSES: Array<string> = ['KoopaBros', 'Tutankoopa', 'TubbasHeart', 'GeneralGuy', 'LavaPiranha', 'HuffNPuff', 'CrystalKing'];
   public spiritsSubscription: Subscription;
   public requiredSpiritsArray = Array<string>();
   public toDisplayString = pascalToVerboseString;

@@ -43,6 +43,16 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
         'chapter 6': new FormControl<string>(null),
         'chapter 7': new FormControl<string>(null),
       }),
+      dungeon_entrances: new FormGroup({
+        'PleasantPath': new FormControl<string>(null),
+        'DryDryDesert': new FormControl<string>(null),
+        'GustyGulch': new FormControl<string>(null),
+        'EnterToyBox': new FormControl<string>(null),
+        'LavalavaIsland': new FormControl<string>(null),
+        'EnterFlowerGate': new FormControl<string>(null),
+        'ShiverMountain': new FormControl<string>(null),
+        'RideStarShip': new FormControl<string>(null),
+      }),
       required_spirits: new FormControl<Array<string>>(null),
       move_costs: new FormGroup({
         badge: new FormGroup({}),
