@@ -4,6 +4,7 @@ import { escapeRegexChars } from "src/app/utilities/stringFunctions";
 import { BADGE_LIST } from "./plando-badges/plando-badges.component";
 import { CheckType, LEGAL_TRAP_ITEMS, REGIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-constants";
 import { STAR_SPIRIT_POWER_NAMES } from "./plando-spirits-and-chapters/plando-spirits-and-chapters.component";
+import { CustomValidators } from "src/app/utilities/custom.validators";
 
 export const MAX_FP_COST: number = 75;
 export const MAX_BP_COST: number = 10;
@@ -112,10 +113,10 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
         if (check.type === CheckType.SHOP) {
           const shopItemFormGroup = new FormGroup({});
           shopItemFormGroup.addControl('price', new FormControl<number>(null, [Validators.min(0), Validators.max(999)]));
-          shopItemFormGroup.addControl('item', new FormControl<string>(null, this.itemNameValidator));
+          shopItemFormGroup.addControl('item', new FormControl<string>(null, [this.itemNameValidator, CustomValidators.perCheckTypeValidator(check.type)]));
           regionFormGroup.addControl(check.name, shopItemFormGroup);
         } else {
-          regionFormGroup.addControl(check.name, new FormControl<string>(null, this.itemNameValidator));
+          regionFormGroup.addControl(check.name, new FormControl<string>(null, [this.itemNameValidator, CustomValidators.perCheckTypeValidator(check.type)]));
         }
       }
       (this.formGroup.get('items') as FormGroup).addControl(region.name, regionFormGroup);

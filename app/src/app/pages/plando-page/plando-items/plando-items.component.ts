@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { MatSlideToggleChange } from "@angular/material/slide-toggle";
 import { MatTabGroup } from "@angular/material/tabs";
@@ -33,7 +33,7 @@ const displayStrings: Map<string, string> = new Map<string, string>();
   templateUrl: './plando-items.component.html',
   styleUrls: ['../plando-page.component.scss', './plando-items.component.scss']
 })
-export class PlandoItemsComponent {
+export class PlandoItemsComponent implements OnInit {
   @Input() itemsFormGroup: FormGroup;
   @ViewChild('locationTabGroup') locationTabGroup: MatTabGroup;
   public readonly CHECK_TYPES = CheckType;
@@ -58,7 +58,34 @@ export class PlandoItemsComponent {
     CheckType.KOOT_FAVOR_COIN,
     CheckType.KOOT_FAVOR_REWARD,
     CheckType.LETTER_REWARD];
-  // For mass fill, don't show unsupported check types, or "Normal".
+
+  public ngOnInit(): void {
+    const savedPlandoString = localStorage.getItem('autosavePlandoSettings');
+    if (savedPlandoString) {
+      const savedPlandoObj = JSON.parse(savedPlandoString);
+      this.unhideAssignedCheckTypes(savedPlandoObj);
+    }
+  }
+
+  public unhideAssignedCheckTypes(savedPlandoObj: any) {
+    if (savedPlandoObj.items) {
+      for (const regionName in savedPlandoObj.items) {
+        const region = REGIONS_LIST.find(r => r.name === regionName)
+        for (const checkName in savedPlandoObj.items[regionName]) {
+          if (!savedPlandoObj.items[regionName][checkName]) {
+            continue;
+          }
+          const checkType = region.checks.find(c => c.name === checkName).type;
+          if (checkType === CheckType.SHOP && !savedPlandoObj.items[regionName][checkName].item) {
+            continue;
+          }
+          this.filteredTypes.splice(this.filteredTypes.indexOf(checkType),1);
+        }
+      }
+    }
+  };
+
+  // For mass fill, don't show hidden check types, or "Normal".
   public massFillCheckTypes = Object.values(CheckType).filter(val => val !== CheckType.NORMAL && !this.filteredTypes.includes(val));
   public filteredItems: string[] = this.PLANDO_ITEMS.slice();
   public searchText: FormControl;
