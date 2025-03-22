@@ -59,7 +59,7 @@ export class PlandoItemsComponent implements OnInit {
     CheckType.KOOT_FAVOR_REWARD,
     CheckType.LETTER_REWARD];
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const savedPlandoString = localStorage.getItem('autosavePlandoSettings');
     if (savedPlandoString) {
       const savedPlandoObj = JSON.parse(savedPlandoString);
@@ -67,7 +67,7 @@ export class PlandoItemsComponent implements OnInit {
     }
   }
 
-  unhideAssignedCheckTypes(savedPlandoObj: any) {
+  public unhideAssignedCheckTypes(savedPlandoObj: any) {
     if (savedPlandoObj.items) {
       for (const regionName in savedPlandoObj.items) {
         const region = REGIONS_LIST.find(r => r.name === regionName)
