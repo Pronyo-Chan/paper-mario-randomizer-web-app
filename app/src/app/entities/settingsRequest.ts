@@ -161,6 +161,7 @@ export interface SettingsRequest {
     ShuffleMusicMode: MusicMode;
     ShuffleJingles: boolean;
     HiddenPanelVisibility: number;
+    ISpyPanelHints: number;
     CookWithoutFryingPan: boolean;
     GearShuffleMode: number;
     PartnerUpgradeShuffle: number;

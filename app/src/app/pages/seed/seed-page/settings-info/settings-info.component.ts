@@ -26,6 +26,7 @@ import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeS
 import { CustceneMode } from 'src/app/entities/enum/cutsceneMode';
 import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
 import { SeedGoal } from 'src/app/entities/enum/seedGoal';
+import { ISpyPanelHints } from 'src/app/entities/enum/iSpyPanelHints';
 
 interface SettingRow {
   name: string;
@@ -338,6 +339,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Skip Epilogue", value: this.seedModel.QualityOfLife.SkipEpilogue},
       {name: "Skip Quiz", value: this.seedModel.QualityOfLife.SkipQuiz},
       {name: "Visible Hidden Panels", value: this.seedModel.QualityOfLife.VisibleHiddenPanels},
+      {name: "I Spy Panel Hints", value: ISpyPanelHints[this.seedModel.QualityOfLife.ISpyPanelHints]}
     ] as SettingRow[]
   }
 

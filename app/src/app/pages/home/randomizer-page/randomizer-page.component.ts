@@ -32,6 +32,7 @@ import { BossShuffleMode } from 'src/app/entities/enum/BossShuffleMode';
 import { SettingStringMappingService } from 'src/app/services/setting-string-mapping/setting-string-mapping.service';
 import { PlandoAssignmentService } from "src/app/services/plando-assignment.service";
 import { MultiCoinBlockShuffle } from 'src/app/entities/enum/MultiCoinBlockShuffle';
+import { ISpyPanelHints } from 'src/app/entities/enum/iSpyPanelHints';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -211,6 +212,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         quizmoAlwaysAppears: new FormControl(false),
         foliageItemHints: new FormControl(false),
         hiddenPanelVisibility: new FormControl(false),
+        iSpyPanelHints: new FormControl(ISpyPanelHints.Off),
         cookWithoutFryingPan: new FormControl(false),
       }),
       difficulty: new FormGroup({

@@ -40,16 +40,19 @@
             The Peekaboo badge is also removed from the item pool">
         </app-tooltip-span>
         </div>
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='skipQuiz'></mat-slide-toggle>
-            <app-tooltip-span spanText="Skip Quiz" tooltipText="Quiz rewards will be handed out without having to answer questions"></app-tooltip-span>
-        </div>
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='alwaysISpy'></mat-slide-toggle>
             <app-tooltip-span spanText="Always I Spy" tooltipText="Hidden Panels will always be indicated to be in the present room without needing to equip the I Spy badge.
             The sound effect has been removed, so it is only a visual cue.
             The I Spy badge is also removed from the item pool."></app-tooltip-span>
         </div>
+
+        <div class="setting-element">
+          <mat-slide-toggle formControlName='skipQuiz'></mat-slide-toggle>
+          <app-tooltip-span spanText="Skip Quiz" tooltipText="Quiz rewards will be handed out without having to answer questions"></app-tooltip-span>
+        </div>
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='quizmoAlwaysAppears'></mat-slide-toggle>
             <app-tooltip-span spanText="Quizmo Always Appears" tooltipText="Setting this to true forces Quizmo to appear in a town,
@@ -86,6 +89,22 @@
               <option [ngValue]="1">Shortened</option>
               <option [ngValue]="2">Minimal</option>
           </select>
+      </div>
+
+      <div class="setting-element dropdown-element">
+        <app-tooltip-span
+             spanText="I Spy Panel Hints"
+              tooltipText="Off: Don't show panel hints.
+
+              Vague: Display a generic item sprite, based on the type of the item inside of the panel.
+
+              Concrete: Display the item sprite of the exact item inside of the panel.">
+        </app-tooltip-span>
+        <select formControlName='iSpyPanelHints'>
+            <option [ngValue]="0">Off</option>
+            <option [ngValue]="1">Vague</option>
+            <option [ngValue]="2">Concrete</option>
+        </select>
       </div>
 
         <div class="setting-element">

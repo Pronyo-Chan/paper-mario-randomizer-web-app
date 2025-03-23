@@ -64,7 +64,8 @@
                 "quizmoAlwaysAppears": false,
                 "foliageItemHints": true,
                 "cookWithoutFryingPan": true,
-                "hiddenPanelVisibility": 1
+                "hiddenPanelVisibility": 1,
+                "iSpyPanelHints": 0
             },
             "difficulty": {
                 "difficultyMode": 2,
@@ -258,7 +259,8 @@
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false,
             "cookWithoutFryingPan": false,
-            "hiddenPanelVisibility": 1
+            "hiddenPanelVisibility": 1,
+            "iSpyPanelHints": 0
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -452,7 +454,8 @@
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false,
             "cookWithoutFryingPan": false,
-            "hiddenPanelVisibility": 0
+            "hiddenPanelVisibility": 0,
+            "iSpyPanelHints": 0
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -646,7 +649,8 @@
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false,
             "cookWithoutFryingPan": false,
-            "hiddenPanelVisibility": 0
+            "hiddenPanelVisibility": 0,
+            "iSpyPanelHints": 0
           },
           "difficulty": {
             "difficultyMode": 1,
@@ -840,7 +844,8 @@
             "quizmoAlwaysAppears":false,
             "foliageItemHints":true,
             "cookWithoutFryingPan": false,
-            "hiddenPanelVisibility": 1
+            "hiddenPanelVisibility": 1,
+            "iSpyPanelHints": 0
          },
          "difficulty":{
             "difficultyMode":1,
@@ -1037,6 +1042,7 @@
           "quizmoAlwaysAppears": true,
           "foliageItemHints": true,
           "hiddenPanelVisibility": true,
+          "iSpyPanelHints": 0,
           "cookWithoutFryingPan": true
         },
         "difficulty": {
@@ -1242,6 +1248,7 @@
           "quizmoAlwaysAppears": true,
           "foliageItemHints": true,
           "hiddenPanelVisibility": true,
+          "iSpyPanelHints": 0,
           "cookWithoutFryingPan": true
         },
         "difficulty": {
@@ -1447,6 +1454,7 @@
             "quizmoAlwaysAppears":true,
             "foliageItemHints":true,
             "hiddenPanelVisibility":true,
+            "iSpyPanelHints": 0,
             "cookWithoutFryingPan":true
          },
          "difficulty":{

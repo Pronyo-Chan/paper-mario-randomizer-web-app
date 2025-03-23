@@ -303,6 +303,7 @@ export class RandomizerService {
       ShuffleMusicMode: settingsForm.get('cosmetics').get("shuffleMusic").value != -1 ? settingsForm.get('cosmetics').get("shuffleMusic").value : 0,
       ShuffleJingles: settingsForm.get('cosmetics').get("shuffleJingles").value,
       HiddenPanelVisibility: settingsForm.get('qualityOfLife').get('hiddenPanelVisibility').value ? 1 : 0,
+      ISpyPanelHints: settingsForm.get('qualityOfLife').get('iSpyPanelHints').value,
       CookWithoutFryingPan: settingsForm.get('qualityOfLife').get('cookWithoutFryingPan').value,
       GearShuffleMode: settingsForm.get('items').get('gearShuffleMode').value,
       PartnerUpgradeShuffle: settingsForm.get('items').get('partnerUpgradeShuffle').value,
