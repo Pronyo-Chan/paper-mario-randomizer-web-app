@@ -302,8 +302,8 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Boots", value: Boots[this.seedModel.StatsAndGear.Boots]},
       {name: "Hammer", value: Hammer[this.seedModel.StatsAndGear.Hammer]},
       {name: "Coins", value: this.seedModel.StatsAndGear.Coins},
-      {name: "Min Number of Starting Items", value: this.seedModel.StatsAndGear.MinNumberOfStartingItems},
-      {name: "Max Number of Starting Items", value: this.seedModel.StatsAndGear.MaxNumberOfStartingItems},
+      {name: "Min Number of Random Starting Items", value: this.seedModel.StatsAndGear.MinNumberOfStartingItems},
+      {name: "Max Number of Random Starting Items", value: this.seedModel.StatsAndGear.MaxNumberOfStartingItems},
       {name: "Starting Items", value: startingItems?.join(", ")}
     ] as SettingRow[]
   }
