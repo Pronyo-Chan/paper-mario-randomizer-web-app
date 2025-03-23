@@ -31,6 +31,7 @@ import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
 import { BossShuffleMode } from 'src/app/entities/enum/BossShuffleMode';
 import { SettingStringMappingService } from 'src/app/services/setting-string-mapping/setting-string-mapping.service';
 import { PlandoAssignmentService } from "src/app/services/plando-assignment.service";
+import { MultiCoinBlockShuffle } from 'src/app/entities/enum/MultiCoinBlockShuffle';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -161,7 +162,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includeDojo: new FormControl(0),
         includeLetters: new FormControl(LettersMode.Vanilla),
         includeRadioTradeEvent: new FormControl(false),
-        shuffleBlocks: new FormControl(false),
+        multiCoinBlockShuffle: new FormControl(MultiCoinBlockShuffle.Off),
         gearShuffleMode: new FormControl(GearShuffleMode.Vanilla),
         partnerUpgradeShuffle: new FormControl(PartnerUpgradeShuffleMode.Vanilla),
         ripCheatoItemsInLogic: new FormControl(6),

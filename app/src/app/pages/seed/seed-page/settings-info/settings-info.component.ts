@@ -1,3 +1,4 @@
+import { MultiCoinBlockShuffle } from './../../../../entities/enum/MultiCoinBlockShuffle';
 import { BossShuffleMode } from './../../../../entities/enum/BossShuffleMode';
 import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
 import { DungeonEntranceShuffleMode } from './../../../../entities/enum/DungeonEntranceShuffleMode';
@@ -170,7 +171,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Letter Delivery Rewards", value: LettersMode[this.seedModel.Items.LetterDeliveryRewards]},
       {name: "Rip Cheato Items In Logic", value: this.seedModel.Items.RipCheatoItemsInLogic},
       {name: "Partner Upgrade Shuffle", value: PartnerUpgradeShuffleMode[this.seedModel.Items.PartnerUpgradeShuffle]},
-      {name: "Shuffle Super/Multicoin Blocks", value: this.seedModel.Items.ShuffleSuperAndMulticoinBlocks},
+      {name: "Shuffle Super/Multicoin Blocks", value: MultiCoinBlockShuffle[this.seedModel.Items.ShuffleSuperAndMulticoinBlocks]},
       {name: "Shopsanity", value: this.seedModel.Items.Shopsanity},
       {name: "Rowf Items in Logic", value: this.seedModel.Items.ProgressionOnRowf},
       {name: "Merlow Items in Logic", value: this.seedModel.Items.ProgressionOnMerlow},

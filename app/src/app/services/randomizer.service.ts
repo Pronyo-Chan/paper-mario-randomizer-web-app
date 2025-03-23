@@ -296,7 +296,7 @@ export class RandomizerService {
       MysteryRandomPick: settingsForm.get('gameplay').get('mysteryMode').value == MysteryMode['Random Pick'],
       AllowItemHints: settingsForm.get('difficulty').get('allowItemHints').value,
       IncludeRadioTradeEvent: settingsForm.get('items').get('includeRadioTradeEvent').value,
-      ShuffleBlocks: settingsForm.get('items').get('shuffleBlocks').value,
+      MultiCoinBlockShuffle: settingsForm.get('items').get('multiCoinBlockShuffle').value,
       RandomPitch: settingsForm.get('cosmetics').get('randomPitch').value,
       MuteDangerBeeps: settingsForm.get('cosmetics').get('muteDangerBeeps').value,
       ShuffleMusic: settingsForm.get('cosmetics').get("shuffleMusic").value != -1,

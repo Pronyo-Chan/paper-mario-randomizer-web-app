@@ -17,6 +17,7 @@ import { SeedGoal } from './enum/seedGoal';
 import { DungeonEntranceShuffleMode as DungeonEntranceShuffleMode } from './enum/DungeonEntranceShuffleMode';
 import { PartnerShuffleMode } from './enum/partnerShuffleMode';
 import { BossShuffleMode } from './enum/BossShuffleMode';
+import { MultiCoinBlockShuffle } from './enum/MultiCoinBlockShuffle';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -153,7 +154,7 @@ export interface SettingsRequest {
     ItemTrapMode: ItemTrapMode;
     AllowItemHints: boolean;
     IncludeRadioTradeEvent: boolean;
-    ShuffleBlocks: boolean;
+    MultiCoinBlockShuffle: MultiCoinBlockShuffle;
     RandomPitch: boolean;
     MuteDangerBeeps: boolean;
     ShuffleMusic: boolean;
