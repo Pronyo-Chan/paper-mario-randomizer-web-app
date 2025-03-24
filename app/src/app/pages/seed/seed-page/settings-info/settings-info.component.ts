@@ -28,6 +28,7 @@ import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
 import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 import { ISpyPanelHints } from 'src/app/entities/enum/iSpyPanelHints';
 import { BowserDoorQuiz } from 'src/app/entities/enum/bowserDoorQuiz';
+import { KentCKoopa } from 'src/app/entities/enum/kentCKoopa';
 
 interface SettingRow {
   name: string;
@@ -238,6 +239,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Enemy Damage", value: this.seedModel.GeneralDifficulty.EnemyDamage},
       {name: "Merlow Rewards Pricing", value: MerlowRewardPricing[this.seedModel.GeneralDifficulty.MerlowRewardsPricing]},
       {name: "Bowser Door Quiz", value: pascalToVerboseString(BowserDoorQuiz[this.seedModel.GeneralDifficulty.BowserDoorQuiz])},
+      {name: "Kent C. Koopa", value: pascalToVerboseString(KentCKoopa[this.seedModel.GeneralDifficulty.KentCKoopa])},
       {name: "No Healing Items", value: this.seedModel.GeneralDifficulty.NoHealingItems},
       {name: "No Heart Blocks", value: this.seedModel.GeneralDifficulty.NoHeartBlocks},
       {name: "No Save Blocks", value: this.seedModel.GeneralDifficulty.NoSaveBlocks},

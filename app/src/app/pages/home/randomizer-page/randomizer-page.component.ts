@@ -34,6 +34,7 @@ import { PlandoAssignmentService } from "src/app/services/plando-assignment.serv
 import { MultiCoinBlockShuffle } from 'src/app/entities/enum/MultiCoinBlockShuffle';
 import { ISpyPanelHints } from 'src/app/entities/enum/iSpyPanelHints';
 import { BowserDoorQuiz } from 'src/app/entities/enum/bowserDoorQuiz';
+import { KentCKoopa } from 'src/app/entities/enum/kentCKoopa';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -230,6 +231,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         allowItemHints: new FormControl(true),
         merlowRewardPricing: new FormControl(MerlowRewardPricing.Normal),
         bowserDoorQuiz: new FormControl(BowserDoorQuiz.RandomQuiz),
+        kentCKoopa: new FormControl(KentCKoopa.BlocksPleasantPath),
         badgeSynergy: new FormControl(false),
       }),
       itemPool: new FormGroup({

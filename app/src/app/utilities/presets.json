@@ -81,7 +81,8 @@
                 "chetRippoAvailable": true,
                 "allowItemHints": true,
                 "merlowRewardPricing": 0,
-                "bowserDoorQuiz": 0
+                "bowserDoorQuiz": 0,
+                "kentCKoopa": 0
             },
             "goals": {
               "starWaySpiritsNeeded": 7,
@@ -278,7 +279,8 @@
             "chetRippoAvailable": true,
             "allowItemHints": true,
             "merlowRewardPricing": 1,
-            "bowserDoorQuiz": 0
+            "bowserDoorQuiz": 0,
+            "kentCKoopa": 0
           },
           "goals": {
             "starWaySpiritsNeeded": 7,
@@ -475,7 +477,8 @@
             "chetRippoAvailable": true,
             "allowItemHints": true,
             "merlowRewardPricing": 1,
-            "bowserDoorQuiz": 0
+            "bowserDoorQuiz": 0,
+            "kentCKoopa": 0
           },
           "goals": {
             "starWaySpiritsNeeded": 7,
@@ -672,7 +675,8 @@
             "chetRippoAvailable": true,
             "allowItemHints": false,
             "merlowRewardPricing": 1,
-            "bowserDoorQuiz": 0
+            "bowserDoorQuiz": 0,
+            "kentCKoopa": 0
           },
           "goals": {
             "starWaySpiritsNeeded": 7,
@@ -870,7 +874,8 @@
             "chetRippoAvailable": true,
             "allowItemHints":false,
             "merlowRewardPricing": 0,
-            "bowserDoorQuiz": 0
+            "bowserDoorQuiz": 0,
+            "kentCKoopa": 0
          },
          "goals": {
           "starWaySpiritsNeeded": 7,
@@ -1069,7 +1074,8 @@
           "allowItemHints": false,
           "merlowRewardPricing": 0,
           "badgeSynergy": false,
-          "bowserDoorQuiz": 0
+          "bowserDoorQuiz": 0,
+          "kentCKoopa": 0
         },
         "goals": {
           "starWaySpiritsNeeded": 4,
@@ -1277,7 +1283,8 @@
           "allowItemHints": false,
           "merlowRewardPricing": 0,
           "badgeSynergy": false,
-          "bowserDoorQuiz": 0
+          "bowserDoorQuiz": 0,
+          "kentCKoopa": 0
         },
         "goals": {
           "starWaySpiritsNeeded": 4,
@@ -1485,7 +1492,8 @@
             "allowItemHints":false,
             "merlowRewardPricing":0,
             "badgeSynergy":false,
-            "bowserDoorQuiz": 0
+            "bowserDoorQuiz": 0,
+            "kentCKoopa": 0
          },
          "itemPool":{
             "itemQuality":100,

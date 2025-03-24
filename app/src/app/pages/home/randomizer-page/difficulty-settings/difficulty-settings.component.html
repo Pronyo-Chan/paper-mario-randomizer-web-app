@@ -50,6 +50,25 @@
           </select>
         </div>
 
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span spanText="Kent C. Koopa" tooltipText="Determines how Kent C. Koopa on Pleasant Path behaves.
+
+                                                                          Blocks Pleasant Path: Kent must be paid once or defeated.
+
+                                                                          Must Defeat: No paying him, but a battle is required. Logically expects a way to flip him over and 2 chapters beaten.
+
+                                                                          Already Paid: Stands on the side of Pleasant Path as if already paid.
+
+                                                                          Already Defeated: Removed from Pleasant Path as if already defeated">
+          </app-tooltip-span>
+          <select formControlName='kentCKoopa'>
+              <option [ngValue]="0">Blocks Pleasant Path</option>
+              <option [ngValue]="1">Must Defeat</option>
+              <option [ngValue]="2">Already Paid</option>
+              <option [ngValue]="3">Already Defeated</option>
+          </select>
+        </div>
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>
             <app-tooltip-span spanText="Cap Enemy XP" tooltipText="Limits the amount of XP obtainable per defeated enemy to 5 XP."></app-tooltip-span>

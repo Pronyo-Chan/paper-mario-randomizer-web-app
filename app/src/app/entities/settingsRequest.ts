@@ -19,6 +19,7 @@ import { DungeonEntranceShuffleMode as DungeonEntranceShuffleMode } from './enum
 import { PartnerShuffleMode } from './enum/partnerShuffleMode';
 import { BossShuffleMode } from './enum/BossShuffleMode';
 import { MultiCoinBlockShuffle } from './enum/MultiCoinBlockShuffle';
+import { KentCKoopa } from './enum/kentCKoopa';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -158,6 +159,7 @@ export interface SettingsRequest {
     IncludeRadioTradeEvent: boolean;
     MultiCoinBlockShuffle: MultiCoinBlockShuffle;
     BowserDoorQuiz: BowserDoorQuiz;
+    KentCKoopa: KentCKoopa;
     RandomPitch: boolean;
     MuteDangerBeeps: boolean;
     ShuffleMusic: boolean;
