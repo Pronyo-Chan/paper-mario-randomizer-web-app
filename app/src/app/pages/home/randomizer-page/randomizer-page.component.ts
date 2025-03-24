@@ -225,6 +225,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         noHeartBlocks: new FormControl(false),
         noHealingItems: new FormControl(false),
         dropStarPoints: new FormControl(true),
+        chetRippoAvailable: new FormControl(true),
         allowItemHints: new FormControl(true),
         merlowRewardPricing: new FormControl(MerlowRewardPricing.Normal),
         badgeSynergy: new FormControl(false),

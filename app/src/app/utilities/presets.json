@@ -78,6 +78,7 @@
                 "badgeSynergy": false,
                 "noHealingItems": false,
                 "dropStarPoints": true,
+                "chetRippoAvailable": true,
                 "allowItemHints": true,
                 "merlowRewardPricing": 0
             },
@@ -273,6 +274,7 @@
             "badgeSynergy": false,
             "noHealingItems": false,
             "dropStarPoints": true,
+            "chetRippoAvailable": true,
             "allowItemHints": true,
             "merlowRewardPricing": 1
           },
@@ -468,6 +470,7 @@
             "badgeSynergy": false,
             "noHealingItems": false,
             "dropStarPoints": true,
+            "chetRippoAvailable": true,
             "allowItemHints": true,
             "merlowRewardPricing": 1
           },
@@ -663,6 +666,7 @@
             "badgeSynergy": false,
             "noHealingItems": false,
             "dropStarPoints": true,
+            "chetRippoAvailable": true,
             "allowItemHints": false,
             "merlowRewardPricing": 1
           },
@@ -859,6 +863,7 @@
             "badgeSynergy": false,
             "noHealingItems":false,
             "dropStarPoints": false,
+            "chetRippoAvailable": true,
             "allowItemHints":false,
             "merlowRewardPricing": 0
          },
@@ -1055,6 +1060,7 @@
           "noHeartBlocks": false,
           "noHealingItems": false,
           "dropStarPoints": false,
+          "chetRippoAvailable": true,
           "allowItemHints": false,
           "merlowRewardPricing": 0,
           "badgeSynergy": false
@@ -1261,6 +1267,7 @@
           "noHeartBlocks": false,
           "noHealingItems": false,
           "dropStarPoints": false,
+          "chetRippoAvailable": true,
           "allowItemHints": false,
           "merlowRewardPricing": 0,
           "badgeSynergy": false
@@ -1467,6 +1474,7 @@
             "noHeartBlocks":false,
             "noHealingItems":false,
             "dropStarPoints":false,
+            "chetRippoAvailable": true,
             "allowItemHints":false,
             "merlowRewardPricing":0,
             "badgeSynergy":false

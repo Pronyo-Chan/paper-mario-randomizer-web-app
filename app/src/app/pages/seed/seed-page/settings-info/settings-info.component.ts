@@ -242,6 +242,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "One Hit KO", value: this.seedModel.GeneralDifficulty.OneHitKO},
       {name: "Badge Synergy", value: this.seedModel.GeneralDifficulty.BadgeSynergy},
       {name: "Drop Star Points", value: this.seedModel.GeneralDifficulty.DropStarPoints},
+      {name: "Chet Rippo Available", value: this.seedModel.GeneralDifficulty.ChetRippoAvailable},
     ] as SettingRow[]
   }
 

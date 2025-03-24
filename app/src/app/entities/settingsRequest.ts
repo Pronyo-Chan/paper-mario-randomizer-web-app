@@ -141,6 +141,7 @@ export interface SettingsRequest {
     RandomText: boolean;
     NoHealingItems: boolean;
     DropStarPoints: boolean;
+    ChetRippoAvailable: boolean;
     StartWithRandomItems: boolean;
     RandomItemsMin: number;
     RandomItemsMax: number;

@@ -7,6 +7,7 @@ export interface GeneralDifficulty {
     MerlowRewardsPricing: MerlowRewardPricing;
     NoHealingItems: boolean;
     DropStarPoints: boolean;
+    ChetRippoAvailable: boolean;
     NoHeartBlocks: boolean;
     NoSaveBlocks: boolean;
     XPMultiplier: number;

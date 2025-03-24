@@ -289,6 +289,7 @@ export class RandomizerService {
       RandomText: settingsForm.get('cosmetics').get('randomText').value,
       NoHealingItems: settingsForm.get('difficulty').get('noHealingItems').value,
       DropStarPoints: settingsForm.get('difficulty').get('dropStarPoints').value,
+      ChetRippoAvailable: settingsForm.get('difficulty').get('chetRippoAvailable').value,
       StartWithRandomItems: settingsForm.get('marioStats').get('startWithRandomItems').value,
       RandomItemsMin: settingsForm.get('marioStats').get('startWithRandomItems').value ? settingsForm.get('marioStats').get('randomItemsMin').value : 0,
       RandomItemsMax: settingsForm.get('marioStats').get('startWithRandomItems').value ? settingsForm.get('marioStats').get('randomItemsMax').value: 0,
