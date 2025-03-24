@@ -60,6 +60,7 @@ export class SettingStringMappingService {
     { compressedString: "b", key: "badgeSynergy", type: "bool"},
     { compressedString: "v", key: "dropStarPoints", type: "bool"},
     { compressedString: "o", key: "chetRippoAvailable", type: "bool"},
+    { compressedString: "!", key: "bowserDoorQuiz", type: "number"},
   ];
 
   public readonly goalsMap: SettingModel [] = [

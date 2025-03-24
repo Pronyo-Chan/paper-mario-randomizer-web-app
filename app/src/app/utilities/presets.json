@@ -80,7 +80,8 @@
                 "dropStarPoints": true,
                 "chetRippoAvailable": true,
                 "allowItemHints": true,
-                "merlowRewardPricing": 0
+                "merlowRewardPricing": 0,
+                "bowserDoorQuiz": 0
             },
             "goals": {
               "starWaySpiritsNeeded": 7,
@@ -276,7 +277,8 @@
             "dropStarPoints": true,
             "chetRippoAvailable": true,
             "allowItemHints": true,
-            "merlowRewardPricing": 1
+            "merlowRewardPricing": 1,
+            "bowserDoorQuiz": 0
           },
           "goals": {
             "starWaySpiritsNeeded": 7,
@@ -472,7 +474,8 @@
             "dropStarPoints": true,
             "chetRippoAvailable": true,
             "allowItemHints": true,
-            "merlowRewardPricing": 1
+            "merlowRewardPricing": 1,
+            "bowserDoorQuiz": 0
           },
           "goals": {
             "starWaySpiritsNeeded": 7,
@@ -668,7 +671,8 @@
             "dropStarPoints": true,
             "chetRippoAvailable": true,
             "allowItemHints": false,
-            "merlowRewardPricing": 1
+            "merlowRewardPricing": 1,
+            "bowserDoorQuiz": 0
           },
           "goals": {
             "starWaySpiritsNeeded": 7,
@@ -865,7 +869,8 @@
             "dropStarPoints": false,
             "chetRippoAvailable": true,
             "allowItemHints":false,
-            "merlowRewardPricing": 0
+            "merlowRewardPricing": 0,
+            "bowserDoorQuiz": 0
          },
          "goals": {
           "starWaySpiritsNeeded": 7,
@@ -1063,7 +1068,8 @@
           "chetRippoAvailable": true,
           "allowItemHints": false,
           "merlowRewardPricing": 0,
-          "badgeSynergy": false
+          "badgeSynergy": false,
+          "bowserDoorQuiz": 0
         },
         "goals": {
           "starWaySpiritsNeeded": 4,
@@ -1270,7 +1276,8 @@
           "chetRippoAvailable": true,
           "allowItemHints": false,
           "merlowRewardPricing": 0,
-          "badgeSynergy": false
+          "badgeSynergy": false,
+          "bowserDoorQuiz": 0
         },
         "goals": {
           "starWaySpiritsNeeded": 4,
@@ -1477,7 +1484,8 @@
             "chetRippoAvailable": true,
             "allowItemHints":false,
             "merlowRewardPricing":0,
-            "badgeSynergy":false
+            "badgeSynergy":false,
+            "bowserDoorQuiz": 0
          },
          "itemPool":{
             "itemQuality":100,

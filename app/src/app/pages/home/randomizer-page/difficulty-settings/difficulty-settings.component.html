@@ -34,6 +34,22 @@
             </select>
         </div>
 
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span spanText="Bowser Door Quiz" tooltipText="Determines how the quiz in Bowser's Castle plays out.
+
+                                                                          Random Quiz: A quiz with random questions and answers must be passed.
+
+                                                                          Anti Guys Unit: No quiz, but a forced battle against the Anti Guys Unit.
+
+                                                                          Skip: Quiz counts as already completed.">
+          </app-tooltip-span>
+          <select formControlName='bowserDoorQuiz'>
+              <option [ngValue]="0">Random Quiz</option>
+              <option [ngValue]="1">Anti Guys Unit</option>
+              <option [ngValue]="2">Skip</option>
+          </select>
+        </div>
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>
             <app-tooltip-span spanText="Cap Enemy XP" tooltipText="Limits the amount of XP obtainable per defeated enemy to 5 XP."></app-tooltip-span>

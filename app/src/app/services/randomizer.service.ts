@@ -182,6 +182,7 @@ export class RandomizerService {
       OHKO: settingsForm.get('difficulty').get('oneHitKO').value,
       NoSaveBlocks: settingsForm.get('difficulty').get('noSaveBlocks').value,
       NoHeartBlocks: settingsForm.get('difficulty').get('noHeartBlocks').value,
+      BowserDoorQuiz: settingsForm.get('difficulty').get('bowserDoorQuiz').value,
       BlueHouseOpen: settingsForm.get('openLocations').get('blueHouseOpen').value,
       ToyboxOpen: settingsForm.get('openLocations').get('toyboxOpen').value,
       MagicalSeedsRequired: settingsForm.get('openLocations').get('magicalSeedsRequired').value,

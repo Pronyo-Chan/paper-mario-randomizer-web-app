@@ -1,3 +1,4 @@
+import { BowserDoorQuiz } from './../enum/bowserDoorQuiz';
 import { MerlowRewardPricing } from '../enum/merlowRewardPricing';
 
 export interface GeneralDifficulty {
@@ -13,4 +14,5 @@ export interface GeneralDifficulty {
     XPMultiplier: number;
     OneHitKO: boolean;
     BadgeSynergy: boolean;
+    BowserDoorQuiz: BowserDoorQuiz;
 }

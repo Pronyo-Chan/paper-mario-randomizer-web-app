@@ -1,3 +1,4 @@
+import { BowserDoorQuiz } from './enum/bowserDoorQuiz';
 import { KootFavorsMode } from './enum/kootFavorsMode';
 import { LettersMode } from './enum/lettersMode';
 import { BowSprite } from './enum/bowSprite';
@@ -156,6 +157,7 @@ export interface SettingsRequest {
     AllowItemHints: boolean;
     IncludeRadioTradeEvent: boolean;
     MultiCoinBlockShuffle: MultiCoinBlockShuffle;
+    BowserDoorQuiz: BowserDoorQuiz;
     RandomPitch: boolean;
     MuteDangerBeeps: boolean;
     ShuffleMusic: boolean;
