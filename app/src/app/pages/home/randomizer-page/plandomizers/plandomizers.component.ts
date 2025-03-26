@@ -37,7 +37,6 @@ export class PlandomizersComponent implements OnInit, OnDestroy {
     ["seedGoal", "Seed Goal"],
     ["includePowerStars", "Star Hunt"],
     ["starWaySpiritsNeeded", "Star Way - Star Spirits Required"],
-    ["requireSpecificSpirits", "Require Specific Spirits"],
     ["shuffleStarBeam", "Shuffle Star Beam"],
     ["itemTrapMode", "Item Traps"],
     ["itemPouches", "Add Item Pouches"],

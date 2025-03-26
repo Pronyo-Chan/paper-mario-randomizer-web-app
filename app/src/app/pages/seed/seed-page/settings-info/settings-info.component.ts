@@ -1,3 +1,4 @@
+import { RequiredSpirits } from 'src/app/entities/enum/requiredSpirits';
 import { MultiCoinBlockShuffle } from './../../../../entities/enum/MultiCoinBlockShuffle';
 import { BossShuffleMode } from './../../../../entities/enum/BossShuffleMode';
 import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
@@ -268,8 +269,7 @@ export class SettingsInfoComponent implements OnInit {
     this.goalsRows = [
       {name: "Seed Goal", value: pascalToVerboseString(SeedGoal[this.seedModel.Goals.SeedGoal])},
       {name: "Star Way Spirits Required", value: this.seedModel.Goals.StarWaySpiritsNeeded},
-      {name: "Require Specific Spirits", value: this.seedModel.Goals.StarWaySpiritsNeeded == 7 || this.seedModel.Goals.StarWaySpiritsNeeded == 0 ? null : this.seedModel.Goals.RequireSpecificSpirits},
-      {name: "Limit Chapter Logic", value: this.seedModel.Goals.RequireSpecificSpirits ? this.seedModel.Goals.LimitChapterLogic : null},
+      {name: "Required Spirits", value: this.seedModel.Goals.StarWaySpiritsNeeded == 7 || this.seedModel.Goals.StarWaySpiritsNeeded == 0 ? null : RequiredSpirits[this.seedModel.Goals.RequiredSpirits]},
       {name: "Shuffle Star Beam", value: isStarBeamReachable ? this.seedModel.Goals.ShuffleStarBeam : null},
       {name: "Star Beam Spirits Rquired", value: isStarBeamReachable ? this.seedModel.Goals.StarBeamSpiritsNeeded : null},
       {name: "Total Power Stars", value: getPowerStarDisplayValue(this.seedModel.Goals.StarHuntTotal)},

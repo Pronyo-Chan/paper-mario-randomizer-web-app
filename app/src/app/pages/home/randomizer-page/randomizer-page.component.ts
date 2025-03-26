@@ -35,6 +35,7 @@ import { MultiCoinBlockShuffle } from 'src/app/entities/enum/MultiCoinBlockShuff
 import { ISpyPanelHints } from 'src/app/entities/enum/iSpyPanelHints';
 import { BowserDoorQuiz } from 'src/app/entities/enum/bowserDoorQuiz';
 import { KentCKoopa } from 'src/app/entities/enum/kentCKoopa';
+import { RequiredSpirits } from 'src/app/entities/enum/requiredSpirits';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -275,10 +276,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       }),
       goals: new FormGroup({
         starWaySpiritsNeeded: new FormControl(7),
-        requireSpecificSpirits: new FormControl(false),
+        requiredSpirits: new FormControl(RequiredSpirits.Any),
         shuffleStarBeam: new FormControl(false),
         starBeamSpiritsNeeded: new FormControl(0),
-        limitChapterLogic: new FormControl(false),
         starWayPowerStarsNeeded: new FormControl(0),
         starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualToWhenNotRandom('starWayPowerStarsNeeded'), CustomValidators.greaterOrEqualToWhenNotRandom('starBeamPowerStarsNeeded')]),
         seedGoal: new FormControl(SeedGoal.DefeatBowser),
@@ -336,7 +336,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isEntranceRandoEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value;
     const isEntranceRandoWithBowserEnabled = this.formGroup.get('openLocations').get('shuffleDungeonEntrances').value == DungeonEntranceShuffleMode['Include Bowsers Castle'];
     const isStarHuntEnabled = this.formGroup.get('goals').get('includePowerStars').value;
-    const isLimitChapterLogicEnabled = this.formGroup.get('goals').get('limitChapterLogic').value;
+    const isLimitChapterLogicEnabled = this.formGroup.get('goals').get('requiredSpirits').value === RequiredSpirits['Specific And Limit Chapter Logic'];
     const isKeysanityEnabled = this.formGroup.get('items').get('keyitemsOutsideDungeon').value
     const requiredStarwaySpiritsCount = this.formGroup.get('goals').get('starWaySpiritsNeeded').value
 
