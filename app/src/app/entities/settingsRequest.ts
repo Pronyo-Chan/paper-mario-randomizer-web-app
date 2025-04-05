@@ -183,6 +183,8 @@ export interface SettingsRequest {
     ReverseGoombaKingBridge: boolean
     GoombaVillageEntryFenceClip: boolean
     GoombaVillageNpcLureExit: boolean
+    ClippyLedgeStarPiece: boolean
+    JumplessFireFlower: boolean
     HammerlessJrPlaygroundLaki: boolean
     GoombaVillageLakiExit: boolean
     PrologueSushieGlitchKsj: boolean
@@ -221,6 +223,7 @@ export interface SettingsRequest {
 
     // Glitches: Plesant Path
     KooperlessPleasantPathStarPiece: boolean
+    PleasantPathClippyTraversal: boolean
     HammerlessPleasantPathBridgeUltraBootsParakarry: boolean
     InvisibleBridgeClipLzs: boolean
     InvisibleBridgeClipLaki: boolean
@@ -236,17 +239,21 @@ export interface SettingsRequest {
 
     // Glitches: Mt. Rugged
     MtRuggedQuakeHammerAndLetterWithLaki: boolean
+    MtRuggedQuakeHammerRoomJumplessClippy: boolean
     ParakarrylessMtRuggedSeed: boolean
     ParakarrylessMtRuggedSeedClippy: boolean
     BuzzarGapSkipClippy: boolean
     ParakarrylessMtRuggedStarPiece: boolean
+    ParakarrylessMtRuggedStarPieceClippy: boolean
     MtRuggedCoinsWithKooper: boolean
     MtRuggedStationJumplessClimbBombette: boolean
     MtRuggedStationJumplessClimbLaki: boolean
+    MtRuggedStationJumplessClimbLakiBlockClip: boolean
     JumplessMtRuggedTrainPlatformParakarry: boolean
 
     // Glitches: Dry Dry Desert
     DesertBrickBlockItemWithParakarry: boolean
+    JumplessAttackFXC: boolean
     EarlyRuinsLakiJump: boolean
     EarlyRuinsUltraBoots: boolean
 
@@ -277,6 +284,7 @@ export interface SettingsRequest {
     KooperlessGustyGulchDizzyDialLaki: boolean
     KooperlessGustyGulchDizzyDialParakarry: boolean
     GustyGulchGapSkip: boolean
+    GustyGulchClippyTraversal: boolean
 
     // Glitches: Tubba's Castle
     BowlessTubbasCastle: boolean
@@ -327,6 +335,7 @@ export interface SettingsRequest {
     // Glitches: Flower Fields
     EarlyLakiLZS: boolean
     EarlyLakiBombettePush: boolean
+    LakilessElevatorRoom: boolean
     BombettelessMegaSmash: boolean
     SunTowerSkip: boolean
     YellowBerryGateSkipLZS: boolean
