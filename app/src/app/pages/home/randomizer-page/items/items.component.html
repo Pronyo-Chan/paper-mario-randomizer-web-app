@@ -19,16 +19,19 @@
         </div>
 
         <div class="setting-element">
-          <mat-slide-toggle formControlName='shuffleBlocks'></mat-slide-toggle>
-          <app-tooltip-span spanText="Shuffle Super/Multicoin Blocks" tooltipText="Shuffles the locations of the Super Blocks and Multicoin Brick Blocks together."></app-tooltip-span>
+          <mat-slide-toggle formControlName='includeRadioTradeEvent' plandoAssignable></mat-slide-toggle>
+          <app-tooltip-span spanText="Include Trading Event Rewards" tooltipText="Adds the 3 rewards obtained for doing the Trading Toad quests (started Koopa Village's radio) in the item pool."></app-tooltip-span>
         </div>
 
-        <div class="setting-element">
-            <mat-slide-toggle formControlName='includeRadioTradeEvent' plandoAssignable></mat-slide-toggle>
-            <app-tooltip-span spanText="Include Trading Event Rewards" tooltipText="Adds the 3 rewards obtained for doing the Trading Toad quests (started Koopa Village's radio) in the item pool."></app-tooltip-span>
-        </div>
 
-        <div class="setting-element"></div>
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span spanText="Shuffle Super/Multicoin Blocks" tooltipText="Shuffles the locations of the Super Blocks and Multicoin Brick Blocks."></app-tooltip-span>
+          <select formControlName='multiCoinBlockShuffle'>
+              <option [ngValue]="0">Off</option>
+              <option [ngValue]="1">Shuffle Together</option>
+              <option [ngValue]="2">Shuffle Anywhere</option>
+          </select>
+        </div>
 
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Gear Shuffle" tooltipText="Vanilla: Boots and Hammers are kept in their default locations.
@@ -75,12 +78,6 @@
             </select>
         </div>
 
-        <div class="setting-element slider-element" >
-            <app-tooltip-span [spanText]="'Rip Cheato Items In Logic: ' + itemFormGroup.get('ripCheatoItemsInLogic').value"
-                             tooltipText="Number of items sold by Rip Cheato that can be required in logic. Items in logic will always be sold by him before the out of logic ones."></app-tooltip-span>
-            <mat-slider formControlName="ripCheatoItemsInLogic" (input)="itemFormGroup.get('ripCheatoItemsInLogic').setValue($event.value)" min=0 max= 11 step="1" tickInterval="1" ></mat-slider>
-        </div>
-
         <div class="setting-element dropdown-element">
           <app-tooltip-span spanText="Partner Upgrade Shuffle" tooltipText="Off: Partners are upgraded through super blocks as usual.
 
@@ -93,6 +90,14 @@
               <option [ngValue]="1">Super Block Locations</option>
               <option [ngValue]="2">Full Shuffle</option>
           </select>
+      </div>
+
+      <div class="setting-element"></div>
+
+      <div class="setting-element slider-element" >
+        <app-tooltip-span [spanText]="'Rip Cheato Items In Logic: ' + itemFormGroup.get('ripCheatoItemsInLogic').value"
+                         tooltipText="Number of items sold by Rip Cheato that can be required in logic. Items in logic will always be sold by him before the out of logic ones."></app-tooltip-span>
+        <mat-slider formControlName="ripCheatoItemsInLogic" (input)="itemFormGroup.get('ripCheatoItemsInLogic').setValue($event.value)" min=0 max= 11 step="1" tickInterval="1" ></mat-slider>
       </div>
 
       <div class="setting-element slider-element" >

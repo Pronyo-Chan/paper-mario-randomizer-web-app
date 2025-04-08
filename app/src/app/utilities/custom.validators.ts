@@ -1,4 +1,5 @@
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormGroup, ValidationErrors } from '@angular/forms';
+import { CheckType } from "../pages/plando-page/plando-constants";
 
 export namespace CustomValidators {
 
@@ -70,6 +71,15 @@ export namespace CustomValidators {
             return {
                 'levelGreaterOrEqualZero': true
             }
+        };
+    }
+
+    export function perCheckTypeValidator(checkType: CheckType) {
+        return (control: AbstractControl): ValidationErrors | null => {
+            if (control.value === 'SuperBlock' && checkType !== CheckType.SUPER_BLOCK && checkType !== CheckType.MULTICOIN_BLOCK) {
+                return { invalidPlacement: { value: 'SuperBlock can only be placed in Multi-Coin Block or Super Block check locations.' } };
+            }
+            return null;
         };
     }
 }

@@ -30,18 +30,23 @@
           <mat-slider formControlName="starWaySpiritsNeeded" (input)="goalsFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=-1 max=7 step="1" tickInterval="1"></mat-slider>
       </div>
 
-      <div class="setting-element" [ngClass]="{ 'disabled-element': isSevenOrZeroStarSpirits}">
-        <mat-slide-toggle formControlName='requireSpecificSpirits' plandoAssignable></mat-slide-toggle>
-        <app-tooltip-span spanText="Require Specific Spirits"
-                          tooltipText="Specific chapters must be completed to open the star way. You must visit shooting star summit to see which ones."></app-tooltip-span>
-      </div>
+      <div class="setting-element dropdown-element" [ngClass]="{ 'disabled-element': isSevenOrZeroStarSpirits}">
+        <app-tooltip-span
+             spanText="Required Spirits"
+             tooltipText="Determines if specific spirits need to be saved to open the star way.
 
-      <div class="setting-element" [ngClass]="{ 'disabled-element': !goalsFormGroup.get('requireSpecificSpirits').value || isSevenOrZeroStarSpirits}">
-        <mat-slide-toggle formControlName='limitChapterLogic'></mat-slide-toggle>
-        <app-tooltip-span spanText="Limit Chapter Logic"
-                          tooltipText="Only chapters that need to be completed and prologue / common areas will contain progression items if enabled."></app-tooltip-span>
-      </div>
+             Any: Any spirits can open the star way
 
+             Specific: Only specific spirits can open the star way. You can find holograms of the required spirits at star summit.
+
+             Specific + Limit Chapter Logic: Like specific, but also makes it so only chapters that need to be completed and prologue / common areas will contain progression items. ">
+        </app-tooltip-span>
+        <select formControlName='requiredSpirits'>
+            <option [ngValue]="0">Any</option>
+            <option [ngValue]="1">Specific</option>
+            <option [ngValue]="2">Specific + Limit Chapter Logic</option>
+        </select>
+      </div>
 
       <ng-container *ngIf="shouldShowStarBeamSettings()">
         <mat-divider />
@@ -52,7 +57,7 @@
                             tooltipText="Star Beam becomes an item shuffled in the item pool. Another random item will replace star beam in Star Haven."></app-tooltip-span>
         </div>
 
-        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': goalsFormGroup.get('limitChapterLogic').value}">
+        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': goalsFormGroup.get('requiredSpirits').value === 2}">
           <app-tooltip-span [spanText]="'Star Beam  - Star Spirits Required: ' + getStarBeamSpiritsNumber()"
                              tooltipText="Number of star spirits saved required to obtain the item in the star beam location, in Star Haven. Can be set to random by bringing the slider behind 0. Forced to 0 when 'Limit Chapter Logic' is active"></app-tooltip-span>
           <mat-slider formControlName="starBeamSpiritsNeeded" (input)="goalsFormGroup.get('starBeamSpiritsNeeded').setValue($event.value)" min=-1 max= 7 step="1" tickInterval="1" ></mat-slider>

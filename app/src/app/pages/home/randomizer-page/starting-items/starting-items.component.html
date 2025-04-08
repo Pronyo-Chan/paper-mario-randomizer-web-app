@@ -2,46 +2,47 @@
   <mat-card-content class=settings-card-content>
     <div class="setting-element full-width-element">
       <mat-slide-toggle formControlName='startWithRandomItems'></mat-slide-toggle>
-      <app-tooltip-span 
+      <app-tooltip-span
           spanText="Start With Random Items"
           tooltipText="Start the game with a random or specific number of random items">
       </app-tooltip-span>
     </div>
-    <ng-container *ngIf="marioStatsFormGroup.get('startWithRandomItems').value === true; else fixedItemsTemplate">
+    <ng-container *ngIf="marioStatsFormGroup.get('startWithRandomItems').value === true;">
         <div class="setting-element">
-            <input matInput 
-                    type="number" 
-                    min="0" 
-                    max="16" 
+            <input matInput
+                    type="number"
+                    min="0"
+                    max="16"
                     formControlName='randomItemsMin'
                     (blur)="onRandomItemsMinBlur()"
                     [ngClass]="{ 'error': marioStatsFormGroup.get('randomItemsMin').invalid || marioStatsFormGroup.get('randomItemsMax').hasError('greaterOrEqual')}">
-            <span class="settings-label">Min number of starting Items</span>
+            <span class="settings-label">Min number of random starting Items</span>
         </div>
         <div class="setting-element">
             <input matInput
-                    type="number" 
-                    min="0" 
-                    max="16" 
-                    formControlName='randomItemsMax' 
+                    type="number"
+                    min="0"
+                    max="16"
+                    formControlName='randomItemsMax'
                     (blur)="onRandomItemsMaxBlur()"
                     [ngClass]="{ 'error': marioStatsFormGroup.get('randomItemsMax').invalid}">
-            <span class="settings-label">Max number of starting Items</span>
+            <span class="settings-label">Max number of random starting Items</span>
         </div>
     </ng-container>
-    <ng-template #fixedItemsTemplate>
-      <div class="starting-items-container">
-        <div class="chiplist-container">
-          <app-item-chiplist [startingItemsFormControl]="marioStatsFormGroup.get('startingItems')" [availableItems]="availableItems" [itemType] = "'Item'"></app-item-chiplist>
-        </div>
-        <div class="chiplist-container">
-          <app-item-chiplist [startingItemsFormControl]="marioStatsFormGroup.get('startingItems')"  [availableItems]="availableBadges" [itemType] = "'Badge'"></app-item-chiplist>
-        </div>
-        <div class="chiplist-container">
-          <app-item-chiplist [startingItemsFormControl]="marioStatsFormGroup.get('startingItems')"  [availableItems]="availableKeyItems" [itemType] = "'Key Item'"></app-item-chiplist>
-        </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="starting-items-container">
+      <div class="chiplist-container">
+        <app-item-chiplist [startingItemsFormControl]="marioStatsFormGroup.get('startingItems')" [availableItems]="availableItems" [itemType] = "'Item'"></app-item-chiplist>
       </div>
-    </ng-template>
+      <div class="chiplist-container">
+        <app-item-chiplist [startingItemsFormControl]="marioStatsFormGroup.get('startingItems')"  [availableItems]="availableBadges" [itemType] = "'Badge'"></app-item-chiplist>
+      </div>
+      <div class="chiplist-container">
+        <app-item-chiplist [startingItemsFormControl]="marioStatsFormGroup.get('startingItems')"  [availableItems]="availableKeyItems" [itemType] = "'Key Item'"></app-item-chiplist>
+      </div>
+    </div>
 
     <div class="error-list">
       <ul *ngIf="marioStatsFormGroup.invalid">
@@ -63,13 +64,13 @@
         </li>
     </ul>
     </div>
-      
-    
+
+
     <div class="bottom-note">
       <p>*A maximum of 16 custom starting items is currently supported</p>
     </div>
-  
-      
-    
+
+
+
   </mat-card-content>
 </form>

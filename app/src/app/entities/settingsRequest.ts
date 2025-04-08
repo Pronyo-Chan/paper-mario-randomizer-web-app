@@ -1,3 +1,4 @@
+import { BowserDoorQuiz } from './enum/bowserDoorQuiz';
 import { KootFavorsMode } from './enum/kootFavorsMode';
 import { LettersMode } from './enum/lettersMode';
 import { BowSprite } from './enum/bowSprite';
@@ -17,6 +18,9 @@ import { SeedGoal } from './enum/seedGoal';
 import { DungeonEntranceShuffleMode as DungeonEntranceShuffleMode } from './enum/DungeonEntranceShuffleMode';
 import { PartnerShuffleMode } from './enum/partnerShuffleMode';
 import { BossShuffleMode } from './enum/BossShuffleMode';
+import { MultiCoinBlockShuffle } from './enum/MultiCoinBlockShuffle';
+import { KentCKoopa } from './enum/kentCKoopa';
+import { RequiredSpirits } from './enum/requiredSpirits';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -131,15 +135,15 @@ export interface SettingsRequest {
     ItemQuality: number;
     RandomConsumableMode: number;
     StarWaySpiritsNeededCnt: number;
-    RequireSpecificSpirits: boolean;
+    RequiredSpirits: RequiredSpirits;
     ShuffleStarBeam: boolean;
     StarBeamSpiritsNeeded: number;
     StarBeamPowerStarsNeeded: number;
-    LimitChapterLogic: boolean;
     FoliageItemHints: boolean;
     RandomText: boolean;
     NoHealingItems: boolean;
     DropStarPoints: boolean;
+    ChetRippoAvailable: boolean;
     StartWithRandomItems: boolean;
     RandomItemsMin: number;
     RandomItemsMax: number;
@@ -153,13 +157,16 @@ export interface SettingsRequest {
     ItemTrapMode: ItemTrapMode;
     AllowItemHints: boolean;
     IncludeRadioTradeEvent: boolean;
-    ShuffleBlocks: boolean;
+    MultiCoinBlockShuffle: MultiCoinBlockShuffle;
+    BowserDoorQuiz: BowserDoorQuiz;
+    KentCKoopa: KentCKoopa;
     RandomPitch: boolean;
     MuteDangerBeeps: boolean;
     ShuffleMusic: boolean;
     ShuffleMusicMode: MusicMode;
     ShuffleJingles: boolean;
     HiddenPanelVisibility: number;
+    ISpyPanelHints: number;
     CookWithoutFryingPan: boolean;
     GearShuffleMode: number;
     PartnerUpgradeShuffle: number;
@@ -176,6 +183,8 @@ export interface SettingsRequest {
     ReverseGoombaKingBridge: boolean
     GoombaVillageEntryFenceClip: boolean
     GoombaVillageNpcLureExit: boolean
+    ClippyLedgeStarPiece: boolean
+    JumplessFireFlower: boolean
     HammerlessJrPlaygroundLaki: boolean
     GoombaVillageLakiExit: boolean
     PrologueSushieGlitchKsj: boolean
@@ -214,6 +223,7 @@ export interface SettingsRequest {
 
     // Glitches: Plesant Path
     KooperlessPleasantPathStarPiece: boolean
+    PleasantPathClippyTraversal: boolean
     HammerlessPleasantPathBridgeUltraBootsParakarry: boolean
     InvisibleBridgeClipLzs: boolean
     InvisibleBridgeClipLaki: boolean
@@ -229,17 +239,21 @@ export interface SettingsRequest {
 
     // Glitches: Mt. Rugged
     MtRuggedQuakeHammerAndLetterWithLaki: boolean
+    MtRuggedQuakeHammerRoomJumplessClippy: boolean
     ParakarrylessMtRuggedSeed: boolean
     ParakarrylessMtRuggedSeedClippy: boolean
     BuzzarGapSkipClippy: boolean
     ParakarrylessMtRuggedStarPiece: boolean
+    ParakarrylessMtRuggedStarPieceClippy: boolean
     MtRuggedCoinsWithKooper: boolean
     MtRuggedStationJumplessClimbBombette: boolean
     MtRuggedStationJumplessClimbLaki: boolean
+    MtRuggedStationJumplessClimbLakiBlockClip: boolean
     JumplessMtRuggedTrainPlatformParakarry: boolean
 
     // Glitches: Dry Dry Desert
     DesertBrickBlockItemWithParakarry: boolean
+    JumplessAttackFXC: boolean
     EarlyRuinsLakiJump: boolean
     EarlyRuinsUltraBoots: boolean
 
@@ -270,6 +284,7 @@ export interface SettingsRequest {
     KooperlessGustyGulchDizzyDialLaki: boolean
     KooperlessGustyGulchDizzyDialParakarry: boolean
     GustyGulchGapSkip: boolean
+    GustyGulchClippyTraversal: boolean
 
     // Glitches: Tubba's Castle
     BowlessTubbasCastle: boolean
@@ -320,6 +335,7 @@ export interface SettingsRequest {
     // Glitches: Flower Fields
     EarlyLakiLZS: boolean
     EarlyLakiBombettePush: boolean
+    LakilessElevatorRoom: boolean
     BombettelessMegaSmash: boolean
     SunTowerSkip: boolean
     YellowBerryGateSkipLZS: boolean

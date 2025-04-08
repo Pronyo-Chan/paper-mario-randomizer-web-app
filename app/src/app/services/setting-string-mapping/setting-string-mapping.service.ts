@@ -59,12 +59,16 @@ export class SettingStringMappingService {
     { compressedString: "r", key: "randomConsumableMode", type: "removed"},
     { compressedString: "b", key: "badgeSynergy", type: "bool"},
     { compressedString: "v", key: "dropStarPoints", type: "bool"},
+    { compressedString: "o", key: "chetRippoAvailable", type: "bool"},
+    { compressedString: "!", key: "bowserDoorQuiz", type: "number"},
+    { compressedString: "@", key: "kentCKoopa", type: "number"},
   ];
 
   public readonly goalsMap: SettingModel [] = [
     { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
-    { compressedString: "e", key: "requireSpecificSpirits", type: "bool"},
-    { compressedString: "f", key: "limitChapterLogic", type: "bool"},
+    { compressedString: "e", key: "requireSpecificSpirits", type: "removed"},
+    { compressedString: "r", key: "requiredSpirits", type: "number"},
+    { compressedString: "f", key: "limitChapterLogic", type: "removed"},
     { compressedString: "@", key: "starBeamSpiritsNeeded", type: "number"},
     { compressedString: "#", key: "starBeamPowerStarsNeeded", type: "number"},
     { compressedString: "s", key: "shuffleStarBeam", type: "bool"},
@@ -111,7 +115,8 @@ export class SettingStringMappingService {
     { compressedString: "x", key: "itemPouches", type: "removed"},
     { compressedString: "l", key: "includeLetters", type: "number"},
     { compressedString: "r", key: "includeRadioTradeEvent", type: "bool"},
-    { compressedString: "b", key: "shuffleBlocks", type: "bool"},
+    { compressedString: "b", key: "shuffleBlocks", type: "removed"},
+    { compressedString: "!", key: "multiCoinBlockShuffle", type: "number"},
     { compressedString: "h", key: "bigChestShuffle", type: "removed"},
     { compressedString: "g", key: "gearShuffleMode", type: "number"},
     { compressedString: "u", key: "partnerUpgradeShuffle", type: "number"},
@@ -190,6 +195,7 @@ export class SettingStringMappingService {
     { compressedString: "t", key: "revealLogInHours", type: "number"},
     { compressedString: "d", key: "delaySpoilerLog", type: "bool"},
     { compressedString: "v", key: "hiddenPanelVisibility", type: "bool"},
+    { compressedString: "y", key: "iSpyPanelHints", type: "number"},
     { compressedString: "o", key: "cookWithoutFryingPan", type: "bool"},
   ]
 

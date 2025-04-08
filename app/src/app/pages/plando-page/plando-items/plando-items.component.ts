@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { MatSlideToggleChange } from "@angular/material/slide-toggle";
 import { MatTabGroup } from "@angular/material/tabs";
@@ -7,33 +7,12 @@ import { escapeRegexChars, pascalToVerboseString } from "src/app/utilities/strin
 import { CHECK_TYPES_DISPLAY_MAPPING, CheckType, LEGAL_TRAP_ITEMS, PLANDO_ITEMS_LIST, Region, REGIONS_LIST, VANILLA_ITEMS } from "../plando-constants";
 import { manualTrapRegex } from "../plando-page.component";
 
-const possessiveRegex = /(Mario|Peach|Boo|Guy|Troopa|King|Bowser|Rowf|Merlow|Merluvlee|Tubba|Kolorado|Bow|Lily|Petunia|Rosie)s /g;
-const displayStringReplacements = {
-  "B L U": "BLU",
-  "P N K": "PNK",
-  "G R N": "GRN",
-  "R E D": "RED",
-  "P- ": "P-",
-  "D- ": "D-",
-  "( ": "(",
-  "N W": "NW",
-  "N E": "NE",
-  "S W": "SW",
-  "S E": "SE",
-  "Bros": "Bros.",
-  "Non Progression": "Non-Progression Item",
-  "Consumable": "Random Consumable",
-}
-const replacementRegEx = new RegExp(Object.keys(displayStringReplacements).map(escapeRegexChars).join('|'), "g");
-const displayStrings: Map<string, string> = new Map<string, string>();
-
-
 @Component({
   selector: 'app-plando-items',
   templateUrl: './plando-items.component.html',
   styleUrls: ['../plando-page.component.scss', './plando-items.component.scss']
 })
-export class PlandoItemsComponent {
+export class PlandoItemsComponent implements OnInit {
   @Input() itemsFormGroup: FormGroup;
   @ViewChild('locationTabGroup') locationTabGroup: MatTabGroup;
   public readonly CHECK_TYPES = CheckType;
@@ -58,7 +37,34 @@ export class PlandoItemsComponent {
     CheckType.KOOT_FAVOR_COIN,
     CheckType.KOOT_FAVOR_REWARD,
     CheckType.LETTER_REWARD];
-  // For mass fill, don't show unsupported check types, or "Normal".
+
+  public ngOnInit(): void {
+    const savedPlandoString = localStorage.getItem('autosavePlandoSettings');
+    if (savedPlandoString) {
+      const savedPlandoObj = JSON.parse(savedPlandoString);
+      this.unhideAssignedCheckTypes(savedPlandoObj);
+    }
+  }
+
+  public unhideAssignedCheckTypes(savedPlandoObj: any) {
+    if (savedPlandoObj.items) {
+      for (const regionName in savedPlandoObj.items) {
+        const region = REGIONS_LIST.find(r => r.name === regionName)
+        for (const checkName in savedPlandoObj.items[regionName]) {
+          if (!savedPlandoObj.items[regionName][checkName]) {
+            continue;
+          }
+          const checkType = region.checks.find(c => c.name === checkName).type;
+          if (checkType === CheckType.SHOP && !savedPlandoObj.items[regionName][checkName].item) {
+            continue;
+          }
+          this.filteredTypes.splice(this.filteredTypes.indexOf(checkType),1);
+        }
+      }
+    }
+  };
+
+  // For mass fill, don't show hidden check types, or "Normal".
   public massFillCheckTypes = Object.values(CheckType).filter(val => val !== CheckType.NORMAL && !this.filteredTypes.includes(val));
   public filteredItems: string[] = this.PLANDO_ITEMS.slice();
   public searchText: FormControl;
@@ -170,6 +176,14 @@ export class PlandoItemsComponent {
     this.itemsFormGroup.get(formControlName).updateValueAndValidity();
   }
 
+  public onScroll($event: WheelEvent) {
+    if ($event.target instanceof HTMLElement
+      && ($event.target.classList.contains('mat-tab-label-content') || $event.target.classList.contains('mat-tab-label') || $event.target.classList.contains('mat-tab-labels'))) {
+      this.locationTabGroup._elementRef.nativeElement.querySelector('.mat-tab-list').scrollLeft += $event.deltaY;
+      $event.preventDefault();
+    }
+  }
+
   public toggleCheckTypeFilter($event: MatSlideToggleChange, checkType: CheckType) {
     if ($event.checked) {
       const i = this.filteredTypes.indexOf(checkType);
@@ -182,13 +196,6 @@ export class PlandoItemsComponent {
     this.massFillCheckTypes = Object.values(CheckType).filter(val => val !== CheckType.NORMAL && !this.filteredTypes.includes(val));
   }
 
-  public toDisplayString = function (s: string): string {
-    if (!displayStrings.has(s)) {
-      displayStrings.set(s, pascalToVerboseString(s).replace(possessiveRegex, "$1's").replace(replacementRegEx, function (matched) {
-        return displayStringReplacements[matched];
-      }));
-    }
-    return displayStrings.get(s);
-  }
+  public toDisplayString = pascalToVerboseString;
 
 };

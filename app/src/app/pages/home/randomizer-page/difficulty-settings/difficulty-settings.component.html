@@ -34,6 +34,41 @@
             </select>
         </div>
 
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span spanText="Bowser Door Quiz" tooltipText="Determines how the quiz in Bowser's Castle plays out.
+
+                                                                          Random Quiz: A quiz with random questions and answers must be passed.
+
+                                                                          Anti Guys Unit: No quiz, but a forced battle against the Anti Guys Unit.
+
+                                                                          Skip: Quiz counts as already completed.">
+          </app-tooltip-span>
+          <select formControlName='bowserDoorQuiz'>
+              <option [ngValue]="0">Random Quiz</option>
+              <option [ngValue]="1">Anti Guys Unit</option>
+              <option [ngValue]="2">Skip</option>
+          </select>
+        </div>
+
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span spanText="Kent C. Koopa" tooltipText="Determines how Kent C. Koopa on Pleasant Path behaves.
+
+                                                                          Blocks Pleasant Path: Kent must be paid once or defeated.
+
+                                                                          Must Defeat: No paying him, but a battle is required. Logically expects a way to flip him over and 2 chapters beaten.
+
+                                                                          Already Paid: Stands on the side of Pleasant Path as if already paid.
+
+                                                                          Already Defeated: Removed from Pleasant Path as if already defeated">
+          </app-tooltip-span>
+          <select formControlName='kentCKoopa'>
+              <option [ngValue]="0">Blocks Pleasant Path</option>
+              <option [ngValue]="1">Must Defeat</option>
+              <option [ngValue]="2">Already Paid</option>
+              <option [ngValue]="3">Already Defeated</option>
+          </select>
+        </div>
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>
             <app-tooltip-span spanText="Cap Enemy XP" tooltipText="Limits the amount of XP obtainable per defeated enemy to 5 XP."></app-tooltip-span>
@@ -45,7 +80,7 @@
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='oneHitKO'></mat-slide-toggle>
-            <app-tooltip-span spanText="One Hit KO" tooltipText="Mario will die instantly from an enemy attack if a block action command is failed"></app-tooltip-span>
+            <app-tooltip-span spanText="One Hit KO" tooltipText="Mario will die instantly from an enemy attack if a block action command is failed (does not apply to Buzzar's unblockable attack)."></app-tooltip-span>
         </div>
         <div class="setting-element">
             <mat-slide-toggle formControlName='noSaveBlocks'></mat-slide-toggle>
@@ -70,6 +105,11 @@
         <div class="setting-element">
           <mat-slide-toggle formControlName='dropStarPoints'></mat-slide-toggle>
           <app-tooltip-span spanText="Drop Star Points" tooltipText="Mario will drop star points when running away from battle. This can be prevented by equipping the Runaway Pay badge."></app-tooltip-span>
-      </div>
+        </div>
+
+        <div class="setting-element">
+          <mat-slide-toggle formControlName='chetRippoAvailable'></mat-slide-toggle>
+          <app-tooltip-span spanText="Chet Rippo Available" tooltipText="Determines if Chet Rippo, the shady NPC who allows reallocating Mario's Stats, appears in Toad Town."></app-tooltip-span>
+        </div>
     </mat-card-content>
 </form>

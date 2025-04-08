@@ -15,7 +15,7 @@
                 "includeDojo": 0,
                 "includeLetters": 0,
                 "includeRadioTradeEvent": false,
-                "shuffleBlocks": false,
+                "multiCoinBlockShuffle": 0,
                 "gearShuffleMode": 0,
                 "partnerUpgradeShuffle": 0,
                 "ripCheatoItemsInLogic": 6,
@@ -64,7 +64,8 @@
                 "quizmoAlwaysAppears": false,
                 "foliageItemHints": true,
                 "cookWithoutFryingPan": true,
-                "hiddenPanelVisibility": 1
+                "hiddenPanelVisibility": 1,
+                "iSpyPanelHints": 0
             },
             "difficulty": {
                 "difficultyMode": 2,
@@ -77,14 +78,16 @@
                 "badgeSynergy": false,
                 "noHealingItems": false,
                 "dropStarPoints": true,
+                "chetRippoAvailable": true,
                 "allowItemHints": true,
-                "merlowRewardPricing": 0
+                "merlowRewardPricing": 0,
+                "bowserDoorQuiz": 0,
+                "kentCKoopa": 0
             },
             "goals": {
               "starWaySpiritsNeeded": 7,
               "starWayPowerStarsNeeded": 0,
-              "requireSpecificSpirits" : false,
-              "limitChapterLogic" : false,
+              "requiredSpirits" : 0,
               "seedGoal": 0,
               "starHuntTotal": 0,
               "includePowerStars": false,
@@ -209,7 +212,7 @@
             "includeDojo": 0,
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
-            "shuffleBlocks": false,
+            "multiCoinBlockShuffle": 0,
             "gearShuffleMode": 2,
             "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
@@ -258,7 +261,8 @@
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false,
             "cookWithoutFryingPan": false,
-            "hiddenPanelVisibility": 1
+            "hiddenPanelVisibility": 1,
+            "iSpyPanelHints": 0
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -271,14 +275,16 @@
             "badgeSynergy": false,
             "noHealingItems": false,
             "dropStarPoints": true,
+            "chetRippoAvailable": true,
             "allowItemHints": true,
-            "merlowRewardPricing": 1
+            "merlowRewardPricing": 1,
+            "bowserDoorQuiz": 0,
+            "kentCKoopa": 0
           },
           "goals": {
             "starWaySpiritsNeeded": 7,
             "starWayPowerStarsNeeded": 0,
-            "requireSpecificSpirits" : false,
-            "limitChapterLogic" : false,
+            "requiredSpirits" : 0,
             "seedGoal": 0,
             "starHuntTotal": 0,
             "includePowerStars": false,
@@ -403,7 +409,7 @@
             "includeDojo": 0,
             "includeLetters": 1,
             "includeRadioTradeEvent": false,
-            "shuffleBlocks": false,
+            "multiCoinBlockShuffle": 0,
             "gearShuffleMode": 1,
             "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
@@ -452,7 +458,8 @@
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false,
             "cookWithoutFryingPan": false,
-            "hiddenPanelVisibility": 0
+            "hiddenPanelVisibility": 0,
+            "iSpyPanelHints": 0
           },
           "difficulty": {
             "difficultyMode": 2,
@@ -465,14 +472,16 @@
             "badgeSynergy": false,
             "noHealingItems": false,
             "dropStarPoints": true,
+            "chetRippoAvailable": true,
             "allowItemHints": true,
-            "merlowRewardPricing": 1
+            "merlowRewardPricing": 1,
+            "bowserDoorQuiz": 0,
+            "kentCKoopa": 0
           },
           "goals": {
             "starWaySpiritsNeeded": 7,
             "starWayPowerStarsNeeded": 0,
-            "requireSpecificSpirits" : false,
-            "limitChapterLogic" : false,
+            "requiredSpirits" : 0,
             "seedGoal": 0,
             "starHuntTotal": 0,
             "includePowerStars": false,
@@ -597,7 +606,7 @@
             "includeDojo": 5,
             "includeLetters": 3,
             "includeRadioTradeEvent": true,
-            "shuffleBlocks": true,
+            "multiCoinBlockShuffle": 2,
             "gearShuffleMode": 2,
             "partnerUpgradeShuffle": 2,
             "ripCheatoItemsInLogic": 11,
@@ -646,7 +655,8 @@
             "quizmoAlwaysAppears": false,
             "foliageItemHints": false,
             "cookWithoutFryingPan": false,
-            "hiddenPanelVisibility": 0
+            "hiddenPanelVisibility": 0,
+            "iSpyPanelHints": 0
           },
           "difficulty": {
             "difficultyMode": 1,
@@ -659,14 +669,16 @@
             "badgeSynergy": false,
             "noHealingItems": false,
             "dropStarPoints": true,
+            "chetRippoAvailable": true,
             "allowItemHints": false,
-            "merlowRewardPricing": 1
+            "merlowRewardPricing": 1,
+            "bowserDoorQuiz": 0,
+            "kentCKoopa": 0
           },
           "goals": {
             "starWaySpiritsNeeded": 7,
             "starWayPowerStarsNeeded": 0,
-            "requireSpecificSpirits" : false,
-            "limitChapterLogic" : false,
+            "requiredSpirits" : 0,
             "seedGoal": 0,
             "starHuntTotal": 0,
             "includePowerStars": false,
@@ -791,7 +803,7 @@
             "includeDojo":0,
             "includeLetters": 0,
             "includeRadioTradeEvent": false,
-            "shuffleBlocks": false,
+            "multiCoinBlockShuffle": 0,
             "gearShuffleMode": 2,
             "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
@@ -840,7 +852,8 @@
             "quizmoAlwaysAppears":false,
             "foliageItemHints":true,
             "cookWithoutFryingPan": false,
-            "hiddenPanelVisibility": 1
+            "hiddenPanelVisibility": 1,
+            "iSpyPanelHints": 0
          },
          "difficulty":{
             "difficultyMode":1,
@@ -854,14 +867,16 @@
             "badgeSynergy": false,
             "noHealingItems":false,
             "dropStarPoints": false,
+            "chetRippoAvailable": true,
             "allowItemHints":false,
-            "merlowRewardPricing": 0
+            "merlowRewardPricing": 0,
+            "bowserDoorQuiz": 0,
+            "kentCKoopa": 0
          },
          "goals": {
           "starWaySpiritsNeeded": 7,
           "starWayPowerStarsNeeded": 0,
-          "requireSpecificSpirits" : false,
-          "limitChapterLogic" : false,
+          "requiredSpirits" : 0,
           "seedGoal": 0,
           "starHuntTotal": 0,
           "includePowerStars": false,
@@ -988,7 +1003,7 @@
           "includeDojo": 0,
           "includeLetters": 0,
           "includeRadioTradeEvent": false,
-          "shuffleBlocks": false,
+          "multiCoinBlockShuffle": 0,
           "gearShuffleMode": 2,
           "partnerUpgradeShuffle": 0,
           "ripCheatoItemsInLogic": 6,
@@ -1037,6 +1052,7 @@
           "quizmoAlwaysAppears": true,
           "foliageItemHints": true,
           "hiddenPanelVisibility": true,
+          "iSpyPanelHints": 0,
           "cookWithoutFryingPan": true
         },
         "difficulty": {
@@ -1049,15 +1065,17 @@
           "noHeartBlocks": false,
           "noHealingItems": false,
           "dropStarPoints": false,
+          "chetRippoAvailable": true,
           "allowItemHints": false,
           "merlowRewardPricing": 0,
-          "badgeSynergy": false
+          "badgeSynergy": false,
+          "bowserDoorQuiz": 0,
+          "kentCKoopa": 0
         },
         "goals": {
           "starWaySpiritsNeeded": 4,
           "starWayPowerStarsNeeded": 0,
-          "requireSpecificSpirits" : true,
-          "limitChapterLogic" : true,
+          "requiredSpirits" : 2,
           "seedGoal": 0,
           "starHuntTotal": 0,
           "includePowerStars": false,
@@ -1193,7 +1211,7 @@
           "includeDojo": 0,
           "includeLetters": 0,
           "includeRadioTradeEvent": false,
-          "shuffleBlocks": false,
+          "multiCoinBlockShuffle": 0,
           "gearShuffleMode": 2,
           "partnerUpgradeShuffle": 2,
           "ripCheatoItemsInLogic": 6,
@@ -1242,6 +1260,7 @@
           "quizmoAlwaysAppears": true,
           "foliageItemHints": true,
           "hiddenPanelVisibility": true,
+          "iSpyPanelHints": 0,
           "cookWithoutFryingPan": true
         },
         "difficulty": {
@@ -1254,15 +1273,17 @@
           "noHeartBlocks": false,
           "noHealingItems": false,
           "dropStarPoints": false,
+          "chetRippoAvailable": true,
           "allowItemHints": false,
           "merlowRewardPricing": 0,
-          "badgeSynergy": false
+          "badgeSynergy": false,
+          "bowserDoorQuiz": 0,
+          "kentCKoopa": 0
         },
         "goals": {
           "starWaySpiritsNeeded": 4,
           "starWayPowerStarsNeeded": 0,
-          "requireSpecificSpirits" : true,
-          "limitChapterLogic" : true,
+          "requiredSpirits" : 2,
           "seedGoal": 0,
           "starHuntTotal": 0,
           "includePowerStars": false,
@@ -1398,7 +1419,7 @@
             "includeDojo":0,
             "includeLetters":0,
             "includeRadioTradeEvent":false,
-            "shuffleBlocks":false,
+            "multiCoinBlockShuffle":0,
             "gearShuffleMode":2,
             "partnerUpgradeShuffle":2,
             "ripCheatoItemsInLogic":6,
@@ -1447,6 +1468,7 @@
             "quizmoAlwaysAppears":true,
             "foliageItemHints":true,
             "hiddenPanelVisibility":true,
+            "iSpyPanelHints": 0,
             "cookWithoutFryingPan":true
          },
          "difficulty":{
@@ -1459,9 +1481,12 @@
             "noHeartBlocks":false,
             "noHealingItems":false,
             "dropStarPoints":false,
+            "chetRippoAvailable": true,
             "allowItemHints":false,
             "merlowRewardPricing":0,
-            "badgeSynergy":false
+            "badgeSynergy":false,
+            "bowserDoorQuiz": 0,
+            "kentCKoopa": 0
          },
          "itemPool":{
             "itemQuality":100,
@@ -1515,10 +1540,9 @@
          },
          "goals":{
             "starWaySpiritsNeeded":4,
-            "requireSpecificSpirits":true,
+            "requiredSpirits" : 2,
             "shuffleStarBeam":false,
             "starBeamSpiritsNeeded":0,
-            "limitChapterLogic":true,
             "starWayPowerStarsNeeded":0,
             "starHuntTotal":0,
             "seedGoal":0,

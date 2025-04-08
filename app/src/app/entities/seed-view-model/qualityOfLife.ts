@@ -1,3 +1,4 @@
+import { ISpyPanelHints } from '../enum/iSpyPanelHints';
 import { HiddenBlockMode } from './../enum/hiddenBlockMode';
 
 export interface QualityOfLife {
@@ -13,4 +14,5 @@ export interface QualityOfLife {
     SkipEpilogue: boolean;
     SkipQuiz: boolean;
     VisibleHiddenPanels: boolean;
+    ISpyPanelHints: ISpyPanelHints;
 }

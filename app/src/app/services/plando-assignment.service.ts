@@ -236,13 +236,6 @@ export class PlandoAssignmentService {
       }
       if (Array.isArray(plando['required_spirits']) && plando['required_spirits'].length) {
         plandoAssignedControls.add('starWaySpiritsNeeded');
-        const selectedSpiritCount = plando['required_spirits'].length;
-        if (selectedSpiritCount > 0 && selectedSpiritCount < 7) {
-          randoSettingsFormGroup.get('goals').get('requireSpecificSpirits').setValue(true);
-          plandoAssignedControls.add('requireSpecificSpirits');
-        } else {
-          randoSettingsFormGroup.get('goals').get('requireSpecificSpirits').setValue(false);
-        }
       }
     } else {
       // No plando assigned, reset any validators.

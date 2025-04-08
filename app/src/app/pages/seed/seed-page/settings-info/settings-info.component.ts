@@ -1,3 +1,5 @@
+import { RequiredSpirits } from 'src/app/entities/enum/requiredSpirits';
+import { MultiCoinBlockShuffle } from './../../../../entities/enum/MultiCoinBlockShuffle';
 import { BossShuffleMode } from './../../../../entities/enum/BossShuffleMode';
 import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
 import { DungeonEntranceShuffleMode } from './../../../../entities/enum/DungeonEntranceShuffleMode';
@@ -25,6 +27,9 @@ import { PartnerUpgradeShuffleMode } from 'src/app/entities/enum/partnerUpgradeS
 import { CustceneMode } from 'src/app/entities/enum/cutsceneMode';
 import { MirrorMode } from 'src/app/entities/enum/mirrorMode';
 import { SeedGoal } from 'src/app/entities/enum/seedGoal';
+import { ISpyPanelHints } from 'src/app/entities/enum/iSpyPanelHints';
+import { BowserDoorQuiz } from 'src/app/entities/enum/bowserDoorQuiz';
+import { KentCKoopa } from 'src/app/entities/enum/kentCKoopa';
 
 interface SettingRow {
   name: string;
@@ -170,7 +175,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Letter Delivery Rewards", value: LettersMode[this.seedModel.Items.LetterDeliveryRewards]},
       {name: "Rip Cheato Items In Logic", value: this.seedModel.Items.RipCheatoItemsInLogic},
       {name: "Partner Upgrade Shuffle", value: PartnerUpgradeShuffleMode[this.seedModel.Items.PartnerUpgradeShuffle]},
-      {name: "Shuffle Super/Multicoin Blocks", value: this.seedModel.Items.ShuffleSuperAndMulticoinBlocks},
+      {name: "Shuffle Super/Multicoin Blocks", value: MultiCoinBlockShuffle[this.seedModel.Items.ShuffleSuperAndMulticoinBlocks]},
       {name: "Shopsanity", value: this.seedModel.Items.Shopsanity},
       {name: "Rowf Items in Logic", value: this.seedModel.Items.ProgressionOnRowf},
       {name: "Merlow Items in Logic", value: this.seedModel.Items.ProgressionOnMerlow},
@@ -234,12 +239,15 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Cap Enemy XP", value: this.seedModel.GeneralDifficulty.CapEnemyXP},
       {name: "Enemy Damage", value: this.seedModel.GeneralDifficulty.EnemyDamage},
       {name: "Merlow Rewards Pricing", value: MerlowRewardPricing[this.seedModel.GeneralDifficulty.MerlowRewardsPricing]},
+      {name: "Bowser Door Quiz", value: pascalToVerboseString(BowserDoorQuiz[this.seedModel.GeneralDifficulty.BowserDoorQuiz])},
+      {name: "Kent C. Koopa", value: pascalToVerboseString(KentCKoopa[this.seedModel.GeneralDifficulty.KentCKoopa])},
       {name: "No Healing Items", value: this.seedModel.GeneralDifficulty.NoHealingItems},
       {name: "No Heart Blocks", value: this.seedModel.GeneralDifficulty.NoHeartBlocks},
       {name: "No Save Blocks", value: this.seedModel.GeneralDifficulty.NoSaveBlocks},
       {name: "One Hit KO", value: this.seedModel.GeneralDifficulty.OneHitKO},
       {name: "Badge Synergy", value: this.seedModel.GeneralDifficulty.BadgeSynergy},
       {name: "Drop Star Points", value: this.seedModel.GeneralDifficulty.DropStarPoints},
+      {name: "Chet Rippo Available", value: this.seedModel.GeneralDifficulty.ChetRippoAvailable},
     ] as SettingRow[]
   }
 
@@ -261,8 +269,7 @@ export class SettingsInfoComponent implements OnInit {
     this.goalsRows = [
       {name: "Seed Goal", value: pascalToVerboseString(SeedGoal[this.seedModel.Goals.SeedGoal])},
       {name: "Star Way Spirits Required", value: this.seedModel.Goals.StarWaySpiritsNeeded},
-      {name: "Require Specific Spirits", value: this.seedModel.Goals.StarWaySpiritsNeeded == 7 || this.seedModel.Goals.StarWaySpiritsNeeded == 0 ? null : this.seedModel.Goals.RequireSpecificSpirits},
-      {name: "Limit Chapter Logic", value: this.seedModel.Goals.RequireSpecificSpirits ? this.seedModel.Goals.LimitChapterLogic : null},
+      {name: "Required Spirits", value: this.seedModel.Goals.StarWaySpiritsNeeded == 7 || this.seedModel.Goals.StarWaySpiritsNeeded == 0 ? null : RequiredSpirits[this.seedModel.Goals.RequiredSpirits]},
       {name: "Shuffle Star Beam", value: isStarBeamReachable ? this.seedModel.Goals.ShuffleStarBeam : null},
       {name: "Star Beam Spirits Rquired", value: isStarBeamReachable ? this.seedModel.Goals.StarBeamSpiritsNeeded : null},
       {name: "Total Power Stars", value: getPowerStarDisplayValue(this.seedModel.Goals.StarHuntTotal)},
@@ -300,8 +307,8 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Boots", value: Boots[this.seedModel.StatsAndGear.Boots]},
       {name: "Hammer", value: Hammer[this.seedModel.StatsAndGear.Hammer]},
       {name: "Coins", value: this.seedModel.StatsAndGear.Coins},
-      {name: "Min Number of Starting Items", value: this.seedModel.StatsAndGear.MinNumberOfStartingItems},
-      {name: "Max Number of Starting Items", value: this.seedModel.StatsAndGear.MaxNumberOfStartingItems},
+      {name: "Min Number of Random Starting Items", value: this.seedModel.StatsAndGear.MinNumberOfStartingItems},
+      {name: "Max Number of Random Starting Items", value: this.seedModel.StatsAndGear.MaxNumberOfStartingItems},
       {name: "Starting Items", value: startingItems?.join(", ")}
     ] as SettingRow[]
   }
@@ -337,6 +344,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Skip Epilogue", value: this.seedModel.QualityOfLife.SkipEpilogue},
       {name: "Skip Quiz", value: this.seedModel.QualityOfLife.SkipQuiz},
       {name: "Visible Hidden Panels", value: this.seedModel.QualityOfLife.VisibleHiddenPanels},
+      {name: "I Spy Panel Hints", value: ISpyPanelHints[this.seedModel.QualityOfLife.ISpyPanelHints]}
     ] as SettingRow[]
   }
 

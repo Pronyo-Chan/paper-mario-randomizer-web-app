@@ -1,6 +1,7 @@
 import { GearShuffleMode } from "../enum/gearShuffleMode";
 import { KootFavorsMode } from "../enum/kootFavorsMode";
 import { LettersMode } from "../enum/lettersMode";
+import { MultiCoinBlockShuffle } from "../enum/MultiCoinBlockShuffle";
 import { PartnerUpgradeShuffleMode } from "../enum/partnerUpgradeShuffleMode";
 
 export interface ItemSettings {
@@ -21,5 +22,5 @@ export interface ItemSettings {
     RipCheatoItemsInLogic: number;
     Shopsanity: boolean;
     ShuffleItems: boolean;
-    ShuffleSuperAndMulticoinBlocks: boolean
+    ShuffleSuperAndMulticoinBlocks: MultiCoinBlockShuffle
 }

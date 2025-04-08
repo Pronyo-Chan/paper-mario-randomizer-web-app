@@ -64,6 +64,22 @@
     "id": "à"
   },
   {
+    "name": "Clippy Ledge Star Piece",
+    "settingName": "ClippyLedgeStarPiece",
+    "link": "https://youtu.be/cGPratiMYQs",
+    "description": "Can use clippy to go out of bounds for the tree and star piece",
+    "location": "Goomba Region",
+    "id": "Ɣ"
+  },
+  {
+    "name": "Jumpless Fire Flower",
+    "settingName": "JumplessFireFlower",
+    "link": "https://youtu.be/BgYnyoo-DFY",
+    "description": "A laki teleport and fall out of bounds can be used to get the fire flower east of the playground in prologue",
+    "location": "Goomba Region",
+    "id": "ƕ"
+  },
+  {
     "name": "Odd Key Early",
     "settingName": "OddKeyEarly",
     "link": "https://www.youtube.com/watch?v=nPFBwsC0w_g",
@@ -328,6 +344,14 @@
     "id": "ε"
   },
   {
+    "name": "Pleasant Path Clippy Traversal",
+    "settingName": "PleasantPathClippyTraversal",
+    "link": "https://youtu.be/gXbGPqkf4Lg",
+    "description": "Pleasant Path ledges can be clipped around without the need for climbing the steps",
+    "location": "Koopa Region",
+    "id": "Ɩ"
+  },
+  {
     "name": "Bombette-less KBF FP Plus (LZS)",
     "settingName": "BombettelessKbfFpPlusLZS",
     "link": "https://www.youtube.com/watch?v=aw_dfibiv7Y",
@@ -376,6 +400,14 @@
     "id": "9"
   },
   {
+    "name": "Mt Rugged Quake Hammer Room Jumpless (Clippy variant)",
+    "settingName": "MtRuggedQuakeHammerRoomJumplessClippy",
+    "link": "https://youtu.be/yLdXnkNiXPs",
+    "description": "From the lower left loading zone, the upper right loading zone can be reached with a laki teleport followed by using Clippy and falling out of bounds.",
+    "location": "Mt. Rugged",
+    "id": "Ɨ"
+  },
+  {
     "name": "Parakarry-less Mt.Rugged Seed",
     "settingName": "ParakarrylessMtRuggedSeed",
     "link": "https://www.youtube.com/watch?v=itO-PdEOgwg",
@@ -408,6 +440,14 @@
     "id": "="
   },
   {
+    "name": "Parakarryless Mt Rugged Star Piece (Clippy)",
+    "settingName": "ParakarrylessMtRuggedStarPieceClippy",
+    "link": "https://youtu.be/yLdXnkNiXPs",
+    "description": "",
+    "location": "Mt. Rugged",
+    "id": "ƙ"
+  },
+  {
     "name": "Mt.Rugged Coins with Kooper",
     "settingName": "MtRuggedCoinsWithKooper",
     "link": "",
@@ -430,6 +470,13 @@
     "description": "A Laki teleport can be used to clip on the train track and reach the Super Block above by going out of bounds. From there you can squeeze through the stone block with speedy spins.",
     "location": "Mt. Rugged",
     "id": "ã"
+  },{
+    "name": "Mt Rugged Station Jumpless Climb Laki Block Clip",
+    "settingName": "MtRuggedStationJumplessClimbLakiBlockClip",
+    "link": "",
+    "description": "",
+    "location": "Mt. Rugged",
+    "id": "Ƙ"
   },
   {
     "name": "Mt.Rugged Jumpless Train Platform (Parakarry)",
@@ -462,6 +509,14 @@
     "description": "The ruins loading zone is always present, so it's possible to enter it without the pulse stone by performing a Tornado Jump where the door would be.",
     "location": "Dry Dry Desert",
     "id": "@"
+  },
+  {
+    "name": "Jumpless Attack FXC",
+    "settingName": "JumplessAttackFXC",
+    "link": "https://youtu.be/OdVf73KLaZE",
+    "description": "Mario can just walk on the rock from a corner",
+    "location": "Dry Dry Desert",
+    "id": "ƚ"
   },
   {
     "name": "Artifact Jump With Laki",
@@ -554,7 +609,7 @@
   {
     "name": "Jumpless Mansion Entry (Parakarry)",
     "settingName": "JumplessMansionEntry",
-    "link": "",
+    "link": "https://discord.com/channels/958691533270433793/958818725891555328/1033155245838184478",
     "description": "Parakarry's ability can be used at the bottom of the stairs to climb the highest step from the ground, skipping the need for boots.",
     "location": "Boo's Mansion",
     "id": "æ"
@@ -638,6 +693,14 @@
     "description": "With tap jumps, the other side of the gap that usually requires Parakarry can be climbed on.",
     "location": "Gusty Gulch",
     "id": "Q"
+  },
+  {
+    "name": "Gusty Gulch Clippy Traversal",
+    "settingName": "GustyGulchClippyTraversal",
+    "link": "https://youtu.be/pn54TLKKoaI",
+    "description": "Gusty Gulch can be traversed from left to right using clippy instead of needing to jump / climb ledges.",
+    "location": "Gusty Gulch",
+    "id": "ƛ"
   },
   {
     "name": "Bow-less Tubba's Castle",
@@ -1046,6 +1109,14 @@
     "description": "With a precise tornado jump under the deck, you can reach the Bubble Berry Tree without raising the water.",
     "location": "Flower Fields",
     "id": "ì"
+  },
+  {
+    "name": "Lakiless Elevator Room",
+    "settingName": "LakilessElevatorRoom",
+    "link": "https://www.youtube.com/watch?v=iZEBSnYfABg",
+    "description": "",
+    "location": "Flower Fields",
+    "id": "Ɯ"
   },
   {
     "name": "Murder Solved Early (Laki)",
