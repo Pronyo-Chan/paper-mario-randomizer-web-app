@@ -121,7 +121,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       }),
       catchError(err => {
         if(err.status === 429) {
-          this.seedGenError = "Limit reached: Only 10 seeds per hour can be generated."
+          this.seedGenError = "Seed generation limit reached. Please try again later."
         }
         else if(typeof err.error === 'string' && (err.error as string)?.includes("StarRodModVersion")) {
           this.seedGenError = "Server version mismatch. Please refresh the page and try again."
