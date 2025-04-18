@@ -75,7 +75,7 @@ export class SettingsInfoComponent implements OnInit {
 
   public ngOnInit(): void {
     this.expirationDate = new Date(this.seedModel.SeedInfo.CreationDate)
-    this.expirationDate.setDate(this.expirationDate.getDate() + 30)
+    this.expirationDate.setDate(this.expirationDate.getDate() + 60)
 
     this.glitchesList = glitchesJson;
     this.enabledGlitchesRows = [{
