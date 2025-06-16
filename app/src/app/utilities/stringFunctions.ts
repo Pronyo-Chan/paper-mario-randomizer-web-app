@@ -38,7 +38,7 @@ export function escapeRegexChars(val: string): string {
 
 const verboseStrings: Map<string, string> = new Map<string, string>();
 
-const possessiveRegex = /(Mario|Peach|Boo|Guy|Troopa|King|Bowser|Rowf|Merlow|Merluvlee|Tubba|Kolorado|Bow|Lily|Petunia|Rosie)s/g;
+const possessiveRegex = /\b(Merluvlee|Kolorado|Bowser|Petunia|Merlow|Troopa|Rosie|Mario|Peach|Tubba|Rowf|King|Lily|Boo|Guy|Bow)s\b/g;
 const stringReplaceRegEx = new RegExp(Object.keys(verboseStringReplacements).map(escapeRegexChars).join('|'), 'g');
 
 export function pascalToVerboseString(text: string): string {
