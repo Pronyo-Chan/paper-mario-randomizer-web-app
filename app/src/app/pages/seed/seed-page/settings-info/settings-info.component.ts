@@ -30,6 +30,7 @@ import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 import { ISpyPanelHints } from 'src/app/entities/enum/iSpyPanelHints';
 import { BowserDoorQuiz } from 'src/app/entities/enum/bowserDoorQuiz';
 import { KentCKoopa } from 'src/app/entities/enum/kentCKoopa';
+import { SpiritShuffleMode } from 'src/app/entities/enum/spiritShuffleMode';
 
 interface SettingRow {
   name: string;
@@ -168,6 +169,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Shuffle Foliage Coins", value: this.seedModel.Items.IncludeCoinsFoliage},
       {name: "Keysanity", value: this.seedModel.Items.Keysanity},
       {name: "Gear Shuffle", value: GearShuffleMode[this.seedModel.Items.GearShuffle]},
+      {name: "Star Spirit Shuffle", value: pascalToVerboseString(SpiritShuffleMode[this.seedModel.Items.SpiritShuffle])},
       {name: "Include Dojo Rewards", value: this.seedModel.Items.IncludeDojoRewards},
       {name: "Include Hidden Panels", value: this.seedModel.Items.IncludeHiddenPanels},
       {name: "Include Trading Event Rewards", value: this.seedModel.Items.IncludeTradingEventRewards},

@@ -3,6 +3,7 @@ import { KootFavorsMode } from "../enum/kootFavorsMode";
 import { LettersMode } from "../enum/lettersMode";
 import { MultiCoinBlockShuffle } from "../enum/MultiCoinBlockShuffle";
 import { PartnerUpgradeShuffleMode } from "../enum/partnerUpgradeShuffleMode";
+import { SpiritShuffleMode } from "../enum/spiritShuffleMode";
 
 export interface ItemSettings {
     IncludeCoinsOverworld: boolean;
@@ -10,6 +11,7 @@ export interface ItemSettings {
     IncludeCoinsFavors: boolean;
     IncludeCoinsFoliage: boolean;
     GearShuffle: GearShuffleMode;
+    SpiritShuffle: SpiritShuffleMode;
     PartnerUpgradeShuffle: PartnerUpgradeShuffleMode;
     IncludeDojoRewards: number;
     IncludeHiddenPanels: boolean;

@@ -36,6 +36,7 @@ import { ISpyPanelHints } from 'src/app/entities/enum/iSpyPanelHints';
 import { BowserDoorQuiz } from 'src/app/entities/enum/bowserDoorQuiz';
 import { KentCKoopa } from 'src/app/entities/enum/kentCKoopa';
 import { RequiredChapters } from 'src/app/entities/enum/requiredChapters';
+import { SpiritShuffleMode } from 'src/app/entities/enum/spiritShuffleMode';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -168,6 +169,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         includeRadioTradeEvent: new FormControl(false),
         multiCoinBlockShuffle: new FormControl(MultiCoinBlockShuffle.Off),
         gearShuffleMode: new FormControl(GearShuffleMode.Vanilla),
+        spiritShuffleMode: new FormControl(SpiritShuffleMode.Vanilla),
         partnerUpgradeShuffle: new FormControl(PartnerUpgradeShuffleMode.Vanilla),
         ripCheatoItemsInLogic: new FormControl(6),
         progressionOnRowf: new FormControl(0),

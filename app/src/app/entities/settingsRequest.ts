@@ -21,6 +21,8 @@ import { BossShuffleMode } from './enum/BossShuffleMode';
 import { MultiCoinBlockShuffle } from './enum/MultiCoinBlockShuffle';
 import { KentCKoopa } from './enum/kentCKoopa';
 import { RequiredChapters } from './enum/requiredChapters';
+import { SpiritShuffleMode } from './enum/spiritShuffleMode';
+import { GearShuffleMode } from './enum/gearShuffleMode';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -168,7 +170,8 @@ export interface SettingsRequest {
     HiddenPanelVisibility: number;
     ISpyPanelHints: number;
     CookWithoutFryingPan: boolean;
-    GearShuffleMode: number;
+    GearShuffleMode: GearShuffleMode;
+    SpiritShuffleMode: SpiritShuffleMode;
     PartnerUpgradeShuffle: number;
     RipCheatoItemsInLogic: number;
     MerlowRewardPricing: number;

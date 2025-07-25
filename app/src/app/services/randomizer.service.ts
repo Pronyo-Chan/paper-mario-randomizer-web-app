@@ -309,6 +309,7 @@ export class RandomizerService {
       ISpyPanelHints: settingsForm.get('qualityOfLife').get('iSpyPanelHints').value,
       CookWithoutFryingPan: settingsForm.get('qualityOfLife').get('cookWithoutFryingPan').value,
       GearShuffleMode: settingsForm.get('items').get('gearShuffleMode').value,
+      SpiritShuffleMode: settingsForm.get('items').get('spiritShuffleMode').value,
       PartnerUpgradeShuffle: settingsForm.get('items').get('partnerUpgradeShuffle').value,
       RipCheatoItemsInLogic: settingsForm.get('items').get('ripCheatoItemsInLogic').value,
       MerlowRewardPricing: settingsForm.get('difficulty').get('merlowRewardPricing').value,
