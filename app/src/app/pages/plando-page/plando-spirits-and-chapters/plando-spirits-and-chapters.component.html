@@ -4,7 +4,7 @@
     Selected Star Spirits will be required for completion. If no spirits are selected, the seed generator settings will determine the required Star Spirits.
   </p>
   <div class="container">
-    <div *ngFor="let spirit of SPIRITS; let i = index; let requiredSpirits = requiredSpirits" class="panel">
+    <div *ngFor="let spirit of SPIRITS; let i = index; let requiredChapters = requiredChapters" class="panel">
       <h3 class="row text-center">Chapter {{ i + 1 }}</h3>
       <div *ngIf="spirit !== ''">
         <label>
@@ -13,12 +13,12 @@
             class="hidden"
             value="{{ spirit }}"
             (change)="updateSpiritSelection($event, spirit)"
-            [checked]="requiredSpiritsArray.includes(spirit)" />
+            [checked]="requiredChaptersArray.includes(spirit)" />
           <img
             src="{{
               '/assets/images/plando/' +
                 spirit +
-                (!requiredSpiritsArray.includes(spirit) ? '_No' : '') +
+                (!requiredChaptersArray.includes(spirit) ? '_No' : '') +
                 '.png'
             }}" />
         </label>

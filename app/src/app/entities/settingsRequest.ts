@@ -20,7 +20,7 @@ import { PartnerShuffleMode } from './enum/partnerShuffleMode';
 import { BossShuffleMode } from './enum/BossShuffleMode';
 import { MultiCoinBlockShuffle } from './enum/MultiCoinBlockShuffle';
 import { KentCKoopa } from './enum/kentCKoopa';
-import { RequiredSpirits } from './enum/requiredSpirits';
+import { RequiredChapters } from './enum/requiredChapters';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -135,7 +135,7 @@ export interface SettingsRequest {
     ItemQuality: number;
     RandomConsumableMode: number;
     StarWaySpiritsNeededCnt: number;
-    RequiredSpirits: RequiredSpirits;
+    RequiredChapters: RequiredChapters;
     ShuffleStarBeam: boolean;
     StarBeamSpiritsNeeded: number;
     StarBeamPowerStarsNeeded: number;

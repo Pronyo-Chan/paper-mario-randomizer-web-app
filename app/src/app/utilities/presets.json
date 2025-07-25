@@ -87,7 +87,7 @@
             "goals": {
               "starWaySpiritsNeeded": 7,
               "starWayPowerStarsNeeded": 0,
-              "requiredSpirits" : 0,
+              "requiredChapters" : 0,
               "seedGoal": 0,
               "starHuntTotal": 0,
               "includePowerStars": false,
@@ -284,7 +284,7 @@
           "goals": {
             "starWaySpiritsNeeded": 7,
             "starWayPowerStarsNeeded": 0,
-            "requiredSpirits" : 0,
+            "requiredChapters" : 0,
             "seedGoal": 0,
             "starHuntTotal": 0,
             "includePowerStars": false,
@@ -481,7 +481,7 @@
           "goals": {
             "starWaySpiritsNeeded": 7,
             "starWayPowerStarsNeeded": 0,
-            "requiredSpirits" : 0,
+            "requiredChapters" : 0,
             "seedGoal": 0,
             "starHuntTotal": 0,
             "includePowerStars": false,
@@ -678,7 +678,7 @@
           "goals": {
             "starWaySpiritsNeeded": 7,
             "starWayPowerStarsNeeded": 0,
-            "requiredSpirits" : 0,
+            "requiredChapters" : 0,
             "seedGoal": 0,
             "starHuntTotal": 0,
             "includePowerStars": false,
@@ -876,7 +876,7 @@
          "goals": {
           "starWaySpiritsNeeded": 7,
           "starWayPowerStarsNeeded": 0,
-          "requiredSpirits" : 0,
+          "requiredChapters" : 0,
           "seedGoal": 0,
           "starHuntTotal": 0,
           "includePowerStars": false,
@@ -1075,7 +1075,7 @@
         "goals": {
           "starWaySpiritsNeeded": 4,
           "starWayPowerStarsNeeded": 0,
-          "requiredSpirits" : 2,
+          "requiredChapters" : 2,
           "seedGoal": 0,
           "starHuntTotal": 0,
           "includePowerStars": false,
@@ -1283,7 +1283,7 @@
         "goals": {
           "starWaySpiritsNeeded": 4,
           "starWayPowerStarsNeeded": 0,
-          "requiredSpirits" : 2,
+          "requiredChapters" : 2,
           "seedGoal": 0,
           "starHuntTotal": 0,
           "includePowerStars": false,
@@ -1540,7 +1540,7 @@
          },
          "goals":{
             "starWaySpiritsNeeded":4,
-            "requiredSpirits" : 2,
+            "requiredChapters" : 2,
             "shuffleStarBeam":false,
             "starBeamSpiritsNeeded":0,
             "starWayPowerStarsNeeded":0,

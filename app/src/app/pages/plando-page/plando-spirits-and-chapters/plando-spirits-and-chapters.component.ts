@@ -19,24 +19,24 @@ export class PlandoSpiritsAndChaptersComponent implements OnInit, OnDestroy, Aft
   public readonly DUNGEONS: Array<string> = ['KoopaBrosFortress', 'DryDryRuins', 'TubbasCastle', 'ShyGuysToybox', 'MtLavalava', 'FlowerFields', 'CrystalPalace', 'BowsersCastle'];
   public readonly BOSSES: Array<string> = ['KoopaBros', 'Tutankoopa', 'TubbasHeart', 'GeneralGuy', 'LavaPiranha', 'HuffNPuff', 'CrystalKing'];
   public spiritsSubscription: Subscription;
-  public requiredSpiritsArray = Array<string>();
+  public requiredChaptersArray = Array<string>();
   public toDisplayString = pascalToVerboseString;
 
   public ngOnInit(): void {
     this.spiritsSubscription = this.plandoFormGroup.get('required_spirits').valueChanges.subscribe(val => {
       if (val) {
-        this.requiredSpiritsArray = val;
+        this.requiredChaptersArray = val;
       } else {
-        this.requiredSpiritsArray = [];
+        this.requiredChaptersArray = [];
       }
     })
   }
 
   public ngAfterContentInit(): void {
     if (this.plandoFormGroup.get('required_spirits').value) {
-      this.requiredSpiritsArray = this.plandoFormGroup.get('required_spirits').value;
+      this.requiredChaptersArray = this.plandoFormGroup.get('required_spirits').value;
     } else {
-      this.requiredSpiritsArray = [];
+      this.requiredChaptersArray = [];
     }
   }
 
@@ -47,15 +47,15 @@ export class PlandoSpiritsAndChaptersComponent implements OnInit, OnDestroy, Aft
   public updateSpiritSelection($event: InputEvent, spirit: string) {
     if ($event.currentTarget instanceof HTMLInputElement) {
       if ($event.currentTarget.checked) {
-        this.requiredSpiritsArray.push(spirit)
+        this.requiredChaptersArray.push(spirit)
       } else {
-        const i = this.requiredSpiritsArray.indexOf(spirit);
+        const i = this.requiredChaptersArray.indexOf(spirit);
         if (i > -1) {
-          this.requiredSpiritsArray.splice(i, 1);
+          this.requiredChaptersArray.splice(i, 1);
         }
       }
     }
-    this.plandoFormGroup.get('required_spirits').setValue(this.requiredSpiritsArray);
+    this.plandoFormGroup.get('required_spirits').setValue(this.requiredChaptersArray);
   }
 
   public getChapterDifficulty(chapter_number: number) {

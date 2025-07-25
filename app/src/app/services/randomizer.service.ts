@@ -316,7 +316,7 @@ export class RandomizerService {
       ProgressionOnMerlow: settingsForm.get('items').get('progressionOnMerlow').value,
       SeedGoal: settingsForm.get('goals').get('seedGoal').value,
       StarWaySpiritsNeededCnt: settingsForm.get('goals').get('starWaySpiritsNeeded').value,
-      RequiredSpirits: settingsForm.get('goals').get('requiredSpirits').value,
+      RequiredChapters: settingsForm.get('goals').get('requiredChapters').value,
       ShuffleStarBeam: isStarBeamReachable ? settingsForm.get('goals').get('shuffleStarBeam').value : false,
       StarBeamSpiritsNeeded: isStarBeamReachable ? settingsForm.get('goals').get('starBeamSpiritsNeeded').value : 0,
       StarHuntTotal: isStarHuntEnabled ? settingsForm.get('goals').get('starHuntTotal').value : 0,

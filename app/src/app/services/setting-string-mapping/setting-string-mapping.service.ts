@@ -67,7 +67,7 @@ export class SettingStringMappingService {
   public readonly goalsMap: SettingModel [] = [
     { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
     { compressedString: "e", key: "requireSpecificSpirits", type: "removed"},
-    { compressedString: "r", key: "requiredSpirits", type: "number"},
+    { compressedString: "r", key: "requiredChapters", type: "number"},
     { compressedString: "f", key: "limitChapterLogic", type: "removed"},
     { compressedString: "@", key: "starBeamSpiritsNeeded", type: "number"},
     { compressedString: "#", key: "starBeamPowerStarsNeeded", type: "number"},

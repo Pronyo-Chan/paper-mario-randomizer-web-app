@@ -3,7 +3,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { tap, Subscription } from 'rxjs';
 import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 import { PlandoAssignmentService } from "src/app/services/plando-assignment.service";
-import { RequiredSpirits } from 'src/app/entities/enum/requiredSpirits';
+import { RequiredChapters } from 'src/app/entities/enum/requiredChapters';
 
 @Component({
   selector: 'app-goal-settings',
@@ -26,19 +26,19 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.updateIsSevenOrZeroStarSpirits();
 
-    this.disableRequiredSpiritsWhenSevenSpirits();
-    this.disableStarBeamSpiritsRequiredWhenLCL(this.goalsFormGroup.get('requiredSpirits').value === RequiredSpirits['Specific And Limit Chapter Logic']);
+    this.disableRequiredChaptersWhenSevenSpirits();
+    this.disableStarBeamSpiritsRequiredWhenLCL(this.goalsFormGroup.get('requiredChapters').value === RequiredChapters['Specific And Limit Chapter Logic']);
 
     this._starWaySpiritsNeededSubscription = this.goalsFormGroup.get('starWaySpiritsNeeded').valueChanges.pipe(
       tap(value => {
         this.updateIsSevenOrZeroStarSpirits();
-        this.disableRequiredSpiritsWhenSevenSpirits();
+        this.disableRequiredChaptersWhenSevenSpirits();
       })
     ).subscribe();
 
-    this._lclSubscription =  this.goalsFormGroup.get('requiredSpirits').valueChanges.pipe(
+    this._lclSubscription =  this.goalsFormGroup.get('requiredChapters').valueChanges.pipe(
       tap(value => {
-        this.disableStarBeamSpiritsRequiredWhenLCL(value === RequiredSpirits['Specific And Limit Chapter Logic']);
+        this.disableStarBeamSpiritsRequiredWhenLCL(value === RequiredChapters['Specific And Limit Chapter Logic']);
       })
     ).subscribe();
 
@@ -133,12 +133,12 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     return this.goalsFormGroup.get('starBeamSpiritsNeeded').value >= 0 ? this.goalsFormGroup.get('starBeamSpiritsNeeded').value : 'Random'
   }
 
-  private disableRequiredSpiritsWhenSevenSpirits() {
+  private disableRequiredChaptersWhenSevenSpirits() {
     if(this.isSevenOrZeroStarSpirits) {
-      this.goalsFormGroup.get('requiredSpirits').setValue(RequiredSpirits.Any);
-      this.goalsFormGroup.get('requiredSpirits').disable();
+      this.goalsFormGroup.get('requiredChapters').setValue(RequiredChapters.Any);
+      this.goalsFormGroup.get('requiredChapters').disable();
     } else {
-      this.goalsFormGroup.get('requiredSpirits').enable();
+      this.goalsFormGroup.get('requiredChapters').enable();
     }
   }
 
