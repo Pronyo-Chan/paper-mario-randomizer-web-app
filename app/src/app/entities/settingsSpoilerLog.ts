@@ -6,7 +6,7 @@ import { PuzzleSolution } from './PuzzleSolution';
 
 export interface SettingsSpoilerLog
 {
-    requiredStarSpirits: string[];
+    requiredChapters: string[];
     badgeCosts: BadgeCost[];
     partnerCosts: PartnerCost[];
     starPowerCosts: StarPowerCost[];

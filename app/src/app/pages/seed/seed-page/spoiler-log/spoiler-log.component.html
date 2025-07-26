@@ -242,17 +242,17 @@
         </div>
     </mat-tab>
 
-    <mat-tab *ngIf="settingsSpoilerLog.requiredStarSpirits" [label]="'Required Star Spirits'">
+    <mat-tab *ngIf="settingsSpoilerLog.requiredChapters" [label]="'Required Chapters'">
       <ng-template [ngTemplateOutlet]="searchContainer"></ng-template>
         <div class="right-container">
             <div class="table-container">
-                <mat-table [dataSource]="settingsSpoilerLog.requiredStarSpirits">
-                    <ng-container matColumnDef="starSpiritName" >
-                        <th mat-header-cell *matHeaderCellDef stic>Star Spirit</th>
-                        <td mat-cell *matCellDef="let starSpirit"><span>{{starSpirit}}</span></td>
+                <mat-table [dataSource]="settingsSpoilerLog.requiredChapters">
+                    <ng-container matColumnDef="chapterName" >
+                        <th mat-header-cell *matHeaderCellDef stic>Chapter</th>
+                        <td mat-cell *matCellDef="let chapter"><span>{{chapter}}</span></td>
                     </ng-container>
-                    <tr mat-header-row *matHeaderRowDef="['starSpiritName']"></tr>
-                    <tr mat-row *matRowDef="let row; columns: ['starSpiritName'];"></tr>
+                    <tr mat-header-row *matHeaderRowDef="['chapterName']"></tr>
+                    <tr mat-row *matRowDef="let row; columns: ['chapterName'];"></tr>
                 </mat-table>
             </div>
         </div>

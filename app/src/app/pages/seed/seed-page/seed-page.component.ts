@@ -128,7 +128,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
     var spoilerLogRegions: SpoilerLog = {};
 
     var settingsSpoilerLog: SettingsSpoilerLog = {
-      requiredStarSpirits: [],
+      requiredChapters: [],
       badgeCosts: [],
       partnerCosts: [],
       starPowerCosts: [],
@@ -211,7 +211,7 @@ export class SeedPageComponent implements OnInit, OnDestroy {
       settingsSpoilerLog.puzzleSolutions.push({puzzle: cleanPuzzleName, solution: cleanSolutionName} as PuzzleSolution);
     }
 
-    settingsSpoilerLog.requiredStarSpirits = spoilerLogJson["required_spirits"];
+    settingsSpoilerLog.requiredChapters = spoilerLogJson["required_chapters"];
 
     if (this.isEntranceRando) {
       const entrancesData = spoilerLogJson["entrances"]
