@@ -274,6 +274,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Star Way Spirits Required", value: this.seedModel.Items.SpiritShuffle != SpiritShuffleMode.Vanilla ? this.seedModel.Goals.StarWaySpiritsNeeded : null},
       {name: "Required Spirits", value: this.seedModel.Goals.StarWayChaptersNeeded == 7 || this.seedModel.Goals.StarWayChaptersNeeded == 0 ? null : RequiredChapters[this.seedModel.Goals.RequiredChapters]},
       {name: "Shuffle Star Beam", value: isStarBeamReachable ? this.seedModel.Goals.ShuffleStarBeam : null},
+      {name: "Star Beam Chapters Rquired", value: isStarBeamReachable ? this.seedModel.Goals.StarBeamChaptersNeeded : null},
       {name: "Star Beam Spirits Rquired", value: isStarBeamReachable ? this.seedModel.Goals.StarBeamSpiritsNeeded : null},
       {name: "Total Power Stars", value: getPowerStarDisplayValue(this.seedModel.Goals.StarHuntTotal)},
       {name: "Star Way - Power Stars Required", value: getPowerStarDisplayValue(this.seedModel.Goals.StarWayPowerStarsNeeded)},

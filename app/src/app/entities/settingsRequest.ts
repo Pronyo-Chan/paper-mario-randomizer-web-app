@@ -140,6 +140,7 @@ export interface SettingsRequest {
     StarWayChaptersNeededCnt: number;
     RequiredChapters: RequiredChapters;
     ShuffleStarBeam: boolean;
+    StarBeamChaptersNeeded: number;
     StarBeamSpiritsNeeded: number;
     StarBeamPowerStarsNeeded: number;
     FoliageItemHints: boolean;

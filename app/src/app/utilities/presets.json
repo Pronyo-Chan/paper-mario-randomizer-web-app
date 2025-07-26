@@ -95,6 +95,7 @@
               "includePowerStars": false,
               "shuffleStarBeam": false,
               "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
               "starBeamPowerStarsNeeded": 0
           },
             "itemPool": {
@@ -294,6 +295,7 @@
             "includePowerStars": false,
             "shuffleStarBeam": false,
             "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
             "starBeamPowerStarsNeeded": 0
         },
           "itemPool": {
@@ -493,6 +495,7 @@
             "includePowerStars": false,
             "shuffleStarBeam": false,
             "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
             "starBeamPowerStarsNeeded": 0
         },
           "itemPool": {
@@ -692,6 +695,7 @@
             "includePowerStars": false,
             "shuffleStarBeam": false,
             "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
             "starBeamPowerStarsNeeded": 0
         },
           "itemPool": {
@@ -892,6 +896,7 @@
           "includePowerStars": false,
           "shuffleStarBeam": false,
           "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
           "starBeamPowerStarsNeeded": 0
       },
          "itemPool": {
@@ -1093,6 +1098,7 @@
           "includePowerStars": false,
           "shuffleStarBeam": false,
           "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
           "starBeamPowerStarsNeeded": 0
       },
         "itemPool": {
@@ -1303,6 +1309,7 @@
           "includePowerStars": false,
           "shuffleStarBeam": false,
           "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
           "starBeamPowerStarsNeeded": 0
       },
         "itemPool": {

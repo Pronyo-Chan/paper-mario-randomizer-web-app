@@ -321,6 +321,7 @@ export class RandomizerService {
       RequiredChapters: settingsForm.get('goals').get('requiredChapters').value,
       ShuffleStarBeam: isStarBeamReachable ? settingsForm.get('goals').get('shuffleStarBeam').value : false,
       StarBeamSpiritsNeeded: isStarBeamReachable ? settingsForm.get('goals').get('starBeamSpiritsNeeded').value : 0,
+      StarBeamChaptersNeeded: isStarBeamReachable ? settingsForm.get('goals').get('starBeamChaptersNeeded').value : 0,
       StarHuntTotal: isStarHuntEnabled ? settingsForm.get('goals').get('starHuntTotal').value : 0,
       StarWayPowerStarsNeeded: isStarHuntEnabled ? settingsForm.get('goals').get('starWayPowerStarsNeeded').value : 0,
       StarBeamPowerStarsNeeded: isStarHuntEnabled && isStarBeamReachable ? settingsForm.get('goals').get('starBeamPowerStarsNeeded').value: 0,

@@ -59,8 +59,12 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
       if(changes["isSpiritShuffleEnabled"].currentValue == SpiritShuffleMode.Vanilla) {
         this.goalsFormGroup.get('starWaySpiritsNeeded').setValue(0);
         this.goalsFormGroup.get('starWaySpiritsNeeded').disable();
+
+        this.goalsFormGroup.get('starBeamSpiritsNeeded').setValue(0);
+        this.goalsFormGroup.get('starBeamSpiritsNeeded').disable();
       } else {
         this.goalsFormGroup.get("starWaySpiritsNeeded").enable()
+        this.goalsFormGroup.get("starBeamSpiritsNeeded").enable()
       }
     }
 
@@ -144,6 +148,10 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     return this.goalsFormGroup.get('starWaySpiritsNeeded').value >= 0 ? this.goalsFormGroup.get('starWaySpiritsNeeded').value : 'Random'
   }
 
+  public getStarBeamChaptersNumber(): string {
+    return this.goalsFormGroup.get('starBeamChaptersNeeded').value >= 0 ? this.goalsFormGroup.get('starBeamChaptersNeeded').value : 'Random'
+  }
+
   public getStarBeamSpiritsNumber(): string {
     return this.goalsFormGroup.get('starBeamSpiritsNeeded').value >= 0 ? this.goalsFormGroup.get('starBeamSpiritsNeeded').value : 'Random'
   }
@@ -159,10 +167,10 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
 
   private disableStarBeamChaptersRequiredWhenLCL(limitChapterLogic: boolean) {
     if(limitChapterLogic) {
-      this.goalsFormGroup.get('starBeamSpiritsNeeded').setValue(0);
-      this.goalsFormGroup.get('starBeamSpiritsNeeded').disable();
+      this.goalsFormGroup.get('starBeamChaptersNeeded').setValue(0);
+      this.goalsFormGroup.get('starBeamChaptersNeeded').disable();
     } else {
-      this.goalsFormGroup.get('starBeamSpiritsNeeded').enable();
+      this.goalsFormGroup.get('starBeamChaptersNeeded').enable();
     }
   }
 

@@ -285,6 +285,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         starWayChaptersNeeded: new FormControl(7),
         requiredChapters: new FormControl(RequiredChapters.Any),
         shuffleStarBeam: new FormControl(false),
+        starBeamChaptersNeeded: new FormControl(0),
         starBeamSpiritsNeeded: new FormControl(0),
         starWayPowerStarsNeeded: new FormControl(0),
         starHuntTotal: new FormControl(0, [CustomValidators.greaterOrEqualToWhenNotRandom('starWayPowerStarsNeeded'), CustomValidators.greaterOrEqualToWhenNotRandom('starBeamPowerStarsNeeded')]),
