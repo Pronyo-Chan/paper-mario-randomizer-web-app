@@ -50,6 +50,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   public readonly SHUFFLED_ENTRANCES_NO_ITEMS_ERROR = 'entranceRandoNoShuffle';
   public readonly SHUFFLED_ENTRANCES_WITH_BOWSER_7_SPIRITS_ERROR = 'entranceRandoWitBowserAnd7Spirits';
   public readonly LIMIT_CHAPTERS_NO_KEYSANITY_ERROR = 'limitChaptersNoKeysanity';
+  public readonly LIMIT_CHAPTERS_UNREACHABLE_SPIRITS = 'lclWithUnreachableRequiredSpirits';
 
   public homepageLink;
   public formGroup: FormGroup
@@ -108,6 +109,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         return;
       } else if (errors.some(e => e == this.SHUFFLED_ENTRANCES_WITH_BOWSER_7_SPIRITS_ERROR)) {
         this._toast.error("Shuffling the entrance to Bowser's Castle is impossible with 7 star spirits required.")
+        return;
+      } else if (errors.some(e => e == this.LIMIT_CHAPTERS_UNREACHABLE_SPIRITS)) {
+        this._toast.error("Limit Chapter Logic is active, but Shooting Star Summit requires more star spirits than are reachable in logic!")
         return;
       }
     }
@@ -277,7 +281,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         mirrorMode: new FormControl(MirrorMode.Off),
       }),
       goals: new FormGroup({
-        starWaySpiritsNeeded: new FormControl(7),
+        starWaySpiritsNeeded: new FormControl(0),
+        starWayChaptersNeeded: new FormControl(7),
         requiredChapters: new FormControl(RequiredChapters.Any),
         shuffleStarBeam: new FormControl(false),
         starBeamSpiritsNeeded: new FormControl(0),
@@ -340,7 +345,9 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
     const isStarHuntEnabled = this.formGroup.get('goals').get('includePowerStars').value;
     const isLimitChapterLogicEnabled = this.formGroup.get('goals').get('requiredChapters').value === RequiredChapters['Specific And Limit Chapter Logic'];
     const isKeysanityEnabled = this.formGroup.get('items').get('keyitemsOutsideDungeon').value
+    const requiredStarwayChaptersCount = this.formGroup.get('goals').get('starWayChaptersNeeded').value
     const requiredStarwaySpiritsCount = this.formGroup.get('goals').get('starWaySpiritsNeeded').value
+    const spiritShuffleMode = this.formGroup.get('items').get('spiritShuffleMode').value
 
     const isVanillaStart = startingMap == StartingMap.GoombaVillage &&
       startingHammer == Hammer.Hammerless &&
@@ -364,12 +371,16 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       errors.push(this.SHUFFLED_ENTRANCES_NO_ITEMS_ERROR)
     }
 
-    if (isEntranceRandoWithBowserEnabled && requiredStarwaySpiritsCount === 7) {
+    if (isEntranceRandoWithBowserEnabled && requiredStarwayChaptersCount === 7) {
       errors.push(this.SHUFFLED_ENTRANCES_WITH_BOWSER_7_SPIRITS_ERROR)
     }
 
     if (isLimitChapterLogicEnabled && !isKeysanityEnabled) {
       errors.push(this.LIMIT_CHAPTERS_NO_KEYSANITY_ERROR)
+    }
+
+    if (isLimitChapterLogicEnabled && spiritShuffleMode != SpiritShuffleMode.Anywhere && requiredStarwaySpiritsCount > requiredStarwayChaptersCount) {
+      errors.push(this.LIMIT_CHAPTERS_UNREACHABLE_SPIRITS)
     }
 
     return errors;

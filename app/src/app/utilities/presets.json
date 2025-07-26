@@ -86,7 +86,8 @@
                 "kentCKoopa": 0
             },
             "goals": {
-              "starWaySpiritsNeeded": 7,
+              "starWayChaptersNeeded": 7,
+              "starWaySpiritsNeeded": 0,
               "starWayPowerStarsNeeded": 0,
               "requiredChapters" : 0,
               "seedGoal": 0,
@@ -284,7 +285,8 @@
             "kentCKoopa": 0
           },
           "goals": {
-            "starWaySpiritsNeeded": 7,
+            "starWayChaptersNeeded": 7,
+            "starWaySpiritsNeeded": 0,
             "starWayPowerStarsNeeded": 0,
             "requiredChapters" : 0,
             "seedGoal": 0,
@@ -482,7 +484,8 @@
             "kentCKoopa": 0
           },
           "goals": {
-            "starWaySpiritsNeeded": 7,
+            "starWayChaptersNeeded": 7,
+            "starWaySpiritsNeeded": 0,
             "starWayPowerStarsNeeded": 0,
             "requiredChapters" : 0,
             "seedGoal": 0,
@@ -680,7 +683,8 @@
             "kentCKoopa": 0
           },
           "goals": {
-            "starWaySpiritsNeeded": 7,
+            "starWayChaptersNeeded": 7,
+            "starWaySpiritsNeeded": 0,
             "starWayPowerStarsNeeded": 0,
             "requiredChapters" : 0,
             "seedGoal": 0,
@@ -879,7 +883,8 @@
             "kentCKoopa": 0
          },
          "goals": {
-          "starWaySpiritsNeeded": 7,
+          "starWayChaptersNeeded": 7,
+          "starWaySpiritsNeeded": 0,
           "starWayPowerStarsNeeded": 0,
           "requiredChapters" : 0,
           "seedGoal": 0,
@@ -1079,7 +1084,8 @@
           "kentCKoopa": 0
         },
         "goals": {
-          "starWaySpiritsNeeded": 4,
+          "starWayChaptersNeeded": 4,
+          "starWaySpiritsNeeded": 0,
           "starWayPowerStarsNeeded": 0,
           "requiredChapters" : 2,
           "seedGoal": 0,
@@ -1288,7 +1294,8 @@
           "kentCKoopa": 0
         },
         "goals": {
-          "starWaySpiritsNeeded": 4,
+          "starWayChaptersNeeded": 4,
+          "starWaySpiritsNeeded": 0,
           "starWayPowerStarsNeeded": 0,
           "requiredChapters" : 2,
           "seedGoal": 0,
@@ -1547,7 +1554,8 @@
             "mirrorMode":0
          },
          "goals":{
-            "starWaySpiritsNeeded":4,
+            "starWayChaptersNeeded":4,
+            "starWaySpiritsNeeded": 0,
             "requiredChapters" : 2,
             "shuffleStarBeam":false,
             "starBeamSpiritsNeeded":0,

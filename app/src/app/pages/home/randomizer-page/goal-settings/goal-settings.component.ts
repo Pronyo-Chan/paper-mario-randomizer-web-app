@@ -1,9 +1,10 @@
 import { FormGroup } from '@angular/forms';
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, SimpleChanges } from '@angular/core';
 import { tap, Subscription } from 'rxjs';
 import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 import { PlandoAssignmentService } from "src/app/services/plando-assignment.service";
 import { RequiredChapters } from 'src/app/entities/enum/requiredChapters';
+import { SpiritShuffleMode } from 'src/app/entities/enum/spiritShuffleMode';
 
 @Component({
   selector: 'app-goal-settings',
@@ -13,7 +14,8 @@ import { RequiredChapters } from 'src/app/entities/enum/requiredChapters';
 export class GoalSettingsComponent implements OnInit, OnDestroy {
 
   @Input() public goalsFormGroup: FormGroup;
-  public isSevenOrZeroStarSpirits: boolean;
+  @Input() public isSpiritShuffleEnabled: boolean;
+  public isSevenOrZeroRequiredChapters: boolean;
 
   private _starWaySpiritsNeededSubscription: Subscription;
   private _requiredStarWayPowerStarsSubscription: Subscription;
@@ -24,21 +26,21 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
   public constructor(private _plandoAssignmentService: PlandoAssignmentService) { }
 
   public ngOnInit(): void {
-    this.updateIsSevenOrZeroStarSpirits();
+    this.updateIsSevenOrZeroRequiredChapters();
 
-    this.disableRequiredChaptersWhenSevenSpirits();
-    this.disableStarBeamSpiritsRequiredWhenLCL(this.goalsFormGroup.get('requiredChapters').value === RequiredChapters['Specific And Limit Chapter Logic']);
+    this.disableRequiredChaptersWhenSevenChapters();
+    this.disableStarBeamChaptersRequiredWhenLCL(this.goalsFormGroup.get('requiredChapters').value === RequiredChapters['Specific And Limit Chapter Logic']);
 
-    this._starWaySpiritsNeededSubscription = this.goalsFormGroup.get('starWaySpiritsNeeded').valueChanges.pipe(
+    this._starWaySpiritsNeededSubscription = this.goalsFormGroup.get('starWayChaptersNeeded').valueChanges.pipe(
       tap(value => {
-        this.updateIsSevenOrZeroStarSpirits();
-        this.disableRequiredChaptersWhenSevenSpirits();
+        this.updateIsSevenOrZeroRequiredChapters();
+        this.disableRequiredChaptersWhenSevenChapters();
       })
     ).subscribe();
 
     this._lclSubscription =  this.goalsFormGroup.get('requiredChapters').valueChanges.pipe(
       tap(value => {
-        this.disableStarBeamSpiritsRequiredWhenLCL(value === RequiredChapters['Specific And Limit Chapter Logic']);
+        this.disableStarBeamChaptersRequiredWhenLCL(value === RequiredChapters['Specific And Limit Chapter Logic']);
       })
     ).subscribe();
 
@@ -52,6 +54,15 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
       tap(() => this.onRequiredStarBeamStarsBlur())
     ).subscribe();
   }
+
+  public ngOnChanges(changes: SimpleChanges): void {
+      if(changes["isSpiritShuffleEnabled"].currentValue == SpiritShuffleMode.Vanilla) {
+        this.goalsFormGroup.get('starWaySpiritsNeeded').setValue(0);
+        this.goalsFormGroup.get('starWaySpiritsNeeded').disable();
+      } else {
+        this.goalsFormGroup.get("starWaySpiritsNeeded").enable()
+      }
+    }
 
   public ngOnDestroy(): void {
     if(this._starWaySpiritsNeededSubscription) {
@@ -125,6 +136,10 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     return seedGoalControl.value == SeedGoal.DefeatBowser
   }
 
+  public getStarWayChaptersNumber(): string {
+    return this.goalsFormGroup.get('starWayChaptersNeeded').value >= 0 ? this.goalsFormGroup.get('starWayChaptersNeeded').value : 'Random'
+  }
+
   public getStarWaySpiritsNumber(): string {
     return this.goalsFormGroup.get('starWaySpiritsNeeded').value >= 0 ? this.goalsFormGroup.get('starWaySpiritsNeeded').value : 'Random'
   }
@@ -133,8 +148,8 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     return this.goalsFormGroup.get('starBeamSpiritsNeeded').value >= 0 ? this.goalsFormGroup.get('starBeamSpiritsNeeded').value : 'Random'
   }
 
-  private disableRequiredChaptersWhenSevenSpirits() {
-    if(this.isSevenOrZeroStarSpirits) {
+  private disableRequiredChaptersWhenSevenChapters() {
+    if(this.isSevenOrZeroRequiredChapters) {
       this.goalsFormGroup.get('requiredChapters').setValue(RequiredChapters.Any);
       this.goalsFormGroup.get('requiredChapters').disable();
     } else {
@@ -142,7 +157,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     }
   }
 
-  private disableStarBeamSpiritsRequiredWhenLCL(limitChapterLogic: boolean) {
+  private disableStarBeamChaptersRequiredWhenLCL(limitChapterLogic: boolean) {
     if(limitChapterLogic) {
       this.goalsFormGroup.get('starBeamSpiritsNeeded').setValue(0);
       this.goalsFormGroup.get('starBeamSpiritsNeeded').disable();
@@ -151,7 +166,7 @@ export class GoalSettingsComponent implements OnInit, OnDestroy {
     }
   }
 
-  private updateIsSevenOrZeroStarSpirits() {
-    this.isSevenOrZeroStarSpirits = (this.goalsFormGroup.get('starWaySpiritsNeeded').value == 7 || this.goalsFormGroup.get('starWaySpiritsNeeded').value == 0);
+  private updateIsSevenOrZeroRequiredChapters() {
+    this.isSevenOrZeroRequiredChapters = (this.goalsFormGroup.get('starWayChaptersNeeded').value == 7 || this.goalsFormGroup.get('starWayChaptersNeeded').value == 0);
   }
 }

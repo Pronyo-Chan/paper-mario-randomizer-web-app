@@ -25,12 +25,12 @@
       <mat-divider />
 
       <div class="setting-element slider-element">
-          <app-tooltip-span [spanText]="'Star Way - Star Spirits Required: ' + getStarWaySpiritsNumber()"
-                            tooltipText="Number of star spirits saved required to open the way to Ch.8. Can be set to random by bringing the slider behind 0."></app-tooltip-span>
-          <mat-slider formControlName="starWaySpiritsNeeded" (input)="goalsFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=-1 max=7 step="1" tickInterval="1"></mat-slider>
+          <app-tooltip-span [spanText]="'Star Way - Star Chapters Required: ' + getStarWayChaptersNumber()"
+                            tooltipText="Number of chapters cleared required to open the way to Ch.8. Can be set to random by bringing the slider behind 0."></app-tooltip-span>
+          <mat-slider formControlName="starWayChaptersNeeded" (input)="goalsFormGroup.get('starWayChaptersNeeded').setValue($event.value)" min=-1 max=7 step="1" tickInterval="1"></mat-slider>
       </div>
 
-      <div class="setting-element dropdown-element" [ngClass]="{ 'disabled-element': isSevenOrZeroStarSpirits}">
+      <div class="setting-element dropdown-element" [ngClass]="{ 'disabled-element': isSevenOrZeroRequiredChapters}">
         <app-tooltip-span
              spanText="Required Chapters"
              tooltipText="Determines if specific chapters need to be completed to open the star way.
@@ -47,6 +47,12 @@
             <option [ngValue]="2">Specific + Limit Chapter Logic</option>
         </select>
       </div>
+
+      <div class="setting-element slider-element">
+        <app-tooltip-span [spanText]="'Star Way - Star Spirits Required: ' + getStarWaySpiritsNumber()"
+                          tooltipText="Number of obtained star spirits required to open the way to Ch.8. Can be set to random by bringing the slider behind 0. To use this setting, Star Spirit Shuffle must be enabled."></app-tooltip-span>
+        <mat-slider formControlName="starWaySpiritsNeeded" (input)="goalsFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=-1 max=7 step="1" tickInterval="1"></mat-slider>
+    </div>
 
       <ng-container *ngIf="shouldShowStarBeamSettings()">
         <mat-divider />

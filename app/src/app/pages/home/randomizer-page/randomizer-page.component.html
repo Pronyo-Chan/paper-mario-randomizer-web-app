@@ -34,7 +34,7 @@
                 <app-difficulty-settings [difficultyFormGroup]="formGroup.get('difficulty')"></app-difficulty-settings>
                 </mat-tab>
                 <mat-tab label="Goals">
-                  <app-goal-settings [goalsFormGroup]="formGroup.get('goals')"></app-goal-settings>
+                  <app-goal-settings [goalsFormGroup]="formGroup.get('goals')" [isSpiritShuffleEnabled]="formGroup.get('items').get('spiritShuffleMode').value > 0"></app-goal-settings>
                 </mat-tab>
                 <mat-tab label="Stats & Gear">
                     <app-mario-settings [marioStatsFormGroup]="formGroup.get('marioStats')"></app-mario-settings>

@@ -137,6 +137,7 @@ export interface SettingsRequest {
     ItemQuality: number;
     RandomConsumableMode: number;
     StarWaySpiritsNeededCnt: number;
+    StarWayChaptersNeededCnt: number;
     RequiredChapters: RequiredChapters;
     ShuffleStarBeam: boolean;
     StarBeamSpiritsNeeded: number;
