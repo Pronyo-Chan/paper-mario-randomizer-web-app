@@ -80,14 +80,6 @@
     "id": "ƕ"
   },
   {
-    "name": "Odd Key Early",
-    "settingName": "OddKeyEarly",
-    "link": "https://www.youtube.com/watch?v=nPFBwsC0w_g",
-    "description": "To obtain the item inside the blue house early, stand next to where the Odd Key is outside the blue house, face right, spin, hold left, and hammer.",
-    "location": "Toad Town",
-    "id": "#"
-  },
-  {
     "name": "Blue House Skip (Jump Only)",
     "settingName": "BlueHouseSkip",
     "link": "https://papermarioarchives.com/Blue_House_Skip",
@@ -1317,6 +1309,14 @@
     "description": "Tornado Jumps with the Ultra Boots can break stone blocks. This can be used to get the prologue repel gel early and access the first 3 warp pipes in the sewers without the Super Hammer.",
     "location": "Global",
     "id": "w"
+  },
+  {
+    "name": "Hammer Clip Item Grab",
+    "settingName": "HammerClipItemGrab",
+    "link": "https://www.youtube.com/watch?v=nPFBwsC0w_g",
+    "description": "By facing away from a wall, spinning, and hammering towards the wall, Mario is able to grab specific items: Odd Key, KBF Key 2 and Smash Charge.",
+    "location": "Global",
+    "id": "#"
   },
   {
     "name": "Reach High Blocks With Super Boots",

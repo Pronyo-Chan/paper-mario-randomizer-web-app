@@ -196,7 +196,6 @@ export interface SettingsRequest {
     PrologueSushieGlitchUltraBootsLaki: boolean
 
     // Glitches: Toad Town
-    OddKeyEarly: boolean
     BlueHouseSkip: boolean
     BlueHouseSkipLaki: boolean
     BlueHouseSkipToadLure: boolean
@@ -384,6 +383,7 @@ export interface SettingsRequest {
 
     // Glitches: Global
     BreakStoneBlocksWithUltraBoots: boolean
+    HammerClipItemGrab: boolean
     KnowsPuzzleSolutions: boolean
     BreakYellowBlocksWithSuperBoots: boolean
     KnowsHiddenBlocks: boolean
