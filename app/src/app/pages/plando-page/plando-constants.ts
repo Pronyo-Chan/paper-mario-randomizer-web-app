@@ -324,6 +324,7 @@ export const REGIONS_LIST: Array<Region> = [
             { name: "Jail - Bombette Partner", type: CheckType.NORMAL, vanillaItem: "Bombette" },
             { name: "Dungeon Fire Room - On The Ground", type: CheckType.NORMAL, vanillaItem: "KoopaFortressKey" },
             { name: "Battlement - Block Behind Rock", type: CheckType.NORMAL, vanillaItem: "MapleSyrup" },
+            { name: "Boss Battle Room - Boss Reward", type: CheckType.NORMAL, vanillaItem: "Eldstar" },
         ]
     },
     {
@@ -455,6 +456,7 @@ export const REGIONS_LIST: Array<Region> = [
             { name: "Diamond Stone Room - On Pedestal", type: CheckType.NORMAL, vanillaItem: "DiamondStone" },
             { name: "Sand Drainage Room 3 - On Ledge", type: CheckType.NORMAL, vanillaItem: "RuinsKey" },
             { name: "Lunar Stone Room - On Pedestal", type: CheckType.NORMAL, vanillaItem: "LunarStone" },
+            { name: "Tutankoopa Room - Boss Reward", type: CheckType.NORMAL, vanillaItem: "Mamar" },
         ]
     },
     {
@@ -507,6 +509,7 @@ export const REGIONS_LIST: Array<Region> = [
             { name: "Wasteland Ascent 2 - In MultiCoinBlock", type: CheckType.MULTICOIN_BLOCK, vanillaItem: "CoinBag" },
             { name: "Wasteland Ascent 2 - Yellow Block Left", type: CheckType.NORMAL, vanillaItem: "SuperShroom" },
             { name: "Wasteland Ascent 2 - Yellow Block Right", type: CheckType.COIN_BLOCK, vanillaItem: "Coin" },
+            { name: "Windmill Exterior - Boss Reward", type: CheckType.NORMAL, vanillaItem: "Skolar" },
         ]
     },
     {
@@ -607,6 +610,7 @@ export const REGIONS_LIST: Array<Region> = [
             { name: "RED Boss Barricade - Hidden Block Left", type: CheckType.COIN_BLOCK, vanillaItem: "Coin" },
             { name: "RED Boss Barricade - On Brick Block", type: CheckType.NORMAL, vanillaItem: "ShootingStar" },
             { name: "RED Boss Barricade - Yellow Block Right", type: CheckType.NORMAL, vanillaItem: "SleepySheep" },
+            { name: "RED General Guy Room - Boss Reward", type: CheckType.NORMAL, vanillaItem: "Muskular" },
         ]
     },
     {
@@ -697,6 +701,7 @@ export const REGIONS_LIST: Array<Region> = [
             { name: "Boss Antechamber - Hidden Panel", type: CheckType.HIDDEN_PANEL, vanillaItem: "StarPiece" },
             { name: "Boss Room - Yellow Block Left", type: CheckType.NORMAL, vanillaItem: "SuperShroom" },
             { name: "Boss Room - Yellow Block Right", type: CheckType.NORMAL, vanillaItem: "MapleSyrup" },
+            { name: "Boss Room - Boss Reward", type: CheckType.NORMAL, vanillaItem: "Misstar" },
         ]
     },
     {
@@ -741,6 +746,7 @@ export const REGIONS_LIST: Array<Region> = [
             { name: "(NW) Lakilester - In The Flowers", type: CheckType.NORMAL, vanillaItem: "ShootingStar" },
             { name: "(NW) Lakilester - Lakilester Partner", type: CheckType.NORMAL, vanillaItem: "Lakilester" },
             { name: "Cloudy Climb - On Cloud", type: CheckType.NORMAL, vanillaItem: "SJumpCharge" },
+            { name: "Huff N Puff Room - Boss Reward", type: CheckType.NORMAL, vanillaItem: "Klevar" },
         ]
     },
     {
@@ -797,6 +803,7 @@ export const REGIONS_LIST: Array<Region> = [
             { name: "Small Statue Room - Hidden Panel", type: CheckType.HIDDEN_PANEL, vanillaItem: "StarPiece" },
             { name: "Small Statue Room - Hidden Block", type: CheckType.NORMAL, vanillaItem: "JamminJelly" },
             { name: "P-Up, D-Down Room - In Chest", type: CheckType.NORMAL, vanillaItem: "PUpDDown" },
+            { name: "Crystal Summit - Boss Reward", type: CheckType.NORMAL, vanillaItem: "Kalmar" },
         ]
     },
     {
@@ -919,6 +926,7 @@ export const PLANDO_ITEMS_LIST: Array<PlandoItem> = [
     { code: "Egg", canMassFill: true },
     { code: "EggMissile", canMassFill: true },
     { code: "ElectroPop", canMassFill: true },
+    { code: "Eldstar", canMassFill: false },
     { code: "FPPlus", canMassFill: false },
     { code: "FeelingFine", canMassFill: false },
     { code: "FertileSoil", canMassFill: false },
@@ -969,6 +977,8 @@ export const PLANDO_ITEMS_LIST: Array<PlandoItem> = [
     { code: "JellySuper", canMassFill: true },
     { code: "JellyUltra", canMassFill: true },
     { code: "JumpCharge", canMassFill: false },
+    { code: "Kalmar", canMassFill: false },
+    { code: "Klevar", canMassFill: false },
     { code: "KookyCookie", canMassFill: true },
     { code: "KoopaFortressKey", canMassFill: false },
     { code: "KoopaLeaf", canMassFill: true },
@@ -1028,6 +1038,7 @@ export const PLANDO_ITEMS_LIST: Array<PlandoItem> = [
     { code: "MagicalSeed3", canMassFill: false },
     { code: "MagicalSeed4", canMassFill: false },
     { code: "Mailbag", canMassFill: false },
+    { code: "Mamar", canMassFill: false },
     { code: "MapleShroom", canMassFill: true },
     { code: "MapleSuper", canMassFill: true },
     { code: "MapleSyrup", canMassFill: true },
@@ -1042,10 +1053,12 @@ export const PLANDO_ITEMS_LIST: Array<PlandoItem> = [
     { code: "MiniJumpCharge", canMassFill: false },
     { code: "MiniSmashCharge", canMassFill: false },
     { code: "MiracleWater", canMassFill: false },
+    { code: "Misstar", canMassFill: false },
     { code: "Mistake", canMassFill: true },
     { code: "MoneyMoney", canMassFill: false },
     { code: "Multibounce", canMassFill: false },
     { code: "Mushroom", canMassFill: true },
+    { code: "Muskular", canMassFill: false },
     { code: "Mystery", canMassFill: true },
     { code: "MysteryNote", canMassFill: false },
     { code: "NuttyCake", canMassFill: true },
@@ -1096,6 +1109,7 @@ export const PLANDO_ITEMS_LIST: Array<PlandoItem> = [
     { code: "ShroomCake", canMassFill: true },
     { code: "ShroomSteak", canMassFill: true },
     { code: "SilverCredit", canMassFill: false },
+    { code: "Skolar", canMassFill: false },
     { code: "SleepStomp", canMassFill: false },
     { code: "SleepySheep", canMassFill: true },
     { code: "SlowGo", canMassFill: false },
