@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, Validators } from "@angular/forms";
 import { BehaviorSubject } from "rxjs";
-import { CheckType, DOJO_CHECK_VALUES, DUNEGON_KEYS, GEAR_LOCATIONS, KEY_TO_DUNGEON, KOOT_FAVOR_CHECKS, KOOT_FAVOR_ITEMS, LETTER_CHAIN_CHECKS, PARTNERS, PROGRESSIVE_BADGES, REGIONS_LIST, ROWF_MERLOW_BADGES, SUPER_BLOCK_LOCATIONS } from "../pages/plando-page/plando-constants";
+import { CheckType, DOJO_CHECK_VALUES, DUNEGON_KEYS, GEAR_LOCATIONS, KEY_TO_DUNGEON, KOOT_FAVOR_CHECKS, KOOT_FAVOR_ITEMS, LETTER_CHAIN_CHECKS, PARTNERS, PROGRESSIVE_BADGES, REGIONS_LIST, ROWF_MERLOW_BADGES, SPIRIT_TO_HOME_CHAPTER_REGIONS, STAR_SPIRITS, SUPER_BLOCK_LOCATIONS, VANILLA_ITEMS } from "../pages/plando-page/plando-constants";
 import { CustomValidators } from "../utilities/custom.validators";
 
 @Injectable({
@@ -21,6 +21,7 @@ export class PlandoAssignmentService {
       let powerStars: number = 0;
       let traps: number = 0;
       let gearShuffle: number = 0;
+      let spiritShuffle: number = 0;
       let partnerShuffle: number = 0;
       let partnerUpgradeShuffle: number = 0;
       let letterShuffle: number = 0;
@@ -38,7 +39,7 @@ export class PlandoAssignmentService {
               if (plandoChecks[check.name]) {
                 const plandoItem = check.type === CheckType.SHOP ? plandoChecks[check.name].item : plandoChecks[check.name];
 
-                if (!plandoItem) {
+                if (!plandoItem || VANILLA_ITEMS[region.name][check.name] === plandoItem) {
                   continue;
                 }
                 plandoCheckTypes.add(check.type);
@@ -69,6 +70,14 @@ export class PlandoAssignmentService {
                     partnerShuffle = 2;
                   } else {
                     partnerShuffle = Math.max(partnerShuffle, 1);
+                  }
+                }
+
+                if (STAR_SPIRITS.has(plandoItem)) {
+                  if (!SPIRIT_TO_HOME_CHAPTER_REGIONS[plandoItem].includes(region.name)) {
+                    spiritShuffle = 2;
+                  } else {
+                    spiritShuffle = Math.max(spiritShuffle, 1);
                   }
                 }
 
@@ -194,6 +203,10 @@ export class PlandoAssignmentService {
         if (gearShuffle) {
           randoSettingsFormGroup.get('items').get('gearShuffleMode').setValue(gearShuffle);
           plandoAssignedControls.add('gearShuffleMode');
+        }
+        if (spiritShuffle) {
+          randoSettingsFormGroup.get('items').get('spiritShuffleMode').setValue(spiritShuffle);
+          plandoAssignedControls.add('spiritShuffleMode');
         }
         if (partnerShuffle) {
           randoSettingsFormGroup.get('partners').get('shufflePartners').setValue(partnerShuffle);

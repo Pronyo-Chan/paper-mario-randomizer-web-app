@@ -849,7 +849,7 @@ export const REGIONS_LIST: Array<Region> = [
         ]
     }];
 
-// A nested object of vanilla items, keyed first by region, then by check name. VANILLA_ITEMS['Goomba Region']['']
+// A nested object of vanilla items, keyed first by region, then by check name. VANILLA_ITEMS['Goomba Region'][Jr. Troopa's Playground - In Tree Right'] = 'Dolly'
 export const VANILLA_ITEMS = Object.fromEntries(REGIONS_LIST.map((region) => [region.name, Object.fromEntries(region.checks.map((check) => [check.name, check.vanillaItem]))]));
 
 type PlandoItem = {
@@ -1184,6 +1184,16 @@ export const KEY_TO_DUNGEON = {
 }
 
 export const DUNEGON_KEYS = new Set(Object.keys(KEY_TO_DUNGEON));
+
+export const SPIRIT_TO_HOME_CHAPTER_REGIONS = {
+    "Eldstar": ["Koopa Region","Koopa Bros Fortress"],
+    "Mamar": ["Mt Rugged","Dry Dry Outpost","Dry Dry Desert","Dry Dry Ruins"],
+    "Skolar": ["Forever Forest","Boos Mansion","Gusty Gulch","Tubbas Castle"],
+    "Muskular": ["Shy Guys Toybox"],
+    "Misstar": ["Jade Jungle","Mt Lavalava"],
+    "Klevar": ["Flower Fields"],
+    "Kalmar": ["Shiver Region","Crystal Palace"]
+};
 
 export const PARTNERS = new Set([
     "Goombario",

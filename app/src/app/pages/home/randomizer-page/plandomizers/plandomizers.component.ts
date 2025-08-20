@@ -21,6 +21,7 @@ export class PlandomizersComponent implements OnInit, OnDestroy {
     ["keyitemsOutsideDungeon", "Keysanity"],
     ["includeRadioTradeEvent", "Include Trading Event Rewards"],
     ["gearShuffleMode", "Gear Shuffle"],
+    ["spiritShuffleMode", "Star Spirit Shuffle"],
     ["includeLetters", "Letter Delivery Rewards"],
     ["includeFavors", "Koopa Koot Favors"],
     ["ripCheatoItemsInLogic", "Rip Cheato Items in Logic"],
