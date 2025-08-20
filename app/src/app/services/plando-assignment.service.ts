@@ -39,10 +39,12 @@ export class PlandoAssignmentService {
               if (plandoChecks[check.name]) {
                 const plandoItem = check.type === CheckType.SHOP ? plandoChecks[check.name].item : plandoChecks[check.name];
 
-                if (!plandoItem || VANILLA_ITEMS[region.name][check.name] === plandoItem) {
+                if (!plandoItem) {
                   continue;
                 }
-                plandoCheckTypes.add(check.type);
+                if (VANILLA_ITEMS[region.name][check.name] !== plandoItem) {
+                  plandoCheckTypes.add(check.type);
+                }
 
                 if (DUNEGON_KEYS.has(plandoItem)
                   && (KEY_TO_DUNGEON[plandoItem] !== region.name)) {
@@ -50,7 +52,8 @@ export class PlandoAssignmentService {
                   plandoAssignedControls.add('keyitemsOutsideDungeon');
                 }
 
-                if (plandoItem === 'ProgressiveHammer' || plandoItem === 'ProgressiveBoots') {
+                if (VANILLA_ITEMS[region.name][check.name] !== plandoItem
+                  && (plandoItem === 'ProgressiveHammer' || plandoItem === 'ProgressiveBoots')) {
                   if (!GEAR_LOCATIONS.has(check.name)) {
                     gearShuffle = 2;
                   } else {
@@ -68,12 +71,12 @@ export class PlandoAssignmentService {
                   partnersPlandoed++;
                   if (!check.name.endsWith(' Partner')) {
                     partnerShuffle = 2;
-                  } else {
+                  } else if (VANILLA_ITEMS[region.name][check.name] !== plandoItem) {
                     partnerShuffle = Math.max(partnerShuffle, 1);
                   }
                 }
 
-                if (STAR_SPIRITS.has(plandoItem)) {
+                if (STAR_SPIRITS.has(plandoItem) && VANILLA_ITEMS[region.name][check.name] !== plandoItem) {
                   if (!SPIRIT_TO_HOME_CHAPTER_REGIONS[plandoItem].includes(region.name)) {
                     spiritShuffle = 2;
                   } else {
@@ -90,7 +93,7 @@ export class PlandoAssignmentService {
                   plandoCheckTypes.add(CheckType.SHOP);
                 }
 
-                if (check.type === CheckType.LETTER_REWARD) {
+                if (check.type === CheckType.LETTER_REWARD && VANILLA_ITEMS[region.name][check.name] !== plandoItem) {
                   if (LETTER_CHAIN_CHECKS.has(check.name)) {
                     letterShuffle = 3;
                   } else if (check.name === 'Goomba Village - Goompapa Letter Reward 2') {
@@ -117,7 +120,7 @@ export class PlandoAssignmentService {
                   plandoAssignedControls.add('itemPouches');
                 }
 
-                if (plandoItem.includes('Upgrade')) {
+                if (plandoItem.includes('Upgrade') && VANILLA_ITEMS[region.name][check.name] !== plandoItem) {
                   if (!SUPER_BLOCK_LOCATIONS.has(check.name)) {
                     partnerUpgradeShuffle = 2;
                   } else {
