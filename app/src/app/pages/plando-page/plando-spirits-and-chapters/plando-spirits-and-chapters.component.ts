@@ -2,6 +2,7 @@ import { AfterContentInit, Component, Input, OnDestroy, OnInit } from '@angular/
 import { FormGroup } from '@angular/forms';
 import { Subscription } from "rxjs";
 import { pascalToVerboseString } from "src/app/utilities/stringFunctions";
+import { STAR_SPIRITS } from "../plando-constants";
 
 export const STAR_SPIRIT_POWER_NAMES: Array<string> = ['Refresh', 'Lullaby', 'StarStorm', 'ChillOut', 'Smooch', 'TimeOut', 'UpAndAway'];
 
@@ -14,7 +15,7 @@ export class PlandoSpiritsAndChaptersComponent implements OnInit, OnDestroy, Aft
   @Input() plandoFormGroup: FormGroup;
 
   public readonly SPIRIT_POWERS: Array<string> = STAR_SPIRIT_POWER_NAMES;
-  public readonly SPIRITS: Array<string> = ['Eldstar', 'Mamar', 'Skolar', 'Muskular', 'Misstar', 'Klevar', 'Kalmar', ''];
+  public readonly SPIRITS: Array<string> = [...STAR_SPIRITS, ''];
   public readonly CHAPTER_OVERWORLDS: Array<string> = ['PleasantPath', 'DryDryDesert', 'GustyGulch', 'EnterToyBox', 'LavalavaIsland', 'EnterFlowerGate', 'ShiverMountain', 'RideStarShip'];
   public readonly DUNGEONS: Array<string> = ['KoopaBrosFortress', 'DryDryRuins', 'TubbasCastle', 'ShyGuysToybox', 'MtLavalava', 'FlowerFields', 'CrystalPalace', 'BowsersCastle'];
   public readonly BOSSES: Array<string> = ['KoopaBros', 'Tutankoopa', 'TubbasHeart', 'GeneralGuy', 'LavaPiranha', 'HuffNPuff', 'CrystalKing'];

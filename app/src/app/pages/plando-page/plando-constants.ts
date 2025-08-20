@@ -1196,6 +1196,16 @@ export const PARTNERS = new Set([
     "Lakilester"
 ]);
 
+export const STAR_SPIRITS = new Set([
+    "Eldstar",
+    "Mamar",
+    "Skolar",
+    "Muskular",
+    "Misstar",
+    "Klevar",
+    "Kalmar"
+]);
+
 export const SUPER_BLOCK_LOCATIONS = new Set(REGIONS_LIST.flatMap((loc) => loc.checks.filter((check) => check.name.includes('In SuperBlock')).map((check) => check.name)));
 
 export const PROGRESSIVE_BADGES = new Set([
