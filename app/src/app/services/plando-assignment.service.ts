@@ -103,8 +103,8 @@ export class PlandoAssignmentService {
                   }
                 }
 
-                if (plandoItem === 'StarBeam'
-                  && check.name !== 'Star Sanctuary - Gift of the Stars') {
+                if ((plandoItem === 'StarBeam' && check.name !== 'Star Sanctuary - Gift of the Stars')
+                  || (plandoItem !== 'StarBeam' && check.name === 'Star Sanctuary - Gift of the Stars')) {
                   randoSettingsFormGroup.get('goals').get('shuffleStarBeam').setValue(true);
                   plandoAssignedControls.add('shuffleStarBeam');
                 }

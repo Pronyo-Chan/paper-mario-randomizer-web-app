@@ -5,6 +5,7 @@ import { BADGE_LIST } from "./plando-badges/plando-badges.component";
 import { CheckType, LEGAL_TRAP_ITEMS, REGIONS_LIST, PLANDO_ITEMS_LIST } from "./plando-constants";
 import { STAR_SPIRIT_POWER_NAMES } from "./plando-spirits-and-chapters/plando-spirits-and-chapters.component";
 import { CustomValidators } from "src/app/utilities/custom.validators";
+import { convertRequiredSpiritsToChapters } from "./plando-save-load/plando-save-load.component";
 
 export const MAX_FP_COST: number = 75;
 export const MAX_BP_COST: number = 10;
@@ -53,7 +54,7 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
         'ShiverMountain': new FormControl<string>(null),
         'RideStarShip': new FormControl<string>(null),
       }),
-      required_spirits: new FormControl<Array<string>>(null),
+      required_chapters: new FormControl<Array<number>>(null),
       move_costs: new FormGroup({
         badge: new FormGroup({}),
         partner: new FormGroup({
@@ -132,9 +133,18 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
       (this.formGroup.get('items') as FormGroup).addControl(region.name, regionFormGroup);
     }
     localStorage.setItem(DEFAULT_PLANDOMIZER_KEY, JSON.stringify(this.formGroup.getRawValue()));
-    const savedFormObj = localStorage.getItem('autosavePlandoSettings');
-    if (savedFormObj) {
-      this.formGroup.setValue(JSON.parse(savedFormObj));
+    const savedFormStr = localStorage.getItem('autosavePlandoSettings');
+    if (savedFormStr) {
+      const savedFormObj = JSON.parse(savedFormStr);
+      if (!savedFormObj.required_chapters) {
+        if (savedFormObj.required_spirits) {
+          savedFormObj.required_chapters = convertRequiredSpiritsToChapters(savedFormObj.required_spirits);
+        } else {
+          savedFormObj.required_chapters = [];
+        }
+        delete savedFormObj.required_spirits;
+      }
+      this.formGroup.setValue(savedFormObj);
     }
     window.addEventListener('beforeunload', () => this.ngOnDestroy());
   }
@@ -159,5 +169,7 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
       this.formGroup.get('move_costs').get('starpower').updateValueAndValidity();
     }
   }
+
+  
 
 }
