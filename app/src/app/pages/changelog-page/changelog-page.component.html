@@ -94,11 +94,17 @@
         <li>Now allows placing items into Boss Reward locations</li>
     </ul>
 
+    <h3>Glitches & Tricks (change)</h3>
+      <ul>
+        <li>`Odd Key Early` has been renamed to `Hammer Clip Item Grab` and now logically includes getting the Koopa Bros. Fortress locations of `Left Tower - Top Of Tower` and `Dungeon Fire Room - On The Ground` with only the hammer.</li>
+        <li>Toad Town Sushie Glitch:  During `Cutscene Mode: Minimal` the bub-ulb in Forever Forest will now give their regular, un-shortened dialogue if this map of the forest was entered while riding Sushie. This should alleviate a mismatch in usefulness of this glitch between `Cutscene Mode: Minimal` and the other `Cutscene Mode` settings.</li>
+      </ul>
+
     <h2>Logic Changes</h2>
     <ul>
         <li>Fixed logic not expecting boots for traversing the `RED Moving Platforms` room in Shy Guy's Toybox. Realistically this edge case has not come up yet, but could with further glitched logic additions.</li>
-        <li>Toad Town Sushie Glitch: Fixed it not setting the prologue as reachable and not setting Forever Forest as traversable if the seed started with the forest closed off.</li>
         <li>All seed progression that formerly checked how many spirits Mario had saved now instead checks how many chapters Mario has cleared. This includes, but is not limited to, Rowf's badge shop progress, the unlocking of Koopa Koot favors, and the logic for accessing the different dojo battles. This also affects Progressive Scaling.</li>
+        <li>Fixed logic for the item location `Jade Jungle: Deep Jungle 1 - In Tree (Hit)` not expecting a way for getting onto the ledge the tree sits on.</li>
     </ul>
   </mat-card>
 
