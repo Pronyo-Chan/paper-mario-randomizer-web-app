@@ -170,6 +170,4 @@ export class PlandoPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  
-
 }
