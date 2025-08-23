@@ -8,6 +8,35 @@ import { catchError, of, tap } from 'rxjs';
 
 export const SAVED_PLANDO_NAMES_KEY = 'savedPlandoNames';
 export const SAVED_PLANDO_NAME_PREFIX = 'plando_';
+export const convertRequiredSpiritsToChapters = function (required_spirits: Array<string>): Array<number> {
+  const chapters = [];
+  for (const spirit of required_spirits) {
+    switch (spirit) {
+      case 'Eldstar':
+        chapters.push(1);
+        break;
+      case 'Mamar':
+        chapters.push(2);
+        break;
+      case 'Skolar':
+        chapters.push(3);
+        break;
+      case 'Muskular':
+        chapters.push(4);
+        break;
+      case 'Misstar':
+        chapters.push(5);
+        break;
+      case 'Klevar':
+        chapters.push(6);
+        break;
+      case 'Kalmar':
+        chapters.push(7);
+        break;
+    }
+  }
+  return chapters;
+};
 
 interface PlandoValidationResponse {
   errors: Array<string>,
@@ -93,6 +122,14 @@ export class PlandoSaveLoadComponent implements OnInit {
     } else {
       const loadedObj = JSON.parse(plandoSettings);
       const plandoFormObj = JSON.parse(localStorage.getItem(DEFAULT_PLANDOMIZER_KEY));
+      if (!loadedObj.required_chapters) {
+        if (loadedObj.required_spirits) {
+          loadedObj.required_chapters = convertRequiredSpiritsToChapters(loadedObj.required_spirits);
+        } else {
+          loadedObj.required_chapters = [];
+        }
+        delete loadedObj.required_spirits;
+      }
       this.mergeObjectDeep(plandoFormObj, loadedObj);
       // Because 0 is a valid value for star spirit power costs, and -1 is the "defer to generator" setting,
       // manually set any missing star powers to -1, so that the sliders will display correctly.
@@ -235,6 +272,14 @@ export class PlandoSaveLoadComponent implements OnInit {
         // Merge the object into the default formgroup object we save on page load.
         // As a small bonus, this works as a sort of ad-hoc validator.
         const importedObj = JSON.parse(fileContents);
+        if (!importedObj.required_chapters) {
+          if (importedObj.required_spirits) {
+            importedObj.required_chapters = convertRequiredSpiritsToChapters(importedObj.required_spirits);
+          } else {
+            importedObj.required_chapters = [];
+          }
+          delete importedObj.required_spirits;
+        }
         const defaultObj = JSON.parse(localStorage.getItem(DEFAULT_PLANDOMIZER_KEY));
         this.mergeObjectDeep(defaultObj, importedObj);
         this.plandoFormGroup.setValue(defaultObj);
@@ -258,4 +303,5 @@ export class PlandoSaveLoadComponent implements OnInit {
       reader.readAsText(file);
     });
   }
+
 }

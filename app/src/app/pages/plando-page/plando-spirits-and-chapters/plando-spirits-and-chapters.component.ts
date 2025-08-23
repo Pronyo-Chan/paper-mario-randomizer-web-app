@@ -2,6 +2,8 @@ import { AfterContentInit, Component, Input, OnDestroy, OnInit } from '@angular/
 import { FormGroup } from '@angular/forms';
 import { Subscription } from "rxjs";
 import { pascalToVerboseString } from "src/app/utilities/stringFunctions";
+import { STAR_SPIRITS } from "../plando-constants";
+import { MatSlideToggleChange } from "@angular/material/slide-toggle";
 
 export const STAR_SPIRIT_POWER_NAMES: Array<string> = ['Refresh', 'Lullaby', 'StarStorm', 'ChillOut', 'Smooch', 'TimeOut', 'UpAndAway'];
 
@@ -14,16 +16,16 @@ export class PlandoSpiritsAndChaptersComponent implements OnInit, OnDestroy, Aft
   @Input() plandoFormGroup: FormGroup;
 
   public readonly SPIRIT_POWERS: Array<string> = STAR_SPIRIT_POWER_NAMES;
-  public readonly SPIRITS: Array<string> = ['Eldstar', 'Mamar', 'Skolar', 'Muskular', 'Misstar', 'Klevar', 'Kalmar', ''];
+  public readonly SPIRITS: Array<string> = [...STAR_SPIRITS, ''];
   public readonly CHAPTER_OVERWORLDS: Array<string> = ['PleasantPath', 'DryDryDesert', 'GustyGulch', 'EnterToyBox', 'LavalavaIsland', 'EnterFlowerGate', 'ShiverMountain', 'RideStarShip'];
   public readonly DUNGEONS: Array<string> = ['KoopaBrosFortress', 'DryDryRuins', 'TubbasCastle', 'ShyGuysToybox', 'MtLavalava', 'FlowerFields', 'CrystalPalace', 'BowsersCastle'];
   public readonly BOSSES: Array<string> = ['KoopaBros', 'Tutankoopa', 'TubbasHeart', 'GeneralGuy', 'LavaPiranha', 'HuffNPuff', 'CrystalKing'];
-  public spiritsSubscription: Subscription;
-  public requiredChaptersArray = Array<string>();
+  public chaptersSubscription: Subscription;
+  public requiredChaptersArray = Array<number>();
   public toDisplayString = pascalToVerboseString;
 
   public ngOnInit(): void {
-    this.spiritsSubscription = this.plandoFormGroup.get('required_spirits').valueChanges.subscribe(val => {
+    this.chaptersSubscription = this.plandoFormGroup.get('required_chapters').valueChanges.subscribe(val => {
       if (val) {
         this.requiredChaptersArray = val;
       } else {
@@ -33,29 +35,27 @@ export class PlandoSpiritsAndChaptersComponent implements OnInit, OnDestroy, Aft
   }
 
   public ngAfterContentInit(): void {
-    if (this.plandoFormGroup.get('required_spirits').value) {
-      this.requiredChaptersArray = this.plandoFormGroup.get('required_spirits').value;
+    if (this.plandoFormGroup.get('required_chapters').value) {
+      this.requiredChaptersArray = this.plandoFormGroup.get('required_chapters').value;
     } else {
       this.requiredChaptersArray = [];
     }
   }
 
   public ngOnDestroy(): void {
-    this.spiritsSubscription.unsubscribe();
+    this.chaptersSubscription.unsubscribe();
   }
 
-  public updateSpiritSelection($event: InputEvent, spirit: string) {
-    if ($event.currentTarget instanceof HTMLInputElement) {
-      if ($event.currentTarget.checked) {
-        this.requiredChaptersArray.push(spirit)
-      } else {
-        const i = this.requiredChaptersArray.indexOf(spirit);
-        if (i > -1) {
-          this.requiredChaptersArray.splice(i, 1);
-        }
+  public updateChapterSelection($event: MatSlideToggleChange, chapter: number) {
+    if ($event.checked) {
+      this.requiredChaptersArray.push(chapter)
+    } else {
+      const i = this.requiredChaptersArray.indexOf(chapter);
+      if (i > -1) {
+        this.requiredChaptersArray.splice(i, 1);
       }
     }
-    this.plandoFormGroup.get('required_spirits').setValue(this.requiredChaptersArray);
+    this.plandoFormGroup.get('required_chapters').setValue(this.requiredChaptersArray);
   }
 
   public getChapterDifficulty(chapter_number: number) {
