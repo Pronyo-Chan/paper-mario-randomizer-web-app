@@ -218,10 +218,18 @@
   {
     "name": "Island Pipe Blooper Skip",
     "settingName": "IslandPipeBlooperSkip",
-    "link": "https://www.youtube.com/watch?v=8AtoIDq_n_c",
+    "link": "https://www.youtube.com/watch?v=iew-IZHxKgw",
     "description": "Reach and activate the pipe to Yoshi's Island without Sushie or east side sewer access by clipping out of bounds with Lakilester.",
     "location": "Toad Town Tunnels",
     "id": "."
+  },
+  {
+    "name": "Jumpless Island Pipe",
+    "settingName": "JumplessIslandPipe",
+    "link": "https://www.youtube.com/watch?v=iew-IZHxKgw",
+    "description": "Jumpless version of Island Pipe Blooper Skip.",
+    "location": "Toad Town Tunnels",
+    "id": "Ⓐ"
   },
   {
     "name": "Parakarry-less Sewer Star Piece",
@@ -549,6 +557,14 @@
     "description": "The gap to the bombable wall before the second sand room can be reached by performing a precise jump under the stairs to the left.",
     "location": "Dry Dry Ruins",
     "id": "E"
+  },
+  {
+    "name": "Ruins Bomb Wall Skip",
+    "settingName": "RuinsBombWallSkip",
+    "link": "https://youtu.be/fzaKLpS0wE8?si=WQCWcvbDX75YBxpL",
+    "description": "Using Clippy, you can get around needing Bombette for the first bomb wall.",
+    "location": "Dry Dry Ruins",
+    "id": "Ⓑ"
   },
   {
     "name": "Parkarry-less Super Hammer Room (Ultra Boots)",
@@ -917,6 +933,14 @@
     "description": "In the screen where you need to jump on a vine to open the bushes path, you can do a laki teleport to clip through the bushes without boots.",
     "location": "Jade Jungle",
     "id": "î"
+  },
+  {
+    "name": "Jumpless Deep Jungle (Clippy)",
+    "settingName": "JumplessDeepJungleLedge",
+    "link": "https://www.youtube.com/watch?v=PJwnU0aqQU4",
+    "description": "Using Clippy, you can access the ledge in the first deep jungle room jumpless.",
+    "location": "Jade Jungle",
+    "id": "Ⓒ"
   },
   {
     "name": "Kooper-less Mt. Lavalava Pow Block (Parakarry)",

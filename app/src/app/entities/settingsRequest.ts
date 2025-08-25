@@ -216,6 +216,7 @@ export interface SettingsRequest {
     ClippyBootsStoneBlockSkip: boolean
     ClippyBootsMetalBlockSkip: boolean
     IslandPipeBlooperSkip: boolean
+    JumplessIslandPipe: boolean
     ParakarrylessSewerStarPiece: boolean
     ClippySewersUpgradeBlock: boolean
     SewerBlocksWithoutUltraBoots: boolean
@@ -267,6 +268,7 @@ export interface SettingsRequest {
     RuinsKeyLakiJump: boolean
     ParakarrylessSecondSandRoomUltraBoots: boolean
     ParakarrylessSecondSandRoomNormalBoots: boolean
+    RuinsBombWallSkip: boolean
     ParakarrylessSuperHammerRoomUltraBoots: boolean
     ParakarrylessSuperHammerRoomNormalBoots: boolean
     RuinsLocksSkipClippy: boolean
@@ -322,6 +324,7 @@ export interface SettingsRequest {
     Ch5SushieGlitch: boolean
     SushielessJungleStarpieceAndLetter: boolean
     JumplessDeepJungleLaki: boolean
+    JumplessDeepJungleLedge: boolean
 
     // Glitches: Mt. Lavalava
     KooperlessLavalavaPowBlockParakarry: boolean
