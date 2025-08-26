@@ -17,6 +17,7 @@
                 "includeRadioTradeEvent": false,
                 "multiCoinBlockShuffle": 0,
                 "gearShuffleMode": 0,
+                "spiritShuffleMode": 0,
                 "partnerUpgradeShuffle": 0,
                 "ripCheatoItemsInLogic": 6,
                 "progressionOnRowf": 0,
@@ -85,14 +86,16 @@
                 "kentCKoopa": 0
             },
             "goals": {
-              "starWaySpiritsNeeded": 7,
+              "starWayChaptersNeeded": 7,
+              "starWaySpiritsNeeded": 0,
               "starWayPowerStarsNeeded": 0,
-              "requiredSpirits" : 0,
+              "requiredChapters" : 0,
               "seedGoal": 0,
               "starHuntTotal": 0,
               "includePowerStars": false,
               "shuffleStarBeam": false,
               "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
               "starBeamPowerStarsNeeded": 0
           },
             "itemPool": {
@@ -214,6 +217,7 @@
             "includeRadioTradeEvent": false,
             "multiCoinBlockShuffle": 0,
             "gearShuffleMode": 2,
+            "spiritShuffleMode": 0,
             "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
             "progressionOnRowf": 0,
@@ -282,14 +286,16 @@
             "kentCKoopa": 0
           },
           "goals": {
-            "starWaySpiritsNeeded": 7,
+            "starWayChaptersNeeded": 7,
+            "starWaySpiritsNeeded": 0,
             "starWayPowerStarsNeeded": 0,
-            "requiredSpirits" : 0,
+            "requiredChapters" : 0,
             "seedGoal": 0,
             "starHuntTotal": 0,
             "includePowerStars": false,
             "shuffleStarBeam": false,
             "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
             "starBeamPowerStarsNeeded": 0
         },
           "itemPool": {
@@ -411,6 +417,7 @@
             "includeRadioTradeEvent": false,
             "multiCoinBlockShuffle": 0,
             "gearShuffleMode": 1,
+            "spiritShuffleMode": 0,
             "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
             "progressionOnRowf": 5,
@@ -479,14 +486,16 @@
             "kentCKoopa": 0
           },
           "goals": {
-            "starWaySpiritsNeeded": 7,
+            "starWayChaptersNeeded": 7,
+            "starWaySpiritsNeeded": 0,
             "starWayPowerStarsNeeded": 0,
-            "requiredSpirits" : 0,
+            "requiredChapters" : 0,
             "seedGoal": 0,
             "starHuntTotal": 0,
             "includePowerStars": false,
             "shuffleStarBeam": false,
             "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
             "starBeamPowerStarsNeeded": 0
         },
           "itemPool": {
@@ -608,6 +617,7 @@
             "includeRadioTradeEvent": true,
             "multiCoinBlockShuffle": 2,
             "gearShuffleMode": 2,
+            "spiritShuffleMode": 2,
             "partnerUpgradeShuffle": 2,
             "ripCheatoItemsInLogic": 11,
             "progressionOnRowf": 5,
@@ -676,14 +686,16 @@
             "kentCKoopa": 0
           },
           "goals": {
-            "starWaySpiritsNeeded": 7,
+            "starWayChaptersNeeded": 7,
+            "starWaySpiritsNeeded": 0,
             "starWayPowerStarsNeeded": 0,
-            "requiredSpirits" : 0,
+            "requiredChapters" : 0,
             "seedGoal": 0,
             "starHuntTotal": 0,
             "includePowerStars": false,
             "shuffleStarBeam": false,
             "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
             "starBeamPowerStarsNeeded": 0
         },
           "itemPool": {
@@ -805,6 +817,7 @@
             "includeRadioTradeEvent": false,
             "multiCoinBlockShuffle": 0,
             "gearShuffleMode": 2,
+            "spiritShuffleMode": 0,
             "partnerUpgradeShuffle": 0,
             "ripCheatoItemsInLogic": 6,
             "progressionOnRowf": 5,
@@ -874,14 +887,16 @@
             "kentCKoopa": 0
          },
          "goals": {
-          "starWaySpiritsNeeded": 7,
+          "starWayChaptersNeeded": 7,
+          "starWaySpiritsNeeded": 0,
           "starWayPowerStarsNeeded": 0,
-          "requiredSpirits" : 0,
+          "requiredChapters" : 0,
           "seedGoal": 0,
           "starHuntTotal": 0,
           "includePowerStars": false,
           "shuffleStarBeam": false,
           "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
           "starBeamPowerStarsNeeded": 0
       },
          "itemPool": {
@@ -1005,6 +1020,7 @@
           "includeRadioTradeEvent": false,
           "multiCoinBlockShuffle": 0,
           "gearShuffleMode": 2,
+          "spiritShuffleMode": 0,
           "partnerUpgradeShuffle": 0,
           "ripCheatoItemsInLogic": 6,
           "progressionOnRowf": 5,
@@ -1073,14 +1089,16 @@
           "kentCKoopa": 0
         },
         "goals": {
-          "starWaySpiritsNeeded": 4,
+          "starWayChaptersNeeded": 4,
+          "starWaySpiritsNeeded": 0,
           "starWayPowerStarsNeeded": 0,
-          "requiredSpirits" : 2,
+          "requiredChapters" : 2,
           "seedGoal": 0,
           "starHuntTotal": 0,
           "includePowerStars": false,
           "shuffleStarBeam": false,
           "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
           "starBeamPowerStarsNeeded": 0
       },
         "itemPool": {
@@ -1213,6 +1231,7 @@
           "includeRadioTradeEvent": false,
           "multiCoinBlockShuffle": 0,
           "gearShuffleMode": 2,
+          "spiritShuffleMode": 0,
           "partnerUpgradeShuffle": 2,
           "ripCheatoItemsInLogic": 6,
           "progressionOnRowf": 5,
@@ -1281,14 +1300,16 @@
           "kentCKoopa": 0
         },
         "goals": {
-          "starWaySpiritsNeeded": 4,
+          "starWayChaptersNeeded": 4,
+          "starWaySpiritsNeeded": 0,
           "starWayPowerStarsNeeded": 0,
-          "requiredSpirits" : 2,
+          "requiredChapters" : 2,
           "seedGoal": 0,
           "starHuntTotal": 0,
           "includePowerStars": false,
           "shuffleStarBeam": false,
           "starBeamSpiritsNeeded": 0,
+              "starBeamChaptersNeeded": 0,
           "starBeamPowerStarsNeeded": 0
       },
         "itemPool": {
@@ -1421,6 +1442,7 @@
             "includeRadioTradeEvent":false,
             "multiCoinBlockShuffle":0,
             "gearShuffleMode":2,
+            "spiritShuffleMode": 0,
             "partnerUpgradeShuffle":2,
             "ripCheatoItemsInLogic":6,
             "progressionOnRowf":5,
@@ -1539,8 +1561,9 @@
             "mirrorMode":0
          },
          "goals":{
-            "starWaySpiritsNeeded":4,
-            "requiredSpirits" : 2,
+            "starWayChaptersNeeded":4,
+            "starWaySpiritsNeeded": 0,
+            "requiredChapters" : 2,
             "shuffleStarBeam":false,
             "starBeamSpiritsNeeded":0,
             "starWayPowerStarsNeeded":0,

@@ -1,10 +1,12 @@
-import { RequiredSpirits } from '../enum/requiredSpirits';
+import { RequiredChapters } from '../enum/requiredChapters';
 import { SeedGoal } from '../enum/seedGoal';
 
 export interface Goals {
     StarWaySpiritsNeeded: number;
-    RequiredSpirits: RequiredSpirits;
+    StarWayChaptersNeeded: number;
+    RequiredChapters: RequiredChapters;
     ShuffleStarBeam: boolean;
+    StarBeamChaptersNeeded: number;
     StarBeamSpiritsNeeded: number;
     StarBeamPowerStarsNeeded: number
     StarWayPowerStarsNeeded: number;

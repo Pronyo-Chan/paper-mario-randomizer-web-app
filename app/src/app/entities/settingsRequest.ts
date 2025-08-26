@@ -20,7 +20,9 @@ import { PartnerShuffleMode } from './enum/partnerShuffleMode';
 import { BossShuffleMode } from './enum/BossShuffleMode';
 import { MultiCoinBlockShuffle } from './enum/MultiCoinBlockShuffle';
 import { KentCKoopa } from './enum/kentCKoopa';
-import { RequiredSpirits } from './enum/requiredSpirits';
+import { RequiredChapters } from './enum/requiredChapters';
+import { SpiritShuffleMode } from './enum/spiritShuffleMode';
+import { GearShuffleMode } from './enum/gearShuffleMode';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
@@ -135,8 +137,10 @@ export interface SettingsRequest {
     ItemQuality: number;
     RandomConsumableMode: number;
     StarWaySpiritsNeededCnt: number;
-    RequiredSpirits: RequiredSpirits;
+    StarWayChaptersNeededCnt: number;
+    RequiredChapters: RequiredChapters;
     ShuffleStarBeam: boolean;
+    StarBeamChaptersNeeded: number;
     StarBeamSpiritsNeeded: number;
     StarBeamPowerStarsNeeded: number;
     FoliageItemHints: boolean;
@@ -168,7 +172,8 @@ export interface SettingsRequest {
     HiddenPanelVisibility: number;
     ISpyPanelHints: number;
     CookWithoutFryingPan: boolean;
-    GearShuffleMode: number;
+    GearShuffleMode: GearShuffleMode;
+    SpiritShuffleMode: SpiritShuffleMode;
     PartnerUpgradeShuffle: number;
     RipCheatoItemsInLogic: number;
     MerlowRewardPricing: number;
@@ -191,7 +196,6 @@ export interface SettingsRequest {
     PrologueSushieGlitchUltraBootsLaki: boolean
 
     // Glitches: Toad Town
-    OddKeyEarly: boolean
     BlueHouseSkip: boolean
     BlueHouseSkipLaki: boolean
     BlueHouseSkipToadLure: boolean
@@ -212,6 +216,7 @@ export interface SettingsRequest {
     ClippyBootsStoneBlockSkip: boolean
     ClippyBootsMetalBlockSkip: boolean
     IslandPipeBlooperSkip: boolean
+    JumplessIslandPipe: boolean
     ParakarrylessSewerStarPiece: boolean
     ClippySewersUpgradeBlock: boolean
     SewerBlocksWithoutUltraBoots: boolean
@@ -263,6 +268,7 @@ export interface SettingsRequest {
     RuinsKeyLakiJump: boolean
     ParakarrylessSecondSandRoomUltraBoots: boolean
     ParakarrylessSecondSandRoomNormalBoots: boolean
+    RuinsBombWallSkip: boolean
     ParakarrylessSuperHammerRoomUltraBoots: boolean
     ParakarrylessSuperHammerRoomNormalBoots: boolean
     RuinsLocksSkipClippy: boolean
@@ -318,6 +324,7 @@ export interface SettingsRequest {
     Ch5SushieGlitch: boolean
     SushielessJungleStarpieceAndLetter: boolean
     JumplessDeepJungleLaki: boolean
+    JumplessDeepJungleLedge: boolean
 
     // Glitches: Mt. Lavalava
     KooperlessLavalavaPowBlockParakarry: boolean
@@ -379,6 +386,7 @@ export interface SettingsRequest {
 
     // Glitches: Global
     BreakStoneBlocksWithUltraBoots: boolean
+    HammerClipItemGrab: boolean
     KnowsPuzzleSolutions: boolean
     BreakYellowBlocksWithSuperBoots: boolean
     KnowsHiddenBlocks: boolean

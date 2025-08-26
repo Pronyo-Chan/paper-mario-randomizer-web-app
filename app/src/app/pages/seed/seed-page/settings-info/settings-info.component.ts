@@ -1,4 +1,4 @@
-import { RequiredSpirits } from 'src/app/entities/enum/requiredSpirits';
+import { RequiredChapters } from 'src/app/entities/enum/requiredChapters';
 import { MultiCoinBlockShuffle } from './../../../../entities/enum/MultiCoinBlockShuffle';
 import { BossShuffleMode } from './../../../../entities/enum/BossShuffleMode';
 import { PartnerShuffleMode } from 'src/app/entities/enum/partnerShuffleMode';
@@ -30,6 +30,7 @@ import { SeedGoal } from 'src/app/entities/enum/seedGoal';
 import { ISpyPanelHints } from 'src/app/entities/enum/iSpyPanelHints';
 import { BowserDoorQuiz } from 'src/app/entities/enum/bowserDoorQuiz';
 import { KentCKoopa } from 'src/app/entities/enum/kentCKoopa';
+import { SpiritShuffleMode } from 'src/app/entities/enum/spiritShuffleMode';
 
 interface SettingRow {
   name: string;
@@ -168,6 +169,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Shuffle Foliage Coins", value: this.seedModel.Items.IncludeCoinsFoliage},
       {name: "Keysanity", value: this.seedModel.Items.Keysanity},
       {name: "Gear Shuffle", value: GearShuffleMode[this.seedModel.Items.GearShuffle]},
+      {name: "Star Spirit Shuffle", value: pascalToVerboseString(SpiritShuffleMode[this.seedModel.Items.SpiritShuffle])},
       {name: "Include Dojo Rewards", value: this.seedModel.Items.IncludeDojoRewards},
       {name: "Include Hidden Panels", value: this.seedModel.Items.IncludeHiddenPanels},
       {name: "Include Trading Event Rewards", value: this.seedModel.Items.IncludeTradingEventRewards},
@@ -268,9 +270,11 @@ export class SettingsInfoComponent implements OnInit {
 
     this.goalsRows = [
       {name: "Seed Goal", value: pascalToVerboseString(SeedGoal[this.seedModel.Goals.SeedGoal])},
-      {name: "Star Way Spirits Required", value: this.seedModel.Goals.StarWaySpiritsNeeded},
-      {name: "Required Spirits", value: this.seedModel.Goals.StarWaySpiritsNeeded == 7 || this.seedModel.Goals.StarWaySpiritsNeeded == 0 ? null : RequiredSpirits[this.seedModel.Goals.RequiredSpirits]},
+      {name: "Star Way Chapters Required", value: this.seedModel.Goals.StarWayChaptersNeeded},
+      {name: "Star Way Spirits Required", value: this.seedModel.Items.SpiritShuffle != SpiritShuffleMode.Vanilla ? this.seedModel.Goals.StarWaySpiritsNeeded : null},
+      {name: "Required Spirits", value: this.seedModel.Goals.StarWayChaptersNeeded == 7 || this.seedModel.Goals.StarWayChaptersNeeded == 0 ? null : RequiredChapters[this.seedModel.Goals.RequiredChapters]},
       {name: "Shuffle Star Beam", value: isStarBeamReachable ? this.seedModel.Goals.ShuffleStarBeam : null},
+      {name: "Star Beam Chapters Rquired", value: isStarBeamReachable ? this.seedModel.Goals.StarBeamChaptersNeeded : null},
       {name: "Star Beam Spirits Rquired", value: isStarBeamReachable ? this.seedModel.Goals.StarBeamSpiritsNeeded : null},
       {name: "Total Power Stars", value: getPowerStarDisplayValue(this.seedModel.Goals.StarHuntTotal)},
       {name: "Star Way - Power Stars Required", value: getPowerStarDisplayValue(this.seedModel.Goals.StarWayPowerStarsNeeded)},

@@ -1,6 +1,117 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
-  <mat-card class="settings-card latest-changelog">
+  <mat-card class="settings-card latest-changelog" >
+    <mat-card-title class="settings-title">0.31.0 (beta) (2025-08-XX)</mat-card-title>
+    <h2>Special Thanks</h2>
+    <ul>
+      <li><span class="bolder-text">Veegie</span> for the plandomizer web UI update!</li>
+      <li><span class="bolder-text">Phantom</span> for implementing the glitched logic adjustments and additions!</li>
+    </ul>
+
+    <h2>Known Issues</h2>
+    <ul>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+    </ul>
+
+    <h2>Bug Fixes</h2>
+    <ul>
+      <li>Fix the vanilla bug of item chests softlocking or crashing the game when another item was picked up at the same time. This was fixed by disallowing item pickups while the interact prompt (red exclamation point above Mario) is visible.</li>
+      <li>Item spawning: When a player managed to get ahold of an item in an unexpected way, and that item was also placed into the store room in Toad Town, then entering that map would cause a crash. This usually applies to a broken seed placing a unique item more than once, cheating the item into the inventory via RAM manipulation, or acquiring items early in a multiworld session using server commands. This issue is now fixed.</li>
+      <li>Boss Shuffle: Fix the final Tubba Blubba battle not properly scaling with whatever chapter 3 was scaled to. Instead Tubba scaled the same as whatever chapter the battle against Tubba's Heart was shuffled into.</li>
+      <li>Item pool generation: Fix two `Lucky Day` badges being available in each seed if letter rewards were not shuffled.</li>
+      <li>Item pool generation: Fix duplicates of usually unique badges being put into the item pool if shop shuffle is turned off.</li>
+      <li>Item Hints: Fix Merluvlee hinting the Forest Pass even if the Fice T. item location is unavailable due to Forever Forest being set to always open.</li>
+      <li>Random Mystery: Fix issue with the `Mystery?` item set to `Random on every use`, where sometimes the item sprite shown on the roulette would not match the item that was actually used.</li>
+      <li>Plandomizer: Fix the plandomizer sometimes turning on dungeon entrance shuffle even if no dungeon connections were plando'd.</li>
+      <li>NPC interaction: Fix minor bug where, rarely, talking to Luigi would result in him just not starting any dialogue.</li>
+      <li>Loading Zones: Fix issue with how the randomizer handles loading zones, which could cause a rarely used glitch in Mt. Lavalava to not work.</li>
+      <li>Item check flags: Fix the map item tracking referencing the wrong flag for the Boo's Mansion Big Chest item.</li>
+    </ul>
+
+    <h2>Features</h2>
+    <h3>Star Spirits as Items</h3>
+    <ul>
+        <li>The 7 Star Spirits have been turned into items and can now be shuffled away from their usual spots guarded by the chapter bosses.</li>
+        <li>Picking up any Star Spirit item marks that spirit on the corresponding pause menu tab, increases Mario's Star Energy by one, and unlocks the next Star Power move.</li>
+        <li>The boss rewards, regardless of whether the Star Spirits are in their vanilla location or not, are now included in the pause menu map's item check counters.</li>
+    </ul>
+
+    <h3>Spirit Shuffle Mode (new)</h3>
+    <ul>
+        <li>The new option for shuffling the Star Spirit items.</li>
+        <li>This option has three different values:
+            <ul>
+                <li>Vanilla: Star Spirits are chapter boss rewards, as before</li>
+                <li>Same Chapter: Star Spirits are items that get shuffled into different locations within their respective "home" chapter</li>
+                <li>Anywhere: Star Spirits are items that get shuffled anywhere</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Star Way Chapters Needed/Star Beam Chapters Needed (new)</h3>
+    <ul>
+        <li>These options join Star Spirits and Power Stars as possible requirements for opening Star Way and for obtaining the Star Beam item location, respectively.</li>
+        <li>The sign posts on Shooting Star Summit and in Star Sanctuary have been updated to include the required number of chapters to beat, if any.</li>
+    </ul>
+
+    <h3>Required Chapters (change)</h3>
+    <ul>
+        <li>'Required Spirits' option renamed to 'Required Chapters'</li>
+        <li>Star Way requiring specific spirits has been changed to Star Way requiring specific chapters instead. If you keep the new `Spirit Shuffle Mode` set to vanilla, then this change has absolutely no impact on your seed logic when compared to before.</li>
+        <li>The holograms on Shooting Star Summit, which used to show which specific spirits were required, now instead show other NPC holograms corresponding to the chapters that need to be cleared:
+            <ul>
+                <li>Chapter 1: Koopa hologram</li>
+                <li>Chapter 2: Mouser hologram</li>
+                <li>Chapter 3: Boo hologram</li>
+                <li>Chapter 4: Shy Guy hologram</li>
+                <li>Chapter 5: Yoshi kid hologram</li>
+                <li>Chapter 6: Bub-ulb hologram</li>
+                <li>Chapter 7: Penguin hologram</li>
+            </ul>
+        </li>
+        <li>It is no longer possible to require specific spirits for Star Way or Star Beam</li>
+    </ul>
+
+    <h3>Quality of Life</h3>
+    <ul>
+        <li>Extended letter names in pause menu to show recipient (e.g. "Letter (Red Yoshi Kid)" instead of just "Letter")</li>
+        <li>Merluvlee will no longer hint 'Attack FX C' or 'Slow Go' badges</li>
+        <li>If the `Red Jar` has already been handed in to Koopa Koot, but the Red Jar item check was not yet acquired using the shop code, Koopa Koot will now repeat the shop code when talked to again.</li>
+        <li>All cutscene modes now allows earlier skipping of the cutscene of traveling the beanstalk upwards.</li>
+    </ul>
+
+    <h3>Cutscene Mode: Minimal (change)</h3>
+    <ul>
+        <li>Slightly speed up the cutscene of planting the beanstalk, in turn making it skippable earlier.</li>
+        <li>Now skips the Huff n Puff dialogue of him taunting Mario after hitting him with a charged lightning attack</li>
+        <li>Now removes the interactive dialogue box of talking to Wise Wisterwood (the big tree) in Flower Fields. In most cases this dialogue was already removed, this change should now also cover a rarer edge case where the dialogue could still appear.</li>
+    </ul>
+
+    <h3>Plandomizer (change)</h3>
+    <ul>
+        <li>Now allows placing Star Spirit items</li>
+        <li>Now allows placing items into Boss Reward locations</li>
+    </ul>
+
+    <h3>Glitches & Tricks (change)</h3>
+      <ul>
+        <li>`Odd Key Early` has been renamed to `Hammer Clip Item Grab` and now logically includes getting the Koopa Bros. Fortress locations of `Left Tower - Top Of Tower` and `Dungeon Fire Room - On The Ground` with only the hammer.</li>
+        <li>Toad Town Sushie Glitch:  During `Cutscene Mode: Minimal` the bub-ulb in Forever Forest will now give their regular, un-shortened dialogue if this map of the forest was entered while riding Sushie. This should alleviate a mismatch in usefulness of this glitch between `Cutscene Mode: Minimal` and the other `Cutscene Mode` settings.</li>
+        <li>`Island Pipe Blooper Skip` has been split into `Island Pipe Blooper Skip` and `Jumpless Island Pipe`. This is so skipping the blooper doesn't also implicitly, logically expect landing on the blue pipe while jumpless.</li>
+        <li>Added new trick: `Ruins Bomb Wall Skip`</li>
+        <li>Added new trick: `Jumpless Deep Jungle Ledge`</li>
+      </ul>
+
+    <h2>Logic Changes</h2>
+    <ul>
+        <li>Fixed logic not expecting boots for traversing the `RED Moving Platforms` room in Shy Guy's Toybox. Realistically this edge case has not come up yet, but could with further glitched logic additions.</li>
+        <li>All seed progression that formerly checked how many spirits Mario had saved now instead checks how many chapters Mario has cleared. This includes, but is not limited to, Rowf's badge shop progress, the unlocking of Koopa Koot favors, and the logic for accessing the different dojo battles. This also affects Progressive Scaling.</li>
+        <li>Fixed logic for the item location `Jade Jungle: Deep Jungle 1 - In Tree (Hit)` not expecting a way for getting onto the ledge the tree sits on.</li>
+    </ul>
+  </mat-card>
+
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.30.0 (beta) (2025-04-08)</mat-card-title>
     <h2>Special Thanks</h2>
     <ul>

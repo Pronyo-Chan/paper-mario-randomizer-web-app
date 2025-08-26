@@ -1,47 +1,30 @@
 <div [formGroup]="plandoFormGroup">
-  <h2>Required Spirits and Difficulty Scaling</h2>
-  <p class="text-center">
-    Selected Star Spirits will be required for completion. If no spirits are selected, the seed generator settings will determine the required Star Spirits.
-  </p>
+  <h2>Required Chapters and Difficulty Scaling</h2>
   <div class="container">
-    <div *ngFor="let spirit of SPIRITS; let i = index; let requiredSpirits = requiredSpirits" class="panel">
-      <h3 class="row text-center">Chapter {{ i + 1 }}</h3>
-      <div *ngIf="spirit !== ''">
-        <label>
-          <input
-            type="checkbox"
-            class="hidden"
-            value="{{ spirit }}"
-            (change)="updateSpiritSelection($event, spirit)"
-            [checked]="requiredSpiritsArray.includes(spirit)" />
-          <img
-            src="{{
-              '/assets/images/plando/' +
-                spirit +
-                (!requiredSpiritsArray.includes(spirit) ? '_No' : '') +
-                '.png'
-            }}" />
-        </label>
+    <div *ngFor="let chapterNumber of [1,2,3,4,5,6,7,8]; let requiredChapters = requiredChapters" class="panel">
+      <h3 class="row text-center">Chapter {{ chapterNumber }}</h3>
+      <div *ngIf="chapterNumber !== 8">
+        <mat-slide-toggle [checked]="requiredChaptersArray.includes(chapterNumber)" (change)="updateChapterSelection($event, chapterNumber)"></mat-slide-toggle><span>&nbsp;Required</span>
       </div>
       <div class="settings">
-        <div *ngIf="spirit !== ''" class="row" formGroupName="difficulty">
+        <div *ngIf="chapterNumber !== 8" class="row" formGroupName="difficulty">
           <app-tooltip-span class="row"
-            [spanText]="'Difficulty: ' + (getChapterDifficulty(i+1) > 0 ? getChapterDifficulty(i+1) : '?')"
+            [spanText]="'Difficulty: ' + (getChapterDifficulty(chapterNumber) > 0 ? getChapterDifficulty(chapterNumber) : '?')"
             tooltipText="Set the difficulty scaling for this chapter. If set to '?', the seed generator settings will determine scaling."></app-tooltip-span>
-          <mat-slider formControlName="{{ 'chapter ' + (i + 1) }}" (input)="setChapterDifficulty(i+1, $event.value)" min="0" max="8" step="1" tickInterval="1"></mat-slider>
+          <mat-slider formControlName="{{ 'chapter ' + chapterNumber }}" (input)="setChapterDifficulty(chapterNumber, $event.value)" min="0" max="8" step="1" tickInterval="1"></mat-slider>
         </div>
         <div class="row" formGroupName="dungeon_entrances">
-          <label for="{{ CHAPTER_OVERWORLDS[i] }}">Dungeon:</label>
-          <select formControlName="{{ CHAPTER_OVERWORLDS[i] }}">
+          <label for="{{ CHAPTER_OVERWORLDS[chapterNumber - 1] }}">Dungeon:</label>
+          <select formControlName="{{ CHAPTER_OVERWORLDS[chapterNumber - 1] }}">
             <option value=""></option>
             <option *ngFor="let dungeon of DUNGEONS" [value]="dungeon">
               {{ toDisplayString(dungeon) }}
             </option>
           </select>
         </div>
-        <div *ngIf="spirit !== ''" class="row" formGroupName="boss_battles">
-          <label for="{{ 'chapter ' + (i + 1) }}">Boss:</label>
-          <select formControlName="{{ 'chapter ' + (i + 1) }}">
+        <div *ngIf="chapterNumber !== 8" class="row" formGroupName="boss_battles">
+          <label for="{{ 'chapter ' + chapterNumber }}">Boss:</label>
+          <select formControlName="{{ 'chapter ' + chapterNumber }}">
             <option value=""></option>
             <option *ngFor="let boss of BOSSES" [value]="boss">
               {{ toDisplayString(boss) }}

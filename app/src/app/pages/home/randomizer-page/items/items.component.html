@@ -46,6 +46,35 @@
                 <option [ngValue]="2">Full Shuffle</option>
             </select>
         </div>
+
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span spanText="Partner Upgrade Shuffle" tooltipText="Off: Partners are upgraded through super blocks as usual.
+
+          Super Block Locations: Super blocks are replaced with item blocks that give partner specific upgrade items.
+
+          Full Shuffle: Super blocks are replaced with item blocks and specific partner upgrades are added as items in the pool.">
+          </app-tooltip-span>
+          <select formControlName='partnerUpgradeShuffle'>
+              <option [ngValue]="0">Off</option>
+              <option [ngValue]="1">Super Block Locations</option>
+              <option [ngValue]="2">Full Shuffle</option>
+          </select>
+        </div>
+
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span spanText="Star Spirit Shuffle" tooltipText="Vanilla: Star spirits are obtained at the end of chapters.
+
+          Shuffle Within Chapter: Star Spirits are shuffled in the item pool, but can only be obtained in their respective chapters.
+
+          Full Shuffle: Star Spirits are shuffled in the item pool and can be obtained anywhere.">
+          </app-tooltip-span>
+          <select formControlName='spiritShuffleMode'>
+              <option [ngValue]="0">Vanilla</option>
+              <option [ngValue]="1">Shuffle Within Chapter</option>
+              <option [ngValue]="2">Full Shuffle</option>
+          </select>
+      </div>
+
         <div class="setting-element dropdown-element">
             <app-tooltip-span spanText="Letter Delivery Rewards"
                               tooltipText="Vanilla: Every letter reward remains unshuffled.
@@ -77,22 +106,6 @@
                 <option [ngValue]="2">Full Shuffle</option>
             </select>
         </div>
-
-        <div class="setting-element dropdown-element">
-          <app-tooltip-span spanText="Partner Upgrade Shuffle" tooltipText="Off: Partners are upgraded through super blocks as usual.
-
-          Super Block Locations: Super blocks are replaced with item blocks that give partner specific upgrade items.
-
-          Full Shuffle: Super blocks are replaced with item blocks and specific partner upgrades are added as items in the pool.">
-          </app-tooltip-span>
-          <select formControlName='partnerUpgradeShuffle'>
-              <option [ngValue]="0">Off</option>
-              <option [ngValue]="1">Super Block Locations</option>
-              <option [ngValue]="2">Full Shuffle</option>
-          </select>
-      </div>
-
-      <div class="setting-element"></div>
 
       <div class="setting-element slider-element" >
         <app-tooltip-span [spanText]="'Rip Cheato Items In Logic: ' + itemFormGroup.get('ripCheatoItemsInLogic').value"

@@ -65,11 +65,13 @@ export class SettingStringMappingService {
   ];
 
   public readonly goalsMap: SettingModel [] = [
-    { compressedString: "w", key: "starWaySpiritsNeeded", type: "number"},
+    { compressedString: "w", key: "starWayChaptersNeeded", type: "number"},
+    { compressedString: "p", key: "starWaySpiritsNeeded", type: "number"},
     { compressedString: "e", key: "requireSpecificSpirits", type: "removed"},
-    { compressedString: "r", key: "requiredSpirits", type: "number"},
+    { compressedString: "r", key: "requiredChapters", type: "number"},
     { compressedString: "f", key: "limitChapterLogic", type: "removed"},
-    { compressedString: "@", key: "starBeamSpiritsNeeded", type: "number"},
+    { compressedString: "@", key: "starBeamChaptersNeeded", type: "number"},
+    { compressedString: "$", key: "starBeamSpiritsNeeded", type: "number"},
     { compressedString: "#", key: "starBeamPowerStarsNeeded", type: "number"},
     { compressedString: "s", key: "shuffleStarBeam", type: "bool"},
     { compressedString: "y", key: "seedGoal", type: "number"},
@@ -119,6 +121,7 @@ export class SettingStringMappingService {
     { compressedString: "!", key: "multiCoinBlockShuffle", type: "number"},
     { compressedString: "h", key: "bigChestShuffle", type: "removed"},
     { compressedString: "g", key: "gearShuffleMode", type: "number"},
+    { compressedString: "@", key: "spiritShuffleMode", type: "number"},
     { compressedString: "u", key: "partnerUpgradeShuffle", type: "number"},
     { compressedString: "a", key: "ripCheatoItemsInLogic", type: "number"},
     { compressedString: "o", key: "progressionOnRowf", type: "number"},

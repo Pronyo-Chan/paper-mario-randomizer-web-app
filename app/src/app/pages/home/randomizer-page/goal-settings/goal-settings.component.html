@@ -18,35 +18,41 @@
 
                           Different amount of power star requirements can be set to open the star way and obtain the star beam item in Star Haven.
 
-                          Power star requirements can be combined with star spirits requirements.">
+                          Power star requirements can be combined with star spirits and chapters requirements.">
         </app-tooltip-span>
       </div>
 
       <mat-divider />
 
       <div class="setting-element slider-element">
-          <app-tooltip-span [spanText]="'Star Way - Star Spirits Required: ' + getStarWaySpiritsNumber()"
-                            tooltipText="Number of star spirits saved required to open the way to Ch.8. Can be set to random by bringing the slider behind 0."></app-tooltip-span>
-          <mat-slider formControlName="starWaySpiritsNeeded" (input)="goalsFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=-1 max=7 step="1" tickInterval="1"></mat-slider>
+          <app-tooltip-span [spanText]="'Star Way - Star Chapters Required: ' + getStarWayChaptersNumber()"
+                            tooltipText="Number of chapters cleared required to open the way to Ch.8. Can be set to random by bringing the slider behind 0."></app-tooltip-span>
+          <mat-slider formControlName="starWayChaptersNeeded" (input)="goalsFormGroup.get('starWayChaptersNeeded').setValue($event.value)" min=-1 max=7 step="1" tickInterval="1"></mat-slider>
       </div>
 
-      <div class="setting-element dropdown-element" [ngClass]="{ 'disabled-element': isSevenOrZeroStarSpirits}">
+      <div class="setting-element dropdown-element" [ngClass]="{ 'disabled-element': isSevenOrZeroRequiredChapters}">
         <app-tooltip-span
-             spanText="Required Spirits"
-             tooltipText="Determines if specific spirits need to be saved to open the star way.
+             spanText="Required Chapters"
+             tooltipText="Determines if specific chapters need to be completed to open the star way.
 
-             Any: Any spirits can open the star way
+             Any: Any chapters can open the star way
 
-             Specific: Only specific spirits can open the star way. You can find holograms of the required spirits at star summit.
+             Specific: Only specific chapters can open the star way. You can find holograms of enemies representing the required chapters at star summit.
 
              Specific + Limit Chapter Logic: Like specific, but also makes it so only chapters that need to be completed and prologue / common areas will contain progression items. ">
         </app-tooltip-span>
-        <select formControlName='requiredSpirits'>
+        <select formControlName='requiredChapters'>
             <option [ngValue]="0">Any</option>
             <option [ngValue]="1">Specific</option>
             <option [ngValue]="2">Specific + Limit Chapter Logic</option>
         </select>
       </div>
+
+      <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': goalsFormGroup.get('starBeamChaptersNeeded').disabled}">
+        <app-tooltip-span [spanText]="'Star Way - Star Spirits Required: ' + getStarWaySpiritsNumber()"
+                          tooltipText="Number of obtained star spirits required to open the way to Ch.8. Can be set to random by bringing the slider behind 0. To use this setting, Star Spirit Shuffle must be enabled."></app-tooltip-span>
+        <mat-slider formControlName="starWaySpiritsNeeded" (input)="goalsFormGroup.get('starWaySpiritsNeeded').setValue($event.value)" min=-1 max=7 step="1" tickInterval="1"></mat-slider>
+    </div>
 
       <ng-container *ngIf="shouldShowStarBeamSettings()">
         <mat-divider />
@@ -57,9 +63,15 @@
                             tooltipText="Star Beam becomes an item shuffled in the item pool. Another random item will replace star beam in Star Haven."></app-tooltip-span>
         </div>
 
-        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': goalsFormGroup.get('requiredSpirits').value === 2}">
+        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': goalsFormGroup.get('starBeamChaptersNeeded').disabled}">
+          <app-tooltip-span [spanText]="'Star Beam - Chapters Required: ' + getStarBeamChaptersNumber()"
+                             tooltipText="Number of completed chapters required to obtain the item in the star beam location, in Star Haven. Can be set to random by bringing the slider behind 0. Forced to 0 when 'Limit Chapter Logic' is active."></app-tooltip-span>
+          <mat-slider formControlName="starBeamChaptersNeeded" (input)="goalsFormGroup.get('starBeamChaptersNeeded').setValue($event.value)" min=-1 max= 7 step="1" tickInterval="1" ></mat-slider>
+        </div>
+
+        <div class="setting-element slider-element" [ngClass]="{ 'disabled-element': goalsFormGroup.get('starBeamChaptersNeeded').disabled}">
           <app-tooltip-span [spanText]="'Star Beam  - Star Spirits Required: ' + getStarBeamSpiritsNumber()"
-                             tooltipText="Number of star spirits saved required to obtain the item in the star beam location, in Star Haven. Can be set to random by bringing the slider behind 0. Forced to 0 when 'Limit Chapter Logic' is active"></app-tooltip-span>
+                             tooltipText="Number of obtained star spirits required to obtain the item in the star beam location, in Star Haven. Can be set to random by bringing the slider behind 0.To use this setting, Star Spirit Shuffle must be enabled."></app-tooltip-span>
           <mat-slider formControlName="starBeamSpiritsNeeded" (input)="goalsFormGroup.get('starBeamSpiritsNeeded').setValue($event.value)" min=-1 max= 7 step="1" tickInterval="1" ></mat-slider>
         </div>
 
