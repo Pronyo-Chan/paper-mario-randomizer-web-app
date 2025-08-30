@@ -1,6 +1,28 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
   <mat-card class="settings-card latest-changelog" >
+    <mat-card-title class="settings-title">0.31.1 (beta) (2025-08-30)</mat-card-title>
+
+    <h2>Known Issues</h2>
+    <ul>
+        <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+        <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+    </ul>
+
+    <h2>Bug Fixes</h2>
+    <ul>
+      <li>Fix a rare softlock, where after the hedge maze battle against the Lakitus the cutscene afterwards softlocked. This was caused by having a Crazee Dayzee end the battle by running away, after all the other enemies had already been scared off using Bow's Spook ability.</li>
+      <li>Fix an issue of combining the new `Spirit Shuffle Mode` option with `Dungeon Entrance Shuffle`. If  Misstar in Mt. Lavalava held a consumable as boss reward, but the player's inventory was already full, then she could throw that consumable item off-screen or even out of bounds.</li>
+      <li>Fix a minor oversight with `Cutscene Mode: Minimal`, where the Boo Ring minigame on the first floor of Boo's Mansion would play out slightly slower than intended.</li>
+    </ul>
+
+    <h2>Website</h2>
+    <ul>
+      <li>On the seed download page, the `Override Original Cosmetics` toggle's value is now persisted in the browser's local storage.</li>
+    </ul>
+  </mat-card>
+
+  <mat-card class="settings-card latest-changelog" >
     <mat-card-title class="settings-title">0.31.0 (beta) (2025-08-26)</mat-card-title>
     <h2>Special Thanks</h2>
     <ul>

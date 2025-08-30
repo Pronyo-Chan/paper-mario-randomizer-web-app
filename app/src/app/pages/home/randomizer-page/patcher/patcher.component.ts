@@ -10,6 +10,7 @@ import { getMarcFileFromSource } from 'src/app/utilities/RomPatcher/MarcFile';
 import { crc32 } from 'src/app/utilities/RomPatcher/crc32';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { environment } from 'src/environments/environment';
+import { LocalStorageService } from 'src/app/services/localStorage/localStorage.service';
 
 
 @Component({
@@ -41,7 +42,9 @@ export class PatcherComponent implements OnInit, OnDestroy {
   private _dbUpdateSubscription: Subscription;
   private _dbGetSubscription: Subscription;
 
-  public constructor(private _randomizerService: RandomizerService, private _dbService: NgxIndexedDBService) { }
+  private readonly overrideCosmeticsKey: string = 'overrideCosmetics';
+
+  public constructor(private _randomizerService: RandomizerService, private _dbService: NgxIndexedDBService, private _localStorage: LocalStorageService) { }
 
   public ngOnInit(): void {
     this._dbGetSubscription = this._dbService.getByKey('userCache', 1).subscribe((userRom: any) => {
@@ -53,6 +56,8 @@ export class PatcherComponent implements OnInit, OnDestroy {
         this.processUserRom(userRom.rom)
       }
     });
+
+    this.doOverrideCosmetics = this._localStorage.get(this.overrideCosmeticsKey);
 
     this.isProduction = environment.production;
   }
@@ -84,11 +89,12 @@ export class PatcherComponent implements OnInit, OnDestroy {
       this.seedId,
       this.modVersion,
       this.useProdPatch,
-      this.doOverrideCosmetics ? this.cosmeticsFormGroup : null
+      this.doOverrideCosmetics ? this.cosmeticsFormGroup : null //TODO: Persist this toggle
     ).pipe(
       take(1),
       tap(romResult => {
         this.isPatching = false;
+        this._localStorage.set(this.overrideCosmeticsKey, this.doOverrideCosmetics)
         this.serveDownload(romResult, 'Paper_Mario_' + this.seedId + '.z64');
       }),
       catchError( err => {
