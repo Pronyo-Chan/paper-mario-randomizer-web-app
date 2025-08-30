@@ -89,7 +89,7 @@ export class PatcherComponent implements OnInit, OnDestroy {
       this.seedId,
       this.modVersion,
       this.useProdPatch,
-      this.doOverrideCosmetics ? this.cosmeticsFormGroup : null //TODO: Persist this toggle
+      this.doOverrideCosmetics ? this.cosmeticsFormGroup : null
     ).pipe(
       take(1),
       tap(romResult => {
