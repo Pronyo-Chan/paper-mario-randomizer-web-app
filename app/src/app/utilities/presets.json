@@ -1003,217 +1003,6 @@
       }
     },
     {
-      "name": "Blitz Race (S2)",
-      "settings": {
-        "items": {
-          "shuffleItems": true,
-          "includeCoinsOverworld": false,
-          "includeCoinsBlocks": false,
-          "includeCoinsFavors": false,
-          "includeCoinsFoliage": false,
-          "includeShops": true,
-          "includePanels": false,
-          "includeFavors": 0,
-          "keyitemsOutsideDungeon": true,
-          "includeDojo": 0,
-          "includeLetters": 0,
-          "includeRadioTradeEvent": false,
-          "multiCoinBlockShuffle": 0,
-          "gearShuffleMode": 2,
-          "spiritShuffleMode": 0,
-          "partnerUpgradeShuffle": 0,
-          "ripCheatoItemsInLogic": 6,
-          "progressionOnRowf": 5,
-          "progressionOnMerlow": false
-        },
-        "gameplay": {
-          "randomBadgesBP": 1,
-          "randomBadgesFP": 1,
-          "randomPartnerFP": 1,
-          "randomStarpowerSP": 0,
-          "randomFormations": true,
-          "bossShuffle": 0,
-          "mysteryMode": 2,
-          "randomizePuzzles": false
-        },
-        "partners": {
-          "shufflePartners": 2,
-          "partnersAlwaysUsable": false,
-          "startWithRandomPartners": true,
-          "randomPartnersMin": 1,
-          "randomPartnersMax": 1,
-          "startWithPartners": {
-            "goombario": true,
-            "kooper": false,
-            "bombette": false,
-            "parakarry": false,
-            "bow": false,
-            "watt": false,
-            "sushie": false,
-            "lakilester": false
-          }
-        },
-        "qualityOfLife": {
-          "hiddenBlockMode": 3,
-          "alwaysSpeedySpin": true,
-          "alwaysISpy": false,
-          "alwaysPeekaboo": true,
-          "skipQuiz": true,
-          "preventPhysicsGlitches": false,
-          "shortenCutscenes": 2,
-          "skipEpilogue": true,
-          "writeSpoilerLog": true,
-          "revealLogInHours": 7,
-          "delaySpoilerLog": true,
-          "quizmoAlwaysAppears": true,
-          "foliageItemHints": true,
-          "hiddenPanelVisibility": true,
-          "iSpyPanelHints": 0,
-          "cookWithoutFryingPan": true
-        },
-        "difficulty": {
-          "difficultyMode": 1,
-          "capEnemyXP": false,
-          "xpMultiplier": 1.5,
-          "damageMultiplier": 1,
-          "oneHitKO": false,
-          "noSaveBlocks": false,
-          "noHeartBlocks": false,
-          "noHealingItems": false,
-          "dropStarPoints": false,
-          "chetRippoAvailable": true,
-          "allowItemHints": false,
-          "merlowRewardPricing": 0,
-          "badgeSynergy": false,
-          "bowserDoorQuiz": 0,
-          "kentCKoopa": 0
-        },
-        "goals": {
-          "starWayChaptersNeeded": 4,
-          "starWaySpiritsNeeded": 0,
-          "starWayPowerStarsNeeded": 0,
-          "requiredChapters" : 2,
-          "seedGoal": 0,
-          "starHuntTotal": 0,
-          "includePowerStars": false,
-          "shuffleStarBeam": false,
-          "starBeamSpiritsNeeded": 0,
-              "starBeamChaptersNeeded": 0,
-          "starBeamPowerStarsNeeded": 0
-      },
-        "itemPool": {
-          "itemQuality": 100,
-          "randomConsumableMode": 0,
-          "itemTrapMode": 0,
-          "itemPouches": false,
-          "addUnusedBadgeDuplicates": false,
-          "addBetaItems": false,
-          "progressiveBadges": false,
-          "badgePoolLimit": 128
-        },
-        "marioStats": {
-          "startingCoins": 150,
-          "startingMaxHP": 10,
-          "startingMaxFP": 5,
-          "startingMaxBP": 3,
-          "randomStartingStatsLevel": 1,
-          "startWithRandomStats": false,
-          "startingStarPower": 0,
-          "startingBoots": 0,
-          "startingHammer": 0,
-          "startingItems": [
-            {
-              "name": "Ultra Stone",
-              "value": 15,
-              "itemType": "Key Item"
-            },
-            {
-              "name": "Cookbook",
-              "value": 41,
-              "itemType": "Key Item"
-            }
-          ],
-          "startWithRandomItems": false,
-          "randomItemsMin": 0,
-          "randomItemsMax": 16
-        },
-        "openLocations": {
-          "magicalSeedsRequired": 2,
-          "blueHouseOpen": false,
-          "toyboxOpen": false,
-          "whaleOpen": false,
-          "ch7BridgeVisible": false,
-          "mtRuggedOpen": false,
-          "foreverForestOpen": true,
-          "prologueOpen": true,
-          "startingMap": 65796,
-          "bowsersCastleMode": 2,
-          "shuffleDungeonEntrances": 0,
-          "mirrorMode": 0
-        },
-        "cosmetics": {
-          "menu": 7,
-          "marioSprite": {
-            "setting": 2,
-            "paletteSelection": 0,
-            "optionDisplay": "Random Pick"
-          },
-          "goombarioSprite": {
-            "setting": 2,
-            "paletteSelection": 0,
-            "optionDisplay": "Random Pick"
-          },
-          "kooperSprite": {
-            "setting": 2,
-            "paletteSelection": 0,
-            "optionDisplay": "Random Pick"
-          },
-          "bombetteSprite": {
-            "setting": 2,
-            "paletteSelection": 0,
-            "optionDisplay": "Random Pick"
-          },
-          "parakarrySprite": {
-            "setting": 2,
-            "paletteSelection": 0,
-            "optionDisplay": "Random Pick"
-          },
-          "bowSprite": {
-            "setting": 2,
-            "paletteSelection": 0,
-            "optionDisplay": "Random Pick"
-          },
-          "wattSprite": {
-            "setting": 2,
-            "paletteSelection": 0,
-            "optionDisplay": "Random Pick"
-          },
-          "sushieSprite": {
-            "setting": 2,
-            "paletteSelection": 0,
-            "optionDisplay": "Random Pick"
-          },
-          "lakilesterSprite": {
-            "setting": 2,
-            "paletteSelection": 0,
-            "optionDisplay": "Random Pick"
-          },
-          "bossesSetting": 2,
-          "npcSetting": 2,
-          "enemiesSetting": 2,
-          "hammerSetting": 2,
-          "coinColor": 5,
-          "randomText": false,
-          "romanNumerals": false,
-          "randomPitch": false,
-          "muteDangerBeeps": false,
-          "shuffleMusic": -1,
-          "shuffleJingles": false
-        },
-        "glitches": []
-      }
-    },
-    {
       "name": "Blitz Race (S3)",
       "settings": {
         "items": {
@@ -1632,6 +1421,217 @@
             "shuffleJingles":false
          },
          "glitches":[]
+      }
+    },
+    {
+      "name": "Blitz Race (S5)",
+      "settings": {
+        "items": {
+          "shuffleItems": true,
+          "includeCoinsOverworld": false,
+          "includeCoinsBlocks": true,
+          "includeCoinsFavors": false,
+          "includeCoinsFoliage": false,
+          "includeShops": true,
+          "includePanels": true,
+          "includeFavors": 0,
+          "keyitemsOutsideDungeon": true,
+          "includeDojo": 0,
+          "includeLetters": 0,
+          "includeRadioTradeEvent": false,
+          "multiCoinBlockShuffle": 0,
+          "gearShuffleMode": 2,
+          "spiritShuffleMode": 2,
+          "partnerUpgradeShuffle": 2,
+          "ripCheatoItemsInLogic": 6,
+          "progressionOnRowf": 2,
+          "progressionOnMerlow": true
+        },
+        "gameplay": {
+          "randomBadgesBP": 1,
+          "randomBadgesFP": 1,
+          "randomPartnerFP": 1,
+          "randomStarpowerSP": 0,
+          "randomFormations": true,
+          "randomizePuzzles": false,
+          "mysteryMode": 2,
+          "bossShuffle": false
+        },
+        "partners": {
+          "shufflePartners": 2,
+          "partnersAlwaysUsable": false,
+          "startWithRandomPartners": true,
+          "randomPartnersMin": 1,
+          "randomPartnersMax": 1,
+          "startWithPartners": {
+            "goombario": true,
+            "kooper": false,
+            "bombette": false,
+            "parakarry": false,
+            "bow": false,
+            "watt": false,
+            "sushie": false,
+            "lakilester": false
+          }
+        },
+        "qualityOfLife": {
+          "hiddenBlockMode": 3,
+          "alwaysSpeedySpin": true,
+          "alwaysISpy": true,
+          "alwaysPeekaboo": true,
+          "skipQuiz": true,
+          "preventPhysicsGlitches": false,
+          "shortenCutscenes": 2,
+          "skipEpilogue": true,
+          "writeSpoilerLog": true,
+          "revealLogInHours": 3,
+          "delaySpoilerLog": true,
+          "quizmoAlwaysAppears": true,
+          "foliageItemHints": true,
+          "hiddenPanelVisibility": true,
+          "iSpyPanelHints": 1,
+          "cookWithoutFryingPan": true
+        },
+        "difficulty": {
+          "difficultyMode": 1,
+          "capEnemyXP": false,
+          "xpMultiplier": 1.5,
+          "damageMultiplier": 1,
+          "oneHitKO": false,
+          "noSaveBlocks": false,
+          "noHeartBlocks": false,
+          "noHealingItems": false,
+          "dropStarPoints": false,
+          "chetRippoAvailable": true,
+          "allowItemHints": false,
+          "merlowRewardPricing": 0,
+          "bowserDoorQuiz": 0,
+          "kentCKoopa": 3,
+          "badgeSynergy": false
+        },
+        "itemPool": {
+          "itemQuality": 100,
+          "randomConsumableMode": 0,
+          "itemTrapMode": 0,
+          "itemPouches": true,
+          "addUnusedBadgeDuplicates": false,
+          "addBetaItems": false,
+          "progressiveBadges": false,
+          "badgePoolLimit": 128
+        },
+        "marioStats": {
+          "startingCoins": 150,
+          "startingMaxHP": 10,
+          "startingMaxFP": 5,
+          "startingMaxBP": 3,
+          "randomStartingStatsLevel": 1,
+          "startWithRandomStats": false,
+          "startingStarPower": 0,
+          "startingBoots": 0,
+          "startingHammer": 0,
+          "startingItems": [
+            {
+              "name": "Ultra Stone",
+              "value": 15,
+              "itemType": "Key Item"
+            },
+            {
+              "name": "Cookbook",
+              "value": 41,
+              "itemType": "Key Item"
+            }
+          ],
+          "startWithRandomItems": false,
+          "randomItemsMin": 0,
+          "randomItemsMax": 16
+        },
+        "openLocations": {
+          "magicalSeedsRequired": 2,
+          "blueHouseOpen": false,
+          "toyboxOpen": false,
+          "whaleOpen": false,
+          "ch7BridgeVisible": false,
+          "mtRuggedOpen": false,
+          "foreverForestOpen": true,
+          "prologueOpen": true,
+          "startingMap": 65796,
+          "bowsersCastleMode": 2,
+          "shuffleDungeonEntrances": 1,
+          "mirrorMode": 0
+        },
+        "goals": {
+          "starWaySpiritsNeeded": 0,
+          "starWayChaptersNeeded": 4,
+          "requiredChapters": 2,
+          "shuffleStarBeam": false,
+          "starBeamChaptersNeeded": 0,
+          "starBeamSpiritsNeeded": 0,
+          "starWayPowerStarsNeeded": 0,
+          "starHuntTotal": 0,
+          "seedGoal": 0,
+          "starBeamPowerStarsNeeded": 0,
+          "includePowerStars": false
+        },
+        "cosmetics": {
+          "menu": 7,
+          "marioSprite": {
+            "setting": 2,
+            "paletteSelection": 0,
+            "optionDisplay": "Random Pick"
+          },
+          "goombarioSprite": {
+            "setting": 2,
+            "paletteSelection": 0,
+            "optionDisplay": "Random Pick"
+          },
+          "kooperSprite": {
+            "setting": 2,
+            "paletteSelection": 0,
+            "optionDisplay": "Random Pick"
+          },
+          "bombetteSprite": {
+            "setting": 2,
+            "paletteSelection": 0,
+            "optionDisplay": "Random Pick"
+          },
+          "parakarrySprite": {
+            "setting": 2,
+            "paletteSelection": 0,
+            "optionDisplay": "Random Pick"
+          },
+          "bowSprite": {
+            "setting": 2,
+            "paletteSelection": 0,
+            "optionDisplay": "Random Pick"
+          },
+          "wattSprite": {
+            "setting": 2,
+            "paletteSelection": 0,
+            "optionDisplay": "Random Pick"
+          },
+          "sushieSprite": {
+            "setting": 2,
+            "paletteSelection": 0,
+            "optionDisplay": "Random Pick"
+          },
+          "lakilesterSprite": {
+            "setting": 2,
+            "paletteSelection": 0,
+            "optionDisplay": "Random Pick"
+          },
+          "bossesSetting": 2,
+          "npcSetting": 2,
+          "enemiesSetting": 2,
+          "hammerSetting": 2,
+          "coinColor": 5,
+          "randomText": false,
+          "romanNumerals": false,
+          "randomPitch": false,
+          "muteDangerBeeps": false,
+          "shuffleMusic": -1,
+          "shuffleJingles": false
+        },
+        "glitches": []
       }
     },
     {
