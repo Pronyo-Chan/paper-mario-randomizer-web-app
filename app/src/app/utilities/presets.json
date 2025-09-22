@@ -1441,7 +1441,7 @@
           "includeRadioTradeEvent": false,
           "multiCoinBlockShuffle": 0,
           "gearShuffleMode": 2,
-          "spiritShuffleMode": 2,
+          "spiritShuffleMode": 0,
           "partnerUpgradeShuffle": 2,
           "ripCheatoItemsInLogic": 6,
           "progressionOnRowf": 2,
