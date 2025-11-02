@@ -77,7 +77,7 @@ export class SettingStringMappingService {
     { compressedString: "y", key: "seedGoal", type: "number"},
     { compressedString: "?", key: "starWayPowerStarsNeeded", type: "number"},
     { compressedString: "!", key: "starHuntTotal", type: "number"},
-    { compressedString: "p", key: "includePowerStars", type: "bool"}
+    { compressedString: "x", key: "includePowerStars", type: "bool"}
   ];
 
   public readonly itemPoolMap: SettingModel [] = [
