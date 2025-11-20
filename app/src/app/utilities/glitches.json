@@ -5,6 +5,8 @@
     "link": "https://youtu.be/0139HwpoISI",
     "description": "By jumping from the nearby brick block , you can get on top of the stone block and either use Kooper or Bombette to get the item from the hidden block. It's also possible to hit the block from below by clipping into the stone block with Parakarry or Laki.",
     "location": "Goomba Region",
+    "difficulty": "Trivial",
+    "tags": ["? Blocks/Freestanding Items"],
     "id": "!"
   },
   {

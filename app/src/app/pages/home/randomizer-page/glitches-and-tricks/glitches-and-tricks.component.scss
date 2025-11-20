@@ -1,6 +1,27 @@
 @import '../../../../../variables';
 @import '../../../../../mixins.scss';
 
+.master-checkbox {
+    padding: 14px;
+    margin-right: -20px;
+    background-color: $beige-background-secondary;
+    border: 3px solid $yellow-stat-border;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    height: 56px;
+    box-sizing: border-box;
+
+    mat-checkbox {
+        margin: 0;
+        font-family: gluten;
+        font-size: 16px;
+    }
+}
+
 .table-container {
     display: flex;
     flex-wrap: wrap;
@@ -19,55 +40,187 @@
           flex-grow: 1;
         }
 
-
         .glitches-list {
             padding-right: 1rem;
             max-height: 40rem;
-            overflow-y: auto;
+            overflow-y: scroll;
             overflow-x: hidden;
+            margin: 0;
         }
 
         .glitches-list::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
+
         .glitches-list::-webkit-scrollbar-track {
             background-color: $beige-background-secondary;
             border-radius: 10px;
-          }
+        }
+
         .glitches-list::-webkit-scrollbar-thumb {
             background-color: $yellow-stat-border;
             border-radius: 10px;
-          }
+        }
     }
 }
 
 .filter-section {
-    margin-bottom: 2rem;
-    flex-basis: 15%;
-}
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: $beige-background-secondary;
+    border: 3px solid $yellow-stat-border;
+    border-radius: 8px;
 
-mat-selection-list, mat-list {
-    .mat-list-item {
-        border: solid !important;
-        border-width: 3px 3px 0 3px !important;
-        border-color: $yellow-stat-border !important;
+    .filter-inputs {
+        display: flex;
+        gap: 32px;
 
-        button {
-            position: absolute;
-            top: 8px;
-            right: 0;
-            padding-right: 6px;
-
-            mat-icon {
-                font-size: 25px;
+        .setting-element {
+            flex: 0 0 auto;
+            .location-input {
+                width: 15rem;
             }
         }
     }
-    .mat-list-item:last-child {
-      border-bottom: 3px solid !important;
-      border-color: $yellow-stat-border !important;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 400;
+    font-family: gluten;
+    white-space: nowrap;
+    color: white;
+}
+
+.location-tag {
+    background-color: $blue-item-main;
+    border: 1px solid $blue-item-border;
+}
+
+.difficulty-tag {
+    background-color: $orange-badge-main;
+    border: 1px solid $orange-badge-border;
+}
+
+.custom-tag {
+    background-color: $purple-misc-main;
+    border: 1px solid $purple-misc-border;
+}
+
+.selected-locations-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .tag {
+    position: relative;
+  }
+
+  .remove-tag-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    color: white;
+
+    &:hover {
+      opacity: 0.7;
     }
+
+    mat-icon {
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+      line-height: 16px;
+    }
+  }
+}
+
+.tags-container {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+mat-selection-list, mat-list {
+    border-radius: 0 0 8px 8px;
+    margin: 0;
+    padding: 0;
+    
+    .mat-list-item {
+        border: 3px solid $yellow-stat-border !important;
+        border-top: none !important;
+        height: auto;
+        padding: 8px 16px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        &:last-child {
+            border-bottom: 3px solid $yellow-stat-border !important;
+            border-radius: 0 0 8px 8px;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            padding: 0;
+            margin: 0;
+
+            mat-icon {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+.glitch-item-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.image-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.glitch-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.glitch-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    overflow: hidden;
 }
 
 h2 {
@@ -85,20 +238,15 @@ span.no-results {
     font-size: 18px;
     justify-content: center;
     display: flex;
-    color:red;
+    color: red;
     margin-top: 1rem;
-}
-
-.yellow-button {
-    width: 120px;
 }
 
 .remove-button {
     border: none;
     background: none;
-    float: right;
     cursor: pointer;
-    color: $yellow-stat-main
+    color: $yellow-stat-main;
 }
 
 button:disabled {
@@ -113,7 +261,6 @@ a.disabled-link {
 }
 
 .video-icon {
-  padding-right: 2px;
   position: relative;
-  top: 7px;
+  top: 5px;
 }
