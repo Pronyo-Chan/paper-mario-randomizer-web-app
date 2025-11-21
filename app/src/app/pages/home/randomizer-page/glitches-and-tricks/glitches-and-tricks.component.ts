@@ -3,7 +3,7 @@ import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core
 import glitchesJson from '../../../../utilities/glitches.json'
 import { LogicGlitch } from 'src/app/entities/logicGlitch';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { Subscription, tap } from 'rxjs';
+import { map, startWith, Subscription, tap } from 'rxjs';
 
 @Component({
   selector: 'app-glitches-and-tricks',
@@ -18,14 +18,25 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
 
   public glitchesList: LogicGlitch[];
   public filteredGlitches: LogicGlitch[];
-  public locationsList: string[];
 
   public searchText: string = "";
-  public locationFilterControl: FormControl;
+
+  public locationFilterControl = new FormControl('');
   public selectedLocations: string[] = [];
   public filteredLocations: string[] = [];
 
+  public tagsFilterControl = new FormControl('');
+  public selectedTags: string[] = [];
+  public filteredTags: string[] = [];
+
+  public difficultyFilterControl = new FormControl('');
+  public selectedDifficulties: string[] = [];
+  public filteredDifficulties: string[] = [];
+
   private _locationFilterSubscription: Subscription;
+  private _tagsFilterSubscription: Subscription;
+  private _difficultyFilterSubscription: Subscription;
+
 
   public constructor() { }
 
@@ -33,53 +44,92 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
     this.glitchesList = glitchesJson;
     this.filteredGlitches = this.glitchesList;
 
-    this.locationsList = [...new Set(this.glitchesList.map(g => g.location).filter(l => l))];
-
-    this.locationFilterControl = new FormControl('');
-    this.filteredLocations = this.locationsList;
-
     this._locationFilterSubscription = this.locationFilterControl.valueChanges.pipe(
-      tap(() => this.filterLocations())
-    ).subscribe();
+      startWith(''),
+      map(value => this.filterLocations(value))
+    ).subscribe(filtered => {
+      this.filteredLocations = filtered;
+    });
+
+    this._tagsFilterSubscription = this.tagsFilterControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this.filterTags(value))
+    ).subscribe(filtered => {
+      this.filteredTags = filtered;
+    });
+
+    this._difficultyFilterSubscription = this.difficultyFilterControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this.filterDifficulties(value))
+    ).subscribe(filtered => {
+      this.filteredDifficulties = filtered;
+    });
   }
 
   public ngOnDestroy(): void {
     if (this._locationFilterSubscription) {
       this._locationFilterSubscription.unsubscribe();
     }
+    if (this._tagsFilterSubscription) {
+      this._tagsFilterSubscription.unsubscribe();
+    }
+    if (this._difficultyFilterSubscription) {
+      this._difficultyFilterSubscription.unsubscribe();
+    }
   }
 
   public filter() {
-    if(this.searchText?.length < this.MIN_AMOUNT_OF_CHARS && this.selectedLocations.length === 0) {
+    if(this.searchText?.length < this.MIN_AMOUNT_OF_CHARS && this.selectedLocations.length === 0 && this.selectedTags.length === 0 && this.selectedDifficulties.length === 0) {
       this.filteredGlitches = this.glitchesList;
       return;
     }
     this.filteredGlitches = this.glitchesList.filter(
       g => g.name.toLowerCase().includes(this.searchText.toLowerCase()) &&
-      (this.selectedLocations.length === 0 || this.selectedLocations.includes(g.location))
+      (this.selectedDifficulties.length === 0 || this.selectedDifficulties.includes(g.difficulty)) &&
+      (this.selectedLocations.length === 0 || this.selectedLocations.includes(g.location)) &&
+      (this.selectedTags.length === 0 || this.selectedTags.some(tag => g.tags?.includes(tag)))
     )
   }
 
-  public filterLocations(): void {
-    const filterValue = this.locationFilterControl.value.toLowerCase();
-    this.filteredLocations = this.locationsList.filter(
-      location => location.toLowerCase().includes(filterValue) && 
-      !this.selectedLocations.includes(location)
-    );
+  public onDifficultySelected(): void {
+    const difficulty = this.difficultyFilterControl.value;
+    if (difficulty && !this.selectedDifficulties.includes(difficulty)) {
+        this.selectedDifficulties.push(difficulty);
+        this.difficultyFilterControl.reset();
+        this.filter();
+    }
+  }
+
+  public removeDifficulty(difficulty: string): void {
+    this.selectedDifficulties = this.selectedDifficulties.filter(d => d !== difficulty);
+    this.filter();
   }
 
   public onLocationSelected(): void {
     const location = this.locationFilterControl.value;
     if (location && !this.selectedLocations.includes(location)) {
       this.selectedLocations.push(location);
-      this.locationFilterControl.setValue('');
+      this.locationFilterControl.reset();
       this.filter();
     }
   }
 
   public removeLocation(location: string): void {
     this.selectedLocations = this.selectedLocations.filter(l => l !== location);
-    this.filterLocations();
+    this.filter();
+  }
+
+  public onTagSelected(): void {
+    const tag = this.tagsFilterControl.value;
+    if (tag && !this.selectedTags.includes(tag)) {
+        this.selectedTags.push(tag);
+        this.tagsFilterControl.reset();
+        this.filter();
+    }
+}
+
+  public removeTag(tag: string): void {
+    this.selectedTags = this.selectedTags.filter(t => t !== tag);
     this.filter();
   }
 
@@ -92,7 +142,6 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
     return this.filteredGlitches.length > 0 && 
            this.filteredGlitches.every(glitch => selectedGlitches.includes(glitch));
   }
-
 
   public toggleAllFiltered(event: MatCheckboxChange): void {
     const selectedGlitches = this.formGroup.get('glitches').value || [];
@@ -118,5 +167,51 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
 
     let newGlitchesArray = glitchesFormControl.value.filter(enabledGlitch => enabledGlitch != glitch)
     glitchesFormControl.setValue(newGlitchesArray)
+  }
+
+  private filterLocations(value: string): string[] {
+    const filterValue = value?.toLowerCase() || '';
+    const allLocations = new Set<string>();
+    
+    this.glitchesList.forEach(glitch => {
+        if (glitch.location) {
+            allLocations.add(glitch.location);
+        }
+    });
+    
+    return Array.from(allLocations).filter(location =>
+        location.toLowerCase().includes(filterValue) && 
+        !this.selectedLocations.includes(location)
+    );
+  }
+
+  private filterDifficulties(value: string): string[] {
+    const filterValue = value?.toLowerCase() || '';
+    const allDifficulties = new Set<string>();
+    
+    this.glitchesList.forEach(glitch => {
+        if (glitch.difficulty) {
+            allDifficulties.add(glitch.difficulty);
+        }
+    });
+    
+    return Array.from(allDifficulties).filter(difficulty =>
+        difficulty.toLowerCase().includes(filterValue) && 
+        !this.selectedDifficulties.includes(difficulty)
+    );
+  }
+
+  private filterTags(value: string): string[] {
+    const filterValue = value?.toLowerCase() || '';
+    const allTags = new Set<string>();
+    
+    this.glitchesList.forEach(glitch => {
+        glitch.tags?.forEach(tag => allTags.add(tag));
+    });
+    
+    return Array.from(allTags).filter(tag =>
+        tag.toLowerCase().includes(filterValue) &&
+        !this.selectedTags.includes(tag)
+    );
   }
 }

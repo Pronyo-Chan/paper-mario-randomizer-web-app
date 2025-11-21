@@ -82,8 +82,16 @@
 
         .setting-element {
             flex: 0 0 auto;
+
+            .difficulty-input {
+                width: 14rem;
+            }
+
             .location-input {
-                width: 15rem;
+                width: 14rem;
+            }
+            .tags-input {
+                width: 14rem;
             }
         }
     }

@@ -5,7 +5,7 @@
         <div class="filter-section">
             <div class="filter-inputs">
                 <div class="setting-element input-element">
-                    <app-tooltip-span spanText="Filter"></app-tooltip-span>
+                    <app-tooltip-span spanText="Name"></app-tooltip-span>
                     <input type="text"
                             maxlength="30"
                             placeholder="Trick Name"
@@ -16,7 +16,18 @@
                 </div>
 
                 <div class="setting-element dropdown-element">
-                    <app-tooltip-span spanText="Location"></app-tooltip-span>
+                    <app-tooltip-span spanText="Difficulty"></app-tooltip-span>
+                    <input
+                        class="difficulty-input"
+                        [placeholder]="'Difficulty'"
+                        [formControl]="difficultyFilterControl"
+                        #difficultyAutocomplete="matAutocompleteTrigger"
+                        [matAutocomplete]="difficultyAuto"
+                        matInput>
+                </div>
+
+                <div class="setting-element dropdown-element">
+                    <app-tooltip-span spanText="Locations"></app-tooltip-span>
                     <input
                         class="location-input"
                         [placeholder]="'Location Name'"
@@ -25,20 +36,57 @@
                         [matAutocomplete]="locationAuto"
                         matInput>
                 </div>
+
+                <div class="setting-element dropdown-element">
+                    <app-tooltip-span spanText="Tags"></app-tooltip-span>
+                    <input
+                        class="tags-input"
+                        [placeholder]="'Tag Name'"
+                        [formControl]="tagsFilterControl"
+                        #tagsAutocomplete="matAutocompleteTrigger"
+                        [matAutocomplete]="tagsAuto"
+                        matInput>
+                </div>
             </div>
 
             <div class="selected-locations-container">
+                <span class="tag difficulty-tag" *ngFor="let difficulty of selectedDifficulties">
+                    {{difficulty}}
+                    <button type="button" (click)="removeDifficulty(difficulty);" class="remove-tag-button">
+                        <mat-icon class="material-icons-outlined">cancel</mat-icon>
+                    </button>
+                </span>
+
                 <span class="tag location-tag" *ngFor="let location of selectedLocations">
                     {{location}}
                     <button type="button" (click)="removeLocation(location);" class="remove-tag-button">
                         <mat-icon class="material-icons-outlined">cancel</mat-icon>
                     </button>
                 </span>
+
+                <span class="tag custom-tag" *ngFor="let tag of selectedTags">
+                    {{tag}}
+                    <button type="button" (click)="removeTag(tag);" class="remove-tag-button">
+                        <mat-icon class="material-icons-outlined">cancel</mat-icon>
+                    </button>
+                </span>
             </div>
+
+            <mat-autocomplete #difficultyAuto="matAutocomplete" (optionSelected)="onDifficultySelected()">
+                <mat-option *ngFor="let difficulty of filteredDifficulties" [value]="difficulty">
+                    {{difficulty}}
+                </mat-option>
+            </mat-autocomplete>
 
             <mat-autocomplete #locationAuto="matAutocomplete" (optionSelected)="onLocationSelected()">
                 <mat-option *ngFor="let location of filteredLocations" [value]="location">
                     {{location}}
+                </mat-option>
+            </mat-autocomplete>
+
+            <mat-autocomplete #tagsAuto="matAutocomplete" (optionSelected)="onTagSelected()">
+                <mat-option *ngFor="let tag of filteredTags" [value]="tag">
+                    {{tag}}
                 </mat-option>
             </mat-autocomplete>
         </div>
