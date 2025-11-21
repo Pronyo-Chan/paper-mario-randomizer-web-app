@@ -4,6 +4,13 @@
         
         <div class="filter-section">
             <div class="filter-inputs">
+                <div class="setting-element dropdown-element">
+                    <app-tooltip-span spanText="Sort By"></app-tooltip-span>
+                    <select [(ngModel)]="selectedSort" [ngModelOptions]="{standalone: true}" (ngModelChange)="filter()">
+                        <option *ngFor="let option of sortOptions" [value]="option.value">{{option.label}}</option>
+                    </select>
+                </div>
+                
                 <div class="setting-element input-element">
                     <app-tooltip-span spanText="Name"></app-tooltip-span>
                     <input type="text"
@@ -101,7 +108,7 @@
                             (change)="toggleAllFiltered($event)">
                         </mat-checkbox>
                     </div>
-                    <mat-list-option *ngFor="let glitch of glitchesList" [value]="glitch" [ngStyle]="{ display : isGlitchInFilteredList(glitch) ? 'block' : 'none' }" [disabled]="!isGlitchInFilteredList(glitch)" >
+                    <mat-list-option *ngFor="let glitch of filteredGlitches" [value]="glitch">
                         <div class="glitch-item-wrapper">
                             <a class="image-link" [ngClass]="{ 'disabled-link' : !glitch.link}" [href]="glitch.link" target="_blank" rel="noopener noreferrer" (click)="$event.stopPropagation()">
                                 <mat-icon class="material-icons-outlined video-icon">smart_display</mat-icon>

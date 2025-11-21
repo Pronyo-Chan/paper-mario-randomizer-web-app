@@ -33,6 +33,16 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
   public selectedDifficulties: string[] = [];
   public filteredDifficulties: string[] = [];
 
+  public sortOptions = [
+    { label: 'Name ↑', value: 'nameAsc' },
+    { label: 'Name ↓', value: 'nameDesc' },
+    { label: 'Difficulty ↑', value: 'difficultyAsc' },
+    { label: 'Difficulty ↓', value: 'difficultyDesc' },
+    { label: 'Location ↑', value: 'locationAsc' },
+    { label: 'Location ↓', value: 'locationDesc' }
+  ];
+  public selectedSort = 'nameAsc';
+
   private _locationFilterSubscription: Subscription;
   private _tagsFilterSubscription: Subscription;
   private _difficultyFilterSubscription: Subscription;
@@ -42,7 +52,7 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.glitchesList = glitchesJson;
-    this.filteredGlitches = this.glitchesList;
+    this.filteredGlitches = this.sortGlitches(this.glitchesList);
 
     this._locationFilterSubscription = this.locationFilterControl.valueChanges.pipe(
       startWith(''),
@@ -63,8 +73,8 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
       map(value => this.filterDifficulties(value))
     ).subscribe(filtered => {
       this.filteredDifficulties = filtered;
-    });
-  }
+  });
+}
 
   public ngOnDestroy(): void {
     if (this._locationFilterSubscription) {
@@ -79,16 +89,14 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
   }
 
   public filter() {
-    if(this.searchText?.length < this.MIN_AMOUNT_OF_CHARS && this.selectedLocations.length === 0 && this.selectedTags.length === 0 && this.selectedDifficulties.length === 0) {
-      this.filteredGlitches = this.glitchesList;
-      return;
-    }
-    this.filteredGlitches = this.glitchesList.filter(
+    let filtered = this.glitchesList.filter(
       g => g.name.toLowerCase().includes(this.searchText.toLowerCase()) &&
       (this.selectedDifficulties.length === 0 || this.selectedDifficulties.includes(g.difficulty)) &&
       (this.selectedLocations.length === 0 || this.selectedLocations.includes(g.location)) &&
       (this.selectedTags.length === 0 || this.selectedTags.some(tag => g.tags?.includes(tag)))
-    )
+    );
+
+    this.filteredGlitches = this.sortGlitches(filtered);
   }
 
   public onDifficultySelected(): void {
@@ -169,6 +177,10 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
     glitchesFormControl.setValue(newGlitchesArray)
   }
 
+  public onSortChange(): void {
+    this.filter();
+  }
+
   private filterLocations(value: string): string[] {
     const filterValue = value?.toLowerCase() || '';
     const allLocations = new Set<string>();
@@ -213,5 +225,27 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
         tag.toLowerCase().includes(filterValue) &&
         !this.selectedTags.includes(tag)
     );
+  }
+
+  private sortGlitches(glitches: LogicGlitch[]): LogicGlitch[] {
+    const sort = this.selectedSort;
+    return [...glitches].sort((a, b) => {
+      switch (sort) {
+        case 'nameAsc':
+          return (a.name || '').localeCompare(b.name || '');
+        case 'nameDesc':
+          return (b.name || '').localeCompare(a.name || '');
+        case 'difficultyAsc':
+          return (a.difficulty || '').localeCompare(b.difficulty || '');
+        case 'difficultyDesc':
+          return (b.difficulty || '').localeCompare(a.difficulty || '');
+        case 'locationAsc':
+          return (a.location || '').localeCompare(b.location || '');
+        case 'locationDesc':
+          return (b.location || '').localeCompare(a.location || '');
+        default:
+          return 0;
+      }
+    });
   }
 }
