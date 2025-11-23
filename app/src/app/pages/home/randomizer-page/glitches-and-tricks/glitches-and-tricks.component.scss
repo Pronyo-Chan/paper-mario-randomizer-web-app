@@ -79,6 +79,7 @@
 
     .filter-inputs {
         display: flex;
+        flex-wrap: wrap;
         gap: 32px;
 
         .setting-element {
