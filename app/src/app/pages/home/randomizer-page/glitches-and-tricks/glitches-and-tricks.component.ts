@@ -1,5 +1,5 @@
 import { FormControl, FormGroup } from '@angular/forms';
-import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import glitchesJson from '../../../../utilities/glitches.json'
 import { LogicGlitch } from 'src/app/entities/logicGlitch';
 import { MatCheckboxChange } from '@angular/material/checkbox';
@@ -48,7 +48,6 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
   private _locationFilterSubscription: Subscription;
   private _tagsFilterSubscription: Subscription;
   private _difficultyFilterSubscription: Subscription;
-
 
   public constructor() { }
 
@@ -99,6 +98,7 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
     );
 
     this.filteredGlitches = this.sortGlitches(filtered);
+    this.scrollListToTop();
   }
 
   public onDifficultySelected(): void {
@@ -257,6 +257,15 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
           return (b.location || '').localeCompare(a.location || '');
         default:
           return 0;
+      }
+    });
+  }
+
+  private scrollListToTop(): void {
+    setTimeout(() => {
+      const listElement = document.querySelector('.glitches-list');
+      if (listElement) {
+        listElement.scrollTop = 0;
       }
     });
   }
