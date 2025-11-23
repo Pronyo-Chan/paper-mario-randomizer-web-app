@@ -228,10 +228,12 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
         glitch.tags?.forEach(tag => allTags.add(tag));
     });
     
-    return Array.from(allTags).filter(tag =>
+    return Array.from(allTags)
+      .filter(tag =>
         tag.toLowerCase().includes(filterValue) &&
         !this.selectedTags.includes(tag)
-    );
+      )
+      .sort((a, b) => a.localeCompare(b));
   }
 
   private sortGlitches(glitches: LogicGlitch[]): LogicGlitch[] {
