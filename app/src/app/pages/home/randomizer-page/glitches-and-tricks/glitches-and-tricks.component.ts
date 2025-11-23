@@ -13,6 +13,8 @@ import { map, startWith, Subscription, tap } from 'rxjs';
 export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
   public readonly MIN_AMOUNT_OF_CHARS = 2;
   public readonly DEFAULT_LOCATION = "(all)";
+  private readonly DIFFICULTY_ORDER = ['Trivial', 'Beginner', 'Intermediate', 'Advanced', 'Expert', 'Extreme', 'Kooper Skip'];
+
 
   @Input() public formGroup: FormGroup
 
@@ -207,10 +209,15 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
         }
     });
     
-    return Array.from(allDifficulties).filter(difficulty =>
+    const filtered = Array.from(allDifficulties).filter(difficulty =>
         difficulty.toLowerCase().includes(filterValue) && 
         !this.selectedDifficulties.includes(difficulty)
     );
+
+    // Sort by the predefined difficulty order
+    return filtered.sort((a, b) => {
+      return this.DIFFICULTY_ORDER.indexOf(a) - this.DIFFICULTY_ORDER.indexOf(b);
+    });
   }
 
   private filterTags(value: string): string[] {
@@ -236,9 +243,9 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
         case 'nameDesc':
           return (b.name || '').localeCompare(a.name || '');
         case 'difficultyAsc':
-          return (a.difficulty || '').localeCompare(b.difficulty || '');
+          return this.DIFFICULTY_ORDER.indexOf(a.difficulty) - this.DIFFICULTY_ORDER.indexOf(b.difficulty);
         case 'difficultyDesc':
-          return (b.difficulty || '').localeCompare(a.difficulty || '');
+          return this.DIFFICULTY_ORDER.indexOf(b.difficulty) - this.DIFFICULTY_ORDER.indexOf(a.difficulty);
         case 'locationAsc':
           return (a.location || '').localeCompare(b.location || '');
         case 'locationDesc':
