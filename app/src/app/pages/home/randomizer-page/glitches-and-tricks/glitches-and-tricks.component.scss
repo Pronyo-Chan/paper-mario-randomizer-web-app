@@ -3,22 +3,22 @@
 
 .master-checkbox {
     padding-right: 1.875rem;
-    margin-right: -20px;
+    margin-right: -1.25rem;
     background-color: $beige-background-secondary;
     border: 3px solid $yellow-stat-border;
     border-bottom: none;
-    border-radius: 8px 8px 0 0;
+    border-radius: 0.5rem 0.5rem 0 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row-reverse;
-    height: 56px;
+    height: 3.5rem;
     box-sizing: border-box;
 
     mat-checkbox {
         margin: 0;
         font-family: gluten;
-        font-size: 16px;
+        font-size: 1rem;
     }
 }
 
@@ -32,12 +32,12 @@
     .tricks-section {
 
         @include medium {
-          margin-left: 3rem;
-          margin-bottom: 2rem;
+            margin-left: 3rem;
+            margin-bottom: 2rem;
 
-          flex-basis: 45%;
-          width: 45%;
-          flex-grow: 1;
+            flex-basis: 45%;
+            width: 45%;
+            flex-grow: 1;
         }
 
         .glitches-list {
@@ -49,18 +49,18 @@
         }
 
         .glitches-list::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
+            width: 0.5rem;
+            height: 0.5rem;
         }
 
         .glitches-list::-webkit-scrollbar-track {
             background-color: $beige-background-secondary;
-            border-radius: 10px;
+            border-radius: 0.625rem;
         }
 
         .glitches-list::-webkit-scrollbar-thumb {
             background-color: $yellow-stat-border;
-            border-radius: 10px;
+            border-radius: 0.625rem;
         }
     }
 }
@@ -75,12 +75,12 @@
     padding: 1.25rem;
     background-color: $beige-background-secondary;
     border: 3px solid $yellow-stat-border;
-    border-radius: 8px;
+    border-radius: 0.5rem;
 
     .filter-inputs {
         display: flex;
         flex-wrap: wrap;
-        gap: 32px;
+        gap: 2rem;
 
         .setting-element {
             flex: 0 0 auto;
@@ -103,10 +103,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 11px;
+    gap: 0.25rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: 1.25rem;
+    font-size: 0.6875rem;
     font-weight: 400;
     font-family: gluten;
     white-space: nowrap;
@@ -129,47 +129,47 @@
 }
 
 .selected-locations-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-
-  .tag {
-    position: relative;
-  }
-
-  .remove-tag-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
     display: flex;
-    align-items: center;
-    line-height: 1;
-    color: white;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 
-    &:hover {
-      opacity: 0.7;
+    .tag {
+        position: relative;
     }
 
-    mat-icon {
-      width: 16px;
-      height: 16px;
-      font-size: 16px;
-      line-height: 16px;
+    .remove-tag-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        line-height: 1;
+        color: white;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        mat-icon {
+            width: 1rem;
+            height: 1rem;
+            font-size: 1rem;
+            line-height: 1rem;
+        }
     }
-  }
 }
 
 .tags-container {
     display: flex;
-    gap: 6px;
+    gap: 0.375rem;
     flex-wrap: wrap;
     align-items: center;
 }
 
 mat-selection-list, mat-list {
-    border-radius: 0 0 8px 8px;
+    border-radius: 0 0 0.5rem 0.5rem;
     margin: 0;
     padding: 0;
     
@@ -184,19 +184,19 @@ mat-selection-list, mat-list {
 
         &:last-child {
             border-bottom: 3px solid $yellow-stat-border !important;
-            border-radius: 0 0 8px 8px;
+            border-radius: 0 0 0.5rem 0.5rem;
         }
 
         button {
             position: absolute;
             top: 50%;
-            right: 12px;
+            right: 0.75rem;
             transform: translateY(-50%);
             padding: 0;
             margin: 0;
 
             mat-icon {
-                font-size: 20px;
+                font-size: 1.25rem;
             }
         }
     }
@@ -206,7 +206,7 @@ mat-selection-list, mat-list {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     width: 100%;
 }
 
@@ -220,7 +220,7 @@ mat-selection-list, mat-list {
 .glitch-content {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 0.375rem;
     flex: 1;
     overflow: hidden;
 }
@@ -228,7 +228,7 @@ mat-selection-list, mat-list {
 .glitch-header {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     flex: 1;
     overflow: hidden;
 }
@@ -245,7 +245,7 @@ p.disclaimer {
 
 span.no-results {
     font-family: gluten;
-    font-size: 18px;
+    font-size: 1.125rem;
     justify-content: center;
     display: flex;
     color: red;
@@ -271,6 +271,6 @@ a.disabled-link {
 }
 
 .video-icon {
-  position: relative;
-  top: 5px;
+    position: relative;
+    top: 0.3125rem;
 }
