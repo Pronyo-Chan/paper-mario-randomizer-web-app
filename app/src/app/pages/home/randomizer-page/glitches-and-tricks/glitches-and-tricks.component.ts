@@ -112,6 +112,7 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
 
   public removeDifficulty(difficulty: string): void {
     this.selectedDifficulties = this.selectedDifficulties.filter(d => d !== difficulty);
+    this.filteredDifficulties = this.filterDifficulties(this.difficultyFilterControl.value || '');
     this.filter();
   }
 
@@ -126,6 +127,7 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
 
   public removeLocation(location: string): void {
     this.selectedLocations = this.selectedLocations.filter(l => l !== location);
+    this.filteredLocations = this.filterLocations(this.locationFilterControl.value || '');
     this.filter();
   }
 
@@ -140,6 +142,7 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
 
   public removeTag(tag: string): void {
     this.selectedTags = this.selectedTags.filter(t => t !== tag);
+    this.filteredTags = this.filterTags(this.tagsFilterControl.value || '');
     this.filter();
   }
 
