@@ -2,7 +2,7 @@
 @import '../../../../../mixins.scss';
 
 .master-checkbox {
-    padding: 14px;
+    padding-right: 1.875rem;
     margin-right: -20px;
     background-color: $beige-background-secondary;
     border: 3px solid $yellow-stat-border;
@@ -69,9 +69,10 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 20px;
-    padding: 20px;
+    min-height: 5.25rem;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
     background-color: $beige-background-secondary;
     border: 3px solid $yellow-stat-border;
     border-radius: 8px;
@@ -175,7 +176,7 @@ mat-selection-list, mat-list {
         border: 3px solid $yellow-stat-border !important;
         border-top: none !important;
         height: auto;
-        padding: 8px 16px;
+        padding: 0.5rem 1rem 0.5rem 0 !important;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
