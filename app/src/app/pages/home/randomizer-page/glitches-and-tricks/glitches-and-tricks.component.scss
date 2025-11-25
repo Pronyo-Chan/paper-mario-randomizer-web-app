@@ -85,6 +85,10 @@
         .setting-element {
             flex: 0 0 auto;
 
+            .name-input {
+                width: 14rem;
+            }
+
             .difficulty-input {
                 width: 14rem;
             }

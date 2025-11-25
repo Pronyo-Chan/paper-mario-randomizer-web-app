@@ -10,17 +10,6 @@
                         <option *ngFor="let option of sortOptions" [value]="option.value">{{option.label}}</option>
                     </select>
                 </div>
-                
-                <div class="setting-element input-element">
-                    <app-tooltip-span spanText="Name"></app-tooltip-span>
-                    <input type="text"
-                            maxlength="30"
-                            placeholder="Trick Name"
-                            [(ngModel)]="searchText"
-                            [ngModelOptions]="{standalone: true}"
-                            (ngModelChange)="filter()"
-                            matInput>
-                </div>
 
                 <div class="setting-element dropdown-element">
                     <app-tooltip-span spanText="Difficulty"></app-tooltip-span>
@@ -53,6 +42,18 @@
                         #tagsAutocomplete="matAutocompleteTrigger"
                         [matAutocomplete]="tagsAuto"
                         matInput>
+                </div>
+
+                <div class="setting-element input-element">
+                    <app-tooltip-span spanText="Name"></app-tooltip-span>
+                    <input type="text"
+                            class="name-input"
+                            maxlength="30"
+                            placeholder="Trick Name"
+                            [(ngModel)]="searchText"
+                            [ngModelOptions]="{standalone: true}"
+                            (ngModelChange)="filter()"
+                            matInput>
                 </div>
             </div>
 
