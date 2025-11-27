@@ -109,7 +109,7 @@
                             (change)="toggleAllFiltered($event)">
                         </mat-checkbox>
                     </div>
-                    <mat-list-option *ngFor="let glitch of filteredGlitches" [value]="glitch">
+                    <mat-list-option *ngFor="let glitch of glitchesList" [value]="glitch" [ngClass]="{ 'hidden-trick': !isGlitchVisible(glitch) }">
                         <div class="glitch-item-wrapper">
                             <a class="image-link" [ngClass]="{ 'disabled-link' : !glitch.link}" [href]="glitch.link" target="_blank" rel="noopener noreferrer" (click)="$event.stopPropagation()">
                                 <mat-icon class="material-icons-outlined video-icon">smart_display</mat-icon>

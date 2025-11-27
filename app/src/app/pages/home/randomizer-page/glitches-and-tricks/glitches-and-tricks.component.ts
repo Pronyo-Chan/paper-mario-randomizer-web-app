@@ -146,8 +146,8 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
     this.filter();
   }
 
-  public isGlitchInFilteredList(glitch: LogicGlitch) {
-    return this.filteredGlitches.some(g => g == glitch);
+  public isGlitchVisible(glitch: any): boolean {
+    return this.filteredGlitches.includes(glitch);
   }
 
   public allFilteredAreSelected(): boolean {
@@ -169,10 +169,7 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
 
   public disableAll() {
     let glitchesFormControl = this.formGroup.get('glitches')
-    let newGlitchesArray = [...glitchesFormControl.value]
-
-    newGlitchesArray = newGlitchesArray.filter(enabledGlitch => !this.filteredGlitches.some(filteredGlitch => filteredGlitch == enabledGlitch))
-    glitchesFormControl.setValue(newGlitchesArray)
+    glitchesFormControl.setValue([])
   }
 
   public disableGlitch(glitch: LogicGlitch) {
