@@ -36,14 +36,15 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
   public filteredDifficulties: string[] = [];
 
   public sortOptions = [
-    { label: 'Name ↑', value: 'nameAsc' },
-    { label: 'Name ↓', value: 'nameDesc' },
     { label: 'Difficulty ↑', value: 'difficultyAsc' },
     { label: 'Difficulty ↓', value: 'difficultyDesc' },
     { label: 'Location ↑', value: 'locationAsc' },
-    { label: 'Location ↓', value: 'locationDesc' }
+    { label: 'Location ↓', value: 'locationDesc' },
+    { label: 'Name ↑', value: 'nameAsc' },
+    { label: 'Name ↓', value: 'nameDesc' }
   ];
-  public selectedSort = 'nameAsc';
+
+  public selectedSort = 'difficultyAsc';
 
   private _locationFilterSubscription: Subscription;
   private _tagsFilterSubscription: Subscription;
@@ -87,6 +88,22 @@ export class GlitchesAndTricksComponent implements OnInit, OnDestroy {
     if (this._difficultyFilterSubscription) {
       this._difficultyFilterSubscription.unsubscribe();
     }
+  }
+
+  public get glitches(): LogicGlitch[] {
+    // Create a Set for O(1) lookup
+    const filteredSet = new Set(this.filteredGlitches);
+    
+    // Return all glitches in the sorted/filtered order, plus hidden ones at the end
+    const visible = this.filteredGlitches;
+    const hidden = this.glitchesList.filter(g => !filteredSet.has(g));
+    
+    return [...visible, ...hidden];
+  }
+
+  public get enabledGlitches(): LogicGlitch[] {
+    const enabledTricks = this.formGroup.get('glitches').value || [];
+    return this.sortGlitches(enabledTricks);
   }
 
   public filter() {
