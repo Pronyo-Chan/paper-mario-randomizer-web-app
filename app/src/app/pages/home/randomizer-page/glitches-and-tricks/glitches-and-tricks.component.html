@@ -1,65 +1,166 @@
 <form [formGroup]="formGroup" autocomplete="off">
     <mat-card-content class=settings-card-content>
         <p class="disclaimer">*Enabling tricks will make them part of the logic, which means you might be required to use them to beat the game. Leaving tricks disabled won't prevent using them if you still wish to do so.</p>
+        
         <div class="filter-section">
+            <div class="filter-inputs">
+                <div class="setting-element dropdown-element">
+                    <app-tooltip-span spanText="Sort By"></app-tooltip-span>
+                    <select [(ngModel)]="selectedSort" [ngModelOptions]="{standalone: true}" (ngModelChange)="filter()">
+                        <option *ngFor="let option of sortOptions" [value]="option.value">{{option.label}}</option>
+                    </select>
+                </div>
 
-            <div class="setting-element input-element">
-                <app-tooltip-span spanText="Filter"></app-tooltip-span>
-                <input type="text"
-                        maxlength="30"
-                        placeholder="Trick Name"
-                        [(ngModel)]="searchText"
-                        [ngModelOptions]="{standalone: true}"
-                        (ngModelChange)="filter()"
+                <div class="setting-element dropdown-element">
+                    <app-tooltip-span spanText="Difficulty"></app-tooltip-span>
+                    <input
+                        class="difficulty-input"
+                        [placeholder]="'Difficulty'"
+                        [formControl]="difficultyFilterControl"
+                        #difficultyAutocomplete="matAutocompleteTrigger"
+                        [matAutocomplete]="difficultyAuto"
                         matInput>
+                </div>
+
+                <div class="setting-element dropdown-element">
+                    <app-tooltip-span spanText="Location"></app-tooltip-span>
+                    <input
+                        class="location-input"
+                        [placeholder]="'Location Name'"
+                        [formControl]="locationFilterControl"
+                        #locationAutocomplete="matAutocompleteTrigger"
+                        [matAutocomplete]="locationAuto"
+                        matInput>
+                </div>
+
+                <div class="setting-element dropdown-element">
+                    <app-tooltip-span spanText="Tag"></app-tooltip-span>
+                    <input
+                        class="tags-input"
+                        [placeholder]="'Tag Name'"
+                        [formControl]="tagsFilterControl"
+                        #tagsAutocomplete="matAutocompleteTrigger"
+                        [matAutocomplete]="tagsAuto"
+                        matInput>
+                </div>
+
+                <div class="setting-element input-element">
+                    <app-tooltip-span spanText="Name"></app-tooltip-span>
+                    <input type="text"
+                            class="name-input"
+                            maxlength="30"
+                            placeholder="Trick Name"
+                            [(ngModel)]="searchText"
+                            [ngModelOptions]="{standalone: true}"
+                            (ngModelChange)="filter()"
+                            matInput>
+                </div>
             </div>
 
-            <div class="setting-element dropdown-element">
-                <app-tooltip-span spanText="Location"></app-tooltip-span>
-                <select [(ngModel)]="selectedLocation" [ngModelOptions]="{standalone: true}" (ngModelChange)="filter()">
-                    <option *ngFor="let location of locationsList">{{location}}</option>
-                </select>
+            <div class="selected-locations-container">
+                <span class="tag difficulty-tag" *ngFor="let difficulty of selectedDifficulties">
+                    {{difficulty}}
+                    <button type="button" (click)="removeDifficulty(difficulty);" class="remove-tag-button">
+                        <mat-icon class="material-icons-outlined">cancel</mat-icon>
+                    </button>
+                </span>
+
+                <span class="tag location-tag" *ngFor="let location of selectedLocations">
+                    {{location}}
+                    <button type="button" (click)="removeLocation(location);" class="remove-tag-button">
+                        <mat-icon class="material-icons-outlined">cancel</mat-icon>
+                    </button>
+                </span>
+
+                <span class="tag custom-tag" *ngFor="let tag of selectedTags">
+                    {{tag}}
+                    <button type="button" (click)="removeTag(tag);" class="remove-tag-button">
+                        <mat-icon class="material-icons-outlined">cancel</mat-icon>
+                    </button>
+                </span>
             </div>
 
-            <div>
-                <button class = 'yellow-button' (click)="enableAll()" [disabled]="!filteredGlitches.length" >
-                    <span>Enable All</span>
-                </button>
-                <button class = 'yellow-button' (click)="disableAll()" [disabled]="!filteredGlitches.length" >
-                    <span>Disable All</span>
-                </button>
-            </div>
+            <mat-autocomplete #difficultyAuto="matAutocomplete" (optionSelected)="onDifficultySelected()">
+                <mat-option *ngFor="let difficulty of filteredDifficulties" [value]="difficulty">
+                    {{difficulty}}
+                </mat-option>
+            </mat-autocomplete>
+
+            <mat-autocomplete #locationAuto="matAutocomplete" (optionSelected)="onLocationSelected()">
+                <mat-option *ngFor="let location of filteredLocations" [value]="location">
+                    {{location}}
+                </mat-option>
+            </mat-autocomplete>
+
+            <mat-autocomplete #tagsAuto="matAutocomplete" (optionSelected)="onTagSelected()">
+                <mat-option *ngFor="let tag of filteredTags" [value]="tag">
+                    {{tag}}
+                </mat-option>
+            </mat-autocomplete>
         </div>
+
         <div class="table-container">
             <div class="tricks-section">
-
                 <h2>Available tricks</h2>
-                <mat-selection-list  #glitches class="glitches-list fancy-scrollbar" formControlName="glitches">
-                    <mat-list-option *ngFor="let glitch of glitchesList" [value]="glitch" [ngStyle]="{ display : isGlitchInFilteredList(glitch) ? 'block' : 'none' }" [disabled]="!isGlitchInFilteredList(glitch)" >
-                        <a class="image-link" [ngClass]="{ 'disabled-link' : !glitch.link}" [href]="glitch.link" target="_blank" rel="noopener noreferrer" (click)="$event.stopPropagation()">
-                            <mat-icon class="material-icons-outlined video-icon">smart_display</mat-icon>
-                        </a>
-                        <app-tooltip-span [tooltipText]="glitch.description" [spanText]="glitch.name"></app-tooltip-span>
+                <mat-selection-list class="glitches-list fancy-scrollbar" formControlName="glitches">
+                    <div class="master-checkbox" *ngIf="filteredGlitches.length > 0">
+                        <mat-checkbox 
+                            [checked]="allFilteredAreSelected()" 
+                            (change)="toggleAllFiltered($event)">
+                        </mat-checkbox>
+                    </div>
+                    <mat-list-option *ngFor="let glitch of glitches" [value]="glitch" [ngClass]="{ 'hidden-trick': !isGlitchVisible(glitch) }">
+                        <div class="glitch-item-wrapper">
+                            <a class="image-link" [ngClass]="{ 'disabled-link' : !glitch.link}" [href]="glitch.link" target="_blank" rel="noopener noreferrer" (click)="$event.stopPropagation()">
+                                <mat-icon class="material-icons-outlined video-icon">smart_display</mat-icon>
+                            </a>
+                            <div class="glitch-content">
+                                <div class="glitch-header">
+                                    <app-tooltip-span [tooltipText]="glitch.description" [spanText]="glitch.name"></app-tooltip-span>
+                                </div>
+                                <div class="tags-container">
+                                    <span class="tag difficulty-tag" *ngIf="glitch.difficulty">{{glitch.difficulty}}</span>
+                                    <span class="tag location-tag" *ngIf="glitch.location">{{glitch.location}}</span>
+                                    <span class="tag custom-tag" *ngFor="let tag of glitch.tags">{{tag}}</span>
+                                </div>
+                            </div>
+                        </div>
                     </mat-list-option>
                     <span class="no-results" *ngIf="!filteredGlitches.length">No Results</span>
                 </mat-selection-list>
             </div>
 
             <div class="tricks-section">
-                <h2> Enabled tricks</h2>
+                <h2>Enabled tricks</h2>
                 <mat-list class="glitches-list fancy-scrollbar">
-                    <mat-list-item *ngFor="let enabledGlitch of formGroup.get('glitches').value">
-                        <a class="image-link" [ngClass]="{ 'disabled-link' : !enabledGlitch.link}" [href]="enabledGlitch.link" target="_blank" rel="noopener noreferrer">
-                            <mat-icon class="material-icons-outlined video-icon">smart_display</mat-icon>
-                        </a>
-                        <app-tooltip-span [tooltipText]="enabledGlitch.description" [spanText]="enabledGlitch.name"></app-tooltip-span>
+                    <div class="master-checkbox" *ngIf="enabledGlitches.length > 0">
+                        <mat-checkbox 
+                            [checked]="enabledGlitches.length === enabledGlitches.length" 
+                            (change)="disableAll()">
+                        </mat-checkbox>
+                    </div>
+                    <mat-list-item *ngFor="let enabledGlitch of enabledGlitches">
+                        <div class="glitch-item-wrapper">
+                            <a class="image-link" [ngClass]="{ 'disabled-link' : !enabledGlitch.link}" [href]="enabledGlitch.link" target="_blank" rel="noopener noreferrer">
+                                <mat-icon class="material-icons-outlined video-icon">smart_display</mat-icon>
+                            </a>
+                            <div class="glitch-content">
+                                <div class="glitch-header">
+                                    <app-tooltip-span [tooltipText]="enabledGlitch.description" [spanText]="enabledGlitch.name"></app-tooltip-span>
+                                </div>
+                                <div class="tags-container">
+                                    <span class="tag difficulty-tag" *ngIf="enabledGlitch.difficulty">{{enabledGlitch.difficulty}}</span>
+                                    <span class="tag location-tag" *ngIf="enabledGlitch.location">{{enabledGlitch.location}}</span>
+                                    <span class="tag custom-tag" *ngFor="let tag of enabledGlitch.tags">{{tag}}</span>
+                                </div>
+                            </div>
+                        </div>
                         <button (click)="disableGlitch(enabledGlitch)" class="remove-button">
                             <mat-icon class="material-icons-outlined">cancel</mat-icon>
                         </button>
                     </mat-list-item>
                 </mat-list>
             </div>
-
         </div>
     </mat-card-content>
 </form>
