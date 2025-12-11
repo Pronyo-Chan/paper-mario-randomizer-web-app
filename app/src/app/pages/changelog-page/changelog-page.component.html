@@ -1,5 +1,69 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
+    <mat-card class="settings-card latest-changelog">
+        <mat-card-title class="settings-title">0.31.2 (beta) (2025-12-11)</mat-card-title>
+
+        <h2>Special Thanks</h2>
+        <ul>
+        <li><span class="bolder-text">Sunta & Mr.zebra</span> for making and adjusting the spreadsheet with all the glitches data! It is really an essential resource to enable all the new UI features.</li>
+        <li>Everyone else who contributed to the `Better Glitch/Trick Interface` suggestion! This overhaul really was a community effort.</li>
+        </ul>
+
+        <h2>Known Issues</h2>
+        <ul>
+            <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+        </ul>
+
+        <h2>Feature Changes</h2>
+        <ul>
+            <li>Star Spirits as item traps: If star spirit shuffle and item traps are active, then fake star spirit items may now appear as item traps.</li>
+        </ul>
+
+        <h2>Website</h2>
+        <ul>
+            <li>Glitches & Tricks overhaul. The interface now allows players to filter tricks by name, difficulty level, location, and custom tags.
+                 Additionally, sorting options have been expanded to include all these categories.
+                  To improve usability, difficulty ratings, location information, and applicable tags are now prominently displayed on each individual trick item card in the list view, making it much easier to identify and select the tricks you need for your playstyle.</li>
+        </ul>
+
+        <h2>Tricks & Glitches</h2>
+        <h3>Settings not doing anything when turned on</h3>
+        <ul>
+            <li>Fix `Tubba's Castle Super Boots Skip (Clippy)` glitch setting</li>
+            <li>Fix `Break Stone Blocks With Ultra Boots` glitch setting not affecting the blocks in Dry Dry Ruins</li>
+            <li>Fix `Ruins Locks Skip` glitch setting</li>
+            <li>Fix `Jumpless Mansion Entry` glitch setting not doing anything unless `Forever Forest Backwards` was also active</li>
+        </ul>
+
+        <h3>Settings expecting fewer items/progress than are/is actually needed</h3>
+        <ul>
+            <li>Fix `Sushie-less Toad Town Star Piece` assuming Mario can enter the house next to the star piece before finishing chapter 4. In this randomizer the house is off-limits until chapter 4 is cleared.</li>
+            <li>Fix `Break Stone Blocks with Ultra Boots` and `Prologue Gel Early`, which assumed Mario could see the hidden block on the `Bottom of the Cliff` map.</li>
+            <li>Fix `Kooper-less Red Station Shooting Star`, which assumed Mario could get onto the jack-in-the-box without boots.</li>
+            <li>Fix `Mirror Clip`, which assumed Mario could pass through the Crystal Palace mirror without any items.</li>
+            <li>`Yellow Berry Gate Skip (Bombette Push)`
+                <ul>
+                    <li>Fix that the trick assumed Mario would be put on the upper path even without having the hammer, but Mario instead gets put just behind the gate and has to be able to cross the thorny vines.</li>
+                    <li>Fix that the trick assumed Mario could reach the gate from the eastern entrance without any items (only relevant during entrance rando).</li>
+                    <li>Added logic for reaching the upper path partner upgrade block if Mario also has the hammer and boots/Kooper</li>
+                </ul>
+            </li>
+            <li>Fix `Blue Berry Gate Skip (Bombette Push)`, which assumed Mario could do the trick from the other side (only relevant during entrance rando).</li>
+            <li>Fix `Red Berry Gate Skip (Bombette Push)`, which assumed Mario could do the trick from the other side (only relevant during entrance rando).</li>
+            <li>Fix all "blue house skip" tricks, which assumed you could leave the blue house without opening the pad lock (only relevant during entrance rando).</li>
+            <li>Fix the "Jump" and "Parakarry" variants of the `Gourmet Guy Skip` trick assuming the tricks can be done backwards (only relevant during entrance rando).</li>
+            <li>Fix `Shiver Mountain Switch Skip`, which assumed Mario could do the trick from the other side (only relevant during entrance rando).</li>
+            <li>Fix `Blocks to Shiver City with Kooper Shell Item Throw` trick assuming that getting out of bounds was possible without being able to reach the door at the top-right of the map.</li>
+        </ul>
+
+        <h3>Misc fixes</h3>
+        <ul>
+            <li>Fix `Parakaryless Blue Block City Gap` and `Parakarryless Blue Station Star Piece` tricks not working properly when combined with `Hammerless Blue Station`.</li>
+            <li>Fix `Wattless Dark Room` and `Kooper Puzzle Skip` tricks triggering generator code for entrance shuffle, even though they have nothing to do with changing loading zones.</li>
+            <li>Fix `Yellow Berry Gate Skip (Lakilester)` not considering the partner upgrade block in that room to be reachable with only Lakilester and Kooper</li>
+        </ul>
+    </mat-card>
   <mat-card class="settings-card latest-changelog" >
     <mat-card-title class="settings-title">0.31.1 (beta) (2025-08-30)</mat-card-title>
 
