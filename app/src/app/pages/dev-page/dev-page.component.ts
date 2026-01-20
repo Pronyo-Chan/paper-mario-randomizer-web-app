@@ -40,7 +40,7 @@ export class DevPageComponent implements OnInit {
     this.serverError = null
     this.isGenerating = true;
 
-    this._createSeedSubscription = this._randomizerRepository.sendRandoSettings(this.userYaml)
+    this._createSeedSubscription = this._randomizerRepository.sendRandoSettings({ settings: this.userYaml, plandomizer: null })
     .pipe(
       take(1),
       tap(seedId => {
