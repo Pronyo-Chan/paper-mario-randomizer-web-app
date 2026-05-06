@@ -1644,7 +1644,7 @@
           "includeCoinsFavors": false,
           "includeCoinsFoliage": false,
           "includeShops": true,
-          "includePanels": true,
+          "includePanels": false,
           "includeFavors": 0,
           "keyitemsOutsideDungeon": true,
           "includeDojo": 0,
@@ -1700,7 +1700,7 @@
           "quizmoAlwaysAppears": true,
           "foliageItemHints": true,
           "hiddenPanelVisibility": true,
-          "iSpyPanelHints": 1,
+          "iSpyPanelHints": 0,
           "cookWithoutFryingPan": true
         },
         "difficulty": {
