@@ -451,6 +451,7 @@ export class RandomizerService {
       GourmetGuySkipJump: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GourmetGuySkipJump"),
       GourmetGuySkipLaki: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GourmetGuySkipLaki"),
       GourmetGuySkipParakarry: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "GourmetGuySkipParakarry"),
+      AntiGuySkip: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "AntiGuySkip"),
       BowlessGreenStation: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "BowlessGreenStation"),
       ClippyGreenStationCoinBlock: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "ClippyGreenStationCoinBlock"),
       KooperlessRedStationShootingStar: settingsForm.get('glitches').value.some(enabledGlitch => enabledGlitch.settingName == "KooperlessRedStationShootingStar"),

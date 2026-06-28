@@ -305,6 +305,7 @@ export interface SettingsRequest {
     GourmetGuySkipJump: boolean
     GourmetGuySkipLaki: boolean
     GourmetGuySkipParakarry: boolean
+    AntiGuySkip: boolean
     BowlessGreenStation: boolean
     ClippyGreenStationCoinBlock: boolean
     KooperlessRedStationShootingStar: boolean
