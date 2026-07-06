@@ -23,7 +23,6 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
 
   public premadePresets: {name: string, settings}[];
   public customPresets: {name: string, settings}[];
-  public presetStatus: string = null;
   public recentlyRemovedPreset: string = null;
 
   public settingsString: string = null;
@@ -57,14 +56,12 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
         this.selectedPreset = this.CUSTOM_PRESET_NAME
       } catch (error) {
         this.selectedPreset = this.customPresets?.length ? this.customPresets[0].name : this.premadePresets[0].name;
-        this.loadPreset();
+        this.loadPreset(false);
       }
     } else {
       this.selectedPreset = this.customPresets?.length ? this.customPresets[0].name : this.premadePresets[0].name;
-      this.loadPreset();
+      this.loadPreset(false);
     }
-
-    this.presetStatus = null;
   }
 
   public showImportSuccess() {
@@ -75,7 +72,19 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
     this._toastr.error('Invalid setting string');
   }
 
-  public loadPreset(): void {
+  public showPresetSavedMessage(message: string) {
+    this._toastr.success(message);
+  }
+
+  public showPresetLoadedMessage(message: string) {
+    this._toastr.success(message);
+  }
+
+  public showPresetRemovedMessage(message: string) {
+    this._toastr.success(message);
+  }
+
+  public loadPreset(showToast: boolean = true): void {
     let preset = presetsJson.find(p => p['name'] == this.selectedPreset);
 
     if(!preset) {
@@ -91,7 +100,9 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
     // Fix for old presets that have invalid Koot value
     this.fixPresetBackwardsCompatibility();
 
-    this.presetStatus = "loaded";
+    if (showToast) {
+      this.showPresetLoadedMessage(`Loaded preset '${this.selectedPreset}' successfully.`);
+    }
   }
 
   public savePreset(): void {
@@ -116,7 +127,7 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
         localStorage.setItem("presets", JSON.stringify(this.customPresets))
 
         this.selectedPreset = newPresetName;
-        this.presetStatus = "saved";
+        this.showPresetSavedMessage(`Saved preset '${newPresetName}' successfully.`);
       });
     }
     else {
@@ -124,19 +135,20 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
       this.customPresets.find(p => p.name == this.selectedPreset).settings = updatedPresetSettings;
 
       localStorage.setItem("presets", JSON.stringify(this.customPresets))
-      this.presetStatus = "saved";
+      this.showPresetSavedMessage(`Saved preset '${this.selectedPreset}' successfully.`);
     }
 
 
   }
 
   public removePreset(): void {
-    this.customPresets = this.customPresets.filter(p => p.name != this.selectedPreset);
-    this.recentlyRemovedPreset = this.selectedPreset;
+    const removedPresetName = this.selectedPreset;
+    this.customPresets = this.customPresets.filter(p => p.name != removedPresetName);
+    this.recentlyRemovedPreset = removedPresetName;
     this.selectedPreset = this.customPresets?.length ? this.customPresets[0].name : this.premadePresets[0].name;
     localStorage.setItem("presets", JSON.stringify(this.customPresets))
 
-    this.presetStatus = "removed";
+    this.showPresetRemovedMessage(`Removed preset '${removedPresetName}' successfully.`);
   }
 
   public exportSettings() {
@@ -160,7 +172,7 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
   }
 
   public onSelectedPresetChange(): void {
-    this.presetStatus = null;
+    // No inline preset status needed; toasts handle feedback.
   }
 
   private fixPresetBackwardsCompatibility() {

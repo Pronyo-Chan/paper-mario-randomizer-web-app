@@ -86,7 +86,7 @@ const dbConfig: DBConfig  = {
 const toasterConfig: Partial<GlobalConfig> = {
   closeButton: true,
   progressBar: true,
-  maxOpened: 1,
+  maxOpened: 3,
   timeOut: 5000,
   positionClass: "toast-top-center"
 }
