@@ -1000,6 +1000,16 @@
     "id": ":"
   },
   {
+    "name": "Anti Guy Skip",
+    "settingName": "AntiGuySkip",
+    "link": "https://www.youtube.com/watch?v=INsKXM-ebj8",
+    "description": "A Laki Clip can be used to get out of bounds and open the Anti Guy's chest without needing to defeat him or give him lemon candy.",
+    "location": "ToyBox",
+    "difficulty": "Beginner",
+    "tags": ["Laki Clip"],
+    "id": "œ"
+  },
+  {
     "name": "Bow-less Green Station",
     "settingName": "BowlessGreenStation",
     "link": "https://www.youtube.com/watch?v=82pUMj9e08k",

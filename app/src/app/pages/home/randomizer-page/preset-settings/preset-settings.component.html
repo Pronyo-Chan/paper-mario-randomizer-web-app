@@ -18,18 +18,6 @@
             <button class="yellow-button"  [disabled]="isSelectedPresetPremade() || selectedPreset == CUSTOM_PRESET_NAME" (click)="removePreset()">
                 <span [matTooltip]="isSelectedPresetPremade() ? 'Built-in presets cannot be removed': ''" matTooltipPosition="right">Remove</span>
             </button>
-            <ng-container *ngIf="presetStatus == 'saved'">
-                <span>✔️</span>
-                <span class="success">Saved preset: {{selectedPreset}}</span>
-            </ng-container>
-            <ng-container *ngIf="presetStatus == 'loaded'">
-                <span>✔️</span>
-                <span class="success">Loaded preset: {{selectedPreset}}</span>
-            </ng-container>
-            <ng-container *ngIf="presetStatus == 'removed'">
-                <span>✔️</span>
-                <span class="success">Removed preset: {{recentlyRemovedPreset}}</span>
-            </ng-container>
         </div>
 
     </div>
