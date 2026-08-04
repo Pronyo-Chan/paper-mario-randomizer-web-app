@@ -7,8 +7,8 @@
     </div>
     <div class="row" *ngIf="savedPlandoNames.size > 0">
         <label class="settings-label" for="savedPlandosSelect">Select Plandomizer:</label>
-        <select name="savedPlandosSelect" #savedPlandosSelect (change)="onSavedPlandoSelect($event)">
-            <option></option>
+        <select name="savedPlandosSelect" #savedPlandosSelect [(ngModel)]="selectedPlandoName" (change)="onSavedPlandoSelect($event)">
+            <option value=""></option>
             <option *ngFor="let plandoName of savedPlandoNames" [value]="plandoName">{{plandoName}}</option>
         </select>
     </div>

@@ -1,6 +1,6 @@
 import { SettingStringMappingService } from './../../../../services/setting-string-mapping/setting-string-mapping.service';
 import { SavePresetDialogComponent } from './save-preset-dialog/save-preset-dialog.component';
-import { FormGroup, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import presetsJson from  '../../../../utilities/presets.json';
 import { MatDialog } from '@angular/material/dialog';
@@ -18,11 +18,12 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
   public readonly CUSTOM_PRESET_NAME = "[New Preset]"
 
   @Input() public formGroup: FormGroup
+  @Input() public plandomizerFormControl: FormControl;
 
   public selectedPreset: string;
 
-  public premadePresets: {name: string, settings}[];
-  public customPresets: {name: string, settings}[];
+  public premadePresets: Array<{name: string, settings: any, plandomizer?: any, plandomizerName?: string}>;
+  public customPresets: Array<{name: string, settings: any, plandomizer?: any, plandomizerName?: string}>;
   public recentlyRemovedPreset: string = null;
 
   public settingsString: string = null;
@@ -100,8 +101,26 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
     // Fix for old presets that have invalid Koot value
     this.fixPresetBackwardsCompatibility();
 
+    if (this.plandomizerFormControl) {
+      if (preset.plandomizer) {
+        if (preset.plandomizerName) {
+          window.localStorage.setItem('latestLoadedPlandomizerName', preset.plandomizerName);
+        } else {
+          window.localStorage.removeItem('latestLoadedPlandomizerName');
+        }
+        window.localStorage.setItem('latestLoadedPlandomizer', JSON.stringify(preset.plandomizer));
+        this.plandomizerFormControl.setValue(preset.plandomizer);
+      }
+      else {
+        this.plandomizerFormControl.setValue(null);
+        window.localStorage.removeItem('latestLoadedPlandomizer');
+        window.localStorage.removeItem('latestLoadedPlandomizerName');
+      }
+    }
+
     if (showToast) {
-      this.showPresetLoadedMessage(`Loaded preset '${this.selectedPreset}' successfully.`);
+      const plandoSuffix = preset.plandomizerName ? ` with plandomizer config "${preset.plandomizerName}"` : '';
+      this.showPresetLoadedMessage(`Loaded preset '${this.selectedPreset}' successfully${plandoSuffix}.`);
     }
   }
 
@@ -121,7 +140,12 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
         newPresetName = newPresetName.trim().replace(/\s+/g, ' ')
 
         let formObj = this.formGroup.getRawValue();
-        let newPreset = {name: newPresetName, settings: formObj}
+        let newPreset = {
+        name: newPresetName,
+        settings: formObj,
+        plandomizer: this.plandomizerFormControl?.value ?? null,
+        plandomizerName: window.localStorage.getItem('latestLoadedPlandomizerName') || null
+      }
 
         this.customPresets.push(newPreset);
         localStorage.setItem("presets", JSON.stringify(this.customPresets))
@@ -132,7 +156,10 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
     }
     else {
       let updatedPresetSettings = this.formGroup.getRawValue();
-      this.customPresets.find(p => p.name == this.selectedPreset).settings = updatedPresetSettings;
+      let existingPreset = this.customPresets.find(p => p.name == this.selectedPreset);
+      existingPreset.settings = updatedPresetSettings;
+      existingPreset.plandomizer = this.plandomizerFormControl?.value ?? null;
+      existingPreset.plandomizerName = window.localStorage.getItem('latestLoadedPlandomizerName') || null;
 
       localStorage.setItem("presets", JSON.stringify(this.customPresets))
       this.showPresetSavedMessage(`Saved preset '${this.selectedPreset}' successfully.`);

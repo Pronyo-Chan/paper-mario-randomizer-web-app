@@ -58,6 +58,46 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
   private _plandoSubscription: Subscription;
   randomPartnersMinSubscription: Subscription;
 
+  public get itemsGroup(): FormGroup {
+    return this.formGroup.get('items') as FormGroup;
+  }
+
+  public get partnersGroup(): FormGroup {
+    return this.formGroup.get('partners') as FormGroup;
+  }
+
+  public get gameplayGroup(): FormGroup {
+    return this.formGroup.get('gameplay') as FormGroup;
+  }
+
+  public get cosmeticsGroup(): FormGroup {
+    return this.formGroup.get('cosmetics') as FormGroup;
+  }
+
+  public get difficultyGroup(): FormGroup {
+    return this.formGroup.get('difficulty') as FormGroup;
+  }
+
+  public get goalsGroup(): FormGroup {
+    return this.formGroup.get('goals') as FormGroup;
+  }
+
+  public get marioStatsGroup(): FormGroup {
+    return this.formGroup.get('marioStats') as FormGroup;
+  }
+
+  public get itemPoolGroup(): FormGroup {
+    return this.formGroup.get('itemPool') as FormGroup;
+  }
+
+  public get openLocationsGroup(): FormGroup {
+    return this.formGroup.get('openLocations') as FormGroup;
+  }
+
+  public get qualityOfLifeGroup(): FormGroup {
+    return this.formGroup.get('qualityOfLife') as FormGroup;
+  }
+
   public isRandomizing = false;
   public seedGenError: string;
   public seedGenErrorDetails: string;

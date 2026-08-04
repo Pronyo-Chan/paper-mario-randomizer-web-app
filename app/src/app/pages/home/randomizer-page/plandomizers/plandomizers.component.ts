@@ -14,6 +14,10 @@ export class PlandomizersComponent implements OnInit, OnDestroy {
   @Input() public plandomizerFormControl: FormControl;
 
   private _plandoAssignmentSubscription: Subscription;
+  private _plandoControlSubscription: Subscription;
+  public selectedPlandoName: string = '';
+  public readonly LAST_LOADED_PLANDOMIZER_NAME_KEY = 'latestLoadedPlandomizerName';
+  public readonly LAST_LOADED_PLANDOMIZER_KEY = 'latestLoadedPlandomizer';
   public readonly PARTNERS_SET = new Set(Array.from(PARTNERS).map((p) => p.toLowerCase()));
   public readonly controlDisplayStrings: Map<string, string> = new Map([
     ["shuffleItems", "Shuffle Items"],
@@ -47,8 +51,7 @@ export class PlandomizersComponent implements OnInit, OnDestroy {
     ["startWithRandomPartners", "Start with Random Partners"],
     ["randomPartnersMax", "Max number of starting partners"]
   ]);
-  public savedPlandoNames: Set<String>;
-  public selectedPlandoName: string;
+  public savedPlandoNames: Set<string>;
   public loadStatus: string;
   public plandoAssignedControls: Set<string>
   public anyPartnerPlandoed: boolean = false;
@@ -58,33 +61,111 @@ export class PlandomizersComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     const storedNames = window.localStorage.getItem(SAVED_PLANDO_NAMES_KEY);
     this.savedPlandoNames = storedNames ? new Set(storedNames.split(',')) : new Set();
+
+    const storedLastPlandomizerName = window.localStorage.getItem(this.LAST_LOADED_PLANDOMIZER_NAME_KEY);
+    const storedLastPlandomizer = window.localStorage.getItem(this.LAST_LOADED_PLANDOMIZER_KEY);
+
+    if (storedLastPlandomizer) {
+      try {
+        const parsedPlandomizer = JSON.parse(storedLastPlandomizer);
+        this.plandomizerFormControl.setValue(parsedPlandomizer);
+        this.loadStatus = 'loaded';
+      } catch {
+        window.localStorage.removeItem(this.LAST_LOADED_PLANDOMIZER_KEY);
+      }
+    }
+
+    if (storedLastPlandomizerName) {
+      this.selectedPlandoName = this.savedPlandoNames.has(storedLastPlandomizerName) ? storedLastPlandomizerName : '';
+    }
+
     this._plandoAssignmentSubscription = this._plandoAssignmentService.assignedControls.asObservable().subscribe(assignedControls => {
       this.plandoAssignedControls = assignedControls;
       this.anyPartnerPlandoed = Array.from(this.plandoAssignedControls).some((control) => this.PARTNERS_SET.has(control));
     });
+
+    this._plandoControlSubscription = this.plandomizerFormControl.valueChanges.subscribe(plando => {
+      if (plando) {
+        window.localStorage.setItem(this.LAST_LOADED_PLANDOMIZER_KEY, JSON.stringify(plando));
+
+        const storedLastPlandomizerName = window.localStorage.getItem(this.LAST_LOADED_PLANDOMIZER_NAME_KEY);
+        const validStoredName = storedLastPlandomizerName && this.savedPlandoNames.has(storedLastPlandomizerName)
+          ? storedLastPlandomizerName
+          : null;
+
+        if (validStoredName) {
+          this.selectedPlandoName = validStoredName;
+        } else {
+          const matchedName = this.findSavedPlandomizerName(plando);
+          if (matchedName) {
+            this.selectedPlandoName = matchedName;
+            window.localStorage.setItem(this.LAST_LOADED_PLANDOMIZER_NAME_KEY, matchedName);
+          } else {
+            this.selectedPlandoName = '';
+            window.localStorage.removeItem(this.LAST_LOADED_PLANDOMIZER_NAME_KEY);
+          }
+        }
+
+        this.loadStatus = 'loaded';
+      } else {
+        this.selectedPlandoName = '';
+        this.loadStatus = '';
+        window.localStorage.removeItem(this.LAST_LOADED_PLANDOMIZER_KEY);
+        window.localStorage.removeItem(this.LAST_LOADED_PLANDOMIZER_NAME_KEY);
+      }
+    });
+  }
+
+  private findSavedPlandomizerName(plando: any): string {
+    for (const plandoName of this.savedPlandoNames) {
+      const savedPlandoSettings = localStorage.getItem(SAVED_PLANDO_NAME_PREFIX + plandoName);
+      if (!savedPlandoSettings) {
+        continue;
+      }
+      try {
+        const savedPlandomizer = JSON.parse(savedPlandoSettings);
+        if (JSON.stringify(savedPlandomizer) === JSON.stringify(plando)) {
+          return plandoName;
+        }
+      } catch {
+        continue;
+      }
+    }
+    return '';
   }
 
   ngOnDestroy(): void {
     if (this._plandoAssignmentSubscription) {
       this._plandoAssignmentSubscription.unsubscribe();
     }
+    if (this._plandoControlSubscription) {
+      this._plandoControlSubscription.unsubscribe();
+    }
   }
 
-  public onSavedPlandoSelect($event: InputEvent) {
+  public onSavedPlandoSelect($event: Event) {
     const plandoName = ($event.target as HTMLSelectElement).value;
     if (!plandoName) {
       this.plandomizerFormControl.setValue(null);
+      this.selectedPlandoName = '';
       this.loadStatus = '';
+      window.localStorage.removeItem(this.LAST_LOADED_PLANDOMIZER_NAME_KEY);
+      window.localStorage.removeItem(this.LAST_LOADED_PLANDOMIZER_KEY);
     } else {
       const plandoSettings = localStorage.getItem(SAVED_PLANDO_NAME_PREFIX + plandoName);
       if (!plandoSettings) {
         this.savedPlandoNames.delete(plandoName);
+        this.selectedPlandoName = '';
         this.loadStatus = 'notFound';
+        window.localStorage.removeItem(this.LAST_LOADED_PLANDOMIZER_NAME_KEY);
+        window.localStorage.removeItem(this.LAST_LOADED_PLANDOMIZER_KEY);
       } else {
         const plandoFormObj = JSON.parse(plandoSettings)
         this.plandomizerFormControl.setValue(plandoFormObj);
         this.selectedPlandoName = plandoName;
         this.loadStatus = 'loaded';
+        window.localStorage.setItem(this.LAST_LOADED_PLANDOMIZER_NAME_KEY, plandoName);
+        window.localStorage.setItem(this.LAST_LOADED_PLANDOMIZER_KEY, plandoSettings);
       }
     }
   }
