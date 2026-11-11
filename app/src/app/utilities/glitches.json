@@ -1510,6 +1510,16 @@
     "id": "Û"
   },
   {
+    "name": "Ice Staircase Skip",
+    "settingName": "IceStaircaseSkip",
+    "link": "https://papermarioarchives.com/Tricks/Ice_Staircase_Skip",
+    "description": "A Laki Clip that skips raising the ice staircase, giving direct access to the west exit and Star Piece in Shiver Mountain Peaks.",
+    "location": "Shiver Region",
+    "difficulty": "Advanced",
+    "tags": ["Misc. Laki Tech", "OoB Movement"],
+    "id": "ñ"
+  },
+  {
     "name": "Sushie-less Warehouse Key (Bombette Push)",
     "settingName": "SushielessWarehouseKeyBombette",
     "link": "https://www.youtube.com/watch?v=YyLVf_E6z_Q",

@@ -50,19 +50,25 @@ export class StartingItemsComponent implements OnInit {
 
     this.startWithRandomItemsSubscription = this.marioStatsFormGroup.get('startWithRandomItems').valueChanges.pipe(
       tap(value => {
-        if (value == true) {
-          this.marioStatsFormGroup.get('randomItemsMin').enable();
-          this.marioStatsFormGroup.get('randomItemsMax').enable();
-          this.marioStatsFormGroup.get('startingItems').disable();
-
-        } else {
-          this.marioStatsFormGroup.get('randomItemsMin').disable();
-          this.marioStatsFormGroup.get('randomItemsMax').disable();
-          this.marioStatsFormGroup.get('startingItems').enable();
-        }
-        this.marioStatsFormGroup.updateValueAndValidity();
+        this.updateRandomItemsControls(value);
       })
     ).subscribe();
+
+    // Apply the enable/disable state once at init, in case a preset or imported
+    // settings string was loaded before this component was created.
+    this.updateRandomItemsControls(this.marioStatsFormGroup.get('startWithRandomItems').value);
+  }
+
+  private updateRandomItemsControls(value: number): void {
+    if (value > 0) {
+      this.marioStatsFormGroup.get('randomItemsMin').enable();
+      this.marioStatsFormGroup.get('randomItemsMax').enable();
+
+    } else {
+      this.marioStatsFormGroup.get('randomItemsMin').disable();
+      this.marioStatsFormGroup.get('randomItemsMax').disable();
+    }
+    this.marioStatsFormGroup.updateValueAndValidity();
   }
 
   public ngOnDestroy(): void {

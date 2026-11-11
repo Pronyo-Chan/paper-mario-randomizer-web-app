@@ -1,5 +1,6 @@
 import { Boots } from './../enum/boots';
 import { Hammer } from './../enum/hammer';
+import { StartWithRandomItemsMode } from '../enum/startWithRandomItemsMode';
 
 export interface StatsAndGear {
     BP: number;
@@ -13,4 +14,5 @@ export interface StatsAndGear {
     RandomStartingStatsLevel: number;
     StarPower: number;
     StartingItems: string[]
+    StartWithRandomItems: StartWithRandomItemsMode;
 }

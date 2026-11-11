@@ -106,12 +106,18 @@
 
                                 Shortened: Multiple sections of Bowser's Castle will be skipped. No Bowser Castle's key or partners abilities will be required.
 
-                                Boss Rush: The entire castle will be skipped until the hallway where you fight the Duplighosts.">
+                                Boss Rush: The entire castle will be skipped until the hallway where you fight the Duplighosts.
+
+                                Bowsers Only: Skips Bowser's Castle entirely, sending Mario straight to Peach's Castle from Shooting Star Summit. Compared to Boss Rush this avoids the Duplighosts and Jr. Troopa.
+
+                                Final Bowser Only: Skips Bowser's Castle entirely, sending Mario straight to Peach's Castle from Shooting Star Summit. The hallway Bowser encounter is skipped too. If Mario still needs the Star Beam, a sign post in that hallway tells him where to find it.">
             </app-tooltip-span>
             <select formControlName='bowsersCastleMode'>
                 <option [ngValue]="0">Vanilla</option>
                 <option [ngValue]="1">Shortened</option>
                 <option [ngValue]="2">Boss Rush</option>
+                <option [ngValue]="3">Bowsers Only</option>
+                <option [ngValue]="4">Final Bowser Only</option>
             </select>
         </div>
 

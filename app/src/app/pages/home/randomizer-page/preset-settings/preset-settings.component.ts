@@ -99,7 +99,7 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
     this.formGroup.get('glitches').setValue(enabledGlitches)
 
     // Fix for old presets that have invalid Koot value
-    this.fixPresetBackwardsCompatibility();
+    this.fixPresetBackwardsCompatibility(preset['settings']);
 
     if (this.plandomizerFormControl) {
       if (preset.plandomizer) {
@@ -202,10 +202,41 @@ export class PresetSettingsComponent implements OnInit, OnDestroy {
     // No inline preset status needed; toasts handle feedback.
   }
 
-  private fixPresetBackwardsCompatibility() {
+  private fixPresetBackwardsCompatibility(settings: any) {
     var kootFormControl = this.formGroup.get('items').get('includeFavors');
     if (typeof kootFormControl.value == "boolean") {
       kootFormControl.setValue(0);
+    }
+
+    var randomItemsControl = this.formGroup.get('marioStats').get('startWithRandomItems');
+    if (typeof randomItemsControl.value == "boolean") {
+      randomItemsControl.setValue(randomItemsControl.value ? 1 : 0);
+    }
+
+    // Partner settings were moved from the Items group to the Partners group in 0.32.0.
+    // Support presets saved before the move by restoring the legacy values there.
+    if (settings?.items?.partnerUpgradeShuffle != null && settings?.partners?.partnerUpgradeShuffle == null) {
+      this.formGroup.get('partners').get('partnerUpgradeShuffle').setValue(settings.items.partnerUpgradeShuffle);
+    }
+    if (settings?.items?.progressivePartners != null && settings?.partners?.progressivePartners == null) {
+      this.formGroup.get('partners').get('progressivePartners').setValue(settings.items.progressivePartners);
+    }
+
+    // Presets saved before 0.32.0 don't contain the new settings. Default them
+    // here so loading an old custom preset doesn't leak values from the previously
+    // selected preset.
+    const newSettingDefaults: [string, string, any][] = [
+      ['partners', 'partnerUpgradeShuffle', 0],
+      ['partners', 'progressivePartners', false],
+      ['difficulty', 'maxBlooper', 2],
+      ['difficulty', 'jrTroopa', 0],
+      ['qualityOfLife', 'alwaysRunAway', false],
+      ['marioStats', 'startWithRandomItems', 0],
+    ];
+    for (const [groupName, controlName, defaultValue] of newSettingDefaults) {
+      if (settings?.[groupName]?.[controlName] == null) {
+        this.formGroup.get(groupName).get(controlName).setValue(defaultValue);
+      }
     }
   }
 

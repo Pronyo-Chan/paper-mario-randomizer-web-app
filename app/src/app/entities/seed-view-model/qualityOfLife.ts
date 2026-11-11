@@ -5,6 +5,7 @@ export interface QualityOfLife {
     AlwaysISpy: boolean;
     AlwaysPeekaboo: boolean;
     AlwaysSpeedySpin: boolean;
+    AlwaysRunAway: boolean;
     CookWithoutFryingPan: boolean;
     FoliageItemHints: boolean;
     HiddenBlockMode: HiddenBlockMode;

@@ -1,6 +1,142 @@
 
 <div class="main-page" [ngClass]="{'show-all-logs': showAllLogs}">
     <mat-card class="settings-card latest-changelog">
+        <mat-card-title class="settings-title">0.32.0 (beta) (2026-11-xx)</mat-card-title>
+
+        <h2>Known Issues</h2>
+        <ul>
+            <li>The logic does not account for Shuffled Chapter Difficulty and may expect Mario to progress by visiting places where the enemies are far too strong.</li>
+            <li>When playing with the animated status menu color, the main color sometimes hangs a bit before changing, leading to a desync with the shadowing color.</li>
+            <li>The game can crash or softlock if Mario picks up an item exactly when he starts opening a chest.</li>
+        </ul>
+
+        <h2>Feature Changes</h2>
+        <ul>
+            <li>New `Progressive Partners` option
+                <ul>
+                    <li>Turns all partner and partner upgrade items into progressive partner items. The first of each kind of progressive partner item you find unlocks that partner itself, then the other two items give their upgrades.</li>
+                    <li>Requires `Partner Upgrade Shuffle` to not be turned off.</li>
+                </ul>
+            </li>
+            <li>New `Max Blooper` option
+                <ul>
+                    <li>Allows setting the strongest possible Blooper variant to encounter.</li>
+                    <li>This option has three different values:
+                        <ul>
+                            <li>`Blooper`: All Bloopers Mario encounters are regular Bloopers.</li>
+                            <li>`Electro Blooper`: Mario encounters Blooper, then Electro Blooper, then Electro Blooper again.</li>
+                            <li>`Super Blooper`: Same as vanilla; Mario encounters Blooper, then Electro Blooper, then Super Blooper.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>New `Jr. Troopa` option
+                <ul>
+                    <li>Allows choosing which Jr. Troopa encounters can happen.</li>
+                    <li>This option has four different values:
+                        <ul>
+                            <li>`All`: Same as vanilla; Mario encounters Jr. Troopa ...
+                                <ul>
+                                    <li>... in `Goomba Region - Jr. Troopa's Playground` (avoidable)</li>
+                                    <li>... in `Koopa Region - Pleasant Path Entry` (after clearing chapter 1; avoidable)</li>
+                                    <li>... in `Forever Forest - Laughing Rock` (after opening Boo's Mansion big chest; avoidable)</li>
+                                    <li>... in `Toad Town - Port District` (after defeating Lava Piranha; avoidable)</li>
+                                    <li>... in `Shiver Region - Road to Shiver Snowfield` (unavoidable)</li>
+                                    <li>... in `Bowser's Castle - Guard Door 3` (unavoidable)</li>
+                                </ul>
+                            </li>
+                            <li>`Remove Missable`: Removes all missable encounters, leaving only the encounters ...
+                                <ul>
+                                    <li>... in `Shiver Region - Road to Shiver Snowfield` (unavoidable)</li>
+                                    <li>... in `Bowser's Castle - Guard Door 3` (unavoidable)</li>
+                                </ul>
+                            </li>
+                            <li>`Chapter 8 Jr. Only`: Removes all encounters, except for the one ...
+                                <ul>
+                                    <li>... in `Bowser's Castle - Guard Door 3` (unavoidable)</li>
+                                </ul>
+                            </li>
+                            <li>`Remove All`: Jr. Troopa encounters are skipped entirely; he never has to be fought.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>New values for `Bowser's Castle Mode` option
+                <ul>
+                    <li>The existing values of `Vanilla`, `Shortened`, and `Bossrush` get expanded with two new values:
+                        <ul>
+                            <li>`Bowsers Only`: Skips Bowser's Castle entirely, sending Mario straight to Peach's Castle from Shooting Star Summit. Compared to `BossRush` this avoids the battles against the Duplighosts and Jr. Troopa.</li>
+                            <li>`Final Bowser Only`: Skips Bowser's Castle entirely, sending Mario straight to Peach's Castle from Shooting Star Summit. The Bowser encounter in the hallway of Peach's Castle is skipped as well. If Mario still needs to find the Star Beam, then Bowser is so nice and puts up a sign post in that hallway, which tells Mario where to find the Star Beam.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>New `Always run away` option
+                <ul>
+                    <li>If turned on, running from battle will automatically fill the run meter to 100%.</li>
+                </ul>
+            </li>
+            <li>Change `Random Starting Items`
+                <ul>
+                    <li>Is now no longer a toggle, instead offers the choice between four settings:
+                        <ul>
+                            <li>`Off`</li>
+                            <li>`Consumables`</li>
+                            <li>`Consumables + Badges`</li>
+                            <li>`Consumables + Badges + Key Items`</li>
+                        </ul>
+                    </li>
+                    <li>Now takes `Add Unused Badge Duplicates`, `Add Beta Items`, and `Progressive Badges` into account, and thus items that are introduced by those settings can randomly be chosen as starting items.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Logic Changes</h2>
+        <ul>
+            <li>Bowser's Castle
+                <ul>
+                    <li>Fix `Lava Channel 3 - On Island 1` location assuming it was reachable without Boots while the lava is still active. This is a fix solely in preparation for entrance rando, as getting here in the first place in a vanilla world layout is not logically possible without Boots.</li>
+                    <li>Fix `Lava Channel 3 - Lava Door Center` exit not being logically reachable from `Lava Channel 3 - Door Right` with only `Lakilester` and a way onto the ledge.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Tricks & Glitches</h2>
+        <ul>
+            <li>New options
+                <ul>
+                    <li>`Anti Guy Skip` (chapter 4)</li>
+                    <li>`Ice Staircase Skip` (chapter 7)
+                        <ul>
+                            <li>Huge thanks to `OfficialVladimirLenin` for providing the JP version collision changes required for adding this trick to the US version!</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Bug Fixes</h2>
+        <ul>
+            <li>Koopa Region
+                <ul>
+                    <li>Fix console-exclusive crash when handing in `KooperShell`: If entering and quickly leaving Kooper's House, and then handing in `KooperShell`, it could happen that the current partner could get stuck inside the house. This would then cause a crash during the partner swap to Kooper.</li>
+                    <li>Fix Koopa Koot no longer giving the RedJar shop code hint after handing in the RedJar item.</li>
+                </ul>
+            </li>
+            <li>Shiver Region
+                <ul>
+                    <li>Fix possible crash when triggering the Kooper-Duplighost scene while the current partner was not Kooper. So far this could only occur when glitching past the blue switch using the chapter 7 Sushie glitch, but this fix will be important for entrance rando as well.</li>
+                </ul>
+            </li>
+            <li>Bowser's Castle
+                <ul>
+                    <li>During `Shorten Bowser's Castle`, by using a Laki teleport glitch Mario was able to access the jail and lava channel area of the castle, despite them counting as removed from the game world. This could lead to game crashes. This has now been fixed by linking the lava channel area loading zone in such a way that Mario gets spat out on the `Front Door Exterior` map again, properly removing access to the lava channel area.</li>
+                    <li>Fix console-exclusive crash when using Bombette's overworld ability in the second water puzzle room.</li>
+                </ul>
+            </li>
+        </ul>
+    </mat-card>
+    <mat-card class="settings-card latest-changelog">
         <mat-card-title class="settings-title">0.31.2 (beta) (2025-12-11)</mat-card-title>
 
         <h2>Special Thanks</h2>
@@ -86,7 +222,7 @@
     </ul>
   </mat-card>
 
-  <mat-card class="settings-card latest-changelog" >
+  <mat-card class="settings-card">
     <mat-card-title class="settings-title">0.31.0 (beta) (2025-08-26)</mat-card-title>
     <h2>Special Thanks</h2>
     <ul>

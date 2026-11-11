@@ -37,6 +37,9 @@ import { BowserDoorQuiz } from 'src/app/entities/enum/bowserDoorQuiz';
 import { KentCKoopa } from 'src/app/entities/enum/kentCKoopa';
 import { RequiredChapters } from 'src/app/entities/enum/requiredChapters';
 import { SpiritShuffleMode } from 'src/app/entities/enum/spiritShuffleMode';
+import { MaxBlooper } from 'src/app/entities/enum/maxBlooper';
+import { JrTroopa } from 'src/app/entities/enum/jrTroopa';
+import { StartWithRandomItemsMode } from 'src/app/entities/enum/startWithRandomItemsMode';
 
 @Component({
   selector: 'app-randomizer-page',
@@ -214,7 +217,6 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         multiCoinBlockShuffle: new FormControl(MultiCoinBlockShuffle.Off),
         gearShuffleMode: new FormControl(GearShuffleMode.Vanilla),
         spiritShuffleMode: new FormControl(SpiritShuffleMode.Vanilla),
-        partnerUpgradeShuffle: new FormControl(PartnerUpgradeShuffleMode.Vanilla),
         ripCheatoItemsInLogic: new FormControl(6),
         progressionOnRowf: new FormControl(0),
         progressionOnMerlow: new FormControl(false),
@@ -231,6 +233,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       }),
       partners: new FormGroup({
         shufflePartners: new FormControl(PartnerShuffleMode.Off),
+        partnerUpgradeShuffle: new FormControl(PartnerUpgradeShuffleMode.Vanilla),
+        progressivePartners: new FormControl(false),
         partnersAlwaysUsable: new FormControl(false),
         startWithRandomPartners: new FormControl(false),
         randomPartnersMin: new FormControl(1, [Validators.min(1), Validators.max(8)]),
@@ -249,6 +253,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
       qualityOfLife: new FormGroup({
         hiddenBlockMode: new FormControl(0),
         alwaysSpeedySpin: new FormControl(false),
+        alwaysRunAway: new FormControl(false),
         alwaysISpy: new FormControl(false),
         alwaysPeekaboo: new FormControl(false),
         skipQuiz: new FormControl(false),
@@ -279,6 +284,8 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         merlowRewardPricing: new FormControl(MerlowRewardPricing.Normal),
         bowserDoorQuiz: new FormControl(BowserDoorQuiz.RandomQuiz),
         kentCKoopa: new FormControl(KentCKoopa.BlocksPleasantPath),
+        maxBlooper: new FormControl(MaxBlooper["Super Blooper"]),
+        jrTroopa: new FormControl(JrTroopa.All),
         badgeSynergy: new FormControl(false),
       }),
       itemPool: new FormGroup({
@@ -302,7 +309,7 @@ export class RandomizerPageComponent implements OnInit, OnDestroy {
         startingBoots: new FormControl(Boots.Default),
         startingHammer: new FormControl(Hammer.Default),
         startingItems: new FormControl([]),
-        startWithRandomItems: new FormControl(false),
+        startWithRandomItems: new FormControl(StartWithRandomItemsMode.Off),
         randomItemsMin: new FormControl(0, [Validators.min(0), Validators.max(16)]),
         randomItemsMax: new FormControl(16, [Validators.min(0), Validators.max(16), CustomValidators.greaterOrEqualTo('randomItemsMin')]),
       }, CustomValidators.levelGreaterOrEqualZero()),

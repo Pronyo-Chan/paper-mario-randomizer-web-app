@@ -1,6 +1,8 @@
 import { BowserDoorQuiz } from './../enum/bowserDoorQuiz';
 import { MerlowRewardPricing } from '../enum/merlowRewardPricing';
 import { KentCKoopa } from '../enum/kentCKoopa';
+import { MaxBlooper } from '../enum/maxBlooper';
+import { JrTroopa } from '../enum/jrTroopa';
 
 export interface GeneralDifficulty {
     CapEnemyXP: boolean;
@@ -17,4 +19,6 @@ export interface GeneralDifficulty {
     BadgeSynergy: boolean;
     BowserDoorQuiz: BowserDoorQuiz;
     KentCKoopa: KentCKoopa;
+    MaxBlooper: MaxBlooper;
+    JrTroopa: JrTroopa;
 }

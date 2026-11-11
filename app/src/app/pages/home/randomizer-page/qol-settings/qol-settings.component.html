@@ -28,6 +28,13 @@
         </app-tooltip-span>
         </div>
         <div class="setting-element">
+            <mat-slide-toggle formControlName='alwaysRunAway'></mat-slide-toggle>
+            <app-tooltip-span
+                spanText="Always Run Away"
+                tooltipText="If turned on, running from battle will automatically fill the run meter to 100%.">
+            </app-tooltip-span>
+        </div>
+        <div class="setting-element">
             <mat-slide-toggle formControlName='preventPhysicsGlitches'></mat-slide-toggle>
             <app-tooltip-span spanText="Prevent OOB / LZS tricks" tooltipText="Prevents out of bound and loading zone storage tricks. This setting does NOT affect logic in any way and cannot be used if any glitch/trick is enabled in logic.
 

@@ -13,6 +13,7 @@ export class PartnersComponent implements OnInit, OnDestroy {
   @Input() public partnersFormGroup: FormGroup;
 
   private _startWithRandomPartnersSubscription: Subscription
+  private _partnerUpgradeShuffleSubscription: Subscription;
 
   public constructor(public inputfilters: InputFilterService) { }
   
@@ -33,11 +34,31 @@ export class PartnersComponent implements OnInit, OnDestroy {
         this.partnersFormGroup.updateValueAndValidity();
       })
     ).subscribe();
+
+    // Progressive Partners requires Partner Upgrade Shuffle to not be Off
+    this.onPartnerUpgradeShuffleChange();
+    this._partnerUpgradeShuffleSubscription = this.partnersFormGroup.get('partnerUpgradeShuffle').valueChanges.pipe(
+      tap(() => this.onPartnerUpgradeShuffleChange())
+    ).subscribe();
   }
 
   public ngOnDestroy(): void {
     if(this._startWithRandomPartnersSubscription) {
       this._startWithRandomPartnersSubscription.unsubscribe();
+    }
+
+    if(this._partnerUpgradeShuffleSubscription) {
+      this._partnerUpgradeShuffleSubscription.unsubscribe();
+    }
+  }
+
+  private onPartnerUpgradeShuffleChange(): void {
+    const progressivePartners = this.partnersFormGroup.get('progressivePartners');
+    if (this.partnersFormGroup.get('partnerUpgradeShuffle').value == 0) {
+      progressivePartners.setValue(false);
+      progressivePartners.disable();
+    } else {
+      progressivePartners.enable();
     }
   }
 
