@@ -246,12 +246,14 @@ export interface SettingsRequest {
     // Glitches: Koopa Bros Fortress
     BombettelessKbfFpPlusLZS: boolean
     BombettelessKbfFpPlusLaki: boolean
+    BombettelessRefundChest: boolean
     LakiJailbreak: boolean
     BombettelessRightFortressJailKey: boolean
     WaterStaircaseSkip: boolean
 
     // Glitches: Mt. Rugged
     MtRuggedQuakeHammerAndLetterWithLaki: boolean
+    MtRuggedQuakeHammerAndLetterPartnerless: boolean
     MtRuggedQuakeHammerRoomJumplessClippy: boolean
     ParakarrylessMtRuggedSeed: boolean
     ParakarrylessMtRuggedSeedClippy: boolean
@@ -280,6 +282,7 @@ export interface SettingsRequest {
     ParakarrylessSuperHammerRoomUltraBoots: boolean
     ParakarrylessSuperHammerRoomNormalBoots: boolean
     RuinsLocksSkipClippy: boolean
+    RuinsLocksSkipLZS: boolean
     RuinsStoneSkip: boolean
     RuinsPuzzleSolutionEarly: boolean
 
@@ -303,6 +306,8 @@ export interface SettingsRequest {
     // Glitches: Tubba's Castle
     BowlessTubbasCastle: boolean
     TubbasTableLakiJumpClock: boolean
+    TubbasTableLakiJumpStudy: boolean
+    TubbasTableJumplessStudy: boolean
     TubbasTableUltraBoots: boolean
     TubbasCastleSuperBootsSkip: boolean
     JumplessMegaRush: boolean
@@ -379,6 +384,7 @@ export interface SettingsRequest {
 
     // Glitches: Crystal Palace
     MirrorClip: boolean
+    BombettePuzzleSkip: boolean
     KooperPuzzleSkip: boolean
 
     // Glitches: Bowser's Castle
