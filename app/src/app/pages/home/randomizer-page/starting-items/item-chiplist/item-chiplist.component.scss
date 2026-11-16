@@ -1,6 +1,10 @@
-h2 {
+h3.chiplist-heading {
+    display: inline-block;
     font-family: gluten;
-    margin-left: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0 4px 0.3rem;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 input.mat-chip-input {

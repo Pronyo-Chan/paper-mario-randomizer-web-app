@@ -23,11 +23,16 @@ import { KentCKoopa } from './enum/kentCKoopa';
 import { RequiredChapters } from './enum/requiredChapters';
 import { SpiritShuffleMode } from './enum/spiritShuffleMode';
 import { GearShuffleMode } from './enum/gearShuffleMode';
+import { BowsersCastleMode } from './enum/bowsersCastleMode';
+import { MaxBlooper } from './enum/maxBlooper';
+import { JrTroopa } from './enum/jrTroopa';
+import { StartWithRandomItemsMode } from './enum/startWithRandomItemsMode';
 
 export interface SettingsRequest {
     StarRodModVersion: number;
     SettingsString: string;
     AlwaysSpeedySpin: boolean;
+    AlwaysRunAway: boolean;
     AlwaysISpy: boolean;
     AlwaysPeekaboo: boolean;
     HiddenBlockMode: number;
@@ -83,7 +88,7 @@ export interface SettingsRequest {
     RevealLogInHours : boolean;
     RomanNumerals: boolean;
     IncludeDojo: number;
-    BowsersCastleMode: boolean;
+    BowsersCastleMode: BowsersCastleMode;
     CutsceneMode: number;
     SkipEpilogue: boolean;
     ColorMode: StatusBarColorMode;
@@ -148,7 +153,7 @@ export interface SettingsRequest {
     NoHealingItems: boolean;
     DropStarPoints: boolean;
     ChetRippoAvailable: boolean;
-    StartWithRandomItems: boolean;
+    StartWithRandomItems: StartWithRandomItemsMode;
     RandomItemsMin: number;
     RandomItemsMax: number;
     AddItemPouches: boolean;
@@ -164,6 +169,8 @@ export interface SettingsRequest {
     MultiCoinBlockShuffle: MultiCoinBlockShuffle;
     BowserDoorQuiz: BowserDoorQuiz;
     KentCKoopa: KentCKoopa;
+    MaxBlooper: MaxBlooper;
+    JrTroopa: JrTroopa;
     RandomPitch: boolean;
     MuteDangerBeeps: boolean;
     ShuffleMusic: boolean;
@@ -175,6 +182,7 @@ export interface SettingsRequest {
     GearShuffleMode: GearShuffleMode;
     SpiritShuffleMode: SpiritShuffleMode;
     PartnerUpgradeShuffle: number;
+    ProgressivePartners: boolean;
     RipCheatoItemsInLogic: number;
     MerlowRewardPricing: number;
     ProgressionOnRowf: number;
@@ -238,12 +246,14 @@ export interface SettingsRequest {
     // Glitches: Koopa Bros Fortress
     BombettelessKbfFpPlusLZS: boolean
     BombettelessKbfFpPlusLaki: boolean
+    BombettelessRefundChest: boolean
     LakiJailbreak: boolean
     BombettelessRightFortressJailKey: boolean
     WaterStaircaseSkip: boolean
 
     // Glitches: Mt. Rugged
     MtRuggedQuakeHammerAndLetterWithLaki: boolean
+    MtRuggedQuakeHammerAndLetterPartnerless: boolean
     MtRuggedQuakeHammerRoomJumplessClippy: boolean
     ParakarrylessMtRuggedSeed: boolean
     ParakarrylessMtRuggedSeedClippy: boolean
@@ -272,6 +282,7 @@ export interface SettingsRequest {
     ParakarrylessSuperHammerRoomUltraBoots: boolean
     ParakarrylessSuperHammerRoomNormalBoots: boolean
     RuinsLocksSkipClippy: boolean
+    RuinsLocksSkipLZS: boolean
     RuinsStoneSkip: boolean
     RuinsPuzzleSolutionEarly: boolean
 
@@ -295,6 +306,8 @@ export interface SettingsRequest {
     // Glitches: Tubba's Castle
     BowlessTubbasCastle: boolean
     TubbasTableLakiJumpClock: boolean
+    TubbasTableLakiJumpStudy: boolean
+    TubbasTableJumplessStudy: boolean
     TubbasTableUltraBoots: boolean
     TubbasCastleSuperBootsSkip: boolean
     JumplessMegaRush: boolean
@@ -365,11 +378,13 @@ export interface SettingsRequest {
     ShiverMountainHiddenBlockWithoutUltraBootsNoLaki: boolean
     SnowmenSkipLaki: boolean
     ShiverMountainSwitchSkip: boolean
+    IceStaircaseSkip: boolean
     SushielessWarehouseKeyBombette: boolean
     SushielessWarehouseKeyKooper: boolean
 
     // Glitches: Crystal Palace
     MirrorClip: boolean
+    BombettePuzzleSkip: boolean
     KooperPuzzleSkip: boolean
 
     // Glitches: Bowser's Castle

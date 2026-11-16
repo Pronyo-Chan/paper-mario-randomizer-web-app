@@ -69,6 +69,39 @@
           </select>
         </div>
 
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span spanText="Max Blooper"
+              tooltipText="Blooper: All Bloopers Mario encounters are regular Bloopers.
+
+                          Electro Blooper: Mario encounters Blooper, then Electro Blooper, then Electro Blooper again.
+
+                          Super Blooper: Same as vanilla; Mario encounters Blooper, then Electro Blooper, then Super Blooper.">
+          </app-tooltip-span>
+          <select formControlName='maxBlooper'>
+            <option [ngValue]="0">Blooper</option>
+            <option [ngValue]="1">Electro Blooper</option>
+            <option [ngValue]="2">Super Blooper</option>
+          </select>
+        </div>
+
+        <div class="setting-element dropdown-element">
+          <app-tooltip-span spanText="Jr. Troopa"
+              tooltipText="All: All vanilla Jr. Troopa encounters can happen.
+
+                          Remove Missable: Removes all missable encounters, leaving only the unavoidable Shiver Region and Bowser's Castle encounters.
+
+                          Chapter 8 Jr. Only: Removes all encounters except the one in Bowser's Castle Guard Door 3.
+
+                          Remove All: Jr. Troopa is never fought.">
+          </app-tooltip-span>
+          <select formControlName='jrTroopa'>
+            <option [ngValue]="0">All</option>
+            <option [ngValue]="1">Remove Missable</option>
+            <option [ngValue]="2">Chapter 8 Jr. Only</option>
+            <option [ngValue]="3">Remove All</option>
+          </select>
+        </div>
+
         <div class="setting-element">
             <mat-slide-toggle formControlName='capEnemyXP'></mat-slide-toggle>
             <app-tooltip-span spanText="Cap Enemy XP" tooltipText="Limits the amount of XP obtainable per defeated enemy to 5 XP."></app-tooltip-span>

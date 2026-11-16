@@ -322,7 +322,7 @@
   {
     "name": "Chapter 7 Bridge With Super Boots",
     "settingName": "Chapter7BridgeWithSuperBoots",
-    "link": "",
+    "link": "https://www.youtube.com/watch?v=fl44bmWIcGg",
     "description": "By doing well timed ground pounds in the invisible blocks, the blocks can be hit without the ultra boots to reach the door to ch.7.",
     "location": "Toad Town Tunnels",
     "difficulty": "Intermediate",
@@ -460,6 +460,16 @@
     "id": "~"
   },
   {
+    "name": "Bombette-less Refund Chest",
+    "settingName": "BombettelessRefundChest",
+    "link": "https://www.youtube.com/watch?v=OYkQcJKCJ7s",
+    "description": "Using a Laki Teleport, the Refund chest in front of Koopa Bros Fortress can be reached without bombing the wall.",
+    "location": "Koopa Bros Fortress",
+    "difficulty": "Intermediate",
+    "tags": ["Laki Teleport", "OoB Movement"],
+    "id": "ƥ"
+  },
+  {
     "name": "Laki Jailbreak",
     "settingName": "LakiJailbreak",
     "link": "https://papermarioarchives.com/Laki_Jailbreak",
@@ -498,6 +508,16 @@
     "difficulty": "Intermediate",
     "tags": ["Laki Clip", "Laki Jump"],
     "id": "9"
+  },
+  {
+    "name": "Mt. Rugged Quake Hammer + Letter Partnerless",
+    "settingName": "MtRuggedQuakeHammerAndLetterPartnerless",
+    "link": "https://www.youtube.com/watch?v=jIlL_xzwMH8",
+    "description": "With the Boots, Mario can get out of bounds and use precise movement to reach the Quake Hammer and Letter in Mt. Rugged without Kooper or Parakarry.",
+    "location": "Mt. Rugged",
+    "difficulty": "Intermediate",
+    "tags": ["Movement", "OoB Movement"],
+    "id": "Ʀ"
   },
   {
     "name": "Mt Rugged Quake Hammer Room Jumpless (Clippy variant)",
@@ -740,6 +760,16 @@
     "id": "H"
   },
   {
+    "name": "Ruins Locks Skip LZS",
+    "settingName": "RuinsLocksSkipLZS",
+    "link": "https://www.youtube.com/watch?v=2S6NEZir6pI",
+    "description": "Using LZS, locks 1,2 and 4 in Dry Dry Ruins can be skipped.",
+    "location": "Dry Dry Ruins",
+    "difficulty": "Advanced",
+    "tags": ["LZS"],
+    "id": "Ƨ"
+  },
+  {
     "name": "Ruins Puzzle Solution Early",
     "settingName": "RuinsPuzzleSolutionEarly",
     "link": "",
@@ -928,6 +958,16 @@
     "difficulty": "Beginner",
     "tags": ["Laki Jump", "? Blocks/Freestanding Items"],
     "id": "÷"
+  },
+  {
+    "name": "Tubba's Table Jumpless (Study Room)",
+    "settingName": "TubbasTableJumplessStudy",
+    "link": "https://www.youtube.com/watch?v=oS4av8q9eJ8",
+    "description": "Using Parakarry from a precise spot on the left of the chair, you can use Parakarry's ability to reach the top of the chair and then the table to retrieve the item.",
+    "location": "Tubba's Castle",
+    "difficulty": "Beginner",
+    "tags": ["Jumpless", "? Blocks/Freestanding Items"],
+    "id": "Ʃ"
   },
   {
     "name": "Tubba's Castle Super Boots Skip (Clippy)",
@@ -1510,6 +1550,16 @@
     "id": "Û"
   },
   {
+    "name": "Ice Staircase Skip",
+    "settingName": "IceStaircaseSkip",
+    "link": "https://papermarioarchives.com/Tricks/Ice_Staircase_Skip",
+    "description": "A Laki Clip that skips raising the ice staircase, giving direct access to the west exit and Star Piece in Shiver Mountain Peaks.",
+    "location": "Shiver Region",
+    "difficulty": "Advanced",
+    "tags": ["Misc. Laki Tech", "OoB Movement"],
+    "id": "ñ"
+  },
+  {
     "name": "Sushie-less Warehouse Key (Bombette Push)",
     "settingName": "SushielessWarehouseKeyBombette",
     "link": "https://www.youtube.com/watch?v=YyLVf_E6z_Q",
@@ -1522,7 +1572,7 @@
   {
     "name": "Sushie-less Warehouse Key (KSJ)",
     "settingName": "SushielessWarehouseKeyKooper",
-    "link": "",
+    "link": "https://youtu.be/YyLVf_E6z_Q?t=30",
     "description": "You can get out of bounds by performing a LZS and use it to store a Kooper Super Jump. Perform the KSJ over the frozen pond to get the item under the ice. If you already broke the ice, it's possible to warp Mario under the ice by combining a KSJ with an item throw from the deck.",
     "location": "Shiver Region",
     "difficulty": "Expert",
