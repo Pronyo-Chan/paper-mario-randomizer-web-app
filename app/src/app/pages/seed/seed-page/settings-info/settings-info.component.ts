@@ -31,6 +31,9 @@ import { ISpyPanelHints } from 'src/app/entities/enum/iSpyPanelHints';
 import { BowserDoorQuiz } from 'src/app/entities/enum/bowserDoorQuiz';
 import { KentCKoopa } from 'src/app/entities/enum/kentCKoopa';
 import { SpiritShuffleMode } from 'src/app/entities/enum/spiritShuffleMode';
+import { MaxBlooper } from 'src/app/entities/enum/maxBlooper';
+import { JrTroopa } from 'src/app/entities/enum/jrTroopa';
+import { StartWithRandomItemsMode } from 'src/app/entities/enum/startWithRandomItemsMode';
 
 interface SettingRow {
   name: string;
@@ -81,7 +84,7 @@ export class SettingsInfoComponent implements OnInit {
     this.glitchesList = glitchesJson;
     this.enabledGlitchesRows = [{
        name: "Enabled Glitches / Tricks",
-       value: this.seedModel.Glitches.map(enabledGlitchSetting => this.glitchesList.find(g => g.settingName == enabledGlitchSetting).name)?.join(",\n")
+       value: this.seedModel.Glitches.map(enabledGlitchSetting => this.glitchesList.find(g => g.settingName == enabledGlitchSetting)?.name).filter(name => name)?.join(",\n")
     }]
 
     if(this.enabledGlitchesRows[0].value == "") {
@@ -176,7 +179,6 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Koopa Koot Favors", value: KootFavorsMode[this.seedModel.Items.KoopaKootFavors]},
       {name: "Letter Delivery Rewards", value: LettersMode[this.seedModel.Items.LetterDeliveryRewards]},
       {name: "Rip Cheato Items In Logic", value: this.seedModel.Items.RipCheatoItemsInLogic},
-      {name: "Partner Upgrade Shuffle", value: PartnerUpgradeShuffleMode[this.seedModel.Items.PartnerUpgradeShuffle]},
       {name: "Shuffle Super/Multicoin Blocks", value: MultiCoinBlockShuffle[this.seedModel.Items.ShuffleSuperAndMulticoinBlocks]},
       {name: "Shopsanity", value: this.seedModel.Items.Shopsanity},
       {name: "Rowf Items in Logic", value: this.seedModel.Items.ProgressionOnRowf},
@@ -187,6 +189,8 @@ export class SettingsInfoComponent implements OnInit {
   private initPartnerRows(): void {
     this.partnerRows =  [
       {name: "Shuffle Partners", value: PartnerShuffleMode[this.seedModel.Partners.ShufflePartners]},
+      {name: "Partner Upgrade Shuffle", value: PartnerUpgradeShuffleMode[this.seedModel.Partners.PartnerUpgradeShuffle]},
+      {name: "Progressive Partners", value: this.seedModel.Partners.ProgressivePartners},
       {name: "Partners Always Usable", value: this.seedModel.Partners.PartnersAlwaysUsable},
       {name: "Min Number Of Starting Partners", value: this.seedModel.Partners.MinNumberOfStartingPartners},
       {name: "Max Number Of Starting Partners", value: this.seedModel.Partners.MaxNumberOfStartingPartners},
@@ -243,6 +247,8 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Merlow Rewards Pricing", value: MerlowRewardPricing[this.seedModel.GeneralDifficulty.MerlowRewardsPricing]},
       {name: "Bowser Door Quiz", value: pascalToVerboseString(BowserDoorQuiz[this.seedModel.GeneralDifficulty.BowserDoorQuiz])},
       {name: "Kent C. Koopa", value: pascalToVerboseString(KentCKoopa[this.seedModel.GeneralDifficulty.KentCKoopa])},
+      {name: "Max Blooper", value: MaxBlooper[this.seedModel.GeneralDifficulty.MaxBlooper]},
+      {name: "Jr. Troopa", value: JrTroopa[this.seedModel.GeneralDifficulty.JrTroopa]},
       {name: "No Healing Items", value: this.seedModel.GeneralDifficulty.NoHealingItems},
       {name: "No Heart Blocks", value: this.seedModel.GeneralDifficulty.NoHeartBlocks},
       {name: "No Save Blocks", value: this.seedModel.GeneralDifficulty.NoSaveBlocks},
@@ -311,6 +317,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Boots", value: Boots[this.seedModel.StatsAndGear.Boots]},
       {name: "Hammer", value: Hammer[this.seedModel.StatsAndGear.Hammer]},
       {name: "Coins", value: this.seedModel.StatsAndGear.Coins},
+      {name: "Start With Random Items", value: StartWithRandomItemsMode[this.seedModel.StatsAndGear.StartWithRandomItems]},
       {name: "Min Number of Random Starting Items", value: this.seedModel.StatsAndGear.MinNumberOfStartingItems},
       {name: "Max Number of Random Starting Items", value: this.seedModel.StatsAndGear.MaxNumberOfStartingItems},
       {name: "Starting Items", value: startingItems?.join(", ")}
@@ -339,6 +346,7 @@ export class SettingsInfoComponent implements OnInit {
       {name: "Always I Spy", value: this.seedModel.QualityOfLife.AlwaysISpy},
       {name: "Always Peekaboo", value: this.seedModel.QualityOfLife.AlwaysPeekaboo},
       {name: "Always Speedy Spin", value: this.seedModel.QualityOfLife.AlwaysSpeedySpin},
+      {name: "Always Run Away", value: this.seedModel.QualityOfLife.AlwaysRunAway},
       {name: "Cook Without Frying Pan", value: this.seedModel.QualityOfLife.CookWithoutFryingPan},
       {name: "Foliage Item Hints", value: this.seedModel.QualityOfLife.FoliageItemHints},
       {name: "Hidden Block Mode", value: HiddenBlockMode[this.seedModel.QualityOfLife.HiddenBlockMode]},
