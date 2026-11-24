@@ -1100,6 +1100,16 @@
     "id": "ß"
   },
   {
+    "name": "Blue Station Train Jumpless",
+    "settingName": "BlueStationTrainJumpless",
+    "link": "https://www.youtube.com/watch?v=gsDoawUpXic",
+    "description": "With Lakilester, Mario can hit the Blue Station buttons, reach the conductor and take the train without the Boots.",
+    "location": "ToyBox",
+    "difficulty": "Beginner",
+    "tags": ["Misc. Laki Tech"],
+    "id": "\u01a8"
+  },
+  {
     "name": "Blue Switch Skip (Laki)",
     "settingName": "BlueSwitchSkipLaki",
     "link": "https://www.youtube.com/watch?v=gEIUMaTrey0",
@@ -1118,6 +1128,16 @@
     "difficulty": "Advanced",
     "tags": ["Block, Corner, NPC Clip", "OoB Movement"],
     "id": "Ó"
+  },
+  {
+    "name": "Moving Platforms Laki Jump",
+    "settingName": "MovingPlatformsLakiJump",
+    "link": "https://www.youtube.com/watch?v=RHJyWM5ww7o",
+    "description": "Using a laki jump, Mario can get through the moving platforms in red station without boots.",
+    "location": "ToyBox",
+    "difficulty": "Beginner",
+    "tags": ["Laki Jump", "Jumpless"],
+    "id": "\u01aa"
   },
   {
     "name": "Red Barricade Skip (Laki Teleport)",
@@ -1748,6 +1768,26 @@
     "difficulty": "Trivial",
     "tags": ["? Blocks/Freestanding Items"],
     "id": "Þ"
+  },
+  {
+    "name": "Jumpless Blocks with Parakarry",
+    "settingName": "JumplessBlocksWithParakarry",
+    "link": "https://www.youtube.com/watch?v=8mPDiZQXwcI",
+    "description": "A jumpless technique with Parakarry that allows Mario to hit different blocks across the game without the Boots. Find a block with a nearby enemy, use Parakarry's ability next to it, then fall onto the enemy to trigger a jump into the block. There are 64 applications across every chapter.",
+    "location": "Global",
+    "difficulty": "Trivial",
+    "tags": ["Jumpless", "? Blocks/Freestanding Items"],
+    "id": "\u01ab"
+  },
+  {
+    "name": "Hidden Blocks with Bombette",
+    "settingName": "HiddenBlocksWithBombette",
+    "link": "https://www.youtube.com/watch?v=0UmQHTHomdQ",
+    "description": "Ways to hit certain hidden blocks with Bombette, so jumping is not required. For the jungle blocks, slightly clipping into the back corner of the plants is required to get Bombette onto the plants. For the toybox blocks, a well-timed Laki jump is needed, and Bombette has to be placed at the front of the block Mario is standing on.",
+    "location": "Global",
+    "difficulty": "Beginner",
+    "tags": ["Jumpless", "? Blocks/Freestanding Items"],
+    "id": "\u01ac"
   },
   {
     "name": "Break Yellow Blocks with Super Boots",

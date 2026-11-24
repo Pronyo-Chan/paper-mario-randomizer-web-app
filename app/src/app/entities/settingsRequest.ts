@@ -324,8 +324,10 @@ export interface SettingsRequest {
     KooperlessRedStationShootingStar: boolean
     GearlessRedStationShootingStar: boolean
     ParakarrylessBlueBlockCityGap: boolean
+    BlueStationTrainJumpless: boolean
     BlueSwitchSkipLaki: boolean
     BlueSwitchSkipUltraBoots: boolean
+    MovingPlatformsLakiJump: boolean
     RedBarricadeSkip: boolean
     WattlessDarkRoom: boolean
     HammerlessBlueStationLaki: boolean
@@ -407,6 +409,8 @@ export interface SettingsRequest {
     BreakYellowBlocksWithSuperBoots: boolean
     KnowsHiddenBlocks: boolean
     ReachHighBlocksWithSuperBoots: boolean
+    JumplessBlocksWithParakarry: boolean
+    HiddenBlocksWithBombette: boolean
 }
 
 export interface StartingPartners {

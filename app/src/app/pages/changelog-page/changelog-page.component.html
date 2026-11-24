@@ -93,6 +93,11 @@
 
         <h2>Logic Changes</h2>
         <ul>
+            <li>Tubba's Castle
+                <ul>
+                    <li>Fix reaching the boarded up shortcut without the means to break the board already assuming the shortcut was now open.</li>
+                </ul>
+            </li>
             <li>Bowser's Castle
                 <ul>
                     <li>Fix `Lava Channel 3 - On Island 1` location assuming it was reachable without Boots while the lava is still active. This is a fix solely in preparation for entrance rando, as getting here in the first place in a vanilla world layout is not logically possible without Boots.</li>
@@ -105,11 +110,15 @@
         <ul>
             <li>New options
                 <ul>
+                    <li>`Jumpless Blocks with Parakarry` (global)</li>
+                    <li>`Hidden Blocks with Bombette` (global)</li>
                     <li>`Bombette-less Refund Chest` (chapter 1)</li>
                     <li>`Mt. Rugged Quake Hammer + Letter Partnerless` (chapter 2)</li>
                     <li>`Ruins Locks Skip LZS` (chapter 2)</li>
                     <li>`Tubba's Table Jumpless (Study Room)` (chapter 3)</li>
+                    <li>`Blue Station Train Jumpless` (chapter 4)</li>
                     <li>`Anti Guy Skip` (chapter 4)</li>
+                    <li>`Moving Platforms Laki Jump` (chapter 4)</li>
                     <li>`Ice Staircase Skip` (chapter 7)
                         <ul>
                             <li>Huge thanks to `OfficialVladimirLenin` for providing the JP version collision changes required for adding this trick to the US version!</li>
@@ -134,8 +143,13 @@
             </li>
             <li>Bowser's Castle
                 <ul>
-                    <li>During `Shorten Bowser's Castle`, by using a Laki teleport glitch Mario was able to access the jail and lava channel area of the castle, despite them counting as removed from the game world. This could lead to game crashes. This has now been fixed by linking the lava channel area loading zone in such a way that Mario gets spat out on the `Front Door Exterior` map again, properly removing access to the lava channel area.</li>
+                    <li>During `Shorten Bowser's Castle`, by using a Laki teleport glitch or a Clippy glitch Mario was able to access the jail and lava channel area of the castle, despite them counting as removed from the game world. This could lead to game crashes. This has now been fixed by linking the lava channel area loading zone in such a way that Mario gets spat out on the `Front Door Exterior` map again, properly removing access to the lava channel area.</li>
                     <li>Fix console-exclusive crash when using Bombette's overworld ability in the second water puzzle room.</li>
+                </ul>
+            </li>
+            <li>Card LZS softlocks
+                <ul>
+                    <li>In vanilla, performing the Card LZS glitch can skip the post-chapterboss cutscenes. However, in the randomizer this leads to a state where the chapters do not count as beaten, but the star spirit cards vanish permanently, making the seed unbeatable if this game state is saved. Now performing the Card LZS glitch instead leads to the card just respawning for Mario to touch again.</li>
                 </ul>
             </li>
         </ul>
