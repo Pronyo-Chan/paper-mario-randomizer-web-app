@@ -1,47 +1,46 @@
 <form [formGroup]="marioStatsFormGroup">
   <mat-card-content class=settings-card-content>
-    <div class="setting-element full-width-element">
-      <mat-slide-toggle formControlName='startWithRandomItems'></mat-slide-toggle>
-      <app-tooltip-span
-          spanText="Start With Random Items"
-          tooltipText="Start the game with a random or specific number of random items">
-      </app-tooltip-span>
-    </div>
-    <ng-container *ngIf="marioStatsFormGroup.get('startWithRandomItems').value === true;">
-        <div class="setting-element">
-            <input matInput
-                    type="number"
-                    min="0"
-                    max="16"
-                    formControlName='randomItemsMin'
-                    (blur)="onRandomItemsMinBlur()"
-                    [ngClass]="{ 'error': marioStatsFormGroup.get('randomItemsMin').invalid || marioStatsFormGroup.get('randomItemsMax').hasError('greaterOrEqual')}">
-            <span class="settings-label">Min number of random starting Items</span>
-        </div>
-        <div class="setting-element">
-            <input matInput
-                    type="number"
-                    min="0"
-                    max="16"
-                    formControlName='randomItemsMax'
-                    (blur)="onRandomItemsMaxBlur()"
-                    [ngClass]="{ 'error': marioStatsFormGroup.get('randomItemsMax').invalid}">
-            <span class="settings-label">Max number of random starting Items</span>
-        </div>
-    </ng-container>
+    <div class="random-items-row">
+      <div class="random-field">
+        <app-tooltip-span
+            spanText="Start With Random Items"
+            tooltipText="Start the game with a random number of random items.
 
-    <mat-divider></mat-divider>
+                          Consumables: Only consumable items can be chosen.
 
-    <div class="starting-items-container">
-      <div class="chiplist-container">
-        <app-item-chiplist [startingItemsFormControl]="marioStatsFormGroup.get('startingItems')" [availableItems]="availableItems" [itemType] = "'Item'"></app-item-chiplist>
+                          Consumables + Badges: Consumables and badges can be chosen.
+
+                          Consumables + Badges + Key Items: Consumables, badges, and key items can be chosen.">
+        </app-tooltip-span>
+        <select formControlName='startWithRandomItems'>
+          <option [ngValue]="0">Off</option>
+          <option [ngValue]="1">Consumables</option>
+          <option [ngValue]="2">Consumables + Badges</option>
+          <option [ngValue]="3">Consumables + Badges + Key Items</option>
+        </select>
       </div>
-      <div class="chiplist-container">
-        <app-item-chiplist [startingItemsFormControl]="marioStatsFormGroup.get('startingItems')"  [availableItems]="availableBadges" [itemType] = "'Badge'"></app-item-chiplist>
-      </div>
-      <div class="chiplist-container">
-        <app-item-chiplist [startingItemsFormControl]="marioStatsFormGroup.get('startingItems')"  [availableItems]="availableKeyItems" [itemType] = "'Key Item'"></app-item-chiplist>
-      </div>
+      <ng-container *ngIf="marioStatsFormGroup.get('startWithRandomItems').value > 0;">
+        <div class="random-field">
+          <span class="settings-label">Min Random Items</span>
+          <input matInput
+                  type="number"
+                  min="0"
+                  max="16"
+                  formControlName='randomItemsMin'
+                  (blur)="onRandomItemsMinBlur()"
+                  [ngClass]="{ 'error': marioStatsFormGroup.get('randomItemsMin').invalid || marioStatsFormGroup.get('randomItemsMax').hasError('greaterOrEqual')}">
+        </div>
+        <div class="random-field">
+          <span class="settings-label">Max Random Items</span>
+          <input matInput
+                  type="number"
+                  min="0"
+                  max="16"
+                  formControlName='randomItemsMax'
+                  (blur)="onRandomItemsMaxBlur()"
+                  [ngClass]="{ 'error': marioStatsFormGroup.get('randomItemsMax').invalid}">
+        </div>
+      </ng-container>
     </div>
 
     <div class="error-list">
@@ -65,9 +64,24 @@
     </ul>
     </div>
 
+    <mat-divider></mat-divider>
+
+    <h2 class="section-heading">Custom Starting Items</h2>
+
+    <div class="starting-items-container">
+      <div class="chiplist-container">
+        <app-item-chiplist [startingItemsFormControl]="marioStatsFormGroup.get('startingItems')" [availableItems]="availableItems" [itemType] = "'Item'"></app-item-chiplist>
+      </div>
+      <div class="chiplist-container">
+        <app-item-chiplist [startingItemsFormControl]="marioStatsFormGroup.get('startingItems')"  [availableItems]="availableBadges" [itemType] = "'Badge'"></app-item-chiplist>
+      </div>
+      <div class="chiplist-container">
+        <app-item-chiplist [startingItemsFormControl]="marioStatsFormGroup.get('startingItems')"  [availableItems]="availableKeyItems" [itemType] = "'Key Item'"></app-item-chiplist>
+      </div>
+    </div>
 
     <div class="bottom-note">
-      <p>*A maximum of 16 custom starting items is currently supported</p>
+      <p>*A maximum of 16 starting items is supported in total (custom and random combined)</p>
     </div>
 
 

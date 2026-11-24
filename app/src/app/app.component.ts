@@ -17,8 +17,8 @@ export class AppComponent implements OnInit {
   public $latestSeedId: Observable<string>;
   public isProduction: boolean = environment.production;
 
-  private readonly lastChangelogEntry = "viewed-0.31.0-changelog";
-  private readonly cutoffDate = new Date("2025-09-03");
+  private readonly lastChangelogEntry = "viewed-0.32.0-changelog";
+  private readonly cutoffDate = new Date("2026-11-30");
 
   public constructor(private _localStorage: LocalStorageService, private _dialog: MatDialog,) {
 

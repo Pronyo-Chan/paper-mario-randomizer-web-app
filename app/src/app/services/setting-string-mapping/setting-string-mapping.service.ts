@@ -62,6 +62,8 @@ export class SettingStringMappingService {
     { compressedString: "o", key: "chetRippoAvailable", type: "bool"},
     { compressedString: "!", key: "bowserDoorQuiz", type: "number"},
     { compressedString: "@", key: "kentCKoopa", type: "number"},
+    { compressedString: "z", key: "maxBlooper", type: "number"},
+    { compressedString: "j", key: "jrTroopa", type: "number"},
   ];
 
   public readonly goalsMap: SettingModel [] = [
@@ -122,7 +124,6 @@ export class SettingStringMappingService {
     { compressedString: "h", key: "bigChestShuffle", type: "removed"},
     { compressedString: "g", key: "gearShuffleMode", type: "number"},
     { compressedString: "@", key: "spiritShuffleMode", type: "number"},
-    { compressedString: "u", key: "partnerUpgradeShuffle", type: "number"},
     { compressedString: "a", key: "ripCheatoItemsInLogic", type: "number"},
     { compressedString: "o", key: "progressionOnRowf", type: "number"},
     { compressedString: "m", key: "progressionOnMerlow", type: "bool"}
@@ -139,7 +140,7 @@ export class SettingStringMappingService {
     { compressedString: "s", key: "startingStarPower", type: "number"},
     { compressedString: "j", key: "startingBoots", type: "number"},
     { compressedString: "a", key: "startingHammer", type: "number"},
-    { compressedString: "r", key: "startWithRandomItems", type: "bool"},
+    { compressedString: "r", key: "startWithRandomItems", type: "number"},
     { compressedString: "n", key: "randomItemsMin", type: "number"},
     { compressedString: "x", key: "randomItemsMax", type: "number"},
   ]
@@ -173,6 +174,8 @@ export class SettingStringMappingService {
 
   public readonly partnersMap: SettingModel [] = [
     { compressedString: "a", key: "partnersAlwaysUsable", type: "bool"},
+    { compressedString: "u", key: "partnerUpgradeShuffle", type: "number"},
+    { compressedString: "z", key: "progressivePartners", type: "bool"},
     { compressedString: "x", key: "randomPartnersMax", type: "number"},
     { compressedString: "n", key: "randomPartnersMin", type: "number"},
     { compressedString: "s", key: "shufflePartners", type: "number"},
@@ -184,6 +187,7 @@ export class SettingStringMappingService {
     { compressedString: "i", key: "alwaysISpy", type: "bool"},
     { compressedString: "p", key: "alwaysPeekaboo", type: "bool"},
     { compressedString: "s", key: "alwaysSpeedySpin", type: "bool"},
+    { compressedString: "a", key: "alwaysRunAway", type: "bool"},
     { compressedString: "h", key: "hiddenBlockMode", type: "number"},
     { compressedString: "g", key: "preventPhysicsGlitches", type: "bool"},
     { compressedString: "q", key: "quizmoAlwaysAppears", type: "bool"},

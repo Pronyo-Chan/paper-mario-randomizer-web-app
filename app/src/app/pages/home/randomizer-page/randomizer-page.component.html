@@ -2,22 +2,22 @@
     <div class="main-page">
         <mat-card class="settings-card">
             <mat-card-title class="settings-title">Presets</mat-card-title>
-            <app-preset-settings [formGroup]="formGroup"></app-preset-settings>
+            <app-preset-settings [formGroup]="formGroup" [plandomizerFormControl]="plandomizerFormControl"></app-preset-settings>
         </mat-card>
         <mat-card class="settings-card" [ngClass]="{ 'partners-tab-error': formGroup.get('partners').invalid}">
             <mat-card-title class="settings-title">Randomizer Settings</mat-card-title>
             <mat-tab-group animationDuration="0" scrollToCenter>
                 <mat-tab label="Items">
-                <app-items [itemFormGroup]="formGroup.get('items')"></app-items>
+                <app-items [itemFormGroup]="itemsGroup"></app-items>
                 </mat-tab>
                 <mat-tab label="Partners">
-                    <app-partners [partnersFormGroup]="formGroup.get('partners')"></app-partners>
+                    <app-partners [partnersFormGroup]="partnersGroup"></app-partners>
                 </mat-tab>
                 <mat-tab label="Gameplay">
-                    <app-gameplay [gameplayFormGroup]="formGroup.get('gameplay')"></app-gameplay>
+                    <app-gameplay [gameplayFormGroup]="gameplayGroup"></app-gameplay>
                 </mat-tab>
                 <mat-tab label="Cosmetics">
-                    <app-cosmetics [cosmeticsFormGroup]="formGroup.get('cosmetics')" [doLoadLatestSettings]="false"></app-cosmetics>
+                    <app-cosmetics [cosmeticsFormGroup]="cosmeticsGroup" [doLoadLatestSettings]="false"></app-cosmetics>
                 </mat-tab>
                 <mat-tab label="Glitches & Tricks">
                     <app-glitches-and-tricks [formGroup]="formGroup"></app-glitches-and-tricks>
@@ -31,29 +31,29 @@
             <mat-card-title class="settings-title">Difficulty Settings</mat-card-title>
             <mat-tab-group animationDuration="0" scrollToCenter>
                 <mat-tab label="General">
-                <app-difficulty-settings [difficultyFormGroup]="formGroup.get('difficulty')"></app-difficulty-settings>
+                <app-difficulty-settings [difficultyFormGroup]="difficultyGroup"></app-difficulty-settings>
                 </mat-tab>
                 <mat-tab label="Goals">
-                  <app-goal-settings [goalsFormGroup]="formGroup.get('goals')" [isSpiritShuffleEnabled]="formGroup.get('items').get('spiritShuffleMode').value > 0"></app-goal-settings>
+                  <app-goal-settings [goalsFormGroup]="goalsGroup" [isSpiritShuffleEnabled]="itemsGroup.get('spiritShuffleMode').value > 0"></app-goal-settings>
                 </mat-tab>
                 <mat-tab label="Stats & Gear">
-                    <app-mario-settings [marioStatsFormGroup]="formGroup.get('marioStats')"></app-mario-settings>
+                    <app-mario-settings [marioStatsFormGroup]="marioStatsGroup"></app-mario-settings>
                 </mat-tab>
                 <mat-tab label="Starting Items">
-                    <app-starting-items [marioStatsFormGroup]="formGroup.get('marioStats')"></app-starting-items>
+                    <app-starting-items [marioStatsFormGroup]="marioStatsGroup"></app-starting-items>
                 </mat-tab>
                 <mat-tab label="Item Pool">
-                  <app-item-pool-settings [itemPoolFormGroup]="formGroup.get('itemPool')"></app-item-pool-settings>
+                  <app-item-pool-settings [itemPoolFormGroup]="itemPoolGroup"></app-item-pool-settings>
               </mat-tab>
             </mat-tab-group>
         </mat-card>
         <mat-card class="settings-card">
             <mat-card-title class="settings-title">World Settings</mat-card-title>
-            <app-world-settings [worldFormGroup]="formGroup.get('openLocations')"></app-world-settings>
+            <app-world-settings [worldFormGroup]="openLocationsGroup"></app-world-settings>
         </mat-card>
         <mat-card class="settings-card">
             <mat-card-title class="settings-title">Quality of Life Settings</mat-card-title>
-            <app-qol-settings [qualityOfLifeFormGroup]="formGroup.get('qualityOfLife')" [hasEnabledTricks]="formGroup.get('glitches').value.length > 0"></app-qol-settings>
+            <app-qol-settings [qualityOfLifeFormGroup]="qualityOfLifeGroup" [hasEnabledTricks]="formGroup.get('glitches').value.length > 0"></app-qol-settings>
         </mat-card>
         <mat-card class="settings-card">
             <mat-card-title class="settings-title">Spoiler Settings</mat-card-title>

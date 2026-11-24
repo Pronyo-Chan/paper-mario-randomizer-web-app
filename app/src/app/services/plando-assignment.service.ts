@@ -220,7 +220,7 @@ export class PlandoAssignmentService {
           plandoAssignedControls.add('includeLetters');
         }
         if (partnerUpgradeShuffle) {
-          randoSettingsFormGroup.get('items').get('partnerUpgradeShuffle').setValue(partnerUpgradeShuffle);
+          randoSettingsFormGroup.get('partners').get('partnerUpgradeShuffle').setValue(partnerUpgradeShuffle);
           plandoAssignedControls.add('partnerUpgradeShuffle');
         }
         if (partnersPlandoed) {
