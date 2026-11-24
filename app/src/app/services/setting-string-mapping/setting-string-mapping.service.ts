@@ -10,7 +10,7 @@ import { Items } from 'src/app/entities/enum/items';
 import glitchesJson from '../../utilities/glitches.json'
 import { pascalToVerboseString } from 'src/app/utilities/stringFunctions';
 
-interface SettingModel {compressedString: string, key: string, type: string, map?: SettingModel[]};
+interface SettingModel {compressedString: string, key: string, type: string, map?: SettingModel[], movedTo?: string, legacyBool?: boolean};
 
 @Injectable({
   providedIn: 'root'
@@ -124,6 +124,8 @@ export class SettingStringMappingService {
     { compressedString: "h", key: "bigChestShuffle", type: "removed"},
     { compressedString: "g", key: "gearShuffleMode", type: "number"},
     { compressedString: "@", key: "spiritShuffleMode", type: "number"},
+    // 0.32.0 moved this setting to Partners; keep the old slot readable.
+    { compressedString: "u", key: "partnerUpgradeShuffle", type: "removed", movedTo: "partners.partnerUpgradeShuffle"},
     { compressedString: "a", key: "ripCheatoItemsInLogic", type: "number"},
     { compressedString: "o", key: "progressionOnRowf", type: "number"},
     { compressedString: "m", key: "progressionOnMerlow", type: "bool"}
@@ -140,7 +142,7 @@ export class SettingStringMappingService {
     { compressedString: "s", key: "startingStarPower", type: "number"},
     { compressedString: "j", key: "startingBoots", type: "number"},
     { compressedString: "a", key: "startingHammer", type: "number"},
-    { compressedString: "r", key: "startWithRandomItems", type: "number"},
+    { compressedString: "r", key: "startWithRandomItems", type: "number", legacyBool: true},
     { compressedString: "n", key: "randomItemsMin", type: "number"},
     { compressedString: "x", key: "randomItemsMax", type: "number"},
   ]
@@ -277,6 +279,12 @@ export class SettingStringMappingService {
       var currentSubstring = isNestingKey ? '(' + settingString[i] : settingString[i];
       var settingModel = settingsMap.find(m => m.compressedString.toLowerCase() == currentSubstring.toLowerCase())
 
+      // Codes from older versions may no longer exist. Skip them (and any numeric
+      // value they carried) instead of failing the whole import.
+      if (!settingModel) {
+        settingModel = { compressedString: currentSubstring, key: '', type: 'removed' };
+      }
+
       switch (settingModel.type) {
         case "formGroup":
           i++;
@@ -299,7 +307,12 @@ export class SettingStringMappingService {
               numValue += settingString[i];
               i++;
             }
-            formGroup.controls[settingModel.key].setValue(Number(numValue));
+            // Old strings stored this setting as a toggle, so a letter takes the place of the number.
+            if (settingModel.legacyBool && numValue === "") {
+              formGroup.controls[settingModel.key].setValue(this.decodeBoolean(settingString[i - 1]) ? 1 : 0);
+            } else {
+              formGroup.controls[settingModel.key].setValue(Number(numValue));
+            }
           break;
 
         case "sprite":
@@ -334,7 +347,15 @@ export class SettingStringMappingService {
           break;
 
         case "removed":
-          i++
+          i++;
+          var legacyValue = "";
+          while (settingString[i] >= '0' && settingString[i] <= '9') {
+            legacyValue += settingString[i];
+            i++;
+          }
+          if (settingModel.movedTo && legacyValue) {
+            formGroup.root.get(settingModel.movedTo)?.setValue(Number(legacyValue));
+          }
           break;
 
         default:
